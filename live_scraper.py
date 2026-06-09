@@ -69,18 +69,37 @@ def scrape_js(url, restaurant_name, sector, source, conn):
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            page.goto(url, wait_until="networkidle")
-            buttons = page.query_selector_all('[aria-label]')
-            print(f"Total elements with aria-label: {len(buttons)}")
-            for btn in buttons[:5]:
-                print(f"  aria-label: {btn.get_attribute('aria-label')}")
-
-            # Wait for add-to-cart buttons to load
-            page.wait_for_selector(
-                '[aria-label*="Add to cart"]',
-                timeout=15000
+            
+            # Create context with realistic browser options
+            context = browser.new_context(
+                user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36',
+                viewport={'width': 1280, 'height': 720},
             )
+            page = context.new_page()
+            
+            # Add headers to look like a real browser
+            page.set_extra_http_headers({
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Referer': 'https://www.foodpanda.sg/',
+            })
+            
+            print(f"  Loading {restaurant_name}...")
+            page.goto(url, wait_until="networkidle", timeout=30000)
+            
+            # Wait for dynamic content to fully render
+            page.wait_for_timeout(3000)
+            # Wait for add-to-cart buttons to load
+            try:
+                page.wait_for_selector(
+                    '[aria-label*="Add to cart"]',
+                    timeout=15000
+                )
+            except Exception as e:
+                print(f"  ! No add-to-cart buttons found after 15s: {e}")
+                context.close()
+                browser.close()
+                return
 
             today = date.today().isoformat()
             c = conn.cursor()
@@ -89,15 +108,15 @@ def scrape_js(url, restaurant_name, sector, source, conn):
             # Every menu item has an add-to-cart button
             # Its aria-label contains both name and price
             # Format: "Item Name,  S$ X.XX - Add to cart"
-            buttons = page.query_selector_all(
-                '[aria-label*="Add to cart"]'
-            )
-
-            for button in buttons:
-                aria = button.get_attribute('aria-label')
+            
+            add_to_cart_buttons = page.query_selector_all('[aria-label*="Add to cart"]')
+            print(f"  Found {len(add_to_cart_buttons)} add-to-cart buttons")
+            
+            for btn in add_to_cart_buttons:
+                aria = btn.get_attribute('aria-label')
                 if not aria:
                     continue
-
+                
                 # Extract price — find S$ followed by digits
                 price_match = re.search(r'S\$\s*([\d.]+)', aria)
                 if not price_match:
@@ -119,10 +138,11 @@ def scrape_js(url, restaurant_name, sector, source, conn):
 
             conn.commit()
             browser.close()
+            context.close()
             print(f"  ✓ {restaurant_name} ({source}): {count} items")
 
     except Exception as e:
-        print(f"  ✗ {restaurant_name}: {e}")
+        print(f"  ✗ {restaurant_name}: {type(e).__name__}: {e}")
 
 
 # =============================================================
