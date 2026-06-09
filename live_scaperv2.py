@@ -71,6 +71,10 @@ def scrape_js(url, restaurant_name, sector, source, conn):
             browser = p.chromium.launch(headless=True)
             page = browser.new_page()
             page.goto(url, wait_until="networkidle")
+            buttons = page.query_selector_all('[aria-label]')
+            print(f"Total elements with aria-label: {len(buttons)}")
+            for btn in buttons[:5]:
+                print(f"  aria-label: {btn.get_attribute('aria-label')}")
 
             # Wait for add-to-cart buttons to load
             page.wait_for_selector(
@@ -277,9 +281,3 @@ if __name__ == "__main__":
 
     conn.close()
     print(f"\nDone. Check uifpi.db for results.")
-        elif scraper_type == "js":
-            scrape_js(url, name, sector, source, conn)
-            time.sleep(3)  # slightly longer delay for JS sites
-
-    conn.close()
-    print(f"\nDone.")
