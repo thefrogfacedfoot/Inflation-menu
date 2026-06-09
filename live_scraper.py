@@ -68,15 +68,14 @@ def scrape_static(url, restaurant_name, sector, source, conn):
 def scrape_js(url, restaurant_name, sector, source, conn):
    try:
        with sync_playwright() as p:
-           browser = p.chromium.launch(headless=True)
+           browser = p.chromium.launch(headless=False)
            page = browser.new_page()
            page.goto(url, wait_until="networkidle")
-
-           # Wait for menu items to fully load before querying
+           page.wait_for_timeout(8000)  # let JS fully render
            page.wait_for_selector(
-               '[aria-label*="Add to cart"]',
-               timeout=15000
-           )
+            '[aria-label*="Add to cart"]',
+            timeout=30000
+           )  # wait for menu items to load
 
            today = date.today().isoformat()
            c = conn.cursor()
