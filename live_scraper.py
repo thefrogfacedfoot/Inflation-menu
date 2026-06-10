@@ -184,7 +184,7 @@ if __name__ == "__main__":
     for name, url, sector, source, _ in TARGETS:
         try:
             scrape_js(url, name, sector, source, conn)
-            time.sleep(10)  # longer delay between restaurants
+            time.sleep(random.randint(20, 35))  # longer delay between restaurants
         except Exception as e:
             failures.append((name, str(e)))
 
