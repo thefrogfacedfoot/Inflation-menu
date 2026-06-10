@@ -129,126 +129,102 @@ def scrape_js(url, restaurant_name, sector, source, conn):
 TARGETS = [
    # --- FORMAL (19 restaurants) ---
    ("Rubato",
-    "https://www.foodpanda.sg/chain/cg9st/rubato-italian",
-    "formal", "foodpanda", "js"),
-
+    "https://www.rubato.com.sg/",
+    "formal", "website", "js"),
    ("Ichiban Boshi",
-    "https://www.foodpanda.sg/chain/cf5xz/ichiban-boshi",
-    "formal", "foodpanda", "js"),
-
+    "https://www.ichibanboshi.com.sg/",
+    "formal", "website", "js"),
    ("Din Tai Fung",
-    "https://www.foodpanda.sg/chain/cr7aw/din-tai-fung",
-    "formal", "foodpanda", "js"),
-
+    "https://www.dintaifung.com.sg/",
+    "formal", "website", "js"),
    ("Sushi Tei",
-    "https://www.foodpanda.sg/chain/ca2bs/sushi-tei",
-    "formal", "foodpanda", "js"),
-
+    "https://sushitei.com/",
+    "formal", "website", "js"),
    ("Jumbo Seafood",
-    "https://www.foodpanda.sg/chain/cs1lu/jumbo-seafood",
-    "formal", "foodpanda", "js"),
-
+    "https://www.jumboseafood.com.sg/",
+    "formal", "website", "js"),
    ("Crystal Jade La Mian Xiao Long Bao",
-    "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
-    "formal", "foodpanda", "js"),
-
+    "https://www.crystaljade.com/",
+    "formal", "website", "js"),
    ("No Signboard Seafood",
-    "https://www.foodpanda.sg/chain/cx5td/no-signboard-seafood",
-    "formal", "foodpanda", "js"),
-
+    "https://nosignboardseafood.com/",
+    "formal", "website", "js"),
    ("Putien",
-    "https://www.foodpanda.sg/chain/cc7gt/putien",
-    "formal", "foodpanda", "js"),
-
+    "https://www.putien.com/",
+    "formal", "website", "js"),
    ("Paradise Dynasty",
-    "https://www.foodpanda.sg/chain/cf5cj/paradise-dynasty",
-    "formal", "foodpanda", "js"),
-
+    "https://www.paradisegp.com/paradise-dynasty/",
+    "formal", "website", "js"),
    ("Tim Ho Wan",
-    "https://www.foodpanda.sg/chain/cs0lf/tim-ho-wan",
-    "formal", "foodpanda", "js"),
-
+    "https://www.timhowan.com/",
+    "formal", "website", "js"),
    ("Crystal Jade Hong Kong Kitchen",
-    "https://www.foodpanda.sg/chain/cs3bp/crystal-jade-hong-kong-kitchen",
-    "formal", "foodpanda", "js"),
-
+    "https://www.crystaljade.com/",
+    "formal", "website", "js"),
    ("Pepper Lunch",
-    "https://www.foodpanda.sg/chain/cx6yd/pepper-lunch",
-    "formal", "foodpanda", "js"),
-
+    "https://www.pepperlunch.com.sg/",
+    "formal", "website", "js"),
    ("Ippudo Ramen",
-    "https://www.foodpanda.sg/chain/cd8fm/ippudo-ramen",
-    "formal", "foodpanda", "js"),
-
+    "https://www.ippudo.com.sg/",
+    "formal", "website", "js"),
    ("Seoul Garden HotPot",
-    "https://www.foodpanda.sg/chain/ca0el/seoul-garden-hotpot",
-    "formal", "foodpanda", "js"),
-
+    "https://seoulgardenhotpot.com.sg/",
+    "formal", "website", "js"),
    ("Hokkaido-ya",
-    "https://www.foodpanda.sg/chain/cl2om/hokkaido-ya",
-    "formal", "foodpanda", "js"),
-
+    "https://hokkaido-ya.com.sg/",
+    "formal", "website", "js"),
    ("BreadTalk",
-    "https://www.foodpanda.sg/chain/ci6eh/breadtalk",
-    "formal", "foodpanda", "js"),
-
+    "https://www.breadtalk.com.sg/",
+    "formal", "website", "js"),
    ("Toast Box",
-    "https://www.foodpanda.sg/chain/cv4kj/toast-box",
-    "formal", "foodpanda", "js"),
-
+    "https://www.toastbox.com.sg/",
+    "formal", "website", "js"),
    ("Old Chang Kee",
-    "https://www.foodpanda.sg/chain/cl8xf/old-chang-kee",
-    "formal", "foodpanda", "js"),
-
+    "https://www.oldchangkee.com/",
+    "formal", "website", "js"),
    ("Crystal Jade GO",
-    "https://www.foodpanda.sg/chain/cx5on/crystal-jade-go",
-    "formal", "foodpanda", "js"),
+    "https://www.crystaljade.com/",
+    "formal", "website", "js"),
 
-   # --- INFORMAL (11 restaurants) ---
-   # Hawker-origin vendors, single or few outlets
+# --- INFORMAL (11 restaurants) ---
    ("Song Fa Bak Kut Teh",
-    "https://www.foodpanda.sg/chain/cw6zr/song-fa-bak-kut-teh",
-    "informal", "foodpanda", "js"),
-
+    "https://songfa.com.sg/",
+    "informal", "website", "js"),
    ("Hawker Chan",
-    "https://www.foodpanda.sg/chain/co6ta/hawker-chan-1",
-    "informal", "foodpanda", "js"),
-
-   ("A Noodle Story",
-    "https://www.foodpanda.sg/chain/ck9ew/a-noodle-story",
-    "informal", "foodpanda", "js"),
-
+    "https://www.liaofanhawkerchan.com/",
+    "informal", "website", "js"),
+   # A Noodle Story has no official website — replaced with Ya Kun Kaya Toast
+   ("Ya Kun Kaya Toast",
+    "https://yakun.com/",
+    "informal", "website", "js"),
    ("328 Katong Laksa",
-    "https://www.foodpanda.sg/chain/cj3zd/328-katong-laksa",
-    "informal", "foodpanda", "js"),
-
-   ("Crave Nasi Lemak",
-    "https://www.foodpanda.sg/chain/cq1ek/crave",
-    "informal", "foodpanda", "js"),
-
-   ("28 Fried Kway Teow",
-    "https://www.foodpanda.sg/chain/cq1by/28-fried-kway-teow",
-    "informal", "foodpanda", "js"),
-
+    "https://www.328katonglaksa.sg/",
+    "informal", "website", "js"),
+   # Crave Nasi Lemak has no standalone website — replaced with The Coconut Club
+   ("The Coconut Club",
+    "https://www.thecoconutclub.sg/",
+    "informal", "website", "js"),
+   # 28 Fried Kway Teow has no website — replaced with Boon Tong Kee
+   ("Boon Tong Kee",
+    "https://boontongkee.com.sg/",
+    "informal", "website", "js"),
    ("Tai Wah Pork Noodles",
-    "https://www.foodpanda.sg/chain/ce0vj/tai-wah-pork-noodles",
-    "informal", "foodpanda", "js"),
-
-   ("Janggut Laksa",
-    "https://www.foodpanda.sg/chain/cv4xl/the-original-katong-laksa-since-1950",
-    "informal", "foodpanda", "js"),
-
-   ("Nam Kee Chicken Rice",
-    "https://www.foodpanda.sg/chain/ci9rk/nam-kee-chicken-rice",
-    "informal", "foodpanda", "js"),
-
+    "https://taiwahnoodles.com/",
+    "informal", "website", "js"),
+   # Janggut Laksa has no website — replaced with Bengawan Solo
+   ("Bengawan Solo",
+    "https://bengawansolo.sg/",
+    "informal", "website", "js"),
+   # Nam Kee Chicken Rice has no website — replaced with Wee Nam Kee
+   ("Wee Nam Kee",
+    "https://wnk.com.sg/",
+    "informal", "website", "js"),
    ("Swee Choon Tim Sum",
-    "https://www.foodpanda.sg/chain/cz4bh/swee-choon-tim-sum-restaurant",
-    "informal", "foodpanda", "js"),
-
+    "https://www.sweechoon.com/",
+    "informal", "website", "js"),
    ("Killiney Kopitiam",
-    "https://www.foodpanda.sg/chain/ca6up/killiney-kopitiam-alexandra",
-    "informal", "foodpanda", "js"),
+    "https://killiney-kopitiam.com/",
+    "informal", "website", "js"),
 ]
 
 # =============================================================
