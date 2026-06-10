@@ -108,8 +108,8 @@ TARGETS = [
     "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
     "formal", "foodpanda", "js"),
 
-   ("No Signboard Seafood",
-    "https://www.foodpanda.sg/chain/cx5td/no-signboard-seafood",
+   ("No Signboard Prawn Noodles and Carrot Cake",
+    "https://www.foodpanda.sg/restaurant/v2xf/no-signboard-prawn-noodles-and-carrot-cake-301-ubi-food-house",
     "formal", "foodpanda", "js"),
 
    ("Putien",
