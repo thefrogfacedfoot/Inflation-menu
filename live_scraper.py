@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 import sqlite3
 from datetime import date
 import time
-from playwright_stealth import stealth_sync
+from playwright_stealth import stealth 
 
 # --- Database setup ---
 def init_db():
@@ -71,7 +71,7 @@ def scrape_js(url, restaurant_name, sector, source, conn):
        with sync_playwright() as p:
            browser = p.chromium.launch(headless=False)
            page = browser.new_page()
-           stealth_sync(page) # Apply stealth techniques to avoid detection
+           stealth(page) # Apply stealth techniques to avoid detection
            page.goto(url, wait_until="networkidle")
            page.wait_for_timeout(8000)  # let JS fully render
            page.wait_for_selector(
