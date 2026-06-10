@@ -30,7 +30,7 @@ def scrape_js(url, restaurant_name, sector, source, conn):
         with sync_playwright() as p:
             # Real visible browser — less likely to get flagged
             browser = p.chromium.launch(
-                headless=False,
+                headless=True,
                 args=['--disable-blink-features=AutomationControlled']
             )
             context = browser.new_context(
