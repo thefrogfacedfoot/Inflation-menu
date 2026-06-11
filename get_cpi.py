@@ -10,14 +10,14 @@ from time import sleep
 # -------------------------------------------------------
 
 COUNTRIES = {
-    "Singapore":   "SG",
-    "Malaysia":    "MY",
-    "Indonesia":   "ID",
-    "Philippines": "PH",
-    "Thailand":    "TH",
-    "India":       "IN",
-    "United States": "US",
+    "Singapore":      "SG",
+    "Malaysia":       "MY",
+    "Indonesia":      "ID",
+    "Thailand":       "TH",
+    "India":          "IN",
+    "United States":  "US",
     "United Kingdom": "GB",
+    "Australia":      "AU"
 }
 
 # Date range — go back to 2015 to give enough history
