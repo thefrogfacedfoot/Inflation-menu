@@ -58,7 +58,8 @@ def scrape_js(url, restaurant_name, sector, source, conn):
                 if not aria:
                     continue
 
-                price_match = re.search(r'S\$\s*([\d,]+\.?\d*)', aria)
+                price_match = re.search(r'(?:S\$|RM)\s*([\d,]+\.?\d*)', aria)
+
                 if not price_match:
                     continue
 
