@@ -13,9 +13,9 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             restaurant_name TEXT,
             item_name TEXT,
-            price_sgd REAL,
-            currency TEXT DEFAULT 'SGD',
-            country TEXT DEFAULT 'Singapore',
+            price REAL,
+            currency TEXT,
+            country TEXT,
             sector TEXT,
             source TEXT,
             collection_date TEXT,
@@ -25,16 +25,21 @@ def init_db():
     conn.commit()
     return conn
 
-def scrape_js(url, restaurant_name, sector, source, conn):
+USER_AGENTS = [
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+]
+
+def scrape_js(url, restaurant_name, sector, source, conn, country='Singapore'):
     try:
         with sync_playwright() as p:
-            # Real visible browser — less likely to get flagged
             browser = p.chromium.launch(
                 headless=False,
                 args=['--disable-blink-features=AutomationControlled']
             )
             context = browser.new_context(
-                user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                user_agent=random.choice(USER_AGENTS),
                 viewport={'width': 1280, 'height': 800}
             )
             page = context.new_page()
@@ -58,20 +63,21 @@ def scrape_js(url, restaurant_name, sector, source, conn):
                 if not aria:
                     continue
 
-                price_match = re.search(r'S\$\s*([\d,]+\.?\d*)', aria)
+                price_match = re.search(r'(?:S\$|RM)\s*([\d,]+\.?\d*)', aria)
                 if not price_match:
                     continue
 
+                currency = 'MYR' if 'RM' in aria else 'SGD'
                 name = aria.split(',')[0].strip()
                 price_num = float(price_match.group(1).replace(',', ''))
 
                 if name and price_num:
                     c.execute('''
                         INSERT INTO prices
-                        (restaurant_name, item_name, price_sgd, sector,
-                         source, collection_date, url)
-                        VALUES (?, ?, ?, ?, ?, ?, ?)
-                    ''', (restaurant_name, name, price_num,
+                        (restaurant_name, item_name, price, currency, country,
+                         sector, source, collection_date, url)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (restaurant_name, name, price_num, currency, country,
                           sector, source, today, url))
                     count += 1
 
@@ -83,132 +89,223 @@ def scrape_js(url, restaurant_name, sector, source, conn):
         print(f"  ✗ {restaurant_name}: {e}")
 
 TARGETS = [
-   # --- FORMAL ---
-   ("Rubato",
-    "https://www.foodpanda.sg/chain/cg9st/rubato-italian",
-    "formal", "foodpanda", "js"),
+    # ==========================================================
+    # SINGAPORE
+    # ==========================================================
 
-   ("Ichiban Boshi",
-    "https://www.foodpanda.sg/chain/cf5xz/ichiban-boshi",
-    "formal", "foodpanda", "js"),
+    # --- FORMAL ---
+    ("Rubato",
+     "https://www.foodpanda.sg/chain/cg9st/rubato-italian",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Din Tai Fung",
-    "https://www.foodpanda.sg/chain/cr7aw/din-tai-fung",
-    "formal", "foodpanda", "js"),
+    ("Ichiban Boshi",
+     "https://www.foodpanda.sg/chain/cf5xz/ichiban-boshi",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Sushi Tei",
-    "https://www.foodpanda.sg/chain/ca2bs/sushi-tei",
-    "formal", "foodpanda", "js"),
+    ("Din Tai Fung",
+     "https://www.foodpanda.sg/chain/cr7aw/din-tai-fung",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Jumbo Seafood",
-    "https://www.foodpanda.sg/chain/cs1lu/jumbo-seafood",
-    "formal", "foodpanda", "js"),
+    ("Sushi Tei",
+     "https://www.foodpanda.sg/chain/ca2bs/sushi-tei",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Crystal Jade La Mian Xiao Long Bao",
-    "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
-    "formal", "foodpanda", "js"),
+    ("Jumbo Seafood",
+     "https://www.foodpanda.sg/chain/cs1lu/jumbo-seafood",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   (("No Signboard Prawn Noodles and Carrot Cake",
-    "https://www.foodpanda.sg/restaurant/v2xf/no-signboard-prawn-noodles-and-carrot-cake-301-ubi-food-house",
-    "formal", "foodpanda", "js"),
+    ("Crystal Jade La Mian Xiao Long Bao",
+     "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Putien",
-    "https://www.foodpanda.sg/chain/cc7gt/putien",
-    "formal", "foodpanda", "js"),
+    ("No Signboard Prawn Noodles and Carrot Cake",
+     "https://www.foodpanda.sg/restaurant/v2xf/no-signboard-prawn-noodles-and-carrot-cake-301-ubi-food-house",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Paradise Dynasty",
-    "https://www.foodpanda.sg/chain/cf5cj/paradise-dynasty",
-    "formal", "foodpanda", "js"),
+    ("Putien",
+     "https://www.foodpanda.sg/chain/cc7gt/putien",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Tim Ho Wan",
-    "https://www.foodpanda.sg/chain/cs0lf/tim-ho-wan",
-    "formal", "foodpanda", "js"),
+    ("Paradise Dynasty",
+     "https://www.foodpanda.sg/chain/cf5cj/paradise-dynasty",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Crystal Jade Hong Kong Kitchen",
-    "https://www.foodpanda.sg/chain/cs3bp/crystal-jade-hong-kong-kitchen",
-    "formal", "foodpanda", "js"),
+    ("Tim Ho Wan",
+     "https://www.foodpanda.sg/chain/cs0lf/tim-ho-wan",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Pepper Lunch",
-    "https://www.foodpanda.sg/chain/cx6yd/pepper-lunch",
-    "formal", "foodpanda", "js"),
+    ("Crystal Jade Hong Kong Kitchen",
+     "https://www.foodpanda.sg/chain/cs3bp/crystal-jade-hong-kong-kitchen",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Ippudo Ramen",
-    "https://www.foodpanda.sg/chain/cd8fm/ippudo-ramen",
-    "formal", "foodpanda", "js"),
+    ("Pepper Lunch",
+     "https://www.foodpanda.sg/chain/cx6yd/pepper-lunch",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Seoul Garden HotPot",
-    "https://www.foodpanda.sg/chain/ca0el/seoul-garden-hotpot",
-    "formal", "foodpanda", "js"),
+    ("Ippudo Ramen",
+     "https://www.foodpanda.sg/chain/cd8fm/ippudo-ramen",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Hokkaido-ya",
-    "https://www.foodpanda.sg/chain/cl2om/hokkaido-ya",
-    "formal", "foodpanda", "js"),
+    ("Seoul Garden HotPot",
+     "https://www.foodpanda.sg/chain/ca0el/seoul-garden-hotpot",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("BreadTalk",
-    "https://www.foodpanda.sg/chain/ci6eh/breadtalk",
-    "formal", "foodpanda", "js"),
+    ("Hokkaido-ya",
+     "https://www.foodpanda.sg/chain/cl2om/hokkaido-ya",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Toast Box",
-    "https://www.foodpanda.sg/chain/cv4kj/toast-box",
-    "formal", "foodpanda", "js"),
+    ("BreadTalk",
+     "https://www.foodpanda.sg/chain/ci6eh/breadtalk",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Old Chang Kee",
-    "https://www.foodpanda.sg/chain/cl8xf/old-chang-kee",
-    "formal", "foodpanda", "js"),
+    ("Toast Box",
+     "https://www.foodpanda.sg/chain/cv4kj/toast-box",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Crystal Jade GO",
-    "https://www.foodpanda.sg/chain/cx5on/crystal-jade-go",
-    "formal", "foodpanda", "js"),
+    ("Old Chang Kee",
+     "https://www.foodpanda.sg/chain/cl8xf/old-chang-kee",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   # --- INFORMAL ---
-   ("Song Fa Bak Kut Teh",
-    "https://www.foodpanda.sg/chain/cw6zr/song-fa-bak-kut-teh",
-    "informal", "foodpanda", "js"),
+    ("Crystal Jade GO",
+     "https://www.foodpanda.sg/chain/cx5on/crystal-jade-go",
+     "formal", "foodpanda", "js", "Singapore"),
 
-   ("Hawker Chan",
-    "https://www.foodpanda.sg/chain/co6ta/hawker-chan-1",
-    "informal", "foodpanda", "js"),
+    # --- INFORMAL ---
+    ("Song Fa Bak Kut Teh",
+     "https://www.foodpanda.sg/chain/cw6zr/song-fa-bak-kut-teh",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("A Noodle Story",
-    "https://www.foodpanda.sg/chain/ck9ew/a-noodle-story",
-    "informal", "foodpanda", "js"),
+    ("Hawker Chan",
+     "https://www.foodpanda.sg/chain/co6ta/hawker-chan-1",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("328 Katong Laksa",
-    "https://www.foodpanda.sg/chain/cj3zd/328-katong-laksa",
-    "informal", "foodpanda", "js"),
+    ("A Noodle Story",
+     "https://www.foodpanda.sg/chain/ck9ew/a-noodle-story",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("Crave Nasi Lemak",
-    "https://www.foodpanda.sg/chain/cq1ek/crave",
-    "informal", "foodpanda", "js"),
+    ("328 Katong Laksa",
+     "https://www.foodpanda.sg/chain/cj3zd/328-katong-laksa",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("28 Fried Kway Teow",
-    "https://www.foodpanda.sg/chain/cq1by/28-fried-kway-teow",
-    "informal", "foodpanda", "js"),
+    ("Crave Nasi Lemak",
+     "https://www.foodpanda.sg/chain/cq1ek/crave",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("Tai Wah Pork Noodles",
-    "https://www.foodpanda.sg/chain/ce0vj/tai-wah-pork-noodles",
-    "informal", "foodpanda", "js"),
+    ("28 Fried Kway Teow",
+     "https://www.foodpanda.sg/chain/cq1by/28-fried-kway-teow",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("Janggut Laksa",
-    "https://www.foodpanda.sg/chain/cv4xl/the-original-katong-laksa-since-1950",
-    "informal", "foodpanda", "js"),
+    ("Tai Wah Pork Noodles",
+     "https://www.foodpanda.sg/chain/ce0vj/tai-wah-pork-noodles",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("Nam Kee Chicken Rice",
-    "https://www.foodpanda.sg/chain/ci9rk/nam-kee-chicken-rice",
-    "informal", "foodpanda", "js"),
+    ("Janggut Laksa",
+     "https://www.foodpanda.sg/chain/cv4xl/the-original-katong-laksa-since-1950",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("Swee Choon Tim Sum",
-    "https://www.foodpanda.sg/chain/cz4bh/swee-choon-tim-sum-restaurant",
-    "informal", "foodpanda", "js"),
+    ("Nam Kee Chicken Rice",
+     "https://www.foodpanda.sg/chain/ci9rk/nam-kee-chicken-rice",
+     "informal", "foodpanda", "js", "Singapore"),
 
-   ("Killiney Kopitiam",
-    "https://www.foodpanda.sg/chain/ca6up/killiney-kopitiam-alexandra",
-    "informal", "foodpanda", "js"),
+    ("Swee Choon Tim Sum",
+     "https://www.foodpanda.sg/chain/cz4bh/swee-choon-tim-sum-restaurant",
+     "informal", "foodpanda", "js", "Singapore"),
+
+    ("Killiney Kopitiam",
+     "https://www.foodpanda.sg/chain/ca6up/killiney-kopitiam-alexandra",
+     "informal", "foodpanda", "js", "Singapore"),
+
+    # ==========================================================
+    # MALAYSIA
+    # ==========================================================
+
+    # --- FORMAL ---
+    ("Din Tai Fung KL",
+     "https://www.foodpanda.com.my/chain/cs8tg/din-tai-fung",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("Sushi Tei KL",
+     "https://www.foodpanda.com.my/chain/cu8tl/sushi-tei",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("Ichiban Boshi KL",
+     "https://www.foodpanda.com.my/chain/cg8zo/ichiban-boshi",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("Pepper Lunch KL",
+     "https://www.foodpanda.com.my/chain/ck8pp/pepper-lunch",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("Ippudo KL",
+     "https://www.foodpanda.com.my/chain/co6rg/ippudo",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("Secret Recipe",
+     "https://www.foodpanda.com.my/chain/cu2fs/secret-recipe",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("OldTown White Coffee",
+     "https://www.foodpanda.com.my/chain/cg3at/oldtown-white-coffee",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("Nando's KL",
+     "https://www.foodpanda.com.my/chain/cl4mo/nandos",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("TGI Fridays KL",
+     "https://www.foodpanda.com.my/chain/cv2jl/tgi-fridays",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    ("Madam Kwan's",
+     "https://www.foodpanda.com.my/chain/ck5nt/madam-kwans",
+     "formal", "foodpanda", "js", "Malaysia"),
+
+    # --- INFORMAL ---
+    ("Village Park Nasi Lemak",
+     "https://www.foodpanda.com.my/chain/cv3ej/village-park-restaurant",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Restoran Yusoof Dan Zakhir",
+     "https://www.foodpanda.com.my/chain/cl6mf/restoran-yusoof-dan-zakhir",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Ah Weng Koh Hainan Tea",
+     "https://www.foodpanda.com.my/chain/cq5li/ah-weng-koh-hainan-tea",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Restoran Oversea",
+     "https://www.foodpanda.com.my/chain/cq4wl/restoran-oversea",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Kedai Kopi Yut Kee",
+     "https://www.foodpanda.com.my/chain/cs5yx/yut-kee",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Kim Lian Kee",
+     "https://www.foodpanda.com.my/chain/ck3uf/kim-lian-kee",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Hameed Pata Mee Sotong",
+     "https://www.foodpanda.com.my/chain/cm6jf/hameed-pata-mee-sotong",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Nasi Kandar Pelita",
+     "https://www.foodpanda.com.my/chain/cj3tf/nasi-kandar-pelita",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Gerak Gempur Char Koay Teow",
+     "https://www.foodpanda.com.my/chain/cw4zj/gerak-gempur-char-koay-teow",
+     "informal", "foodpanda", "js", "Malaysia"),
+
+    ("Fatty Crab",
+     "https://www.foodpanda.com.my/chain/cx3wf/fatty-crab",
+     "informal", "foodpanda", "js", "Malaysia"),
 ]
 
 if __name__ == "__main__":
     conn = init_db()
     print(f"\nUIFPI Daily Collection: {date.today().isoformat()}")
+    print(f"Targets: {len(TARGETS)}\n")
 
     remaining = list(TARGETS)
     attempt = 1
@@ -217,13 +314,13 @@ if __name__ == "__main__":
         print(f"\n--- Attempt {attempt} ({len(remaining)} targets) ---\n")
         still_failing = []
 
-        for name, url, sector, source, _ in remaining:
+        for name, url, sector, source, _, country in remaining:
             try:
-                scrape_js(url, name, sector, source, conn)
+                scrape_js(url, name, sector, source, conn, country)
                 time.sleep(random.randint(20, 35))
             except Exception as e:
                 print(f"  ✗ {name}: {e}")
-                still_failing.append((name, url, sector, source, _))
+                still_failing.append((name, url, sector, source, _, country))
 
         remaining = still_failing
         attempt += 1
@@ -239,3 +336,6 @@ if __name__ == "__main__":
             print(f"  - {r[0]}")
     else:
         print(f"\nAll targets completed successfully.")
+
+    print(f"\nDone. Check uifpi.db for results.")
+
