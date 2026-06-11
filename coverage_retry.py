@@ -1,18 +1,17 @@
 import requests
 from time import sleep
 
-def check_coverage(url_pattern, label, limit=200, timeout=60):
+def check_coverage(url_pattern, label, timeout=60):
     endpoint = "http://web.archive.org/cdx/search/cdx"
     params = {
         "url": url_pattern,
         "output": "json",
-        "limit": limit,
+        "limit": 200,
         "filter": ["statuscode:200", "mimetype:text/html"],
         "fl": "timestamp,original,length",
         "collapse": "urlkey"
     }
-
-    for attempt in range(3):  # retry up to 3 times
+    for attempt in range(3):
         try:
             r = requests.get(endpoint, params=params, timeout=timeout)
             data = r.json()
@@ -20,46 +19,35 @@ def check_coverage(url_pattern, label, limit=200, timeout=60):
         except Exception as e:
             print(f"  Attempt {attempt+1} failed: {e}")
             sleep(10)
-            continue
     else:
-        print(f"\n{label}")
-        print(f"  Result: FAILED AFTER 3 ATTEMPTS")
+        print(f"\n{label}: FAILED")
         return
 
     if len(data) <= 1:
-        print(f"\n{label}")
-        print(f"  Result: NO COVERAGE")
+        print(f"\n{label}: NO COVERAGE")
         return
 
     rows = data[1:]
-    timestamps = [row[0] for row in rows]
-    lengths = [int(row[2]) for row in rows if row[2].isdigit()]
-    years = sorted(set(t[:4] for t in timestamps))
-    avg_size = sum(lengths) / len(lengths) if lengths else 0
+    lengths = [int(r[2]) for r in rows if r[2].isdigit()]
+    years = sorted(set(r[0][:4] for r in rows))
     real_pages = sum(1 for l in lengths if l > 3000)
 
     print(f"\n{label}")
-    print(f"  Unique pages found : {len(rows)}")
-    print(f"  Years covered      : {years[0]} – {years[-1]}")
-    print(f"  Avg page size      : {avg_size:.0f} bytes")
-    print(f"  Pages with content : {real_pages}  (>3KB)")
-
+    print(f"  Pages: {len(rows)} | Years: {years[0]}–{years[-1]} | Content pages: {real_pages}")
     if real_pages >= 50 and len(years) >= 3:
-        print(f"  VERDICT            : ✓ USABLE")
+        print(f"  VERDICT: ✓ USABLE")
     elif real_pages >= 20 and len(years) >= 2:
-        print(f"  VERDICT            : ~ MARGINAL")
+        print(f"  VERDICT: ~ MARGINAL")
     else:
-        print(f"  VERDICT            : ✗ DROP")
+        print(f"  VERDICT: ✗ DROP")
 
-# Only retry the ones that failed — with longer gaps between
 targets = [
-    ("tripadvisor.com.sg/Restaurant_Review*",     "Singapore — TripAdvisor"),
-    ("tripadvisor.co.uk/Restaurant_Review*",      "UK — TripAdvisor"),
-    ("tripadvisor.com/Restaurants-g305226*",      "Nigeria (Lagos) — TripAdvisor"),
-    ("tripadvisor.com.br/Restaurant_Review*",     "Brazil — TripAdvisor"),
-    ("tripadvisor.com.au/Restaurant_Review*",     "Australia — TripAdvisor"),
+    ("tripadvisor.com.my/Restaurant_Review*",    "Malaysia — TripAdvisor"),
+    ("tripadvisor.com/Restaurants-g294245*",     "Philippines (Manila) — TripAdvisor"),
+    ("tripadvisor.com/Restaurants-g293916*",     "Thailand (Bangkok) — TripAdvisor"),
+    ("tripadvisor.com/Restaurants-g304554*",     "India (Mumbai) — TripAdvisor"),
 ]
 
-for url_pattern, label in targets:
-    check_coverage(url_pattern, label)
-    sleep(15)  # longer gap to avoid rate limiting
+for url, label in targets:
+    check_coverage(url, label)
+    sleep(15)
