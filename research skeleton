@@ -4,6 +4,17 @@ Abstract
 
 1. Introduction
 
+Inflation has become a word, if not a metric which has been constantly used and monitored to decide how a country is doing in terms of growth and scale. Countries such as the United States and China, the global powerhouses have been doing all they can to lower the rates of inflation. 
+
+The BPP and CPI currently measure prices mainly through the formal sector. However, informal sectors contribute a significant amount of data. The BPP explicitly mentioned how they left out the informal sector from the measurement of the uifpi. 
+
+I decided to introduce the informal sector into these measurements, for a more holistic measurement of price. 
+
+
+
+The choice of the eight countries was mainly due to the widespread and reputable information on informal and formal sectors. The eight countries, namely Singapore, Malaysia, Indonesia, Philippines, Thailand, India, United States, United Kingdom, are all renowned globally. This provides a large enough pool of data to prove that the uifpi has a shot as being a realistic estimate of consumer price inflation, even when pitted against the Consumer Price Index. 
+
+Geographically, these eight countries are relatively widespread, providing a realistic and accurate prediction for the uifpi. The proportion of informal sectors and formal sectors in such countries also varies, allowing the final prediction to be one which incorporates every country’s data. 
 2. Literature Review
 2.1 An Alternative Price Measurement
 2.2 The Billion Prices Project (by MIT and Harvard Professors) and Online Price Indexes
@@ -15,6 +26,7 @@ Abstract
 3.2 Country Sample Selection
 3.3 Index Construction 
 3.4 Formal vs Informal Sector Classification
+For Singapore, the basis of selection of hawker-origin vendors revolves around the understanding that most Singapore citizens do not constantly approach formal restaurants for meals. Instead, Singapore’s hawker centres are seen to be the heart of the nation. Most Singapore citizens prefer hawker food due to their low cost, quality and personal relationships with the hawker vendors. As such, a large proportion of consumer expenditure is not captured by the formal sector. Thus, the informal price sector has genuine contributions that can be made to the Consumer Price Index (CPI), allowing for a more comprehensive evaluation and approximation of the consumer price index through algorithms. 
 3.5 Econometric Specification
 
 4. Results
