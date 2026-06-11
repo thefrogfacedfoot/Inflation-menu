@@ -44,12 +44,12 @@ def scrape_js(url, restaurant_name, sector, source, conn, country='Singapore'):
             )
             page = context.new_page()
             print(f"  Loading {restaurant_name}...")
-            page.goto(url, wait_until="networkidle")
+            page.goto(url, wait_until="networkidle", timeout=20000)
             page.wait_for_timeout(random.randint(8000, 12000))
 
             page.wait_for_selector(
                 '[aria-label*="Add to cart"]',
-                timeout=30000
+                timeout=8000
             )
 
             today = date.today().isoformat()
