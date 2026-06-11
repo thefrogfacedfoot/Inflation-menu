@@ -32,61 +32,57 @@ USER_AGENTS = [
 ]
 
 def scrape_js(url, restaurant_name, sector, source, conn, country='Singapore'):
-    try:
-        with sync_playwright() as p:
-            browser = p.chromium.launch(
-                headless=False,
-                args=['--disable-blink-features=AutomationControlled']
-            )
-            context = browser.new_context(
-                user_agent=random.choice(USER_AGENTS),
-                viewport={'width': 1280, 'height': 800}
-            )
-            page = context.new_page()
-            print(f"  Loading {restaurant_name}...")
-            page.goto(url, wait_until="networkidle", timeout=20000)
-            page.wait_for_timeout(random.randint(8000, 12000))
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=False,
+            args=['--disable-blink-features=AutomationControlled']
+        )
+        context = browser.new_context(
+            user_agent=random.choice(USER_AGENTS),
+            viewport={'width': 1280, 'height': 800}
+        )
+        page = context.new_page()
+        print(f"  Loading {restaurant_name}...")
+        page.goto(url, wait_until="networkidle")
+        page.wait_for_timeout(random.randint(8000, 12000))
 
-            page.wait_for_selector(
-                '[aria-label*="Add to cart"]',
-                timeout=8000
-            )
+        page.wait_for_selector(
+            '[aria-label*="Add to cart"]',
+            timeout=30000
+        )
 
-            today = date.today().isoformat()
-            c = conn.cursor()
-            count = 0
+        today = date.today().isoformat()
+        c = conn.cursor()
+        count = 0
 
-            buttons = page.query_selector_all('[aria-label*="Add to cart"]')
+        buttons = page.query_selector_all('[aria-label*="Add to cart"]')
 
-            for button in buttons:
-                aria = button.get_attribute('aria-label')
-                if not aria:
-                    continue
+        for button in buttons:
+            aria = button.get_attribute('aria-label')
+            if not aria:
+                continue
 
-                price_match = re.search(r'(?:S\$|RM)\s*([\d,]+\.?\d*)', aria)
-                if not price_match:
-                    continue
+            price_match = re.search(r'(?:S\$|RM)\s*([\d,]+\.?\d*)', aria)
+            if not price_match:
+                continue
 
-                currency = 'MYR' if 'RM' in aria else 'SGD'
-                name = aria.split(',')[0].strip()
-                price_num = float(price_match.group(1).replace(',', ''))
+            currency = 'MYR' if 'RM' in aria else 'SGD'
+            name = aria.split(',')[0].strip()
+            price_num = float(price_match.group(1).replace(',', ''))
 
-                if name and price_num:
-                    c.execute('''
-                        INSERT INTO prices
-                        (restaurant_name, item_name, price, currency, country,
-                         sector, source, collection_date, url)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ''', (restaurant_name, name, price_num, currency, country,
-                          sector, source, today, url))
-                    count += 1
+            if name and price_num:
+                c.execute('''
+                    INSERT INTO prices
+                    (restaurant_name, item_name, price, currency, country,
+                     sector, source, collection_date, url)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (restaurant_name, name, price_num, currency, country,
+                      sector, source, today, url))
+                count += 1
 
-            conn.commit()
-            browser.close()
-            print(f"  ✓ {restaurant_name}: {count} items")
-
-    except Exception as e:
-        print(f"  ✗ {restaurant_name}: {e}")
+        conn.commit()
+        browser.close()
+        print(f"  ✓ {restaurant_name}: {count} items")
 
 TARGETS = [
     # ==========================================================
