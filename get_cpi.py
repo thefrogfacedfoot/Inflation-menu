@@ -10,14 +10,14 @@ from time import sleep
 # -------------------------------------------------------
 
 COUNTRIES = {
-    "Singapore":     "SG",
+    "Singapore":   "SG",
+    "Malaysia":    "MY",
+    "Indonesia":   "ID",
+    "Philippines": "PH",
+    "Thailand":    "TH",
+    "India":       "IN",
     "United States": "US",
-    "United Kingdom":"GB",
-    "India":         "IN",
-    "Nigeria":       "NG",
-    "Brazil":        "BR",
-    "Indonesia":     "ID",
-    "Australia":     "AU"
+    "United Kingdom": "GB",
 }
 
 # Date range — go back to 2015 to give enough history
@@ -86,7 +86,7 @@ print("=" * 50)
 
 for name, code in COUNTRIES.items():
     get_cpi(name, code)
-    sleep(1)  # polite delay between requests
+    sleep(1)
 
 print("\n" + "=" * 50)
 print("Done. Check the cpi_data/ folder.")
