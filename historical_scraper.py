@@ -248,30 +248,84 @@ def parse_idr_price(raw):
         return None
 
 
+PRICE_RANGE_TIERS = {
+    '$':        1,  'Inexpensive':    1,
+    '$$':       2,  'Moderate':       2,
+    '$$$':      3,  'Fine Dining':    3,
+    '$$$$':     4,  'Ultra Fine':     4,
+    '$$ - $$$': 2,  '$$-$$$':         2,
+    '$ - $$':   1,  '$-$$':           1,
+    '$$$ - $$$$':3, '$$$-$$$$':       3,
+}
+
+
+def price_range_to_tier(raw):
+    """
+    Convert a TripAdvisor priceRange string to a numeric tier (1–4).
+    Returns None if unrecognised.
+    """
+    raw = (raw or '').strip()
+    for key, tier in PRICE_RANGE_TIERS.items():
+        if key.lower() == raw.lower():
+            return tier
+    # Count dollar signs as a fallback
+    count = raw.count('$')
+    if 1 <= count <= 4:
+        return count
+    return None
+
+
 def extract_prices(html, country, config):
     """
     Extract (item_name, price) pairs from archived TripAdvisor HTML.
-    Tries JSON-LD first, then falls back to regex on visible text.
+
+    Strategy 1 — FoodEstablishment JSON-LD priceRange
+        TripAdvisor embeds a FoodEstablishment schema on every restaurant page
+        with a 'priceRange' field like '$', '$$', '$$-$$$' etc.
+        We convert this to a numeric tier (1–4) which gives a consistent
+        historical price-level signal even when item prices are unavailable.
+
+    Strategy 2 — Explicit MenuItem JSON-LD
+        A small fraction of restaurants have full menu markup. Captured when
+        present (rare on TripAdvisor but worth keeping).
+
+    Strategy 3 — Currency regex on page text
+        Catches prices quoted in user reviews (e.g. "paid S$25 per dish").
+        Coarser signal, kept as secondary.
     """
     soup = BeautifulSoup(html, 'html.parser')
     items = []
+    restaurant_name_ld = None
 
-    # Strategy 1: JSON-LD structured data
     for script in soup.find_all('script', type='application/ld+json'):
         try:
             obj = json.loads(script.string or '')
-            if isinstance(obj, list):
-                for o in obj:
-                    items.extend(extract_ld_menu_items(o))
-            else:
-                items.extend(extract_ld_menu_items(obj))
         except (json.JSONDecodeError, TypeError):
-            pass
+            continue
+
+        objs = obj if isinstance(obj, list) else [obj]
+        for o in objs:
+            t = o.get('@type', '')
+
+            # Strategy 1: FoodEstablishment priceRange
+            if t == 'FoodEstablishment':
+                name = o.get('name', '')
+                price_range = o.get('priceRange', '')
+                tier = price_range_to_tier(price_range)
+                if tier and name:
+                    restaurant_name_ld = name
+                    items.append((
+                        f'Price tier (TripAdvisor: {price_range})',
+                        float(tier),
+                    ))
+
+            # Strategy 2: MenuItem
+            items.extend(extract_ld_menu_items(o))
 
     if items:
-        return soup, items[:30]
+        return soup, items[:30], restaurant_name_ld
 
-    # Strategy 2: Regex on page text
+    # Strategy 3: Currency regex on visible text
     text = soup.get_text(separator=' ')
     pattern = config['price_re']
     matches = re.findall(pattern, text)
@@ -290,10 +344,9 @@ def extract_prices(html, country, config):
         if price in seen:
             continue
         seen.add(price)
-        # Label as generic when we can't attribute to a named item
-        items.append(('Menu price (historical, unattributed)', price))
+        items.append(('Review-quoted price (historical)', price))
 
-    return soup, items[:20]
+    return soup, items[:20], None
 
 
 # ── Main collection loop ──────────────────────────────────────────────────────
@@ -359,13 +412,14 @@ def run(countries=None):
                 done_urls.add(orig_url)
                 continue
 
-            soup, items = extract_prices(html, country, cfg)
+            soup, items, name_from_ld = extract_prices(html, country, cfg)
             if not items:
                 print("0 prices found")
                 done_urls.add(orig_url)
                 continue
 
-            restaurant_name = extract_restaurant_name(soup)
+            # Prefer name extracted from JSON-LD (more reliable than H1)
+            restaurant_name = name_from_ld or extract_restaurant_name(soup)
             # Convert timestamp YYYYMMDDHHMMSS → YYYY-MM-DD
             try:
                 collection_date = datetime.strptime(ts[:8], '%Y%m%d').strftime('%Y-%m-%d')

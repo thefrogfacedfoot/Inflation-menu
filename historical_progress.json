@@ -202,7 +202,561 @@
         "url": "https://www.tripadvisor.com/Restaurant_Review-g294265-d1007702-Reviews-or40-Peach_Blossoms_Marina_Mandarin-Singapore.html"
       }
     ],
+    "done_urls": [
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10043558-Reviews-or20-Kitchen_by_Food_Rebel-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10035310-Reviews-Wall_Street_Deli_Cafe-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10063165-Reviews-or30-ReDPan-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10019847-Reviews-or30-Horizon_Bistronomy-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10063396-Reviews-Mohamed_Raffi_Muslim_Food_Stall_Koothurar-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10043649-Reviews-Ssikkek_Korean_Grill_BBQ-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10019847-Reviews-or15-Horizon_Bistronomy-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10025204-Reviews-Tung_Lok_Teahouse-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10028006-Reviews-Auntie_Kim_s-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10050544-Reviews-Captain_K_Seafood_Tower-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10026272-Reviews-The_Soup_Spoon_Union-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d1006366-Reviews-Suanthai-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10026611-Reviews-Rahim_Satay_Stall_3_4-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10043672-Reviews-Tea_Restaurant-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10002856-Reviews-Kenhiru_Japanese_Restaurant-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d1006989-Reviews-Spageddies_Italian_Kitchen_Paragon-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10005598-Reviews-or20-Whitegrass-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10007141-Reviews-Bing_Qi_Lin-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10039553-Reviews-BurgerUp_Classix-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10073814-Reviews-Breez_Bistro_Bar-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d1007702-Reviews-or40-Peach_Blossoms_Marina_Mandarin-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10050544-Reviews-or10-Captain_K_Seafood_Tower-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10060187-Reviews-Pin_Cha_Tea_House-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10027371-Reviews-Buddy_Hoagies-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10022996-Reviews-Guac_Go-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10063165-Reviews-or240-ReDPan-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10005598-Reviews-or15-Whitegrass-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10027742-Reviews-Salad_Stop-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d1007702-Reviews-or10-Peach_Blossoms_Marina_Mandarin-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10005598-Reviews-Whitegrass-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10020216-Reviews-Qi_Wei_Chicken_Pot-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10029663-Reviews-Harry_s-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10069838-Reviews-6oz_Espresso_Bar-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10041900-Reviews-Al_Sanobar_Lebanese_Cuisine_Seafood_Restaurant-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10043600-Reviews-Hot_Tomato_Pte_Ltd-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10043294-Reviews-My_Spice_Affair-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10069871-Reviews-Banana_Tree-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10030025-Reviews-Kotobuki_Japanese_Restaurant-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10045137-Reviews-The_Rosti_Farm-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10027759-Reviews-Fu_Xiang-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10038840-Reviews-The_Manhattan_Fish_Market-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10039763-Reviews-Otaru_Suisan_Bugis_Plus-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10019847-Reviews-Horizon_Bistronomy-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10027881-Reviews-The_Coffee_House-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10044506-Reviews-Club_July-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10058476-Reviews-Al_Bismi-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10058528-Reviews-Ticm_Gelato_Cocktail_Bar_Dining-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10063165-Reviews-or50-ReDPan-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10054831-Reviews-Bakery_Cuisine-Singapore.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294265-d10005598-Reviews-or10-Whitegrass-Singapore.html"
+    ],
+    "status": "complete"
+  },
+  "Malaysia": {
+    "snapshots": [
+      {
+        "timestamp": "20190718224822",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10003084-Reviews-or20-The_Bean_Belt_Coffee-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190618051705",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10003084-Reviews-The_Bean_Belt_Coffee-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191217051359",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10006652-Reviews-Absolute_Thai_Garden-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191003073103",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10025164-Reviews-or10-Warisan_Nasi_Kukus_Ayam_Goreng_Berempah-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190719190403",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10025164-Reviews-Warisan_Nasi_Kukus_Ayam_Goreng_Berempah-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191217025648",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10032787-Reviews-New_Chapter_by_The_Owls_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190725045855",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10034729-Reviews-Restaurant_Zai_Kee-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191216133256",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10035300-Reviews-Charlie_s_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190824143657",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10035622-Reviews-Minamotonoya_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191116051220",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10036223-Reviews-Nomi_Tomo_Sake_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190913180207",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10036235-Reviews-Juicyfy_Juice_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190820092819",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037852-Reviews-or10-Llao_Llao-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190920163248",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037852-Reviews-or20-Llao_Llao-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191217062604",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037893-Reviews-Rusco-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190920105838",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10044108-Reviews-John_King-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191030023846",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10044207-Reviews-Restoran_Bangkok_House-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190527031918",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10045807-Reviews-Barat_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190607114047",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10045807-Reviews-or10-Barat_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190820000538",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10045807-Reviews-or50-Barat_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190801233248",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10052258-Reviews-or10-Fuel_Shack-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190930030917",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10062853-Reviews-Grind_22_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191217060522",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10066949-Reviews-Slappy_cakes-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191017160936",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10070096-Reviews-LC_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190717235920",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10070405-Reviews-Sopoong-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190610142747",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10074490-Reviews-Babe_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190722144705",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10074490-Reviews-or10-Babe_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190924043552",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10074490-Reviews-or40-Babe_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190320052845",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007799-Reviews-Chinoz_On_The_Park-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190718105532",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-or10-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190929032915",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-or260-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190927100958",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-or50-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190714041924",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20220311085443",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10080628-Reviews-Secret_Recipe-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191005040411",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083329-Reviews-Restoran_Ha_Noi-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190731210742",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20230129085244",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-Michelangelo_s_Restaurant_Pavilion_Kuala_Lumpur-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191009092202",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or20-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191115211554",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or30-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191120201233",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or380-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190930210217",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or50-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20220312072210",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083838-Reviews-Halab_KL-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20220316083717",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083838-Reviews-or10-Halab_KL-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190924094944",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083838-Reviews-or20-Halab_KL-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191217003625",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10088218-Reviews-Indian_Spices_Village-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190608184333",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190610112459",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-or10-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191018162123",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-or120-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20190912234328",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-or30-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20191031164025",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d1010164-Reviews-Old_Town_White_Coffee-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      },
+      {
+        "timestamp": "20211102073107",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10104187-Reviews-or10-Taka-Kuala_Lumpur_Wilayah_Persekutuan.html"
+      }
+    ],
+    "done_urls": [
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10036235-Reviews-Juicyfy_Juice_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10066949-Reviews-Slappy_cakes-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10070096-Reviews-LC_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083838-Reviews-or10-Halab_KL-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10025164-Reviews-Warisan_Nasi_Kukus_Ayam_Goreng_Berempah-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10035300-Reviews-Charlie_s_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037852-Reviews-or10-Llao_Llao-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10044108-Reviews-John_King-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10032787-Reviews-New_Chapter_by_The_Owls_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10080628-Reviews-Secret_Recipe-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-or10-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-or120-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-or50-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-or30-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10104187-Reviews-or10-Taka-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-Michelangelo_s_Restaurant_Pavilion_Kuala_Lumpur-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10003084-Reviews-or20-The_Bean_Belt_Coffee-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or50-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-or260-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1010164-Reviews-Old_Town_White_Coffee-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10025164-Reviews-or10-Warisan_Nasi_Kukus_Ayam_Goreng_Berempah-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10074490-Reviews-or40-Babe_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or30-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10045807-Reviews-or10-Barat_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10045807-Reviews-Barat_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or20-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10088218-Reviews-Indian_Spices_Village-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10074490-Reviews-Babe_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1009635-Reviews-Chili_s_Bangsar_Shopping_Centre-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037852-Reviews-or20-Llao_Llao-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083329-Reviews-Restoran_Ha_Noi-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037893-Reviews-Rusco-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007799-Reviews-Chinoz_On_The_Park-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10034729-Reviews-Restaurant_Zai_Kee-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10045807-Reviews-or50-Barat_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10044207-Reviews-Restoran_Bangkok_House-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083838-Reviews-Halab_KL-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10003084-Reviews-The_Bean_Belt_Coffee-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10052258-Reviews-or10-Fuel_Shack-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1007870-Reviews-or10-Tony_Roma_s-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10062853-Reviews-Grind_22_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10006652-Reviews-Absolute_Thai_Garden-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10035622-Reviews-Minamotonoya_Cafe-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10070405-Reviews-Sopoong-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10036223-Reviews-Nomi_Tomo_Sake_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10074490-Reviews-or10-Babe_Restaurant-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d10083838-Reviews-or20-Halab_KL-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g298570-d1008368-Reviews-or380-Michelangelo_s_Restaurant_Deli_and_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
+    ],
+    "status": "complete"
+  },
+  "Indonesia": {
+    "snapshots": [],
     "done_urls": [],
+    "status": "in_progress"
+  },
+  "Thailand": {
+    "snapshots": [],
+    "done_urls": [],
+    "status": "in_progress"
+  },
+  "India": {
+    "snapshots": [
+      {
+        "timestamp": "20190928101917",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10002884-Reviews-Warehouse_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191004063044",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10027625-Reviews-Glocal_Junction-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191020093923",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10034649-Reviews-Tiffin_Box_Etc_Saki_Naka-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191020132111",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10044414-Reviews-Tatami-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191030001946",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or20-The_Bohri_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190924185149",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or50-The_Bohri_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190721145726",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-The_Bohri_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190924090043",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10057945-Reviews-Imbiss-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190930152207",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or20-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190910114623",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or30-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191129044008",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10064711-Reviews-Maakapow-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190506064628",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20220624160119",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-or15-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190914105556",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007777-Reviews-Gajalee-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191111005446",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007806-Reviews-or10-Chetana-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190219212734",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10081260-Reviews-1441_Pizzeria_Lokhandwala-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20220324085908",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-Mabruk-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190821175849",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-or10-Mabruk-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190927012657",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008617-Reviews-Shabri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20200708062454",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-or10-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190909223709",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190923083623",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10104869-Reviews-Mi_Favorito-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190506065253",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-or10-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20181116071257",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191013060905",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011823-Reviews-Corleone-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190913214947",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10130569-Reviews-The_Village_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190623044910",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20200703171316",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or10-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190829142657",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or20-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190930060828",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or30-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191115172436",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or50-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191129084730",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10138729-Reviews-White_Rose_Cafe-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20180705013223",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-or10-Peshawri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20181230082531",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-or20-Peshawri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20180117001245",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-Peshawri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190924211239",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015366-Reviews-Aaswad-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190727072625",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or10-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191006031354",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or40-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190918184013",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or50-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191028222715",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or70-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191106224808",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10165112-Reviews-Spice_Cot-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191007011837",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10185464-Reviews-Cafe_Mezzuna-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191014183917",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10188298-Reviews-True_Tramm_Trunk-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190903212547",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10212990-Reviews-Ark_Vegetarian_Fine_Dine-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191105235307",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10222070-Reviews-Howra-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190824101549",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10227109-Reviews-Balaji-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190810234344",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10229519-Reviews-The_Beer_Cafe-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190928195310",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10251034-Reviews-The_American_Joint-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191005104312",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10269366-Reviews-The_Food_Court-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190916120117",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10270739-Reviews-Food_Inn-Mumbai_Maharashtra.html"
+      }
+    ],
+    "done_urls": [
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-or15-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or10-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10044414-Reviews-Tatami-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10002884-Reviews-Warehouse_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10081260-Reviews-1441_Pizzeria_Lokhandwala-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10104869-Reviews-Mi_Favorito-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or20-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or50-The_Bohri_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10027625-Reviews-Glocal_Junction-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007777-Reviews-Gajalee-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or20-The_Bohri_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10130569-Reviews-The_Village_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011823-Reviews-Corleone-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10064711-Reviews-Maakapow-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10057945-Reviews-Imbiss-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or30-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10034649-Reviews-Tiffin_Box_Etc_Saki_Naka-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-Mabruk-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-or10-Mabruk-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-The_Bohri_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007806-Reviews-or10-Chetana-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-or10-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008617-Reviews-Shabri-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or20-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-or10-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html"
+    ],
     "status": "in_progress"
   }
 }
