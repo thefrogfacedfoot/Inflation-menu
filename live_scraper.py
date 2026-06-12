@@ -56,16 +56,16 @@ USER_AGENTS = [
 
 
 # ---------------------------------------------------------------------------
-# Per-platform scrapers  (each receives an already-open Playwright page)
+# foodpanda scraper
 # ---------------------------------------------------------------------------
 
 def scrape_foodpanda(page, url, restaurant_name, sector, source, conn, country):
     """
     Scrape foodpanda.sg or foodpanda.my.
-    Relies on the [aria-label*="Add to cart"] buttons that embed both the
+    Relies on [aria-label*="Add to cart"] buttons that embed both the
     item name and the price in their label text.
     """
-    print(f"  Loading {restaurant_name}…")
+    print(f"  Loading {restaurant_name} (foodpanda)…")
     page.goto(url, wait_until='networkidle', timeout=30_000)
     page.wait_for_timeout(random.randint(3_000, 5_000))
     page.wait_for_selector('[aria-label*="Add to cart"]', timeout=30_000)
@@ -98,22 +98,20 @@ def scrape_foodpanda(page, url, restaurant_name, sector, source, conn, country):
     return count
 
 
+# ---------------------------------------------------------------------------
+# GrabFood scraper (direct chain/restaurant URL)
+# ---------------------------------------------------------------------------
+
 def scrape_grabfood(page, url, restaurant_name, sector, source, conn, country):
     """
-    Scrape a GrabFood restaurant or chain page (food.grab.com/my).
-
-    Chain pages list outlets first — we click the first outlet link to reach
-    the actual menu before extracting prices.
-
-    Two extraction strategies are tried in order:
-      1. aria-label buttons  (fast, same pattern as foodpanda where available)
-      2. Standalone "RM XX.XX" text nodes + nearest heading/name element
+    Scrape a GrabFood chain or restaurant page.
+    Chain pages (/chain/...) list outlets first — click the first outlet
+    link to reach the actual menu before extracting prices.
     """
-    print(f"  Loading {restaurant_name}…")
+    print(f"  Loading {restaurant_name} (GrabFood)…")
     page.goto(url, wait_until='networkidle', timeout=30_000)
     page.wait_for_timeout(random.randint(3_000, 5_000))
 
-    # If this is a chain page, navigate into the first outlet
     if '/chain/' in url:
         try:
             page.wait_for_selector('a[href*="/restaurant/"]', timeout=10_000)
@@ -125,25 +123,21 @@ def scrape_grabfood(page, url, restaurant_name, sector, source, conn, country):
         except Exception as e:
             print(f"    Chain nav failed: {e}")
 
-    # Scroll once to trigger lazy-loaded menu items, then back to top
+    # Let lazy-loaded items render
     page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
     page.wait_for_timeout(1_500)
     page.evaluate('window.scrollTo(0, 0)')
     page.wait_for_timeout(500)
 
-    today = date.today().isoformat()
-    c = conn.cursor()
-    count = 0
-
     items = page.evaluate("""() => {
         const results = [];
         const seen = new Set();
+        const priceRegex = /(?:RM|S\\$)\\s*(\\d+(?:\\.\\d{1,2})?)/;
 
         // --- Strategy 1: aria-label buttons containing a price ---
-        // e.g. "Shiromaru Motoaji, RM26.90, Add to cart"
         for (const btn of document.querySelectorAll('button[aria-label]')) {
             const label = btn.getAttribute('aria-label') || '';
-            const m = label.match(/RM\\s*(\\d+(?:\\.\\d{1,2})?)/);
+            const m = label.match(priceRegex);
             if (!m) continue;
             const price = parseFloat(m[1]);
             if (price <= 0 || price >= 1000) continue;
@@ -155,24 +149,23 @@ def scrape_grabfood(page, url, restaurant_name, sector, source, conn, country):
             }
         }
 
-        // --- Strategy 2: standalone "RM XX.XX" text + nearest name element ---
+        // --- Strategy 2: standalone price text + nearest name element ---
         if (results.length === 0) {
-            const priceRe = /^RM\\s*(\\d{1,4}(?:\\.\\d{1,2})?)$/;
+            const standaloneRe = /^(?:RM|S\\$)\\s*(\\d{1,4}(?:\\.\\d{1,2})?)$/;
             for (const el of document.querySelectorAll('span, p')) {
                 const text = (el.innerText || '').trim();
-                const m = text.match(priceRe);
+                const m = text.match(standaloneRe);
                 if (!m) continue;
                 const price = parseFloat(m[1]);
                 if (price <= 0 || price >= 1000) continue;
 
-                // Walk up the DOM looking for a sibling name element
                 let container = el.parentElement;
                 let name = '';
                 for (let depth = 0; depth < 6 && container; depth++) {
                     for (const cand of container.querySelectorAll('p, h2, h3, h4, span')) {
                         const t = (cand.innerText || '').trim();
                         if (t && t !== text
-                            && !t.startsWith('RM')
+                            && !/^(?:RM|S\\$)/.test(t)
                             && t.length > 2 && t.length < 120
                             && !t.includes('\\n')
                             && !/^\\d+$/.test(t)) {
@@ -195,24 +188,25 @@ def scrape_grabfood(page, url, restaurant_name, sector, source, conn, country):
         return results;
     }""")
 
+    today = date.today().isoformat()
+    currency = 'SGD' if country == 'Singapore' else 'MYR'
+    c = conn.cursor()
     for item in items:
         c.execute(
             '''INSERT INTO prices
                (restaurant_name, item_name, price, currency, country,
                 sector, source, collection_date, url)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-            (restaurant_name, item['name'], item['price'], 'MYR', country,
+            (restaurant_name, item['name'], item['price'], currency, country,
              sector, source, today, url)
         )
-        count += 1
-
     conn.commit()
-    print(f"  ✓ {restaurant_name}: {count} items")
-    return count
+    print(f"  ✓ {restaurant_name}: {len(items)} items")
+    return len(items)
 
 
 # ---------------------------------------------------------------------------
-# Batch runner  — one shared browser for the whole pass
+# Batch runner — one shared browser for the whole pass
 # ---------------------------------------------------------------------------
 
 def run_batch(targets, conn, today):
@@ -234,17 +228,18 @@ def run_batch(targets, conn, today):
         )
 
         for name, url, sector, source, _, country in targets:
-            # Double-check in case an earlier retry already succeeded
             if already_scraped(conn, name, today):
                 print(f"  ↩  {name}: already done, skipping")
                 continue
 
             page = context.new_page()
             try:
-                if source == 'grabfood':
+                if source == 'foodpanda':
+                    count = scrape_foodpanda(page, url, name, sector, source, conn, country)
+                elif source == 'grabfood':
                     count = scrape_grabfood(page, url, name, sector, source, conn, country)
                 else:
-                    count = scrape_foodpanda(page, url, name, sector, source, conn, country)
+                    raise ValueError(f"Unknown source: {source}")
 
                 if count == 0:
                     raise ValueError("0 items scraped — page may not have loaded correctly")
@@ -265,11 +260,17 @@ def run_batch(targets, conn, today):
 
 # ---------------------------------------------------------------------------
 # Targets
+#
+# source = 'grabfood'  -> confirmed working GrabFood chain/restaurant page
+# source = 'foodpanda' -> foodpanda.sg / foodpanda.my page
+#
+# Only restaurants with a directly-verified GrabFood page (loads without
+# login/location) use GrabFood. Everything else stays on foodpanda.
 # ---------------------------------------------------------------------------
 
 TARGETS = [
     # ==========================================================
-    # SINGAPORE — all 30 links verified working (foodpanda.sg)
+    # SINGAPORE
     # ==========================================================
 
     # --- FORMAL ---
@@ -282,16 +283,16 @@ TARGETS = [
      "formal", "foodpanda", "js", "Singapore"),
 
     ("Din Tai Fung",
-     "https://www.foodpanda.sg/chain/cr7aw/din-tai-fung",
-     "formal", "foodpanda", "js", "Singapore"),
+     "https://food.grab.com/sg/en/restaurant/din-tai-fung-plaza-singapura-delivery/4-C2DHGZLXE2DURJ",
+     "formal", "grabfood", "js", "Singapore"),
 
     ("Sushi Tei",
-     "https://www.foodpanda.sg/chain/ca2bs/sushi-tei",
-     "formal", "foodpanda", "js", "Singapore"),
+     "https://food.grab.com/sg/en/restaurant/sushi-tei-vivocity-delivery/4-C2MFTGNUEPKGEN",
+     "formal", "grabfood", "js", "Singapore"),
 
     ("Jumbo Seafood",
-     "https://www.foodpanda.sg/chain/cs1lu/jumbo-seafood",
-     "formal", "foodpanda", "js", "Singapore"),
+     "https://food.grab.com/sg/en/restaurant/jumbo-seafood-east-coast-delivery/SGDD01672",
+     "formal", "grabfood", "js", "Singapore"),
 
     ("Crystal Jade La Mian Xiao Long Bao",
      "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
@@ -322,8 +323,8 @@ TARGETS = [
      "formal", "foodpanda", "js", "Singapore"),
 
     ("Ippudo Ramen",
-     "https://www.foodpanda.sg/chain/cd8fm/ippudo-ramen",
-     "formal", "foodpanda", "js", "Singapore"),
+     "https://food.grab.com/sg/en/restaurant/ippudo-mandarin-gallery-delivery/SGDD11131",
+     "formal", "grabfood", "js", "Singapore"),
 
     ("Seoul Garden HotPot",
      "https://www.foodpanda.sg/chain/ca0el/seoul-garden-hotpot",
@@ -334,8 +335,8 @@ TARGETS = [
      "formal", "foodpanda", "js", "Singapore"),
 
     ("BreadTalk",
-     "https://www.foodpanda.sg/chain/ci6eh/breadtalk",
-     "formal", "foodpanda", "js", "Singapore"),
+     "https://food.grab.com/sg/en/restaurant/breadtalk-bedok-mall-b2-25-26-delivery/4-CZBGAY4AVA4GLE",
+     "formal", "grabfood", "js", "Singapore"),
 
     ("Toast Box",
      "https://www.foodpanda.sg/chain/cv4kj/toast-box",
@@ -395,7 +396,7 @@ TARGETS = [
      "informal", "foodpanda", "js", "Singapore"),
 
     # ==========================================================
-    # MALAYSIA — foodpanda.my + GrabFood where needed
+    # MALAYSIA
     # ==========================================================
 
     # --- FORMAL ---
@@ -428,8 +429,8 @@ TARGETS = [
      "formal", "foodpanda", "js", "Malaysia"),
 
     ("Nando's KL",
-     "https://www.foodpanda.my/chain/ck9ti/nando-s",
-     "formal", "foodpanda", "js", "Malaysia"),
+     "https://food.grab.com/my/en/chain/nandos-delivery",
+     "formal", "grabfood", "js", "Malaysia"),
 
     ("TGI Fridays KL",
      "https://www.foodpanda.my/chain/cm9sc/tgi-fridays",
@@ -493,7 +494,6 @@ if __name__ == '__main__':
     print(f"\nUIFPI Daily Collection — {today}")
     print(f"Total targets: {len(TARGETS)}")
 
-    # Filter out anything already in the DB before the first attempt
     remaining = [t for t in TARGETS if not already_scraped(conn, t[0], today)]
     skipped = len(TARGETS) - len(remaining)
     if skipped:
