@@ -1,0 +1,62 @@
+{
+  "Australia": {
+    "granger_significant": false,
+    "lead_months": null,
+    "pass_through_rate": null,
+    "pass_through_pvalue": null,
+    "months_of_data": 14,
+    "base_month": "2018-01",
+    "latest_uifpi": 100.0,
+    "status": "no_granger_data"
+  },
+  "India": {
+    "granger_significant": false,
+    "lead_months": null,
+    "pass_through_rate": null,
+    "pass_through_pvalue": null,
+    "months_of_data": 15,
+    "base_month": "2018-01",
+    "latest_uifpi": 100.0,
+    "status": "no_granger_data"
+  },
+  "Malaysia": {
+    "granger_significant": false,
+    "lead_months": null,
+    "pass_through_rate": null,
+    "pass_through_pvalue": null,
+    "months_of_data": 13,
+    "base_month": "2019-03",
+    "latest_uifpi": 100.0,
+    "status": "no_granger_data"
+  },
+  "Singapore": {
+    "granger_significant": false,
+    "lead_months": null,
+    "pass_through_rate": null,
+    "pass_through_pvalue": null,
+    "months_of_data": 13,
+    "base_month": "2019-06",
+    "latest_uifpi": 100.0,
+    "status": "no_granger_data"
+  },
+  "United Kingdom": {
+    "granger_significant": false,
+    "lead_months": null,
+    "pass_through_rate": null,
+    "pass_through_pvalue": null,
+    "months_of_data": 12,
+    "base_month": "2018-07",
+    "latest_uifpi": 100.0,
+    "status": "no_granger_data"
+  },
+  "United States": {
+    "granger_significant": false,
+    "lead_months": null,
+    "pass_through_rate": null,
+    "pass_through_pvalue": null,
+    "months_of_data": 11,
+    "base_month": "2018-01",
+    "latest_uifpi": 100.0,
+    "status": "no_granger_data"
+  }
+}

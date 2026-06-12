@@ -1,0 +1,7 @@
+country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through,pass_through_sig,r_squared,note
+Australia,12,,,2,False,,False,,granger_failed: The x values include a column with constant values and so the test statistic cannot be computed.
+India,15,,,2,False,,False,,granger_failed: The x values include a column with constant values and so the test statistic cannot be computed.
+Malaysia,0,,,,False,,,,no_cpi_data
+Singapore,12,,,2,False,,False,,granger_failed: The x values include a column with constant values and so the test statistic cannot be computed.
+United Kingdom,11,,,2,False,,False,,granger_failed: The x values include a column with constant values and so the test statistic cannot be computed.
+United States,11,,,2,False,,False,,granger_failed: The x values include a column with constant values and so the test statistic cannot be computed.

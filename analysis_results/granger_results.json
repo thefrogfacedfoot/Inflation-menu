@@ -1,0 +1,61 @@
+{
+  "Australia": {
+    "n_obs": 12,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 2,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+  },
+  "India": {
+    "n_obs": 15,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 2,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+  },
+  "Malaysia": {
+    "note": "no_cpi_data",
+    "granger_significant": false
+  },
+  "Singapore": {
+    "n_obs": 12,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 2,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+  },
+  "United Kingdom": {
+    "n_obs": 11,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 2,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+  },
+  "United States": {
+    "n_obs": 11,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 2,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+  }
+}

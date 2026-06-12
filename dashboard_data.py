@@ -15,6 +15,7 @@ import json
 import math
 import os
 import sys
+from typing import Union
 
 import pandas as pd
 
@@ -203,7 +204,7 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict) -> dict:
 
 # ── Writer ────────────────────────────────────────────────────────────────────
 
-def write_json(obj: dict | list, path: str) -> None:
+def write_json(obj: Union[dict, list], path: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2, ensure_ascii=False)

@@ -1,0 +1,50 @@
+{
+  "Australia": {
+    "month": "2026-06",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
+    "cpi": null,
+    "yoy_change_pct": 0.0
+  },
+  "India": {
+    "month": "2022-06",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
+    "cpi": null,
+    "yoy_change_pct": 0.0
+  },
+  "Malaysia": {
+    "month": "2026-06",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
+    "cpi": null,
+    "yoy_change_pct": 0.0
+  },
+  "Singapore": {
+    "month": "2026-06",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
+    "cpi": null,
+    "yoy_change_pct": 0.0
+  },
+  "United Kingdom": {
+    "month": "2026-06",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
+    "cpi": null,
+    "yoy_change_pct": null
+  },
+  "United States": {
+    "month": "2022-07",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
+    "cpi": null,
+    "yoy_change_pct": null
+  }
+}
