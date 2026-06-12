@@ -1,0 +1,261 @@
+
+UIFPI Daily Collection: 2026-06-11
+Targets: 50
+
+
+--- Attempt 1 (50 targets) ---
+
+  Loading Rubato...
+  ✗ Rubato: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ichiban Boshi...
+  ✗ Ichiban Boshi: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Din Tai Fung...
+  ✗ Din Tai Fung: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Sushi Tei...
+  ✗ Sushi Tei: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Jumbo Seafood...
+  ✗ Jumbo Seafood: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crystal Jade La Mian Xiao Long Bao...
+  ✗ Crystal Jade La Mian Xiao Long Bao: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading No Signboard Prawn Noodles and Carrot Cake...
+  ✗ No Signboard Prawn Noodles and Carrot Cake: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Putien...
+  ✗ Putien: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Paradise Dynasty...
+  ✗ Paradise Dynasty: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Tim Ho Wan...
+  ✗ Tim Ho Wan: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crystal Jade Hong Kong Kitchen...
+  ✗ Crystal Jade Hong Kong Kitchen: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Pepper Lunch...
+  ✗ Pepper Lunch: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ippudo Ramen...
+  ✗ Ippudo Ramen: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Seoul Garden HotPot...
+  ✗ Seoul Garden HotPot: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Hokkaido-ya...
+  ✗ Hokkaido-ya: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading BreadTalk...
+  ✗ BreadTalk: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Toast Box...
+  ✗ Toast Box: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Old Chang Kee...
+  ✗ Old Chang Kee: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crystal Jade GO...
+  ✗ Crystal Jade GO: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Song Fa Bak Kut Teh...
+  ✗ Song Fa Bak Kut Teh: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Hawker Chan...
+  ✗ Hawker Chan: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading A Noodle Story...
+  ✗ A Noodle Story: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading 328 Katong Laksa...
+  ✗ 328 Katong Laksa: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crave Nasi Lemak...
+  ✗ Crave Nasi Lemak: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading 28 Fried Kway Teow...
+  ✗ 28 Fried Kway Teow: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Tai Wah Pork Noodles...
+  ✗ Tai Wah Pork Noodles: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Janggut Laksa...
+  ✗ Janggut Laksa: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Nam Kee Chicken Rice...
+  ✗ Nam Kee Chicken Rice: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Swee Choon Tim Sum...
+  ✗ Swee Choon Tim Sum: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Killiney Kopitiam...
+  ✗ Killiney Kopitiam: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Din Tai Fung KL...
+  ✗ Din Tai Fung KL: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Sushi Tei KL...
+  ✗ Sushi Tei KL: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ichiban Boshi KL...
+  ✗ Ichiban Boshi KL: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Pepper Lunch KL...
+  ✗ Pepper Lunch KL: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ippudo KL...
+  ✗ Ippudo KL: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Secret Recipe...
+  ✗ Secret Recipe: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading OldTown White Coffee...
+  ✗ OldTown White Coffee: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Nando's KL...
+  ✗ Nando's KL: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading TGI Fridays KL...
+  ✗ TGI Fridays KL: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Madam Kwan's...
+  ✗ Madam Kwan's: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Village Park Nasi Lemak...
+  ✗ Village Park Nasi Lemak: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Restoran Yusoof Dan Zakhir...
+  ✗ Restoran Yusoof Dan Zakhir: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ah Weng Koh Hainan Tea...
+  ✗ Ah Weng Koh Hainan Tea: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Restoran Oversea...
+  ✗ Restoran Oversea: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Kedai Kopi Yut Kee...
+  ✗ Kedai Kopi Yut Kee: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Kim Lian Kee...
+  ✗ Kim Lian Kee: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Hameed Pata Mee Sotong...
+  ✗ Hameed Pata Mee Sotong: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Nasi Kandar Pelita...
+  ✗ Nasi Kandar Pelita: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Gerak Gempur Char Koay Teow...
+  ✗ Gerak Gempur Char Koay Teow: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Fatty Crab...
+  ✗ Fatty Crab: Page.wait_for_selector: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+
+All targets completed successfully.
+
+Done. Check uifpi.db for results.
