@@ -55,6 +55,22 @@ FALLBACK_RATES = {
 
 def init_output_table(conn: sqlite3.Connection) -> None:
     """Create the uifpi_index table if it does not exist."""
+    # Create a stub nlp_results table so the LEFT JOIN in load_price_data works
+    # even when nlp_pipeline.py hasn't been run yet.
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS nlp_results (
+            id                INTEGER PRIMARY KEY AUTOINCREMENT,
+            item_name         TEXT NOT NULL,
+            restaurant_name   TEXT,
+            country           TEXT,
+            category          TEXT,
+            quality_signals   TEXT,
+            language_detected TEXT,
+            confidence        REAL,
+            processed_date    TEXT,
+            UNIQUE(item_name)
+        )
+    """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS uifpi_index (
             id               INTEGER PRIMARY KEY AUTOINCREMENT,

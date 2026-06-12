@@ -1372,3 +1372,191 @@ Call log:
   ✗  Haldiram's (Swiggy): 0 items scraped — page may not have loaded
   Loading Bikanervala (Swiggy) (Swiggy)…
   ✓ Bikanervala (Swiggy): 0 items
+  ✗  Bikanervala (Swiggy): 0 items scraped — page may not have loaded
+  Loading Karim's Delhi (Swiggy) (Swiggy)…
+  ✓ Karim's Delhi (Swiggy): 0 items
+  ✗  Karim's Delhi (Swiggy): 0 items scraped — page may not have loaded
+  Loading Paradise Biryani (Swiggy) (Swiggy)…
+  ✓ Paradise Biryani (Swiggy): 0 items
+  ✗  Paradise Biryani (Swiggy): 0 items scraped — page may not have loaded
+  Loading Mainland China (Swiggy) (Swiggy)…
+  ✓ Mainland China (Swiggy): 0 items
+  ✗  Mainland China (Swiggy): 0 items scraped — page may not have loaded
+  Loading Cream Centre (Swiggy) (Swiggy)…
+  ✓ Cream Centre (Swiggy): 0 items
+  ✗  Cream Centre (Swiggy): 0 items scraped — page may not have loaded
+  Loading Rajdhani Thali (Swiggy) (Swiggy)…
+  ✓ Rajdhani Thali (Swiggy): 0 items
+  ✗  Rajdhani Thali (Swiggy): 0 items scraped — page may not have loaded
+  Loading Natural Ice Cream (Swiggy) (Swiggy)…
+  ✓ Natural Ice Cream (Swiggy): 0 items
+  ✗  Natural Ice Cream (Swiggy): 0 items scraped — page may not have loaded
+  Loading McDonald's USA (direct)…
+  ✗  McDonald's USA: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.mcdonalds.com/us/en-us/full_menu.html
+Call log:
+  - navigating to "https://www.mcdonalds.com/us/en-us/full_menu.html", waiting until "networkidle"
+
+  Loading Chipotle (direct)…
+  ✗  Chipotle: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.chipotle.com/menu", waiting until "networkidle"
+
+  Loading Taco Bell (direct)…
+  ✗  Taco Bell: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.tacobell.com/menu
+Call log:
+  - navigating to "https://www.tacobell.com/menu", waiting until "networkidle"
+
+  Loading Subway USA (direct)…
+  ✗  Subway USA: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.subway.com/en-US/MenuNutrition/Menu
+Call log:
+  - navigating to "https://www.subway.com/en-US/MenuNutrition/Menu", waiting until "networkidle"
+
+  Loading Panera Bread (direct)…
+  ✗  Panera Bread: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.panerabread.com/en-us/menu/whole-menu.html", waiting until "networkidle"
+
+  Loading Shake Shack (direct)…
+  ✓ Shake Shack: 0 items
+  ✗  Shake Shack: 0 items scraped — page may not have loaded
+  Loading Five Guys (direct)…
+  ✓ Five Guys: 0 items
+  ✗  Five Guys: 0 items scraped — page may not have loaded
+  Loading Chick-fil-A (direct)…
+  ✓ Chick-fil-A: 0 items
+  ✗  Chick-fil-A: 0 items scraped — page may not have loaded
+  Loading Wingstop (direct)…
+  ✓ Wingstop: 0 items
+  ✗  Wingstop: 0 items scraped — page may not have loaded
+  Loading In-N-Out Burger (direct)…
+  ✓ In-N-Out Burger: 0 items
+  ✗  In-N-Out Burger: 0 items scraped — page may not have loaded
+  Loading Whataburger (direct)…
+  ✓ Whataburger: 0 items
+  ✗  Whataburger: 0 items scraped — page may not have loaded
+  Loading Raising Cane's (direct)…
+  ✓ Raising Cane's: 0 items
+  ✗  Raising Cane's: 0 items scraped — page may not have loaded
+  Loading Jack in the Box (direct)…
+  ✓ Jack in the Box: 0 items
+  ✗  Jack in the Box: 0 items scraped — page may not have loaded
+  Loading Del Taco (direct)…
+  ✓ Del Taco: 0 items
+  ✗  Del Taco: 0 items scraped — page may not have loaded
+  Loading Fatburger (direct)…
+  ✓ Fatburger: 0 items
+  ✗  Fatburger: 0 items scraped — page may not have loaded
+  Loading Denny's (direct)…
+  ✓ Denny's: 0 items
+  ✗  Denny's: 0 items scraped — page may not have loaded
+  Loading Waffle House (direct)…
+  ✓ Waffle House: 0 items
+  ✗  Waffle House: 0 items scraped — page may not have loaded
+  Loading Steak 'n Shake (direct)…
+  ✗  Steak 'n Shake: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.steaknshake.com/menu", waiting until "networkidle"
+
+  Loading McDonald's UK (direct)…
+  ✗  McDonald's UK: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.mcdonalds.com/gb/en-gb/eat/fullmenu.html
+Call log:
+  - navigating to "https://www.mcdonalds.com/gb/en-gb/eat/fullmenu.html", waiting until "networkidle"
+
+  Loading Nando's UK (direct)…
+  ✓ Nando's UK: 0 items
+  ✗  Nando's UK: 0 items scraped — page may not have loaded
+  Loading Pret A Manger (direct)…
+  ✓ Pret A Manger: 0 items
+  ✗  Pret A Manger: 0 items scraped — page may not have loaded
+  Loading Wagamama (direct)…
+  ✓ Wagamama: 0 items
+  ✗  Wagamama: 0 items scraped — page may not have loaded
+  Loading Itsu (direct)…
+  ✓ Itsu: 0 items
+  ✗  Itsu: 0 items scraped — page may not have loaded
+  Loading Five Guys UK (direct)…
+  ✓ Five Guys UK: 0 items
+  ✗  Five Guys UK: 0 items scraped — page may not have loaded
+  Loading Shake Shack UK (direct)…
+  ✓ Shake Shack UK: 0 items
+  ✗  Shake Shack UK: 0 items scraped — page may not have loaded
+  Loading Pizza Express (direct)…
+  ✗  Pizza Express: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.pizzaexpress.com/menu", waiting until "networkidle"
+
+  Loading Dishoom (direct)…
+  ✗  Dishoom: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.dishoom.com/menu/", waiting until "networkidle"
+
+  Loading Flat Iron (direct)…
+  ✗  Flat Iron: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.flatironsteak.co.uk/menu/
+Call log:
+  - navigating to "https://www.flatironsteak.co.uk/menu/", waiting until "networkidle"
+
+  Loading Honest Burgers (direct)…
+  ✓ Honest Burgers: 0 items
+  ✗  Honest Burgers: 0 items scraped — page may not have loaded
+  Loading Patty & Bun (direct)…
+  ✓ Patty & Bun: 0 items
+  ✗  Patty & Bun: 0 items scraped — page may not have loaded
+  Loading Bao London (direct)…
+  ✓ Bao London: 0 items
+  ✗  Bao London: 0 items scraped — page may not have loaded
+  Loading Busaba Eathai (direct)…
+  ✓ Busaba Eathai: 0 items
+  ✗  Busaba Eathai: 0 items scraped — page may not have loaded
+  Loading Shoryu Ramen (direct)…
+  ✓ Shoryu Ramen: 0 items
+  ✗  Shoryu Ramen: 0 items scraped — page may not have loaded
+  Loading Hoppers (direct)…
+  ✓ Hoppers: 0 items
+  ✗  Hoppers: 0 items scraped — page may not have loaded
+  Loading McDonald's Australia (direct)…
+  ✗  McDonald's Australia: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://mcdonalds.com.au/menu
+Call log:
+  - navigating to "https://mcdonalds.com.au/menu", waiting until "networkidle"
+
+  Loading Guzman y Gomez (direct)…
+  ✗  Guzman y Gomez: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.guzmanygomez.com/menu/", waiting until "networkidle"
+
+  Loading Grill'd (direct)…
+  ✓ Grill'd: 0 items
+  ✗  Grill'd: 0 items scraped — page may not have loaded
+  Loading Nando's Australia (direct)…
+  ✗  Nando's Australia: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.nandos.com.au/menu", waiting until "networkidle"
+
+  Loading Zambrero (direct)…
+  ✓ Zambrero: 0 items
+  ✗  Zambrero: 0 items scraped — page may not have loaded
+  Loading Mad Mex (direct)…
+  ✓ Mad Mex: 0 items
+  ✗  Mad Mex: 0 items scraped — page may not have loaded
+  Loading Boost Juice (direct)…
+  ✗  Boost Juice: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.boostjuice.com.au/menu", waiting until "networkidle"
+
+  Loading Roll'd (direct)…
+  ✓ Roll'd: 0 items
+  ✗  Roll'd: 0 items scraped — page may not have loaded
+  Loading Lune Croissanterie (direct)…
+  ✓ Lune Croissanterie: 0 items
+  ✗  Lune Croissanterie: 0 items scraped — page may not have loaded
+  Loading Chin Chin Melbourne (direct)…
+  ✓ Chin Chin Melbourne: 0 items
+  ✗  Chin Chin Melbourne: 0 items scraped — page may not have loaded
+  Loading Huxtaburger (direct)…
+  ✗  Huxtaburger: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.huxtaburger.com.au/menu/", waiting until "networkidle"
+
+  Loading Mary's Burgers (direct)…
+  ✓ Mary's Burgers: 0 items
+  ✗  Mary's Burgers: 0 items scraped — page may not have loaded
+  Loading The Grounds of Alexandria (direct)…
