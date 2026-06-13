@@ -22,15 +22,15 @@
     "note": ""
   },
   "Indonesia": {
-    "n_obs": 17,
+    "n_obs": 1,
     "granger_significant": false,
-    "granger_p_value": 0.5556,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": 0.0,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
     "pass_through_significant": false,
-    "r_squared": 0.0001,
-    "note": ""
+    "r_squared": null,
+    "note": "insufficient_data (have 1, need 8)"
   },
   "Malaysia": {
     "n_obs": 12,

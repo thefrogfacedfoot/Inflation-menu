@@ -16,12 +16,12 @@
     "yoy_change_pct": -75.0
   },
   "Indonesia": {
-    "month": "2023-08",
-    "uifpi": 250.0,
-    "formal": 250.0,
-    "informal": 250.0,
+    "month": "2019-09",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
     "cpi": null,
-    "yoy_change_pct": 25.0
+    "yoy_change_pct": null
   },
   "Malaysia": {
     "month": "2026-06",
