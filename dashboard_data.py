@@ -163,16 +163,23 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
         pc = price_counts.get(country, {"items_formal": 0, "items_informal": 0})
 
         summary[country] = {
-            "granger_significant": g.get("granger_significant"),
-            "lead_months":         g.get("lead_months"),
-            "pass_through_rate":   safe_round(g.get("pass_through_rate")),
-            "pass_through_pvalue": safe_round(g.get("pass_through_pvalue"), 4),
-            "months_of_data":      months_of_data,
-            "base_month":          base_month,
-            "latest_uifpi":        latest_uifpi,
-            "items_formal":        pc["items_formal"],
-            "items_informal":      pc["items_informal"],
-            "status":              status,
+            "granger_significant":      g.get("granger_significant"),
+            "granger_p_value":          safe_round(g.get("granger_p_value"), 4),
+            "lead_months":              g.get("lead_months"),
+            # The Next.js country page reads pass_through_formal /
+            # pass_through_informal directly. granger_analysis.py only
+            # produces pass_through_formal for now; surface both for shape.
+            "pass_through_formal":      safe_round(g.get("pass_through_formal"), 4),
+            "pass_through_informal":    safe_round(g.get("pass_through_informal"), 4),
+            "pass_through_significant": g.get("pass_through_significant"),
+            "r_squared":                safe_round(g.get("r_squared"), 4),
+            "n_obs":                    g.get("n_obs"),
+            "months_of_data":           months_of_data,
+            "base_month":               base_month,
+            "latest_uifpi":             latest_uifpi,
+            "items_formal":             pc["items_formal"],
+            "items_informal":           pc["items_informal"],
+            "status":                   status,
         }
 
     return summary

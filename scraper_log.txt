@@ -2141,3 +2141,184 @@ Call log:
   - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
 
   Loading Somtum Der (foodpanda)…
+  ✗  Somtum Der: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Pad Thai Fai Ta Lu (foodpanda)…
+  ✗  Pad Thai Fai Ta Lu: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Laab Ubol (foodpanda)…
+  ✗  Laab Ubol: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Mango Tango (foodpanda)…
+  ✗  Mango Tango: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Bar B Q Plaza (foodpanda)…
+  ✗  Bar B Q Plaza: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading ChaTraMue Thai Tea (foodpanda)…
+  ✗  ChaTraMue Thai Tea: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Guay Tiew Kua Gai Petchburi (foodpanda)…
+  ✗  Guay Tiew Kua Gai Petchburi: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Khao Man Gai Pratunam (foodpanda)…
+  ✗  Khao Man Gai Pratunam: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Raan Jay Fai (foodpanda)…
+  ✗  Raan Jay Fai: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading McDonald's India (Swiggy) (Swiggy)…
+  ✓ McDonald's India (Swiggy): 0 items
+  ✗  McDonald's India (Swiggy): 0 items scraped — page may not have loaded
+  Loading KFC India (Swiggy) (Swiggy)…
+  ✓ KFC India (Swiggy): 0 items
+  ✗  KFC India (Swiggy): 0 items scraped — page may not have loaded
+  Loading Domino's Pizza India (Swiggy) (Swiggy)…
+  ✓ Domino's Pizza India (Swiggy): 0 items
+  ✗  Domino's Pizza India (Swiggy): 0 items scraped — page may not have loaded
+  Loading Pizza Hut India (Swiggy) (Swiggy)…
+  ✓ Pizza Hut India (Swiggy): 0 items
+  ✗  Pizza Hut India (Swiggy): 0 items scraped — page may not have loaded
+  Loading Burger King India (Swiggy) (Swiggy)…
+  ✓ Burger King India (Swiggy): 0 items
+  ✗  Burger King India (Swiggy): 0 items scraped — page may not have loaded
+  Loading Subway India (Swiggy) (Swiggy)…
+  ✓ Subway India (Swiggy): 0 items
+  ✗  Subway India (Swiggy): 0 items scraped — page may not have loaded
+  Loading Wow! Momo (Swiggy) (Swiggy)…
+  ✓ Wow! Momo (Swiggy): 0 items
+  ✗  Wow! Momo (Swiggy): 0 items scraped — page may not have loaded
+  Loading Barbeque Nation (Swiggy) (Swiggy)…
+  ✓ Barbeque Nation (Swiggy): 0 items
+  ✗  Barbeque Nation (Swiggy): 0 items scraped — page may not have loaded
+  Loading Fasoos (Swiggy) (Swiggy)…
+  ✓ Fasoos (Swiggy): 0 items
+  ✗  Fasoos (Swiggy): 0 items scraped — page may not have loaded
+  Loading Saravana Bhavan Mumbai (Swiggy) (Swiggy)…
+  ✓ Saravana Bhavan Mumbai (Swiggy): 0 items
+  ✗  Saravana Bhavan Mumbai (Swiggy): 0 items scraped — page may not have loaded
+  Loading Haldiram's (Swiggy) (Swiggy)…
+  ✓ Haldiram's (Swiggy): 0 items
+  ✗  Haldiram's (Swiggy): 0 items scraped — page may not have loaded
+  Loading Bikanervala (Swiggy) (Swiggy)…
+  ✓ Bikanervala (Swiggy): 0 items
+  ✗  Bikanervala (Swiggy): 0 items scraped — page may not have loaded
+  Loading Karim's Delhi (Swiggy) (Swiggy)…
+  ✓ Karim's Delhi (Swiggy): 0 items
+  ✗  Karim's Delhi (Swiggy): 0 items scraped — page may not have loaded
+  Loading Paradise Biryani (Swiggy) (Swiggy)…
+  ✓ Paradise Biryani (Swiggy): 0 items
+  ✗  Paradise Biryani (Swiggy): 0 items scraped — page may not have loaded
+  Loading Mainland China (Swiggy) (Swiggy)…
+  ✓ Mainland China (Swiggy): 0 items
+  ✗  Mainland China (Swiggy): 0 items scraped — page may not have loaded
+  Loading Cream Centre (Swiggy) (Swiggy)…
+  ✓ Cream Centre (Swiggy): 0 items
+  ✗  Cream Centre (Swiggy): 0 items scraped — page may not have loaded
+  Loading Rajdhani Thali (Swiggy) (Swiggy)…
+  ✓ Rajdhani Thali (Swiggy): 0 items
+  ✗  Rajdhani Thali (Swiggy): 0 items scraped — page may not have loaded
+  Loading Natural Ice Cream (Swiggy) (Swiggy)…
+  ✓ Natural Ice Cream (Swiggy): 0 items
+  ✗  Natural Ice Cream (Swiggy): 0 items scraped — page may not have loaded
+  Loading McDonald's USA (direct)…
+  ✗  McDonald's USA: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.mcdonalds.com/us/en-us/full_menu.html
+Call log:
+  - navigating to "https://www.mcdonalds.com/us/en-us/full_menu.html", waiting until "networkidle"
+
+  Loading Chipotle (direct)…
+  ✗  Chipotle: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.chipotle.com/menu", waiting until "networkidle"
+
+  Loading Taco Bell (direct)…
+  ✗  Taco Bell: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.tacobell.com/menu
+Call log:
+  - navigating to "https://www.tacobell.com/menu", waiting until "networkidle"
+
+  Loading Subway USA (direct)…
+  ✗  Subway USA: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.subway.com/en-US/MenuNutrition/Menu
+Call log:
+  - navigating to "https://www.subway.com/en-US/MenuNutrition/Menu", waiting until "networkidle"
+
+  Loading Panera Bread (direct)…
+  ✗  Panera Bread: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.panerabread.com/en-us/menu/whole-menu.html", waiting until "networkidle"
+
+  Loading Shake Shack (direct)…
+  ✗  Shake Shack: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.shakeshack.com/food-drink/", waiting until "networkidle"
+
+  Loading Five Guys (direct)…
+  ✓ Five Guys: 0 items
+  ✗  Five Guys: 0 items scraped — page may not have loaded
+  Loading Chick-fil-A (direct)…
+  ✓ Chick-fil-A: 0 items
+  ✗  Chick-fil-A: 0 items scraped — page may not have loaded
+  Loading Wingstop (direct)…
+  ✓ Wingstop: 0 items
+  ✗  Wingstop: 0 items scraped — page may not have loaded
+  Loading In-N-Out Burger (direct)…
+  ✓ In-N-Out Burger: 0 items
+  ✗  In-N-Out Burger: 0 items scraped — page may not have loaded
+  Loading Whataburger (direct)…
+  ✓ Whataburger: 0 items
+  ✗  Whataburger: 0 items scraped — page may not have loaded
+  Loading Raising Cane's (direct)…
+  ✓ Raising Cane's: 0 items
+  ✗  Raising Cane's: 0 items scraped — page may not have loaded
+  Loading Jack in the Box (direct)…
+  ✓ Jack in the Box: 0 items
+  ✗  Jack in the Box: 0 items scraped — page may not have loaded
+  Loading Del Taco (direct)…
+  ✓ Del Taco: 0 items
+  ✗  Del Taco: 0 items scraped — page may not have loaded
+  Loading Fatburger (direct)…
+  ✓ Fatburger: 0 items
+  ✗  Fatburger: 0 items scraped — page may not have loaded
+  Loading Denny's (direct)…
+  ✓ Denny's: 0 items
+  ✗  Denny's: 0 items scraped — page may not have loaded
+  Loading Waffle House (direct)…
+  ✓ Waffle House: 0 items
+  ✗  Waffle House: 0 items scraped — page may not have loaded
+  Loading Steak 'n Shake (direct)…
+  ✓ Steak 'n Shake: 0 items
+  ✗  Steak 'n Shake: 0 items scraped — page may not have loaded
+  Loading McDonald's UK (direct)…
+  ✗  McDonald's UK: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.mcdonalds.com/gb/en-gb/eat/fullmenu.html
+Call log:
+  - navigating to "https://www.mcdonalds.com/gb/en-gb/eat/fullmenu.html", waiting until "networkidle"
+
+  Loading Nando's UK (direct)…
+  ✓ Nando's UK: 0 items
+  ✗  Nando's UK: 0 items scraped — page may not have loaded
+  Loading Pret A Manger (direct)…
+  ✓ Pret A Manger: 0 items
+  ✗  Pret A Manger: 0 items scraped — page may not have loaded
+  Loading Wagamama (direct)…
+  ✓ Wagamama: 0 items
+  ✗  Wagamama: 0 items scraped — page may not have loaded
+  Loading Leon (direct)…
+  ✓ Leon: 3 items
+  Loading Itsu (direct)…
