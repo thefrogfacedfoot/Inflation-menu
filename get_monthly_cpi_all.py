@@ -418,9 +418,97 @@ def fetch_malaysia() -> Tuple[List[Dict], str]:
     return records, "DOSM data.gov.my cpi_headline (monthly)"
 
 
+def _bps_get_cpi_var_id(key: str) -> Optional[str]:
+    """Discover the BPS variable ID for monthly CPI (Indeks Harga Konsumen).
+    Caches the result inside this module for the rest of the run."""
+    if hasattr(_bps_get_cpi_var_id, "_cache"):
+        return _bps_get_cpi_var_id._cache
+    url = "https://webapi.bps.go.id/v1/api/list"
+    # BPS subject 03 (Inflasi & Indeks Harga Konsumen) — paginate
+    for page in range(1, 6):
+        j = get_json(url, params={"model": "var", "domain": "0000",
+                                   "key": key, "page": str(page)},
+                     timeout=20)
+        if not isinstance(j, dict) or j.get("status") == "Error":
+            break
+        for v in j.get("data", [[],[]])[1] if isinstance(j.get("data"), list) else []:
+            title = (v.get("title") or "").lower()
+            if ("indeks harga konsumen" in title or "ihk" in title) \
+               and ("90 kota" in title or "kota" in title or "nasional" in title):
+                _bps_get_cpi_var_id._cache = str(v.get("var_id"))
+                return _bps_get_cpi_var_id._cache
+        if page >= j.get("pages", 1):
+            break
+    _bps_get_cpi_var_id._cache = None
+    return None
+
+
 def fetch_indonesia() -> Tuple[List[Dict], str]:
-    print("  Primary: BPS requires API key; skipping to fallback.")
-    raise ValueError("BPS requires registration key; using fallback")
+    """BPS monthly CPI (Indeks Harga Konsumen). Requires BPS_API_KEY in env.
+    Without a key, the World Bank annual fallback runs."""
+    # Load .env lazily so this module stays import-clean.
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except Exception:
+        pass
+    key = os.environ.get("BPS_API_KEY", "").strip()
+    if not key:
+        print("  Primary: BPS_API_KEY not set in .env — using World Bank fallback.")
+        raise ValueError("BPS_API_KEY not set; using fallback")
+    print(f"  Primary: BPS WebAPI (key …{key[-4:]}) …")
+    var_id = _bps_get_cpi_var_id(key)
+    if not var_id:
+        raise ValueError("BPS: could not locate CPI variable ID")
+    j = get_json("https://webapi.bps.go.id/v1/api/list",
+                 params={"model": "data", "domain": "0000",
+                          "var": var_id, "key": key},
+                 timeout=25)
+    if not isinstance(j, dict) or j.get("status") == "Error":
+        raise ValueError(f"BPS error: {j}")
+    # BPS returns datacontent keyed by `{var_id}{turvar}{period}{turth}`
+    # year-month is encoded in `tahun` and `turtahun` (sub-period).
+    datacontent = j.get("datacontent", {})
+    th_meta = {str(t["val"]): t for t in j.get("tahun", [])}
+    turth_meta = {str(t["val"]): t for t in j.get("turtahun", [])}
+    records: List[Dict] = []
+    for k, v in datacontent.items():
+        # Key format: <var><turvar><tahun><turth>
+        # We'll inspect what BPS actually returns; many series use last 7 chars
+        # as YYYYMM-ish. Be defensive.
+        if not isinstance(v, (int, float)):
+            continue
+        # Find period codes inside the key
+        # Common layout: var(4)+turvar(1)+tahun(3)+turth(2). Extract last 5 chars.
+        if len(k) < 8:
+            continue
+        # Try to detect 6-digit year-month at the end
+        ym_str = None
+        for n in (6, 7, 8):
+            tail = k[-n:]
+            if tail.isdigit() and 200000 <= int(tail[:6]) <= 203012:
+                ym_str = tail[:6]
+                break
+        if not ym_str:
+            continue
+        year = int(ym_str[:4])
+        month = int(ym_str[4:6])
+        if year < START_YEAR or not 1 <= month <= 12:
+            continue
+        records.append({
+            "year_month": ym(year, month),
+            "cpi_value":  float(v),
+            "cpi_food":   None,
+        })
+    # Deduplicate by year_month (BPS may report multiple regions; take mean)
+    by_ym: Dict[str, list] = {}
+    for r in records:
+        by_ym.setdefault(r["year_month"], []).append(r["cpi_value"])
+    deduped = [{"year_month": p, "cpi_value": sum(vs)/len(vs), "cpi_food": None}
+               for p, vs in sorted(by_ym.items())]
+    if not deduped:
+        raise ValueError("BPS returned no parsable monthly observations")
+    return deduped, f"BPS WebAPI var={var_id} (monthly)"
 
 
 def fetch_thailand() -> Tuple[List[Dict], str]:
