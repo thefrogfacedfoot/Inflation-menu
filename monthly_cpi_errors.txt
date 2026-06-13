@@ -29,3 +29,6 @@
 2026-06-13 [MY] Primary failed: DOSM API 404; using fallback
 2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
 2026-06-13 [ID] Primary failed: BPS requires registration key; using fallback
+2026-06-13 [SG] Primary failed: SingStat API 404 on known table IDs; using fallback
+2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
+2026-06-13 [ID] Primary failed: BPS requires registration key; using fallback

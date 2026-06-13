@@ -1970,3 +1970,174 @@ Call log:
   - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
 
   Loading Ah Weng Koh Hainan Tea (GrabFood)…
+  ✓ Ah Weng Koh Hainan Tea: 0 items
+  ✗  Ah Weng Koh Hainan Tea: 0 items scraped — page may not have loaded
+  Loading Dragon-i (GrabFood)…
+  ✓ Dragon-i: 0 items
+  ✗  Dragon-i: 0 items scraped — page may not have loaded
+  Loading Kluang Rail Coffee (foodpanda)…
+  ✗  Kluang Rail Coffee: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Kim Lian Kee (foodpanda)…
+  ✗  Kim Lian Kee: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Hameed Pata Mee Sotong (foodpanda)…
+  ✗  Hameed Pata Mee Sotong: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Nasi Kandar Pelita (foodpanda)…
+  ✗  Nasi Kandar Pelita: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Jerung Char Koay Teow (foodpanda)…
+  ✗  Jerung Char Koay Teow: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Family Seafood (foodpanda)…
+  ✗  Family Seafood: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading McDonald's Jakarta (foodpanda)…
+  ✗  McDonald's Jakarta: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cs7qm/mcdonalds
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cs7qm/mcdonalds", waiting until "networkidle"
+
+  Loading KFC Indonesia (foodpanda)…
+  ✗  KFC Indonesia: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cv3ts/kfc
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cv3ts/kfc", waiting until "networkidle"
+
+  Loading Pizza Hut Indonesia (foodpanda)…
+  ✗  Pizza Hut Indonesia: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/co3xd/pizza-hut
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/co3xd/pizza-hut", waiting until "networkidle"
+
+  Loading J.CO Donuts & Coffee (foodpanda)…
+  ✗  J.CO Donuts & Coffee: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cm0xt/jco-donuts-coffee
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cm0xt/jco-donuts-coffee", waiting until "networkidle"
+
+  Loading A&W Indonesia (foodpanda)…
+  ✗  A&W Indonesia: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cl5tw/a-and-w
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cl5tw/a-and-w", waiting until "networkidle"
+
+  Loading Hoka Hoka Bento (foodpanda)…
+  ✗  Hoka Hoka Bento: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/ck8mb/hoka-hoka-bento
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/ck8mb/hoka-hoka-bento", waiting until "networkidle"
+
+  Loading Yoshinoya Indonesia (foodpanda)…
+  ✗  Yoshinoya Indonesia: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cj9xc/yoshinoya
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cj9xc/yoshinoya", waiting until "networkidle"
+
+  Loading Burger King Indonesia (foodpanda)…
+  ✗  Burger King Indonesia: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/ch4vz/burger-king
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/ch4vz/burger-king", waiting until "networkidle"
+
+  Loading Domino's Pizza Indonesia (foodpanda)…
+  ✗  Domino's Pizza Indonesia: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cg5qe/dominos-pizza
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cg5qe/dominos-pizza", waiting until "networkidle"
+
+  Loading Mie Gacoan (foodpanda)…
+  ✗  Mie Gacoan: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cf3qe/mie-gacoan
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cf3qe/mie-gacoan", waiting until "networkidle"
+
+  Loading Es Teler 77 (foodpanda)…
+  ✗  Es Teler 77: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/ce1ts/es-teler-77
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/ce1ts/es-teler-77", waiting until "networkidle"
+
+  Loading Sate Khas Senayan (foodpanda)…
+  ✗  Sate Khas Senayan: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cd9xq/sate-khas-senayan
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cd9xq/sate-khas-senayan", waiting until "networkidle"
+
+  Loading Bebek Goreng Harissa (foodpanda)…
+  ✗  Bebek Goreng Harissa: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cc8qz/bebek-goreng-harissa
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cc8qz/bebek-goreng-harissa", waiting until "networkidle"
+
+  Loading Pempek Candy (foodpanda)…
+  ✗  Pempek Candy: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/cb7wk/pempek-candy
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/cb7wk/pempek-candy", waiting until "networkidle"
+
+  Loading Warung Padang Sederhana (foodpanda)…
+  ✗  Warung Padang Sederhana: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/ca6sf/warung-padang-sederhana
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/ca6sf/warung-padang-sederhana", waiting until "networkidle"
+
+  Loading Bakso Urat Solo (foodpanda)…
+  ✗  Bakso Urat Solo: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/bz5qj/bakso-urat-solo
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/bz5qj/bakso-urat-solo", waiting until "networkidle"
+
+  Loading Ayam Goreng Suharti (foodpanda)…
+  ✗  Ayam Goreng Suharti: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/by4pt/ayam-goreng-suharti
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/by4pt/ayam-goreng-suharti", waiting until "networkidle"
+
+  Loading Soto Ayam Lamongan Cak Har (foodpanda)…
+  ✗  Soto Ayam Lamongan Cak Har: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.id/chain/bx3nk/soto-ayam-lamongan
+Call log:
+  - navigating to "https://www.foodpanda.id/chain/bx3nk/soto-ayam-lamongan", waiting until "networkidle"
+
+  Loading McDonald's Thailand (foodpanda)…
+  ✗  McDonald's Thailand: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading KFC Thailand (foodpanda)…
+  ✗  KFC Thailand: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Pizza Company (foodpanda)…
+  ✗  Pizza Company: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Burger King Thailand (foodpanda)…
+  ✗  Burger King Thailand: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Swensen's Thailand (foodpanda)…
+  ✗  Swensen's Thailand: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading MK Restaurant (foodpanda)…
+  ✗  MK Restaurant: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Starbucks Thailand (foodpanda)…
+  ✗  Starbucks Thailand: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Greyhound Cafe (foodpanda)…
+  ✗  Greyhound Cafe: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading S&P Restaurant (foodpanda)…
+  ✗  S&P Restaurant: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Somtum Der (foodpanda)…

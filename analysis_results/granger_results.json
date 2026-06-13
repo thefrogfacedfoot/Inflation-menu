@@ -35,12 +35,12 @@
   "Malaysia": {
     "n_obs": 12,
     "granger_significant": false,
-    "granger_p_value": 0.7044,
+    "granger_p_value": 0.2636,
     "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": 0.0067,
+    "aic_lag": 2,
+    "pass_through_formal": 0.0026,
     "pass_through_significant": false,
-    "r_squared": 0.0892,
+    "r_squared": 0.0394,
     "note": ""
   },
   "Singapore": {
@@ -62,12 +62,12 @@
   "United Kingdom": {
     "n_obs": 11,
     "granger_significant": false,
-    "granger_p_value": 0.8229,
-    "lead_months": 2,
+    "granger_p_value": 0.2702,
+    "lead_months": 1,
     "aic_lag": 2,
-    "pass_through_formal": 0.0289,
+    "pass_through_formal": 0.0511,
     "pass_through_significant": true,
-    "r_squared": 0.4278,
+    "r_squared": 0.8016,
     "note": ""
   },
   "United States": {

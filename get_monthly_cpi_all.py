@@ -311,10 +311,55 @@ def fetch_united_states() -> Tuple[List[Dict], str]:
     return records, "OECD PRICES_CPI HICP monthly index"
 
 
+_ONS_MONTH_MAP = {
+    "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAY": 5, "JUN": 6,
+    "JUL": 7, "AUG": 8, "SEP": 9, "OCT": 10, "NOV": 11, "DEC": 12,
+}
+
+
+def _ons_timeseries(series_id: str) -> List[Tuple[str, float]]:
+    """Fetch an ONS mm23 monthly time series. Returns [(YYYY-MM, value)]."""
+    url = (f"https://www.ons.gov.uk/economy/inflationandpriceindices/"
+           f"timeseries/{series_id}/mm23/data")
+    j = get_json(url, timeout=20)
+    out: List[Tuple[str, float]] = []
+    for entry in j.get("months", []):
+        date_str = entry.get("date", "").strip().upper()
+        # Format: "1988 JAN"
+        parts = date_str.split()
+        if len(parts) != 2 or parts[1] not in _ONS_MONTH_MAP:
+            continue
+        try:
+            year = int(parts[0])
+        except ValueError:
+            continue
+        if year < START_YEAR:
+            continue
+        val = parse_float(entry.get("value"))
+        if val is None:
+            continue
+        out.append((ym(year, _ONS_MONTH_MAP[parts[1]]), val))
+    return out
+
+
 def fetch_united_kingdom() -> Tuple[List[Dict], str]:
-    """UK: no monthly source reachable from this network; raise to trigger fallback."""
-    print("  Primary: ONS CPIH01 — not reachable from this network.")
-    raise ValueError("ONS API not reachable (network timeout); using fallback")
+    """ONS monthly CPI index. Series d7bt = CPI INDEX 00 (All Items, 2015=100).
+    Food series 'l55p' (CPI 01 Food & non-alc beverages) included when found."""
+    print("  Primary: ONS d7bt CPI INDEX 00: ALL ITEMS 2015=100 …")
+    all_items = _ons_timeseries("d7bt")
+    if not all_items:
+        raise ValueError("ONS d7bt returned no monthly observations")
+    food: Dict[str, float] = {}
+    try:
+        food = dict(_ons_timeseries("d7bu"))
+    except Exception as e:
+        log_error("GB", f"ONS food fetch (d7bu) skipped: {e}")
+    records = [{
+        "year_month": p,
+        "cpi_value":  v,
+        "cpi_food":   food.get(p),
+    } for p, v in all_items]
+    return records, "ONS d7bt CPI INDEX 00 (monthly, 2015=100)"
 
 
 def fetch_india() -> Tuple[List[Dict], str]:
@@ -337,8 +382,40 @@ def fetch_singapore() -> Tuple[List[Dict], str]:
 
 
 def fetch_malaysia() -> Tuple[List[Dict], str]:
-    print("  Primary: DOSM open.dosm.gov.my — API endpoint returns 404.")
-    raise ValueError("DOSM API 404; using fallback")
+    """DOSM monthly CPI via data.gov.my data-catalogue (id=cpi_headline).
+    Returns the 'overall' division as the all-items index, and '01'
+    (Food and non-alcoholic beverages) as the food index."""
+    print("  Primary: DOSM data.gov.my data-catalogue (cpi_headline) …")
+    url = "https://api.data.gov.my/data-catalogue"
+    data = get_json(url, params={"id": "cpi_headline"}, timeout=25)
+    if not isinstance(data, list) or not data:
+        raise ValueError("DOSM cpi_headline returned no rows")
+    overall = [d for d in data if d.get("division") == "overall"]
+    food    = [d for d in data if d.get("division") == "01"]
+    food_by_ym = {}
+    for d in food:
+        ds = d.get("date", "")
+        if len(ds) >= 7:
+            food_by_ym[ds[:7]] = parse_float(d.get("index"))
+    records: List[Dict] = []
+    for d in overall:
+        ds = d.get("date", "")
+        if len(ds) < 7:
+            continue
+        ym_str = ds[:7]
+        if ym_str < f"{START_YEAR}-01":
+            continue
+        val = parse_float(d.get("index"))
+        if val is None:
+            continue
+        records.append({
+            "year_month": ym_str,
+            "cpi_value":  val,
+            "cpi_food":   food_by_ym.get(ym_str),
+        })
+    if not records:
+        raise ValueError("No usable rows in DOSM cpi_headline overall division")
+    return records, "DOSM data.gov.my cpi_headline (monthly)"
 
 
 def fetch_indonesia() -> Tuple[List[Dict], str]:

@@ -2,8 +2,8 @@ country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_throu
 Australia,13,0.415,2,2,False,-0.0006,False,0.0001,
 India,18,0.8106,2,3,False,0.0111,False,0.0738,
 Indonesia,1,,,,False,,False,,"insufficient_data (have 1, need 8)"
-Malaysia,12,0.7044,1,1,False,0.0067,False,0.0892,
+Malaysia,12,0.2636,1,2,False,0.0026,False,0.0394,
 Singapore,12,0.0922,2,2,False,0.0171,False,0.1172,
 Thailand,0,,,,False,,,,no_overlap
-United Kingdom,11,0.8229,2,2,False,0.0289,True,0.4278,
+United Kingdom,11,0.2702,1,2,False,0.0511,True,0.8016,
 United States,11,0.5858,1,1,False,0.0059,False,0.0392,
