@@ -2,6 +2,29 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-13 — Dashboard exporter fix (post-verification)
+
+### Fixed
+- **Vercel dashboard was serving stale numbers** after the Issues 1-8 push.
+  Root cause: `dashboard_data.py` only wrote to root `dashboard_data/`,
+  but the Next.js app reads from `dashboard/public/data/` (see
+  `dashboard/lib/data.ts`). Vercel's build picked up the unchanged
+  committed JSON, so the page kept showing Singapore = 701.03 and
+  Index-Months = 82.
+- **"Price Observations" stat read 0.** The dashboard's hero stat
+  sums `items_formal + items_informal` from `country_summary.json`,
+  fields the exporter didn't emit.
+
+### Changed
+- `dashboard_data.py` now mirrors all three JSON files into
+  `dashboard/public/data/` as well as `dashboard_data/`, and joins
+  per-country `items_formal` / `items_informal` counts from the
+  `prices` table into `country_summary.json`.
+- Verified live (commit `0c20669`): top-of-page now reads
+  **8 / 4,227 / 83 / 0 of 8**; Singapore UIFPI shows 705.16.
+
+---
+
 ## 2026-06-13 — Final technical fixes (Issues 1-8)
 
 ### Added
