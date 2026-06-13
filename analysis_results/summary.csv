@@ -1,6 +1,6 @@
 country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through_formal,pass_through_significant,r_squared,note
-Australia,13,0.6722,1,2,False,-0.8758,False,0.0237,
-India,18,0.2972,1,2,False,0.0108,False,0.0786,
+Australia,13,0.415,2,2,False,-0.0006,False,0.0001,
+India,18,0.8106,2,3,False,0.0111,False,0.0738,
 Indonesia,17,0.5556,1,1,False,0.0,False,0.0001,
 Malaysia,12,0.7044,1,1,False,0.0067,False,0.0892,
 Singapore,12,0.0922,2,2,False,0.0171,False,0.1172,
