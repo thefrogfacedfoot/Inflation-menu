@@ -23,10 +23,10 @@ DB_PATH            = 'uifpi.db'
 PROGRESS_FILE      = 'historical_progress.json'
 CDX_BASE           = 'http://web.archive.org/cdx/search/cdx'
 WBM_BASE           = 'https://web.archive.org/web'
-SNAPSHOTS_PER_COUNTRY = 50          # CDX limit per country
+SNAPSHOTS_PER_COUNTRY = 80          # CDX limit per country
 MIN_CONTENT_BYTES  = 3_072          # skip archive shells < 3 KB
-CDX_DELAY          = 3.0            # seconds between CDX API calls
-FETCH_DELAY        = 4.0            # seconds between Wayback fetches
+CDX_DELAY          = 2.0            # seconds between CDX API calls
+FETCH_DELAY        = 3.0            # seconds between Wayback fetches
 RETRY_ATTEMPTS     = 3
 RETRY_BACKOFF      = 10             # seconds before retry
 
@@ -68,12 +68,12 @@ COUNTRY_CONFIG = {
         'price_re': r'Rp\.?\s*([\d.,]+)',
     },
     'Thailand': {
-        'pattern':  'tripadvisor.com/Restaurant_Review-g293916*',
+        'pattern':  'tripadvisor.com/Restaurants-g293916*',
         'currency': 'THB',
         'price_re': r'฿\s*([\d,]+)',
     },
     'India': {
-        'pattern':  'tripadvisor.com/Restaurant_Review-g304554*',
+        'pattern':  'tripadvisor.com/Restaurant_Review-g304554-*',
         'currency': 'INR',
         'price_re': r'₹\s*([\d,]+)',
     },

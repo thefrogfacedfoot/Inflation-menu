@@ -1,0 +1,181 @@
+================================================================================
+UIFPI PROJECT DIAGNOSTIC REPORT
+Date: 2026-06-13
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATABASE CHECKS (uifpi.db)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓  prices table — total rows: 7,180
+
+   ROWS PER COUNTRY:
+   ✗  Australia:     47 rows  *** UNDER 50 THRESHOLD
+   ✗  India:         47 rows  *** UNDER 50 THRESHOLD
+   ✓  United States: 52 rows
+   ✓  United Kingdom:68 rows
+   ✓  Malaysia:     439 rows
+   ✓  Singapore:  6,527 rows  (NOTE: 90.9% of all rows — extreme imbalance)
+
+   NOTE: Indonesia, Philippines, Thailand have NO rows in prices table at all.
+
+   ROWS PER SECTOR:
+   ✓  formal:   5,855
+   ✓  informal: 1,325  (18.4% — low informal coverage)
+
+   ROWS PER SOURCE:
+   ✓  foodpanda: 6,889
+   ✓  wayback:     268
+   ✓  direct:       23
+
+   DATE RANGE:
+   ✓  2018-01-17 → 2026-06-12  (3,068 days, ~8.4 years — well over 6 months)
+
+✗  nlp_results table — total rows: 0  *** TABLE IS EMPTY
+✓  uifpi_index table — total rows: 78
+✗  monthly_cpi table — TABLE DOES NOT EXIST (optional, noted)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FILE CHECKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   REQUIRED SCRIPTS:
+   ✓  live_scraper.py        (49,937 bytes)
+   ✓  historical_scraper.py  (16,703 bytes)
+   ✓  nlp_pipeline.py        (14,043 bytes)
+   ✓  validate_nlp.py        (10,016 bytes)
+   ✓  index_builder.py       (17,531 bytes)
+   ✓  granger_analysis.py    (15,731 bytes)
+   ✓  dashboard_data.py       (8,787 bytes)
+   ✓  run_all.py              (6,427 bytes)
+   ✓  requirements.txt           (412 bytes)
+
+   CPI DATA FOLDER:
+   ✓  cpi_data/ has 16 JSON files (9 country CPI + 7 monthly CPI) — exceeds req. of 8
+      Standard CPI files (9):
+        cpi_au.json (774 B), cpi_gb.json (779 B), cpi_id.json (772 B),
+        cpi_in.json (769 B), cpi_my.json (772 B), cpi_ph.json (774 B),
+        cpi_sg.json (772 B), cpi_th.json (772 B), cpi_us.json (775 B)
+      Monthly CPI files (7):
+        monthly_cpi_au, gb, id, in, sg, th, us
+
+   ✓  analysis_results/ folder exists
+      Contents: summary.csv, granger_results.json
+
+   ✓  granger_results.json — 1,983 bytes (populated)
+
+   ✓  uifpi_index.csv — 3,285 bytes, 79 lines (header + 78 data rows)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATA QUALITY CHECKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   PRICES TABLE:
+   ✓  NULL prices: 0
+   ✓  Out-of-range prices (<0.01 or >10,000): 0
+   ✗  price_usd populated: 23 of 7,180 rows (0.3%) *** EFFECTIVELY UNPOPULATED
+
+   NLP RESULTS:
+   ✗  Confidence >0.85: 0/0 (0%) — impossible to assess; table is empty
+      Fix: run nlp_pipeline.py first, then re-evaluate
+
+   UIFPI INDEX COVERAGE:
+   ✗  Countries with index values: 6 of 8 expected
+      Present:  Australia, India, Malaysia, Singapore, United Kingdom, United States
+      Missing:  Indonesia, Philippines, Thailand
+      (These countries have no price rows to build an index from)
+
+   GRANGER CAUSALITY RESULTS:
+   ✗  Significant Granger causality: 0 of 6 countries
+      All 6 countries: granger_significant = false, p_value = null
+      Root cause: "The x values include a column with constant values
+                   and so the test statistic cannot be computed."
+      Affected: Australia, India, Malaysia, Singapore, United Kingdom, United States
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUMMARY TABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Check                                          Status
+  ─────────────────────────────────────────────  ──────
+  prices table — total rows (7,180)              ✓
+  Australia row count (47)                       ✗  UNDER 50
+  India row count (47)                           ✗  UNDER 50
+  United States row count (52)                   ✓
+  United Kingdom row count (68)                  ✓
+  Malaysia row count (439)                       ✓
+  Singapore row count (6,527)                    ✓
+  Rows per sector (formal/informal)              ✓
+  Rows per source                                ✓
+  Date range (3,068 days)                        ✓
+  nlp_results table populated                    ✗  0 ROWS
+  uifpi_index table populated (78 rows)          ✓
+  monthly_cpi table exists                       ✗  MISSING (optional)
+  All required scripts exist and non-empty       ✓
+  cpi_data/ — at least 8 JSON files (16 found)   ✓
+  analysis_results/ folder exists                ✓
+  granger_results.json exists and non-empty      ✓
+  uifpi_index.csv exists and has data            ✓
+  NULL prices                                    ✓  None
+  Out-of-range prices                            ✓  None
+  price_usd populated                            ✗  0.3% (23/7,180)
+  nlp confidence >0.85                           ✗  N/A (table empty)
+  uifpi_index has 8 countries                    ✗  6 of 8 present
+  Granger causality computed                     ✗  ALL FAILED (constant columns)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERDICT: *** NOT READY ***
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6 CRITICAL ISSUES MUST BE RESOLVED:
+
+  ISSUE 1 — nlp_results table is empty (0 rows)
+  Impact:   NLP confidence check cannot be performed; downstream analysis
+            that depends on categorized items is broken.
+  Fix:      python3 nlp_pipeline.py
+
+  ISSUE 2 — price_usd nearly unpopulated (0.3% of rows)
+  Impact:   Cross-country USD-normalized comparisons are impossible.
+            Index calculations using price_usd will be unreliable.
+  Fix:      Run the USD conversion step — check migrate_db.py or the
+            currency conversion logic inside live_scraper.py / historical_scraper.py
+
+  ISSUE 3 — Australia and India each have only 47 price rows (< 50 threshold)
+  Impact:   Statistically thin coverage for these two countries; index
+            values will be noisy.
+  Fix:      python3 historical_scraper.py  (target AU and IN sources)
+            or python3 live_scraper.py     (if live sources are available)
+
+  ISSUE 4 — uifpi_index has only 6 countries; Indonesia, Philippines,
+            Thailand are entirely absent
+  Impact:   Index is incomplete; Granger analysis covers 6 not 8 countries.
+  Fix:      Scrape price data for ID, PH, TH first, then:
+            python3 index_builder.py
+
+  ISSUE 5 — Granger causality failed for ALL 6 countries
+  Impact:   No lead/lag relationship between UIFPI and CPI is established;
+            the core econometric finding of the paper is missing.
+  Root cause: Constant-value columns in the VAR matrix (likely because
+              UIFPI index values are frozen at 100.0 base period for most
+              countries — check uifpi_index for repeated identical values).
+  Fix:      Resolve Issues 1–4 first (more data → more variance), then:
+            python3 granger_analysis.py
+
+  ISSUE 6 — Dataset heavily skewed toward Singapore (90.9% of all rows)
+  Impact:   Index and causality results will be dominated by Singapore;
+            cross-country comparisons lose validity.
+  Fix:      Balance scraping — run historical_scraper.py or live_scraper.py
+            for under-represented countries before rebuilding the index.
+
+RECOMMENDED FIX ORDER:
+  1. python3 historical_scraper.py   # expand AU, IN, ID, PH, TH coverage
+  2. python3 migrate_db.py           # populate price_usd column
+  3. python3 nlp_pipeline.py         # classify and score all items
+  4. python3 validate_nlp.py         # verify NLP output quality
+  5. python3 index_builder.py        # rebuild index with fuller data
+  6. python3 granger_analysis.py     # rerun after index has real variance
+  7. python3 run_all.py              # full pipeline verification
+
+================================================================================
+END OF REPORT
+================================================================================

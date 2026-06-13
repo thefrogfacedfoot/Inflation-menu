@@ -1,0 +1,212 @@
+================================================================================
+UIFPI PROJECT DIAGNOSTIC REPORT — VERSION 2
+Date: 2026-06-13  (post-fix run)
+Compare to: diagnostic_report.txt (v1)
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATABASE CHECKS (uifpi.db)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓  prices table — total rows: 7,202  (was 7,180 in v1; +22 from Indonesia scrape)
+
+   ROWS PER COUNTRY:
+   ✓  Singapore:      6,527 rows
+   ✓  Malaysia:         439 rows
+   ✓  United Kingdom:    68 rows
+   ✓  United States:     52 rows
+   ✗  India:             47 rows  (under 200 target; scraper still running)
+   ✗  Australia:         47 rows  (under 200 target; scraper still running)
+   ✗  Indonesia:         22 rows  (new country; scraper still running, was 0)
+   ✗  Thailand:           0 rows  (no data yet; scraper queued)
+
+   NOTE: Philippines removed as planned — 0 rows deleted (was already 0 in DB).
+
+   ROWS PER SECTOR:
+   ✓  formal:   5,855
+   ✓  informal: 1,347  (was 1,325; +22 new rows)
+
+   ROWS PER SOURCE:
+   ✓  foodpanda: 6,889
+   ✓  wayback:     290  (was 268; +22 new Indonesia rows)
+   ✓  direct:       23
+
+   DATE RANGE:
+   ✓  2018-01-17 → 2026-06-12  (3,068 days — well over 6 months)
+
+✓  nlp_results table — total rows: 2,141  (was 0 in v1; FIXED)
+✓  uifpi_index table — total rows: 88  (was 78; +10 Indonesia rows added)
+✗  monthly_cpi table — TABLE DOES NOT EXIST (optional; unchanged)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FILE CHECKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   REQUIRED SCRIPTS:
+   ✓  live_scraper.py
+   ✓  historical_scraper.py  (updated: Thailand CDX pattern fixed, 80 snapshots)
+   ✓  nlp_pipeline.py        (updated: rule-based fallback added)
+   ✓  validate_nlp.py
+   ✓  index_builder.py       (updated: mean-price fallback when no matched-model)
+   ✓  granger_analysis.py    (updated: MIN_OBS raised to 24, skip+note gracefully)
+   ✓  dashboard_data.py
+   ✓  run_all.py
+   ✓  requirements.txt
+   ✓  balance_check.py       (NEW script added)
+   ✓  migrate_db.py          (updated: now populates price_usd via live API)
+
+   ✓  cpi_data/ — 16 JSON files (9 country CPI + 7 monthly CPI)
+   ✓  analysis_results/ folder exists
+   ✓  granger_results.json — exists, populated (7 country entries)
+   ✓  uifpi_index.csv — 89 lines (header + 88 data rows)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATA QUALITY CHECKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   PRICES TABLE:
+   ✓  NULL prices: 0
+   ✗  Out-of-range prices (<0.01 or >10,000): 1 row  (was 0 in v1)
+      Note: likely 1 IDR price tier entry (tier 1 stored as price=1 in IDR, which
+      after USD conversion is ~0.000063 — investigate and clean.)
+   ✓  price_usd populated: 7,180 of 7,202 rows (99.7%)
+      FIXED from v1 (was 0.3% = 23 rows). 22 new rows added since fix have USD.
+
+   NLP RESULTS:
+   ✓  NLP pipeline ran: 2,141 items classified (rule-based fallback, no API key)
+   ✗  Confidence >0.85: 0/2,141 (0%) — all at 0.70 (rule-based fixed score)
+      This is expected — rule-based classifier uses confidence=0.70 for all items.
+      To get >0.85 confidence, set ANTHROPIC_API_KEY and re-run nlp_pipeline.py.
+
+   NLP Category breakdown:
+      OTHER:           751  (35% — high; keyword list should be expanded)
+      SEAFOOD_DISH:    213
+      BEVERAGE:        201
+      NOODLE_DISH:     191
+      RICE_DISH:       189
+      GRILLED_PROTEIN: 174
+      SOUP_STEW:       113
+      BREAD_PASTRY:     99
+      DIM_SUM_DUMPLING:  91
+      DESSERT:           45
+      SALAD_VEGETABLE:   35
+      FAST_FOOD:         32
+      SET_MEAL:           7
+
+   UIFPI INDEX COVERAGE:
+   ✓  Countries with index values: 7 (was 6 in v1; Indonesia added)
+      Australia, India, Indonesia, Malaysia, Singapore, United Kingdom, United States
+   ✗  Thailand: still missing (0 price rows)
+   ✗  Index method: all 7 countries used mean-price fallback (no matched-model overlap)
+      Root cause: FoodPanda data is single-snapshot (2026-06); Wayback data is
+      sparse — same items rarely appear in consecutive months.
+
+   GRANGER CAUSALITY:
+   ✗  Significant Granger causality: 0 of 7 countries
+      All countries skipped — insufficient UIFPI×CPI overlap for the 24-month minimum:
+        Australia:      12 overlapping months (need 24)
+        India:          15 overlapping months (need 24)
+        Indonesia:      10 overlapping months (need 24)
+        Malaysia:        0 — no monthly_cpi_my.json file
+        Singapore:      12 overlapping months (need 24)
+        United Kingdom: 11 overlapping months (need 24)
+        United States:  11 overlapping months (need 24)
+
+      IMPROVEMENT vs v1: Previously ALL 6 countries CRASHED with a degenerate VAR
+      error (constant UIFPI columns). Now all 7 countries exit cleanly with an
+      explanatory note. No crashes. No silent failures.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHAT WAS FIXED (v1 → v2)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  FIXED ✓  Issue 1 — Philippines removal: confirmed 0 rows (already absent)
+  FIXED ✓  Issue 2 — price_usd: 7,157 rows updated via live exchange rate API
+                       (AUD, GBP, INR, MYR, SGD → USD). Now 99.7% populated.
+  FIXED ✓  Issue 3 — balance_check.py created and runs correctly.
+                       historical_scraper.py running for Indonesia, Thailand,
+                       Australia, India (still in progress at report time).
+                       Indonesia: +22 rows already scraped.
+  FIXED ✓  Issue 4 — NLP pipeline: rule-based fallback added. 2,141 items
+                       classified (was 0). Confidence capped at 0.70 (no API key).
+  FIXED ✓  Issue 5 — Index rebuilt with mean-price fallback. 88 rows in
+                       uifpi_index (was 78). Index now has real variance per
+                       country — was all 100.0 in v1.
+  FIXED ✓  Issue 6 — Granger: MIN_OBS raised to 24. All countries skip cleanly
+                       with clear notes. No more "constant column" VAR crash.
+  FIXED ✓  Issue 7 — This report (v2) generated.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUMMARY TABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Check                                          v1 Status   v2 Status
+  ─────────────────────────────────────────────  ──────────  ──────────
+  prices table — total rows                      ✓ 7,180     ✓ 7,202
+  Australia row count (≥50 threshold)            ✗ 47        ✗ 47 (scraper running)
+  India row count (≥50 threshold)                ✗ 47        ✗ 47 (scraper running)
+  Indonesia row count                            ✗ 0         ✗ 22 (scraper running)
+  Thailand row count                             ✗ 0         ✗ 0  (scraper queued)
+  Date range (≥6 months)                         ✓           ✓
+  nlp_results table populated                    ✗ 0 rows    ✓ 2,141 rows
+  uifpi_index populated                          ✓ 78 rows   ✓ 88 rows
+  All required scripts exist                     ✓           ✓
+  balance_check.py exists                        ✗ missing   ✓ created
+  cpi_data/ ≥8 JSON files                        ✓ 16        ✓ 16
+  analysis_results/ folder exists                ✓           ✓
+  granger_results.json exists                    ✓           ✓
+  uifpi_index.csv has data                       ✓           ✓
+  NULL prices                                    ✓ 0         ✓ 0
+  Out-of-range prices                            ✓ 0         ✗ 1 (IDR tier artifact)
+  price_usd populated                            ✗ 0.3%      ✓ 99.7%
+  nlp confidence >0.85                           ✗ N/A       ✗ 0% (no API key)
+  uifpi_index has 7 countries                    ✗ 6 of 7    ✓ 7 of 7 (excl. Thailand)
+  Granger: no crash                              ✗ CRASHED   ✓ graceful skip+note
+  Granger: significant causality found           ✗           ✗ (data too thin)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERDICT: *** NOT READY *** (but materially improved from v1)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REMAINING BLOCKERS:
+
+  BLOCKER 1 — Insufficient price data for Granger analysis (root blocker)
+  All countries have fewer than 24 overlapping UIFPI×CPI monthly observations.
+  The matched-model index methodology requires repeated observation of the same
+  items across consecutive months, which the current data cannot provide:
+    • FoodPanda data (91% of all rows) is a single-date snapshot (June 2026)
+    • Wayback/historical data is sparse — items rarely repeat month-to-month
+  Fix: Run live_scraper.py repeatedly over multiple months to build a proper
+       time series. Or implement a Laspeyres index on mean prices.
+
+  BLOCKER 2 — Thailand has 0 rows
+  CDX scraper is queued (pending completion of Indonesia, Australia, India).
+  Fix: Wait for background historical_scraper.py run to complete.
+       If CDX still returns 0 results for Thailand, use a broader pattern
+       (tripadvisor.com/Restaurants-g293916*) — this was already set.
+
+  BLOCKER 3 — NLP confidence capped at 0.70 (rule-based fallback)
+  No ANTHROPIC_API_KEY is set. All 2,141 items classified at confidence=0.70.
+  Fix: export ANTHROPIC_API_KEY=<key>, then: python3 nlp_pipeline.py
+       (The --IGNORE items already in nlp_results; it will re-classify if needed.)
+
+  BLOCKER 4 — 1 out-of-range price row (minor)
+  Likely an IDR price tier artifact (tier=1 stored in IDR, converts to ~$0.000063).
+  Fix: DELETE FROM prices WHERE price < 0.01;
+       (Verify it is the IDR tier row before deleting.)
+
+  BLOCKER 5 — Malaysia monthly CPI file missing
+  monthly_cpi_my.json does not exist in cpi_data/.
+  Fix: Run get_monthly_cpi.py for Malaysia, or add the file manually.
+
+RECOMMENDED NEXT STEPS (in order):
+  1. Wait for historical_scraper.py to complete (still running)
+  2. export ANTHROPIC_API_KEY=<key> && python3 nlp_pipeline.py
+  3. Add monthly_cpi_my.json to cpi_data/
+  4. python3 index_builder.py   (rebuild after more data arrives)
+  5. python3 granger_analysis.py
+  6. Begin live_scraper.py runs on a monthly schedule to build time-series depth
+
+================================================================================
+END OF REPORT
+================================================================================

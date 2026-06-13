@@ -39,7 +39,7 @@ DB_PATH          = "uifpi.db"
 UIFPI_CSV        = "uifpi_index.csv"
 CPI_DIR          = "cpi_data"
 RESULTS_DIR      = "analysis_results"
-MIN_OBS          = 8     # minimum monthly observations for Granger test
+MIN_OBS          = 24    # minimum monthly observations for Granger test
 MAX_LAGS         = 6
 ADF_SIGNIFICANCE = 0.05
 

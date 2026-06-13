@@ -4,22 +4,33 @@
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
-    "aic_lag": 2,
+    "aic_lag": null,
     "pass_through_formal": null,
     "pass_through_informal": null,
     "pass_through_significant": false,
-    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+    "note": "insufficient_data: need >= 24 months, have 12"
   },
   "India": {
     "n_obs": 15,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
-    "aic_lag": 2,
+    "aic_lag": null,
     "pass_through_formal": null,
     "pass_through_informal": null,
     "pass_through_significant": false,
-    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+    "note": "insufficient_data: need >= 24 months, have 15"
+  },
+  "Indonesia": {
+    "n_obs": 10,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "note": "insufficient_data: need >= 24 months, have 10"
   },
   "Malaysia": {
     "note": "no_cpi_data",
@@ -30,32 +41,32 @@
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
-    "aic_lag": 2,
+    "aic_lag": null,
     "pass_through_formal": null,
     "pass_through_informal": null,
     "pass_through_significant": false,
-    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+    "note": "insufficient_data: need >= 24 months, have 12"
   },
   "United Kingdom": {
     "n_obs": 11,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
-    "aic_lag": 2,
+    "aic_lag": null,
     "pass_through_formal": null,
     "pass_through_informal": null,
     "pass_through_significant": false,
-    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+    "note": "insufficient_data: need >= 24 months, have 11"
   },
   "United States": {
     "n_obs": 11,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
-    "aic_lag": 2,
+    "aic_lag": null,
     "pass_through_formal": null,
     "pass_through_informal": null,
     "pass_through_significant": false,
-    "note": "granger_failed: The x values include a column with constant values and so the test statistic cannot be computed."
+    "note": "insufficient_data: need >= 24 months, have 11"
   }
 }

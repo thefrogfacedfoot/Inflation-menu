@@ -1560,3 +1560,204 @@ Call log:
   ✓ Mary's Burgers: 0 items
   ✗  Mary's Burgers: 0 items scraped — page may not have loaded
   Loading The Grounds of Alexandria (direct)…
+  ✗  The Grounds of Alexandria: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://thegrounds.com.au/all-day-menu/", waiting until "networkidle"
+
+  Loading Butter Restaurant (direct)…
+  ✗  Butter Restaurant: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.buttermelbourne.com.au/menu/
+Call log:
+  - navigating to "https://www.buttermelbourne.com.au/menu/", waiting until "networkidle"
+
+  Loading Lankan Filling Station (direct)…
+  ✓ Lankan Filling Station: 0 items
+  ✗  Lankan Filling Station: 0 items scraped — page may not have loaded
+  Loading Fonda Mexican (direct)…
+  ✓ Fonda Mexican: 0 items
+  ✗  Fonda Mexican: 0 items scraped — page may not have loaded
+  Loading Harry's Café de Wheels (direct)…
+  ✓ Harry's Café de Wheels: 0 items
+  ✗  Harry's Café de Wheels: 0 items scraped — page may not have loaded
+
+154 failed — retrying in 60 s…
+--- Attempt 3 (154 targets) ---
+
+  Loading Ichiban Boshi (foodpanda)…
+  ✗  Ichiban Boshi: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Din Tai Fung (GrabFood)…
+  ✓ Din Tai Fung: 0 items
+  ✗  Din Tai Fung: 0 items scraped — page may not have loaded
+  Loading Sushi Tei (GrabFood)…
+  ✓ Sushi Tei: 0 items
+  ✗  Sushi Tei: 0 items scraped — page may not have loaded
+  Loading Jumbo Seafood (GrabFood)…
+  ✓ Jumbo Seafood: 0 items
+  ✗  Jumbo Seafood: 0 items scraped — page may not have loaded
+  Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+  ✗  Crystal Jade La Mian Xiao Long Bao: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+  ✗  No Signboard Prawn Noodles and Carrot Cake: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Putien (foodpanda)…
+  ✗  Putien: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Paradise Dynasty (foodpanda)…
+  ✗  Paradise Dynasty: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Tim Ho Wan (foodpanda)…
+  ✗  Tim Ho Wan: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+  ✗  Crystal Jade Hong Kong Kitchen: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Pepper Lunch (foodpanda)…
+  ✗  Pepper Lunch: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ippudo Ramen (GrabFood)…
+  ✓ Ippudo Ramen: 0 items
+  ✗  Ippudo Ramen: 0 items scraped — page may not have loaded
+  Loading Seoul Garden HotPot (foodpanda)…
+  ✗  Seoul Garden HotPot: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Hokkaido-ya (foodpanda)…
+  ✗  Hokkaido-ya: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading BreadTalk (GrabFood)…
+  ✓ BreadTalk: 0 items
+  ✗  BreadTalk: 0 items scraped — page may not have loaded
+  Loading Toast Box (foodpanda)…
+  ✗  Toast Box: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Old Chang Kee (foodpanda)…
+  ✗  Old Chang Kee: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crystal Jade GO (foodpanda)…
+  ✗  Crystal Jade GO: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Song Fa Bak Kut Teh (foodpanda)…
+  ✗  Song Fa Bak Kut Teh: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Hawker Chan (foodpanda)…
+  ✗  Hawker Chan: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading A Noodle Story (foodpanda)…
+  ✗  A Noodle Story: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading 328 Katong Laksa (foodpanda)…
+  ✗  328 Katong Laksa: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crave Nasi Lemak (foodpanda)…
+  ✗  Crave Nasi Lemak: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading 28 Fried Kway Teow (foodpanda)…
+  ✗  28 Fried Kway Teow: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Tai Wah Pork Noodles (foodpanda)…
+  ✗  Tai Wah Pork Noodles: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Janggut Laksa (foodpanda)…
+  ✗  Janggut Laksa: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Nam Kee Chicken Rice (foodpanda)…
+  ✗  Nam Kee Chicken Rice: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Swee Choon Tim Sum (foodpanda)…
+  ✗  Swee Choon Tim Sum: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Killiney Kopitiam (foodpanda)…
+  ✗  Killiney Kopitiam: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Din Tai Fung KL (foodpanda)…
+  ✗  Din Tai Fung KL: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Sushi Tei KL (foodpanda)…
+  ✗  Sushi Tei KL: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ichiban Boshi KL (foodpanda)…
+  ✗  Ichiban Boshi KL: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Pepper Lunch KL (foodpanda)…
+  ✗  Pepper Lunch KL: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ippudo KL (GrabFood)…
+  ✓ Ippudo KL: 0 items
+  ✗  Ippudo KL: 0 items scraped — page may not have loaded
+  Loading Secret Recipe (GrabFood)…
+    Chain nav failed: Page.wait_for_selector: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator("a[href*=\"/restaurant/\"]") to be visible
+
+  ✓ Secret Recipe: 0 items
+  ✗  Secret Recipe: 0 items scraped — page may not have loaded
+  Loading OldTown White Coffee (foodpanda)…
+  ✗  OldTown White Coffee: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Nando's KL (GrabFood)…
+  ✓ Nando's KL: 0 items
+  ✗  Nando's KL: 0 items scraped — page may not have loaded
+  Loading TGI Fridays KL (foodpanda)…
+  ✗  TGI Fridays KL: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Madam Kwan's (foodpanda)…

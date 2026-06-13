@@ -265,14 +265,132 @@ def print_summary(conn: sqlite3.Connection) -> None:
     print()
 
 
+# ── Rule-based fallback classifier ───────────────────────────────────────────
+
+RULE_KEYWORDS: list[tuple[str, str]] = [
+    # (keyword_lower, category)
+    ("noodle", "NOODLE_DISH"), ("laksa", "NOODLE_DISH"), ("ramen", "NOODLE_DISH"),
+    ("pho", "NOODLE_DISH"), ("pad thai", "NOODLE_DISH"), ("mee", "NOODLE_DISH"),
+    ("pasta", "NOODLE_DISH"), ("udon", "NOODLE_DISH"), ("soba", "NOODLE_DISH"),
+    ("spaghetti", "NOODLE_DISH"), ("linguine", "NOODLE_DISH"),
+    ("rice", "RICE_DISH"), ("nasi", "RICE_DISH"), ("biryani", "RICE_DISH"),
+    ("congee", "RICE_DISH"), ("porridge", "RICE_DISH"), ("fried rice", "RICE_DISH"),
+    ("risotto", "RICE_DISH"),
+    ("soup", "SOUP_STEW"), ("stew", "SOUP_STEW"), ("curry", "SOUP_STEW"),
+    ("tom yum", "SOUP_STEW"), ("rendang", "SOUP_STEW"), ("broth", "SOUP_STEW"),
+    ("dhal", "SOUP_STEW"), ("dal", "SOUP_STEW"), ("bak kut", "SOUP_STEW"),
+    ("dumpling", "DIM_SUM_DUMPLING"), ("dim sum", "DIM_SUM_DUMPLING"),
+    ("har gao", "DIM_SUM_DUMPLING"), ("siu mai", "DIM_SUM_DUMPLING"),
+    ("gyoza", "DIM_SUM_DUMPLING"), ("bao", "DIM_SUM_DUMPLING"),
+    ("xiao long", "DIM_SUM_DUMPLING"), ("wonton", "DIM_SUM_DUMPLING"),
+    ("bread", "BREAD_PASTRY"), ("toast", "BREAD_PASTRY"), ("roti", "BREAD_PASTRY"),
+    ("naan", "BREAD_PASTRY"), ("prata", "BREAD_PASTRY"), ("croissant", "BREAD_PASTRY"),
+    ("muffin", "BREAD_PASTRY"), ("pastry", "BREAD_PASTRY"),
+    ("coffee", "BEVERAGE"), ("tea", "BEVERAGE"), ("juice", "BEVERAGE"),
+    ("beer", "BEVERAGE"), ("wine", "BEVERAGE"), ("drink", "BEVERAGE"),
+    ("latte", "BEVERAGE"), ("cappuccino", "BEVERAGE"), ("bubble tea", "BEVERAGE"),
+    ("smoothie", "BEVERAGE"), ("milkshake", "BEVERAGE"), ("water", "BEVERAGE"),
+    ("soda", "BEVERAGE"), ("kopi", "BEVERAGE"), ("teh", "BEVERAGE"),
+    ("ice cream", "DESSERT"), ("cake", "DESSERT"), ("dessert", "DESSERT"),
+    ("pudding", "DESSERT"), ("waffle", "DESSERT"), ("tart", "DESSERT"),
+    ("mochi", "DESSERT"), ("cendol", "DESSERT"), ("brownie", "DESSERT"),
+    ("burger", "FAST_FOOD"), ("pizza", "FAST_FOOD"), ("fries", "FAST_FOOD"),
+    ("nugget", "FAST_FOOD"), ("hot dog", "FAST_FOOD"), ("wrap", "FAST_FOOD"),
+    ("fried chicken", "FAST_FOOD"),
+    ("fish", "SEAFOOD_DISH"), ("prawn", "SEAFOOD_DISH"), ("crab", "SEAFOOD_DISH"),
+    ("lobster", "SEAFOOD_DISH"), ("oyster", "SEAFOOD_DISH"), ("squid", "SEAFOOD_DISH"),
+    ("calamari", "SEAFOOD_DISH"), ("salmon", "SEAFOOD_DISH"), ("tuna", "SEAFOOD_DISH"),
+    ("seafood", "SEAFOOD_DISH"), ("shrimp", "SEAFOOD_DISH"),
+    ("salad", "SALAD_VEGETABLE"), ("vegetable", "SALAD_VEGETABLE"),
+    ("kimchi", "SALAD_VEGETABLE"), ("coleslaw", "SALAD_VEGETABLE"),
+    ("spring roll", "SNACK_SIDE"), ("samosa", "SNACK_SIDE"), ("satay", "GRILLED_PROTEIN"),
+    ("bbq", "GRILLED_PROTEIN"), ("grilled", "GRILLED_PROTEIN"), ("steak", "GRILLED_PROTEIN"),
+    ("chicken", "GRILLED_PROTEIN"), ("beef", "GRILLED_PROTEIN"), ("lamb", "GRILLED_PROTEIN"),
+    ("pork", "GRILLED_PROTEIN"), ("roast", "GRILLED_PROTEIN"),
+    ("set meal", "SET_MEAL"), ("combo", "SET_MEAL"), ("value meal", "SET_MEAL"),
+    ("family set", "SET_MEAL"), ("package", "SET_MEAL"),
+    ("price tier", "OTHER"),
+]
+
+SIGNAL_KEYWORDS: dict[str, list[str]] = {
+    "PORTION_REDUCTION": ["mini", "small", "snack size", "lite", "half", "reduced", "less"],
+    "PREMIUM_UPGRADE": ["premium", "special", "deluxe", "signature", "wagyu", "truffle",
+                        "aged", "fresh"],
+    "INGREDIENT_CHANGE": ["new recipe", "improved", "real", "classic", "original",
+                          "traditional", "now with"],
+    "SIZE_INCREASE": ["jumbo", "large", "big", "super", "xxl", "double", "extra"],
+}
+
+THAI_RANGE = range(0x0E00, 0x0E80)
+ARABIC_RANGE = range(0x0600, 0x0700)
+DEVANAGARI_RANGE = range(0x0900, 0x0980)
+CJK_RANGE = range(0x4E00, 0xA000)
+
+
+def _detect_language(text: str) -> str:
+    for ch in text:
+        cp = ord(ch)
+        if cp in THAI_RANGE:
+            return "th"
+        if cp in DEVANAGARI_RANGE:
+            return "hi"
+        if cp in CJK_RANGE:
+            return "zh"
+        if cp in ARABIC_RANGE:
+            return "ar"
+    # Malay/Indonesian/English — best-effort by keyword
+    malay_words = {"nasi", "mee", "ayam", "ikan", "teh", "kopi", "roti", "goreng"}
+    words = set(text.lower().split())
+    if words & malay_words:
+        return "ms"
+    return "en"
+
+
+def rule_classify(item_name: str) -> dict:
+    lower = item_name.lower()
+    category = "OTHER"
+    for kw, cat in RULE_KEYWORDS:
+        if kw in lower:
+            category = cat
+            break
+    signals = [sig for sig, kws in SIGNAL_KEYWORDS.items() if any(k in lower for k in kws)]
+    return {
+        "item": item_name,
+        "category": category,
+        "quality_signals": signals,
+        "language_detected": _detect_language(item_name),
+        "confidence": 0.70,
+    }
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run(db_path: str = DB_PATH) -> None:
     """Run the NLP pipeline: classify all unprocessed items and store results."""
     api_key = os.getenv("ANTHROPIC_API_KEY")
+
+    conn = sqlite3.connect(db_path)
+    init_db(conn)
+
     if not api_key:
-        print("✗  ANTHROPIC_API_KEY not found in environment or .env file.")
-        print("   Create a .env file with: ANTHROPIC_API_KEY=sk-ant-...")
+        print("ANTHROPIC_API_KEY not set — using rule-based fallback classifier "
+              "(confidence=0.70)")
+        pending = get_unprocessed_items(conn)
+        if not pending:
+            print("No unprocessed items found.")
+            print_summary(conn)
+            conn.close()
+            return
+        print(f"Rule-classifying {len(pending):,} items...")
+        for item_name, rest_name, country in pending:
+            res = rule_classify(item_name)
+            insert_result(conn, item_name, rest_name, country,
+                          res["category"], res["quality_signals"],
+                          res["language_detected"], res["confidence"])
+        conn.commit()
+        print(f"Done. {len(pending):,} items classified.")
+        print_summary(conn)
+        conn.close()
         return
 
     client = anthropic.Anthropic(api_key=api_key)

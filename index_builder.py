@@ -197,6 +197,36 @@ def build_monthly_prices(df: pd.DataFrame) -> pd.DataFrame:
     return agg
 
 
+def build_mean_price_index(df: pd.DataFrame, country: str) -> list[dict]:
+    """
+    Fallback: simple mean-price index for a country.
+    Used when matched-model finds no consecutive-month overlaps.
+    Computes mean price_usd per month, normalised to base=100 at earliest month.
+    """
+    c_df = df[df["country"] == country].copy()
+    monthly_mean = (
+        c_df.groupby("year_month")["price_usd"].mean().sort_index()
+    )
+    if monthly_mean.empty or monthly_mean.iloc[0] == 0:
+        return []
+
+    base_price = monthly_mean.iloc[0]
+    informal_weight = INFORMAL_WEIGHTS.get(country, 0.40)
+    rows = []
+    for ym, mean_price in monthly_mean.items():
+        idx_val = round((mean_price / base_price) * 100.0, 4)
+        rows.append({
+            "country":        country,
+            "year_month":     ym,
+            "formal_index":   idx_val,
+            "informal_index": idx_val,
+            "uifpi_combined": idx_val,
+            "item_count":     int(c_df[c_df["year_month"] == ym].shape[0]),
+            "coverage_note":  "mean-price fallback (no matched-model overlap)",
+        })
+    return rows
+
+
 def compute_price_relatives(monthly: pd.DataFrame,
                              months: list[str]) -> dict:
     """
@@ -354,6 +384,16 @@ def build_country_index(country: str,
             "item_count":      item_count,
             "coverage_note":   note,
         })
+
+    # If all non-base values are 100.0 (no matched-model overlap found),
+    # flag the issue — caller will use mean-price fallback instead.
+    non_base = [r for r in rows if r["coverage_note"] != "base period (100.0)"]
+    all_constant = non_base and all(
+        r["uifpi_combined"] == 100.0 for r in non_base
+    )
+    if all_constant:
+        return []   # signal to caller: use mean-price fallback
+
     return rows
 
 
@@ -433,8 +473,18 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT) -> None:
     all_index_rows: list[dict] = []
     for country in sorted(monthly["country"].unique()):
         irows = build_country_index(country, relatives, monthly)
-        all_index_rows.extend(irows)
-        print(f"  {country}: {len(irows)} monthly observations")
+        if irows:
+            all_index_rows.extend(irows)
+            print(f"  {country}: {len(irows)} monthly observations (matched-model)")
+        else:
+            # No consecutive-month overlap — fall back to mean-price index
+            fallback = build_mean_price_index(df, country)
+            if fallback:
+                all_index_rows.extend(fallback)
+                print(f"  {country}: {len(fallback)} monthly observations "
+                      f"(mean-price fallback — no matched-model overlap)")
+            else:
+                print(f"  {country}: insufficient data — skipped")
 
     print("\nStep 6 — Saving to database and CSV …")
     for row in all_index_rows:
