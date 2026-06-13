@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getCountryData, getIndexSeries, seriesToCsv } from "@/lib/data";
 import IndexChart from "@/components/IndexChart";
 import StatCard from "@/components/StatCard";
@@ -20,13 +20,36 @@ export async function generateStaticParams() {
   return Object.values(COUNTRY_SLUGS).map((slug) => ({ country: slug }));
 }
 
+/**
+ * Resolve a raw URL segment to a canonical lowercase slug + country name.
+ * Accepts: "singapore", "Singapore", "SINGAPORE", "Singapore%20", "united_states",
+ * "United%20States", "united-states", etc.
+ * Returns null if the segment cannot be matched.
+ */
+function resolveSlug(raw: string): { slug: string; country: string } | null {
+  const decoded = (() => {
+    try {
+      return decodeURIComponent(raw);
+    } catch {
+      return raw;
+    }
+  })();
+  const normalized = decoded
+    .toLowerCase()
+    .trim()
+    .replace(/[_\s]+/g, "-");
+  const country = SLUG_TO_COUNTRY[normalized];
+  if (!country) return null;
+  return { slug: normalized, country };
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { country: slug } = await params;
-  const countryName = SLUG_TO_COUNTRY[slug];
-  if (!countryName) return { title: "Country not found" };
+  const { country: raw } = await params;
+  const resolved = resolveSlug(raw);
+  if (!resolved) return { title: "Country not found" };
   return {
-    title: `${countryName} — UIFPI`,
-    description: `UIFPI price index and CPI comparison for ${countryName}.`,
+    title: `${resolved.country} — UIFPI`,
+    description: `UIFPI price index and CPI comparison for ${resolved.country}.`,
   };
 }
 
@@ -50,12 +73,21 @@ function DownloadButton({ country, csvData }: { country: string; csvData: string
 }
 
 export default async function CountryPage({ params }: PageProps) {
-  const { country: slug } = await params;
-  const countryName = SLUG_TO_COUNTRY[slug];
+  const { country: raw } = await params;
+  const resolved = resolveSlug(raw);
 
-  if (!countryName) {
+  if (!resolved) {
     notFound();
   }
+
+  // Canonicalise: if the URL segment differs from the canonical lowercase
+  // slug (e.g. "Singapore", "United%20States"), 308-redirect so search
+  // engines and shared links converge on one URL per country.
+  if (raw !== resolved.slug) {
+    permanentRedirect(`/${resolved.slug}`);
+  }
+
+  const countryName = resolved.country;
 
   const { summary, latest, series } = await getCountryData(countryName);
   const csvData = seriesToCsv(countryName, series);
