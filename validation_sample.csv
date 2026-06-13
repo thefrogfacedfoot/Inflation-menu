@@ -1,0 +1,101 @@
+item_name,restaurant_name,country,assigned_category,quality_signals,language_detected,manual_category
+Egg Mayo Inari (2pcs).,Ichiban Boshi,Singapore,OTHER,[],en,OTHER
+Tori Karaage.,Ichiban Boshi,Singapore,OTHER,[],en,GRILLED_PROTEIN
+Wuxi Deep-Fried White Bait 无锡小鱼儿,Crystal Jade La Mian Xiao Long Bao,Singapore,OTHER,[],zh,OTHER
+Laksa Set,Toast Box,Singapore,NOODLE_DISH,[],en,OTHER
+Fuzetea® Jasmine Green Tea.,Ichiban Boshi,Singapore,BEVERAGE,[],en,BEVERAGE
+Sautéed Kailan with Assorted Mushroom (Vegetarian) 双菇木耳炒芥兰,Crystal Jade La Mian Xiao Long Bao,Singapore,OTHER,[],zh,SALAD_VEGETABLE
+D4 Vegetable and Pork Wanton in Signature Pork Bone Soup (6pc) 菜肉云吞猪骨汤（六粒）,Paradise Dynasty,Singapore,SOUP_STEW,"[""PREMIUM_UPGRADE""]",zh,DIM_SUM_DUMPLING
+C7 Assorted Vegetable and Tofu tossed with Vinaigrette 凉拌小菜,Paradise Dynasty,Singapore,SALAD_VEGETABLE,[],zh,SALAD_VEGETABLE
+Negitoro Don,Sushi Tei,Singapore,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Pork & Shrimp Dumplings in Spicy Sauce (6pcs) 秘制红油抄手,Tim Ho Wan,Singapore,DIM_SUM_DUMPLING,[],zh,DIM_SUM_DUMPLING
+Shrimp Wanton Noodle (Dry) 鲜虾云吞面（干捞）,Crystal Jade GO,Singapore,NOODLE_DISH,[],zh,NOODLE_DISH
+Kani Corn Sushi,Sushi Tei,Singapore,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Tamago Mentai Sushi,Sushi Tei,Singapore,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Ebi Sushi,Sushi Tei,Singapore,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Pan Seared Halloumi Cheese,Rubato,Singapore,OTHER,[],en,OTHER
+La Mian with Poached Chicken in Szechuan Style 口水鸡拉面,Crystal Jade La Mian Xiao Long Bao,Singapore,NOODLE_DISH,[],zh,NOODLE_DISH
+Truffle Yuzu Mayonnaise Ramen,Sushi Tei,Singapore,NOODLE_DISH,"[""PREMIUM_UPGRADE""]",en,NOODLE_DISH
+Plant Miso,Ippudo Ramen,Singapore,OTHER,[],en,OTHER
+Golden Catch (4pcs).,Ichiban Boshi,Singapore,OTHER,[],en,OTHER
+2520. Steamed Chicken Xiao Long Bao 鸡肉小笼包 (6Pcs),Din Tai Fung,Singapore,DIM_SUM_DUMPLING,[],zh,BEVERAGE
+Phoenix Roll,Sushi Tei,Singapore,NOODLE_DISH,[],en,NOODLE_DISH
+Sprite (Can) 雪碧,Tim Ho Wan,Singapore,BEVERAGE,[],zh,BEVERAGE
+Chicken Karaage,Sushi Tei,Singapore,GRILLED_PROTEIN,[],en,GRILLED_PROTEIN
+2505. Steamed Shrimp & Pork Dumplings 虾肉蒸饺 (6Pcs),Din Tai Fung,Singapore,DIM_SUM_DUMPLING,[],zh,BEVERAGE
+La Mian with Prawn,Crystal Jade La Mian Xiao Long Bao,Singapore,SEAFOOD_DISH,[],en,NOODLE_DISH
+Fanta Oren Bottle,Restoran Yusoof Dan Zakhir,Malaysia,BEVERAGE,[],en,BEVERAGE
+FRIED CHICKEN WANTAN 5 PCS,Kluang Rail Coffee,Malaysia,FAST_FOOD,[],en,DIM_SUM_DUMPLING
+FISH & CHIPS,Kluang Rail Coffee,Malaysia,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+MEE SUP,Kluang Rail Coffee,Malaysia,NOODLE_DISH,[],ms,NOODLE_DISH
+Banana Roti,Restoran Yusoof Dan Zakhir,Malaysia,BREAD_PASTRY,[],ms,BREAD_PASTRY
+Beef Fried Noodle,Restoran Yusoof Dan Zakhir,Malaysia,NOODLE_DISH,[],en,NOODLE_DISH
+Lamb Kuey Teow,Restoran Yusoof Dan Zakhir,Malaysia,NOODLE_DISH,[],en,NOODLE_DISH
+Egg & Ghee Thosai,Restoran Yusoof Dan Zakhir,Malaysia,BREAD_PASTRY,[],en,BREAD_PASTRY
+Butter Thosai,Restoran Yusoof Dan Zakhir,Malaysia,BREAD_PASTRY,[],en,BREAD_PASTRY
+Chicken Fried Rice,Restoran Yusoof Dan Zakhir,Malaysia,RICE_DISH,[],en,RICE_DISH
+Fanta Grape Bottle,Restoran Yusoof Dan Zakhir,Malaysia,BEVERAGE,[],en,BEVERAGE
+Lamb Masala,Restoran Yusoof Dan Zakhir,Malaysia,GRILLED_PROTEIN,[],en,OTHER
+7 Up,Restoran Yusoof Dan Zakhir,Malaysia,BEVERAGE,[],en,BEVERAGE
+Fuji Sushi Platter,Ichiban Boshi KL,Malaysia,SEAFOOD_DISH,[],en,BEVERAGE
+ROTI BUN  BAKAR (PEANUT ),Kluang Rail Coffee,Malaysia,BREAD_PASTRY,[],ms,BREAD_PASTRY
+Mentai Cheese Potato Salad,Ichiban Boshi KL,Malaysia,SALAD_VEGETABLE,[],en,SALAD_VEGETABLE
+Seafood Fried Noodle,Restoran Yusoof Dan Zakhir,Malaysia,NOODLE_DISH,[],en,NOODLE_DISH
+Tako 5pcs,Ichiban Boshi KL,Malaysia,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Squid Fried Noodle,Restoran Yusoof Dan Zakhir,Malaysia,NOODLE_DISH,[],en,NOODLE_DISH
+Chuka Hotate,Ichiban Boshi KL,Malaysia,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Barley,Restoran Yusoof Dan Zakhir,Malaysia,BEVERAGE,[],en,BEVERAGE
+Sizzling Black Pepper Yakiniku,Ichiban Boshi KL,Malaysia,GRILLED_PROTEIN,[],en,GRILLED_PROTEIN
+Pattaya Fried Rice,Restoran Yusoof Dan Zakhir,Malaysia,RICE_DISH,[],en,RICE_DISH
+Vegetables,Restoran Yusoof Dan Zakhir,Malaysia,SALAD_VEGETABLE,[],en,SALAD_VEGETABLE
+Tako,Ichiban Boshi KL,Malaysia,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Symplicity Burger,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+House Fries,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+Soda,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Double Cheeseburger,Bleecker Burger,United Kingdom,FAST_FOOD,"[""SIZE_INCREASE""]",en,FAST_FOOD
+Bleecker Iced-T Lemonade,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Bacon Cheeseburger,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+Angry House Fries,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+Oreo Shake,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Happy Baking,Leon,United Kingdom,OTHER,[],en,OTHER
+Vanilla Shake,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Angry Fries,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+Square Root Lemonade,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Water,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Bacon Double Cheeseburger,Bleecker Burger,United Kingdom,FAST_FOOD,"[""SIZE_INCREASE""]",en,FAST_FOOD
+Black &#038; White Shake,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Cherry Shake,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Fast Vegetarian,Leon,United Kingdom,OTHER,[],en,OTHER
+Strawberry Shake,Bleecker Burger,United Kingdom,BEVERAGE,[],en,BEVERAGE
+Double Chocolate Shake,Bleecker Burger,United Kingdom,BEVERAGE,"[""SIZE_INCREASE""]",en,BEVERAGE
+Fries,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+Blue Burger,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+Cheeseburger,Bleecker Burger,United Kingdom,FAST_FOOD,[],en,FAST_FOOD
+NEW!,Oporto,Australia,OTHER,[],en,OTHER
+"Price tier (TripAdvisor: $$$$(Average Price Range Based on Appetizer, Entree &amp; Dessert - Beverages Not Included))",Otto Ristorante Brisbane,Australia,OTHER,[],en,OTHER
+Chasoba*.,Ichiban Boshi,Singapore,NOODLE_DISH,[],en,NOODLE_DISH
+Kampong Chicken with Black Garlic & Chinese Yam in Claypot 黑蒜淮山走地鸡煲,Crystal Jade La Mian Xiao Long Bao,Singapore,GRILLED_PROTEIN,[],zh,OTHER
+1007. Stewed Bean Curd Cubes with Honey Sauce 四喜烤麸,Din Tai Fung,Singapore,SOUP_STEW,[],zh,SOUP_STEW
+Hamachi (5pcs).,Ichiban Boshi,Singapore,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+3004. Fried Rice With Eggs 蛋炒饭,Din Tai Fung,Singapore,RICE_DISH,[],zh,RICE_DISH
+Queen Margherita's Choice,Rubato,Singapore,OTHER,[],en,FAST_FOOD
+Fire Flosss,BreadTalk,Singapore,OTHER,[],en,OTHER
+Cheese Boat,BreadTalk,Singapore,OTHER,[],en,OTHER
+Hokkaido Butter Corn Chasyu Ramen,Hokkaido-ya,Singapore,NOODLE_DISH,[],en,NOODLE_DISH
+Cocoa Shio Pan,BreadTalk,Singapore,BREAD_PASTRY,[],en,BREAD_PASTRY
+Chicken Teriyaki Handroll.,Ichiban Boshi,Singapore,GRILLED_PROTEIN,[],en,GRILLED_PROTEIN
+Braised Large Intestines,Song Fa Bak Kut Teh,Singapore,OTHER,"[""SIZE_INCREASE""]",en,SOUP_STEW
+Mushroom & Cordyceps Flower Dumpling 虫草花珍菌饺,Crystal Jade Hong Kong Kitchen,Singapore,DIM_SUM_DUMPLING,[],zh,DIM_SUM_DUMPLING
+MANGO  JUICE ICE,Kluang Rail Coffee,Malaysia,BEVERAGE,[],en,BEVERAGE
+Kanikama Sushi,Sushi Tei,Singapore,SEAFOOD_DISH,[],en,SEAFOOD_DISH
+Limoncello,Rubato,Singapore,BEVERAGE,[],en,BEVERAGE
+Traditional HK Rice Roll 港式肠粉,Crystal Jade GO,Singapore,RICE_DISH,"[""INGREDIENT_CHANGE""]",zh,RICE_DISH
+F22 La Mian with Scallion Oil (Dry) 开洋葱油拌面.,Paradise Dynasty,Singapore,NOODLE_DISH,[],zh,NOODLE_DISH
+Chasoba & Katsu Don Gozen,Ichiban Boshi KL,Malaysia,NOODLE_DISH,[],en,NOODLE_DISH
+F21 La Mian with Prawn and Pork Dumpling in Hot Chilli Vinaigrette (Dry) 鲜虾猪肉抄手拌面,Paradise Dynasty,Singapore,DIM_SUM_DUMPLING,[],zh,NOODLE_DISH
+Moshi Mushroom,BreadTalk,Singapore,OTHER,[],en,OTHER
+Plain Roti,Restoran Yusoof Dan Zakhir,Malaysia,BREAD_PASTRY,[],ms,BREAD_PASTRY
+Chicken Parmesan,BreadTalk,Singapore,GRILLED_PROTEIN,[],en,OTHER
+Sambal Long Beans (1 Serving),Crave Nasi Lemak,Singapore,OTHER,[],en,SALAD_VEGETABLE
+2510. Steamed Shrimp & Pork Shao-Mai 虾肉烧卖 (10Pcs),Din Tai Fung,Singapore,DIM_SUM_DUMPLING,[],zh,BEVERAGE
+5001. Steamed Chinese Style Layered Cakes 千层油糕 (2Pcs),Din Tai Fung,Singapore,DESSERT,[],zh,DESSERT

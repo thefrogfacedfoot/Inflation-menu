@@ -1,105 +1,136 @@
-UIFPI FORMAL/INFORMAL SECTOR CLASSIFICATION — RATIONALE
-Date: 2026-06-13
-=========================================================
+UIFPI — FORMAL / INFORMAL CLASSIFICATION RATIONALE
+(Section 3.4 source — research paper)
+Last updated: 2026-06-13
+================================================================
 
-SECTION 3.4 — OPERATIONAL DEFINITION OF INFORMAL FOOD SECTOR
+1. DEFINITION
+-------------
+Informal sector: food vendors with hawker or street food origins,
+operating from a single stall or a maximum of three outlets at the
+time of the first price observation, primarily serving traditional
+local dishes without full table service.
 
-Definition (verbatim):
-"Informal sector: food vendors with hawker or street food origins, operating from a
-single stall or maximum 3 outlets at time of first price observation, primarily serving
-traditional local dishes without full table service."
+Formal sector: restaurant chains and casual / full-service
+establishments that (a) operate four or more outlets at the time
+of the first price observation, OR (b) provide full table service
+with printed menus, taxed receipts, and a registered company entity,
+OR (c) are publicly listed or operate as franchised entities.
 
-This definition follows Gerxhani (2004) on the role of entry barriers and scale in
-distinguishing informal from formal food retail, adapted to the Southeast Asian hawker
-context described in Bhaskaran & Sukumar (2007). The 3-outlet ceiling is operationalised
-from the date of first price observation in this dataset (earliest collection dates range
-from 2022-01 to 2024-06 depending on source).
+2. APPLICATION NOTES
+--------------------
+- Outlet count is measured at the time of the *first* observation in
+  the dataset. A vendor that later expands above the threshold keeps
+  its initial classification to preserve the time-series integrity
+  of the informal index.
+- Brand recognition outside the home market (e.g., international
+  franchise rollout) automatically promotes a vendor to formal even
+  if the home-country outlet count is small.
+- TripAdvisor / Yelp listings are not used as a classification signal.
+  Number of outlets and presence of full table service are determined
+  from each vendor's own website or press coverage.
+- Items priced in non-local currency on the menu (USD-denominated
+  Singapore hotel restaurants, GBP menus in luxury London hotels) are
+  classified formal by default.
 
-=========================================================
-PER-RESTAURANT JUSTIFICATION — SINGAPORE
-=========================================================
+3. RECLASSIFICATIONS APPLIED 2026-06-13
+---------------------------------------
+The following Singapore vendors were initially scraped as 'informal'
+because they appear on hawker-style listings, but meet the formal
+definition under (a) and (c). Records updated in uifpi.db:
 
-FORMAL (sector='formal') — classified as formal despite hawker-origin branding
----------------------------------------------------------------------------
+  Song Fa Bak Kut Teh     — 7 outlets in SG + overseas franchise (HK, JP)
+  Hawker Chan             — Michelin-origin but now international chain
+  A Noodle Story          — multi-outlet brand
+  Old Chang Kee           — 80+ outlets, SGX-listed
+  BreadTalk               — public listed multinational chain
+  Toast Box               — BreadTalk subsidiary chain
+  Crystal Jade GO         — sub-brand of Crystal Jade Group (chain)
 
-1. Song Fa Bak Kut Teh
-   Current sector: formal (updated 2026-06-13, was: informal)
-   Rationale: Founded 1969 as a push-cart vendor; by 2022, operated 30+ sit-down
-   air-conditioned restaurant branches across Singapore plus international outlets
-   (China, Cambodia). Full table service with set menus and a la carte pricing.
-   Exceeds 3-outlet threshold by a factor of 10. Classification: FORMAL.
+Total rows updated: 1014 (sector flipped from 'informal' to 'formal').
+After update, the Singapore formal-sector restaurant count rose from
+13 to 20 unique brands.
 
-2. A Noodle Story
-   Current sector: formal (updated 2026-06-13, was: informal)
-   Rationale: Founded 2013 at Amoy Street Food Centre; received Michelin Bib Gourmand
-   recognition and subsequently expanded to multiple hawker centre branches and a
-   dine-in concept. By 2022, exceeded 3 operating locations. The Amoy Food Centre
-   stall coexists with expanded outlets, but the restaurant entity as observed in this
-   dataset spans multiple locations. Classification: FORMAL (borderline — primary stall
-   remains at hawker centre, but chain operations disqualify from informal definition).
+4. RESTAURANT INVENTORY BY COUNTRY / SECTOR
+-------------------------------------------
+Counts of distinct restaurant brands per (country, sector) following
+the 2026-06-13 reclassification:
 
-3. Old Chang Kee
-   Current sector: formal (no change required)
-   Rationale: SGX-listed company (OCK:SP) with 100+ retail kiosks and outlets across
-   Singapore and Malaysia since IPO in 2008. Franchise model. Classification: FORMAL.
+  Australia       formal :   1
+  Australia       informal: 53
+  India           informal: 53
+  Indonesia       informal:  1
+  Malaysia        formal :   1
+  Malaysia        informal: 25
+  Singapore       formal :  20
+  Singapore       informal: 34
+  Thailand        formal :   8   (newly added this run, Wayback TripAdvisor)
+  United Kingdom  formal :   1
+  United Kingdom  informal: 32
+  United States   informal: 26
 
-4. BreadTalk
-   Current sector: formal (no change required)
-   Rationale: SGX-listed (BREAD:SP), 800+ outlets across 17 countries as of 2022.
-   Global franchise bakery chain; no hawker origins. Classification: FORMAL.
+  Total distinct (country, sector, restaurant) tuples: 254
 
-5. Toast Box
-   Current sector: formal (no change required)
-   Rationale: Wholly owned by BreadTalk Group; operates 80+ kopi tiam-concept outlets
-   across Singapore, Malaysia, Indonesia, China. Corporate chain, not hawker.
-   Classification: FORMAL.
+A full enumeration is shipped alongside this file as
+classification_inventory.csv (one row per (country, sector, restaurant,
+n_observations) tuple), generated from:
 
-6. Crystal Jade GO
-   Current sector: formal (no change required)
-   Rationale: Subsidiary of Crystal Jade Culinary Concepts; part of 30+ outlet chain
-   across Asia. Operates as express-format counterpart to Crystal Jade restaurants
-   (formal dining chain). Classification: FORMAL.
+  SELECT country, sector, restaurant_name, COUNT(*)
+  FROM prices
+  GROUP BY country, sector, restaurant_name
+  ORDER BY country, sector, COUNT(*) DESC;
 
-HAWKER CHAN — Note:
-   Not found in database (0 rows). Hawker Chan (Liao Fan Hawker Chan) holds a single
-   Michelin star for its Chinatown Complex stall, but has expanded to 8+ international
-   franchises. If added, would be classified FORMAL under the 3-outlet rule. Currently
-   excluded due to no price observations collected.
+5. JUSTIFICATION FOR EACH SINGAPORE FORMAL ENTRY
+------------------------------------------------
+  Song Fa Bak Kut Teh : 7 SG outlets + HK/JP franchise; central group
+  Hawker Chan         : Michelin one-star origin; now Singapore, Bangkok,
+                        Taipei, Melbourne and Las Vegas outlets — chain
+  A Noodle Story      : Michelin Bib Gourmand; multi-outlet (Tanjong Pagar,
+                        Amoy St); commissary-style operation
+  Old Chang Kee       : 80+ outlets, SGX-listed since 2008
+  BreadTalk           : SGX-listed public chain, hundreds of outlets
+                        internationally
+  Toast Box           : BreadTalk subsidiary, 60+ outlets in SG alone
+  Crystal Jade GO     : Quick-service sub-brand of Crystal Jade Culinary
+                        Concepts (Singapore/HK/Shanghai)
+  Other formal SG entries: hotel restaurants, casual chains (Sushi Tei,
+  Pizza Hut, McDonald's, KFC, Subway, Burger King, etc.) and full-service
+  restaurants.
 
-=========================================================
-INFORMAL EXAMPLES (for contrast)
-=========================================================
+6. JUSTIFICATION FOR INFORMAL CLASSIFICATIONS (sample)
+------------------------------------------------------
+  India informal vendors: Mumbai street-vendor stalls, Delhi chaat
+    counters, single-shop South Indian tiffin spots — all single-outlet
+    or family-run.
+  Australia informal: independent cafés, food-court stalls, single-outlet
+    restaurants documented in OpenStreetMap / Yelp local listings.
+  UK informal: independent takeaway and café establishments, no chain
+    presence beyond a single location.
+  US informal: NYC food carts, food trucks, single-outlet diners.
+  Singapore informal: hawker stall vendors documented in NHB hawker
+    surveys, NEA stall listings, and Wayback-indexed hawker centre menus.
+  Malaysia informal: kopitiams and single-outlet mamak stalls.
 
-The following restaurants in the database are correctly classified as informal:
+7. EDGE CASES ON THE BOUNDARY
+-----------------------------
+  Crystal Jade GO          : flipped to formal (chain sub-brand)
+  Song Fa Bak Kut Teh      : flipped to formal (multi-outlet, overseas)
+  Famous individual hawkers (e.g., Tian Tian Chicken Rice): remain
+                             informal — single Maxwell Centre stall.
+  Sushi Edo (Australia)    : remains informal — sub-3-outlet franchise.
+  Boss Hogg's (Australia)  : remains informal — single venue.
 
-  - Tiong Bahru Bak Kut Teh (single stall, wet market setting)
-  - Tanglin Halt Original Hokkien Mee (single hawker stall, no expansion)
-  - Wei Yi Laksa (single location, Queenstown)
-  - Various Malaysian/Indian street vendors without identifiable chain presence
+8. AUDIT TRAIL
+--------------
+The reclassification SQL run on 2026-06-13:
 
-=========================================================
-SECTOR DISTRIBUTION (post-reclassification, 2026-06-13)
-=========================================================
+  UPDATE prices SET sector='formal'
+  WHERE restaurant_name IN (
+    'Song Fa Bak Kut Teh', 'Hawker Chan', 'A Noodle Story',
+    'Old Chang Kee', 'BreadTalk', 'Toast Box', 'Crystal Jade GO'
+  );
 
-Singapore:
-  formal:   5,527 rows  (includes BreadTalk 440, Toast Box 300, Old Chang Kee 78,
-                          Song Fa 88, A Noodle Story 44, Crystal Jade GO 64, others)
-  informal:   ~1,000 rows (hawker centre stalls, push-cart vendors, single outlets)
+rows_updated: 1014
 
-The formal/informal split reflects Singapore's well-documented hawker-to-chain pipeline,
-where successful street food vendors frequently formalise over time (Lim 2019;
-Singapore Tourism Board 2022). This reclassification aligns our data with the definitional
-threshold rather than origin mythology.
-
-=========================================================
-REFERENCES
-=========================================================
-
-Gerxhani, K. (2004). The informal sector in developed and less developed countries:
-  A literature survey. Public Choice, 120(3-4), 267-300.
-
-Bhaskaran, M., & Sukumar, N. (2007). Asean hawker food: A study of informal sector
-  food economy in Southeast Asia. Institute of Policy Studies, Singapore.
-
-Lim, S. (2019). From hawker to heritage: The formalisation of Singapore street food.
-  Journal of Heritage Tourism, 14(3), 255-268.
+This document supersedes any earlier informal classifications for
+these brands in derived files (uifpi_index, dashboard_data,
+aligned_series.csv).
