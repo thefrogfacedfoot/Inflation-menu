@@ -1,6 +1,8 @@
 ================================================================================
-UIFPI PROJECT DIAGNOSTIC REPORT — VERSION 3
+UIFPI PROJECT DIAGNOSTIC REPORT — VERSION 4
 Date: 2026-06-13
+Run after: Thailand seed, CPI refresh, sector reclassification,
+NLP corrections, duplicate purge, index rebuild, Granger rerun.
 ================================================================================
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

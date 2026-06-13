@@ -57,6 +57,53 @@ combined at configurable weights (default 50/50).
 
 ---
 
+## Current Dataset Snapshot (2026-06-13)
+
+After duplicate-purge and Thailand seed:
+
+| Country        | Price rows | Distinct restaurants | UIFPI index months |
+|----------------|-----------:|---------------------:|-------------------:|
+| Singapore      |      3,521 |                   54 |                 13 |
+| Malaysia       |        433 |                   26 |                 13 |
+| Australia      |         73 |                   54 |                 14 |
+| India          |         71 |                   53 |                 18 |
+| United Kingdom |         67 |                   33 |                 12 |
+| United States  |         50 |                   26 |                 11 |
+| Thailand       |         11 |                    7 |                  1 |
+| Indonesia      |          1 |                    1 |                  1 |
+| **Total**      |  **4,227** |              **254** |             **83** |
+
+NLP classification covers the full prices table (see `nlp_results`). Validated
+overall accuracy on a 100-item stratified sample = **83.0%** (rule-based
+fallback; below the 85% target but acceptable for the descriptive analysis
+pending Anthropic API credits).
+
+---
+
+## Granger Causality Results (latest)
+
+| Country        | Granger p-value | Lag | β pass-through |    R² | Sig. |
+|----------------|----------------:|----:|---------------:|------:|:----:|
+| Singapore      |          0.0922 |   2 |          0.017 | 0.117 |  ✗   |
+| Australia      |          0.4150 |   2 |         -0.001 | 0.000 |  ✗   |
+| United States  |          0.5858 |   1 |          0.006 | 0.039 |  ✗   |
+| Malaysia       |          0.7044 |   1 |          0.007 | 0.089 |  ✗   |
+| India          |          0.8106 |   2 |          0.011 | 0.074 |  ✗   |
+| United Kingdom |          0.8229 |   2 |          0.029 | 0.428 |  ✗   |
+| Indonesia      |               — |   — |              — |     — |  ✗   |
+| Thailand       |               — |   — |              — |     — |  ✗   |
+
+**Singapore** is the strongest signal (p = 0.092, near-significant at the
+10% level) and is preserved as the headline result. **No country has yet
+reached the p < 0.05 threshold or the 24-month overlap required for a clean
+Granger test** — this is structural: most countries currently sit at
+11-18 UIFPI months and the official CPI is annual-only for SG / MY / ID / TH /
+GB (World Bank fallback). Significance awaits ≥ 24 monthly UIFPI observations
+per country, which requires the recurring monthly collection cycle described
+below.
+
+---
+
 ## Country Sample
 
 | Country        | Dev. Status | Sector Coverage    | Archive Coverage |
@@ -64,11 +111,22 @@ combined at configurable weights (default 50/50).
 | Singapore      | Developed   | Formal + Informal | 2018–present     |
 | Malaysia       | Emerging    | Formal + Informal | 2018–present     |
 | Indonesia      | Emerging    | Informal          | 2019–present     |
-| Thailand       | Emerging    | Formal + Informal | 2018–present     |
+| Thailand       | Emerging    | Formal (limited)  | 2022–2024 (Wayback) |
 | India          | Emerging    | Informal          | 2018–present     |
 | United States  | Developed   | Informal          | 2018–present     |
 | United Kingdom | Developed   | Formal + Informal | 2019–present     |
 | Australia      | Developed   | Formal + Informal | 2018–present     |
+
+Thailand coverage remains a known limitation — see
+`thailand_coverage_notes.txt`.
+
+---
+
+## Sector Classification
+
+Formal / informal labels follow `classification_rationale.txt` (= Section
+3.4 of the paper). Full per-restaurant enumeration is shipped in
+`classification_inventory.csv`.
 
 ---
 
@@ -81,54 +139,54 @@ pip install -r requirements.txt
 ```
 
 Required packages: `pandas`, `numpy`, `scipy`, `statsmodels`, `matplotlib`,
-`geopandas`, `anthropic`, `requests`, `beautifulsoup4`.
+`requests`, `beautifulsoup4`, `playwright`, `anthropic`.
 
-### Numbered Steps
+### Monthly collection cycle
+
+Each month, refresh data and let Vercel auto-redeploy the dashboard:
 
 ```bash
-# 1. Scrape live restaurant prices
-python historical_scraper.py
+# 1. Run locally (residential IP required for GrabFood / Deliveroo etc.)
+python3 live_scraper.py
 
-# 2. Run NLP classification pipeline
-python nlp_pipeline.py
+# 2. Commit and push
+git add .
+git commit -m "Monthly collection $(date +%Y-%m-%d)"
+git push
 
-# 3. Build UIFPI index from prices database
-python index_builder.py
-
-# 4. Fetch official CPI data
-python get_monthly_cpi.py
-
-# 5. Run Granger causality and pass-through analysis
-python granger_analysis.py
-
-# 6. Run robustness checks
-python robustness_checks.py
-
-# 7. Run benchmark comparison against AR(1) baseline
-python benchmark_comparison.py
-
-# 8. Generate all figures (saved to figures/)
-python generate_figures.py
-
-# 9. Generate paper tables (saved to tables/)
-python paper_data_tables.py
-
-# 10. Generate abstract (requires Anthropic API key)
-python abstract_generator.py
-
-# 11. Verify SSEF submission checklist
-python ssef_checklist.py
-
-# Or run the full pipeline at once:
-python run_all.py
+# 3. Vercel detects the push and redeploys the dashboard automatically.
 ```
 
-### Environment Variables
+### Per-issue scripts (one-off)
 
-Copy `.env.example` to `.env` and set:
+```bash
+# Build / rebuild
+python3 historical_scraper.py     # historical backfill (Wayback Machine)
+python3 thailand_scraper.py       # Thailand Wayback TripAdvisor sweep
+python3 nlp_pipeline.py           # rule-based dish classification
+python3 validate_nlp.py export    # generate a 100-item validation sample
+python3 validate_nlp.py evaluate  # accuracy report after manual labelling
+python3 get_monthly_cpi_all.py    # OECD / World Bank / IMF CPI fetch
+python3 align_series.py           # merge UIFPI ↔ CPI by year_month
+python3 index_builder.py          # rebuild uifpi_index
+python3 granger_analysis.py       # Granger + OLS pass-through
+python3 robustness_checks.py      # jackknife / sensitivity
+python3 benchmark_comparison.py   # AR(1) vs UIFPI
+python3 dashboard_data.py         # regenerate dashboard JSON
+python3 diagnostic_report.py      # full diagnostic snapshot
+python3 generate_figures.py       # 5 paper figures
+python3 paper_data_tables.py      # 4 paper tables (CSV + LaTeX)
+python3 abstract_generator.py     # Claude-assisted abstract (needs API key)
+python3 ssef_checklist.py         # SSEF submission requirements check
+python3 run_all.py                # convenience runner
+```
+
+### Environment
+
+Copy `.env.example` to `.env` and set if using AI-assisted steps:
 
 ```
-ANTHROPIC_API_KEY=sk-ant-...   # for abstract_generator.py
+ANTHROPIC_API_KEY=sk-ant-...   # optional, for abstract_generator.py
 ```
 
 ---
@@ -137,68 +195,70 @@ ANTHROPIC_API_KEY=sk-ant-...   # for abstract_generator.py
 
 ```
 uifpi/
-├── uifpi.db                      # SQLite database: prices, NLP results, index
-├── uifpi_index.csv               # Monthly UIFPI index per country
+├── uifpi.db                          # SQLite — prices, nlp_results, uifpi_index, monthly_cpi
+├── uifpi_index.csv                   # CSV mirror of uifpi_index
+├── aligned_series.csv                # UIFPI ↔ CPI monthly join
+├── classification_rationale.txt      # Section 3.4 — formal/informal definitions
+├── classification_inventory.csv      # per-restaurant sector audit
+├── thailand_coverage_notes.txt       # Thailand data-collection log
+├── validation_sample.csv             # 100-item NLP audit
 │
-├── cpi_data/                     # Official CPI JSON files per country
-│   ├── monthly_cpi_sg.json
-│   └── ...
+├── cpi_data/                         # raw CPI JSONs per country
+├── analysis_results/                 # JSON outputs (granger, alignment, robustness)
+├── dashboard_data/                   # JSON consumed by the Vercel dashboard
+├── figures/                          # 5 paper figures (PNG, 300 DPI)
+├── tables/                           # 4 paper tables (CSV + LaTeX)
+├── paper_draft/                      # abstract.md, abstract_ssef.md
+├── dashboard/                        # Next.js dashboard source
 │
-├── analysis_results/             # JSON outputs from all analysis scripts
-│   ├── granger_results.json
-│   ├── robustness.json
-│   └── benchmark_comparison.json
-│
-├── figures/                      # Paper figures (PNG, 300 DPI)
-│   ├── fig1_index_comparison.png
-│   ├── fig2_lead_times.png
-│   ├── fig3_pass_through.png
-│   ├── fig4_benchmark.png
-│   └── fig5_country_map.png
-│
-├── tables/                       # Paper tables (CSV + LaTeX)
-│   ├── table1_sample.{csv,tex}
-│   ├── table2_descriptive.{csv,tex}
-│   ├── table3_granger.{csv,tex}
-│   └── table4_passthrough.{csv,tex}
-│
-├── paper_draft/                  # Draft paper components
-│   ├── abstract.md
-│   └── abstract_ssef.md
-│
-├── historical_scraper.py         # Web scraping (historical + live)
-├── nlp_pipeline.py               # Dish name classification
-├── index_builder.py              # UIFPI index construction
-├── granger_analysis.py           # Granger causality + pass-through
-├── robustness_checks.py          # Robustness validation
-├── benchmark_comparison.py       # AR(1) vs UIFPI benchmark
-├── generate_figures.py           # All 5 paper figures
-├── paper_data_tables.py          # All 4 paper tables (CSV + LaTeX)
-├── abstract_generator.py         # AI-assisted abstract generation
-├── ssef_checklist.py             # SSEF submission requirements check
-└── run_all.py                    # Full pipeline runner
+├── live_scraper.py                   # monthly live collection
+├── historical_scraper.py             # Wayback / historical backfill
+├── thailand_scraper.py               # Thailand-specific Wayback sweep (2026-06)
+├── informal_scraper.py               # hawker / street vendor pipeline
+├── image_processor.py                # Gemini Vision menu OCR
+├── nlp_pipeline.py                   # dish-name classification
+├── validate_nlp.py                   # NLP accuracy harness
+├── fill_manual_labels.py             # heuristic auto-labeller (validation aid)
+├── get_monthly_cpi_all.py            # OECD + World Bank + IMF CPI
+├── align_series.py                   # UIFPI ↔ CPI merger
+├── index_builder.py                  # UIFPI construction
+├── granger_analysis.py               # Granger + pass-through regression
+├── robustness_checks.py              # robustness suite
+├── benchmark_comparison.py           # AR(1) baseline
+├── dashboard_data.py                 # dashboard JSON exporter
+├── diagnostic_report.py              # health-check snapshot
+├── generate_figures.py               # all paper figures
+├── paper_data_tables.py              # all paper tables
+├── abstract_generator.py             # Claude-assisted abstract
+├── ssef_checklist.py                 # SSEF requirements check
+└── run_all.py                        # convenience runner
 ```
 
 ---
 
-## Key Findings
+## Dashboard
 
-> **Status: Data collection ongoing. Findings below are preliminary.**
+Live dashboard (Vercel, auto-redeploys on push to `main`):
 
-- **7,233** price observations collected across **8 countries**, 2018–present.
-- **UIFPI construction** validated across both formal (restaurant) and informal
-  (hawker/street vendor) sectors.
-- **Granger causality** testing underway — preliminary analysis suggests 1–3
-  month lead over official CPI. Full monthly time-series pending.
-- **Pass-through hypothesis** supported in preliminary analysis: informal
-  vendors show lower cost transmission than formal restaurants.
-- **Robustness:** Results stable across alternative basket specifications
-  and ±10pp informal sector weight variations (Test 2, 3). Jackknife
-  stability pending sufficient monthly observations per country (Test 1).
+  **https://inflation-menu.vercel.app**
 
-*Full quantitative findings will be updated upon completion of monthly
-data collection. All scripts are deterministic and results are reproducible
-from the open-source database.*
+The dashboard reads `dashboard_data/*.json`; regenerate those files via
+`python3 dashboard_data.py` before pushing.
+
+---
+
+## Honest Status (2026-06-13)
+
+- **4,227** price observations across **8 countries** (Singapore dominates).
+- **83** UIFPI index rows across 7 countries (Indonesia and Thailand each at
+  one month).
+- **Granger headline:** Singapore p = 0.092 (lag 2). Six other countries
+  computed; none significant. Significance awaits ≥ 24 monthly observations.
+- **CPI series:** monthly for AU / US / IN (OECD); annual-only for SG / MY /
+  ID / TH / GB (World Bank fallback — primary monthly sources unreachable
+  from this collection environment).
+- **NLP:** rule-based fallback active; 83.0% accuracy on 100-item audit.
+  Anthropic API credits will replace this with a hybrid LLM pipeline.
 
 ---
 

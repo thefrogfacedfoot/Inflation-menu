@@ -36,7 +36,7 @@
     "pass_through_pvalue": null,
     "months_of_data": 13,
     "base_month": "2019-03",
-    "latest_uifpi": 800.73,
+    "latest_uifpi": 804.85,
     "status": "no_granger_data"
   },
   "Singapore": {
@@ -46,7 +46,17 @@
     "pass_through_pvalue": null,
     "months_of_data": 13,
     "base_month": "2019-06",
-    "latest_uifpi": 701.03,
+    "latest_uifpi": 705.16,
+    "status": "no_granger_data"
+  },
+  "Thailand": {
+    "granger_significant": false,
+    "lead_months": null,
+    "pass_through_rate": null,
+    "pass_through_pvalue": null,
+    "months_of_data": 1,
+    "base_month": "2026-06",
+    "latest_uifpi": 100.0,
     "status": "no_granger_data"
   },
   "United Kingdom": {

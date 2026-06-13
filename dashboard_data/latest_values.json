@@ -25,19 +25,27 @@
   },
   "Malaysia": {
     "month": "2026-06",
-    "uifpi": 800.73,
-    "formal": 800.73,
-    "informal": 800.73,
+    "uifpi": 804.85,
+    "formal": 804.85,
+    "informal": 804.85,
     "cpi": null,
-    "yoy_change_pct": 700.73
+    "yoy_change_pct": 704.85
   },
   "Singapore": {
     "month": "2026-06",
-    "uifpi": 701.03,
-    "formal": 701.03,
-    "informal": 701.03,
+    "uifpi": 705.16,
+    "formal": 705.16,
+    "informal": 705.16,
     "cpi": null,
-    "yoy_change_pct": 601.03
+    "yoy_change_pct": 605.16
+  },
+  "Thailand": {
+    "month": "2026-06",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": 100.0,
+    "cpi": null,
+    "yoy_change_pct": null
   },
   "United Kingdom": {
     "month": "2026-06",
