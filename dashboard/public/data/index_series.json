@@ -248,7 +248,7 @@
       "formal": 50.0,
       "informal": 50.0,
       "cpi": null,
-      "item_count": 2
+      "item_count": 1
     },
     {
       "month": "2023-06",
@@ -256,7 +256,7 @@
       "formal": 25.0,
       "informal": 25.0,
       "cpi": null,
-      "item_count": 3
+      "item_count": 1
     }
   ],
   "Indonesia": [
@@ -368,11 +368,11 @@
     },
     {
       "month": "2026-06",
-      "uifpi": 800.73,
-      "formal": 800.73,
-      "informal": 800.73,
+      "uifpi": 804.85,
+      "formal": 804.85,
+      "informal": 804.85,
       "cpi": null,
-      "item_count": 398
+      "item_count": 392
     }
   ],
   "Singapore": [
@@ -462,7 +462,7 @@
       "formal": 75.0,
       "informal": 75.0,
       "cpi": null,
-      "item_count": 2
+      "item_count": 1
     },
     {
       "month": "2023-05",
@@ -474,11 +474,21 @@
     },
     {
       "month": "2026-06",
-      "uifpi": 701.03,
-      "formal": 701.03,
-      "informal": 701.03,
+      "uifpi": 705.16,
+      "formal": 705.16,
+      "informal": 705.16,
       "cpi": null,
-      "item_count": 6491
+      "item_count": 3486
+    }
+  ],
+  "Thailand": [
+    {
+      "month": "2026-06",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 11
     }
   ],
   "United Kingdom": [
@@ -556,11 +566,11 @@
     },
     {
       "month": "2021-09",
-      "uifpi": 150.0,
-      "formal": 150.0,
-      "informal": 150.0,
+      "uifpi": 166.67,
+      "formal": 166.67,
+      "informal": 166.67,
       "cpi": null,
-      "item_count": 4
+      "item_count": 3
     },
     {
       "month": "2023-05",
@@ -614,11 +624,11 @@
     },
     {
       "month": "2019-07",
-      "uifpi": 790.48,
-      "formal": 790.48,
-      "informal": 790.48,
+      "uifpi": 860.16,
+      "formal": 860.16,
+      "informal": 860.16,
       "cpi": null,
-      "item_count": 11
+      "item_count": 10
     },
     {
       "month": "2019-08",
@@ -658,7 +668,7 @@
       "formal": 93.75,
       "informal": 93.75,
       "cpi": null,
-      "item_count": 2
+      "item_count": 1
     },
     {
       "month": "2022-07",
