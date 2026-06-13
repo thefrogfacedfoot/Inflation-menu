@@ -2322,3 +2322,201 @@ Call log:
   Loading Leon (direct)…
   ✓ Leon: 3 items
   Loading Itsu (direct)…
+  ✓ Itsu: 0 items
+  ✗  Itsu: 0 items scraped — page may not have loaded
+  Loading Five Guys UK (direct)…
+  ✓ Five Guys UK: 0 items
+  ✗  Five Guys UK: 0 items scraped — page may not have loaded
+  Loading Shake Shack UK (direct)…
+  ✓ Shake Shack UK: 0 items
+  ✗  Shake Shack UK: 0 items scraped — page may not have loaded
+  Loading Pizza Express (direct)…
+  ✗  Pizza Express: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.pizzaexpress.com/menu", waiting until "networkidle"
+
+  Loading Dishoom (direct)…
+  ✗  Dishoom: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.dishoom.com/menu/", waiting until "networkidle"
+
+  Loading Flat Iron (direct)…
+  ✗  Flat Iron: Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.flatironsteak.co.uk/menu/
+Call log:
+  - navigating to "https://www.flatironsteak.co.uk/menu/", waiting until "networkidle"
+
+  Loading Honest Burgers (direct)…
+  ✓ Honest Burgers: 0 items
+  ✗  Honest Burgers: 0 items scraped — page may not have loaded
+  Loading Patty & Bun (direct)…
+  ✓ Patty & Bun: 0 items
+  ✗  Patty & Bun: 0 items scraped — page may not have loaded
+  Loading Bao London (direct)…
+  ✓ Bao London: 0 items
+  ✗  Bao London: 0 items scraped — page may not have loaded
+  Loading Bleecker Burger (direct)…
+  ✓ Bleecker Burger: 20 items
+  Loading Busaba Eathai (direct)…
+  ✓ Busaba Eathai: 0 items
+  ✗  Busaba Eathai: 0 items scraped — page may not have loaded
+  Loading Shoryu Ramen (direct)…
+  ✓ Shoryu Ramen: 0 items
+  ✗  Shoryu Ramen: 0 items scraped — page may not have loaded
+  Loading Hoppers (direct)…
+  ✓ Hoppers: 0 items
+  ✗  Hoppers: 0 items scraped — page may not have loaded
+  Loading McDonald's Australia (direct)…
+  ✗  McDonald's Australia: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://mcdonalds.com.au/menu
+Call log:
+  - navigating to "https://mcdonalds.com.au/menu", waiting until "networkidle"
+
+  Loading Guzman y Gomez (direct)…
+  ✗  Guzman y Gomez: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.guzmanygomez.com/menu/", waiting until "networkidle"
+
+  Loading Grill'd (direct)…
+  ✓ Grill'd: 0 items
+  ✗  Grill'd: 0 items scraped — page may not have loaded
+  Loading Nando's Australia (direct)…
+  ✗  Nando's Australia: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.nandos.com.au/menu", waiting until "networkidle"
+
+  Loading Zambrero (direct)…
+  ✓ Zambrero: 0 items
+  ✗  Zambrero: 0 items scraped — page may not have loaded
+  Loading Mad Mex (direct)…
+  ✓ Mad Mex: 0 items
+  ✗  Mad Mex: 0 items scraped — page may not have loaded
+  Loading Oporto (direct)…
+  ✓ Oporto: 1 items
+  Loading Boost Juice (direct)…
+  ✗  Boost Juice: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://www.boostjuice.com.au/menu", waiting until "networkidle"
+
+  Loading Roll'd (direct)…
+  ✓ Roll'd: 0 items
+  ✗  Roll'd: 0 items scraped — page may not have loaded
+  Loading Lune Croissanterie (direct)…
+  ✓ Lune Croissanterie: 0 items
+  ✗  Lune Croissanterie: 0 items scraped — page may not have loaded
+  Loading Chin Chin Melbourne (direct)…
+  ✓ Chin Chin Melbourne: 0 items
+  ✗  Chin Chin Melbourne: 0 items scraped — page may not have loaded
+  Loading Huxtaburger (direct)…
+  ✓ Huxtaburger: 0 items
+  ✗  Huxtaburger: 0 items scraped — page may not have loaded
+  Loading Mary's Burgers (direct)…
+  ✓ Mary's Burgers: 0 items
+  ✗  Mary's Burgers: 0 items scraped — page may not have loaded
+  Loading The Grounds of Alexandria (direct)…
+  ✗  The Grounds of Alexandria: Page.goto: Timeout 45000ms exceeded.
+Call log:
+  - navigating to "https://thegrounds.com.au/all-day-menu/", waiting until "networkidle"
+
+  Loading Butter Restaurant (direct)…
+  ✗  Butter Restaurant: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.buttermelbourne.com.au/menu/
+Call log:
+  - navigating to "https://www.buttermelbourne.com.au/menu/", waiting until "networkidle"
+
+  Loading Lankan Filling Station (direct)…
+  ✓ Lankan Filling Station: 0 items
+  ✗  Lankan Filling Station: 0 items scraped — page may not have loaded
+  Loading Fonda Mexican (direct)…
+  ✓ Fonda Mexican: 0 items
+  ✗  Fonda Mexican: 0 items scraped — page may not have loaded
+  Loading Harry's Café de Wheels (direct)…
+  ✓ Harry's Café de Wheels: 0 items
+  ✗  Harry's Café de Wheels: 0 items scraped — page may not have loaded
+
+155 failed — retrying in 60 s…
+--- Attempt 2 (155 targets) ---
+
+  Loading Rubato (foodpanda)…
+  ✗  Rubato: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ichiban Boshi (foodpanda)…
+  ✗  Ichiban Boshi: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Din Tai Fung (GrabFood)…
+  ✓ Din Tai Fung: 0 items
+  ✗  Din Tai Fung: 0 items scraped — page may not have loaded
+  Loading Sushi Tei (GrabFood)…
+  ✓ Sushi Tei: 0 items
+  ✗  Sushi Tei: 0 items scraped — page may not have loaded
+  Loading Jumbo Seafood (GrabFood)…
+  ✓ Jumbo Seafood: 0 items
+  ✗  Jumbo Seafood: 0 items scraped — page may not have loaded
+  Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+  ✗  Crystal Jade La Mian Xiao Long Bao: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+  ✗  No Signboard Prawn Noodles and Carrot Cake: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Putien (foodpanda)…
+  ✗  Putien: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Paradise Dynasty (foodpanda)…
+  ✗  Paradise Dynasty: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Tim Ho Wan (foodpanda)…
+  ✗  Tim Ho Wan: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+  ✗  Crystal Jade Hong Kong Kitchen: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Pepper Lunch (foodpanda)…
+  ✗  Pepper Lunch: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Ippudo Ramen (GrabFood)…
+  ✓ Ippudo Ramen: 0 items
+  ✗  Ippudo Ramen: 0 items scraped — page may not have loaded
+  Loading Seoul Garden HotPot (foodpanda)…
+  ✗  Seoul Garden HotPot: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Hokkaido-ya (foodpanda)…
+  ✗  Hokkaido-ya: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading BreadTalk (GrabFood)…
+  ✓ BreadTalk: 0 items
+  ✗  BreadTalk: 0 items scraped — page may not have loaded
+  Loading Toast Box (foodpanda)…
+  ✗  Toast Box: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Old Chang Kee (foodpanda)…
+  ✗  Old Chang Kee: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Crystal Jade GO (foodpanda)…
+  ✗  Crystal Jade GO: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[aria-label*=\"Add to cart\"]") to be visible
+
+  Loading Song Fa Bak Kut Teh (foodpanda)…
