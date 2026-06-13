@@ -837,82 +837,821 @@
       }
     ],
     "done_urls": [
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1028955-Reviews-Duta_Makassar-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1026248-Reviews-Gudeg_Pejompongan-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10038779-Reviews-Ichiban_Sushi_Epicentrum_Walk-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1023909-Reviews-Almondtree-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10392805-Reviews-6_Degrees_Coffee_Drinkers-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1014330-Reviews-Duta_Cwie_Mie-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10000527-Reviews-Aroma_Sedap-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10019269-Reviews-Sapori_Deli-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10059984-Reviews-Holy_Smokes-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10182845-Reviews-or10-TGI_Fridays_Central_Park-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1018175-Reviews-Koi_Mahakam-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10197881-Reviews-Tawan_Kota_Kasablanka-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10224875-Reviews-Kamakura_Cafe-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1020129-Reviews-Suan_Thai-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1012762-Reviews-Hong_Kong_Cafe-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10045117-Reviews-or15-LOLA_Espiritu_y_Libacion-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390898-Reviews-The_Harvest_Cibubur-Jakarta_Java.html",
       "https://www.tripadvisor.com/Restaurant_Review-g294229-d1035942-Reviews-Sushi_Tei_Plaza_Senayan-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10024427-Reviews-Holycow_Steakhouse_Citos-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10329267-Reviews-Kok_Tong_Coffee_PIK-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10354470-Reviews-Keukenhof_Bistro-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10108127-Reviews-Javanegra_Gourmet_Atelier-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1027648-Reviews-Ramen_38_Sanpachi-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10392890-Reviews-Lulu_Lala-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10332516-Reviews-RM_Garuda_Pondok_Indah-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10391575-Reviews-The_Harvest_Cakes_Thamrin-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10283129-Reviews-Kila_Kila_by_Akasya-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1008345-Reviews-Over_Rice-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10154182-Reviews-OKU-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1023104-Reviews-Burger_Blenger-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10379852-Reviews-Bakmi_GM-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10224089-Reviews-Momiji_Japanese_Restaurant-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10324191-Reviews-Pvblic_Bistro_Bar-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10045143-Reviews-Depot_Nasi_Campur_Tambak_Bayan-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10297494-Reviews-Yoo_s_Food_Factory-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10324023-Reviews-K22_Bar-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10357401-Reviews-Tanpopo_Jakarta-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10373424-Reviews-Caribou_Coffee-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10404077-Reviews-or10-Sate_Khas_Senayan_Grand_Indonesia-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10404077-Reviews-or20-Sate_Khas_Senayan_Grand_Indonesia-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1023165-Reviews-or15-Nasi_Goreng_Kambing_Kebon_Sirih-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10045117-Reviews-LOLA_Espiritu_y_Libacion-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10290725-Reviews-Abura_Soba_Yamatoten-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10329145-Reviews-Seroeni_St_Moritz_Puri-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10404077-Reviews-Sate_Khas_Senayan_Grand_Indonesia-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390872-Reviews-The_Harvest_Cakes_Mangga_Besar-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10475534-Reviews-Anigre-Jakarta_Java.html",
       "https://www.tripadvisor.com/Restaurant_Review-g294229-d10154182-Reviews-or10-OKU-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1026806-Reviews-Soto_Betawi_Bang_Husen-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1006811-Reviews-Izzi_Pizza-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10130058-Reviews-Starbucks-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390905-Reviews-The_Harvest_Cakes_Pluit-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10060338-Reviews-Lembur_Kuring_Airport_Soekarno_Hatta-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1022573-Reviews-Saung_Grenvil_Restaurant-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10202245-Reviews-1945_Restaurant-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1020404-Reviews-Ya_Udah_Bistro-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390870-Reviews-The_Harvest_Cakes_Cilandak-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10219760-Reviews-Willie_Brothers_Steakhouse-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10239108-Reviews-Bubur_Ayam_Barito-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10331052-Reviews-AMKC_Atelier-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390913-Reviews-The_Harvest_Cakes_Lebak_Bulus-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1026806-Reviews-or10-Soto_Betawi_Bang_Husen-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10347916-Reviews-Djakarta_Cafe-Jakarta_Java.html",
       "https://www.tripadvisor.com/Restaurant_Review-g294229-d1023165-Reviews-Nasi_Goreng_Kambing_Kebon_Sirih-Jakarta_Java.html",
-      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10330991-Reviews-McDonald_s-Jakarta_Java.html"
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10357401-Reviews-Tanpopo_Jakarta-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10391575-Reviews-The_Harvest_Cakes_Thamrin-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10130058-Reviews-Starbucks-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10331052-Reviews-AMKC_Atelier-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10108127-Reviews-Javanegra_Gourmet_Atelier-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1023909-Reviews-Almondtree-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10392890-Reviews-Lulu_Lala-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10354470-Reviews-Keukenhof_Bistro-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10219760-Reviews-Willie_Brothers_Steakhouse-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1020404-Reviews-Ya_Udah_Bistro-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1006811-Reviews-Izzi_Pizza-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10392805-Reviews-6_Degrees_Coffee_Drinkers-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10154182-Reviews-OKU-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10329145-Reviews-Seroeni_St_Moritz_Puri-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1026806-Reviews-or10-Soto_Betawi_Bang_Husen-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10330991-Reviews-McDonald_s-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10324191-Reviews-Pvblic_Bistro_Bar-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1018175-Reviews-Koi_Mahakam-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10332516-Reviews-RM_Garuda_Pondok_Indah-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1028955-Reviews-Duta_Makassar-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10379852-Reviews-Bakmi_GM-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10463984-Reviews-Bangi_Kopitiam_Pasar_Minggu-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10324023-Reviews-K22_Bar-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10329267-Reviews-Kok_Tong_Coffee_PIK-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10290725-Reviews-Abura_Soba_Yamatoten-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1026248-Reviews-Gudeg_Pejompongan-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10458379-Reviews-AW_Kitchen_by_Akira_Watanabe-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10496622-Reviews-El_Bombon_Gourmet_Pastry_at_Gran_Melia_Jakarta-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10347916-Reviews-Djakarta_Cafe-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10534860-Reviews-Bakerzin_Central_Park-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10408522-Reviews-P_B-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10059984-Reviews-Holy_Smokes-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1049603-Reviews-Platter-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390870-Reviews-The_Harvest_Cakes_Cilandak-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1049897-Reviews-Hoka_Hoka_Bento-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10045117-Reviews-or15-LOLA_Espiritu_y_Libacion-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1008345-Reviews-Over_Rice-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10506063-Reviews-Levant_Boulangerie_et_Patisserie-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10404077-Reviews-Sate_Khas_Senayan_Grand_Indonesia-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10475534-Reviews-or10-Anigre-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390898-Reviews-The_Harvest_Cibubur-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10024427-Reviews-Holycow_Steakhouse_Citos-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10045117-Reviews-LOLA_Espiritu_y_Libacion-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10501292-Reviews-Starbucks_Gedung_Filateli-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1027648-Reviews-Ramen_38_Sanpachi-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1022573-Reviews-Saung_Grenvil_Restaurant-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390905-Reviews-The_Harvest_Cakes_Pluit-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10404077-Reviews-or20-Sate_Khas_Senayan_Grand_Indonesia-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1052640-Reviews-Sakana_Midplaza-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1020129-Reviews-Suan_Thai-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390913-Reviews-The_Harvest_Cakes_Lebak_Bulus-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10224089-Reviews-Momiji_Japanese_Restaurant-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10060338-Reviews-Lembur_Kuring_Airport_Soekarno_Hatta-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10224875-Reviews-Kamakura_Cafe-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10239108-Reviews-Bubur_Ayam_Barito-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10038779-Reviews-Ichiban_Sushi_Epicentrum_Walk-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10182845-Reviews-or10-TGI_Fridays_Central_Park-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10202245-Reviews-1945_Restaurant-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10428136-Reviews-Sofia_at_the_Gunawarman-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10000527-Reviews-Aroma_Sedap-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10496622-Reviews-El_Bombon_Gran_Melia_Jakarta-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1026806-Reviews-Soto_Betawi_Bang_Husen-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1014330-Reviews-Duta_Cwie_Mie-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1023104-Reviews-Burger_Blenger-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1023165-Reviews-or15-Nasi_Goreng_Kambing_Kebon_Sirih-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d1012762-Reviews-Hong_Kong_Cafe-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10519454-Reviews-Cikang_Coffee_Restro-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10390872-Reviews-The_Harvest_Cakes_Mangga_Besar-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10283129-Reviews-Kila_Kila_by_Akasya-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10431534-Reviews-Taco_Local-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10404077-Reviews-or10-Sate_Khas_Senayan_Grand_Indonesia-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10019269-Reviews-Sapori_Deli-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10197881-Reviews-Tawan_Kota_Kasablanka-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10297494-Reviews-Yoo_s_Food_Factory-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10045143-Reviews-Depot_Nasi_Campur_Tambak_Bayan-Jakarta_Java.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g294229-d10373424-Reviews-Caribou_Coffee-Jakarta_Java.html"
     ],
-    "status": "in_progress"
+    "status": "complete"
   },
   "Thailand": {
-    "snapshots": [],
+    "snapshots": [
+      {
+        "timestamp": "20180101071525",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-Bangkok.html"
+      },
+      {
+        "timestamp": "20190602232208",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c1-Bangkok.html"
+      },
+      {
+        "timestamp": "20190604012945",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10-Bangkok.html"
+      },
+      {
+        "timestamp": "20190707065424",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10626-Bangkok.html"
+      },
+      {
+        "timestamp": "20220719190434",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10626-oa30-Bangkok.html"
+      },
+      {
+        "timestamp": "20190823151201",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10626-zfn15620288-Bangkok.html"
+      },
+      {
+        "timestamp": "20190724060048",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10626-zfn8308062-Bangkok.html"
+      },
+      {
+        "timestamp": "20190611092052",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10631-Bangkok.html"
+      },
+      {
+        "timestamp": "20190604015655",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10633-Bangkok.html"
+      },
+      {
+        "timestamp": "20220902111346",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10636-Bangkok.html"
+      },
+      {
+        "timestamp": "20190516210316",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10639-Bangkok.html"
+      },
+      {
+        "timestamp": "20190611064309",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10639-zfn8308062-Bangkok.html"
+      },
+      {
+        "timestamp": "20190527192216",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-Bangkok.html"
+      },
+      {
+        "timestamp": "20190706092809",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-oa120-Bangkok.html"
+      },
+      {
+        "timestamp": "20190619192353",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-oa150-Bangkok.html"
+      },
+      {
+        "timestamp": "20190622062033",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-oa240-Bangkok.html"
+      },
+      {
+        "timestamp": "20191123090541",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-oa270-Bangkok.html"
+      },
+      {
+        "timestamp": "20190608120622",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-oa30-Bangkok.html"
+      },
+      {
+        "timestamp": "20190806202713",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-oa60-Bangkok.html"
+      },
+      {
+        "timestamp": "20190729133853",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-oa90-Bangkok.html"
+      },
+      {
+        "timestamp": "20191114173925",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn15620324-Bangkok.html"
+      },
+      {
+        "timestamp": "20190820011719",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn15620325-Bangkok.html"
+      },
+      {
+        "timestamp": "20190806202801",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn15620332-Bangkok.html"
+      },
+      {
+        "timestamp": "20191023014708",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn15620357-Bangkok.html"
+      },
+      {
+        "timestamp": "20190925203534",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn15620427-Bangkok.html"
+      },
+      {
+        "timestamp": "20190527140014",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn8308058-Bangkok.html"
+      },
+      {
+        "timestamp": "20190616061936",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn8308062-Bangkok.html"
+      },
+      {
+        "timestamp": "20190727130330",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn8308064-Bangkok.html"
+      },
+      {
+        "timestamp": "20190528122143",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn8308065-Bangkok.html"
+      },
+      {
+        "timestamp": "20190620001224",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10646-zfn8308067-Bangkok.html"
+      },
+      {
+        "timestamp": "20190728040608",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-Bangkok.html"
+      },
+      {
+        "timestamp": "20191005154317",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-oa120-Bangkok.html"
+      },
+      {
+        "timestamp": "20190928212345",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-oa150-Bangkok.html"
+      },
+      {
+        "timestamp": "20190622002605",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-oa30-Bangkok.html"
+      },
+      {
+        "timestamp": "20190729010902",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-oa60-Bangkok.html"
+      },
+      {
+        "timestamp": "20190729013306",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-oa90-Bangkok.html"
+      },
+      {
+        "timestamp": "20191002070029",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn15620281-Bangkok.html"
+      },
+      {
+        "timestamp": "20190928225454",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn15620283-Bangkok.html"
+      },
+      {
+        "timestamp": "20191007051506",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn15620286-Bangkok.html"
+      },
+      {
+        "timestamp": "20191012202857",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn15620288-Bangkok.html"
+      },
+      {
+        "timestamp": "20191019205231",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn15620328-Bangkok.html"
+      },
+      {
+        "timestamp": "20191108010538",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn15620408-Bangkok.html"
+      },
+      {
+        "timestamp": "20190724060057",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn8308058-Bangkok.html"
+      },
+      {
+        "timestamp": "20190622103235",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10661-zfn8308062-Bangkok.html"
+      },
+      {
+        "timestamp": "20190531112220",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10663-Bangkok.html"
+      },
+      {
+        "timestamp": "20190730112324",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10663-zfn15620288-Bangkok.html"
+      },
+      {
+        "timestamp": "20190516173411",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10679-Bangkok.html"
+      },
+      {
+        "timestamp": "20190519203732",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10679-oa30-Bangkok.html"
+      },
+      {
+        "timestamp": "20190727161015",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10679-oa60-Bangkok.html"
+      },
+      {
+        "timestamp": "20191025043009",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10679-zfn15620307-Bangkok.html"
+      },
+      {
+        "timestamp": "20231031225957",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10679-zfn8308062-Bangkok.html"
+      },
+      {
+        "timestamp": "20190611120712",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10679-zfn8308064-Bangkok.html"
+      },
+      {
+        "timestamp": "20190727130339",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10679-zfn8308067-Bangkok.html"
+      },
+      {
+        "timestamp": "20230517123237",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10680-Bangkok.html"
+      },
+      {
+        "timestamp": "20190608175933",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10686-Bangkok.html"
+      },
+      {
+        "timestamp": "20220719184926",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10686-oa30-Bangkok.html"
+      },
+      {
+        "timestamp": "20190930013227",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10686-oa60-Bangkok.html"
+      },
+      {
+        "timestamp": "20191020041803",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10686-zfn15620351-Bangkok.html"
+      },
+      {
+        "timestamp": "20191005001211",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10686-zfn15620368-Bangkok.html"
+      },
+      {
+        "timestamp": "20231029040210",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10686-zfn8308062-Bangkok.html"
+      },
+      {
+        "timestamp": "20190520105711",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10690-Bangkok.html"
+      },
+      {
+        "timestamp": "20190608151736",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10693-Bangkok.html"
+      },
+      {
+        "timestamp": "20190521063707",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10696-Bangkok.html"
+      },
+      {
+        "timestamp": "20190523034302",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10696-oa30-Bangkok.html"
+      },
+      {
+        "timestamp": "20190630124820",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10698-Bangkok.html"
+      },
+      {
+        "timestamp": "20230517123125",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10721-Bangkok.html"
+      },
+      {
+        "timestamp": "20190602145828",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10741-Bangkok.html"
+      },
+      {
+        "timestamp": "20190619182219",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10744-Bangkok.html"
+      },
+      {
+        "timestamp": "20230517123229",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10748-Bangkok.html"
+      },
+      {
+        "timestamp": "20191030235941",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10748-zfn15620315-Bangkok.html"
+      },
+      {
+        "timestamp": "20190927224740",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10748-zfn15620371-Bangkok.html"
+      },
+      {
+        "timestamp": "20190926203037",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10748-zfn15620378-Bangkok.html"
+      },
+      {
+        "timestamp": "20190927070106",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10748-zfn15620403-Bangkok.html"
+      },
+      {
+        "timestamp": "20190705205009",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10748-zfn8308058-Bangkok.html"
+      },
+      {
+        "timestamp": "20190625033608",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10765-Bangkok.html"
+      },
+      {
+        "timestamp": "20190606195916",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10772-Bangkok.html"
+      },
+      {
+        "timestamp": "20190607021742",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10779-Bangkok.html"
+      },
+      {
+        "timestamp": "20190602035441",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c10785-Bangkok.html"
+      },
+      {
+        "timestamp": "20190311231657",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c11-Bangkok.html"
+      },
+      {
+        "timestamp": "20191029012539",
+        "url": "https://www.tripadvisor.com/Restaurants-g293916-c11-oa120-zfp30-Bangkok.html"
+      }
+    ],
     "done_urls": [],
-    "status": "pending"
+    "status": "in_progress"
   },
   "India": {
-    "snapshots": [],
-    "done_urls": [],
-    "status": "pending"
+    "snapshots": [
+      {
+        "timestamp": "20190928101917",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10002884-Reviews-Warehouse_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191004063044",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10027625-Reviews-Glocal_Junction-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191020093923",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10034649-Reviews-Tiffin_Box_Etc_Saki_Naka-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191020132111",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10044414-Reviews-Tatami-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191030001946",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or20-The_Bohri_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190924185149",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or50-The_Bohri_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190721145726",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-The_Bohri_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190924090043",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10057945-Reviews-Imbiss-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190930152207",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or20-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190910114623",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or30-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191129044008",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10064711-Reviews-Maakapow-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190506064628",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20220624160119",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-or15-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190914105556",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007777-Reviews-Gajalee-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191111005446",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007806-Reviews-or10-Chetana-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190219212734",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10081260-Reviews-1441_Pizzeria_Lokhandwala-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20220324085908",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-Mabruk-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190821175849",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-or10-Mabruk-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190927012657",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008617-Reviews-Shabri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20200708062454",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-or10-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190909223709",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190923083623",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10104869-Reviews-Mi_Favorito-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190506065253",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-or10-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20181116071257",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191013060905",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011823-Reviews-Corleone-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190913214947",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10130569-Reviews-The_Village_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190623044910",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20200703171316",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or10-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190829142657",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or20-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190930060828",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or30-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191115172436",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or50-Badshah-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191129084730",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10138729-Reviews-White_Rose_Cafe-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20180705013223",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-or10-Peshawri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20181230082531",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-or20-Peshawri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20180117001245",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-Peshawri-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190924211239",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015366-Reviews-Aaswad-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190727072625",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or10-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191006031354",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or40-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190918184013",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or50-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191028222715",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or70-Shiv_Sagar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191106224808",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10165112-Reviews-Spice_Cot-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191007011837",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10185464-Reviews-Cafe_Mezzuna-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191014183917",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10188298-Reviews-True_Tramm_Trunk-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190903212547",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10212990-Reviews-Ark_Vegetarian_Fine_Dine-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191105235307",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10222070-Reviews-Howra-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190824101549",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10227109-Reviews-Balaji-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190810234344",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10229519-Reviews-The_Beer_Cafe-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190928195310",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10251034-Reviews-The_American_Joint-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191005104312",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10269366-Reviews-The_Food_Court-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190916120117",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10270739-Reviews-Food_Inn-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191004134635",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10276259-Reviews-Brownie_Point-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20230517124126",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10277854-Reviews-GVK_Lounge-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20230517124402",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10277854-Reviews-or15-GVK_Lounge-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190909031415",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10277854-Reviews-or30-GVK_Lounge-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191020214526",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10278339-Reviews-Deewaan_E_Khaas-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190919215206",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10278421-Reviews-Oye_Kake-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191001103749",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10278449-Reviews-Dishkiyaoon_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190925081805",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1027994-Reviews-Stadium-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190929064131",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1028663-Reviews-Janata_Lunch_Home_Restaurant_Bar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190830190035",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10286694-Reviews-Rola_Rossa-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190829211240",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10292940-Reviews-Tea_Conversations-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190917055822",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294300-Reviews-Pop_Tates-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20230619221059",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294318-Reviews-Chai_Pe_Charcha-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20230619221104",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294318-Reviews-or15-Chai_Pe_Charcha-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20230619221113",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294318-Reviews-or30-Chai_Pe_Charcha-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191006214744",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10298222-Reviews-The_Fusion_Kitchen-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191015175515",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10298550-Reviews-1441_Pizzeria-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191005024445",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10299688-Reviews-Mumbai_90-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190921222348",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10325577-Reviews-Capital_Social-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190402012952",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10338075-Reviews-East_Asian_Spice_Trail-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190929110437",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d1036341-Reviews-Only_Parathas-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191001171741",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10373867-Reviews-Pride_Restaurant_Bar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191029231029",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10374760-Reviews-Ministry_of_salads-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190901091002",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10377431-Reviews-Delhi_Highway-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190612024447",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10386029-Reviews-Farzi_Cafe-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191023032101",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10410801-Reviews-TAP_Resto_Bar-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190402012334",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10424246-Reviews-Bastian-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190922164450",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10454383-Reviews-R_Adda-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20190921191723",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10456163-Reviews-Karma_Sheesha_and_Restaurant-Mumbai_Maharashtra.html"
+      },
+      {
+        "timestamp": "20191018043635",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g304554-d10459630-Reviews-Thyme_Bistro-Mumbai_Maharashtra.html"
+      }
+    ],
+    "done_urls": [
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1027994-Reviews-Stadium-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10185464-Reviews-Cafe_Mezzuna-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10229519-Reviews-The_Beer_Cafe-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10165112-Reviews-Spice_Cot-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10278421-Reviews-Oye_Kake-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-or15-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10065628-Reviews-Mockingbird_Cafe_Bar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10138729-Reviews-White_Rose_Cafe-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10338075-Reviews-East_Asian_Spice_Trail-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10081260-Reviews-1441_Pizzeria_Lokhandwala-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10454383-Reviews-R_Adda-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10277854-Reviews-or15-GVK_Lounge-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10270739-Reviews-Food_Inn-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10064711-Reviews-Maakapow-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10027625-Reviews-Glocal_Junction-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-or20-Peshawri-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10276259-Reviews-Brownie_Point-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10104869-Reviews-Mi_Favorito-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or20-The_Bohri_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10298222-Reviews-The_Fusion_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10424246-Reviews-Bastian-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1028663-Reviews-Janata_Lunch_Home_Restaurant_Bar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10188298-Reviews-True_Tramm_Trunk-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10456163-Reviews-Karma_Sheesha_and_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1036341-Reviews-Only_Parathas-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10277854-Reviews-or30-GVK_Lounge-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10299688-Reviews-Mumbai_90-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10278449-Reviews-Dishkiyaoon_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10222070-Reviews-Howra-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-or10-Peshawri-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10044414-Reviews-Tatami-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or10-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or20-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10459630-Reviews-Thyme_Bistro-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294318-Reviews-or30-Chai_Pe_Charcha-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or10-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10057945-Reviews-Imbiss-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008617-Reviews-Shabri-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1014520-Reviews-Peshawri-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-Mabruk-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-or10-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-or10-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294318-Reviews-or15-Chai_Pe_Charcha-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10277854-Reviews-GVK_Lounge-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011823-Reviews-Corleone-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294318-Reviews-Chai_Pe_Charcha-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008676-Reviews-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1011395-Reviews-Samrat_Veg_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10374760-Reviews-Ministry_of_salads-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10060870-Reviews-or30-Rivea_Taj_Santacruz-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-or50-The_Bohri_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10045932-Reviews-The_Bohri_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007806-Reviews-or10-Chetana-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or20-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1008614-Reviews-or10-Mabruk-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10377431-Reviews-Delhi_Highway-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10212990-Reviews-Ark_Vegetarian_Fine_Dine-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10002884-Reviews-Warehouse_Kitchen-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or50-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10410801-Reviews-TAP_Resto_Bar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10292940-Reviews-Tea_Conversations-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or50-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10298550-Reviews-1441_Pizzeria-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1007777-Reviews-Gajalee-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10130569-Reviews-The_Village_Restaurant-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10034649-Reviews-Tiffin_Box_Etc_Saki_Naka-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10386029-Reviews-Farzi_Cafe-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10269366-Reviews-The_Food_Court-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10286694-Reviews-Rola_Rossa-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10227109-Reviews-Balaji-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10325577-Reviews-Capital_Social-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015366-Reviews-Aaswad-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or70-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10373867-Reviews-Pride_Restaurant_Bar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10278339-Reviews-Deewaan_E_Khaas-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1013854-Reviews-or30-Badshah-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d1015585-Reviews-or40-Shiv_Sagar-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10294300-Reviews-Pop_Tates-Mumbai_Maharashtra.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g304554-d10251034-Reviews-The_American_Joint-Mumbai_Maharashtra.html"
+    ],
+    "status": "complete"
   },
   "United States": {
     "snapshots": [
@@ -1429,8 +2168,410 @@
     "status": "complete"
   },
   "Australia": {
-    "snapshots": [],
-    "done_urls": [],
-    "status": "pending"
+    "snapshots": [
+      {
+        "timestamp": "20191001165306",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10002282-Reviews-Eiffel_Restaurant-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909105920",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10021172-Reviews-Six_Acres_Restaurant-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190925151442",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10028406-Reviews-Zingara_s_Kitchen-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191001141641",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10031747-Reviews-5_Boroughs-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191029015808",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10031753-Reviews-Whisk_and_Ladle-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191023074313",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10034111-Reviews-Lucky_Egg-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909104733",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10042182-Reviews-Boss_Hogg_s-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20230517121320",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10042182-Reviews-or15-Boss_Hogg_s-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191004204756",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1006543-Reviews-Nine_T_Nine-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190904170921",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1006551-Reviews-or10-Pineapple_Hotel-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190714221011",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1006551-Reviews-Pineapple_Hotel-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20180124185909",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10072476-Reviews-Punch_Espresso_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190914164638",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10073826-Reviews-Up_Shot_Expresso-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909123417",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1008079-Reviews-The_London_Club-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191006012421",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10089456-Reviews-Khot_Thai-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190902045532",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10090406-Reviews-Madders_Brothers_Patisserie-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190903124012",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10100106-Reviews-Two_Teaspoons-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20180126183414",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10102162-Reviews-or10-Sushi_Edo-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20180124212452",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10102162-Reviews-Sushi_Edo-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909162643",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1010362-Reviews-Norman_Hotel-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190818120128",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1010362-Reviews-or10-Norman_Hotel-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909140450",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10112627-Reviews-Roti_Place-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20210801152459",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10117244-Reviews-Sea_Fuel-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190920174315",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10126693-Reviews-Comuna_Cantina-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191106190426",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10140391-Reviews-Fish_s_Seafood_Market-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20240203133621",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10146314-Reviews-Cafe_63-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190827133341",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10149174-Reviews-or10-Turbans_and_Cowboys-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191004083647",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10157895-Reviews-Doughnut_Time-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191019070735",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10195966-Reviews-Shun_Noodle_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191109133914",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10200694-Reviews-Top_Wok_Chinese_Restaurant-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191023110128",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10205887-Reviews-Boost_Juice-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190916045615",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10215202-Reviews-Blockhouse_coffee_small_bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190617043330",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10231013-Reviews-Creole_Soul_Kitchen-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191101180147",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10231013-Reviews-or40-Creole_Soul_Kitchen-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191024213725",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10231013-Reviews-or80-Creole_Soul_Kitchen-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190731140109",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10237096-Reviews-Wrapped_Coffee_and_Sandwich_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909123016",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10240224-Reviews-Nickel_Kitchen_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20210924130412",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20180704230844",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or10-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190726013504",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or160-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191026161505",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or170-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20181226135411",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or20-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191107044912",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or30-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191105133641",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or40-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190830072850",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10263087-Reviews-Ambrosia_Co-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190629083221",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1027028-Reviews-Jackpot_Dining-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190812103249",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1027028-Reviews-or10-Jackpot_Dining-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191017104340",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d1027028-Reviews-or170-Jackpot_Dining-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191012110454",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10271976-Reviews-Badminton_Brew-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191031060847",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10277101-Reviews-Sunrise_Boulevard_Cafe-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190806023750",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10287300-Reviews-Sonder_Dessert-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190911000111",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10321661-Reviews-Chu_the_Phat-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909194630",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10332544-Reviews-Lokal_Co-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190917122310",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10345332-Reviews-Mamaku_Kitchen-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909214333",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10346919-Reviews-Remy_s-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191003163939",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10358268-Reviews-Hello_Harry_The_Burger_Joint_Portside-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191003193140",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10358920-Reviews-Greenbank_Asian_Kitchens-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190927164456",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10365553-Reviews-Fromage_the_Cow-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191025080918",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10366359-Reviews-Terrace_Cafe_and_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190930044250",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10379041-Reviews-Banneton_Bakery-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190909230513",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10385062-Reviews-AJO-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191108042242",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10388818-Reviews-Sichuan_Bang_Bang-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191012151753",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390238-Reviews-Merlo-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20220628205814",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390239-Reviews-Magical_Rice-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190916084114",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390245-Reviews-Airport_Kebabs-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191023092308",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390255-Reviews-Corretto_Cafe_Bar_International-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190912084008",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390256-Reviews-Mad_Mex-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191031045127",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10393326-Reviews-Aviation_Pier_Cafe_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191002133929",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10393343-Reviews-Glasshouse_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191013042557",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10393420-Reviews-Tuk_Chop-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191112045733",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10409902-Reviews-Finn_McCool_s-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190924021405",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10429153-Reviews-Chop_Chop_Sushi-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190723005644",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10447089-Reviews-or10-Yuzu_co-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190719034109",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10447089-Reviews-Yuzu_co-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191009222512",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10457628-Reviews-YoFlo_Yoghurt_and_Fruit_Bar-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191012024545",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10460862-Reviews-Royal_Kebab-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191023053437",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10463757-Reviews-Rikyu_Japanese_Restaurant-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190729191603",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10467411-Reviews-or10-Otto_Ristorante_Brisbane-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20191014121215",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10467411-Reviews-or270-Otto_Ristorante_Brisbane-Brisbane_Brisbane_Region_Queensland.html"
+      },
+      {
+        "timestamp": "20190715022629",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g255068-d10467411-Reviews-Otto_Ristorante_Brisbane-Brisbane_Brisbane_Region_Queensland.html"
+      }
+    ],
+    "done_urls": [
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10215202-Reviews-Blockhouse_coffee_small_bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10140391-Reviews-Fish_s_Seafood_Market-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10379041-Reviews-Banneton_Bakery-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10467411-Reviews-Otto_Ristorante_Brisbane-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or160-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390255-Reviews-Corretto_Cafe_Bar_International-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10072476-Reviews-Punch_Espresso_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10429153-Reviews-Chop_Chop_Sushi-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10146314-Reviews-Cafe_63-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10028406-Reviews-Zingara_s_Kitchen-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10126693-Reviews-Comuna_Cantina-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10263087-Reviews-Ambrosia_Co-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10467411-Reviews-or10-Otto_Ristorante_Brisbane-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10031753-Reviews-Whisk_and_Ladle-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10346919-Reviews-Remy_s-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10385062-Reviews-AJO-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10240224-Reviews-Nickel_Kitchen_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390245-Reviews-Airport_Kebabs-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or40-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or10-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10102162-Reviews-Sushi_Edo-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10277101-Reviews-Sunrise_Boulevard_Cafe-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1008079-Reviews-The_London_Club-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10393326-Reviews-Aviation_Pier_Cafe_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or30-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10271976-Reviews-Badminton_Brew-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10102162-Reviews-or10-Sushi_Edo-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390238-Reviews-Merlo-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10157895-Reviews-Doughnut_Time-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10321661-Reviews-Chu_the_Phat-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10237096-Reviews-Wrapped_Coffee_and_Sandwich_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10034111-Reviews-Lucky_Egg-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10031747-Reviews-5_Boroughs-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10149174-Reviews-or10-Turbans_and_Cowboys-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10100106-Reviews-Two_Teaspoons-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10231013-Reviews-or80-Creole_Soul_Kitchen-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10358268-Reviews-Hello_Harry_The_Burger_Joint_Portside-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10021172-Reviews-Six_Acres_Restaurant-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10002282-Reviews-Eiffel_Restaurant-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10409902-Reviews-Finn_McCool_s-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10457628-Reviews-YoFlo_Yoghurt_and_Fruit_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10287300-Reviews-Sonder_Dessert-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390239-Reviews-Magical_Rice-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1006543-Reviews-Nine_T_Nine-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1027028-Reviews-Jackpot_Dining-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1027028-Reviews-or10-Jackpot_Dining-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1006551-Reviews-or10-Pineapple_Hotel-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or20-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10365553-Reviews-Fromage_the_Cow-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10090406-Reviews-Madders_Brothers_Patisserie-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10463757-Reviews-Rikyu_Japanese_Restaurant-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10195966-Reviews-Shun_Noodle_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1027028-Reviews-or170-Jackpot_Dining-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10345332-Reviews-Mamaku_Kitchen-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10460862-Reviews-Royal_Kebab-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10390256-Reviews-Mad_Mex-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10332544-Reviews-Lokal_Co-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10358920-Reviews-Greenbank_Asian_Kitchens-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10042182-Reviews-Boss_Hogg_s-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10231013-Reviews-or40-Creole_Soul_Kitchen-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10089456-Reviews-Khot_Thai-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1010362-Reviews-or10-Norman_Hotel-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1010362-Reviews-Norman_Hotel-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10073826-Reviews-Up_Shot_Expresso-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10117244-Reviews-Sea_Fuel-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10200694-Reviews-Top_Wok_Chinese_Restaurant-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10393343-Reviews-Glasshouse_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10447089-Reviews-or10-Yuzu_co-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10231013-Reviews-Creole_Soul_Kitchen-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10366359-Reviews-Terrace_Cafe_and_Bar-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10205887-Reviews-Boost_Juice-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10447089-Reviews-Yuzu_co-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10244204-Reviews-or170-Casa_Nostra_Ristorante-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10467411-Reviews-or270-Otto_Ristorante_Brisbane-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10112627-Reviews-Roti_Place-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d1006551-Reviews-Pineapple_Hotel-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10393420-Reviews-Tuk_Chop-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10388818-Reviews-Sichuan_Bang_Bang-Brisbane_Brisbane_Region_Queensland.html",
+      "https://www.tripadvisor.com/Restaurant_Review-g255068-d10042182-Reviews-or15-Boss_Hogg_s-Brisbane_Brisbane_Region_Queensland.html"
+    ],
+    "status": "complete"
   }
 }

@@ -1,27 +1,27 @@
 {
   "Australia": {
     "month": "2026-06",
-    "uifpi": 993.01,
-    "formal": 993.01,
-    "informal": 993.01,
+    "uifpi": 101.83,
+    "formal": 100.0,
+    "informal": 109.16,
     "cpi": null,
-    "yoy_change_pct": 893.01
+    "yoy_change_pct": 1.83
   },
   "India": {
-    "month": "2022-06",
-    "uifpi": 50.0,
-    "formal": 50.0,
-    "informal": 50.0,
+    "month": "2023-06",
+    "uifpi": 28.54,
+    "formal": 28.54,
+    "informal": 28.54,
     "cpi": null,
-    "yoy_change_pct": 0.0
+    "yoy_change_pct": -75.0
   },
   "Indonesia": {
     "month": "2023-08",
-    "uifpi": 50.0,
-    "formal": 50.0,
-    "informal": 50.0,
+    "uifpi": 250.0,
+    "formal": 250.0,
+    "informal": 250.0,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": 25.0
   },
   "Malaysia": {
     "month": "2026-06",

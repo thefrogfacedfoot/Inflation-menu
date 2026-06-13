@@ -68,7 +68,7 @@ COUNTRY_CONFIG = {
         'price_re': r'Rp\.?\s*([\d.,]+)',
     },
     'Thailand': {
-        'pattern':  'tripadvisor.com/Restaurants-g293916*',
+        'pattern':  'tripadvisor.com/Restaurant_Review-g293916*',
         'currency': 'THB',
         'price_re': r'฿\s*([\d,]+)',
     },
