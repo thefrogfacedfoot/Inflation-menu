@@ -21,12 +21,12 @@
   },
   "Indonesia": {
     "granger_significant": false,
-    "lead_months": 1,
+    "lead_months": null,
     "pass_through_rate": null,
     "pass_through_pvalue": null,
-    "months_of_data": 17,
-    "base_month": "2019-03",
-    "latest_uifpi": 250.0,
+    "months_of_data": 1,
+    "base_month": "2019-09",
+    "latest_uifpi": 100.0,
     "status": "no_granger_data"
   },
   "Malaysia": {
