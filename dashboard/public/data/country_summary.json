@@ -1,22 +1,22 @@
 {
   "Australia": {
     "granger_significant": false,
-    "lead_months": 1,
+    "lead_months": 2,
     "pass_through_rate": null,
     "pass_through_pvalue": null,
     "months_of_data": 14,
     "base_month": "2018-01",
-    "latest_uifpi": 101.83,
+    "latest_uifpi": 993.01,
     "status": "no_granger_data"
   },
   "India": {
     "granger_significant": false,
-    "lead_months": 1,
+    "lead_months": 2,
     "pass_through_rate": null,
     "pass_through_pvalue": null,
     "months_of_data": 18,
     "base_month": "2018-01",
-    "latest_uifpi": 28.54,
+    "latest_uifpi": 25.0,
     "status": "no_granger_data"
   },
   "Indonesia": {

@@ -1,42 +1,42 @@
 country,year_month,formal_index,informal_index,uifpi_combined,item_count,coverage_note
-Australia,2018-01,100.0,100.0,100.0,1,base period (100.0)
-Australia,2018-07,100.0,100.0,100.0,1,
-Australia,2018-12,100.0,100.0,100.0,1,
-Australia,2019-06,100.0,100.0,100.0,2,
-Australia,2019-07,100.0,100.0,100.0,6,
-Australia,2019-08,100.0,100.0,100.0,4,
-Australia,2019-09,100.0,109.155,101.831,20,
-Australia,2019-10,100.0,109.155,101.831,23,
-Australia,2019-11,100.0,109.155,101.831,6,
-Australia,2021-08,100.0,109.155,101.831,1,
-Australia,2021-09,100.0,109.155,101.831,1,
-Australia,2023-05,100.0,109.155,101.831,1,
-Australia,2024-02,100.0,109.155,101.831,1,
-Australia,2026-06,100.0,109.155,101.831,1,
+Australia,2018-01,100.0,100.0,100.0,2,mean-price fallback (no matched-model overlap)
+Australia,2018-07,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
+Australia,2018-12,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
+Australia,2019-06,75.0,75.0,75.0,2,mean-price fallback (no matched-model overlap)
+Australia,2019-07,349.9999,349.9999,349.9999,7,mean-price fallback (no matched-model overlap)
+Australia,2019-08,87.5,87.5,87.5,4,mean-price fallback (no matched-model overlap)
+Australia,2019-09,115.0,115.0,115.0,20,mean-price fallback (no matched-model overlap)
+Australia,2019-10,143.75,143.75,143.75,24,mean-price fallback (no matched-model overlap)
+Australia,2019-11,100.0,100.0,100.0,7,mean-price fallback (no matched-model overlap)
+Australia,2021-08,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
+Australia,2021-09,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
+Australia,2023-05,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
+Australia,2024-02,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
+Australia,2026-06,993.0068,993.0068,993.0068,1,mean-price fallback (no matched-model overlap)
 India,2018-01,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
 India,2018-07,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
 India,2018-11,50.0,50.0,50.0,1,mean-price fallback (no matched-model overlap)
 India,2018-12,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
 India,2019-02,50.0,50.0,50.0,1,mean-price fallback (no matched-model overlap)
-India,2019-04,114.1446,114.1446,114.1446,2,mean-price fallback (no matched-model overlap)
+India,2019-04,100.0,100.0,100.0,2,mean-price fallback (no matched-model overlap)
 India,2019-05,50.0,50.0,50.0,2,mean-price fallback (no matched-model overlap)
-India,2019-06,53.5361,53.5361,53.5361,2,mean-price fallback (no matched-model overlap)
+India,2019-06,50.0,50.0,50.0,2,mean-price fallback (no matched-model overlap)
 India,2019-07,50.0,50.0,50.0,2,mean-price fallback (no matched-model overlap)
-India,2019-08,61.4145,61.4145,61.4145,5,mean-price fallback (no matched-model overlap)
-India,2019-09,55.2631,55.2631,55.2631,25,mean-price fallback (no matched-model overlap)
-India,2019-10,51.9508,51.9508,51.9508,18,mean-price fallback (no matched-model overlap)
+India,2019-08,60.0,60.0,60.0,5,mean-price fallback (no matched-model overlap)
+India,2019-09,53.0,53.0,53.0,25,mean-price fallback (no matched-model overlap)
+India,2019-10,48.6111,48.6111,48.6111,18,mean-price fallback (no matched-model overlap)
 India,2019-11,43.75,43.75,43.75,4,mean-price fallback (no matched-model overlap)
 India,2020-07,50.0,50.0,50.0,2,mean-price fallback (no matched-model overlap)
 India,2022-03,100.0,100.0,100.0,1,mean-price fallback (no matched-model overlap)
 India,2022-06,50.0,50.0,50.0,1,mean-price fallback (no matched-model overlap)
-India,2023-05,57.0723,57.0723,57.0723,2,mean-price fallback (no matched-model overlap)
-India,2023-06,28.5361,28.5361,28.5361,3,mean-price fallback (no matched-model overlap)
+India,2023-05,50.0,50.0,50.0,2,mean-price fallback (no matched-model overlap)
+India,2023-06,25.0,25.0,25.0,3,mean-price fallback (no matched-model overlap)
 Indonesia,2019-03,100.0,100.0,100.0,3,mean-price fallback (no matched-model overlap)
 Indonesia,2019-04,400.0,400.0,400.0,1,mean-price fallback (no matched-model overlap)
 Indonesia,2019-06,200.0,200.0,200.0,2,mean-price fallback (no matched-model overlap)
 Indonesia,2019-07,166.6667,166.6667,166.6667,3,mean-price fallback (no matched-model overlap)
 Indonesia,2019-08,200.0,200.0,200.0,3,mean-price fallback (no matched-model overlap)
-Indonesia,2019-09,4214457.1429,4214457.1429,4214457.1429,7,mean-price fallback (no matched-model overlap)
+Indonesia,2019-09,4214887.5,4214887.5,4214887.5,7,mean-price fallback (no matched-model overlap)
 Indonesia,2019-10,192.8571,192.8571,192.8571,14,mean-price fallback (no matched-model overlap)
 Indonesia,2019-11,166.6667,166.6667,166.6667,3,mean-price fallback (no matched-model overlap)
 Indonesia,2021-04,250.0,250.0,250.0,2,mean-price fallback (no matched-model overlap)

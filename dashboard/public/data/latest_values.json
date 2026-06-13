@@ -1,17 +1,17 @@
 {
   "Australia": {
     "month": "2026-06",
-    "uifpi": 101.83,
-    "formal": 100.0,
-    "informal": 109.16,
+    "uifpi": 993.01,
+    "formal": 993.01,
+    "informal": 993.01,
     "cpi": null,
-    "yoy_change_pct": 1.83
+    "yoy_change_pct": 893.01
   },
   "India": {
     "month": "2023-06",
-    "uifpi": 28.54,
-    "formal": 28.54,
-    "informal": 28.54,
+    "uifpi": 25.0,
+    "formal": 25.0,
+    "informal": 25.0,
     "cpi": null,
     "yoy_change_pct": -75.0
   },

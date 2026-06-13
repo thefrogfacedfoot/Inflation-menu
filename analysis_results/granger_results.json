@@ -2,23 +2,23 @@
   "Australia": {
     "n_obs": 13,
     "granger_significant": false,
-    "granger_p_value": 0.6722,
-    "lead_months": 1,
+    "granger_p_value": 0.415,
+    "lead_months": 2,
     "aic_lag": 2,
-    "pass_through_formal": -0.8758,
+    "pass_through_formal": -0.0006,
     "pass_through_significant": false,
-    "r_squared": 0.0237,
+    "r_squared": 0.0001,
     "note": ""
   },
   "India": {
     "n_obs": 18,
     "granger_significant": false,
-    "granger_p_value": 0.2972,
-    "lead_months": 1,
-    "aic_lag": 2,
-    "pass_through_formal": 0.0108,
+    "granger_p_value": 0.8106,
+    "lead_months": 2,
+    "aic_lag": 3,
+    "pass_through_formal": 0.0111,
     "pass_through_significant": false,
-    "r_squared": 0.0786,
+    "r_squared": 0.0738,
     "note": ""
   },
   "Indonesia": {
