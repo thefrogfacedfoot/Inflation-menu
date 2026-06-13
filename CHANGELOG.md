@@ -2,6 +2,43 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-13 — Wire up monthly CPI for Malaysia + UK
+
+### Added
+- **DOSM Malaysia monthly CPI** via `api.data.gov.my/data-catalogue?id=cpi_headline`.
+  Returns the `overall` division as the all-items index and division `01`
+  (Food & non-alcoholic beverages) as the food index.
+  Result: 136 monthly obs 2015-01 → 2026-04 (was 10 annual obs).
+- **ONS UK monthly CPI** via `www.ons.gov.uk/economy/inflationandpriceindices/
+  timeseries/d7bt/mm23/data` (CPI INDEX 00 ALL ITEMS, 2015=100). Food via
+  `d7bu` (CPI INDEX 01 FOOD AND NON-ALCOHOLIC BEVERAGES).
+  Result: 136 monthly obs 2015-01 → 2026-04 (was 10 annual obs).
+
+### Changed
+- `get_monthly_cpi_all.py`: `fetch_malaysia()` and `fetch_united_kingdom()`
+  no longer raise to the World Bank annual fallback. Both now hit live
+  monthly endpoints reachable from this network as of 2026-06-13.
+- Monthly CPI pipeline total grew from 440 → 692 observations.
+
+### Impact on Granger results
+
+| Country        | p before | p after | Note |
+|----------------|---------:|--------:|------|
+| Malaysia       |   0.7044 |  **0.2636** | proper monthly CPI overlap |
+| United Kingdom |   0.8229 |  **0.2702** | pass-through R² jumped to 0.802 |
+
+Singapore, Australia, India, US unchanged (their CPI sources were
+already monthly). Indonesia and Thailand still on the annual World
+Bank fallback — no reachable monthly source from this network
+(BPS needs an API key, BOT IAPI DNS fails).
+
+### Notes
+- Still 0 / 8 countries at the 24-overlap Granger threshold — UIFPI
+  months are the bottleneck now, not CPI months. MY/GB will cross
+  the threshold purely from continued monthly UIFPI collection.
+
+---
+
 ## 2026-06-13 — Dashboard exporter fix (post-verification)
 
 ### Fixed

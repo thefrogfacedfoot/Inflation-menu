@@ -73,7 +73,7 @@
   },
   "United Kingdom": {
     "granger_significant": false,
-    "lead_months": 2,
+    "lead_months": 1,
     "pass_through_rate": null,
     "pass_through_pvalue": null,
     "months_of_data": 12,
