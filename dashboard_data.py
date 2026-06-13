@@ -14,6 +14,7 @@ Run order: after granger_analysis.py.
 import json
 import math
 import os
+import sqlite3
 import sys
 from typing import Union
 
@@ -21,7 +22,12 @@ import pandas as pd
 
 INDEX_CSV    = "uifpi_index.csv"
 GRANGER_JSON = "analysis_results/granger_results.json"
+DB_PATH      = "uifpi.db"
 OUT_DIR      = "dashboard_data"
+# Next.js dashboard reads JSON from this path at build time (see
+# dashboard/lib/data.ts). Keep both in sync so Vercel deployments pick up
+# new numbers without a manual copy.
+DASHBOARD_PUBLIC_DATA = os.path.join("dashboard", "public", "data")
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -98,6 +104,29 @@ def build_index_series(index_df: pd.DataFrame, granger: dict) -> dict:
     return series
 
 
+def load_price_counts(db_path: str = DB_PATH) -> dict:
+    """Return {country: {'items_formal': n, 'items_informal': m}} from prices."""
+    counts: dict = {}
+    if not os.path.exists(db_path):
+        return counts
+    try:
+        conn = sqlite3.connect(db_path)
+        cur = conn.execute(
+            "SELECT country, sector, COUNT(*) FROM prices "
+            "GROUP BY country, sector"
+        )
+        for country, sector, n in cur.fetchall():
+            row = counts.setdefault(country, {"items_formal": 0, "items_informal": 0})
+            if (sector or "").lower() == "formal":
+                row["items_formal"] = n
+            else:
+                row["items_informal"] = n
+        conn.close()
+    except Exception as e:
+        print(f"  ⚠  price-count query failed: {e}")
+    return counts
+
+
 def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
     """
     Per-country summary of statistical findings.
@@ -118,8 +147,9 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
     }
     """
     summary: dict = {}
+    price_counts = load_price_counts()
 
-    countries = set(index_df["country"].unique()) | set(granger.keys())
+    countries = set(index_df["country"].unique()) | set(granger.keys()) | set(price_counts.keys())
 
     for country in sorted(countries):
         g = granger.get(country, {})
@@ -130,6 +160,7 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
         latest_uifpi = safe_round(c_df["uifpi_combined"].iloc[-1]) if months_of_data else None
 
         status = g.get("status", "no_granger_data")
+        pc = price_counts.get(country, {"items_formal": 0, "items_informal": 0})
 
         summary[country] = {
             "granger_significant": g.get("granger_significant"),
@@ -139,6 +170,8 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
             "months_of_data":      months_of_data,
             "base_month":          base_month,
             "latest_uifpi":        latest_uifpi,
+            "items_formal":        pc["items_formal"],
+            "items_informal":      pc["items_informal"],
             "status":              status,
         }
 
@@ -240,16 +273,19 @@ def run(
     print("Building index_series.json …")
     index_series = build_index_series(index_df, granger)
     write_json(index_series, os.path.join(out_dir, "index_series.json"))
+    write_json(index_series, os.path.join(DASHBOARD_PUBLIC_DATA, "index_series.json"))
 
     print("Building country_summary.json …")
     country_summary = build_country_summary(granger, index_df)
     write_json(country_summary, os.path.join(out_dir, "country_summary.json"))
+    write_json(country_summary, os.path.join(DASHBOARD_PUBLIC_DATA, "country_summary.json"))
 
     print("Building latest_values.json …")
     latest_values = build_latest_values(index_df, granger)
     write_json(latest_values, os.path.join(out_dir, "latest_values.json"))
+    write_json(latest_values, os.path.join(DASHBOARD_PUBLIC_DATA, "latest_values.json"))
 
-    print(f"\nAll dashboard JSON written to {out_dir}/")
+    print(f"\nAll dashboard JSON written to {out_dir}/ and {DASHBOARD_PUBLIC_DATA}/")
 
 
 if __name__ == "__main__":
