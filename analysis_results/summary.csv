@@ -1,8 +1,8 @@
-country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through,pass_through_sig,r_squared,note
-Australia,12,,,,False,,False,,"insufficient_data: need >= 24 months, have 12"
-India,15,,,,False,,False,,"insufficient_data: need >= 24 months, have 15"
-Indonesia,10,,,,False,,False,,"insufficient_data: need >= 24 months, have 10"
-Malaysia,0,,,,False,,,,no_cpi_data
-Singapore,12,,,,False,,False,,"insufficient_data: need >= 24 months, have 12"
-United Kingdom,11,,,,False,,False,,"insufficient_data: need >= 24 months, have 11"
-United States,11,,,,False,,False,,"insufficient_data: need >= 24 months, have 11"
+country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through_formal,pass_through_significant,r_squared,note
+Australia,13,0.6053,2,2,False,-0.0046,False,0.0009,
+India,15,0.4782,1,2,False,0.0126,False,0.0695,
+Indonesia,10,1.0,1,1,False,0.0001,False,0.0003,
+Malaysia,12,0.7044,1,1,False,0.0067,False,0.0892,
+Singapore,12,0.0922,2,2,False,0.0171,False,0.1172,
+United Kingdom,11,0.8229,2,2,False,0.0268,True,0.4021,
+United States,11,0.5809,1,1,False,0.0062,False,0.0403,
