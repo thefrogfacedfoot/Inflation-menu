@@ -3,15 +3,16 @@ UIFPI — Granger Causality Analysis
 Tests whether the UIFPI leads official CPI using Granger causality and
 pass-through regression following Cavallo & Rigobon (2016).
 
-Requires: pandas, numpy, scipy, statsmodels
+Data sources (in priority order):
+  1. uifpi_index table + monthly_cpi table from uifpi.db  (DB-first)
+  2. uifpi_index.csv  +  cpi_data/monthly_cpi_*.json       (legacy fallback)
 
-Run order: after index_builder.py has produced uifpi_index.csv and
-cpi_data/ contains monthly_cpi_*.json files.
-
-Results are saved to analysis_results/granger_results.json and
-analysis_results/summary.csv.
+Usage:
+    python granger_analysis.py [--min-obs 8] [--max-lags 6]
 """
 
+import argparse
+import csv
 import json
 import os
 import sqlite3
@@ -22,7 +23,6 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-# Suppress statsmodels convergence warnings — we handle them gracefully
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -35,12 +35,14 @@ try:
 except ImportError:
     STATSMODELS_OK = False
 
-DB_PATH          = "uifpi.db"
-UIFPI_CSV        = "uifpi_index.csv"
-CPI_DIR          = "cpi_data"
-RESULTS_DIR      = "analysis_results"
-MIN_OBS          = 24    # minimum monthly observations for Granger test
-MAX_LAGS         = 6
+DB_PATH     = "uifpi.db"
+UIFPI_CSV   = "uifpi_index.csv"
+CPI_DIR     = "cpi_data"
+RESULTS_DIR = "analysis_results"
+
+# Default thresholds — can be overridden via CLI
+DEFAULT_MIN_OBS  = 8    # lower than ideal 24; reflects current data collection stage
+DEFAULT_MAX_LAGS = 4
 ADF_SIGNIFICANCE = 0.05
 
 COUNTRY_CPI_FILES = {
@@ -54,349 +56,393 @@ COUNTRY_CPI_FILES = {
     "Australia":      "monthly_cpi_au.json",
 }
 
+COUNTRY_TO_CODE = {
+    "Singapore": "SG", "Malaysia": "MY", "Indonesia": "ID",
+    "Thailand": "TH", "India": "IN", "United States": "US",
+    "United Kingdom": "GB", "Australia": "AU",
+}
 
-# ── Data loading ──────────────────────────────────────────────────────────────
 
-def load_uifpi_series(csv_path: str = UIFPI_CSV) -> Optional[pd.DataFrame]:
-    """Load UIFPI monthly index from CSV. Returns None if file missing."""
-    if not os.path.exists(csv_path):
-        print(f"  ⚠  {csv_path} not found — run index_builder.py first.")
+# ─────────────────────────────────────────────────────────────────────────────
+# Data loading — DB-first
+# ─────────────────────────────────────────────────────────────────────────────
+
+def load_uifpi_from_db() -> Optional[pd.DataFrame]:
+    """Load uifpi_index table from DB. Returns None if empty."""
+    if not os.path.exists(DB_PATH):
         return None
-    df = pd.read_csv(csv_path, parse_dates=False)
+    conn = sqlite3.connect(DB_PATH)
+    df = pd.read_sql_query(
+        "SELECT country, year_month, uifpi_combined FROM uifpi_index "
+        "WHERE uifpi_combined IS NOT NULL ORDER BY country, year_month",
+        conn,
+    )
+    conn.close()
+    if df.empty:
+        return None
     df["period"] = pd.PeriodIndex(df["year_month"], freq="M")
     return df
 
 
-def load_cpi_series(country: str) -> Optional[pd.Series]:
-    """
-    Load CPI time series for a country from its monthly_cpi_*.json file.
-    Returns a pandas Series indexed by Period('M'), or None if unavailable.
-
-    Annual data (month='01' only) is linearly interpolated to monthly.
-    """
-    fname = COUNTRY_CPI_FILES.get(country)
-    if not fname:
+def load_uifpi_from_csv() -> Optional[pd.DataFrame]:
+    """Fallback: load UIFPI from uifpi_index.csv."""
+    if not os.path.exists(UIFPI_CSV):
         return None
-    fpath = os.path.join(CPI_DIR, fname)
-    if not os.path.exists(fpath):
+    df = pd.read_csv(UIFPI_CSV)
+    df = df.dropna(subset=["uifpi_combined"])
+    if df.empty:
         return None
+    df["period"] = pd.PeriodIndex(df["year_month"], freq="M")
+    return df
 
-    with open(fpath) as f:
-        data = json.load(f)
 
-    records = data.get("data", [])
-    if not records:
+def load_uifpi() -> Optional[pd.DataFrame]:
+    df = load_uifpi_from_db()
+    if df is not None and not df.empty:
+        print(f"UIFPI loaded from DB: {len(df)} rows, "
+              f"{df['country'].nunique()} countries")
+        return df
+    df = load_uifpi_from_csv()
+    if df is not None and not df.empty:
+        print(f"UIFPI loaded from CSV: {len(df)} rows, "
+              f"{df['country'].nunique()} countries")
+        return df
+    return None
+
+
+def load_cpi_from_db(country: str) -> Optional[pd.Series]:
+    """Load CPI series for a country from monthly_cpi table."""
+    code = COUNTRY_TO_CODE.get(country)
+    if not code:
         return None
-
-    # Parse to Series indexed by period string
-    s = pd.Series(
-        {r["period"]: float(r["cpi"]) for r in records if r.get("cpi") is not None}
+    if not os.path.exists(DB_PATH):
+        return None
+    conn  = sqlite3.connect(DB_PATH)
+    cur   = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='monthly_cpi'"
     )
-    s.index = pd.PeriodIndex(s.index, freq="M")
-    s = s.sort_index()
+    if not cur.fetchone():
+        conn.close()
+        return None
+    df = pd.read_sql_query(
+        "SELECT year_month, cpi_value FROM monthly_cpi "
+        "WHERE country_code=? AND cpi_value IS NOT NULL "
+        "ORDER BY year_month",
+        conn, params=(code,),
+    )
+    conn.close()
+    if df.empty:
+        return None
+    s       = pd.Series(df["cpi_value"].values,
+                        index=pd.PeriodIndex(df["year_month"], freq="M"))
+    s       = s.sort_index()
 
-    # Detect annual-only data (all month == 01) and interpolate
+    # If all entries are at month=01 (annual data), interpolate to monthly
     if all(p.month == 1 for p in s.index):
-        # Reindex to monthly and interpolate linearly
         full_range = pd.period_range(s.index.min(), s.index.max(), freq="M")
         s = s.reindex(full_range).interpolate(method="index")
 
     return s
 
 
-def align_series(uifpi_df: pd.DataFrame, country: str,
-                 cpi_s: pd.Series) -> tuple[pd.Series, pd.Series]:
-    """
-    Extract UIFPI combined index for a country and align it with CPI
-    on the overlapping date range. Returns (uifpi_series, cpi_series).
-    """
-    ux = uifpi_df[uifpi_df["country"] == country][["period", "uifpi_combined"]].dropna()
-    ux = ux.set_index("period")["uifpi_combined"]
-    ux.index = pd.PeriodIndex(ux.index, freq="M")
+def load_cpi_from_json(country: str) -> Optional[pd.Series]:
+    """Fallback: load CPI from legacy cpi_data/monthly_cpi_*.json."""
+    fname = COUNTRY_CPI_FILES.get(country)
+    if not fname:
+        return None
+    fpath = os.path.join(CPI_DIR, fname)
+    if not os.path.exists(fpath):
+        return None
+    with open(fpath) as f:
+        data = json.load(f)
+    records = data.get("data", [])
+    if not records:
+        return None
+    s = pd.Series(
+        {r["period"]: float(r["cpi"]) for r in records if r.get("cpi") is not None}
+    )
+    s.index = pd.PeriodIndex(s.index, freq="M")
+    s = s.sort_index()
+    if all(p.month == 1 for p in s.index):
+        full_range = pd.period_range(s.index.min(), s.index.max(), freq="M")
+        s = s.reindex(full_range).interpolate(method="index")
+    return s
 
+
+def load_cpi(country: str) -> Optional[pd.Series]:
+    s = load_cpi_from_db(country)
+    if s is not None and len(s) > 0:
+        return s
+    return load_cpi_from_json(country)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Series alignment
+# ─────────────────────────────────────────────────────────────────────────────
+
+def align_series(uifpi_df: pd.DataFrame, country: str,
+                 cpi_s: pd.Series) -> tuple:
+    sub = uifpi_df[uifpi_df["country"] == country][["period", "uifpi_combined"]].dropna()
+    if sub.empty:
+        return pd.Series(dtype=float), pd.Series(dtype=float)
+    ux = sub.set_index("period")["uifpi_combined"]
+    ux.index = pd.PeriodIndex(ux.index, freq="M")
     common = ux.index.intersection(cpi_s.index)
     return ux.loc[common], cpi_s.loc[common]
 
 
-# ── Stationarity testing ──────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Stationarity
+# ─────────────────────────────────────────────────────────────────────────────
 
-def test_stationarity(series: pd.Series, name: str) -> tuple[pd.Series, bool, float]:
-    """
-    Run Augmented Dickey-Fuller test. If non-stationary, take first difference.
-    Returns (final_series, is_stationary, p_value).
-    """
+def test_stationarity(series: pd.Series) -> tuple:
+    """ADF test. Returns (stationary_series, is_stationary, p_value)."""
     if len(series) < 5:
-        return series, False, 1.0
-
+        return series.diff().dropna(), False, 1.0
     try:
-        adf_result = adfuller(series.dropna(), autolag="AIC")
-        p_val = adf_result[1]
-    except Exception as e:
-        print(f"    ADF failed for {name}: {e}")
-        return series, False, 1.0
-
-    if p_val <= ADF_SIGNIFICANCE:
-        return series, True, p_val
-
-    # Non-stationary: first difference
+        p = adfuller(series.dropna(), autolag="AIC")[1]
+    except Exception:
+        return series.diff().dropna(), False, 1.0
+    if p <= ADF_SIGNIFICANCE:
+        return series, True, p
     diff = series.diff().dropna()
     try:
-        adf_diff = adfuller(diff.dropna(), autolag="AIC")
-        p_diff = adf_diff[1]
+        p2 = adfuller(diff.dropna(), autolag="AIC")[1]
     except Exception:
-        return diff, False, p_val
-
-    stationary = p_diff <= ADF_SIGNIFICANCE
-    return diff, stationary, p_diff
+        return diff, False, p
+    return diff, p2 <= ADF_SIGNIFICANCE, p2
 
 
-# ── Granger causality ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Granger + pass-through
+# ─────────────────────────────────────────────────────────────────────────────
 
-def run_granger(country: str,
-                uifpi_s: pd.Series, cpi_s: pd.Series) -> dict:
-    """
-    Run Granger causality test and pass-through OLS for one country.
-    Returns a result dict. Handles insufficient data gracefully.
-    """
-    result: dict = {
-        "country":                country,
-        "n_obs":                  len(uifpi_s),
-        "granger_significant":    False,
-        "granger_p_value":        None,
-        "lead_months":            None,
-        "aic_lag":                None,
-        "pass_through_formal":    None,
-        "pass_through_informal":  None,
+def run_granger(country: str, uifpi_s: pd.Series, cpi_s: pd.Series,
+                min_obs: int, max_lags: int) -> dict:
+    result = {
+        "country":                  country,
+        "n_obs":                    len(uifpi_s),
+        "granger_significant":      False,
+        "granger_p_value":          None,
+        "lead_months":              None,
+        "aic_lag":                  None,
+        "pass_through_formal":      None,
         "pass_through_significant": False,
-        "note":                   "",
+        "r_squared":                None,
+        "note":                     "",
     }
 
-    if len(uifpi_s) < MIN_OBS:
-        result["note"] = (
-            f"insufficient_data: need >= {MIN_OBS} months, "
-            f"have {len(uifpi_s)}"
-        )
-        print(f"  {country}: ⚠  {result['note']}")
+    if len(uifpi_s) < min_obs:
+        note = f"insufficient_data (have {len(uifpi_s)}, need {min_obs})"
+        result["note"] = note
+        print(f"  ⚠  {note}")
         return result
 
-    print(f"  {country}: {len(uifpi_s)} observations")
+    print(f"  {len(uifpi_s)} overlapping observations")
 
-    # ── Stationarity ────────────────────────────────────────────────────────
-    uifpi_stat, u_ok, u_p = test_stationarity(uifpi_s, f"{country}/UIFPI")
-    cpi_stat,   c_ok, c_p = test_stationarity(cpi_s,   f"{country}/CPI")
+    # Stationarity
+    u_stat, u_ok, u_p = test_stationarity(uifpi_s)
+    c_stat, c_ok, c_p = test_stationarity(cpi_s)
+    print(f"  ADF: UIFPI p={u_p:.3f} ({'stationary' if u_ok else 'differenced'}), "
+          f"CPI p={c_p:.3f} ({'stationary' if c_ok else 'differenced'})")
 
-    print(f"    Stationarity — UIFPI p={u_p:.3f} ({'✓' if u_ok else '≈'}) "
-          f"CPI p={c_p:.3f} ({'✓' if c_ok else '≈'})")
-
-    if not u_ok:
-        uifpi_stat = uifpi_s.diff().dropna()
-        print(f"    Using differenced UIFPI")
-    if not c_ok:
-        cpi_stat = cpi_s.diff().dropna()
-        print(f"    Using differenced CPI")
-
-    # Align after differencing
-    common = uifpi_stat.index.intersection(cpi_stat.index)
-    if len(common) < MIN_OBS:
-        result["note"] = "insufficient_data_after_differencing"
-        print(f"    ⚠  {result['note']}")
+    common = u_stat.index.intersection(c_stat.index)
+    if len(common) < min_obs:
+        result["note"] = f"insufficient_data_after_differencing ({len(common)} obs)"
+        print(f"  ⚠  {result['note']}")
         return result
 
-    u_clean = uifpi_stat.loc[common].astype(float)
-    c_clean = cpi_stat.loc[common].astype(float)
+    u_clean = u_stat.loc[common].astype(float)
+    c_clean = c_stat.loc[common].astype(float)
 
-    # ── VAR lag selection ────────────────────────────────────────────────────
+    # VAR lag selection
+    aic_lag = 1
     try:
-        var_data = pd.DataFrame({"uifpi": u_clean, "cpi": c_clean}).dropna()
-        model    = VAR(var_data)
-        lag_result = model.select_order(maxlags=min(MAX_LAGS, len(var_data) // 4))
-        aic_lag  = lag_result.aic
-        aic_lag  = max(1, int(aic_lag))
+        var_data   = pd.DataFrame({"uifpi": u_clean, "cpi": c_clean}).dropna()
+        max_lags_v = min(max_lags, max(1, len(var_data) // 5))
+        if max_lags_v >= 1:
+            model      = VAR(var_data)
+            lag_result = model.select_order(maxlags=max_lags_v)
+            aic_lag    = max(1, int(lag_result.aic))
     except Exception as e:
-        aic_lag = 2
-        print(f"    VAR lag selection failed ({e}), defaulting to lag=2")
-
+        print(f"  VAR lag selection warning: {e} — using lag=1")
     result["aic_lag"] = aic_lag
-    print(f"    AIC-selected lag: {aic_lag}")
+    print(f"  AIC-selected lag: {aic_lag}")
 
-    # ── Granger causality test ───────────────────────────────────────────────
-    # grangercausalitytests tests: does column 1 (uifpi) Granger-cause column 0 (cpi)?
+    # Granger causality test
     try:
         gc_data = pd.DataFrame({"cpi": c_clean, "uifpi": u_clean}).dropna()
         gc_res  = grangercausalitytests(gc_data, maxlag=aic_lag, verbose=False)
-
-        # Find the lag with the lowest F-test p-value
-        best_lag = None
-        best_p   = 1.0
+        best_p, best_lag = 1.0, 1
         for lag, tests in gc_res.items():
             p = tests[0]["ssr_ftest"][1]
             if p < best_p:
-                best_p   = p
-                best_lag = lag
-
-        result["granger_p_value"]   = round(best_p, 4)
-        result["lead_months"]       = best_lag
+                best_p, best_lag = p, lag
+        result["granger_p_value"]     = round(best_p, 4)
+        result["lead_months"]         = best_lag
         result["granger_significant"] = best_p < 0.05
-
-        print(f"    Granger p={best_p:.4f} at lag={best_lag} "
-              f"({'SIGNIFICANT ✓' if best_p < 0.05 else 'not significant'})")
-
+        sig_str = "SIGNIFICANT ✓" if best_p < 0.05 else "not significant"
+        print(f"  Granger: p={best_p:.4f} at lag={best_lag} ({sig_str})")
     except Exception as e:
-        result["note"] = f"granger_failed: {e}"
-        print(f"    Granger test failed: {e}")
+        result["note"] += f" granger_failed:{e}"
+        print(f"  Granger test error: {e}")
 
-    # ── ADL pass-through regression ──────────────────────────────────────────
-    # ΔIn(CPI_t) = α + β₁ΔIn(UIFPI_t) + Σα_i ΔIn(CPI_{t-i}) + Σβ_i ΔIn(UIFPI_{t-i})
-    # Using log-differences where > 0
+    # Pass-through regression: Δln(CPI) = α + β·Δln(UIFPI) + controls
     try:
         log_u = np.log(uifpi_s.clip(lower=0.001)).diff().dropna()
         log_c = np.log(cpi_s.clip(lower=0.001)).diff().dropna()
-
         common2 = log_u.index.intersection(log_c.index)
-        if len(common2) < MIN_OBS:
-            raise ValueError("insufficient obs for pass-through")
+        if len(common2) < min_obs:
+            raise ValueError(f"only {len(common2)} obs for pass-through")
 
-        lags = min(aic_lag, 2)
-        adl_df = pd.DataFrame({
-            "dcpi":   log_c.loc[common2],
-            "duifpi": log_u.loc[common2],
-        })
-        # Add lagged variables
+        # Use no lagged variables for small samples; skip month dummies too
+        lags = 0 if len(common2) < 20 else min(aic_lag, 2)
+        adl = pd.DataFrame({
+            "dcpi":   log_c.loc[common2].values,
+            "duifpi": log_u.loc[common2].values,
+        }, index=range(len(common2)))
         for k in range(1, lags + 1):
-            adl_df[f"dcpi_lag{k}"]   = adl_df["dcpi"].shift(k)
-            adl_df[f"duifpi_lag{k}"] = adl_df["duifpi"].shift(k)
-
-        # Month dummies (seasonal adjustment)
-        adl_df["month"] = [p.month for p in adl_df.index]
-        month_dummies = pd.get_dummies(adl_df["month"], prefix="m", drop_first=True)
-        adl_df = pd.concat([adl_df.drop(columns="month"), month_dummies], axis=1)
-        adl_df = adl_df.dropna()
-
-        if len(adl_df) < MIN_OBS:
-            raise ValueError("insufficient obs after lagging")
-
-        y = adl_df["dcpi"].values
-        X = add_constant(adl_df.drop(columns="dcpi").values)
-
-        ols = OLS(y, X).fit()
-
-        # coef index 1 = duifpi (contemporaneous)
-        pt_coef = ols.params[1]
-        pt_pval = ols.pvalues[1]
-
-        result["pass_through_formal"]       = round(float(pt_coef), 4)
-        result["pass_through_significant"]  = pt_pval < 0.05
-        result["r_squared"]                 = round(float(ols.rsquared), 4)
-
-        print(f"    Pass-through coef={pt_coef:.3f} p={pt_pval:.3f} "
-              f"R²={ols.rsquared:.3f}")
-
+            adl[f"dcpi_lag{k}"]   = adl["dcpi"].shift(k)
+            adl[f"duifpi_lag{k}"] = adl["duifpi"].shift(k)
+        if lags > 0:
+            months = [p.month for p in common2]
+            adl["month"] = months
+            dummies = pd.get_dummies(adl["month"], prefix="m", drop_first=True)
+            adl = pd.concat([adl.drop(columns="month"), dummies], axis=1)
+        adl = adl.dropna()
+        if len(adl) < min_obs:
+            raise ValueError(f"only {len(adl)} obs after lagging")
+        y = adl["dcpi"].values.astype(float)
+        X_raw = adl.drop(columns="dcpi").values.astype(float)
+        # Require at least 3 degrees of freedom
+        if len(y) - X_raw.shape[1] - 1 < 3:
+            raise ValueError(
+                f"insufficient DOF: n={len(y)}, k={X_raw.shape[1]+1}")
+        X = add_constant(X_raw)
+        fit = OLS(y, X).fit()
+        result["pass_through_formal"]      = round(float(fit.params[1]), 4)
+        result["pass_through_significant"] = float(fit.pvalues[1]) < 0.05
+        result["r_squared"]                = round(float(fit.rsquared), 4)
+        print(f"  Pass-through: β={fit.params[1]:.3f} p={fit.pvalues[1]:.3f} "
+              f"R²={fit.rsquared:.3f}")
     except Exception as e:
-        print(f"    Pass-through regression failed: {e}")
+        print(f"  Pass-through: {e}")
 
     return result
 
 
-# ── Entry point ───────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Main
+# ─────────────────────────────────────────────────────────────────────────────
 
-def run(uifpi_csv: str = UIFPI_CSV, cpi_dir: str = CPI_DIR) -> None:
-    """Run Granger and pass-through analysis for all available countries."""
+def run(min_obs: int = DEFAULT_MIN_OBS, max_lags: int = DEFAULT_MAX_LAGS) -> None:
     if not STATSMODELS_OK:
-        print("✗  statsmodels not installed.")
-        print("   Run: pip install statsmodels pandas numpy scipy")
+        print("statsmodels not installed. Run: pip install statsmodels")
         return
 
     os.makedirs(RESULTS_DIR, exist_ok=True)
 
     print("\nGranger Causality Analysis")
+    print(f"  min_obs={min_obs}  max_lags={max_lags}")
     print("─" * 60)
 
-    # Load UIFPI
-    uifpi_df = load_uifpi_series(uifpi_csv)
+    uifpi_df = load_uifpi()
     if uifpi_df is None or uifpi_df.empty:
-        print("No UIFPI data available — run index_builder.py first.")
+        print("No UIFPI data. Run index_builder.py first.")
         return
 
-    print(f"Loaded UIFPI for {uifpi_df['country'].nunique()} countries")
-
-    all_results: list[dict] = []
+    all_results = []
 
     for country in sorted(uifpi_df["country"].unique()):
         print(f"\n[{country}]")
-
-        cpi_s = load_cpi_series(country)
+        cpi_s = load_cpi(country)
         if cpi_s is None or cpi_s.empty:
-            print(f"  ⚠  No CPI data found for {country}")
-            all_results.append({
-                "country": country, "note": "no_cpi_data",
-                "granger_significant": False,
-            })
+            print(f"  No CPI data")
+            all_results.append({"country": country, "n_obs": 0,
+                                 "note": "no_cpi_data",
+                                 "granger_significant": False})
             continue
+        print(f"  CPI: {len(cpi_s)} obs  ({cpi_s.index.min()} – {cpi_s.index.max()})")
 
         uifpi_s, cpi_aligned = align_series(uifpi_df, country, cpi_s)
-
         if uifpi_s.empty:
-            print(f"  ⚠  No overlapping UIFPI + CPI dates for {country}")
-            all_results.append({
-                "country": country, "note": "no_overlap",
-                "granger_significant": False,
-            })
+            print(f"  No overlapping dates")
+            all_results.append({"country": country, "n_obs": 0,
+                                 "note": "no_overlap",
+                                 "granger_significant": False})
             continue
+        print(f"  UIFPI: {len(uifpi_s)} obs  ({uifpi_s.index.min()} – {uifpi_s.index.max()})")
+        print(f"  Overlap: {len(uifpi_s)} months")
 
-        result = run_granger(country, uifpi_s, cpi_aligned)
+        result = run_granger(country, uifpi_s, cpi_aligned, min_obs, max_lags)
         all_results.append(result)
 
-    # ── Save full JSON results ───────────────────────────────────────────────
-    results_by_country = {r["country"]: {k: v for k, v in r.items()
-                                          if k != "country"}
-                          for r in all_results}
+    # ── Save results ──────────────────────────────────────────────────────────
+    def _to_python(v):
+        """Convert numpy scalars to native Python types for JSON."""
+        if isinstance(v, (np.integer,)):
+            return int(v)
+        if isinstance(v, (np.floating,)):
+            return float(v)
+        if isinstance(v, (np.bool_,)):
+            return bool(v)
+        return v
+
+    results_by_country = {
+        r["country"]: {k: _to_python(v) for k, v in r.items() if k != "country"}
+        for r in all_results
+    }
     json_path = os.path.join(RESULTS_DIR, "granger_results.json")
     with open(json_path, "w") as f:
         json.dump(results_by_country, f, indent=2)
-    print(f"\n✓  Full results saved to {json_path}")
+    print(f"\n✓ Results → {json_path}")
 
-    # ── Print summary table ──────────────────────────────────────────────────
+    # ── Summary table ─────────────────────────────────────────────────────────
     print(f"\n{'='*80}")
-    print("Summary Table")
+    print("Granger Causality Summary")
     print(f"{'='*80}")
-    hdr = (f"{'Country':<20} {'n_obs':>5} {'Granger p':>10} {'Lead mo':>8} "
-           f"{'Pass-thru':>10} {'Sig?':>5}")
-    print(hdr)
-    print("-" * 80)
-    for r in sorted(all_results, key=lambda x: x["country"]):
-        gp   = f"{r['granger_p_value']:.3f}"  if r.get("granger_p_value")  else "—"
-        lead = f"{r['lead_months']}"           if r.get("lead_months")      else "—"
-        pt   = f"{r['pass_through_formal']:.3f}" if r.get("pass_through_formal") else "—"
-        sig  = "✓" if r.get("granger_significant") else "✗"
-        note = r.get("note", "")
-        n    = r.get("n_obs", 0)
-        print(f"  {r['country']:<20} {n:>5} {gp:>10} {lead:>8} "
-              f"{pt:>10} {sig:>5}  {note}")
-    print()
+    print(f"  {'Country':<22} {'n':>5} {'Granger p':>10} {'Lead':>6} "
+          f"{'β pass-thru':>12} {'R²':>6} {'Sig':>4}  Note")
+    print(f"  {'─'*76}")
 
-    # ── Save summary CSV ─────────────────────────────────────────────────────
-    summary_rows = []
-    for r in all_results:
-        summary_rows.append({
-            "country":            r.get("country"),
-            "n_obs":              r.get("n_obs", 0),
-            "granger_p_value":    r.get("granger_p_value"),
-            "lead_months":        r.get("lead_months"),
-            "aic_lag":            r.get("aic_lag"),
-            "granger_significant":r.get("granger_significant"),
-            "pass_through":       r.get("pass_through_formal"),
-            "pass_through_sig":   r.get("pass_through_significant"),
-            "r_squared":          r.get("r_squared"),
-            "note":               r.get("note", ""),
-        })
-    import csv
+    for r in sorted(all_results, key=lambda x: x["country"]):
+        gp   = f"{r['granger_p_value']:.3f}"    if r.get("granger_p_value") is not None else "—"
+        lead = f"{r['lead_months']}"             if r.get("lead_months")     is not None else "—"
+        pt   = f"{r['pass_through_formal']:.3f}" if r.get("pass_through_formal") is not None else "—"
+        r2   = f"{r['r_squared']:.3f}"           if r.get("r_squared")       is not None else "—"
+        sig  = "✓" if r.get("granger_significant") else "✗"
+        note = r.get("note", "")[:35]
+        n    = r.get("n_obs", 0)
+        print(f"  {r['country']:<22} {n:>5} {gp:>10} {lead:>6} "
+              f"{pt:>12} {r2:>6} {sig:>4}  {note}")
+
+    n_sig = sum(1 for r in all_results if r.get("granger_significant"))
+    print(f"\n  Countries with significant Granger causality: "
+          f"{n_sig} / {len(all_results)}")
+    print(f"  (threshold: p < 0.05, min {min_obs} overlapping observations)")
+
+    # ── Save CSV ──────────────────────────────────────────────────────────────
+    fields = ["country", "n_obs", "granger_p_value", "lead_months",
+              "aic_lag", "granger_significant", "pass_through_formal",
+              "pass_through_significant", "r_squared", "note"]
     csv_path = os.path.join(RESULTS_DIR, "summary.csv")
     with open(csv_path, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(summary_rows[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         writer.writeheader()
-        writer.writerows(summary_rows)
-    print(f"✓  Summary CSV saved to {csv_path}")
+        for r in all_results:
+            writer.writerow({k: r.get(k, "") for k in fields})
+    print(f"✓ Summary CSV → {csv_path}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="UIFPI Granger causality analysis")
+    parser.add_argument("--min-obs",  type=int, default=DEFAULT_MIN_OBS,
+                        help=f"Min overlapping months for Granger (default {DEFAULT_MIN_OBS})")
+    parser.add_argument("--max-lags", type=int, default=DEFAULT_MAX_LAGS,
+                        help=f"Max VAR lags (default {DEFAULT_MAX_LAGS})")
+    args = parser.parse_args()
+    run(min_obs=args.min_obs, max_lags=args.max_lags)
 
 
 if __name__ == "__main__":
-    run()
+    main()
