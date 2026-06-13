@@ -13,6 +13,7 @@ import os
 import warnings
 import sqlite3
 from itertools import combinations
+from typing import Optional, Tuple
 
 import numpy as np
 import pandas as pd
@@ -50,7 +51,7 @@ EXCLUDED_CATEGORIES = {"SET_MEAL", "OTHER"}
 # Data loading helpers
 # ---------------------------------------------------------------------------
 
-def load_cpi(country: str) -> pd.Series | None:
+def load_cpi(country: str) -> Optional[pd.Series]:
     cpi_file = COUNTRY_CPI_FILES.get(country)
     if not cpi_file:
         return None
@@ -70,7 +71,7 @@ def load_cpi(country: str) -> pd.Series | None:
     return s.sort_index()
 
 
-def load_uifpi(country: str, categories: set | None = None) -> pd.Series | None:
+def load_uifpi(country: str, categories = None) -> Optional[pd.Series]:
     conn = sqlite3.connect(DB_PATH)
     if categories:
         placeholders = ",".join("?" * len(categories))
@@ -114,7 +115,7 @@ def load_uifpi(country: str, categories: set | None = None) -> pd.Series | None:
     return s.sort_index()
 
 
-def load_uifpi_by_sector(country: str, sector: str) -> pd.Series | None:
+def load_uifpi_by_sector(country: str, sector: str) -> Optional[pd.Series]:
     conn = sqlite3.connect(DB_PATH)
     query = """
         SELECT strftime('%Y-%m', collection_date) AS ym,
@@ -136,7 +137,7 @@ def load_uifpi_by_sector(country: str, sector: str) -> pd.Series | None:
     return s.sort_index()
 
 
-def align_series(s1: pd.Series, s2: pd.Series) -> tuple[pd.Series, pd.Series]:
+def align_series(s1: pd.Series, s2: pd.Series) -> Tuple[pd.Series, pd.Series]:
     # Resample both to monthly (forward-fill annual CPI to monthly)
     s2_m = s2.resample("MS").interpolate(method="linear")
     common = s1.index.intersection(s2_m.index)
@@ -440,10 +441,10 @@ def print_summary(results: dict):
     print("ROBUSTNESS SUMMARY")
     print("=" * 68)
     tests = [
-        ("Test 1 — Jackknife stability",      results["test1"]["finding_survives"]),
-        ("Test 2 — Alternative baskets",       results["test2"]["finding_survives"]),
-        ("Test 3 — Alternative weights",       results["test3"]["finding_survives"]),
-        ("Test 4 — Sector split",              results["test4"]["finding_survives"]),
+        ("Test 1 — Jackknife stability",      results["test1_jackknife"]["finding_survives"]),
+        ("Test 2 — Alternative baskets",       results["test2_basket_specs"]["finding_survives"]),
+        ("Test 3 — Alternative weights",       results["test3_weights"]["finding_survives"]),
+        ("Test 4 — Sector split",              results["test4_sector_split"]["finding_survives"]),
     ]
     flags = []
     for name, survives in tests:

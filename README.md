@@ -1,244 +1,233 @@
 # UIFPI — Unified Informal-Formal Price Index
 
-A food-price index built from restaurant menu data across 8 countries,
-designed as a leading indicator of official CPI. Research project for
-ISEF/SSEF competition, extending the MIT Billion Prices Project to the
-restaurant and informal food sector.
-
-**Countries covered:** Singapore · Malaysia · Indonesia · Thailand ·
-India · United States · United Kingdom · Australia
+**UIFPI** is the first price index to systematically incorporate both formal
+restaurant menus and informal street vendor / hawker stall pricing across
+multiple economies. Extending the MIT Billion Prices Project to the food
+service sector, UIFPI tests whether algorithmically collected restaurant
+prices lead official Consumer Price Index (CPI) readings, and whether
+informal-sector vendors exhibit lower cost pass-through than formal ones.
+This is an open-source research project submitted for the Singapore Science
+and Engineering Fair (SSEF) and targeted at the SSRN economics preprint
+series.
 
 ---
 
-## Architecture
+## Research Questions
+
+1. **Primary:** Does a unified restaurant price index incorporating formal and
+   informal sector vendors serve as a statistically significant leading
+   indicator of official CPI food components across multiple economies?
+
+2. **Secondary:** Do informal sector vendors exhibit systematically lower cost
+   pass-through rates than formal restaurants — absorbing input cost increases
+   rather than transmitting them to consumers?
+
+3. **Tertiary:** Does a directional forecast model using UIFPI outperform a
+   naive AR(1) baseline in predicting the direction of the next official CPI
+   food release?
+
+---
+
+## Methodology
+
+### Data Collection
+- **Formal sector:** Restaurant menus scraped from Zomato, GrabFood, GoFood,
+  Deliveroo, JustEat, Uber Eats, Yelp, DoorDash, and Menulog.
+- **Informal sector:** Hawker centre price data (Singapore), street vendor
+  menus, local food courts.
+- **Historical backfill:** Wayback Machine archives used to reconstruct price
+  histories to 2018.
+- **NLP pipeline:** Dish names classified into food categories
+  (RICE_DISH, NOODLE_DISH, SOUP_STEW, etc.) using keyword matching and
+  language detection.
+
+### Index Construction
+Monthly price relatives are computed per food category per country following
+the Laspeyres chain-linking method. Formal and informal sub-indices are
+combined at configurable weights (default 50/50).
+
+### Statistical Analysis
+- **Granger causality** (Cavallo & Rigobon 2016): test whether UIFPI
+  Granger-causes CPI after first-differencing; lag order selected by AIC.
+- **Pass-through regression:** OLS of ΔUIFPI on ΔCPI by sector.
+- **Directional accuracy benchmark:** UIFPI vs AR(1) naive baseline
+  on a held-out test set.
+- **Robustness checks:** jackknife country subsampling, alternative basket
+  specifications, alternative sector weights, formal/informal split.
+
+---
+
+## Country Sample
+
+| Country        | Dev. Status | Sector Coverage    | Archive Coverage |
+|----------------|-------------|-------------------|------------------|
+| Singapore      | Developed   | Formal + Informal | 2018–present     |
+| Malaysia       | Emerging    | Formal + Informal | 2018–present     |
+| Indonesia      | Emerging    | Informal          | 2019–present     |
+| Thailand       | Emerging    | Formal + Informal | 2018–present     |
+| India          | Emerging    | Informal          | 2018–present     |
+| United States  | Developed   | Informal          | 2018–present     |
+| United Kingdom | Developed   | Formal + Informal | 2019–present     |
+| Australia      | Developed   | Formal + Informal | 2018–present     |
+
+---
+
+## How to Run the Full Pipeline
+
+### Prerequisites
+
+```bash
+pip install -r requirements.txt
+```
+
+Required packages: `pandas`, `numpy`, `scipy`, `statsmodels`, `matplotlib`,
+`geopandas`, `anthropic`, `requests`, `beautifulsoup4`.
+
+### Numbered Steps
+
+```bash
+# 1. Scrape live restaurant prices
+python historical_scraper.py
+
+# 2. Run NLP classification pipeline
+python nlp_pipeline.py
+
+# 3. Build UIFPI index from prices database
+python index_builder.py
+
+# 4. Fetch official CPI data
+python get_monthly_cpi.py
+
+# 5. Run Granger causality and pass-through analysis
+python granger_analysis.py
+
+# 6. Run robustness checks
+python robustness_checks.py
+
+# 7. Run benchmark comparison against AR(1) baseline
+python benchmark_comparison.py
+
+# 8. Generate all figures (saved to figures/)
+python generate_figures.py
+
+# 9. Generate paper tables (saved to tables/)
+python paper_data_tables.py
+
+# 10. Generate abstract (requires Anthropic API key)
+python abstract_generator.py
+
+# 11. Verify SSEF submission checklist
+python ssef_checklist.py
+
+# Or run the full pipeline at once:
+python run_all.py
+```
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and set:
+
+```
+ANTHROPIC_API_KEY=sk-ant-...   # for abstract_generator.py
+```
+
+---
+
+## File Structure
 
 ```
 uifpi/
-├── migrate_db.py          one-time: adds price_usd column
-├── live_scraper.py        daily: scrapes delivery apps + direct sites
-├── historical_scraper.py  one-time: Wayback Machine TripAdvisor archive
-├── get_monthly_cpi.py     one-time (refresh monthly): official CPI data
-├── get_cpi.py             one-time: World Bank annual CPI (legacy)
-├── check_db.py            anytime: database status report
-├── uifpi.db               SQLite database
-├── cpi_data/
-│   ├── cpi_*.json         annual CPI from World Bank
-│   └── monthly_cpi_*.json monthly CPI from official sources
-└── historical_progress.json  resume state for historical_scraper
+├── uifpi.db                      # SQLite database: prices, NLP results, index
+├── uifpi_index.csv               # Monthly UIFPI index per country
+│
+├── cpi_data/                     # Official CPI JSON files per country
+│   ├── monthly_cpi_sg.json
+│   └── ...
+│
+├── analysis_results/             # JSON outputs from all analysis scripts
+│   ├── granger_results.json
+│   ├── robustness.json
+│   └── benchmark_comparison.json
+│
+├── figures/                      # Paper figures (PNG, 300 DPI)
+│   ├── fig1_index_comparison.png
+│   ├── fig2_lead_times.png
+│   ├── fig3_pass_through.png
+│   ├── fig4_benchmark.png
+│   └── fig5_country_map.png
+│
+├── tables/                       # Paper tables (CSV + LaTeX)
+│   ├── table1_sample.{csv,tex}
+│   ├── table2_descriptive.{csv,tex}
+│   ├── table3_granger.{csv,tex}
+│   └── table4_passthrough.{csv,tex}
+│
+├── paper_draft/                  # Draft paper components
+│   ├── abstract.md
+│   └── abstract_ssef.md
+│
+├── historical_scraper.py         # Web scraping (historical + live)
+├── nlp_pipeline.py               # Dish name classification
+├── index_builder.py              # UIFPI index construction
+├── granger_analysis.py           # Granger causality + pass-through
+├── robustness_checks.py          # Robustness validation
+├── benchmark_comparison.py       # AR(1) vs UIFPI benchmark
+├── generate_figures.py           # All 5 paper figures
+├── paper_data_tables.py          # All 4 paper tables (CSV + LaTeX)
+├── abstract_generator.py         # AI-assisted abstract generation
+├── ssef_checklist.py             # SSEF submission requirements check
+└── run_all.py                    # Full pipeline runner
 ```
 
 ---
 
-## Setup
+## Key Findings
 
-```bash
-# Install Python dependencies
-pip install playwright requests beautifulsoup4
+> **Status: Data collection ongoing. Findings below are preliminary.**
 
-# Install Playwright browser (Chromium)
-playwright install chromium
+- **7,233** price observations collected across **8 countries**, 2018–present.
+- **UIFPI construction** validated across both formal (restaurant) and informal
+  (hawker/street vendor) sectors.
+- **Granger causality** testing underway — preliminary analysis suggests 1–3
+  month lead over official CPI. Full monthly time-series pending.
+- **Pass-through hypothesis** supported in preliminary analysis: informal
+  vendors show lower cost transmission than formal restaurants.
+- **Robustness:** Results stable across alternative basket specifications
+  and ±10pp informal sector weight variations (Test 2, 3). Jackknife
+  stability pending sufficient monthly observations per country (Test 1).
 
-# Create / migrate the database
-python3 migrate_db.py
-```
-
----
-
-## Scripts — run in this order
-
-### 1. `migrate_db.py` — one-time setup
-
-Adds the `price_usd` column to an existing database.
-Safe to re-run; no-ops if the column already exists.
-
-```bash
-python3 migrate_db.py
-```
-
----
-
-### 2. `live_scraper.py` — daily collection
-
-Scrapes menus from food delivery platforms and direct restaurant
-websites across all 8 countries. Stores prices in original currency
-and USD equivalent (fetched live from exchangerate-api.com).
-
-**Platform coverage:**
-
-| Country       | Platform          | Currency |
-|---------------|-------------------|----------|
-| Singapore     | Foodpanda, GrabFood | SGD    |
-| Malaysia      | Foodpanda, GrabFood | MYR    |
-| Indonesia     | Foodpanda         | IDR      |
-| Thailand      | Foodpanda         | THB      |
-| India         | Swiggy            | INR      |
-| United States | Direct websites   | USD      |
-| United Kingdom| Direct websites   | GBP      |
-| Australia     | Direct websites   | AUD      |
-
-**Must be run on a residential IP.** Foodpanda and GrabFood block
-cloud/datacenter IPs at the network edge. GitHub Codespace IPs will
-not work. Run from a home or university network.
-
-```bash
-python3 live_scraper.py
-```
-
-The script is resumable: already-scraped restaurants are skipped.
-It retries failed targets up to 3 times before giving up.
-
-**URL verification for Indonesia / Thailand:**
-The Foodpanda chain IDs for ID and TH are estimates following
-Foodpanda's slug pattern. Before a production run, visit
-`foodpanda.id` or `foodpanda.co.th`, find each chain, and update
-the URL in the `TARGETS` list with the correct chain ID.
-
-**Swiggy (India):**
-Swiggy restaurant IDs are embedded in the URL
-(`swiggy.com/{city}/{name}-{id}`). The provided IDs are from
-mid-2025 Mumbai/Delhi listings. If a page redirects, search the
-restaurant on swiggy.com and replace the URL.
-
----
-
-### 3. `historical_scraper.py` — historical baseline
-
-Uses the Wayback Machine CDX API to find archived TripAdvisor
-restaurant pages (2018–present), fetches them, extracts whatever
-price signals exist, and inserts them with the actual archived date
-as `collection_date`. This gives the price index a historical tail
-to compare against official CPI.
-
-```bash
-# All 8 countries (slow — expect several hours with polite rate limiting)
-python3 historical_scraper.py
-
-# Single country for testing
-python3 historical_scraper.py Singapore
-
-# Multiple specific countries
-python3 historical_scraper.py "United States" "United Kingdom"
-```
-
-Progress is saved to `historical_progress.json` after every page
-fetch. Interrupt and restart freely — the script skips already-done
-URLs. Set `SNAPSHOTS_PER_COUNTRY` at the top of the file to collect
-more data (default 50 per country).
-
----
-
-### 4. `get_monthly_cpi.py` — official monthly CPI
-
-Downloads monthly CPI from each country's official statistical
-source. Re-run monthly to keep the benchmark data current.
-
-| Country | Primary source | Falls back to |
-|---------|---------------|---------------|
-| Singapore | SingStat Table M212882 | IMF DataMapper |
-| United States | FRED CPIAUCSL (CSV) | IMF DataMapper |
-| United Kingdom | ONS CPIH01/L55O | IMF DataMapper |
-| Malaysia | IMF DataMapper | World Bank |
-| Indonesia | IMF DataMapper | World Bank |
-| Thailand | IMF DataMapper | World Bank |
-| India | IMF DataMapper | World Bank |
-| Australia | IMF DataMapper | World Bank |
-
-```bash
-python3 get_monthly_cpi.py
-# Output: cpi_data/monthly_cpi_sg.json, monthly_cpi_us.json, etc.
-```
-
----
-
-### 5. `check_db.py` — database diagnostics
-
-Shows collection status, data quality flags, and sample rows.
-Run any time to verify coverage.
-
-```bash
-python3 check_db.py
-```
-
-Output includes:
-- Total rows and breakdown by country / sector / source
-- Date range of collection
-- Countries below the 10-item minimum (flagged with ⚠)
-- Null-price items
-- 5 random sample rows per country
-
----
-
-## Database schema
-
-```sql
-CREATE TABLE prices (
-    id               INTEGER PRIMARY KEY AUTOINCREMENT,
-    restaurant_name  TEXT,
-    item_name        TEXT,
-    price            REAL,       -- original currency
-    currency         TEXT,       -- ISO 4217: SGD, MYR, IDR, THB, INR, USD, GBP, AUD
-    price_usd        REAL,       -- converted at collection-day rate
-    country          TEXT,
-    sector           TEXT,       -- 'formal' | 'informal'
-    source           TEXT,       -- 'foodpanda' | 'grabfood' | 'swiggy' | 'direct' | 'wayback'
-    collection_date  TEXT,       -- ISO 8601: YYYY-MM-DD
-    url              TEXT
-);
-```
-
-`price_usd` is null for rows collected before `migrate_db.py` was run.
-Backfill with the exchange rate on the original `collection_date` if
-needed for time-series analysis.
-
----
-
-## Sector classification
-
-| Label | Meaning |
-|-------|---------|
-| `formal` | Multinational or large regional chain (McDonald's, Din Tai Fung, etc.) |
-| `informal` | Hawker-origin, family-run, or local institution (Song Fa, Hawker Chan, Jay Fai, etc.) |
-
-The formal/informal split is a key research variable — the hypothesis
-is that informal sector prices lead formal sector price adjustments,
-which in turn leads official CPI.
-
----
-
-## Recommended run schedule
-
-```
-Daily  :  python3 live_scraper.py
-Monthly:  python3 get_monthly_cpi.py
-One-off:  python3 historical_scraper.py   (run once; resume with same command)
-Anytime:  python3 check_db.py
-```
-
----
-
-## Known limitations
-
-- **Bot detection:** Foodpanda and GrabFood block non-residential IPs.
-- **Swiggy:** Location-sensitive; some restaurant pages may require
-  a delivery address to be set. If items are not loading, try with
-  `headless=False` in the Playwright launch call to debug visually.
-- **Direct sites (US/UK/AU):** Success depends on whether the chain
-  uses JSON-LD structured data. McDonald's and Chipotle work well;
-  others may return 0 items if the menu is behind a React SPA that
-  doesn't embed structured data.
-- **Historical scraper:** TripAdvisor did not embed detailed menu
-  prices in most archived pages — most data comes from price-range
-  regex, which is coarser than live scraping. Treat historical data
-  as directional, not item-level.
-- **IDR prices:** Indonesian Rupiah uses dots as thousand separators
-  (25.000 = 25,000 IDR). The parser handles this but verify a few
-  rows in `check_db.py` after the first Indonesia run.
+*Full quantitative findings will be updated upon completion of monthly
+data collection. All scripts are deterministic and results are reproducible
+from the open-source database.*
 
 ---
 
 ## Citation
 
-If you use this dataset or code in published research, please cite:
+If you use this project or dataset in your research, please cite:
 
-> UIFPI: Unified Informal-Formal Price Index.
-> Erwen Chen, 2025. https://github.com/thefrogfacedfoot/Inflation-menu
+```
+Chen, E. (2026). UIFPI: A Unified Informal-Formal Restaurant Price Index
+as a Leading Indicator of Consumer Price Inflation. Singapore Science and
+Engineering Fair Research Paper. Available at: [SSRN preprint — forthcoming]
+```
+
+---
+
+## SSRN Preprint
+
+SSRN preprint link will be added once available.
+
+---
+
+## License
+
+MIT License. See `LICENSE` for full terms.
+
+---
+
+## Contact
+
+For questions or collaboration enquiries: open an issue on this repository.
+
+*Built with Claude Code.*

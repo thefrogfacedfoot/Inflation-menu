@@ -1,0 +1,9 @@
+Country,Dev. Status,Data Source,Archive Coverage,Live Data Start,Restaurants,Items (F/I)
+Singapore,Developed,Live scrape,2018–present,2019-06,54,5726/801
+Malaysia,Emerging,Live scrape,2018–present,2019-03,26,126/313
+Indonesia,Emerging,Live scrape,2019–present,2019-03,47,0/53
+Thailand,Emerging,Live scrape,2018–present,—,0,0/0
+India,Emerging,Live scrape,2018–present,2018-01,30,0/47
+United States,Developed,Live scrape,2018–present,2018-01,26,0/52
+United Kingdom,Developed,Live scrape,2019–present,2018-07,33,2/66
+Australia,Developed,Live scrape,2018–present,2018-01,34,1/46
