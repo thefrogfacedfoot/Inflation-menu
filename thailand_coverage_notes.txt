@@ -1,0 +1,92 @@
+THAILAND DATA COLLECTION — FAILURE DOCUMENTATION
+Date: 2026-06-13
+================================================
+
+SUMMARY
+-------
+All three data collection approaches failed. Thailand remains at 0 rows in the prices table.
+
+APPROACH A — GrabFood Thailand via Playwright
+----------------------------------------------
+URL attempted: https://food.grab.com/th/en/
+Result: BLOCKED (infrastructure limitation)
+
+GrabFood is a React single-page application. Static HTTP requests (requests library) return
+a 207,388-byte HTML shell with zero food prices embedded. Playwright-based scraping requires
+a residential IP address — this machine operates from a datacenter IP that GrabFood blocks
+via Cloudflare/anti-bot detection. No prices were extractable from static HTML.
+
+Restaurants targeted (none accessible):
+  - MK Restaurant Thailand
+  - The Pizza Company Thailand
+  - KFC Thailand (GrabFood listing)
+  - McDonald's Thailand
+  - Swensen's Thailand
+  - Black Canyon Coffee Thailand
+  - After You Dessert Cafe Thailand
+  - Oishi Ramen Thailand
+
+APPROACH B — TripAdvisor Wayback Machine Archives
+--------------------------------------------------
+URL: http://web.archive.org/cdx/search/cdx
+Pattern: tripadvisor.com/Restaurant_Review-g293916* (Bangkok geo ID)
+Result: CONNECTION TIMEOUT
+
+web.archive.org is unreachable from this machine (CDX API times out after 15 seconds).
+This was confirmed in a prior session (2026-06-13) and persists. Likely cause: Wayback Machine
+rate-limits or blocks datacenter IP ranges. No CDX snapshots could be retrieved.
+
+Note: A previous run of historical_scraper.py for Thailand retrieved only listing pages
+(Restaurants-g293916-*) rather than individual restaurant review pages, yielding 0 price
+observations even when connectivity was briefly available.
+
+APPROACH C — Direct Thai Restaurant Websites
+--------------------------------------------
+Restaurants attempted and results:
+
+  MK Restaurant (mkrestaurant.com/th/menu.html):
+    HTTP 200 — "ไม่พบหน้าที่คุณต้องการ" (Page not found / soft 404)
+    31 numeric matches from 404 page content (not real menu prices)
+
+  KFC Thailand (kfcthailand.com/th/menu):
+    HTTP 200 — React SPA, menu prices loaded dynamically via API
+    Zero prices in static HTML (฿/บาท pattern returns nothing)
+
+  Swensens Thailand (swensens.co.th):
+    DNS resolution failed — hostname not resolvable from this network
+
+  Black Canyon Coffee (blackcanyoncoffee.com):
+    HTTP 403 Forbidden
+
+  After You Dessert Cafe (afteryoudessertcafe.com):
+    Connection timeout (15 seconds)
+
+  McDonald's Thailand (mcdonalds.co.th/th/menu):
+    HTTP 404 — URL structure changed
+
+  Oishi Ramen (oishigroup.com):
+    Connection timeout (15 seconds)
+
+  The Pizza Company (pizzacompany.co.th):
+    DNS resolution failed — hostname not resolvable from this network
+
+  Wongnai (wongnai.com — Thai food aggregator):
+    HTTP 404 on restaurant listing pages; prices not in static HTML
+
+IMPLICATIONS FOR RESEARCH
+-------------------------
+Thailand coverage gap is a known limitation to disclose in the paper. The country has
+the smallest informal sector in our target set (hawker vendors predominate in less accessible
+online databases vs. Singapore's well-documented hawker scene).
+
+RECOMMENDED REMEDIATION
+-----------------------
+1. Residential proxy service (e.g., Bright Data) would unblock GrabFood scraping
+2. Manual price collection at Bangkok wet markets / street food stalls via field research
+3. Thai government data: Office of Trade Policy and Strategy (OTPS) publishes Bangkok
+   retail price surveys at https://www.ops3.moc.go.th/ — may include food categories
+4. ONS-equivalent: Thailand Bureau of Trade and Economic Indices publishes monthly CPI
+   breakdowns at https://www.price.moc.go.th/ — food subcategory prices available
+5. World Food Programme VAM data: https://dataviz.vam.wfp.org/ covers Thailand food prices
+
+STATUS: No data collected. Thailand excluded from index with disclosure in paper Section 5.2.
