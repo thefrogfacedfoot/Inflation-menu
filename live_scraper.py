@@ -67,8 +67,56 @@ FALLBACK_RATES = {
 }
 
 
-def get_usd_rates():
-    """Fetch live USD exchange rates (1 USD = X local). Free, no key."""
+EXCHANGE_RATE_CACHE_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    'exchange_rates.json',
+)
+EXCHANGE_RATE_TTL_SECONDS = 24 * 60 * 60  # 24 hours
+
+
+def _load_cached_rates():
+    """Return (rates, fetched_at_epoch) from disk, or (None, 0) if missing/invalid."""
+    try:
+        with open(EXCHANGE_RATE_CACHE_PATH, 'r') as fh:
+            payload = json.load(fh)
+        rates = payload.get('rates')
+        fetched_at = float(payload.get('fetched_at', 0))
+        if isinstance(rates, dict) and rates:
+            return rates, fetched_at
+    except FileNotFoundError:
+        pass
+    except Exception as e:
+        log(f"  ⚠  Cached exchange rates unreadable ({e})")
+    return None, 0
+
+
+def _save_cached_rates(rates):
+    payload = {
+        'fetched_at': time.time(),
+        'fetched_at_iso': date.today().isoformat(),
+        'rates': rates,
+    }
+    try:
+        with open(EXCHANGE_RATE_CACHE_PATH, 'w') as fh:
+            json.dump(payload, fh, indent=2, sort_keys=True)
+    except Exception as e:
+        log(f"  ⚠  Could not cache exchange rates ({e})")
+
+
+def get_usd_rates(force_refresh=False):
+    """
+    Return USD exchange rates (1 USD = X local).
+
+    Caches results to exchange_rates.json for 24h to avoid hammering the
+    free API on every run. Pass force_refresh=True to bypass the cache.
+    """
+    if not force_refresh:
+        cached, fetched_at = _load_cached_rates()
+        if cached and (time.time() - fetched_at) < EXCHANGE_RATE_TTL_SECONDS:
+            age_h = (time.time() - fetched_at) / 3600
+            log(f"  ✓ Using cached USD rates ({age_h:.1f}h old)")
+            return cached
+
     try:
         r = requests.get(
             'https://api.exchangerate-api.com/v4/latest/USD',
@@ -76,9 +124,18 @@ def get_usd_rates():
             headers={'User-Agent': 'UIFPI-Research/1.0'},
         )
         r.raise_for_status()
-        return r.json()['rates']
+        rates = r.json()['rates']
+        _save_cached_rates(rates)
+        log("  ✓ Fetched fresh USD rates and cached them")
+        return rates
     except Exception as e:
-        log(f"  ⚠  Exchange rate fetch failed ({e}) — using fallback rates")
+        log(f"  ⚠  Exchange rate fetch failed ({e})")
+        # Prefer a stale cache over fallback constants if available
+        cached, _ = _load_cached_rates()
+        if cached:
+            log("  ↩  Falling back to stale cached rates")
+            return cached
+        log("  ↩  Using hardcoded fallback rates")
         return FALLBACK_RATES
 
 
