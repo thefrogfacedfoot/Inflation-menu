@@ -245,6 +245,22 @@ Live dashboard (Vercel, auto-redeploys on push to `main`):
 The dashboard reads `dashboard_data/*.json`; regenerate those files via
 `python3 dashboard_data.py` before pushing.
 
+## Data Export API
+
+Read-only Flask API for programmatic access. Run locally with:
+
+```
+python3 api.py
+```
+
+API available at `http://localhost:5000`. Endpoints:
+
+- `GET /api/countries` — list of 8 countries with summary stats
+- `GET /api/index/<country>` — UIFPI time series
+- `GET /api/prices/<country>` — raw price data (paginated)
+- `GET /api/latest` — latest UIFPI values for all countries
+- `GET /api/changes` — recent price changes detected by the scraper
+
 ---
 
 ## Honest Status (2026-06-13)

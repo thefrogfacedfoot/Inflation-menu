@@ -18,3 +18,10 @@ pandas>=2.1.0
 numpy>=1.24.0
 scipy>=1.11.0
 statsmodels>=0.14.0
+
+# Read-only API
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Monthly PDF report
+reportlab>=4.0.0
