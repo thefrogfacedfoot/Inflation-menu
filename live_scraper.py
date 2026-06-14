@@ -810,6 +810,237 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
     return count
 
 
+# ── Generic JS delivery-app scraper ───────────────────────────────────────────
+#
+# Used for DoorDash (US), Deliveroo (UK), Uber Eats (AU), GoFood (ID), and any
+# other React/Next.js delivery app whose menu pages embed structured JSON in
+# either window.__NEXT_DATA__, JSON-LD, or inline <script> blobs.
+#
+# Strategy order:
+#   1. window.__NEXT_DATA__ (Next.js apps — DoorDash, Uber Eats)
+#   2. JSON-LD <script type="application/ld+json"> MenuItem entries
+#   3. Embedded JSON blobs (inline scripts with name+price pairs)
+#   4. aria-label price extraction
+#   5. DOM text fallback
+
+CURRENCY_SYMBOL_REGEX = {
+    'USD': r'\$',
+    'GBP': r'£',
+    'AUD': r'A\$|\$',
+    'IDR': r'Rp\.?',
+    'THB': r'฿',
+    'INR': r'₹',
+    'MYR': r'RM',
+    'SGD': r'S\$',
+}
+
+
+def _walk_json_for_items(obj, currency, depth=0, items=None):
+    """Recursively pull name+price pairs out of a parsed JSON tree."""
+    if items is None:
+        items = []
+    if depth > 16:
+        return items
+    if isinstance(obj, dict):
+        name = obj.get('name') or obj.get('itemName') or obj.get('title')
+        price = (obj.get('price') or obj.get('basePrice')
+                 or obj.get('defaultPrice') or obj.get('finalPrice')
+                 or obj.get('priceMonetaryFields'))
+        if isinstance(price, dict):
+            price = (price.get('unitAmount') or price.get('amount')
+                     or price.get('value'))
+        if name and price is not None:
+            try:
+                p = float(price)
+                # Some platforms ship price in minor units (cents/paise).
+                # Heuristic: if it looks unreasonably large for the currency,
+                # divide by 100.
+                if currency in ('USD', 'GBP', 'AUD', 'SGD', 'MYR') and p > 1000:
+                    p = p / 100.0
+                elif currency == 'INR' and p > 5000:
+                    p = p / 100.0
+                if 0 < p < 1_000_000:
+                    items.append({'name': str(name)[:200], 'price': round(p, 2)})
+            except (ValueError, TypeError):
+                pass
+        for v in obj.values():
+            _walk_json_for_items(v, currency, depth + 1, items)
+    elif isinstance(obj, list):
+        for el in obj:
+            _walk_json_for_items(el, currency, depth + 1, items)
+    return items
+
+
+def scrape_js(page, url, restaurant_name, sector, currency,
+              conn, country, usd_rates):
+    """
+    Generic React/Next.js delivery-app scraper. Used for DoorDash, Deliveroo,
+    Uber Eats, GoFood. Falls back through 5 strategies.
+    """
+    log(f"  Loading {restaurant_name} (js generic)…")
+    page.goto(url, wait_until='networkidle', timeout=45_000)
+    page.wait_for_timeout(random.randint(3_000, 6_000))
+    _human_mouse_jitter(page)
+
+    if _looks_like_block(page):
+        raise RuntimeError("ACCESS_DENIED")
+
+    # Trigger lazy loading
+    try:
+        page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
+        page.wait_for_timeout(1_500)
+        page.evaluate('window.scrollTo(0, 0)')
+        page.wait_for_timeout(800)
+    except Exception:
+        pass
+
+    today = date.today().isoformat()
+    items = []
+    seen = set()
+
+    def _add(name, price):
+        if not name or price is None:
+            return
+        name = str(name).strip()[:200]
+        if len(name) < 2:
+            return
+        try:
+            price = float(price)
+        except (TypeError, ValueError):
+            return
+        if not (0 < price < 1_000_000):
+            return
+        key = f"{name}|{round(price, 2)}"
+        if key in seen:
+            return
+        seen.add(key)
+        items.append({'name': name, 'price': round(price, 2)})
+
+    # Strategy 1: NEXT_DATA
+    try:
+        raw = page.evaluate(
+            '() => window.__NEXT_DATA__ ? JSON.stringify(window.__NEXT_DATA__) : null'
+        )
+        if raw:
+            for it in _walk_json_for_items(json.loads(raw), currency):
+                _add(it['name'], it['price'])
+    except Exception as e:
+        log(f"    NEXT_DATA failed: {e}")
+
+    # Strategy 2: JSON-LD
+    if not items:
+        try:
+            raw = page.evaluate("""() => {
+                const out = [];
+                for (const s of document.querySelectorAll(
+                        'script[type="application/ld+json"]')) {
+                    try { out.push(JSON.parse(s.textContent)); } catch(e) {}
+                }
+                return JSON.stringify(out);
+            }""")
+            for obj in (json.loads(raw or '[]') or []):
+                if isinstance(obj, list):
+                    for o in obj:
+                        for it in _extract_ld_items(o):
+                            _add(it['name'], it['price'])
+                else:
+                    for it in _extract_ld_items(obj):
+                        _add(it['name'], it['price'])
+        except Exception as e:
+            log(f"    JSON-LD failed: {e}")
+
+    # Strategy 3: embedded inline JSON
+    if not items:
+        try:
+            blob = page.evaluate("""() => {
+                for (const s of document.querySelectorAll(
+                        'script:not([src]):not([type="application/ld+json"])')) {
+                    const t = s.textContent || '';
+                    if ((t.includes('"price"') || t.includes('"basePrice"'))
+                            && t.includes('"name"')) {
+                        return t.substring(0, 400000);
+                    }
+                }
+                return null;
+            }""")
+            if blob:
+                for it in _extract_json_prices(blob):
+                    _add(it['name'], it['price'])
+        except Exception as e:
+            log(f"    Inline JSON failed: {e}")
+
+    # Strategy 4: aria-label extraction
+    if not items:
+        try:
+            aria_items = page.evaluate(r"""() => {
+                const out = [];
+                const seen = new Set();
+                const priceRe = /(?:RM|S\$|฿|Rp\.?|₹|A\$|£|\$)\s*([\d,]+(?:\.\d{1,2})?)/;
+                for (const btn of document.querySelectorAll('[aria-label]')) {
+                    const label = btn.getAttribute('aria-label') || '';
+                    const m = label.match(priceRe);
+                    if (!m) continue;
+                    const price = parseFloat(m[1].replace(/,/g, ''));
+                    if (!(price > 0 && price < 100000)) continue;
+                    const name = label.split(',')[0]
+                        .replace(/^Add\s+/i, '')
+                        .replace(/^Quick add\s+/i, '')
+                        .trim();
+                    if (!name || name.length < 2) continue;
+                    const key = name + '|' + price;
+                    if (!seen.has(key)) { seen.add(key); out.push({name, price}); }
+                }
+                return out;
+            }""") or []
+            for it in aria_items:
+                _add(it['name'], it['price'])
+        except Exception as e:
+            log(f"    aria-label failed: {e}")
+
+    # Strategy 5: DOM text fallback
+    if not items:
+        sym = CURRENCY_SYMBOL_REGEX.get(currency, r'\$')
+        try:
+            dom_items = page.evaluate(f"""() => {{
+                const out = [];
+                const seen = new Set();
+                const priceRe = /(?:{sym})\\s*([\\d,]+(?:\\.\\d{{2}})?)/;
+                const selectors = [
+                    '[class*="item"]', '[class*="product"]', '[class*="menu"]',
+                    '[class*="dish"]', '[data-testid*="item"]', 'li', 'article',
+                ];
+                for (const sel of selectors) {{
+                    for (const el of document.querySelectorAll(sel)) {{
+                        const text = el.innerText || '';
+                        const m = text.match(priceRe);
+                        if (!m) continue;
+                        const price = parseFloat(m[1].replace(/,/g, ''));
+                        if (!(price > 0 && price < 100000)) continue;
+                        const hd = el.querySelector(
+                            'h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
+                        const name = (hd ? hd.innerText : '').trim();
+                        if (!name || name.length < 2 || name.length > 160) continue;
+                        const key = name + '|' + price;
+                        if (!seen.has(key)) {{ seen.add(key); out.push({{name, price}}); }}
+                    }}
+                }}
+                return out;
+            }}""") or []
+            for it in dom_items:
+                _add(it['name'], it['price'])
+        except Exception as e:
+            log(f"    DOM fallback failed: {e}")
+
+    count = 0
+    for item in items:
+        insert_item(conn, restaurant_name, item['name'], item['price'],
+                    currency, country, sector, 'js', today, url, usd_rates)
+        count += 1
+    conn.commit()
+    log(f"  ✓ {restaurant_name}: {count} items")
+    return count
+
+
 # ── Batch runner ───────────────────────────────────────────────────────────────
 
 SCRAPER_DISPATCH = {
@@ -817,6 +1048,11 @@ SCRAPER_DISPATCH = {
     'grabfood':  scrape_grabfood,
     'swiggy':    scrape_swiggy,
     'direct':    scrape_direct,
+    'js':        scrape_js,
+    'doordash':  scrape_js,
+    'deliveroo': scrape_js,
+    'ubereats':  scrape_js,
+    'gofood':    scrape_js,
 }
 
 
@@ -1162,6 +1398,39 @@ TARGETS = [
      "https://www.foodpanda.my/chain/cr6of/family-seafood",
      "informal", "foodpanda", "MYR", "Malaysia"),
 
+    # --- Extended Malaysia targets (Foodpanda + GrabFood) ---
+    ("Marrybrown",
+     "https://www.foodpanda.my/chain/marrybrown",
+     "formal", "foodpanda", "MYR", "Malaysia"),
+
+    ("PappaRich",
+     "https://www.foodpanda.my/chain/papparich",
+     "formal", "foodpanda", "MYR", "Malaysia"),
+
+    ("Kenny Rogers Roasters",
+     "https://www.foodpanda.my/chain/kenny-rogers-roasters",
+     "formal", "foodpanda", "MYR", "Malaysia"),
+
+    ("Tealive",
+     "https://www.foodpanda.my/chain/tealive",
+     "formal", "foodpanda", "MYR", "Malaysia"),
+
+    ("Chatime Malaysia",
+     "https://www.foodpanda.my/chain/chatime",
+     "formal", "foodpanda", "MYR", "Malaysia"),
+
+    ("Nasi Lemak Antarabangsa",
+     "https://www.foodpanda.my/chain/nasi-lemak-antarabangsa",
+     "informal", "foodpanda", "MYR", "Malaysia"),
+
+    ("Char Kway Teow Penang",
+     "https://www.foodpanda.my/chain/char-kway-teow-penang",
+     "informal", "foodpanda", "MYR", "Malaysia"),
+
+    ("Roti Canai Transfer Road",
+     "https://www.foodpanda.my/chain/roti-canai-transfer-road",
+     "informal", "foodpanda", "MYR", "Malaysia"),
+
     # ==========================================================================
     # INDONESIA  (foodpanda.id  |  GrabFood food.grab.com/id/en)
     # NOTE: Chain IDs below follow Foodpanda ID conventions but should be
@@ -1243,6 +1512,43 @@ TARGETS = [
      "https://www.foodpanda.id/chain/bx3nk/soto-ayam-lamongan",
      "informal", "foodpanda", "IDR", "Indonesia"),
 
+    # --- Extended Indonesia targets (GoFood) ---
+    ("Solaria (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/solaria",
+     "formal", "gofood", "IDR", "Indonesia"),
+
+    ("McDonald's Jakarta (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/mcdonalds-sarinah",
+     "formal", "gofood", "IDR", "Indonesia"),
+
+    ("KFC Jakarta (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/kfc-kemang",
+     "formal", "gofood", "IDR", "Indonesia"),
+
+    ("Pizza Hut Jakarta (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/pizza-hut-menteng",
+     "formal", "gofood", "IDR", "Indonesia"),
+
+    ("J.CO Donuts (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/jco-donuts-grand-indonesia",
+     "formal", "gofood", "IDR", "Indonesia"),
+
+    ("Warung Nasi Padang Sederhana (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/nasi-padang-sederhana",
+     "informal", "gofood", "IDR", "Indonesia"),
+
+    ("Bakso Solo Samrat (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/bakso-solo-samrat",
+     "informal", "gofood", "IDR", "Indonesia"),
+
+    ("Mie Ayam Tumini (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/mie-ayam-tumini",
+     "informal", "gofood", "IDR", "Indonesia"),
+
+    ("Soto Betawi H. Mamat (GoFood)",
+     "https://gofood.co.id/jakarta/restaurant/soto-betawi-h-mamat",
+     "informal", "gofood", "IDR", "Indonesia"),
+
     # ==========================================================================
     # THAILAND  (foodpanda.co.th  |  GrabFood food.grab.com/th/en)
     # NOTE: same caveat as Indonesia — chain IDs need verification on .co.th
@@ -1321,6 +1627,43 @@ TARGETS = [
     ("Raan Jay Fai",
      "https://www.foodpanda.co.th/chain/cb2st/raan-jay-fai",
      "informal", "foodpanda", "THB", "Thailand"),
+
+    # --- Extended Thailand targets (GrabFood Thailand) ---
+    ("McDonald's Thailand (GrabFood)",
+     "https://food.grab.com/th/en/chain/mcdonalds-delivery",
+     "formal", "grabfood", "THB", "Thailand"),
+
+    ("KFC Thailand (GrabFood)",
+     "https://food.grab.com/th/en/chain/kfc-delivery",
+     "formal", "grabfood", "THB", "Thailand"),
+
+    ("MK Restaurant (GrabFood)",
+     "https://food.grab.com/th/en/chain/mk-restaurant-delivery",
+     "formal", "grabfood", "THB", "Thailand"),
+
+    ("The Pizza Company (GrabFood)",
+     "https://food.grab.com/th/en/chain/the-pizza-company-delivery",
+     "formal", "grabfood", "THB", "Thailand"),
+
+    ("Swensen's (GrabFood)",
+     "https://food.grab.com/th/en/chain/swensens-delivery",
+     "formal", "grabfood", "THB", "Thailand"),
+
+    ("Pad Thai Thip Samai (GrabFood)",
+     "https://food.grab.com/th/en/restaurant/thip-samai-pad-thai-delivery",
+     "informal", "grabfood", "THB", "Thailand"),
+
+    ("Som Tam Nua (GrabFood)",
+     "https://food.grab.com/th/en/restaurant/som-tam-nua-siam-delivery",
+     "informal", "grabfood", "THB", "Thailand"),
+
+    ("Khao Man Gai Go Ang (GrabFood)",
+     "https://food.grab.com/th/en/restaurant/go-ang-khao-man-gai-delivery",
+     "informal", "grabfood", "THB", "Thailand"),
+
+    ("Boat Noodle Victory Monument (GrabFood)",
+     "https://food.grab.com/th/en/restaurant/boat-noodle-victory-monument-delivery",
+     "informal", "grabfood", "THB", "Thailand"),
 
     # ==========================================================================
     # INDIA  (Swiggy — swiggy.com)
@@ -1405,6 +1748,43 @@ TARGETS = [
      "https://www.swiggy.com/mumbai/natural-ice-cream-juhu-67891",
      "informal", "swiggy", "INR", "India"),
 
+    # --- Extended India targets (Swiggy Mumbai + Delhi) ---
+    ("Subway Delhi (Swiggy)",
+     "https://www.swiggy.com/delhi/subway-connaught-place-23001",
+     "formal", "swiggy", "INR", "India"),
+
+    ("Haldiram's Connaught Place (Swiggy)",
+     "https://www.swiggy.com/delhi/haldirams-connaught-place-30221",
+     "formal", "swiggy", "INR", "India"),
+
+    ("Bikanervala Karol Bagh (Swiggy)",
+     "https://www.swiggy.com/delhi/bikanervala-karol-bagh-44778",
+     "formal", "swiggy", "INR", "India"),
+
+    ("Domino's Andheri (Swiggy)",
+     "https://www.swiggy.com/mumbai/dominos-pizza-andheri-west-7401",
+     "formal", "swiggy", "INR", "India"),
+
+    ("Thali House Mumbai (Swiggy)",
+     "https://www.swiggy.com/mumbai/thali-house-bandra-west-90121",
+     "informal", "swiggy", "INR", "India"),
+
+    ("Biryani by Kilo Delhi (Swiggy)",
+     "https://www.swiggy.com/delhi/biryani-by-kilo-vasant-kunj-55621",
+     "informal", "swiggy", "INR", "India"),
+
+    ("Dosa Plaza Mumbai (Swiggy)",
+     "https://www.swiggy.com/mumbai/dosa-plaza-vile-parle-22113",
+     "informal", "swiggy", "INR", "India"),
+
+    ("Anand Stall Khar (Swiggy)",
+     "https://www.swiggy.com/mumbai/anand-stall-khar-west-66001",
+     "informal", "swiggy", "INR", "India"),
+
+    ("Sardar Pav Bhaji (Swiggy)",
+     "https://www.swiggy.com/mumbai/sardar-pav-bhaji-tardeo-15578",
+     "informal", "swiggy", "INR", "India"),
+
     # ==========================================================================
     # UNITED STATES  (direct chain websites with structured menus)
     # These are publicly accessible full-menu pages requiring no login.
@@ -1486,6 +1866,51 @@ TARGETS = [
      "https://www.steaknshake.com/menu",
      "informal", "direct", "USD", "United States"),
 
+    # --- Extended US targets (DoorDash New York) ---
+    ("McDonald's NYC (DoorDash)",
+     "https://www.doordash.com/store/mcdonalds-new-york-249023/",
+     "formal", "doordash", "USD", "United States"),
+
+    ("Chipotle NYC (DoorDash)",
+     "https://www.doordash.com/store/chipotle-mexican-grill-new-york-178511/",
+     "formal", "doordash", "USD", "United States"),
+
+    ("Shake Shack NYC (DoorDash)",
+     "https://www.doordash.com/store/shake-shack-new-york-22120/",
+     "formal", "doordash", "USD", "United States"),
+
+    ("Sweetgreen NYC (DoorDash)",
+     "https://www.doordash.com/store/sweetgreen-new-york-110248/",
+     "formal", "doordash", "USD", "United States"),
+
+    ("Panera Bread NYC (DoorDash)",
+     "https://www.doordash.com/store/panera-bread-new-york-37782/",
+     "formal", "doordash", "USD", "United States"),
+
+    ("Five Guys NYC (DoorDash)",
+     "https://www.doordash.com/store/five-guys-new-york-203144/",
+     "formal", "doordash", "USD", "United States"),
+
+    ("Joe's Pizza Greenwich Village (DoorDash)",
+     "https://www.doordash.com/store/joes-pizza-new-york-15522/",
+     "informal", "doordash", "USD", "United States"),
+
+    ("Bleecker Street Pizza (DoorDash)",
+     "https://www.doordash.com/store/bleecker-street-pizza-new-york-58213/",
+     "informal", "doordash", "USD", "United States"),
+
+    ("Veselka Diner (DoorDash)",
+     "https://www.doordash.com/store/veselka-new-york-9921/",
+     "informal", "doordash", "USD", "United States"),
+
+    ("Halal Guys 53rd & 6th (DoorDash)",
+     "https://www.doordash.com/store/the-halal-guys-new-york-21588/",
+     "informal", "doordash", "USD", "United States"),
+
+    ("Katz's Delicatessen (DoorDash)",
+     "https://www.doordash.com/store/katzs-delicatessen-new-york-22774/",
+     "informal", "doordash", "USD", "United States"),
+
     # ==========================================================================
     # UNITED KINGDOM  (direct chain websites)
     # ==========================================================================
@@ -1564,6 +1989,51 @@ TARGETS = [
      "https://hopperslondon.com/menus/",
      "informal", "direct", "GBP", "United Kingdom"),
 
+    # --- Extended UK targets (Deliveroo London) ---
+    ("McDonald's London (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/mcdonalds-leicester-square",
+     "formal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Nando's London (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/nandos-soho",
+     "formal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Wagamama London (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/wagamama-great-marlborough-street",
+     "formal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Pret A Manger London (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/pret-a-manger-piccadilly",
+     "formal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Pizza Express London (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/pizza-express-dean-street",
+     "formal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Itsu London (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/itsu-piccadilly-circus",
+     "formal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Tayyabs Whitechapel (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/whitechapel/tayyabs",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Poppies Fish & Chips (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/spitalfields/poppies-fish-chips-spitalfields",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Manze's Pie & Mash (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/peckham/manzes-pie-mash",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("German Doner Kebab London (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/german-doner-kebab-leicester-square",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Dishoom Covent Garden (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/covent-garden/dishoom-covent-garden",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
     # ==========================================================================
     # AUSTRALIA  (direct chain websites)
     # ==========================================================================
@@ -1641,6 +2111,51 @@ TARGETS = [
     ("Harry's Café de Wheels",
      "https://www.harryscafedewheels.com.au/menu/",
      "informal", "direct", "AUD", "Australia"),
+
+    # --- Extended Australia targets (Uber Eats Sydney) ---
+    ("McDonald's Sydney (Uber Eats)",
+     "https://www.ubereats.com/au/store/mcdonalds-sydney-cbd/abc123",
+     "formal", "ubereats", "AUD", "Australia"),
+
+    ("KFC Sydney (Uber Eats)",
+     "https://www.ubereats.com/au/store/kfc-sydney-cbd/def456",
+     "formal", "ubereats", "AUD", "Australia"),
+
+    ("Hungry Jack's Sydney (Uber Eats)",
+     "https://www.ubereats.com/au/store/hungry-jacks-sydney/ghi789",
+     "formal", "ubereats", "AUD", "Australia"),
+
+    ("Grill'd Sydney (Uber Eats)",
+     "https://www.ubereats.com/au/store/grilld-sydney-cbd/jkl012",
+     "formal", "ubereats", "AUD", "Australia"),
+
+    ("Nando's Sydney (Uber Eats)",
+     "https://www.ubereats.com/au/store/nandos-sydney-cbd/mno345",
+     "formal", "ubereats", "AUD", "Australia"),
+
+    ("Subway Sydney (Uber Eats)",
+     "https://www.ubereats.com/au/store/subway-sydney-cbd/pqr678",
+     "formal", "ubereats", "AUD", "Australia"),
+
+    ("Harry's Cafe de Wheels Woolloomooloo (Uber Eats)",
+     "https://www.ubereats.com/au/store/harrys-cafe-de-wheels-woolloomooloo/stu901",
+     "informal", "ubereats", "AUD", "Australia"),
+
+    ("Pie Face Sydney (Uber Eats)",
+     "https://www.ubereats.com/au/store/pie-face-sydney/vwx234",
+     "informal", "ubereats", "AUD", "Australia"),
+
+    ("Mary's Burgers Newtown (Uber Eats)",
+     "https://www.ubereats.com/au/store/marys-newtown/yza567",
+     "informal", "ubereats", "AUD", "Australia"),
+
+    ("Bondi Trattoria (Uber Eats)",
+     "https://www.ubereats.com/au/store/bondi-trattoria/bcd890",
+     "informal", "ubereats", "AUD", "Australia"),
+
+    ("Doyles Fish & Chips (Uber Eats)",
+     "https://www.ubereats.com/au/store/doyles-watsons-bay/efg321",
+     "informal", "ubereats", "AUD", "Australia"),
 
 ]
 
