@@ -17,3 +17,121 @@ Total targets: 1
 ✓  All targets completed successfully.
 2026-06-14 13:34:58,232 — 
 Done. Results in uifpi.db
+2026-06-14 18:36:30,602 —   ✓ Fetched fresh USD rates and cached them
+2026-06-14 18:36:30,602 —   ✓ Using cached USD rates (0.0h old)
+2026-06-14 18:36:30,603 —   ✓ Fetched fresh USD rates and cached them
+2026-06-14 18:38:54,243 — 
+Price changes detected: 10 items across 1 restaurants
+2026-06-14 18:38:54,244 — 
+Top 5 price increases:
+2026-06-14 18:38:54,244 —   ↑ Din Tai Fung                   小菜 Oriental Salad in Special Vinegar Dre 7.67 → 8.44  (+10.04%)
+2026-06-14 18:38:54,244 —   ↑ Din Tai Fung                   小笼包 Steamed Pork Xiao Long Bao (10pcs)   16.35 → 17.99  (+10.03%)
+2026-06-14 18:38:54,244 —   ↑ Din Tai Fung                   蛋炒饭 Fried Rice with Eggs                 11.99 → 13.19  (+10.01%)
+2026-06-14 18:38:54,244 —   ↑ Din Tai Fung                   小笼包 Steamed Pork Xiao Long Bao (6pcs)    11.99 → 13.19  (+10.01%)
+2026-06-14 18:38:54,245 —   ↑ Din Tai Fung                   虾仁蛋炒饭 Fried Rice with Shrimps & Eggs     17.99 → 19.79  (+10.01%)
+2026-06-14 18:38:54,245 — 
+Top 5 price decreases:
+2026-06-14 18:38:54,245 —   ↓ Din Tai Fung                   红油抄手 Oriental Wantons in Black Vinegar & 12.54 → 13.79  (+9.97%)
+2026-06-14 18:38:54,245 —   ↓ Din Tai Fung                   肉丝蛋炒饭 Fried Rice with Shredded Pork & Eg 15.04 → 16.54  (+9.97%)
+2026-06-14 18:38:54,245 —   ↓ Din Tai Fung                   排骨蛋炒饭 Fried Rice with Pork Chop & Eggs   17.44 → 19.18  (+9.98%)
+2026-06-14 18:38:54,245 —   ↓ Din Tai Fung                   鲜虾肉手工水饺 8颗 (冷冻) Handmade Prawn and Pork  16.90 → 18.59  (+10.00%)
+2026-06-14 18:38:54,245 —   ↓ Din Tai Fung                   Take-Home Treasures/冷冻食品                 44.80 → 49.28  (+10.00%)
+2026-06-14 18:45:38,422 —   ✓ Failure rate 10.0% below 50% — no alert
+2026-06-14 18:45:38,422 —   ⚠  Failure rate 80.0% over threshold but GMAIL_USER/GMAIL_APP_PASSWORD not configured — skipping alert
+2026-06-14 18:45:38,452 —   ✉  Alert email sent to test@gmail.com
+2026-06-14 18:49:38,099 — 
+UIFPI Daily Collection — 2026-06-14
+2026-06-14 18:49:38,099 — Fetching USD exchange rates …
+2026-06-14 18:49:39,212 —   ✓ Fetched fresh USD rates and cached them
+2026-06-14 18:49:39,214 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17853.63, THB=32.73
+2026-06-14 18:49:39,214 — 
+Total targets: 226
+2026-06-14 18:49:39,425 — Already scraped today: 1 — skipping
+2026-06-14 18:49:39,425 — To scrape: 225
+
+2026-06-14 18:49:39,425 — --- Attempt 1 (225 targets) ---
+
+2026-06-14 18:49:41,599 —   Loading Rubato (foodpanda)…
+2026-06-14 18:49:51,836 —   Bot detected on attempt 1
+2026-06-14 18:49:51,912 —   waiting 300s before retry 2/3 …
+2026-06-14 18:54:53,017 —   Loading Rubato (foodpanda)…
+2026-06-14 18:55:38,075 —   waiting 300s before retry 3/3 …
+2026-06-14 19:00:39,188 —   Loading Rubato (foodpanda)…
+2026-06-14 19:01:12,432 —   ✗  Rubato: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.foodpanda.sg/chain/cg9st/rubato-italian
+Call log:
+  - navigating to "https://www.foodpanda.sg/chain/cg9st/rubato-italian", waiting until "networkidle"
+
+2026-06-14 19:01:12,433 —   sleeping 20.7s before next target
+2026-06-14 19:01:34,699 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-14 19:01:34,875 —   waiting 300s before retry 2/3 …
+2026-06-14 19:06:35,975 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-14 19:06:44,820 —   Bot detected on attempt 2
+2026-06-14 19:06:44,909 —   waiting 300s before retry 3/3 …
+2026-06-14 19:11:45,756 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-14 19:11:52,905 —   Bot detected on attempt 3
+2026-06-14 19:11:52,973 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-14 19:11:52,973 —   sleeping 30.3s before next target
+2026-06-14 19:12:24,036 —   Loading Sushi Tei (GrabFood)…
+2026-06-14 19:12:37,735 —   ✓ Sushi Tei: 194 items
+2026-06-14 19:12:37,837 —   sleeping 31.5s before next target
+2026-06-14 19:13:10,095 —   Loading Jumbo Seafood (GrabFood)…
+2026-06-14 19:13:23,740 —   ✓ Jumbo Seafood: 60 items
+2026-06-14 19:13:23,797 —   sleeping 31.7s before next target
+2026-06-14 19:13:56,220 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-14 19:14:04,165 —   Bot detected on attempt 1
+2026-06-14 19:14:04,228 —   waiting 300s before retry 2/3 …
+2026-06-14 19:19:04,933 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-14 19:19:12,649 —   Bot detected on attempt 2
+2026-06-14 19:19:12,704 —   waiting 300s before retry 3/3 …
+2026-06-14 19:24:13,543 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-14 19:24:21,085 —   Bot detected on attempt 3
+2026-06-14 19:24:21,141 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-14 19:24:21,142 —   sleeping 32.1s before next target
+2026-06-14 19:24:53,864 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-14 19:25:02,105 —   Bot detected on attempt 1
+2026-06-14 19:25:02,165 —   waiting 300s before retry 2/3 …
+2026-06-14 19:29:34,619 — 
+UIFPI Daily Collection — 2026-06-14
+2026-06-14 19:29:34,619 — Fetching USD exchange rates …
+2026-06-14 19:29:34,620 —   ✓ Using cached USD rates (0.7h old)
+2026-06-14 19:29:34,620 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17853.63, THB=32.73
+2026-06-14 19:29:34,620 — 
+--only filter 'rubato' → 1 target(s)
+2026-06-14 19:29:34,620 — 
+Total targets: 1
+2026-06-14 19:29:34,620 — To scrape: 1
+
+2026-06-14 19:29:34,621 — --- Attempt 1 (1 targets) ---
+
+2026-06-14 19:29:36,967 —   Loading Rubato (foodpanda)…
+2026-06-14 19:29:51,799 —     matched selector: [aria-label*="Add to cart"]
+2026-06-14 19:29:52,252 —   ✓ Rubato: 76 items
+2026-06-14 19:29:52,490 —   sleeping 31.5s before next target
+2026-06-14 19:30:24,001 — 
+Price changes detected: 4 items across 1 restaurants
+2026-06-14 19:30:24,001 — 
+Top 5 price decreases:
+2026-06-14 19:30:24,001 —   ↓ Jumbo Seafood                  Scallops Wrapped in Yam Ring 荔茸带子        32.80 → 28.00  (-14.63%)
+2026-06-14 19:30:24,001 —   ↓ Jumbo Seafood                  Mocha Pork Ribs 摩卡排骨                     32.80 → 30.00  (-8.54%)
+2026-06-14 19:30:24,001 —   ↓ Jumbo Seafood                  Supreme Seafood Fried Rice 海鲜皇炒饭         30.00 → 28.00  (-6.67%)
+2026-06-14 19:30:24,001 —   ↓ Jumbo Seafood                  Home-made Vegetable Beancurd Braised wit 32.80 → 32.00  (-2.44%)
+2026-06-14 19:30:24,001 —   ✓ Failure rate 0.0% below 50% — no alert
+2026-06-14 19:30:24,005 — 
+✓  All targets completed successfully.
+2026-06-14 19:30:24,006 — 
+Done. Results in uifpi.db
+2026-06-14 19:38:02,636 — 
+UIFPI Daily Collection — 2026-06-14
+2026-06-14 19:38:02,639 — Fetching USD exchange rates …
+2026-06-14 19:38:02,641 —   ✓ Using cached USD rates (0.8h old)
+2026-06-14 19:38:02,641 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17853.63, THB=32.73
+2026-06-14 19:38:02,641 — 
+Total targets: 226
+2026-06-14 19:38:02,646 — Already scraped today: 4 — skipping
+2026-06-14 19:38:02,646 — To scrape: 222
+
+2026-06-14 19:38:02,646 — --- Attempt 1 (222 targets) ---
+
+2026-06-14 19:38:05,172 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-14 19:38:17,504 —   Bot detected on attempt 1
+2026-06-14 19:38:17,918 —   waiting 300s before retry 2/3 …

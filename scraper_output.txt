@@ -1,0 +1,17 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+2026-06-14 19:38:02,636 — 
+UIFPI Daily Collection — 2026-06-14
+2026-06-14 19:38:02,639 — Fetching USD exchange rates …
+2026-06-14 19:38:02,641 —   ✓ Using cached USD rates (0.8h old)
+2026-06-14 19:38:02,641 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17853.63, THB=32.73
+2026-06-14 19:38:02,641 — 
+Total targets: 226
+2026-06-14 19:38:02,646 — Already scraped today: 4 — skipping
+2026-06-14 19:38:02,646 — To scrape: 222
+
+2026-06-14 19:38:02,646 — --- Attempt 1 (222 targets) ---
+
+2026-06-14 19:38:05,172 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-14 19:38:17,504 —   Bot detected on attempt 1
+2026-06-14 19:38:17,918 —   waiting 300s before retry 2/3 …
