@@ -264,9 +264,86 @@ def detect_price_changes(conn, today):
     }
 
 
-def maybe_send_failure_alert(today, total, failed, failed_targets):
-    """Stub — populated by improvement 6 (email alerting)."""
-    return None
+def _load_dotenv_into_os():
+    """Lightweight .env loader so we don't depend on python-dotenv being imported."""
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
+    if not os.path.exists(env_path):
+        return
+    try:
+        with open(env_path) as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith('#') or '=' not in line:
+                    continue
+                key, _, value = line.partition('=')
+                key = key.strip()
+                value = value.strip().strip('"').strip("'")
+                if key and key not in os.environ:
+                    os.environ[key] = value
+    except Exception:
+        pass
+
+
+def maybe_send_failure_alert(today, total, failed, failed_targets,
+                             threshold_pct=50.0):
+    """
+    Email a failure summary when >threshold_pct of restaurants failed.
+
+    Reads GMAIL_USER + GMAIL_APP_PASSWORD from environment (or .env).
+    Optional ALERT_TO overrides the recipient (defaults to GMAIL_USER).
+    No-op when credentials missing — we never want the scraper to crash
+    because alerting is misconfigured.
+    """
+    if total <= 0:
+        return
+    failure_rate = (failed / total) * 100.0
+    if failure_rate < threshold_pct:
+        log(f"  ✓ Failure rate {failure_rate:.1f}% below {threshold_pct:.0f}% — no alert")
+        return
+
+    _load_dotenv_into_os()
+    user = os.environ.get('GMAIL_USER')
+    password = os.environ.get('GMAIL_APP_PASSWORD')
+    recipient = os.environ.get('ALERT_TO', user)
+    if not user or not password:
+        log(f"  ⚠  Failure rate {failure_rate:.1f}% over threshold but "
+            "GMAIL_USER/GMAIL_APP_PASSWORD not configured — skipping alert")
+        return
+
+    import smtplib
+    from email.mime.text import MIMEText
+
+    body_lines = [
+        f"UIFPI scraper failure alert — {today}",
+        '',
+        f"Total targets:   {total}",
+        f"Failed:          {failed}  ({failure_rate:.1f}%)",
+        f"Threshold:       {threshold_pct:.0f}%",
+        '',
+        'Failed restaurants:',
+    ]
+    for tgt in failed_targets:
+        name = tgt[0] if isinstance(tgt, (tuple, list)) else str(tgt)
+        country = tgt[5] if isinstance(tgt, (tuple, list)) and len(tgt) >= 6 else '?'
+        body_lines.append(f"  - {name}  ({country})")
+    body_lines += [
+        '',
+        f"See {LOG_PATH} for full error messages.",
+    ]
+    body = '\n'.join(body_lines)
+
+    msg = MIMEText(body)
+    msg['Subject'] = f"UIFPI Scraper Alert — {today} — {failed} failures"
+    msg['From'] = user
+    msg['To'] = recipient
+
+    try:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=30) as smtp:
+            smtp.login(user, password)
+            smtp.sendmail(user, [recipient], msg.as_string())
+        log(f"  ✉  Alert email sent to {recipient}")
+    except Exception as e:
+        log(f"  ⚠  Failed to send alert email: {e}")
 
 
 def report_price_changes(summary):

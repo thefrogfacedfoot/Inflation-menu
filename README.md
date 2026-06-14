@@ -187,7 +187,16 @@ Copy `.env.example` to `.env` and set if using AI-assisted steps:
 
 ```
 ANTHROPIC_API_KEY=sk-ant-...   # optional, for abstract_generator.py
+BPS_API_KEY=...                # optional, for Indonesia BPS CPI fetcher
+
+# Email alerting (live_scraper.py) — both must be set for alerts to fire
+GMAIL_USER=your@gmail.com
+GMAIL_APP_PASSWORD=xxxx        # generate at https://myaccount.google.com/apppasswords
+ALERT_TO=other@gmail.com       # optional override (defaults to GMAIL_USER)
 ```
+
+When more than 50% of restaurants fail in a single run, live_scraper.py
+sends a summary email via Gmail SMTP listing the failed targets.
 
 ---
 
