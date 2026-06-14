@@ -17,14 +17,45 @@ by Foodpanda and GrabFood bot detection.
 Run order: after migrate_db.py. Designed to be run daily via cron.
 """
 import json
+import logging
+import os
+import random
 import re
 import sqlite3
+import sys
 import time
 from datetime import date
 
 import requests
 from playwright.sync_api import sync_playwright
-import random
+
+try:
+    from playwright_stealth import Stealth
+    _STEALTH = Stealth()
+except Exception:  # pragma: no cover — fallback path if package missing
+    _STEALTH = None
+
+try:
+    from fake_useragent import UserAgent
+    _UA = UserAgent()
+except Exception:  # pragma: no cover
+    _UA = None
+
+
+# ── Logging ────────────────────────────────────────────────────────────────────
+
+LOG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        'scraper_log.txt')
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s — %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_PATH),
+        logging.StreamHandler(sys.stdout),
+    ],
+)
+log = logging.info
 
 
 # ── Exchange rates ─────────────────────────────────────────────────────────────
@@ -47,7 +78,7 @@ def get_usd_rates():
         r.raise_for_status()
         return r.json()['rates']
     except Exception as e:
-        print(f"  ⚠  Exchange rate fetch failed ({e}) — using fallback rates")
+        log(f"  ⚠  Exchange rate fetch failed ({e}) — using fallback rates")
         return FALLBACK_RATES
 
 
@@ -122,6 +153,65 @@ USER_AGENTS = [
 ]
 
 
+# Per-country locale + timezone so a residential IP looks consistent
+# with the regional Foodpanda/GrabFood/etc. domain it is visiting.
+COUNTRY_LOCALE = {
+    'Singapore':      ('en-SG', 'Asia/Singapore'),
+    'Malaysia':       ('en-MY', 'Asia/Kuala_Lumpur'),
+    'Indonesia':      ('en-ID', 'Asia/Jakarta'),
+    'Thailand':       ('en-TH', 'Asia/Bangkok'),
+    'India':          ('en-IN', 'Asia/Kolkata'),
+    'United States':  ('en-US', 'America/New_York'),
+    'United Kingdom': ('en-GB', 'Europe/London'),
+    'Australia':      ('en-AU', 'Australia/Sydney'),
+}
+
+
+def _pick_user_agent():
+    if _UA is not None:
+        try:
+            return _UA.random
+        except Exception:
+            pass
+    return random.choice(USER_AGENTS)
+
+
+def _human_mouse_jitter(page):
+    """Move the mouse around a couple of times to mimic a human."""
+    try:
+        for _ in range(2):
+            page.mouse.move(random.randint(100, 800),
+                            random.randint(100, 600))
+            page.wait_for_timeout(random.randint(150, 400))
+    except Exception:
+        pass
+
+
+def _looks_like_block(page):
+    """Detect Foodpanda / GrabFood / Akamai bot-block pages."""
+    try:
+        title = (page.title() or '').lower()
+    except Exception:
+        title = ''
+    if 'access denied' in title or 'denied' in title:
+        return True
+    if 'are you a robot' in title or 'attention required' in title:
+        return True
+    # Look at a slice of body text for the giveaway strings.
+    try:
+        body = page.evaluate(
+            "() => (document.body && document.body.innerText || '').slice(0, 800).toLowerCase()"
+        )
+    except Exception:
+        body = ''
+    for needle in ('access denied', 'access to this page has been denied',
+                   'pardon our interruption', 'are you a robot',
+                   'cloudflare', 'unusual traffic'):
+        if needle in body:
+            return True
+    return False
+
+
 # ── Price parsing helpers ──────────────────────────────────────────────────────
 
 def parse_aria_price(aria):
@@ -157,28 +247,63 @@ def parse_aria_price(aria):
 
 # ── Foodpanda scraper ──────────────────────────────────────────────────────────
 
+FOODPANDA_SELECTORS = [
+    '[aria-label*="Add to cart"]',
+    '[aria-label*="add to cart"]',
+    '[data-testid*="menu-product"]',
+    '[class*="product-card"]',
+]
+
+
 def scrape_foodpanda(page, url, restaurant_name, sector, currency,
                      conn, country, usd_rates):
     """
     Works for foodpanda.sg / .my / .id / .co.th.
-    Extracts prices from [aria-label*="Add to cart"] buttons.
+    Tries several selectors so the scraper survives Foodpanda DOM tweaks.
     """
-    print(f"  Loading {restaurant_name} (foodpanda)…")
-    page.goto(url, wait_until='networkidle', timeout=30_000)
+    log(f"  Loading {restaurant_name} (foodpanda)…")
+    page.goto(url, wait_until='networkidle', timeout=45_000)
     page.wait_for_timeout(random.randint(3_000, 5_000))
-    page.wait_for_selector('[aria-label*="Add to cart"]', timeout=30_000)
+    _human_mouse_jitter(page)
+
+    if _looks_like_block(page):
+        raise RuntimeError("ACCESS_DENIED")
+
+    matched_selector = None
+    for sel in FOODPANDA_SELECTORS:
+        try:
+            page.wait_for_selector(sel, timeout=15_000)
+            matched_selector = sel
+            break
+        except Exception:
+            continue
+
+    if matched_selector is None:
+        # Save first 5000 chars of HTML so we can inspect what was actually served
+        try:
+            html = page.content()
+            with open('debug_page.html', 'w', encoding='utf-8') as fh:
+                fh.write(html[:5000])
+            log("    Saved first 5000 chars of HTML to debug_page.html")
+        except Exception:
+            pass
+        raise RuntimeError("No Foodpanda selector matched")
+
+    log(f"    matched selector: {matched_selector}")
 
     today = date.today().isoformat()
     count = 0
 
-    for btn in page.query_selector_all('[aria-label*="Add to cart"]'):
-        aria = btn.get_attribute('aria-label') or ''
+    for btn in page.query_selector_all(matched_selector):
+        aria = (btn.get_attribute('aria-label')
+                or btn.inner_text()
+                or '')
         price, detected_currency = parse_aria_price(aria)
         if price is None:
             continue
         # Use detected currency; fall back to the target-level currency hint
         curr = detected_currency or currency
-        name = aria.split(',')[0].strip()
+        name = aria.split(',')[0].strip().splitlines()[0]
         if not name or not price:
             continue
         insert_item(conn, restaurant_name, name, price, curr, country,
@@ -186,7 +311,7 @@ def scrape_foodpanda(page, url, restaurant_name, sector, currency,
         count += 1
 
     conn.commit()
-    print(f"  ✓ {restaurant_name}: {count} items")
+    log(f"  ✓ {restaurant_name}: {count} items")
     return count
 
 
@@ -198,9 +323,13 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     Scrapes a GrabFood restaurant or chain page.
     Tries aria-label extraction first; falls back to standalone price spans.
     """
-    print(f"  Loading {restaurant_name} (GrabFood)…")
-    page.goto(url, wait_until='networkidle', timeout=30_000)
-    page.wait_for_timeout(random.randint(3_000, 5_000))
+    log(f"  Loading {restaurant_name} (GrabFood)…")
+    page.goto(url, wait_until='networkidle', timeout=45_000)
+    page.wait_for_timeout(random.randint(4_000, 6_000))
+    _human_mouse_jitter(page)
+
+    if _looks_like_block(page):
+        raise RuntimeError("ACCESS_DENIED")
 
     if '/chain/' in url:
         try:
@@ -211,12 +340,23 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
                 page.wait_for_load_state('networkidle')
                 page.wait_for_timeout(2_000)
         except Exception as e:
-            print(f"    Chain nav failed: {e}")
+            log(f"    Chain nav failed: {e}")
+
+    # Wait for React to render the menu — poll for any menu-item-shaped element.
+    for _ in range(30):
+        ready = page.evaluate("""() => (
+            document.querySelectorAll('[class*="MenuItem"],[class*="menuItem"],[class*="dish"],button[aria-label*="Add"]').length
+        )""")
+        if ready and ready > 5:
+            break
+        page.wait_for_timeout(1_000)
 
     page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
-    page.wait_for_timeout(1_500)
+    page.wait_for_timeout(2_000)
+    page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
+    page.wait_for_timeout(2_000)
     page.evaluate('window.scrollTo(0, 0)')
-    page.wait_for_timeout(500)
+    page.wait_for_timeout(800)
 
     items = page.evaluate("""() => {
         const results = [];
@@ -271,15 +411,130 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
                 }
             }
         }
+
+        // Strategy 3: MenuItem-class containers with bare numeric prices.
+        // GrabFood SG/MY/ID/TH switched (2026) to rendering prices as plain
+        // numbers like "17.44" inside divs with class containing "MenuItem".
+        if (results.length === 0) {
+            const bareRe = /^\\s*([\\d]{1,4}(?:[.,]\\d{2}))\\s*$/;
+            const containers = document.querySelectorAll('[class*="MenuItem"]');
+            for (const el of containers) {
+                const text = (el.innerText || '').trim();
+                if (!text || text.length > 800) continue;
+                // Find the price: look at descendant elements with bare numeric text
+                let price = 0;
+                for (const cand of el.querySelectorAll('span,p,div')) {
+                    const t = (cand.innerText || '').trim();
+                    const m = t.match(bareRe);
+                    if (m) {
+                        const v = parseFloat(m[1].replace(',', '.'));
+                        if (v > 0 && v < 10000) { price = v; break; }
+                    }
+                }
+                if (!price) continue;
+                // Pick a name candidate: prefer headers, otherwise first text line
+                let name = '';
+                const hd = el.querySelector('h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
+                if (hd) name = (hd.innerText || '').trim();
+                if (!name) {
+                    name = text.split('\\n').map(s => s.trim()).filter(Boolean)[0] || '';
+                }
+                if (!name || name.length < 2 || name.length > 160) continue;
+                if (bareRe.test(name)) continue;
+                const key = name + '|' + price;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    results.push({ name, price, sym: '' });
+                }
+            }
+        }
         return results;
     }""")
+
+    # Strategy 4: walk innerText line-by-line and pair (name, bare price).
+    # GrabFood SG/MY layout (2026): each item renders as
+    #     <title line>
+    #     <description line>
+    #     <price line>
+    # The line immediately before the price is usually the description, so
+    # we look back through the most recent buffer and prefer the first line
+    # that *looks* like a title (short, no period, has letters).
+    if not items:
+        try:
+            items = page.evaluate(r"""() => {
+                const lines = (document.body.innerText || '').split('\n')
+                    .map(s => s.trim()).filter(Boolean);
+                const out = [];
+                const seen = new Set();
+                const priceRe = /^([\d]{1,4}[.,]\d{2})$/;
+                const buf = [];
+                const looksLikeTitle = (s) => (
+                    s.length >= 3 && s.length <= 90
+                    && !priceRe.test(s)
+                    && /[A-Za-z　-鿿]/.test(s)
+                    && !s.endsWith('.')
+                    && !/^(For You|Opening Hours|Today|Home|Restaurant|Login|Help|Order Now)$/i.test(s)
+                );
+                for (const ln of lines) {
+                    const m = ln.match(priceRe);
+                    if (m) {
+                        const price = parseFloat(m[1].replace(',', '.'));
+                        if (price > 0 && price < 10000 && buf.length) {
+                            // Walk the buffer oldest-first — for GrabFood layout
+                            // the title precedes the description, so the first
+                            // title-like line is the dish name.
+                            let name = '';
+                            for (let i = 0; i < buf.length; i++) {
+                                if (looksLikeTitle(buf[i])) { name = buf[i]; break; }
+                            }
+                            if (name) {
+                                const key = name + '|' + price;
+                                if (!seen.has(key)) {
+                                    seen.add(key);
+                                    out.push({name, price});
+                                }
+                            }
+                        }
+                        buf.length = 0;
+                    } else if (ln.length > 1 && ln.length < 400) {
+                        buf.push(ln);
+                        if (buf.length > 4) buf.shift();
+                    }
+                }
+                return out;
+            }""") or []
+        except Exception as e:
+            log(f"    Strategy 4 (body text) failed: {e}")
 
     today = date.today().isoformat()
     for item in items:
         insert_item(conn, restaurant_name, item['name'], item['price'],
                     currency, country, sector, 'grabfood', today, url, usd_rates)
     conn.commit()
-    print(f"  ✓ {restaurant_name}: {len(items)} items")
+
+    if not items:
+        # Capture page state for inspection so we can adjust selectors.
+        try:
+            title = page.title()
+        except Exception:
+            title = ''
+        try:
+            html = page.content()
+            with open('debug_page.html', 'w', encoding='utf-8') as fh:
+                fh.write(html)
+            try:
+                body_head = page.evaluate(
+                    "() => (document.body && document.body.innerText || '').slice(0, 2000)"
+                )
+            except Exception:
+                body_head = ''
+            log(f"    GrabFood returned 0 items. title={title!r}. "
+                f"HTML {len(html)} chars saved to debug_page.html. "
+                f"Body head: {body_head[:400]!r}")
+        except Exception as e:
+            log(f"    GrabFood returned 0 items. title={title!r}. dump failed: {e}")
+
+    log(f"  ✓ {restaurant_name}: {len(items)} items")
     return len(items)
 
 
@@ -317,9 +572,13 @@ def scrape_swiggy(page, url, restaurant_name, sector, currency,
     Tries NEXT_DATA JSON extraction first; falls back to DOM ₹ price search.
     Swiggy is location-sensitive — some URLs may redirect or require setup.
     """
-    print(f"  Loading {restaurant_name} (Swiggy)…")
+    log(f"  Loading {restaurant_name} (Swiggy)…")
     page.goto(url, wait_until='networkidle', timeout=45_000)
     page.wait_for_timeout(random.randint(4_000, 7_000))
+    _human_mouse_jitter(page)
+
+    if _looks_like_block(page):
+        raise RuntimeError("ACCESS_DENIED")
 
     today = date.today().isoformat()
     items = []
@@ -340,7 +599,7 @@ def scrape_swiggy(page, url, restaurant_name, sector, currency,
                     seen.add(key)
                     items.append(it)
     except Exception as e:
-        print(f"    NEXT_DATA extraction failed: {e}")
+        log(f"    NEXT_DATA extraction failed: {e}")
 
     # Strategy 2: DOM ₹ price elements
     if not items:
@@ -365,7 +624,7 @@ def scrape_swiggy(page, url, restaurant_name, sector, currency,
                 return results;
             }""")
         except Exception as e:
-            print(f"    DOM extraction failed: {e}")
+            log(f"    DOM extraction failed: {e}")
 
     count = 0
     for item in (items or []):
@@ -373,7 +632,7 @@ def scrape_swiggy(page, url, restaurant_name, sector, currency,
                     currency, country, sector, 'swiggy', today, url, usd_rates)
         count += 1
     conn.commit()
-    print(f"  ✓ {restaurant_name}: {count} items")
+    log(f"  ✓ {restaurant_name}: {count} items")
     return count
 
 
@@ -452,9 +711,13 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
       2. Embedded JSON blobs (NEXT_DATA, inline scripts)
       3. DOM price text extraction
     """
-    print(f"  Loading {restaurant_name} (direct)…")
+    log(f"  Loading {restaurant_name} (direct)…")
     page.goto(url, wait_until='networkidle', timeout=45_000)
     page.wait_for_timeout(random.randint(2_000, 4_000))
+    _human_mouse_jitter(page)
+
+    if _looks_like_block(page):
+        raise RuntimeError("ACCESS_DENIED")
 
     today = date.today().isoformat()
     items = []
@@ -476,7 +739,7 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
             else:
                 items.extend(_extract_ld_items(obj))
     except Exception as e:
-        print(f"    JSON-LD failed: {e}")
+        log(f"    JSON-LD failed: {e}")
 
     # Strategy 2: Embedded JSON blobs
     if not items:
@@ -495,7 +758,7 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
             if blob:
                 items = _extract_json_prices(blob)
         except Exception as e:
-            print(f"    Embedded JSON failed: {e}")
+            log(f"    Embedded JSON failed: {e}")
 
     # Strategy 3: DOM price-text elements
     if not items:
@@ -531,7 +794,7 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
                 return results;
             }}""")
         except Exception as e:
-            print(f"    DOM extraction failed: {e}")
+            log(f"    DOM extraction failed: {e}")
 
     count = 0
     for item in (items or []):
@@ -543,7 +806,7 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
                     sector, 'direct', today, url, usd_rates)
         count += 1
     conn.commit()
-    print(f"  ✓ {restaurant_name}: {count} items")
+    log(f"  ✓ {restaurant_name}: {count} items")
     return count
 
 
@@ -557,49 +820,113 @@ SCRAPER_DISPATCH = {
 }
 
 
+BROWSER_LAUNCH_ARGS = [
+    '--no-sandbox',
+    '--disable-blink-features=AutomationControlled',
+    '--disable-dev-shm-usage',
+    '--disable-web-security',
+    '--disable-features=IsolateOrigins,site-per-process',
+]
+
+
+def _new_context(browser, country):
+    """Build a stealth-friendly context that matches the target country."""
+    locale, tz = COUNTRY_LOCALE.get(country, ('en-US', 'UTC'))
+    return browser.new_context(
+        viewport={'width': 1366, 'height': 768},
+        user_agent=_pick_user_agent(),
+        locale=locale,
+        timezone_id=tz,
+    )
+
+
+def _scrape_one(target, conn, today, usd_rates):
+    """
+    Scrape a single target with up to 3 attempts. If the page returns an
+    Access Denied / bot block, close the browser, wait 5 minutes, retry.
+    Returns the item count (>=1) on success or raises on final failure.
+    """
+    name, url, sector, source, currency, country = target
+    fn = SCRAPER_DISPATCH.get(source)
+    if fn is None:
+        raise ValueError(f"Unknown source type: {source}")
+
+    last_error = None
+    for attempt in range(1, 4):
+        with sync_playwright() as p:
+            browser = p.chromium.launch(
+                headless=True,
+                args=BROWSER_LAUNCH_ARGS,
+            )
+            try:
+                context = _new_context(browser, country)
+                page = context.new_page()
+
+                # Apply stealth evasions if the package is available
+                if _STEALTH is not None:
+                    try:
+                        _STEALTH.apply_stealth_sync(page)
+                    except Exception as e:
+                        log(f"    stealth apply failed (continuing): {e}")
+
+                try:
+                    count = fn(page, url, name, sector, currency,
+                               conn, country, usd_rates)
+                    if count == 0:
+                        raise RuntimeError("0 items scraped — page may not have loaded")
+                    return count
+                except RuntimeError as e:
+                    msg = str(e)
+                    if 'ACCESS_DENIED' in msg:
+                        log(f"  Bot detected on attempt {attempt}")
+                        last_error = e
+                    else:
+                        last_error = e
+                        if attempt >= 3:
+                            raise
+                except Exception as e:
+                    last_error = e
+                    if attempt >= 3:
+                        raise
+            finally:
+                try:
+                    browser.close()
+                except Exception:
+                    pass
+
+        if attempt < 3:
+            wait_s = 300  # 5 minutes
+            log(f"  waiting {wait_s}s before retry {attempt + 1}/3 …")
+            time.sleep(wait_s)
+
+    raise last_error if last_error else RuntimeError("unknown failure")
+
+
 def run_batch(targets, conn, today, usd_rates):
     """
-    Scrape every target in a single shared browser session.
+    Scrape every target. Each target gets its own fresh browser context
+    (cheap insurance against accumulated fingerprint state) and may retry
+    internally on bot-block pages.
     Returns the list of targets that failed.
     """
     failures = []
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            args=['--disable-blink-features=AutomationControlled'],
-        )
-        context = browser.new_context(
-            user_agent=random.choice(USER_AGENTS),
-            viewport={'width': 1280, 'height': 800},
-        )
+    for target in targets:
+        name = target[0]
+        if already_scraped(conn, name, today):
+            log(f"  ↩  {name}: already collected today, skip")
+            continue
 
-        for name, url, sector, source, currency, country in targets:
-            if already_scraped(conn, name, today):
-                print(f"  ↩  {name}: already done, skipping")
-                continue
+        try:
+            _scrape_one(target, conn, today, usd_rates)
+        except Exception as e:
+            log(f"  ✗  {name}: {e}")
+            failures.append(target)
 
-            page = context.new_page()
-            try:
-                fn = SCRAPER_DISPATCH.get(source)
-                if fn is None:
-                    raise ValueError(f"Unknown source type: {source}")
-
-                count = fn(page, url, name, sector, currency,
-                           conn, country, usd_rates)
-
-                if count == 0:
-                    raise ValueError("0 items scraped — page may not have loaded")
-
-            except Exception as e:
-                print(f"  ✗  {name}: {e}")
-                failures.append((name, url, sector, source, currency, country))
-            finally:
-                page.close()
-
-            time.sleep(random.randint(8, 15))
-
-        browser.close()
+        # Randomised long pause between restaurants to look human
+        delay = random.uniform(20, 35)
+        log(f"  sleeping {delay:.1f}s before next target")
+        time.sleep(delay)
 
     return failures
 
@@ -1321,41 +1648,56 @@ TARGETS = [
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
+    # Optional CLI filter: run only targets whose name matches the substring(s)
+    # e.g.  python3 live_scraper.py --only "Din Tai Fung"
+    only_filter = None
+    if '--only' in sys.argv:
+        i = sys.argv.index('--only')
+        if i + 1 < len(sys.argv):
+            only_filter = sys.argv[i + 1].lower()
+
     conn = init_db()
     today = date.today().isoformat()
 
-    print(f"\nUIFPI Daily Collection — {today}")
-    print(f"Fetching USD exchange rates …")
+    log(f"\nUIFPI Daily Collection — {today}")
+    log("Fetching USD exchange rates …")
     usd_rates = get_usd_rates()
-    print(f"  Rates loaded: SGD={usd_rates.get('SGD','-')}, "
-          f"MYR={usd_rates.get('MYR','-')}, "
-          f"IDR={usd_rates.get('IDR','-')}, "
-          f"THB={usd_rates.get('THB','-')}")
+    log(f"  Rates loaded: SGD={usd_rates.get('SGD','-')}, "
+        f"MYR={usd_rates.get('MYR','-')}, "
+        f"IDR={usd_rates.get('IDR','-')}, "
+        f"THB={usd_rates.get('THB','-')}")
 
-    print(f"\nTotal targets: {len(TARGETS)}")
+    active_targets = TARGETS
+    if only_filter:
+        # Exact (case-insensitive) match by display name so testing one
+        # restaurant doesn't accidentally drag in similarly named ones.
+        active_targets = [t for t in TARGETS if t[0].lower() == only_filter]
+        log(f"\n--only filter '{only_filter}' → {len(active_targets)} target(s)")
 
-    remaining = [t for t in TARGETS if not already_scraped(conn, t[0], today)]
-    skipped   = len(TARGETS) - len(remaining)
+    log(f"\nTotal targets: {len(active_targets)}")
+
+    remaining = [t for t in active_targets if not already_scraped(conn, t[0], today)]
+    skipped   = len(active_targets) - len(remaining)
     if skipped:
-        print(f"Already scraped today: {skipped} — skipping")
-    print(f"To scrape: {len(remaining)}\n")
+        log(f"Already scraped today: {skipped} — skipping")
+    log(f"To scrape: {len(remaining)}\n")
 
     for attempt in range(1, 4):
         if not remaining:
             break
-        print(f"--- Attempt {attempt} ({len(remaining)} targets) ---\n")
+        log(f"--- Attempt {attempt} ({len(remaining)} targets) ---\n")
         remaining = run_batch(remaining, conn, today, usd_rates)
         if remaining and attempt < 3:
-            print(f"\n{len(remaining)} failed — retrying in 60 s…")
+            log(f"\n{len(remaining)} failed — retrying in 60 s…")
             time.sleep(60)
 
     conn.close()
 
     if remaining:
-        print(f"\n⚠  Still failed after 3 attempts:")
+        log("\n⚠  Still failed after 3 attempts:")
         for r in remaining:
-            print(f"   - {r[0]}")
+            log(f"   - {r[0]}")
     else:
-        print("\n✓  All targets completed successfully.")
+        log("\n✓  All targets completed successfully.")
 
-    print("\nDone. Results in uifpi.db")
+    log("\nDone. Results in uifpi.db")
