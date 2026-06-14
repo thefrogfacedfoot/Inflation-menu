@@ -164,6 +164,27 @@ def init_db():
             url TEXT
         )
     ''')
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS price_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            restaurant_name TEXT,
+            item_name TEXT,
+            old_price REAL,
+            new_price REAL,
+            price_change_pct REAL,
+            country TEXT,
+            sector TEXT,
+            change_detected_date TEXT
+        )
+    ''')
+    c.execute(
+        'CREATE INDEX IF NOT EXISTS idx_price_history_date '
+        'ON price_history(change_detected_date)'
+    )
+    c.execute(
+        'CREATE INDEX IF NOT EXISTS idx_price_history_country '
+        'ON price_history(country)'
+    )
     conn.commit()
     # Add price_usd column to existing tables that predate this schema
     try:
@@ -172,6 +193,98 @@ def init_db():
     except sqlite3.OperationalError:
         pass  # Column already exists
     return conn
+
+
+def _previous_price(conn, restaurant_name, item_name, today):
+    """Return the most recent price for this restaurant+item *before* today."""
+    c = conn.cursor()
+    c.execute(
+        '''SELECT price, country, sector
+           FROM prices
+           WHERE restaurant_name = ?
+             AND item_name = ?
+             AND collection_date < ?
+           ORDER BY collection_date DESC
+           LIMIT 1''',
+        (restaurant_name, item_name, today),
+    )
+    return c.fetchone()
+
+
+def detect_price_changes(conn, today):
+    """
+    For every item collected today, compare to the most recent prior
+    collection. Insert a row into price_history when the price differs.
+    Returns a summary dict for the calling run.
+    """
+    c = conn.cursor()
+    c.execute(
+        '''SELECT restaurant_name, item_name, price, country, sector
+           FROM prices
+           WHERE collection_date = ?''',
+        (today,),
+    )
+    todays = c.fetchall()
+
+    changes = []
+    for restaurant_name, item_name, new_price, country, sector in todays:
+        prev = _previous_price(conn, restaurant_name, item_name, today)
+        if not prev or prev[0] is None or new_price is None:
+            continue
+        old_price = prev[0]
+        if old_price == 0:
+            continue
+        if abs(new_price - old_price) < 1e-6:
+            continue
+        pct = round((new_price - old_price) / old_price * 100.0, 4)
+        c.execute(
+            '''INSERT INTO price_history
+               (restaurant_name, item_name, old_price, new_price,
+                price_change_pct, country, sector, change_detected_date)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
+            (restaurant_name, item_name, old_price, new_price,
+             pct, country, sector, today),
+        )
+        changes.append({
+            'restaurant_name': restaurant_name,
+            'item_name': item_name,
+            'old_price': old_price,
+            'new_price': new_price,
+            'pct': pct,
+            'country': country,
+            'sector': sector,
+        })
+    conn.commit()
+
+    restaurants = {c['restaurant_name'] for c in changes}
+    return {
+        'changes': changes,
+        'n_changes': len(changes),
+        'n_restaurants': len(restaurants),
+    }
+
+
+def maybe_send_failure_alert(today, total, failed, failed_targets):
+    """Stub — populated by improvement 6 (email alerting)."""
+    return None
+
+
+def report_price_changes(summary):
+    """Print the standard end-of-run price-change summary to the log."""
+    n = summary['n_changes']
+    r = summary['n_restaurants']
+    log(f"\nPrice changes detected: {n} items across {r} restaurants")
+    if n == 0:
+        return
+    by_pct = sorted(summary['changes'], key=lambda x: x['pct'], reverse=True)
+    log("\nTop 5 price increases:")
+    for ch in by_pct[:5]:
+        log(f"  ↑ {ch['restaurant_name']:30s} {ch['item_name'][:40]:40s} "
+            f"{ch['old_price']:.2f} → {ch['new_price']:.2f}  ({ch['pct']:+.2f}%)")
+    log("\nTop 5 price decreases:")
+    for ch in by_pct[-5:][::-1]:
+        log(f"  ↓ {ch['restaurant_name']:30s} {ch['item_name'][:40]:40s} "
+            f"{ch['old_price']:.2f} → {ch['new_price']:.2f}  ({ch['pct']:+.2f}%)")
 
 
 def already_scraped(conn, restaurant_name, today):
@@ -2262,6 +2375,21 @@ if __name__ == '__main__':
         if remaining and attempt < 3:
             log(f"\n{len(remaining)} failed — retrying in 60 s…")
             time.sleep(60)
+
+    # Diff against previous collection and surface meaningful changes
+    try:
+        summary = detect_price_changes(conn, today)
+        report_price_changes(summary)
+    except Exception as e:
+        log(f"  ⚠  Price-change detection failed: {e}")
+
+    # Alert if too many targets failed
+    try:
+        total = len(active_targets)
+        failed = len(remaining)
+        maybe_send_failure_alert(today, total, failed, remaining)
+    except Exception as e:
+        log(f"  ⚠  Failure alert step errored: {e}")
 
     conn.close()
 
