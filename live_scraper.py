@@ -42,10 +42,14 @@ except Exception:  # pragma: no cover
     _UA = None
 
 
+# ── Paths ──────────────────────────────────────────────────────────────────────
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
 # ── Logging ────────────────────────────────────────────────────────────────────
 
-LOG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        'scraper_log.txt')
+LOG_PATH = os.path.join(BASE_DIR, 'scraper_log.txt')
 
 logging.basicConfig(
     level=logging.INFO,
@@ -67,10 +71,7 @@ FALLBACK_RATES = {
 }
 
 
-EXCHANGE_RATE_CACHE_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    'exchange_rates.json',
-)
+EXCHANGE_RATE_CACHE_PATH = os.path.join(BASE_DIR, 'exchange_rates.json')
 EXCHANGE_RATE_TTL_SECONDS = 24 * 60 * 60  # 24 hours
 
 
@@ -185,6 +186,23 @@ def init_db():
         'CREATE INDEX IF NOT EXISTS idx_price_history_country '
         'ON price_history(country)'
     )
+    # Idempotency: detect_price_changes can be re-run on the same date
+    # (manual reruns, partial scrape recovery, etc.) without inserting
+    # duplicate change rows — see INSERT OR IGNORE in detect_price_changes.
+    c.execute(
+        'CREATE UNIQUE INDEX IF NOT EXISTS idx_price_history_unique '
+        'ON price_history(restaurant_name, item_name, change_detected_date)'
+    )
+    # Without this, detect_price_changes does a full table scan for every
+    # item it inspects (N+1) — ~22.5K scans per daily run on current data.
+    c.execute(
+        'CREATE INDEX IF NOT EXISTS idx_prices_item_date '
+        'ON prices(restaurant_name, item_name, collection_date)'
+    )
+    c.execute(
+        'CREATE INDEX IF NOT EXISTS idx_prices_date '
+        'ON prices(collection_date)'
+    )
     conn.commit()
     # Add price_usd column to existing tables that predate this schema
     try:
@@ -195,55 +213,56 @@ def init_db():
     return conn
 
 
-def _previous_price(conn, restaurant_name, item_name, today):
-    """Return the most recent price for this restaurant+item *before* today."""
-    c = conn.cursor()
-    c.execute(
-        '''SELECT price, country, sector
-           FROM prices
-           WHERE restaurant_name = ?
-             AND item_name = ?
-             AND collection_date < ?
-           ORDER BY collection_date DESC
-           LIMIT 1''',
-        (restaurant_name, item_name, today),
-    )
-    return c.fetchone()
-
-
 def detect_price_changes(conn, today):
     """
     For every item collected today, compare to the most recent prior
     collection. Insert a row into price_history when the price differs.
     Returns a summary dict for the calling run.
+
+    One windowed SQL query pairs each of today's items with its most
+    recent prior price — avoids the previous N+1 per-item lookup.
     """
     c = conn.cursor()
     c.execute(
-        '''SELECT restaurant_name, item_name, price, country, sector
-           FROM prices
-           WHERE collection_date = ?''',
-        (today,),
+        '''
+        WITH today_items AS (
+            SELECT restaurant_name, item_name, price AS new_price,
+                   country, sector
+            FROM prices
+            WHERE collection_date = ?
+              AND price IS NOT NULL
+        ),
+        ranked_prev AS (
+            SELECT restaurant_name, item_name, price AS old_price,
+                   ROW_NUMBER() OVER (
+                       PARTITION BY restaurant_name, item_name
+                       ORDER BY collection_date DESC
+                   ) AS rn
+            FROM prices
+            WHERE collection_date < ?
+              AND price IS NOT NULL
+        )
+        SELECT t.restaurant_name, t.item_name,
+               p.old_price, t.new_price, t.country, t.sector
+        FROM today_items t
+        JOIN ranked_prev p
+          ON p.restaurant_name = t.restaurant_name
+         AND p.item_name       = t.item_name
+         AND p.rn = 1
+        WHERE p.old_price > 0
+          AND ABS(t.new_price - p.old_price) > 1e-6
+        ''',
+        (today, today),
     )
-    todays = c.fetchall()
+    rows = c.fetchall()
 
     changes = []
-    for restaurant_name, item_name, new_price, country, sector in todays:
-        prev = _previous_price(conn, restaurant_name, item_name, today)
-        if not prev or prev[0] is None or new_price is None:
-            continue
-        old_price = prev[0]
-        if old_price == 0:
-            continue
-        if abs(new_price - old_price) < 1e-6:
-            continue
+    history_inserts = []
+    for restaurant_name, item_name, old_price, new_price, country, sector in rows:
         pct = round((new_price - old_price) / old_price * 100.0, 4)
-        c.execute(
-            '''INSERT INTO price_history
-               (restaurant_name, item_name, old_price, new_price,
-                price_change_pct, country, sector, change_detected_date)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
+        history_inserts.append(
             (restaurant_name, item_name, old_price, new_price,
-             pct, country, sector, today),
+             pct, country, sector, today)
         )
         changes.append({
             'restaurant_name': restaurant_name,
@@ -254,9 +273,18 @@ def detect_price_changes(conn, today):
             'country': country,
             'sector': sector,
         })
+
+    if history_inserts:
+        c.executemany(
+            '''INSERT OR IGNORE INTO price_history
+               (restaurant_name, item_name, old_price, new_price,
+                price_change_pct, country, sector, change_detected_date)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
+            history_inserts,
+        )
     conn.commit()
 
-    restaurants = {c['restaurant_name'] for c in changes}
+    restaurants = {ch['restaurant_name'] for ch in changes}
     return {
         'changes': changes,
         'n_changes': len(changes),
@@ -266,7 +294,7 @@ def detect_price_changes(conn, today):
 
 def _load_dotenv_into_os():
     """Lightweight .env loader so we don't depend on python-dotenv being imported."""
-    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
+    env_path = os.path.join(BASE_DIR, '.env')
     if not os.path.exists(env_path):
         return
     try:
@@ -353,15 +381,25 @@ def report_price_changes(summary):
     log(f"\nPrice changes detected: {n} items across {r} restaurants")
     if n == 0:
         return
-    by_pct = sorted(summary['changes'], key=lambda x: x['pct'], reverse=True)
-    log("\nTop 5 price increases:")
-    for ch in by_pct[:5]:
-        log(f"  ↑ {ch['restaurant_name']:30s} {ch['item_name'][:40]:40s} "
-            f"{ch['old_price']:.2f} → {ch['new_price']:.2f}  ({ch['pct']:+.2f}%)")
-    log("\nTop 5 price decreases:")
-    for ch in by_pct[-5:][::-1]:
-        log(f"  ↓ {ch['restaurant_name']:30s} {ch['item_name'][:40]:40s} "
-            f"{ch['old_price']:.2f} → {ch['new_price']:.2f}  ({ch['pct']:+.2f}%)")
+
+    def _fmt(ch, arrow):
+        return (f"  {arrow} {ch['restaurant_name']:30s} "
+                f"{ch['item_name'][:40]:40s} "
+                f"{ch['old_price']:.2f} → {ch['new_price']:.2f}  "
+                f"({ch['pct']:+.2f}%)")
+
+    increases = sorted((ch for ch in summary['changes'] if ch['pct'] > 0),
+                       key=lambda x: x['pct'], reverse=True)
+    decreases = sorted((ch for ch in summary['changes'] if ch['pct'] < 0),
+                       key=lambda x: x['pct'])
+    if increases:
+        log("\nTop 5 price increases:")
+        for ch in increases[:5]:
+            log(_fmt(ch, '↑'))
+    if decreases:
+        log("\nTop 5 price decreases:")
+        for ch in decreases[:5]:
+            log(_fmt(ch, '↓'))
 
 
 def already_scraped(conn, restaurant_name, today):
@@ -1312,6 +1350,11 @@ BROWSER_LAUNCH_ARGS = [
 ]
 
 
+# Headless Chromium is reliably bot-detected by foodpanda / grabfood.
+# Set UIFPI_HEADLESS=1 to force headless (e.g. on a server without a display).
+HEADLESS = os.environ.get('UIFPI_HEADLESS', '0') == '1'
+
+
 def _new_context(browser, country):
     """Build a stealth-friendly context that matches the target country."""
     locale, tz = COUNTRY_LOCALE.get(country, ('en-US', 'UTC'))
@@ -1338,7 +1381,7 @@ def _scrape_one(target, conn, today, usd_rates):
     for attempt in range(1, 4):
         with sync_playwright() as p:
             browser = p.chromium.launch(
-                headless=True,
+                headless=HEADLESS,
                 args=BROWSER_LAUNCH_ARGS,
             )
             try:
@@ -1358,18 +1401,11 @@ def _scrape_one(target, conn, today, usd_rates):
                     if count == 0:
                         raise RuntimeError("0 items scraped — page may not have loaded")
                     return count
-                except RuntimeError as e:
-                    msg = str(e)
-                    if 'ACCESS_DENIED' in msg:
-                        log(f"  Bot detected on attempt {attempt}")
-                        last_error = e
-                    else:
-                        last_error = e
-                        if attempt >= 3:
-                            raise
                 except Exception as e:
                     last_error = e
-                    if attempt >= 3:
+                    if isinstance(e, RuntimeError) and 'ACCESS_DENIED' in str(e):
+                        log(f"  Bot detected on attempt {attempt}")
+                    elif attempt >= 3:
                         raise
             finally:
                 try:

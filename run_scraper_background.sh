@@ -1,7 +1,9 @@
 #!/bin/bash
 # Launch live_scraper.py detached from the terminal so it survives
-# the SSH/Terminal window closing. Headless Chromium does not need a
-# visible screen here — Mac LaunchServices keeps the process alive.
+# the SSH/Terminal window closing. Default mode is HEADED Chromium
+# (foodpanda/grabfood detect headless), which requires a logged-in
+# desktop session — don't lock the screen mid-run. For a true headless
+# run (e.g. on a server) set UIFPI_HEADLESS=1 before invoking.
 #
 # Usage:   ./run_scraper_background.sh
 # Logs:    tail -f scraper_log.txt
