@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-06-15T17:16:46.464727",
+  "count": 4,
+  "results": [
+    {
+      "name": "Seoul Garden HotPot",
+      "url": "https://food.grab.com/sg/en/restaurant/seoul-garden-hotpot-harbourfront-centre-delivery/SGDD09383",
+      "source": "grabfood",
+      "country": "Singapore",
+      "final_url": "https://food.grab.com/sg/en/restaurant/seoul-garden-hotpot-harbourfront-centre-delivery/SGDD09383",
+      "status": "OK_TITLE_ONLY",
+      "http_status": 200,
+      "title": "Seoul Garden HotPot - Harbourfront Centre \u2b50 4.4",
+      "body_head": "Login to search location\nLogin/Sign Up\nHomeRestaurantSeoul Garden HotPot - Harbourfront Centre\nSeoul Garden HotPot - Harbourfront Centre\nKorean,Hot Pot,Bibimbap\n4.4\n42 mins\u00a0\u00a0\u2022\u00a0\u00a05.9 km\nOpening Hours\nToday\u00a0\u00a011:30-21:00\nFor orders less than S$10.00 for this restaurant, a small order fee applies.\nFor YouTOP 10 Best SellerFootball Fever with CokePersonal JeongolGinseng ChickenSoon Dubu (Non-Spicy)Spicy Soon DubuKimchi Hot PotArmy StewBibimbapJapchaeHot PlateHot Plate (Non-Spicy)BanchanBanchan ComboKimchi Retail Pack\nFor You\n\nGinseng Chicken Hot Pot.\n\nGinseng is an anti-ageing and energy boosting ingredient which helps to boost the immune system. Paired with fresh quarter chicken, chestnut and glutinous rice which has been double boiled up to 5 hours till perfection.\n\n23.10\n\nChicken Bulgogi Bibimbap\n\nThe Bibimbap is the all time comfort food! Drizzle in our own made Hot Bean Paste (Gochuchang) or go mild without it. Comes with white rice topped with chicken bulgogi, kimchi pickle, pea shoots (dou miao), bean sprout and egg yolk. Toss them up to enjoy a hearty meal.\n\n15.50\n\nChicken Army Stew\n\nEnjoy a hearty personal pot of Army Stew all for yourself. This bubbling spicy stew is a host to ",
+      "items_signal": 1,
+      "reason": "title matches restaurant name (items didn't render headless)"
+    },
+    {
+      "name": "Hawker Chan",
+      "url": "https://food.grab.com/sg/en/restaurant/hawker-chan-76-78-smith-street-delivery/4-CYVGGU3TVCLFAT",
+      "source": "grabfood",
+      "country": "Singapore",
+      "final_url": "https://food.grab.com/sg/en/restaurant/hawker-chan-76-78-smith-street-delivery/4-CYVGGU3TVCLFAT",
+      "status": "OK_TITLE_ONLY",
+      "http_status": 200,
+      "title": "Hawker Chan - 76/78 Smith Street \u2b50 4.3",
+      "body_head": "Login to search location\nLogin/Sign Up\nHomeRestaurantHawker Chan - 76/78 Smith Street\nHawker Chan - 76/78 Smith Street\nChinese,Chicken Rice,Noodle\n4.3\n33 mins\u00a0\u00a0\u2022\u00a0\u00a02.5 km\nOpening Hours\nToday\u00a0\u00a010:30-18:30\nFor orders less than S$10.00 for this restaurant, a small order fee applies.\nFor YouRice (G)Noodles (G)Hor Fun (G)Others (G)Sides (G)\nFor You\n\nWhole Chicken\n\n36.21\n\nSoya Sauce Chicken Rice\n\n6.37\n\nHalf Chicken\n\n19.11\n\nChar Siew Rice\n\n7.00\n\n3 combi Platter (charsiewporkpork rib)\n\n15.28\n\nChicken Noodle\n\n7.64\n\nSeasonal Vegetable\n\n6.37\n\nChar Siew Noodle\n\n8.60\n\nRice (G)\n\nSoya Sauce Chicken Rice\n\n6.37\n\nChicken Charsiew Rice\n\n9.82\n\nChar Siew Rice\n\n7.00\n\nChar Siew Roasted Pork Rice\n\n10.73\n\nRoasted Pork Rice\n\n7.00\n\nPork Rib Rice\n\n7.00\n\nSoya Sauce Chicken Rice(Drumstick)\n\n7.80\n\nNoodles (G)\n\nChicken Noodle\n\n7.64\n\nChickenCharsiew Noodle\n\n11.64\n\nChar Siew Noodle\n\n8.60\n\nRoasted Pork Noodle\n\n8.91\n\nPork Rib Noodle\n\n8.60\n\nWanton Charsiew Noodle\n\n8.91\n\nHor Fun (G)\n\nSoya Sauce Chicken Hor Fun\n\n7.64\n\nChicken Charsiew Hor Fun\n\n11.64\n\nChar Siew Hor Fun\n\n8.55\n\nRoasted Pork Hor Fun\n\n8.55\n\nPork Rib Hor Fun\n\n8.55\n\nWanton Char Hor Fun\n\n8.91\n\nHor Fun\n\n2.73\n\nOthers (G)\n\nHalf Chicken\n\n19.11\n\nWhole Chicken\n\n36.21\n",
+      "items_signal": 1,
+      "reason": "title matches restaurant name (items didn't render headless)"
+    },
+    {
+      "name": "28 Fried Kway Teow",
+      "url": "https://food.grab.com/sg/en/restaurant/28-fried-kway-teow-dunman-food-centre-stall-28-delivery/4-CYLCC4CHANVTBE",
+      "source": "grabfood",
+      "country": "Singapore",
+      "final_url": "https://food.grab.com/sg/en/restaurant/28-fried-kway-teow-dunman-food-centre-stall-28-delivery/4-CYLCC4CHANVTBE",
+      "status": "WRONG_PAGE",
+      "http_status": 200,
+      "title": "Food Delivery Singapore: Promos & Menu | GrabFood SG",
+      "body_head": "Login to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nMcdonalds Delivery\nPastamania Delivery\nDominos Pizza Delivery\nPizza Hut Delivery\nSubway Delivery\nAbout Grab\nAbout Grab\nAbout GrabFood\nGrabDineout\nBlog\nSupport\nHelp\nFAQs\nBe a GrabFood Merchant\nDrive With Grab\nCountries with GrabFood\nIndonesia\nPhilippines\nThailand\nVietnam\nSingapore\nMalaysia\nMyanmar\nCambodia\n\u00a9 Grab 2026\nTerms of Service\n\u2022\nPrivacy Policy",
+      "items_signal": 0,
+      "reason": "loaded but no menu signal (items_signal=0, title='Food Delivery Singapore: Promos & Menu | GrabFood SG')"
+    },
+    {
+      "name": "Din Tai Fung KL",
+      "url": "https://food.grab.com/my/en/restaurant/din-tai-fung-the-gardens-mall-non-halal-delivery/1-CY2UGABXFCA2RE",
+      "source": "grabfood",
+      "country": "Malaysia",
+      "final_url": "https://food.grab.com/my/en/restaurant/din-tai-fung-the-gardens-mall-non-halal-delivery/1-CY2UGABXFCA2RE",
+      "status": "WRONG_PAGE",
+      "http_status": 200,
+      "title": "Food Delivery Malaysia - Promos & Menu | GrabFood MY",
+      "body_head": "Login to search location\nLogin/Sign Up\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee Bean Menu\nPopular Cuisines\nChinese Food\nFast Food\nIndian Food\nIndonesian Food\nItalian Food\nJapanese Food\nKorean Food\nThai Food\nVietnamese Food\nAbout Grab\nAbout Grab\nAbout GrabFood\nGrabDineout\nBlog\nSupport\nHelp\nFAQs\nBe a GrabFood Merchant\nDrive With Grab\nCountries with GrabFood\nIndonesia\nPhilippines\nThailand\nVietnam\nSingapore\nMalaysia\nMyanmar\nCambodia\n\u00a9 Grab 2026\nTerms of Service\n\u2022\nPrivacy Policy",
+      "items_signal": 0,
+      "reason": "loaded but no menu signal (items_signal=0, title='Food Delivery Malaysia - Promos & Menu | GrabFood MY')"
+    }
+  ]
+}

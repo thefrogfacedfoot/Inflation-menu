@@ -1,0 +1,16 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Verifying 4 targets with concurrency=2
+Report → /Users/erwenchen/Inflation-menu/verify_targets_report.json
+  [  1/4] OK_TITLE_ONLY Seoul Garden HotPot                                 (Singapore)  — ETA 0.9m
+  [  2/4] OK_TITLE_ONLY Hawker Chan                                         (Singapore)  — ETA 0.4m
+  [  3/4] WRONG_PAGE  28 Fried Kway Teow                                  (Singapore)  — ETA 0.2m
+  [  4/4] WRONG_PAGE  Din Tai Fung KL                                     (Malaysia)  — ETA 0.0m
+
+── Summary ──────────────────────────────────────────
+  OK_TITLE_ONLY  2
+  WRONG_PAGE   2
+
+── Per country ──────────────────────────────────────
+  Malaysia            WRONG_PAGE=1
+  Singapore           OK_TITLE_ONLY=2 WRONG_PAGE=1

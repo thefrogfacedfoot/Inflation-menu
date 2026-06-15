@@ -1,0 +1,23 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[skip-known-good] skipped 10 previously-scraped targets
+Verifying 10 targets with concurrency=3
+Report → /Users/erwenchen/Inflation-menu/verify_targets_report.json
+  [  1/10] WRONG_PAGE  KFC Thailand (GrabFood)                             (Thailand)  — ETA 3.5m
+  [  2/10] DEAD        Secret Recipe                                       (Malaysia)  — ETA 1.6m
+  [  3/10] WRONG_PAGE  McDonald's Thailand (GrabFood)                      (Thailand)  — ETA 1.2m
+  [  4/10] WRONG_PAGE  MK Restaurant (GrabFood)                            (Thailand)  — ETA 1.1m
+  [  5/10] WRONG_PAGE  The Pizza Company (GrabFood)                        (Thailand)  — ETA 0.8m
+  [  6/10] WRONG_PAGE  Swensen's (GrabFood)                                (Thailand)  — ETA 0.5m
+  [  7/10] WRONG_PAGE  Pad Thai Thip Samai (GrabFood)                      (Thailand)  — ETA 0.4m
+  [  8/10] WRONG_PAGE  Som Tam Nua (GrabFood)                              (Thailand)  — ETA 0.3m
+  [  9/10] WRONG_PAGE  Khao Man Gai Go Ang (GrabFood)                      (Thailand)  — ETA 0.1m
+  [ 10/10] WRONG_PAGE  Boat Noodle Victory Monument (GrabFood)             (Thailand)  — ETA 0.0m
+
+── Summary ──────────────────────────────────────────
+  DEAD         1
+  WRONG_PAGE   9
+
+── Per country ──────────────────────────────────────
+  Malaysia            DEAD=1
+  Thailand            WRONG_PAGE=9
