@@ -1,0 +1,8 @@
+
+NLP Pipeline — classifying 2,086 unique item names
+Batch size: 50  |  Model: claude-sonnet-4-6
+
+Processing batch 1/42 (50 items)...     API error on attempt 1/4: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cc5DmRXUwr9w68c53j77w'} — retrying in 3s
+    API error on attempt 2/4: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cc5DmfsC4CpFTFWWCeDPk'} — retrying in 6s
+    API error on attempt 3/4: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cc5Dn8x7GrgnBemCqwDNh'} — retrying in 12s
+    API error on attempt 4/4: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cc5Do42UHwBZLoSNJagKZ'} — retrying in 24s
