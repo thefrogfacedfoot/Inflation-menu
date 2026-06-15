@@ -57,21 +57,27 @@ combined at configurable weights (default 50/50).
 
 ---
 
-## Current Dataset Snapshot (2026-06-13)
+## Current Dataset Snapshot (2026-06-15)
 
-After duplicate-purge and Thailand seed:
+After URL audit and parallel-mode collection:
 
 | Country        | Price rows | Distinct restaurants | UIFPI index months |
 |----------------|-----------:|---------------------:|-------------------:|
-| Singapore      |      3,521 |                   54 |                 13 |
-| Malaysia       |        433 |                   26 |                 13 |
-| Australia      |         73 |                   54 |                 14 |
+| Singapore      |      6,081 |                   58 |                 14 |
+| Malaysia       |      1,985 |                   39 |                 14 |
+| United Kingdom |        454 |                   38 |                 13 |
+| Australia      |        116 |                   55 |                 15 |
 | India          |         71 |                   53 |                 18 |
-| United Kingdom |         67 |                   33 |                 12 |
 | United States  |         50 |                   26 |                 11 |
-| Thailand       |         11 |                    7 |                  1 |
+| Thailand       |         11 |                    8 |                  1 |
 | Indonesia      |          1 |                    1 |                  1 |
-| **Total**      |  **4,227** |              **254** |             **83** |
+| **Total**      |  **8,769** |              **278** |             **87** |
+
+Active TARGETS: 54 (Singapore 30, Malaysia 16, UK 7, Australia 2). See
+the 2026-06-15 CHANGELOG entry for the URL audit that took TARGETS from
+226 → 54 — most removals were Foodpanda Indonesia (DNS dead), Foodpanda
+Thailand (fabricated chain IDs), DoorDash NYC (Cloudflare-blocked), and
+US/UK/AU direct chain sites that load prices only after store selection.
 
 NLP classification covers the full prices table (see `nlp_results`). Validated
 overall accuracy on a 100-item stratified sample = **83.0%** (rule-based

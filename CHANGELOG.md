@@ -2,6 +2,83 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-15 — Scraper hardening, URL audit, parallelism
+
+### Scraper engine (`live_scraper.py`)
+
+- **Parallel mode** via `UIFPI_CONCURRENCY=N`. Targets are sharded across N
+  worker threads, each holding its own Playwright browser and SQLite
+  connection (WAL handles concurrent writes). On the workstation: a full
+  47-target sweep dropped from ~5h sequential to ~21 min with 4 workers.
+- **XHR-intercept scraper** in `scrape_direct`. Captures JSON responses
+  fetched after page load and walks them for `name`/`price` pairs. Recovers
+  data from React-shell sites (Nando AU GraphQL → 41 items, Hoppers → 14).
+- **Resource blocking** via `page.route` — images, fonts, CSS, and known
+  analytics hosts are aborted. Cuts foodpanda/grabfood page loads ~40-60%.
+- **Bot-block fast-fail**: dropped the 45s inner retry on `ACCESS_DENIED`;
+  IP-level blocks don't lift on that timescale, so failed targets defer
+  straight to the end-of-run retry queue.
+- **`networkidle` → `domcontentloaded`** in `scrape_swiggy`, `scrape_js`,
+  `scrape_direct`. `networkidle` never fires on pages with polling, so the
+  old code timed out at 45s instead of proceeding.
+- **Tighter waits**: foodpanda selector wait 15s × 4 → 5s × 4; GrabFood
+  menu-render poll 30 × 1s → 12 × 500ms; inter-target sleep in parallel
+  mode 8-18s → 3-7s.
+- **Foodpanda 404/500 detection** in `_looks_like_block` — page returns
+  with "404 Ooops!" / "500" title now fail fast instead of retrying.
+- **Warm-up navigation** added: hit the home page first, set cookies, then
+  go to the chain page (less obvious to anti-bot fingerprint).
+- **`_walk_json_for_items`** handles two more price shapes used by real
+  menu APIs: `prices: {cents: N, points: M}` and `price: {amount: N,
+  currency: ...}` (minor units).
+
+### URL audit
+
+Full-browser verifier (`verify_targets.py`) used to classify all 226
+TARGETS as OK / BLOCKED / DEAD / NAV_ERROR / WRONG_PAGE. Result:
+**TARGETS 226 → 54** (-172).
+
+- **Indonesia Foodpanda**: 18 URLs removed. `foodpanda.id` doesn't resolve
+  at the DNS level — Foodpanda exited the Indonesia market years ago.
+- **Thailand Foodpanda**: 18 URLs removed. Chain IDs followed an
+  algorithmic pattern (alphabetically descending first letter, trailing
+  `t` suffix) — fabricated rather than copied from real pages.
+- **DoorDash NYC**: 11 URLs removed. Cloudflare "Just a moment..." gate;
+  `cloudscraper` also fails (HTTP 403).
+- **US direct chains** (Taco Bell, Chick-fil-A, In-N-Out, Wingstop,
+  Subway, Shake Shack, Cane's, Jack, Fatburger, Steak'n Shake, Denny's):
+  removed. All are React shells with prices fetched only after a location
+  is picked; no `$X.XX`, no `"price"`, no `data-price` in the static HTML
+  or in any XHR before interaction.
+- **UK direct chains** (Pret, Itsu, Bao London, Honest Burgers, Nando's
+  UK): removed. Same React-shell pattern; Nando's UK Gatsby data has
+  6,434 `"price"` fields but every one is `null` until store selection.
+- **Australia direct chains** (Grill'd, Roll'd, McDonald's Australia,
+  Harry's): removed for the same reason.
+- **Australia Uber Eats**: 11 URLs removed. All used literal placeholder
+  store IDs (`abc123`, `def456`, …) — never resolved.
+- **Thailand GrabFood**: 9 URLs removed. All redirected to the GrabFood
+  Thailand home page.
+- **Secret Recipe MY (GrabFood)**: 500 server error.
+
+Seven unverifiable Foodpanda SG/MY URLs were **replaced with verified
+GrabFood URLs** found via headed Playwright search on `food.grab.com`:
+Hawker Chan, Seoul Garden HotPot, 28 Fried Kway Teow, Din Tai Fung KL,
+Tim Ho Wan, Swee Choon Tim Sum. Hokkaido-ya removed (not on GrabFood SG).
+
+### Cron + ops
+
+- Daily cron entry updated to `UIFPI_CONCURRENCY=4 UIFPI_HEADLESS=1` so
+  the 21:00 SGT run benefits from parallelism and survives a locked
+  screen / closed session.
+
+### Caveats
+
+- 2,480 unique items remain unclassified in `nlp_results`. The June 2026
+  index rows therefore fall back to the mean-price comparison and produce
+  inflated YoY numbers (Singapore 712, Malaysia 884, UK 1,047). Treat as
+  research-grade until `nlp_pipeline.py` is run on the new items.
+
 ## 2026-06-13 — Wire up monthly CPI for Malaysia + UK
 
 ### Added

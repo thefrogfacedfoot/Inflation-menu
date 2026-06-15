@@ -211,13 +211,34 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict) -> dict:
 
         last = group.iloc[-1]
 
-        # YoY change in UIFPI
+        # YoY change in UIFPI. Two guards:
+        #   1. Look up the row from exactly 12 calendar months prior by
+        #      year_month string, not iloc[-13] (the index has gaps; iloc
+        #      would compare last with whatever happened to be 13 rows
+        #      back, which for Singapore was 2019-06 vs 2026-06 — a
+        #      ~7-year delta yielding +612%).
+        #   2. Skip when either anchor used the mean-price fallback — the
+        #      basket changed completely, so the ratio is not a price
+        #      relative and the yoy number would be misleading.
         yoy_change = None
-        if len(group) >= 13:
-            prev_uifpi = group.iloc[-13]["uifpi_combined"]
-            curr_uifpi = last["uifpi_combined"]
-            if pd.notna(prev_uifpi) and pd.notna(curr_uifpi) and prev_uifpi > 0:
-                yoy_change = safe_round((curr_uifpi / prev_uifpi - 1) * 100)
+        try:
+            curr_period = pd.Period(last["year_month"], freq="M")
+            prev_period = (curr_period - 12).strftime("%Y-%m")
+            prev_rows = group[group["year_month"] == prev_period]
+            if not prev_rows.empty:
+                prev_row = prev_rows.iloc[-1]
+                prev_note = str(prev_row.get("coverage_note") or "")
+                last_note = str(last.get("coverage_note") or "")
+                fallback_used = ("mean-price fallback" in prev_note
+                                 or "mean-price fallback" in last_note)
+                prev_uifpi = prev_row["uifpi_combined"]
+                curr_uifpi = last["uifpi_combined"]
+                if (not fallback_used
+                        and pd.notna(prev_uifpi) and pd.notna(curr_uifpi)
+                        and prev_uifpi > 0):
+                    yoy_change = safe_round((curr_uifpi / prev_uifpi - 1) * 100)
+        except Exception:
+            yoy_change = None
 
         # Most recent CPI from granger data
         cpi_val = None

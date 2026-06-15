@@ -10,8 +10,8 @@
     "n_obs": 13,
     "months_of_data": 14,
     "base_month": "2018-01",
-    "latest_uifpi": 993.01,
-    "items_formal": 1,
+    "latest_uifpi": 414.22,
+    "items_formal": 44,
     "items_informal": 72,
     "status": "no_granger_data"
   },
@@ -58,9 +58,9 @@
     "n_obs": 12,
     "months_of_data": 13,
     "base_month": "2019-03",
-    "latest_uifpi": 804.85,
-    "items_formal": 126,
-    "items_informal": 307,
+    "latest_uifpi": 884.68,
+    "items_formal": 794,
+    "items_informal": 1191,
     "status": "no_granger_data"
   },
   "Singapore": {
@@ -74,9 +74,9 @@
     "n_obs": 12,
     "months_of_data": 13,
     "base_month": "2019-06",
-    "latest_uifpi": 705.16,
-    "items_formal": 3118,
-    "items_informal": 403,
+    "latest_uifpi": 712.25,
+    "items_formal": 5217,
+    "items_informal": 864,
     "status": "no_granger_data"
   },
   "Thailand": {
@@ -106,9 +106,9 @@
     "n_obs": 11,
     "months_of_data": 12,
     "base_month": "2018-07",
-    "latest_uifpi": 824.12,
-    "items_formal": 5,
-    "items_informal": 65,
+    "latest_uifpi": 1047.91,
+    "items_formal": 257,
+    "items_informal": 197,
     "status": "no_granger_data"
   },
   "United States": {
