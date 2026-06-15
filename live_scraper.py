@@ -1789,9 +1789,10 @@ TARGETS = [
      "https://www.foodpanda.sg/chain/cf5cj/paradise-dynasty",
      "formal", "foodpanda", "SGD", "Singapore"),
 
+    # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Tim Ho Wan",
-     "https://www.foodpanda.sg/chain/cs0lf/tim-ho-wan",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "https://food.grab.com/sg/en/restaurant/tim-ho-wan-plaza-singapura-delivery/SGDD11583",
+     "formal", "grabfood", "SGD", "Singapore"),
 
     ("Crystal Jade Hong Kong Kitchen",
      "https://www.foodpanda.sg/chain/cs3bp/crystal-jade-hong-kong-kitchen",
@@ -1810,9 +1811,9 @@ TARGETS = [
      "https://food.grab.com/sg/en/restaurant/seoul-garden-hotpot-harbourfront-centre-delivery/SGDD09383",
      "formal", "grabfood", "SGD", "Singapore"),
 
-    ("Hokkaido-ya",
-     "https://www.foodpanda.sg/chain/cl2om/hokkaido-ya",
-     "formal", "foodpanda", "SGD", "Singapore"),
+    # Removed Hokkaido-ya: foodpanda.sg URL stuck behind Akamai IP block;
+    # searched GrabFood SG for "Hokkaido-ya" and "Hokkaido Ya Ramen" — no match.
+    # Restaurant doesn't appear to be on GrabFood SG.
 
     ("BreadTalk",
      "https://food.grab.com/sg/en/restaurant/breadtalk-bedok-mall-b2-25-26-delivery/4-CZBGAY4AVA4GLE",
@@ -1869,9 +1870,10 @@ TARGETS = [
      "https://www.foodpanda.sg/chain/ci9rk/nam-kee-chicken-rice",
      "informal", "foodpanda", "SGD", "Singapore"),
 
+    # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Swee Choon Tim Sum",
-     "https://www.foodpanda.sg/chain/cz4bh/swee-choon-tim-sum-restaurant",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "https://food.grab.com/sg/en/restaurant/swee-choon-tim-sum-restaurant-jalan-besar-delivery/4-CY42SA2VETAKN6",
+     "informal", "grabfood", "SGD", "Singapore"),
 
     ("Killiney Kopitiam",
      "https://www.foodpanda.sg/chain/ca6up/killiney-kopitiam-alexandra",

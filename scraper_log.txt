@@ -2629,3 +2629,201 @@ Top 5 price decreases:
 2026-06-15 21:54:12,930 —    - Swee Choon Tim Sum
 2026-06-15 21:54:12,930 — 
 Done. Results in uifpi.db
+2026-06-15 21:55:24,076 — 
+UIFPI Daily Collection — 2026-06-15
+2026-06-15 21:55:24,077 — Fetching USD exchange rates …
+2026-06-15 21:55:24,077 —   ✓ Using cached USD rates (3.0h old)
+2026-06-15 21:55:24,077 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-15 21:55:24,077 — 
+Total targets: 55
+2026-06-15 21:55:24,081 — Already scraped today: 52 — skipping
+2026-06-15 21:55:24,082 — To scrape: 3
+
+2026-06-15 21:55:24,082 — --- Attempt 1 (3 targets) ---
+
+2026-06-15 21:55:24,083 —   Parallel mode: 4 workers
+2026-06-15 21:55:30,579 —   Loading Tim Ho Wan (foodpanda)…
+2026-06-15 21:55:31,245 —   Loading Swee Choon Tim Sum (foodpanda)…
+2026-06-15 21:55:33,880 —   Loading Hokkaido-ya (foodpanda)…
+2026-06-15 21:55:38,744 —   Bot detected on attempt 1
+2026-06-15 21:55:39,179 —   ✗  Tim Ho Wan: ACCESS_DENIED
+2026-06-15 21:55:40,161 —   Bot detected on attempt 1
+2026-06-15 21:55:40,611 —   ✗  Swee Choon Tim Sum: ACCESS_DENIED
+2026-06-15 21:55:42,652 —   Bot detected on attempt 1
+2026-06-15 21:55:42,885 —   ✗  Hokkaido-ya: ACCESS_DENIED
+2026-06-15 21:55:42,886 — 
+3 failed — retrying immediately (after 10s breather)…
+2026-06-15 21:55:52,891 — --- Attempt 2 (3 targets) ---
+
+2026-06-15 21:55:52,891 —   Parallel mode: 4 workers
+2026-06-15 21:55:59,561 —   Loading Tim Ho Wan (foodpanda)…
+2026-06-15 21:56:02,404 —   Loading Hokkaido-ya (foodpanda)…
+2026-06-15 21:56:04,445 —   Loading Swee Choon Tim Sum (foodpanda)…
+2026-06-15 21:56:07,450 —   Bot detected on attempt 1
+2026-06-15 21:56:08,455 —   ✗  Tim Ho Wan: ACCESS_DENIED
+2026-06-15 21:56:11,962 —   Bot detected on attempt 1
+2026-06-15 21:56:12,251 —   ✗  Swee Choon Tim Sum: ACCESS_DENIED
+2026-06-15 21:56:13,421 —   Bot detected on attempt 1
+2026-06-15 21:56:13,725 —   ✗  Hokkaido-ya: ACCESS_DENIED
+2026-06-15 21:56:13,726 — 
+3 failed — retrying immediately (after 10s breather)…
+2026-06-15 21:56:23,727 — --- Attempt 3 (3 targets) ---
+
+2026-06-15 21:56:23,728 —   Parallel mode: 4 workers
+2026-06-15 21:56:30,155 —   Loading Tim Ho Wan (foodpanda)…
+2026-06-15 21:56:31,470 —   Loading Swee Choon Tim Sum (foodpanda)…
+2026-06-15 21:56:33,258 —   Loading Hokkaido-ya (foodpanda)…
+2026-06-15 21:56:37,284 —   Bot detected on attempt 1
+2026-06-15 21:56:37,721 —   ✗  Tim Ho Wan: ACCESS_DENIED
+2026-06-15 21:56:38,753 —   Bot detected on attempt 1
+2026-06-15 21:56:39,052 —   ✗  Swee Choon Tim Sum: ACCESS_DENIED
+2026-06-15 21:56:40,887 —   Bot detected on attempt 1
+2026-06-15 21:56:41,134 —   ✗  Hokkaido-ya: ACCESS_DENIED
+2026-06-15 21:56:41,170 — 
+Price changes detected: 30 items across 9 restaurants
+2026-06-15 21:56:41,171 — 
+Top 5 price increases:
+2026-06-15 21:56:41,171 —   ↑ Janggut Laksa                  Curry Chicken                            7.38 → 44.91  (+508.54%)
+2026-06-15 21:56:41,171 —   ↑ Ichiban Boshi KL               Chicken Teriyaki                         18.90 → 25.90  (+37.04%)
+2026-06-15 21:56:41,171 —   ↑ Jumbo Seafood                  Open App                                 148.00 → 178.00  (+20.27%)
+2026-06-15 21:56:41,171 —   ↑ BreadTalk                      Blueberry Muffin                         3.00 → 3.50  (+16.67%)
+2026-06-15 21:56:41,171 —   ↑ Ichiban Boshi KL               Chicken Katsu Toji                       25.20 → 28.90  (+14.68%)
+2026-06-15 21:56:41,171 — 
+Top 5 price decreases:
+2026-06-15 21:56:41,171 —   ↓ Din Tai Fung                   Take-Home Treasures/冷冻食品                 44.80 → 16.89  (-62.30%)
+2026-06-15 21:56:41,172 —   ↓ Ichiban Boshi KL               Chuka Lidako                             15.90 → 7.90  (-50.31%)
+2026-06-15 21:56:41,172 —   ↓ Restoran Yusoof Dan Zakhir     Nescafe                                  4.50 → 3.00  (-33.33%)
+2026-06-15 21:56:41,172 —   ↓ Ichiban Boshi KL               Chawanmushi Rice Set                     17.90 → 14.60  (-18.44%)
+2026-06-15 21:56:41,172 —   ↓ Ippudo Ramen                   IPPUDO Gyoza 5pcs                        11.00 → 9.00  (-18.18%)
+2026-06-15 21:56:41,172 —   ✓ Failure rate 5.5% below 50% — no alert
+2026-06-15 21:56:41,178 — 
+⚠  Still failed after 3 attempts:
+2026-06-15 21:56:41,178 —    - Tim Ho Wan
+2026-06-15 21:56:41,179 —    - Swee Choon Tim Sum
+2026-06-15 21:56:41,179 —    - Hokkaido-ya
+2026-06-15 21:56:41,179 — 
+Done. Results in uifpi.db
+2026-06-15 22:02:41,457 — 
+UIFPI Daily Collection — 2026-06-15
+2026-06-15 22:02:41,457 — Fetching USD exchange rates …
+2026-06-15 22:02:41,458 —   ✓ Using cached USD rates (3.2h old)
+2026-06-15 22:02:41,458 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-15 22:02:41,458 — 
+--only filter 'tim ho wan' → 1 target(s)
+2026-06-15 22:02:41,458 — 
+Total targets: 1
+2026-06-15 22:02:41,458 — To scrape: 1
+
+2026-06-15 22:02:41,459 — --- Attempt 1 (1 targets) ---
+
+2026-06-15 22:02:43,213 —   Loading Tim Ho Wan (GrabFood)…
+2026-06-15 22:02:56,426 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 172330 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-15 22:02:56,426 —   ✓ Tim Ho Wan: 0 items
+2026-06-15 22:02:56,645 —   waiting 45s before retry 2/2 …
+2026-06-15 22:03:43,462 —   Loading Tim Ho Wan (GrabFood)…
+2026-06-15 22:03:56,397 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 173692 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nMcdonalds Del'
+2026-06-15 22:03:56,397 —   ✓ Tim Ho Wan: 0 items
+2026-06-15 22:03:56,590 —   ✗  Tim Ho Wan: 0 items scraped — page may not have loaded
+2026-06-15 22:03:56,591 —   sleeping 24.5s before next target
+2026-06-15 22:04:21,087 — 
+1 failed — retrying immediately (after 10s breather)…
+2026-06-15 22:04:31,091 — --- Attempt 2 (1 targets) ---
+
+2026-06-15 22:04:32,898 —   Loading Tim Ho Wan (GrabFood)…
+2026-06-15 22:04:50,069 —   ✓ Tim Ho Wan: 87 items
+2026-06-15 22:04:50,347 —   sleeping 28.9s before next target
+2026-06-15 22:05:19,254 — 
+Price changes detected: 30 items across 9 restaurants
+2026-06-15 22:05:19,255 — 
+Top 5 price increases:
+2026-06-15 22:05:19,255 —   ↑ Janggut Laksa                  Curry Chicken                            7.38 → 44.91  (+508.54%)
+2026-06-15 22:05:19,255 —   ↑ Ichiban Boshi KL               Chicken Teriyaki                         18.90 → 25.90  (+37.04%)
+2026-06-15 22:05:19,255 —   ↑ Jumbo Seafood                  Open App                                 148.00 → 178.00  (+20.27%)
+2026-06-15 22:05:19,255 —   ↑ BreadTalk                      Blueberry Muffin                         3.00 → 3.50  (+16.67%)
+2026-06-15 22:05:19,255 —   ↑ Ichiban Boshi KL               Chicken Katsu Toji                       25.20 → 28.90  (+14.68%)
+2026-06-15 22:05:19,255 — 
+Top 5 price decreases:
+2026-06-15 22:05:19,256 —   ↓ Din Tai Fung                   Take-Home Treasures/冷冻食品                 44.80 → 16.89  (-62.30%)
+2026-06-15 22:05:19,256 —   ↓ Ichiban Boshi KL               Chuka Lidako                             15.90 → 7.90  (-50.31%)
+2026-06-15 22:05:19,256 —   ↓ Restoran Yusoof Dan Zakhir     Nescafe                                  4.50 → 3.00  (-33.33%)
+2026-06-15 22:05:19,256 —   ↓ Ichiban Boshi KL               Chawanmushi Rice Set                     17.90 → 14.60  (-18.44%)
+2026-06-15 22:05:19,256 —   ↓ Ippudo Ramen                   IPPUDO Gyoza 5pcs                        11.00 → 9.00  (-18.18%)
+2026-06-15 22:05:19,257 —   ✓ Failure rate 0.0% below 50% — no alert
+2026-06-15 22:05:19,265 — 
+✓  All targets completed successfully.
+2026-06-15 22:05:19,265 — 
+Done. Results in uifpi.db
+2026-06-15 22:05:19,860 — 
+UIFPI Daily Collection — 2026-06-15
+2026-06-15 22:05:19,861 — Fetching USD exchange rates …
+2026-06-15 22:05:19,861 —   ✓ Using cached USD rates (3.2h old)
+2026-06-15 22:05:19,861 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-15 22:05:19,862 — 
+--only filter 'swee choon tim sum' → 1 target(s)
+2026-06-15 22:05:19,862 — 
+Total targets: 1
+2026-06-15 22:05:19,862 — To scrape: 1
+
+2026-06-15 22:05:19,862 — --- Attempt 1 (1 targets) ---
+
+2026-06-15 22:05:21,668 —   Loading Swee Choon Tim Sum (GrabFood)…
+2026-06-15 22:05:38,091 —   ✓ Swee Choon Tim Sum: 143 items
+2026-06-15 22:05:38,367 —   sleeping 25.6s before next target
+2026-06-15 22:06:03,963 — 
+Price changes detected: 30 items across 9 restaurants
+2026-06-15 22:06:03,963 — 
+Top 5 price increases:
+2026-06-15 22:06:03,963 —   ↑ Janggut Laksa                  Curry Chicken                            7.38 → 44.91  (+508.54%)
+2026-06-15 22:06:03,963 —   ↑ Ichiban Boshi KL               Chicken Teriyaki                         18.90 → 25.90  (+37.04%)
+2026-06-15 22:06:03,963 —   ↑ Jumbo Seafood                  Open App                                 148.00 → 178.00  (+20.27%)
+2026-06-15 22:06:03,963 —   ↑ BreadTalk                      Blueberry Muffin                         3.00 → 3.50  (+16.67%)
+2026-06-15 22:06:03,963 —   ↑ Ichiban Boshi KL               Chicken Katsu Toji                       25.20 → 28.90  (+14.68%)
+2026-06-15 22:06:03,963 — 
+Top 5 price decreases:
+2026-06-15 22:06:03,964 —   ↓ Din Tai Fung                   Take-Home Treasures/冷冻食品                 44.80 → 16.89  (-62.30%)
+2026-06-15 22:06:03,964 —   ↓ Ichiban Boshi KL               Chuka Lidako                             15.90 → 7.90  (-50.31%)
+2026-06-15 22:06:03,964 —   ↓ Restoran Yusoof Dan Zakhir     Nescafe                                  4.50 → 3.00  (-33.33%)
+2026-06-15 22:06:03,964 —   ↓ Ichiban Boshi KL               Chawanmushi Rice Set                     17.90 → 14.60  (-18.44%)
+2026-06-15 22:06:03,964 —   ↓ Ippudo Ramen                   IPPUDO Gyoza 5pcs                        11.00 → 9.00  (-18.18%)
+2026-06-15 22:06:03,964 —   ✓ Failure rate 0.0% below 50% — no alert
+2026-06-15 22:06:03,969 — 
+✓  All targets completed successfully.
+2026-06-15 22:06:03,970 — 
+Done. Results in uifpi.db
+2026-06-15 22:06:45,630 — 
+UIFPI Daily Collection — 2026-06-15
+2026-06-15 22:06:45,630 — Fetching USD exchange rates …
+2026-06-15 22:06:45,631 —   ✓ Using cached USD rates (3.2h old)
+2026-06-15 22:06:45,631 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-15 22:06:45,631 — 
+--only filter 'tim ho wan' → 1 target(s)
+2026-06-15 22:06:45,631 — 
+Total targets: 1
+2026-06-15 22:06:45,632 — To scrape: 1
+
+2026-06-15 22:06:45,632 — --- Attempt 1 (1 targets) ---
+
+2026-06-15 22:06:47,387 —   Loading Tim Ho Wan (GrabFood)…
+2026-06-15 22:07:04,267 —   ✓ Tim Ho Wan: 87 items
+2026-06-15 22:07:04,553 —   sleeping 31.1s before next target
+2026-06-15 22:07:35,639 — 
+Price changes detected: 30 items across 9 restaurants
+2026-06-15 22:07:35,639 — 
+Top 5 price increases:
+2026-06-15 22:07:35,639 —   ↑ Janggut Laksa                  Curry Chicken                            7.38 → 44.91  (+508.54%)
+2026-06-15 22:07:35,639 —   ↑ Ichiban Boshi KL               Chicken Teriyaki                         18.90 → 25.90  (+37.04%)
+2026-06-15 22:07:35,640 —   ↑ Jumbo Seafood                  Open App                                 148.00 → 178.00  (+20.27%)
+2026-06-15 22:07:35,640 —   ↑ BreadTalk                      Blueberry Muffin                         3.00 → 3.50  (+16.67%)
+2026-06-15 22:07:35,640 —   ↑ Ichiban Boshi KL               Chicken Katsu Toji                       25.20 → 28.90  (+14.68%)
+2026-06-15 22:07:35,640 — 
+Top 5 price decreases:
+2026-06-15 22:07:35,640 —   ↓ Din Tai Fung                   Take-Home Treasures/冷冻食品                 44.80 → 16.89  (-62.30%)
+2026-06-15 22:07:35,640 —   ↓ Ichiban Boshi KL               Chuka Lidako                             15.90 → 7.90  (-50.31%)
+2026-06-15 22:07:35,640 —   ↓ Restoran Yusoof Dan Zakhir     Nescafe                                  4.50 → 3.00  (-33.33%)
+2026-06-15 22:07:35,640 —   ↓ Ichiban Boshi KL               Chawanmushi Rice Set                     17.90 → 14.60  (-18.44%)
+2026-06-15 22:07:35,640 —   ↓ Ippudo Ramen                   IPPUDO Gyoza 5pcs                        11.00 → 9.00  (-18.18%)
+2026-06-15 22:07:35,640 —   ✓ Failure rate 0.0% below 50% — no alert
+2026-06-15 22:07:35,644 — 
+✓  All targets completed successfully.
+2026-06-15 22:07:35,644 — 
+Done. Results in uifpi.db

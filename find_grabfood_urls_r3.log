@@ -1,0 +1,47 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+
+→ Tim Ho Wan (Singapore) …
+    'Promo'  https://food.grab.com/sg/en/restaurant/yan-lin-fang-dim-sum-%E7%84%B1%E6%9E%97%E5%9D%8A%E7%82%B9%E5%BF%83-orchard-towers-delivery/4-C7UUCUMUBEEZE6?
+    'Promo'  https://food.grab.com/sg/en/restaurant/tim-ho-wan-plaza-singapura-delivery/SGDD11583?
+    'Promo'  https://food.grab.com/sg/en/restaurant/swee-choon-express-amk-hub-delivery/4-C3AHNVKYEKTUJX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/swee-choon-tim-sum-restaurant-jalan-besar-delivery/4-CY42SA2VETAKN6?
+    'Promo'  https://food.grab.com/sg/en/restaurant/shanghai-tan-pan-fried-bun-goldhill-shopping-centre-delivery/4-C3MEVPE2LUNZRN?
+    'Promo'  https://food.grab.com/sg/en/restaurant/shanghai-tan-pan-fried-bun-321-clementi-delivery/4-C4J1G7M2VGABUA?
+    'Promo'  https://food.grab.com/sg/en/restaurant/gu-zao-ren-taiwan-porridge-changi-road-delivery/4-C6EDGN4GHCAFL2?
+    'Promo'  https://food.grab.com/sg/en/restaurant/mongkok-dim-sum-geylang-road-delivery/4-CZDUG8B2ALMVME?
+
+→ Hokkaido-ya (Singapore) …
+    'Promo'  https://food.grab.com/sg/en/restaurant/gyoza-no-ohsho-cuppage-plaza-delivery/SGDD00581?
+    'Promo'  https://food.grab.com/sg/en/restaurant/takagi-ramen-dhoby-ghaut-delivery/4-C32KDB5XTJBTTX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/hanashizuku-japanese-cuisine-cuppage-plaza-delivery/4-C2WZG7CJCEJTBE?
+    'Promo'  https://food.grab.com/sg/en/restaurant/the-ramen-house-short-street-delivery/4-CYVERJJDLX2YNX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/the-ramen-stall-north-bridge-road-delivery/4-CYVEL66URVLJTT?
+    'Promo'  https://food.grab.com/sg/en/restaurant/tsukiji-sushi-ten-cuppage-plaza-delivery/4-C6ABVYDELT3UAX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/ten-sushi-by-marusaya-the-quayside-delivery/4-CZLBVEX3FE2JPA?
+    'Promo'  https://food.grab.com/sg/en/restaurant/yen-izakaya-premium-jalan-besar-stadium-delivery/4-C2L3LACFAPJ3KE?
+
+→ Hokkaido Ya Ramen (Singapore) …
+    'Promo'  https://food.grab.com/sg/en/restaurant/gyoza-no-ohsho-cuppage-plaza-delivery/SGDD00581?
+    'Promo'  https://food.grab.com/sg/en/restaurant/takagi-ramen-dhoby-ghaut-delivery/4-C32KDB5XTJBTTX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/nightshift-bistro-bar-burlington-square-delivery/4-C2TZMF5ET74CGE?
+    'Promo'  https://food.grab.com/sg/en/restaurant/the-ramen-house-short-street-delivery/4-CYVERJJDLX2YNX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/tsukiji-sushi-ten-cuppage-plaza-delivery/4-C6ABVYDELT3UAX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/the-ramen-stall-north-bridge-road-delivery/4-CYVEL66URVLJTT?
+    'Promo'  https://food.grab.com/sg/en/restaurant/yen-izakaya-premium-jalan-besar-stadium-delivery/4-C2L3LACFAPJ3KE?
+    'Don Don Donki - Tampines One'  https://food.grab.com/sg/en/restaurant/don-don-donki-tampines-one-delivery/4-C24GCT6DRCJYGJ?
+
+→ Swee Choon (Singapore) …
+    'Promo'  https://food.grab.com/sg/en/restaurant/swee-choon-express-amk-hub-delivery/4-C3AHNVKYEKTUJX?
+    'Promo'  https://food.grab.com/sg/en/restaurant/swee-choon-tim-sum-restaurant-jalan-besar-delivery/4-CY42SA2VETAKN6?
+    'Promo'  https://food.grab.com/sg/en/restaurant/mongkok-dim-sum-geylang-road-delivery/4-CZDUG8B2ALMVME?
+    'Promo'  https://food.grab.com/sg/en/restaurant/126-dim-sum-%E6%8F%BE%E5%88%B0%E9%A3%9F-sims-avenue-delivery/4-C65TE6KULNBUG6?
+    'Promo'  https://food.grab.com/sg/en/restaurant/kimly-dim-sum-membina-court-delivery/4-CY2TLK6DVLL3NA?
+    'Promo'  https://food.grab.com/sg/en/restaurant/sum-dim-sum-jalan-besar-delivery/4-CZJFLYEXUABJCT?
+    'Promo'  https://food.grab.com/sg/en/restaurant/the-dim-sum-place-north-bridge-road-delivery/4-CYVFJYTWRPNJJN?
+    'Promo'  https://food.grab.com/sg/en/restaurant/sin-heng-kee-porridge-lorong-6-toa-payoh-delivery/4-C6XGJUL2UEEBKE?
+
+→ Swee Choon Tim Sum (Singapore) …
+    (no matches)
+
+Wrote /Users/erwenchen/Inflation-menu/candidate_grabfood_urls_r3.json
