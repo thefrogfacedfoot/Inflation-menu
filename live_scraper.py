@@ -567,16 +567,18 @@ def scrape_foodpanda(page, url, restaurant_name, sector, currency,
     except Exception as e:
         # Treat hard nav failures as access blocks — same retry semantics
         raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
-    page.wait_for_timeout(random.randint(3_000, 5_000))
+    page.wait_for_timeout(random.randint(2_000, 3_500))
     _human_mouse_jitter(page)
 
     if _looks_like_block(page):
         raise RuntimeError("ACCESS_DENIED")
 
+    # Try each selector with a short individual timeout. The first matching
+    # selector wins; the previous 15s × 4 selectors meant a full miss cost 60s.
     matched_selector = None
     for sel in FOODPANDA_SELECTORS:
         try:
-            page.wait_for_selector(sel, timeout=15_000)
+            page.wait_for_selector(sel, timeout=5_000)
             matched_selector = sel
             break
         except Exception:
@@ -633,7 +635,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
         page.goto(url, wait_until='domcontentloaded', timeout=45_000)
     except Exception as e:
         raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
-    page.wait_for_timeout(random.randint(4_000, 6_000))
+    page.wait_for_timeout(random.randint(3_000, 5_000))
     _human_mouse_jitter(page)
 
     if _looks_like_block(page):
@@ -641,23 +643,23 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
 
     if '/chain/' in url:
         try:
-            page.wait_for_selector('a[href*="/restaurant/"]', timeout=10_000)
+            page.wait_for_selector('a[href*="/restaurant/"]', timeout=8_000)
             outlet = page.query_selector('a[href*="/restaurant/"]')
             if outlet:
                 outlet.click()
-                page.wait_for_load_state('networkidle')
-                page.wait_for_timeout(2_000)
+                page.wait_for_timeout(2_500)
         except Exception as e:
             log(f"    Chain nav failed: {e}")
 
-    # Wait for React to render the menu — poll for any menu-item-shaped element.
-    for _ in range(30):
+    # Poll for menu to render — was 30 × 1s, now 12 × 500ms (6s max).
+    # With resource blocking the menu typically renders in 2-3s.
+    for _ in range(12):
         ready = page.evaluate("""() => (
             document.querySelectorAll('[class*="MenuItem"],[class*="menuItem"],[class*="dish"],button[aria-label*="Add"]').length
         )""")
         if ready and ready > 5:
             break
-        page.wait_for_timeout(1_000)
+        page.wait_for_timeout(500)
 
     page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
     page.wait_for_timeout(2_000)
@@ -881,8 +883,11 @@ def scrape_swiggy(page, url, restaurant_name, sector, currency,
     Swiggy is location-sensitive — some URLs may redirect or require setup.
     """
     log(f"  Loading {restaurant_name} (Swiggy)…")
-    page.goto(url, wait_until='networkidle', timeout=45_000)
-    page.wait_for_timeout(random.randint(4_000, 7_000))
+    try:
+        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+    except Exception as e:
+        raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
+    page.wait_for_timeout(random.randint(3_000, 5_000))
     _human_mouse_jitter(page)
 
     if _looks_like_block(page):
@@ -1038,9 +1043,11 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
             if not body or len(body) > 2_000_000:
                 return
             # Lightweight content sniff: must mention name+price-ish keys
-            head = body[:4000].decode('utf-8', errors='ignore').lower()
-            if not (('name' in head or 'item' in head or 'product' in head)
-                    and ('price' in head or 'amount' in head or 'value' in head)):
+            head = body[:8000].decode('utf-8', errors='ignore').lower()
+            if not (('name' in head or 'item' in head or 'product' in head
+                     or 'menu' in head or 'choice' in head)
+                    and ('price' in head or 'amount' in head or 'value' in head
+                         or 'cents' in head or 'pence' in head)):
                 return
             xhr_jsons.append(body.decode('utf-8', errors='ignore'))
         except Exception:
@@ -1051,8 +1058,13 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
     except Exception:
         pass
 
-    page.goto(url, wait_until='networkidle', timeout=45_000)
-    page.wait_for_timeout(random.randint(2_000, 4_000))
+    # networkidle never fires on pages with polling/long-poll — use
+    # domcontentloaded + a fixed wait for menu XHR to settle.
+    try:
+        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+    except Exception as e:
+        raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
+    page.wait_for_timeout(random.randint(6_000, 9_000))
     _human_mouse_jitter(page)
 
     if _looks_like_block(page):
@@ -1199,26 +1211,55 @@ CURRENCY_SYMBOL_REGEX = {
 
 
 def _walk_json_for_items(obj, currency, depth=0, items=None):
-    """Recursively pull name+price pairs out of a parsed JSON tree."""
+    """Recursively pull name+price pairs out of a parsed JSON tree.
+
+    Handles common price shapes:
+      "price": 12.99
+      "price": "12.99"
+      "price": {"amount": 1299, "currency": "USD"}      (minor units)
+      "prices": {"cents": 1299, "points": 0}            (Nando AU GraphQL)
+      "basePrice"/"defaultPrice"/"finalPrice"
+      "priceMonetaryFields": {...}
+    """
     if items is None:
         items = []
     if depth > 16:
         return items
     if isinstance(obj, dict):
         name = obj.get('name') or obj.get('itemName') or obj.get('title')
+
+        # Find the raw price object/value
         price = (obj.get('price') or obj.get('basePrice')
                  or obj.get('defaultPrice') or obj.get('finalPrice')
-                 or obj.get('priceMonetaryFields'))
+                 or obj.get('priceMonetaryFields')
+                 or obj.get('prices'))
+
+        # Normalise dict-shaped prices to a plain number
+        from_minor_units = False
         if isinstance(price, dict):
-            price = (price.get('unitAmount') or price.get('amount')
-                     or price.get('value'))
+            if 'cents' in price:
+                price = price.get('cents')
+                from_minor_units = True
+            elif 'pence' in price:
+                price = price.get('pence')
+                from_minor_units = True
+            else:
+                price = (price.get('unitAmount') or price.get('amount')
+                         or price.get('value'))
+                # 'amount' in minor units when paired with a 'currency' key
+                if price is not None and any(k in (obj.get('price') or {})
+                                              for k in ('currency', 'currencyCode')):
+                    from_minor_units = True
+
         if name and price is not None:
             try:
                 p = float(price)
-                # Some platforms ship price in minor units (cents/paise).
-                # Heuristic: if it looks unreasonably large for the currency,
-                # divide by 100.
-                if currency in ('USD', 'GBP', 'AUD', 'SGD', 'MYR') and p > 1000:
+                if from_minor_units:
+                    p = p / 100.0
+                # Heuristic: prices that look too large for the currency
+                # were likely shipped in minor units (cents/paise) but
+                # didn't have the explicit signal above.
+                elif currency in ('USD', 'GBP', 'AUD', 'SGD', 'MYR') and p > 1000:
                     p = p / 100.0
                 elif currency == 'INR' and p > 5000:
                     p = p / 100.0
@@ -1241,8 +1282,11 @@ def scrape_js(page, url, restaurant_name, sector, currency,
     Uber Eats, GoFood. Falls back through 5 strategies.
     """
     log(f"  Loading {restaurant_name} (js generic)…")
-    page.goto(url, wait_until='networkidle', timeout=45_000)
-    page.wait_for_timeout(random.randint(3_000, 6_000))
+    try:
+        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+    except Exception as e:
+        raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
+    page.wait_for_timeout(random.randint(3_000, 5_000))
     _human_mouse_jitter(page)
 
     if _looks_like_block(page):
@@ -1433,6 +1477,27 @@ BROWSER_LAUNCH_ARGS = [
 HEADLESS = os.environ.get('UIFPI_HEADLESS', '0') == '1'
 
 
+def _block_heavy_resources(route, request):
+    """Block images, fonts, stylesheets, media and known analytics — none of
+    them carry menu data and they account for the bulk of page weight."""
+    r_type = request.resource_type
+    if r_type in ('image', 'media', 'font', 'stylesheet'):
+        return route.abort()
+    url = request.url.lower()
+    BLOCKED_HOSTS = (
+        'google-analytics.com', 'googletagmanager.com', 'doubleclick.net',
+        'facebook.net', 'facebook.com/tr', 'connect.facebook.net',
+        'hotjar.com', 'mixpanel.com', 'segment.io', 'segment.com',
+        'newrelic.com', 'nr-data.net', 'datadoghq.com', 'sentry.io',
+        'optimizely.com', 'amplitude.com', 'fullstory.com',
+        'cdn.cookielaw.org', 'onetrust.com', 'usercentrics.eu',
+        'tvsquared.com', 'appboycdn.com', 'braze.com',
+    )
+    if any(host in url for host in BLOCKED_HOSTS):
+        return route.abort()
+    return route.continue_()
+
+
 def _new_context(browser, country):
     """Build a stealth-friendly context that matches the target country."""
     locale, tz = COUNTRY_LOCALE.get(country, ('en-US', 'UTC'))
@@ -1462,6 +1527,12 @@ def _new_context(browser, country):
         "Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4,5]});"
         "Object.defineProperty(navigator, 'languages', {get: () => ['en-US','en']});"
     )
+    # Drop heavy resources we never use (images, fonts, css, analytics).
+    # This typically cuts foodpanda / grabfood page load 40-60%.
+    try:
+        ctx.route('**/*', _block_heavy_resources)
+    except Exception:
+        pass
     return ctx
 
 
@@ -1541,8 +1612,14 @@ def _scrape_one(target, conn, today, usd_rates):
                     return count
                 except Exception as e:
                     last_error = e
-                    if isinstance(e, RuntimeError) and 'ACCESS_DENIED' in str(e):
+                    is_access_denied = (isinstance(e, RuntimeError)
+                                        and 'ACCESS_DENIED' in str(e))
+                    if is_access_denied:
                         log(f"  Bot detected on attempt {attempt}")
+                        # Akamai/Cloudflare IP block: 45s wait does not help.
+                        # Skip the inner retry and let the end-of-run pass
+                        # catch it after the longer inter-pass cooldown.
+                        raise
                     elif attempt >= SCRAPE_MAX_ATTEMPTS:
                         raise
             finally:
@@ -1562,8 +1639,11 @@ def _scrape_one(target, conn, today, usd_rates):
 # browser and SQLite connection. Default 1 (sequential). On a workstation
 # without active use, raise to 3-5 via UIFPI_CONCURRENCY for a big speedup.
 SCRAPE_CONCURRENCY = int(os.environ.get('UIFPI_CONCURRENCY', '1'))
-# Per-worker inter-target sleep range (seconds). Kept small at high concurrency.
-INTER_TARGET_DELAY = (8.0, 18.0) if SCRAPE_CONCURRENCY > 1 else (20.0, 35.0)
+# Per-worker inter-target sleep range (seconds). In parallel mode this is
+# small — Akamai/Cloudflare block by IP, not by request cadence, so making
+# requests look "human" with long random sleeps doesn't help. Sequential
+# mode keeps the original conservative spacing.
+INTER_TARGET_DELAY = (3.0, 7.0) if SCRAPE_CONCURRENCY > 1 else (20.0, 35.0)
 
 
 def _worker_run(target, today, usd_rates):
@@ -2164,62 +2244,69 @@ TARGETS = [
      # "https://www.chipotle.com/menu",
      # "formal", "direct", "USD", "United States"),
 
-    ("Taco Bell",
-     "https://www.tacobell.com/menu",
-     "formal", "direct", "USD", "United States"),
+    # Removed Taco Bell: no JSON or DOM prices (React shell, requires location)
+    # ("Taco Bell",
+     # "https://www.tacobell.com/menu",
+     # "formal", "direct", "USD", "United States"),
 
-    ("Subway USA",
-     "https://www.subway.com/en-US/MenuNutrition/Menu",
-     "formal", "direct", "USD", "United States"),
+    # Removed Subway USA: no priced JSON or DOM prices
+    # ("Subway USA",
+     # "https://www.subway.com/en-US/MenuNutrition/Menu",
+     # "formal", "direct", "USD", "United States"),
 
     # [verifier:DEAD] status=404 title='404 | Panera Bread'
     # ("Panera Bread",
      # "https://www.panerabread.com/en-us/menu/whole-menu.html",
      # "formal", "direct", "USD", "United States"),
 
-    ("Shake Shack",
-     "https://www.shakeshack.com/food-drink/",
-     "formal", "direct", "USD", "United States"),
+    # Removed Shake Shack: only firebase remote-config has "price" keys
+    # (app configuration), no menu prices in JSON or DOM.
 
     # [verifier:DEAD] status=404 title='Page not found | Five Guys'
     # ("Five Guys",
      # "https://www.fiveguys.com/flavors/our-menu",
      # "formal", "direct", "USD", "United States"),
 
-    ("Chick-fil-A",
-     "https://www.chick-fil-a.com/menu",
-     "formal", "direct", "USD", "United States"),
+    # Removed Chick-fil-A: no priced JSON or DOM prices
+    # ("Chick-fil-A",
+     # "https://www.chick-fil-a.com/menu",
+     # "formal", "direct", "USD", "United States"),
 
-    ("Wingstop",
-     "https://www.wingstop.com/menu",
-     "formal", "direct", "USD", "United States"),
+    # Removed Wingstop: 16 JSON responses, 0 with prices
+    # ("Wingstop",
+     # "https://www.wingstop.com/menu",
+     # "formal", "direct", "USD", "United States"),
 
     # --- Informal ---
-    ("In-N-Out Burger",
-     "https://www.in-n-out.com/menu",
-     "informal", "direct", "USD", "United States"),
+    # Removed In-N-Out Burger: 0 JSON, 0 DOM prices
+    # ("In-N-Out Burger",
+     # "https://www.in-n-out.com/menu",
+     # "informal", "direct", "USD", "United States"),
 
     # [verifier:DEAD] status=406 title='Service unavailable'
     # ("Whataburger",
      # "https://whataburger.com/menu",
      # "informal", "direct", "USD", "United States"),
 
-    ("Raising Cane's",
-     "https://www.raisingcanes.com/menu",
-     "informal", "direct", "USD", "United States"),
+    # Removed Raising Cane's: 0 JSON, 0 DOM prices
+    # ("Raising Cane's",
+     # "https://www.raisingcanes.com/menu",
+     # "informal", "direct", "USD", "United States"),
 
-    ("Jack in the Box",
-     "https://www.jackinthebox.com/menu",
-     "informal", "direct", "USD", "United States"),
+    # Removed Jack in the Box: 22 JSON, 0 with prices
+    # ("Jack in the Box",
+     # "https://www.jackinthebox.com/menu",
+     # "informal", "direct", "USD", "United States"),
 
     # [verifier:DEAD] status=404 title='404 Not Found'
     # ("Del Taco",
      # "https://www.deltaco.com/menus",
      # "informal", "direct", "USD", "United States"),
 
-    ("Fatburger",
-     "https://fatburger.com/menu/",
-     "informal", "direct", "USD", "United States"),
+    # Removed Fatburger: 0 JSON, 0 DOM prices
+    # ("Fatburger",
+     # "https://fatburger.com/menu/",
+     # "informal", "direct", "USD", "United States"),
 
     # Removed Denny's: cloudflare blocked (HTTP 403 "Attention Required").
 
@@ -2228,9 +2315,10 @@ TARGETS = [
      # "https://www.wafflehouse.com/menu/",
      # "informal", "direct", "USD", "United States"),
 
-    ("Steak 'n Shake",
-     "https://www.steaknshake.com/menu",
-     "informal", "direct", "USD", "United States"),
+    # Removed Steak 'n Shake: 9 JSON, 0 with prices
+    # ("Steak 'n Shake",
+     # "https://www.steaknshake.com/menu",
+     # "informal", "direct", "USD", "United States"),
 
     # --- Extended US targets — REMOVED ---
     # All 11 DoorDash NYC URLs failed: Cloudflare "Just a moment..." challenge.
@@ -2247,13 +2335,13 @@ TARGETS = [
      # "https://www.mcdonalds.com/gb/en-gb/eat/fullmenu.html",
      # "formal", "direct", "GBP", "United Kingdom"),
 
-    ("Nando's UK",
-     "https://www.nandos.co.uk/food/menu",
-     "formal", "direct", "GBP", "United Kingdom"),
+    # Removed Nando's UK: page-data JSON has 6434 "price" keys but ALL are null
+    # (UK Nando's adds prices only after store selection).
 
-    ("Pret A Manger",
-     "https://www.pret.co.uk/en-gb/menu",
-     "formal", "direct", "GBP", "United Kingdom"),
+    # Removed Pret A Manger: 0 JSON, 0 DOM prices
+    # ("Pret A Manger",
+     # "https://www.pret.co.uk/en-gb/menu",
+     # "formal", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title=''
     # ("Wagamama",
@@ -2264,9 +2352,10 @@ TARGETS = [
      "https://leon.co/pages/menu",
      "formal", "direct", "GBP", "United Kingdom"),
 
-    ("Itsu",
-     "https://www.itsu.com/menu/",
-     "formal", "direct", "GBP", "United Kingdom"),
+    # Removed Itsu: 0 JSON, 0 DOM prices
+    # ("Itsu",
+     # "https://www.itsu.com/menu/",
+     # "formal", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page not found | Five Guys'
     # ("Five Guys UK",
@@ -2294,18 +2383,20 @@ TARGETS = [
      # "https://www.flatironsteak.co.uk/menu/",
      # "informal", "direct", "GBP", "United Kingdom"),
 
-    ("Honest Burgers",
-     "https://www.honestburgers.co.uk/food/burgers/",
-     "informal", "direct", "GBP", "United Kingdom"),
+    # Removed Honest Burgers: 7 JSON, 0 with prices
+    # ("Honest Burgers",
+     # "https://www.honestburgers.co.uk/food/burgers/",
+     # "informal", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Not Found'
     # ("Patty & Bun",
      # "https://www.pattyandbun.co.uk/our-food/",
      # "informal", "direct", "GBP", "United Kingdom"),
 
-    ("Bao London",
-     "https://baolondon.com/food/",
-     "informal", "direct", "GBP", "United Kingdom"),
+    # Removed Bao London: 8 JSON, 0 with prices
+    # ("Bao London",
+     # "https://baolondon.com/food/",
+     # "informal", "direct", "GBP", "United Kingdom"),
 
     ("Bleecker Burger",
      "https://bleecker.co.uk/menu/",
@@ -2382,18 +2473,20 @@ TARGETS = [
     # ==========================================================================
 
     # --- Formal ---
-    ("McDonald's Australia",
-     "https://mcdonalds.com.au/menu",
-     "formal", "direct", "AUD", "Australia"),
+    # Removed McDonald's Australia: no JSON or DOM prices
+    # ("McDonald's Australia",
+     # "https://mcdonalds.com.au/menu",
+     # "formal", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='Page not found - GYG Mexican Kitchen USA'
     # ("Guzman y Gomez",
      # "https://www.guzmanygomez.com/menu/",
      # "formal", "direct", "AUD", "Australia"),
 
-    ("Grill'd",
-     "https://www.grilld.com.au/menu",
-     "formal", "direct", "AUD", "Australia"),
+    # Removed Grill'd: 2 JSON, 0 with prices
+    # ("Grill'd",
+     # "https://www.grilld.com.au/menu",
+     # "formal", "direct", "AUD", "Australia"),
 
     ("Nando's Australia",
      "https://www.nandos.com.au/menu",
@@ -2418,9 +2511,10 @@ TARGETS = [
      # "https://www.boostjuice.com.au/menu",
      # "formal", "direct", "AUD", "Australia"),
 
-    ("Roll'd",
-     "https://rolld.com.au/menu/",
-     "formal", "direct", "AUD", "Australia"),
+    # Removed Roll'd: 2 JSON, 0 with prices
+    # ("Roll'd",
+     # "https://rolld.com.au/menu/",
+     # "formal", "direct", "AUD", "Australia"),
 
     # --- Informal ---
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='Food Menus')
@@ -2463,9 +2557,10 @@ TARGETS = [
      # "https://www.fondamexican.com.au/menus/",
      # "informal", "direct", "AUD", "Australia"),
 
-    ("Harry's Café de Wheels",
-     "https://www.harryscafedewheels.com.au/menu/",
-     "informal", "direct", "AUD", "Australia"),
+    # Removed Harry's Café de Wheels: 0 JSON, 0 DOM prices
+    # ("Harry's Café de Wheels",
+     # "https://www.harryscafedewheels.com.au/menu/",
+     # "informal", "direct", "AUD", "Australia"),
 
     # --- Extended Australia targets (Uber Eats Sydney) ---
     # Removed: all 11 Uber Eats Sydney URLs used placeholder store IDs
