@@ -197,34 +197,130 @@ def build_monthly_prices(df: pd.DataFrame) -> pd.DataFrame:
     return agg
 
 
-def build_mean_price_index(df: pd.DataFrame, country: str) -> list[dict]:
+_MIN_STABLE_ITEMS = 5
+_MIN_MONTHS_PER_ITEM = 2
+
+
+def build_stable_basket_index(df: pd.DataFrame, country: str) -> list[dict]:
     """
-    Fallback: simple mean-price index for a country.
-    Used when matched-model finds no consecutive-month overlaps.
-    Computes mean price_usd per month, normalised to base=100 at earliest month.
+    Fallback when matched-model finds no consecutive-month overlap.
+
+    Instead of comparing cross-item *mean prices* (which conflates basket
+    churn with inflation and previously produced indices like Singapore
+    712 / UK 1047 in 2026-06), this builds a smaller "stable basket" of
+    items that appear in at least _MIN_MONTHS_PER_ITEM month observations,
+    then for each such item computes:
+
+        relative_t = price_t / price_earliest
+
+    The monthly index for a sector is the geometric mean of all stable-item
+    relatives present in that month, × 100. Formal and informal sub-indices
+    are computed separately and combined using INFORMAL_WEIGHTS.
+
+    When the stable basket has < _MIN_STABLE_ITEMS items, rows are still
+    emitted but the index columns are NULL with a coverage_note explaining
+    why — better an honest "insufficient data" than a fabricated ratio.
     """
     c_df = df[df["country"] == country].copy()
-    monthly_mean = (
-        c_df.groupby("year_month")["price_usd"].mean().sort_index()
-    )
-    if monthly_mean.empty or monthly_mean.iloc[0] == 0:
+    if c_df.empty:
         return []
 
-    base_price = monthly_mean.iloc[0]
+    item_key = ["restaurant_name", "item_name"]
+    month_counts = c_df.groupby(item_key)["year_month"].nunique()
+    stable_keys = month_counts[month_counts >= _MIN_MONTHS_PER_ITEM].index
+
+    # Helper: emit insufficient-data rows so the dashboard sees the gap
+    # rather than silently dropping the country.
+    def _insufficient(note: str) -> list[dict]:
+        rows = []
+        for ym, grp in c_df.groupby("year_month"):
+            rows.append({
+                "country":        country,
+                "year_month":     ym,
+                "formal_index":   None,
+                "informal_index": None,
+                "uifpi_combined": None,
+                "item_count":     int(len(grp)),
+                "coverage_note":  note,
+            })
+        return rows
+
+    if len(stable_keys) < _MIN_STABLE_ITEMS:
+        return _insufficient(
+            f"insufficient stable basket "
+            f"({len(stable_keys)} items in ≥{_MIN_MONTHS_PER_ITEM} months, "
+            f"need {_MIN_STABLE_ITEMS})"
+        )
+
+    # Restrict to stable items
+    stable_mask = c_df.set_index(item_key).index.isin(set(stable_keys))
+    stable_df = c_df[stable_mask].copy()
+
+    # Base price per item = price at its earliest month
+    stable_df = stable_df.sort_values("year_month")
+    base = (stable_df.groupby(item_key, as_index=False)
+                     .agg(base_price_usd=("price_usd", "first")))
+    stable_df = stable_df.merge(base, on=item_key, how="left")
+    stable_df = stable_df[stable_df["base_price_usd"] > 0].copy()
+    stable_df["relative"] = stable_df["price_usd"] / stable_df["base_price_usd"]
+
     informal_weight = INFORMAL_WEIGHTS.get(country, 0.40)
-    rows = []
-    for ym, mean_price in monthly_mean.items():
-        idx_val = round((mean_price / base_price) * 100.0, 4)
+    n_stable = len(stable_keys)
+    coverage_note = (f"stable-basket fallback "
+                     f"({n_stable} items in ≥{_MIN_MONTHS_PER_ITEM} months)")
+
+    def _gmean(values: pd.Series) -> Optional[float]:
+        pos = values[values > 0]
+        if pos.empty:
+            return None
+        return float(np.exp(np.log(pos).mean()) * 100.0)
+
+    # Iterate over every month the country has data in, not just months
+    # with stable-basket coverage. Months with no stable-basket items
+    # emit NULL index columns + a "no coverage this month" note so the
+    # dashboard shows the gap honestly.
+    rows: list[dict] = []
+    for ym, orig_grp in c_df.groupby("year_month"):
+        grp = stable_df[stable_df["year_month"] == ym]
+
+        if grp.empty:
+            note = (f"{coverage_note} — no stable-basket items in this month "
+                    f"(new items haven't appeared in ≥{_MIN_MONTHS_PER_ITEM} "
+                    f"monthly observations yet)")
+            rows.append({
+                "country":        country,
+                "year_month":     ym,
+                "formal_index":   None,
+                "informal_index": None,
+                "uifpi_combined": None,
+                "item_count":     int(len(orig_grp)),
+                "coverage_note":  note,
+            })
+            continue
+
+        formal_idx   = _gmean(grp.loc[grp["sector"] == "formal",   "relative"])
+        informal_idx = _gmean(grp.loc[grp["sector"] == "informal", "relative"])
+
+        if formal_idx is not None and informal_idx is not None:
+            combined = informal_weight * informal_idx + (1 - informal_weight) * formal_idx
+        else:
+            combined = formal_idx if formal_idx is not None else informal_idx
+
         rows.append({
             "country":        country,
             "year_month":     ym,
-            "formal_index":   idx_val,
-            "informal_index": idx_val,
-            "uifpi_combined": idx_val,
-            "item_count":     int(c_df[c_df["year_month"] == ym].shape[0]),
-            "coverage_note":  "mean-price fallback (no matched-model overlap)",
+            "formal_index":   round(formal_idx, 4)   if formal_idx   is not None else None,
+            "informal_index": round(informal_idx, 4) if informal_idx is not None else None,
+            "uifpi_combined": round(combined, 4)     if combined     is not None else None,
+            "item_count":     int(len(orig_grp)),
+            "coverage_note":  coverage_note,
         })
     return rows
+
+
+# Alias kept for any external caller still using the old name; the
+# implementation has changed.
+build_mean_price_index = build_stable_basket_index
 
 
 def compute_price_relatives(monthly: pd.DataFrame,
@@ -477,12 +573,16 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT) -> None:
             all_index_rows.extend(irows)
             print(f"  {country}: {len(irows)} monthly observations (matched-model)")
         else:
-            # No consecutive-month overlap — fall back to mean-price index
-            fallback = build_mean_price_index(df, country)
+            # No consecutive-month overlap in matched-model — fall back
+            # to the stable-basket index (each item compared to its own
+            # earliest price). When the stable basket itself is too sparse
+            # the rows are emitted with NULL index values so the dashboard
+            # sees "insufficient data" rather than silently dropping.
+            fallback = build_stable_basket_index(df, country)
             if fallback:
                 all_index_rows.extend(fallback)
-                print(f"  {country}: {len(fallback)} monthly observations "
-                      f"(mean-price fallback — no matched-model overlap)")
+                note = fallback[0]["coverage_note"]
+                print(f"  {country}: {len(fallback)} monthly observations ({note})")
             else:
                 print(f"  {country}: insufficient data — skipped")
 

@@ -74,10 +74,33 @@ Tim Ho Wan, Swee Choon Tim Sum. Hokkaido-ya removed (not on GrabFood SG).
 
 ### Caveats
 
-- 2,480 unique items remain unclassified in `nlp_results`. The June 2026
-  index rows therefore fall back to the mean-price comparison and produce
-  inflated YoY numbers (Singapore 712, Malaysia 884, UK 1,047). Treat as
-  research-grade until `nlp_pipeline.py` is run on the new items.
+- 2,480 unique items remain unclassified in `nlp_results`. Run
+  `nlp_pipeline.py` to categorise them so the matched-model index
+  populates `category_relatives` for these items.
+
+### Index methodology fix
+
+`index_builder.build_mean_price_index` previously compared cross-item
+monthly mean prices when matched-model found no overlap, which produced
+inflated indices (e.g. Singapore 712, UK 1,047 in 2026-06) that
+conflated basket churn with price change. Replaced by
+`build_stable_basket_index`:
+
+- Restrict to items appearing in ≥2 monthly observations.
+- For each stable item, relative = current_price / earliest_price.
+- Monthly index = geometric mean of relatives × 100, computed separately
+  for formal/informal sectors and combined via `INFORMAL_WEIGHTS`.
+- When the stable basket has < 5 items, the row is still emitted but the
+  index columns are NULL with `coverage_note = "insufficient stable
+  basket"` so the dashboard renders a gap instead of a fabricated number.
+- Months with no stable-basket items also emit NULL.
+
+After the fix, 2026-06 indices come out either honest (Thailand 100,
+Indonesia 100) or NULL (Singapore, UK, Malaysia, Australia, US, India —
+their newly-scraped items haven't appeared in a prior month yet). YoY
+columns are correspondingly null. `dashboard_data.build_latest_values`
+now also prefers the most recent row with an actual value over the
+freshest-but-null row.
 
 ## 2026-06-13 — Wire up monthly CPI for Malaysia + UK
 

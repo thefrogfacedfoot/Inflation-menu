@@ -209,7 +209,11 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict) -> dict:
         if group.empty:
             continue
 
-        last = group.iloc[-1]
+        # Prefer the most recent row that actually has a uifpi value over a
+        # newer-but-null row (e.g. when this month's basket hasn't matured
+        # enough for the stable-basket fallback to produce an index).
+        with_values = group[group["uifpi_combined"].notna()]
+        last = with_values.iloc[-1] if not with_values.empty else group.iloc[-1]
 
         # YoY change in UIFPI. Two guards:
         #   1. Look up the row from exactly 12 calendar months prior by

@@ -1,9 +1,7 @@
 country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through_formal,pass_through_significant,r_squared,note
-Australia,13,0.415,2,2,False,-0.0006,False,0.0001,
-India,18,0.8106,2,3,False,0.0111,False,0.0738,
+Australia,10,,,1,False,0.0,False,0.0, granger_failed:The x values include a column with constant values and so the test statistic cannot be computed.
+India,15,,,1,False,0.0,False,-0.0, granger_failed:The x values include a column with constant values and so the test statistic cannot be computed.
 Indonesia,1,,,,False,,False,,"insufficient_data (have 1, need 8)"
-Malaysia,12,0.2636,1,2,False,0.0026,False,0.0394,
-Singapore,12,0.0922,2,2,False,0.0171,False,0.1172,
+Malaysia,8,,,,False,,False,,insufficient_data_after_differencing (7 obs)
 Thailand,0,,,,False,,,,no_overlap
-United Kingdom,11,0.2702,1,2,False,0.0511,True,0.8016,
-United States,11,0.5858,1,1,False,0.0059,False,0.0392,
+United States,8,,,,False,,False,,insufficient_data_after_differencing (7 obs)

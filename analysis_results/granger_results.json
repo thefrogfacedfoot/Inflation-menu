@@ -1,25 +1,25 @@
 {
   "Australia": {
-    "n_obs": 13,
+    "n_obs": 10,
     "granger_significant": false,
-    "granger_p_value": 0.415,
-    "lead_months": 2,
-    "aic_lag": 2,
-    "pass_through_formal": -0.0006,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0,
     "pass_through_significant": false,
-    "r_squared": 0.0001,
-    "note": ""
+    "r_squared": 0.0,
+    "note": " granger_failed:The x values include a column with constant values and so the test statistic cannot be computed."
   },
   "India": {
-    "n_obs": 18,
+    "n_obs": 15,
     "granger_significant": false,
-    "granger_p_value": 0.8106,
-    "lead_months": 2,
-    "aic_lag": 3,
-    "pass_through_formal": 0.0111,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0,
     "pass_through_significant": false,
-    "r_squared": 0.0738,
-    "note": ""
+    "r_squared": -0.0,
+    "note": " granger_failed:The x values include a column with constant values and so the test statistic cannot be computed."
   },
   "Indonesia": {
     "n_obs": 1,
@@ -33,52 +33,30 @@
     "note": "insufficient_data (have 1, need 8)"
   },
   "Malaysia": {
-    "n_obs": 12,
+    "n_obs": 8,
     "granger_significant": false,
-    "granger_p_value": 0.2636,
-    "lead_months": 1,
-    "aic_lag": 2,
-    "pass_through_formal": 0.0026,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
     "pass_through_significant": false,
-    "r_squared": 0.0394,
-    "note": ""
-  },
-  "Singapore": {
-    "n_obs": 12,
-    "granger_significant": false,
-    "granger_p_value": 0.0922,
-    "lead_months": 2,
-    "aic_lag": 2,
-    "pass_through_formal": 0.0171,
-    "pass_through_significant": false,
-    "r_squared": 0.1172,
-    "note": ""
+    "r_squared": null,
+    "note": "insufficient_data_after_differencing (7 obs)"
   },
   "Thailand": {
     "n_obs": 0,
     "note": "no_overlap",
     "granger_significant": false
   },
-  "United Kingdom": {
-    "n_obs": 11,
-    "granger_significant": false,
-    "granger_p_value": 0.2702,
-    "lead_months": 1,
-    "aic_lag": 2,
-    "pass_through_formal": 0.0511,
-    "pass_through_significant": true,
-    "r_squared": 0.8016,
-    "note": ""
-  },
   "United States": {
-    "n_obs": 11,
+    "n_obs": 8,
     "granger_significant": false,
-    "granger_p_value": 0.5858,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": 0.0059,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
     "pass_through_significant": false,
-    "r_squared": 0.0392,
-    "note": ""
+    "r_squared": null,
+    "note": "insufficient_data_after_differencing (7 obs)"
   }
 }
