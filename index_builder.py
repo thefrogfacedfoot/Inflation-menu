@@ -26,6 +26,16 @@ import pandas as pd
 DB_PATH = "uifpi.db"
 CSV_OUT = "uifpi_index.csv"
 
+# Per-(country, month) cap on rows used for index construction.
+# Methodological choice — not data deletion. The raw uifpi.db keeps every
+# scraped row; this cap only governs index aggregation so that a country
+# with one extremely dense month (e.g. Singapore in 2026-06 with ~5k rows)
+# doesn't dominate the cross-country index. With the cap, every country
+# contributes equally per month regardless of scrape volume.
+MAX_ROWS_PER_COUNTRY = 300
+# Fixed RNG seed so the sampled index is reproducible across runs.
+SAMPLE_SEED = 42
+
 # Approximate informal sector share of food expenditure by country.
 # Source: author estimates from World Bank household survey data.
 # Update these when real survey weights become available.
@@ -136,6 +146,17 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
     df["collection_date"] = pd.to_datetime(df["collection_date"], errors="coerce")
     df = df.dropna(subset=["collection_date"])
     df["year_month"] = df["collection_date"].dt.to_period("M").astype(str)
+
+    # Cap rows per (country, year_month) so dense months don't dominate the
+    # cross-country index. Deterministic via SAMPLE_SEED.
+    before_rows = len(df)
+    df = (df.groupby(["country", "year_month"], group_keys=False)
+            .apply(lambda g: g.sample(n=min(len(g), MAX_ROWS_PER_COUNTRY),
+                                      random_state=SAMPLE_SEED)))
+    capped = before_rows - len(df)
+    if capped > 0:
+        print(f"  Sampled to {MAX_ROWS_PER_COUNTRY}/country/month for index "
+              f"construction (dropped {capped:,} excess rows; raw DB unchanged).")
 
     return df
 

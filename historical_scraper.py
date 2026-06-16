@@ -193,7 +193,7 @@ def _period_windows(from_year, to_year, period):
 
 def get_cdx_snapshots_distributed(url_pattern, per_period=3,
                                   from_year=2018, to_year=2025,
-                                  period='quarter'):
+                                  period='quarter', max_snapshots=None):
     """Time-distributed CDX query.
 
     Instead of one big query (which returns whatever Wayback indexed densest,
@@ -244,6 +244,9 @@ def get_cdx_snapshots_distributed(url_pattern, per_period=3,
                 break
         if rows:
             print(f"      {start[:6]}: kept {taken}/{len(rows)} (cum {len(out)})")
+        if max_snapshots is not None and len(out) >= max_snapshots:
+            print(f"      Reached --max-snapshots {max_snapshots}, stopping CDX walk.")
+            break
         time.sleep(CDX_DELAY)
     return out
 
@@ -431,7 +434,8 @@ def extract_prices(html, country, config):
 # ── Main collection loop ──────────────────────────────────────────────────────
 
 def run(countries=None, distributed=False, per_period=3,
-        period='quarter', from_year=2018, to_year=2025, rescan=False):
+        period='quarter', from_year=2018, to_year=2025, rescan=False,
+        max_snapshots=None):
     conn = init_db()
     progress = load_progress()
 
@@ -468,9 +472,11 @@ def run(countries=None, distributed=False, per_period=3,
                 snapshots = get_cdx_snapshots_distributed(
                     cfg['pattern'], per_period=per_period,
                     from_year=from_year, to_year=to_year, period=period,
+                    max_snapshots=max_snapshots,
                 )
             else:
-                snapshots = get_cdx_snapshots(cfg['pattern'])
+                limit = max_snapshots or SNAPSHOTS_PER_COUNTRY
+                snapshots = get_cdx_snapshots(cfg['pattern'], limit=limit)
             print(f"  Found {len(snapshots)} snapshots")
             progress[country] = {
                 'snapshots': snapshots,
@@ -569,6 +575,9 @@ if __name__ == '__main__':
     ap.add_argument('--rescan', action='store_true',
                     help='Re-query CDX even for countries marked complete; '
                          'already-stored URLs are still skipped at fetch time')
+    ap.add_argument('--max-snapshots', type=int, default=None,
+                    help='Cap on total snapshots per country (applies to both '
+                         'distributed and legacy modes)')
     args = ap.parse_args()
     run(args.countries or None,
         distributed=args.distributed,
@@ -576,4 +585,5 @@ if __name__ == '__main__':
         period=args.period,
         from_year=args.from_year,
         to_year=args.to_year,
-        rescan=args.rescan)
+        rescan=args.rescan,
+        max_snapshots=args.max_snapshots)
