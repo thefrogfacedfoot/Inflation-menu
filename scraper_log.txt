@@ -3550,3 +3550,192 @@ Top 5 price decreases:
 2026-06-16 11:27:27,072 —    - Village Park Nasi Lemak
 2026-06-16 11:27:27,073 — 
 Done. Results in uifpi.db
+2026-06-16 11:35:23,608 — 
+UIFPI Daily Collection — 2026-06-16
+2026-06-16 11:35:23,608 — Fetching USD exchange rates …
+2026-06-16 11:35:23,609 —   ✓ Using cached USD rates (16.7h old)
+2026-06-16 11:35:23,609 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-16 11:35:23,609 — 
+--only filter 'ichiban boshi' → 1 target(s)
+2026-06-16 11:35:23,609 — 
+Total targets: 1
+2026-06-16 11:35:23,610 — To scrape: 1
+
+2026-06-16 11:35:23,610 — --- Attempt 1 (1 targets) ---
+
+2026-06-16 11:35:25,196 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 11:35:33,705 —   Bot detected on attempt 1
+2026-06-16 11:35:33,913 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 11:35:33,913 —   sleeping 9.7s before next target
+2026-06-16 11:35:43,650 — 
+1 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:35:53,659 — --- Attempt 2 (1 targets) ---
+
+2026-06-16 11:35:55,217 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 11:36:02,072 —   Bot detected on attempt 1
+2026-06-16 11:36:02,287 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 11:36:02,287 —   sleeping 9.9s before next target
+2026-06-16 11:36:12,208 — 
+1 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:36:22,210 — --- Attempt 3 (1 targets) ---
+
+2026-06-16 11:36:23,769 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 11:36:29,176 —   Bot detected on attempt 1
+2026-06-16 11:36:29,392 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 11:36:29,392 —   sleeping 9.8s before next target
+2026-06-16 11:36:39,282 — 
+Price changes detected: 30 items across 15 restaurants
+2026-06-16 11:36:39,282 — 
+Top 5 price increases:
+2026-06-16 11:36:39,282 —   ↑ Dragon-i                       其他 Others                                3.90 → 58.68  (+1404.62%)
+2026-06-16 11:36:39,282 —   ↑ Ippudo Ramen                   Beverages                                4.50 → 19.00  (+322.22%)
+2026-06-16 11:36:39,283 —   ↑ Din Tai Fung KL                Condiments 调味品                           17.92 → 69.44  (+287.50%)
+2026-06-16 11:36:39,283 —   ↑ Seoul Garden HotPot            Kimchi Retail Pack                       7.00 → 24.60  (+251.43%)
+2026-06-16 11:36:39,283 —   ↑ Nando's KL                     Nandos At Home                           18.77 → 56.42  (+200.59%)
+2026-06-16 11:36:39,283 — 
+Top 5 price decreases:
+2026-06-16 11:36:39,283 —   ↓ Swee Choon Tim Sum             Others / 其他                              61.40 → 1.50  (-97.56%)
+2026-06-16 11:36:39,283 —   ↓ Tim Ho Wan                     Premium Tea                              9.30 → 3.50  (-62.37%)
+2026-06-16 11:36:39,283 —   ↓ Sushi Tei                      Donmono                                  25.30 → 12.30  (-51.38%)
+2026-06-16 11:36:39,283 —   ↓ BreadTalk                      DRINKS TOP-UP                            3.60 → 2.90  (-19.44%)
+2026-06-16 11:36:39,283 —   ↓ Din Tai Fung                   Merchandise/商品                           19.62 → 16.89  (-13.91%)
+2026-06-16 11:36:39,284 —   ⚠  Failure rate 100.0% over threshold but GMAIL_USER/GMAIL_APP_PASSWORD not configured — skipping alert
+2026-06-16 11:36:39,289 — 
+⚠  Still failed after 3 attempts:
+2026-06-16 11:36:39,290 —    - Ichiban Boshi
+2026-06-16 11:36:39,290 — 
+Done. Results in uifpi.db
+2026-06-16 11:37:24,647 — 
+UIFPI Daily Collection — 2026-06-16
+2026-06-16 11:37:24,648 — Fetching USD exchange rates …
+2026-06-16 11:37:24,648 —   ✓ Using cached USD rates (16.7h old)
+2026-06-16 11:37:24,648 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-16 11:37:24,648 — 
+--only filter 'pizza express london (deliveroo)' → 1 target(s)
+2026-06-16 11:37:24,648 — 
+Total targets: 1
+2026-06-16 11:37:24,648 — To scrape: 1
+
+2026-06-16 11:37:24,648 — --- Attempt 1 (1 targets) ---
+
+2026-06-16 11:37:26,254 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:37:36,581 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:37:36,770 —   waiting 45s before retry 2/2 …
+2026-06-16 11:38:23,322 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:38:34,654 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:38:34,845 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:38:34,845 —   sleeping 6.4s before next target
+2026-06-16 11:38:41,289 — 
+1 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:38:51,296 — --- Attempt 2 (1 targets) ---
+
+2026-06-16 11:38:52,849 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:39:02,969 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:39:03,166 —   waiting 45s before retry 2/2 …
+2026-06-16 11:39:49,711 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:39:59,331 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:39:59,534 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:39:59,535 —   sleeping 5.1s before next target
+2026-06-16 11:40:04,651 — 
+1 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:40:14,657 — --- Attempt 3 (1 targets) ---
+
+2026-06-16 11:40:16,170 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:40:27,730 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:40:27,925 —   waiting 45s before retry 2/2 …
+2026-06-16 11:41:14,474 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:41:24,909 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:41:25,091 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:41:25,091 —   sleeping 6.5s before next target
+2026-06-16 11:41:31,604 — 
+Price changes detected: 30 items across 15 restaurants
+2026-06-16 11:41:31,605 — 
+Top 5 price increases:
+2026-06-16 11:41:31,605 —   ↑ Dragon-i                       其他 Others                                3.90 → 58.68  (+1404.62%)
+2026-06-16 11:41:31,605 —   ↑ Ippudo Ramen                   Beverages                                4.50 → 19.00  (+322.22%)
+2026-06-16 11:41:31,605 —   ↑ Din Tai Fung KL                Condiments 调味品                           17.92 → 69.44  (+287.50%)
+2026-06-16 11:41:31,605 —   ↑ Seoul Garden HotPot            Kimchi Retail Pack                       7.00 → 24.60  (+251.43%)
+2026-06-16 11:41:31,605 —   ↑ Nando's KL                     Nandos At Home                           18.77 → 56.42  (+200.59%)
+2026-06-16 11:41:31,605 — 
+Top 5 price decreases:
+2026-06-16 11:41:31,605 —   ↓ Swee Choon Tim Sum             Others / 其他                              61.40 → 1.50  (-97.56%)
+2026-06-16 11:41:31,605 —   ↓ Tim Ho Wan                     Premium Tea                              9.30 → 3.50  (-62.37%)
+2026-06-16 11:41:31,605 —   ↓ Sushi Tei                      Donmono                                  25.30 → 12.30  (-51.38%)
+2026-06-16 11:41:31,605 —   ↓ BreadTalk                      DRINKS TOP-UP                            3.60 → 2.90  (-19.44%)
+2026-06-16 11:41:31,605 —   ↓ Din Tai Fung                   Merchandise/商品                           19.62 → 16.89  (-13.91%)
+2026-06-16 11:41:31,606 —   ⚠  Failure rate 100.0% over threshold but GMAIL_USER/GMAIL_APP_PASSWORD not configured — skipping alert
+2026-06-16 11:41:31,613 — 
+⚠  Still failed after 3 attempts:
+2026-06-16 11:41:31,613 —    - Pizza Express London (Deliveroo)
+2026-06-16 11:41:31,613 — 
+Done. Results in uifpi.db
+2026-06-16 11:45:32,750 — 
+UIFPI Daily Collection — 2026-06-16
+2026-06-16 11:45:32,750 — Fetching USD exchange rates …
+2026-06-16 11:45:32,750 —   ✓ Using cached USD rates (16.9h old)
+2026-06-16 11:45:32,750 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-16 11:45:32,750 — 
+--only filter 'pizza express london (deliveroo)' → 1 target(s)
+2026-06-16 11:45:32,750 — 
+Total targets: 1
+2026-06-16 11:45:32,750 — To scrape: 1
+
+2026-06-16 11:45:32,750 — --- Attempt 1 (1 targets) ---
+
+2026-06-16 11:45:34,389 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:45:46,427 —     js generic returned 0 items. title='Takeaway delivery in Soho - Order with Deliveroo'. HTML 2596445 chars saved to debug_page.html. Body head: "Skip to:ContentFooter\nDeliveroo\nDelivery · Now\nSoho\n\nLog in\n\nSign up\n\nNow\nSoho\nChange\nDelivery\nPickup\nFilters\n\nCouldn't load filters\n\nHomeRestaurantsGroceriesShoppingOffersPickupReservations\n\nSupermarket\n\nBreakfast\n\nCoffee\n\nReservations\n\nBakery\n\nBurgers\n\nHalal\n\nSandwiches\n\nAll offers\n\nHealthy\n\nBuy 1 get 1 free\n\nAlcohol\n\nPizza\n\nChicken\n\nChinese\n\nIndian\n\nSushi\n\nDesserts\n\nPharmacy\n\nFast delivery\n\nMea"
+2026-06-16 11:45:46,427 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:45:46,638 —   waiting 45s before retry 2/2 …
+2026-06-16 11:46:33,248 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:46:45,612 —     js generic returned 0 items. title='Takeaway delivery in Soho - Order with Deliveroo'. HTML 2605064 chars saved to debug_page.html. Body head: "Skip to:ContentFooter\nDeliveroo\nDelivery · Now\nSoho\n\nLog in\n\nSign up\n\nNow\nSoho\nChange\nDelivery\nPickup\nFilters\n\nCouldn't load filters\n\nHomeRestaurantsGroceriesShoppingOffersPickupReservations\n\nSupermarket\n\nBreakfast\n\nCoffee\n\nReservations\n\nBakery\n\nBurgers\n\nHalal\n\nSandwiches\n\nAll offers\n\nHealthy\n\nBuy 1 get 1 free\n\nAlcohol\n\nPizza\n\nChicken\n\nChinese\n\nIndian\n\nSushi\n\nDesserts\n\nPharmacy\n\nFast delivery\n\nMea"
+2026-06-16 11:46:45,612 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:46:45,807 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:46:45,808 —   sleeping 8.9s before next target
+2026-06-16 11:46:54,724 — 
+1 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:47:04,734 — --- Attempt 2 (1 targets) ---
+
+2026-06-16 11:47:06,291 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:47:17,923 —     js generic returned 0 items. title='Takeaway delivery in Soho - Order with Deliveroo'. HTML 1916234 chars saved to debug_page.html. Body head: "Skip to:ContentFooter\nDeliveroo\nDelivery · Now\nSoho\n\nSign up or log in\n\nAccount\n\nNow\nSoho\nChange\nDelivery\nPickup\nFilters\n\nCouldn't load filters\n\nHomeRestaurantsGroceriesShoppingOffersPickupReservations\n\nSupermarket\n\nBreakfast\n\nCoffee\n\nReservations\n\nBakery\n\nBurgers\n\nHalal\n\nSandwiches\n\nAll offers\n\nHealthy\n\nBuy 1 get 1 free\n\nAlcohol\n\nPizza\n\nChicken\n\nChinese\n\nIndian\n\nSushi\n\nDesserts\n\nPharmacy\n\nFast de"
+2026-06-16 11:47:17,924 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:47:18,131 —   waiting 45s before retry 2/2 …
+2026-06-16 11:48:04,699 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:48:15,978 —     js generic returned 0 items. title='Takeaway delivery in Soho - Order with Deliveroo'. HTML 1929446 chars saved to debug_page.html. Body head: "Skip to:ContentFooter\nDeliveroo\nDelivery · Now\nSoho\n\nLog in\n\nSign up\n\nNow\nSoho\nChange\nDelivery\nPickup\nFilters\n\nCouldn't load filters\n\nHomeRestaurantsGroceriesShoppingOffersPickupReservations\n\nSupermarket\n\nBreakfast\n\nCoffee\n\nReservations\n\nBakery\n\nBurgers\n\nHalal\n\nSandwiches\n\nAll offers\n\nHealthy\n\nBuy 1 get 1 free\n\nAlcohol\n\nPizza\n\nChicken\n\nChinese\n\nIndian\n\nSushi\n\nDesserts\n\nPharmacy\n\nFast delivery\n\nMea"
+2026-06-16 11:48:15,978 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:48:16,173 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:48:16,173 —   sleeping 8.0s before next target
+2026-06-16 11:48:24,137 — 
+1 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:48:34,143 — --- Attempt 3 (1 targets) ---
+
+2026-06-16 11:48:35,788 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:48:47,844 —     js generic returned 0 items. title='Takeaway delivery in Soho - Order with Deliveroo'. HTML 2579603 chars saved to debug_page.html. Body head: "Skip to:ContentFooter\nDeliveroo\nDelivery · Now\nSoho\n\nSign up or log in\n\nAccount\n\nNow\nSoho\nChange\nDelivery\nPickup\nFilters\n\nCouldn't load filters\n\nHomeRestaurantsGroceriesShoppingOffersPickupReservations\n\nSupermarket\n\nBreakfast\n\nCoffee\n\nReservations\n\nBakery\n\nBurgers\n\nHalal\n\nSandwiches\n\nAll offers\n\nHealthy\n\nBuy 1 get 1 free\n\nAlcohol\n\nPizza\n\nChicken\n\nChinese\n\nIndian\n\nSushi\n\nDesserts\n\nPharmacy\n\nFast de"
+2026-06-16 11:48:47,845 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:48:48,048 —   waiting 45s before retry 2/2 …
+2026-06-16 11:49:34,661 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:49:47,828 —     js generic returned 0 items. title='Takeaway delivery in Soho - Order with Deliveroo'. HTML 1921235 chars saved to debug_page.html. Body head: "Skip to:ContentFooter\nDeliveroo\nDelivery · Now\nSoho\n\nSign up or log in\n\nAccount\n\nNow\nSoho\nChange\nDelivery\nPickup\nFilters\n\nCouldn't load filters\n\nHomeRestaurantsGroceriesShoppingOffersPickupReservations\n\nSupermarket\n\nBreakfast\n\nCoffee\n\nReservations\n\nBakery\n\nBurgers\n\nHalal\n\nSandwiches\n\nAll offers\n\nHealthy\n\nBuy 1 get 1 free\n\nAlcohol\n\nPizza\n\nChicken\n\nChinese\n\nIndian\n\nSushi\n\nDesserts\n\nPharmacy\n\nFast de"
+2026-06-16 11:49:47,829 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:49:48,042 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:49:48,042 —   sleeping 6.4s before next target
+2026-06-16 11:49:54,506 — 
+Price changes detected: 30 items across 15 restaurants
+2026-06-16 11:49:54,507 — 
+Top 5 price increases:
+2026-06-16 11:49:54,507 —   ↑ Dragon-i                       其他 Others                                3.90 → 58.68  (+1404.62%)
+2026-06-16 11:49:54,507 —   ↑ Ippudo Ramen                   Beverages                                4.50 → 19.00  (+322.22%)
+2026-06-16 11:49:54,507 —   ↑ Din Tai Fung KL                Condiments 调味品                           17.92 → 69.44  (+287.50%)
+2026-06-16 11:49:54,507 —   ↑ Seoul Garden HotPot            Kimchi Retail Pack                       7.00 → 24.60  (+251.43%)
+2026-06-16 11:49:54,507 —   ↑ Nando's KL                     Nandos At Home                           18.77 → 56.42  (+200.59%)
+2026-06-16 11:49:54,508 — 
+Top 5 price decreases:
+2026-06-16 11:49:54,508 —   ↓ Swee Choon Tim Sum             Others / 其他                              61.40 → 1.50  (-97.56%)
+2026-06-16 11:49:54,508 —   ↓ Tim Ho Wan                     Premium Tea                              9.30 → 3.50  (-62.37%)
+2026-06-16 11:49:54,508 —   ↓ Sushi Tei                      Donmono                                  25.30 → 12.30  (-51.38%)
+2026-06-16 11:49:54,508 —   ↓ BreadTalk                      DRINKS TOP-UP                            3.60 → 2.90  (-19.44%)
+2026-06-16 11:49:54,508 —   ↓ Din Tai Fung                   Merchandise/商品                           19.62 → 16.89  (-13.91%)
+2026-06-16 11:49:54,508 —   ⚠  Failure rate 100.0% over threshold but GMAIL_USER/GMAIL_APP_PASSWORD not configured — skipping alert
+2026-06-16 11:49:54,519 — 
+⚠  Still failed after 3 attempts:
+2026-06-16 11:49:54,520 —    - Pizza Express London (Deliveroo)
+2026-06-16 11:49:54,520 — 
+Done. Results in uifpi.db

@@ -1444,6 +1444,28 @@ def scrape_js(page, url, restaurant_name, sector, currency,
                     currency, country, sector, 'js', today, url, usd_rates)
         count += 1
     conn.commit()
+
+    if count == 0:
+        try:
+            title = page.title()
+        except Exception:
+            title = ''
+        try:
+            html = page.content()
+            with open('debug_page.html', 'w', encoding='utf-8') as fh:
+                fh.write(html)
+            try:
+                body_head = page.evaluate(
+                    "() => (document.body && document.body.innerText || '').slice(0, 2000)"
+                )
+            except Exception:
+                body_head = ''
+            log(f"    js generic returned 0 items. title={title!r}. "
+                f"HTML {len(html)} chars saved to debug_page.html. "
+                f"Body head: {body_head[:400]!r}")
+        except Exception as e:
+            log(f"    js generic returned 0 items. title={title!r}. dump failed: {e}")
+
     log(f"  ✓ {restaurant_name}: {count} items")
     return count
 
@@ -1925,9 +1947,13 @@ TARGETS = [
 
 
     # --- Informal ---
-    ("Village Park Nasi Lemak",
-     "https://food.grab.com/my/en/restaurant/village-park-restaurant-delivery/MYDD05660",
-     "informal", "grabfood", "MYR", "Malaysia"),
+    # Removed Village Park Nasi Lemak: GrabFood listing is soft-disabled
+    # (page title is "[INACTV: COCO] Village Park Restaurant"). Menu JSON
+    # still ships in the HTML but the visible UI shows "Uh Oh... We Couldn't
+    # Find What You're Looking For". Needs a fresh GrabFood/foodpanda URL.
+    # ("Village Park Nasi Lemak",
+    #  "https://food.grab.com/my/en/restaurant/village-park-restaurant-delivery/MYDD05660",
+    #  "informal", "grabfood", "MYR", "Malaysia"),
 
     ("Restoran Yusoof Dan Zakhir",
      "https://www.foodpanda.my/restaurant/y9sn/restoran-yusoof-and-zakhir-sdn-bhd",
@@ -2435,9 +2461,13 @@ TARGETS = [
      # "https://deliveroo.co.uk/menu/london/soho/pret-a-manger-piccadilly",
      # "formal", "deliveroo", "GBP", "United Kingdom"),
 
-    ("Pizza Express London (Deliveroo)",
-     "https://deliveroo.co.uk/menu/london/soho/pizza-express-dean-street",
-     "formal", "deliveroo", "GBP", "United Kingdom"),
+    # Removed Pizza Express London (Deliveroo): URL redirects to the Soho
+    # area listing page (title "Takeaway delivery in Soho - Order with
+    # Deliveroo"), not the restaurant menu. Branch is no longer on Deliveroo
+    # at this slug. Needs a fresh URL or alternative source.
+    # ("Pizza Express London (Deliveroo)",
+    #  "https://deliveroo.co.uk/menu/london/soho/pizza-express-dean-street",
+    #  "formal", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Itsu London (Deliveroo)",
