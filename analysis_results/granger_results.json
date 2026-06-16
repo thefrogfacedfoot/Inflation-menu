@@ -1,5 +1,49 @@
 {
   "Australia": {
+    "n_obs": 23,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 1,
+    "pass_through_formal": -0.0,
+    "pass_through_significant": false,
+    "r_squared": 0.6991,
+    "note": " granger_failed:The x values include a column with constant values and so the test statistic cannot be computed."
+  },
+  "India": {
+    "n_obs": 24,
+    "granger_significant": false,
+    "granger_p_value": 0.2333,
+    "lead_months": 1,
+    "aic_lag": 4,
+    "pass_through_formal": -0.0707,
+    "pass_through_significant": false,
+    "r_squared": 0.9086,
+    "note": ""
+  },
+  "Indonesia": {
+    "n_obs": 5,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "note": "insufficient_data (have 5, need 8)"
+  },
+  "Malaysia": {
+    "n_obs": 21,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0,
+    "pass_through_significant": false,
+    "r_squared": 0.4134,
+    "note": " granger_failed:The x values include a column with constant values and so the test statistic cannot be computed."
+  },
+  "Singapore": {
     "n_obs": 10,
     "granger_significant": false,
     "granger_p_value": null,
@@ -10,53 +54,37 @@
     "r_squared": 0.0,
     "note": " granger_failed:The x values include a column with constant values and so the test statistic cannot be computed."
   },
-  "India": {
-    "n_obs": 15,
+  "Thailand": {
+    "n_obs": 25,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
     "aic_lag": 1,
-    "pass_through_formal": 0.0,
+    "pass_through_formal": -0.0,
     "pass_through_significant": false,
-    "r_squared": -0.0,
+    "r_squared": 0.6355,
     "note": " granger_failed:The x values include a column with constant values and so the test statistic cannot be computed."
   },
-  "Indonesia": {
-    "n_obs": 1,
+  "United Kingdom": {
+    "n_obs": 39,
     "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
-    "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data (have 1, need 8)"
-  },
-  "Malaysia": {
-    "n_obs": 8,
-    "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
-    "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data_after_differencing (7 obs)"
-  },
-  "Thailand": {
-    "n_obs": 0,
-    "note": "no_overlap",
-    "granger_significant": false
+    "granger_p_value": 0.1923,
+    "lead_months": 1,
+    "aic_lag": 1,
+    "pass_through_formal": -0.3817,
+    "pass_through_significant": true,
+    "r_squared": 0.42,
+    "note": ""
   },
   "United States": {
-    "n_obs": 8,
+    "n_obs": 35,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
+    "aic_lag": 1,
+    "pass_through_formal": -0.0,
     "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data_after_differencing (7 obs)"
+    "r_squared": 0.2775,
+    "note": " granger_failed:The x values include a column with constant values and so the test statistic cannot be computed."
   }
 }

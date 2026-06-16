@@ -218,7 +218,7 @@ def build_monthly_prices(df: pd.DataFrame) -> pd.DataFrame:
     return agg
 
 
-_MIN_STABLE_ITEMS = 5
+_MIN_STABLE_ITEMS = 3
 _MIN_MONTHS_PER_ITEM = 2
 
 
