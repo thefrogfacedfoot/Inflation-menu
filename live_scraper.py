@@ -1636,14 +1636,12 @@ def _scrape_one(target, conn, today, usd_rates):
 
 
 # Number of parallel scraping workers. Each worker holds its own Playwright
-# browser and SQLite connection. Default 1 (sequential). On a workstation
-# without active use, raise to 3-5 via UIFPI_CONCURRENCY for a big speedup.
-SCRAPE_CONCURRENCY = int(os.environ.get('UIFPI_CONCURRENCY', '1'))
-# Per-worker inter-target sleep range (seconds). In parallel mode this is
-# small — Akamai/Cloudflare block by IP, not by request cadence, so making
-# requests look "human" with long random sleeps doesn't help. Sequential
-# mode keeps the original conservative spacing.
-INTER_TARGET_DELAY = (3.0, 7.0) if SCRAPE_CONCURRENCY > 1 else (20.0, 35.0)
+# browser and SQLite connection. Default 3 (three concurrent tabs).
+# Override with UIFPI_CONCURRENCY.
+SCRAPE_CONCURRENCY = int(os.environ.get('UIFPI_CONCURRENCY', '3'))
+# Per-worker inter-target sleep range (seconds). Akamai/Cloudflare block
+# by IP, not by request cadence, so long human-looking sleeps don't help.
+INTER_TARGET_DELAY = (5.0, 10.0)
 
 
 def _worker_run(target, today, usd_rates):

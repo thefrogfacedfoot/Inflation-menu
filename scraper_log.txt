@@ -2889,3 +2889,664 @@ Top 5 price decreases:
 ✓  All targets completed successfully.
 2026-06-15 22:38:59,468 — 
 Done. Results in uifpi.db
+2026-06-16 10:14:21,507 — 
+UIFPI Daily Collection — 2026-06-16
+2026-06-16 10:14:21,508 — Fetching USD exchange rates …
+2026-06-16 10:14:21,509 —   ✓ Using cached USD rates (15.4h old)
+2026-06-16 10:14:21,509 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-16 10:14:21,509 — 
+Total targets: 54
+2026-06-16 10:14:21,532 — To scrape: 54
+
+2026-06-16 10:14:21,532 — --- Attempt 1 (54 targets) ---
+
+2026-06-16 10:14:25,009 —   Loading Rubato (foodpanda)…
+2026-06-16 10:14:31,559 —   Bot detected on attempt 1
+2026-06-16 10:14:31,887 —   ✗  Rubato: ACCESS_DENIED
+2026-06-16 10:14:31,888 —   sleeping 34.8s before next target
+2026-06-16 10:15:09,472 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 10:15:20,125 —   Bot detected on attempt 1
+2026-06-16 10:15:20,532 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 10:15:20,533 —   sleeping 31.6s before next target
+2026-06-16 10:15:54,481 —   Loading Din Tai Fung (GrabFood)…
+2026-06-16 10:16:15,464 —   ✓ Din Tai Fung: 134 items
+2026-06-16 10:16:15,842 —   sleeping 34.2s before next target
+2026-06-16 10:16:52,570 —   Loading Sushi Tei (GrabFood)…
+2026-06-16 10:17:13,518 —   ✓ Sushi Tei: 200 items
+2026-06-16 10:17:13,952 —   sleeping 23.8s before next target
+2026-06-16 10:17:40,028 —   Loading Jumbo Seafood (GrabFood)…
+2026-06-16 10:17:58,471 —   ✓ Jumbo Seafood: 60 items
+2026-06-16 10:17:58,800 —   sleeping 22.5s before next target
+2026-06-16 10:18:23,612 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-16 10:18:32,813 —   Bot detected on attempt 1
+2026-06-16 10:18:33,131 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-16 10:18:33,131 —   sleeping 29.8s before next target
+2026-06-16 10:19:05,432 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-16 10:19:12,840 —   Bot detected on attempt 1
+2026-06-16 10:19:13,206 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-16 10:19:13,206 —   sleeping 25.1s before next target
+2026-06-16 10:19:40,568 —   Loading Putien (foodpanda)…
+2026-06-16 10:19:46,600 —   Bot detected on attempt 1
+2026-06-16 10:19:46,878 —   ✗  Putien: ACCESS_DENIED
+2026-06-16 10:19:46,879 —   sleeping 21.3s before next target
+2026-06-16 10:20:10,472 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-16 10:20:17,316 —   Bot detected on attempt 1
+2026-06-16 10:20:17,684 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-16 10:20:17,684 —   sleeping 27.9s before next target
+2026-06-16 10:20:47,849 —   Loading Tim Ho Wan (GrabFood)…
+2026-06-16 10:21:08,887 —   ✓ Tim Ho Wan: 90 items
+2026-06-16 10:21:09,210 —   sleeping 32.9s before next target
+2026-06-16 10:21:44,477 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-16 10:21:54,287 —   Bot detected on attempt 1
+2026-06-16 10:21:54,623 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-16 10:21:54,623 —   sleeping 28.0s before next target
+2026-06-16 10:22:24,830 —   Loading Pepper Lunch (foodpanda)…
+2026-06-16 10:22:33,467 —   Bot detected on attempt 1
+2026-06-16 10:22:33,783 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-16 10:22:33,783 —   sleeping 34.6s before next target
+2026-06-16 10:23:10,687 —   Loading Ippudo Ramen (GrabFood)…
+2026-06-16 10:23:31,509 —   ✓ Ippudo Ramen: 28 items
+2026-06-16 10:23:31,781 —   sleeping 32.4s before next target
+2026-06-16 10:24:06,642 —   Loading Seoul Garden HotPot (GrabFood)…
+2026-06-16 10:24:26,179 —   ✓ Seoul Garden HotPot: 103 items
+2026-06-16 10:24:26,506 —   sleeping 25.6s before next target
+2026-06-16 10:24:54,466 —   Loading BreadTalk (GrabFood)…
+2026-06-16 10:25:14,673 —   ✓ BreadTalk: 111 items
+2026-06-16 10:25:15,032 —   sleeping 32.5s before next target
+2026-06-16 10:25:49,896 —   Loading Toast Box (foodpanda)…
+2026-06-16 10:25:58,151 —   Bot detected on attempt 1
+2026-06-16 10:25:58,472 —   ✗  Toast Box: ACCESS_DENIED
+2026-06-16 10:25:58,472 —   sleeping 24.3s before next target
+2026-06-16 10:26:25,190 —   Loading Old Chang Kee (foodpanda)…
+2026-06-16 10:26:31,628 —   Bot detected on attempt 1
+2026-06-16 10:26:31,906 —   ✗  Old Chang Kee: ACCESS_DENIED
+2026-06-16 10:26:31,906 —   sleeping 23.5s before next target
+2026-06-16 10:26:57,755 —   Loading Crystal Jade GO (foodpanda)…
+2026-06-16 10:27:04,267 —   Bot detected on attempt 1
+2026-06-16 10:27:04,517 —   ✗  Crystal Jade GO: ACCESS_DENIED
+2026-06-16 10:27:04,519 —   sleeping 21.2s before next target
+2026-06-16 10:27:28,170 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+2026-06-16 10:27:34,068 —   Bot detected on attempt 1
+2026-06-16 10:27:34,326 —   ✗  Song Fa Bak Kut Teh: ACCESS_DENIED
+2026-06-16 10:27:34,326 —   sleeping 35.0s before next target
+2026-06-16 10:28:11,637 —   Loading Hawker Chan (GrabFood)…
+2026-06-16 10:28:31,211 —   ✓ Hawker Chan: 34 items
+2026-06-16 10:28:31,538 —   sleeping 29.9s before next target
+2026-06-16 10:29:03,877 —   Loading A Noodle Story (foodpanda)…
+2026-06-16 10:29:30,930 —     Saved first 5000 chars of HTML to debug_page.html
+2026-06-16 10:29:31,381 —   waiting 45s before retry 2/2 …
+2026-06-16 10:30:18,812 —   Loading A Noodle Story (foodpanda)…
+2026-06-16 10:30:46,379 —     Saved first 5000 chars of HTML to debug_page.html
+2026-06-16 10:30:46,742 —   ✗  A Noodle Story: No Foodpanda selector matched
+2026-06-16 10:30:46,743 —   sleeping 26.7s before next target
+2026-06-16 10:31:15,833 —   Loading 328 Katong Laksa (foodpanda)…
+2026-06-16 10:31:22,456 —   Bot detected on attempt 1
+2026-06-16 10:31:22,689 —   ✗  328 Katong Laksa: ACCESS_DENIED
+2026-06-16 10:31:22,689 —   sleeping 27.6s before next target
+2026-06-16 10:31:52,867 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-16 10:32:01,251 —   Bot detected on attempt 1
+2026-06-16 10:32:01,518 —   ✗  Crave Nasi Lemak: ACCESS_DENIED
+2026-06-16 10:32:01,519 —   sleeping 25.5s before next target
+2026-06-16 10:32:29,242 —   Loading 28 Fried Kway Teow (GrabFood)…
+2026-06-16 10:32:48,968 —   ✓ 28 Fried Kway Teow: 10 items
+2026-06-16 10:32:49,255 —   sleeping 30.1s before next target
+2026-06-16 10:33:21,833 —   Loading Tai Wah Pork Noodles (foodpanda)…
+2026-06-16 10:33:29,005 —   Bot detected on attempt 1
+2026-06-16 10:33:29,246 —   ✗  Tai Wah Pork Noodles: ACCESS_DENIED
+2026-06-16 10:33:29,247 —   sleeping 31.8s before next target
+2026-06-16 10:34:03,340 —   Loading Janggut Laksa (foodpanda)…
+2026-06-16 10:34:11,399 —   Bot detected on attempt 1
+2026-06-16 10:34:11,692 —   ✗  Janggut Laksa: ACCESS_DENIED
+2026-06-16 10:34:11,692 —   sleeping 22.4s before next target
+2026-06-16 10:34:36,430 —   Loading Nam Kee Chicken Rice (foodpanda)…
+2026-06-16 10:34:46,034 —   Bot detected on attempt 1
+2026-06-16 10:34:46,319 —   ✗  Nam Kee Chicken Rice: ACCESS_DENIED
+2026-06-16 10:34:46,319 —   sleeping 30.8s before next target
+2026-06-16 10:35:19,546 —   Loading Swee Choon Tim Sum (GrabFood)…
+2026-06-16 10:35:37,986 —   ✓ Swee Choon Tim Sum: 114 items
+2026-06-16 10:35:38,271 —   sleeping 21.8s before next target
+2026-06-16 10:36:02,466 —   Loading Killiney Kopitiam (foodpanda)…
+2026-06-16 10:36:11,589 —   Bot detected on attempt 1
+2026-06-16 10:36:11,875 —   ✗  Killiney Kopitiam: ACCESS_DENIED
+2026-06-16 10:36:11,876 —   sleeping 23.6s before next target
+2026-06-16 10:36:37,848 —   Loading Din Tai Fung KL (GrabFood)…
+2026-06-16 10:36:53,842 —   ✓ Din Tai Fung KL: 185 items
+2026-06-16 10:36:54,131 —   sleeping 23.5s before next target
+2026-06-16 10:37:20,011 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-16 10:37:49,679 —     Saved first 5000 chars of HTML to debug_page.html
+2026-06-16 10:37:50,062 —   waiting 45s before retry 2/2 …
+2026-06-16 10:38:37,446 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-16 10:38:44,329 —   Bot detected on attempt 2
+2026-06-16 10:38:44,647 —   ✗  Ichiban Boshi KL: ACCESS_DENIED
+2026-06-16 10:38:44,648 —   sleeping 33.5s before next target
+2026-06-16 10:39:20,478 —   Loading Pepper Lunch KL (foodpanda)…
+2026-06-16 10:39:30,026 —   Bot detected on attempt 1
+2026-06-16 10:39:30,347 —   ✗  Pepper Lunch KL: ACCESS_DENIED
+2026-06-16 10:39:30,347 —   sleeping 28.2s before next target
+2026-06-16 10:40:00,930 —   Loading Ippudo KL (GrabFood)…
+2026-06-16 10:40:20,815 —   ✓ Ippudo KL: 46 items
+2026-06-16 10:40:21,149 —   sleeping 26.4s before next target
+2026-06-16 10:40:50,007 —   Loading OldTown White Coffee (foodpanda)…
+2026-06-16 10:40:55,715 —   Bot detected on attempt 1
+2026-06-16 10:40:55,960 —   ✗  OldTown White Coffee: ACCESS_DENIED
+2026-06-16 10:40:55,960 —   sleeping 30.3s before next target
+2026-06-16 10:41:28,417 —   Loading Nando's KL (GrabFood)…
+2026-06-16 10:41:50,834 —   ✓ Nando's KL: 104 items
+2026-06-16 10:41:51,142 —   sleeping 34.7s before next target
+2026-06-16 10:42:28,255 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 10:42:54,002 —     GrabFood returned 0 items. title='[INACTV: COCO] Village Park Restaurant ⭐ 4.6'. HTML 162621 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-16 10:42:54,003 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 10:42:54,474 —   waiting 45s before retry 2/2 …
+2026-06-16 10:43:41,939 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 10:43:56,947 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 173180 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-16 10:43:56,947 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 10:43:57,164 —   ✗  Village Park Nasi Lemak: 0 items scraped — page may not have loaded
+2026-06-16 10:43:57,165 —   sleeping 20.6s before next target
+2026-06-16 10:44:20,021 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+2026-06-16 10:44:26,560 —   Bot detected on attempt 1
+2026-06-16 10:44:26,797 —   ✗  Restoran Yusoof Dan Zakhir: ACCESS_DENIED
+2026-06-16 10:44:26,797 —   sleeping 27.4s before next target
+2026-06-16 10:44:56,565 —   Loading Ah Weng Koh Hainan Tea (GrabFood)…
+2026-06-16 10:45:11,264 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 173305 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-16 10:45:11,264 —   ✓ Ah Weng Koh Hainan Tea: 0 items
+2026-06-16 10:45:11,497 —   waiting 45s before retry 2/2 …
+2026-06-16 10:45:58,858 —   Loading Ah Weng Koh Hainan Tea (GrabFood)…
+2026-06-16 10:46:18,697 —   ✓ Ah Weng Koh Hainan Tea: 65 items
+2026-06-16 10:46:18,966 —   sleeping 29.1s before next target
+2026-06-16 10:46:50,432 —   Loading Dragon-i (GrabFood)…
+2026-06-16 10:47:03,762 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 173222 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-16 10:47:03,762 —   ✓ Dragon-i: 0 items
+2026-06-16 10:47:03,961 —   waiting 45s before retry 2/2 …
+2026-06-16 10:47:51,326 —   Loading Dragon-i (GrabFood)…
+2026-06-16 10:48:10,967 —   ✓ Dragon-i: 114 items
+2026-06-16 10:48:11,235 —   sleeping 31.2s before next target
+2026-06-16 10:48:44,643 —   Loading Kluang Rail Coffee (foodpanda)…
+2026-06-16 10:48:52,183 —   Bot detected on attempt 1
+2026-06-16 10:48:52,438 —   ✗  Kluang Rail Coffee: ACCESS_DENIED
+2026-06-16 10:48:52,438 —   sleeping 24.5s before next target
+2026-06-16 10:49:19,252 —   Loading Kim Lian Kee (foodpanda)…
+2026-06-16 10:49:28,064 —   Bot detected on attempt 1
+2026-06-16 10:49:28,364 —   ✗  Kim Lian Kee: ACCESS_DENIED
+2026-06-16 10:49:28,365 —   sleeping 30.1s before next target
+2026-06-16 10:50:00,864 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+2026-06-16 10:50:07,696 —   Bot detected on attempt 1
+2026-06-16 10:50:07,969 —   ✗  Hameed Pata Mee Sotong: ACCESS_DENIED
+2026-06-16 10:50:07,970 —   sleeping 32.0s before next target
+2026-06-16 10:50:42,302 —   Loading Nasi Kandar Pelita (foodpanda)…
+2026-06-16 10:50:51,835 —   Bot detected on attempt 1
+2026-06-16 10:50:52,122 —   ✗  Nasi Kandar Pelita: ACCESS_DENIED
+2026-06-16 10:50:52,122 —   sleeping 33.9s before next target
+2026-06-16 10:51:28,438 —   Loading Jerung Char Koay Teow (foodpanda)…
+2026-06-16 10:51:37,648 —   Bot detected on attempt 1
+2026-06-16 10:51:37,957 —   ✗  Jerung Char Koay Teow: ACCESS_DENIED
+2026-06-16 10:51:37,957 —   sleeping 35.0s before next target
+2026-06-16 10:52:15,376 —   Loading Family Seafood (foodpanda)…
+2026-06-16 10:52:22,712 —   Bot detected on attempt 1
+2026-06-16 10:52:22,937 —   ✗  Family Seafood: ACCESS_DENIED
+2026-06-16 10:52:22,937 —   sleeping 29.9s before next target
+2026-06-16 10:52:55,253 —   Loading Leon (direct)…
+2026-06-16 10:53:06,244 —   ✓ Leon: 3 items
+2026-06-16 10:53:06,476 —   sleeping 27.0s before next target
+2026-06-16 10:53:35,856 —   Loading Bleecker Burger (direct)…
+2026-06-16 10:53:46,278 —   ✓ Bleecker Burger: 20 items
+2026-06-16 10:53:46,542 —   sleeping 34.9s before next target
+2026-06-16 10:54:23,890 —   Loading Hoppers (direct)…
+2026-06-16 10:54:32,064 —     captured 3 XHR JSON responses
+2026-06-16 10:54:32,068 —     XHR yielded 12 candidate items
+2026-06-16 10:54:32,078 —   ✓ Hoppers: 12 items
+2026-06-16 10:54:32,406 —   sleeping 28.7s before next target
+2026-06-16 10:55:03,852 —   Loading Nando's London (Deliveroo) (js generic)…
+2026-06-16 10:55:19,765 —   ✓ Nando's London (Deliveroo): 137 items
+2026-06-16 10:55:20,083 —   sleeping 31.1s before next target
+2026-06-16 10:55:54,337 —   Loading Wagamama London (Deliveroo) (js generic)…
+2026-06-16 10:56:07,838 —   ✓ Wagamama London (Deliveroo): 107 items
+2026-06-16 10:56:08,175 —   sleeping 21.9s before next target
+2026-06-16 10:56:32,559 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 10:56:46,333 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 10:56:46,600 —   waiting 45s before retry 2/2 …
+2026-06-16 10:57:34,121 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 10:57:47,306 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 10:57:47,553 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 10:57:47,554 —   sleeping 31.2s before next target
+2026-06-16 10:58:21,379 —   Loading Tayyabs Whitechapel (Deliveroo) (js generic)…
+2026-06-16 10:58:34,203 —   ✓ Tayyabs Whitechapel (Deliveroo): 78 items
+2026-06-16 10:58:34,491 —   sleeping 25.5s before next target
+2026-06-16 10:59:02,500 —   Loading Nando's Australia (direct)…
+2026-06-16 10:59:12,269 —   ✓ Nando's Australia: 0 items
+2026-06-16 10:59:12,512 —   waiting 45s before retry 2/2 …
+2026-06-16 10:59:59,912 —   Loading Nando's Australia (direct)…
+2026-06-16 11:00:09,534 —   ✓ Nando's Australia: 0 items
+2026-06-16 11:00:09,770 —   ✗  Nando's Australia: 0 items scraped — page may not have loaded
+2026-06-16 11:00:09,771 —   sleeping 26.0s before next target
+2026-06-16 11:00:38,087 —   Loading Oporto (direct)…
+2026-06-16 11:00:46,769 —     captured 5 XHR JSON responses
+2026-06-16 11:00:46,783 —   ✓ Oporto: 1 items
+2026-06-16 11:00:47,048 —   sleeping 24.4s before next target
+2026-06-16 11:01:11,425 — 
+32 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:01:21,428 — --- Attempt 2 (32 targets) ---
+
+2026-06-16 11:01:23,869 —   Loading Rubato (foodpanda)…
+2026-06-16 11:01:33,458 —   Bot detected on attempt 1
+2026-06-16 11:01:33,786 —   ✗  Rubato: ACCESS_DENIED
+2026-06-16 11:01:33,787 —   sleeping 25.5s before next target
+2026-06-16 11:02:01,809 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 11:02:08,838 —   Bot detected on attempt 1
+2026-06-16 11:02:09,127 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 11:02:09,127 —   sleeping 30.7s before next target
+2026-06-16 11:02:42,339 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-16 11:03:11,024 —     Saved first 5000 chars of HTML to debug_page.html
+2026-06-16 11:03:11,388 —   waiting 45s before retry 2/2 …
+2026-06-16 11:03:58,842 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-16 11:04:04,992 —   Bot detected on attempt 2
+2026-06-16 11:04:05,280 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-16 11:04:05,280 —   sleeping 34.9s before next target
+2026-06-16 11:04:42,582 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-16 11:04:49,409 —   Bot detected on attempt 1
+2026-06-16 11:04:49,686 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-16 11:04:49,686 —   sleeping 33.0s before next target
+2026-06-16 11:05:25,135 —   Loading Putien (foodpanda)…
+2026-06-16 11:05:32,876 —   Bot detected on attempt 1
+2026-06-16 11:05:33,149 —   ✗  Putien: ACCESS_DENIED
+2026-06-16 11:05:33,150 —   sleeping 30.4s before next target
+2026-06-16 11:06:05,896 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-16 11:06:14,111 —   Bot detected on attempt 1
+2026-06-16 11:06:14,413 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-16 11:06:14,413 —   sleeping 33.6s before next target
+2026-06-16 11:06:50,434 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-16 11:06:59,585 —   Bot detected on attempt 1
+2026-06-16 11:06:59,925 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-16 11:06:59,925 —   sleeping 31.0s before next target
+2026-06-16 11:07:33,431 —   Loading Pepper Lunch (foodpanda)…
+2026-06-16 11:07:39,529 —   Bot detected on attempt 1
+2026-06-16 11:07:39,788 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-16 11:07:39,789 —   sleeping 26.9s before next target
+2026-06-16 11:08:09,373 —   Loading Toast Box (foodpanda)…
+2026-06-16 11:12:32,133 — 
+UIFPI Daily Collection — 2026-06-16
+2026-06-16 11:12:32,134 — Fetching USD exchange rates …
+2026-06-16 11:12:32,134 —   ✓ Using cached USD rates (16.3h old)
+2026-06-16 11:12:32,134 —   Rates loaded: SGD=1.28, MYR=4.06, IDR=17831.64, THB=32.66
+2026-06-16 11:12:32,134 — 
+Total targets: 54
+2026-06-16 11:12:32,148 — Already scraped today: 22 — skipping
+2026-06-16 11:12:32,148 — To scrape: 32
+
+2026-06-16 11:12:32,149 — --- Attempt 1 (32 targets) ---
+
+2026-06-16 11:12:32,151 —   Parallel mode: 3 workers
+2026-06-16 11:12:42,702 —   Loading Rubato (foodpanda)…
+2026-06-16 11:12:42,795 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-16 11:12:45,871 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 11:12:53,374 —   Bot detected on attempt 1
+2026-06-16 11:12:53,409 —   Bot detected on attempt 1
+2026-06-16 11:12:53,939 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-16 11:12:54,049 —   ✗  Rubato: ACCESS_DENIED
+2026-06-16 11:12:55,277 —   Bot detected on attempt 1
+2026-06-16 11:12:55,506 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 11:13:01,927 —   Loading Putien (foodpanda)…
+2026-06-16 11:13:04,873 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-16 11:13:07,640 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-16 11:13:09,751 —   Bot detected on attempt 1
+2026-06-16 11:13:10,646 —   ✗  Putien: ACCESS_DENIED
+2026-06-16 11:13:12,539 —   Bot detected on attempt 1
+2026-06-16 11:13:13,019 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-16 11:13:14,561 —   Bot detected on attempt 1
+2026-06-16 11:13:14,769 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-16 11:13:19,145 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-16 11:13:24,346 —   Loading Pepper Lunch (foodpanda)…
+2026-06-16 11:13:26,092 —   Loading Toast Box (foodpanda)…
+2026-06-16 11:13:26,333 —   Bot detected on attempt 1
+2026-06-16 11:13:26,792 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-16 11:13:31,426 —   Bot detected on attempt 1
+2026-06-16 11:13:31,700 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-16 11:13:32,563 —   Bot detected on attempt 1
+2026-06-16 11:13:32,808 —   ✗  Toast Box: ACCESS_DENIED
+2026-06-16 11:13:34,058 —   Loading Old Chang Kee (foodpanda)…
+2026-06-16 11:13:40,987 —   Bot detected on attempt 1
+2026-06-16 11:13:41,212 —   Loading Crystal Jade GO (foodpanda)…
+2026-06-16 11:13:41,343 —   ✗  Old Chang Kee: ACCESS_DENIED
+2026-06-16 11:13:44,172 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+2026-06-16 11:13:48,516 —   Bot detected on attempt 1
+2026-06-16 11:13:48,798 —   ✗  Crystal Jade GO: ACCESS_DENIED
+2026-06-16 11:13:51,301 —   Loading A Noodle Story (foodpanda)…
+2026-06-16 11:13:51,803 —   Bot detected on attempt 1
+2026-06-16 11:13:52,099 —   ✗  Song Fa Bak Kut Teh: ACCESS_DENIED
+2026-06-16 11:13:57,938 —   Loading 328 Katong Laksa (foodpanda)…
+2026-06-16 11:13:58,006 —   Bot detected on attempt 1
+2026-06-16 11:13:58,378 —   ✗  A Noodle Story: ACCESS_DENIED
+2026-06-16 11:14:00,812 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-16 11:14:04,863 —   Bot detected on attempt 1
+2026-06-16 11:14:05,175 —   ✗  328 Katong Laksa: ACCESS_DENIED
+2026-06-16 11:14:07,752 —   Bot detected on attempt 1
+2026-06-16 11:14:07,989 —   ✗  Crave Nasi Lemak: ACCESS_DENIED
+2026-06-16 11:14:09,842 —   Loading Tai Wah Pork Noodles (foodpanda)…
+2026-06-16 11:14:14,708 —   Loading Janggut Laksa (foodpanda)…
+2026-06-16 11:14:16,606 —   Loading Nam Kee Chicken Rice (foodpanda)…
+2026-06-16 11:14:18,651 —   Bot detected on attempt 1
+2026-06-16 11:14:19,324 —   ✗  Tai Wah Pork Noodles: ACCESS_DENIED
+2026-06-16 11:14:27,911 —   Bot detected on attempt 1
+2026-06-16 11:14:28,639 —   Loading Killiney Kopitiam (foodpanda)…
+2026-06-16 11:14:28,876 —   Bot detected on attempt 1
+2026-06-16 11:14:29,205 —   ✗  Janggut Laksa: ACCESS_DENIED
+2026-06-16 11:14:29,515 —   ✗  Nam Kee Chicken Rice: ACCESS_DENIED
+2026-06-16 11:14:38,243 —   Bot detected on attempt 1
+2026-06-16 11:14:39,478 —   Loading Pepper Lunch KL (foodpanda)…
+2026-06-16 11:14:39,926 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-16 11:14:40,571 —   ✗  Killiney Kopitiam: ACCESS_DENIED
+2026-06-16 11:14:45,486 —   Bot detected on attempt 1
+2026-06-16 11:14:45,813 —   ✗  Pepper Lunch KL: ACCESS_DENIED
+2026-06-16 11:14:46,462 —   Bot detected on attempt 1
+2026-06-16 11:14:46,701 —   ✗  Ichiban Boshi KL: ACCESS_DENIED
+2026-06-16 11:14:50,892 —   Loading OldTown White Coffee (foodpanda)…
+2026-06-16 11:14:54,543 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 11:14:58,597 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+2026-06-16 11:14:58,620 —   Bot detected on attempt 1
+2026-06-16 11:14:58,971 —   ✗  OldTown White Coffee: ACCESS_DENIED
+2026-06-16 11:15:10,990 —   Bot detected on attempt 1
+2026-06-16 11:15:11,479 —   Loading Kluang Rail Coffee (foodpanda)…
+2026-06-16 11:15:11,948 —   ✗  Restoran Yusoof Dan Zakhir: ACCESS_DENIED
+2026-06-16 11:15:16,936 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 173269 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-16 11:15:16,937 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 11:15:17,251 —   waiting 45s before retry 2/2 …
+2026-06-16 11:15:20,722 —   Loading Kim Lian Kee (foodpanda)…
+2026-06-16 11:15:22,246 —   Bot detected on attempt 1
+2026-06-16 11:15:22,482 —   ✗  Kluang Rail Coffee: ACCESS_DENIED
+2026-06-16 11:15:27,594 —   Bot detected on attempt 1
+2026-06-16 11:15:27,861 —   ✗  Kim Lian Kee: ACCESS_DENIED
+2026-06-16 11:15:30,946 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+2026-06-16 11:15:37,383 —   Loading Nasi Kandar Pelita (foodpanda)…
+2026-06-16 11:15:37,510 —   Bot detected on attempt 1
+2026-06-16 11:15:37,957 —   ✗  Hameed Pata Mee Sotong: ACCESS_DENIED
+2026-06-16 11:15:43,451 —   Bot detected on attempt 1
+2026-06-16 11:15:43,709 —   ✗  Nasi Kandar Pelita: ACCESS_DENIED
+2026-06-16 11:15:48,658 —   Loading Jerung Char Koay Teow (foodpanda)…
+2026-06-16 11:15:53,067 —   Loading Family Seafood (foodpanda)…
+2026-06-16 11:15:55,717 —   Bot detected on attempt 1
+2026-06-16 11:15:56,235 —   ✗  Jerung Char Koay Teow: ACCESS_DENIED
+2026-06-16 11:15:59,352 —   Bot detected on attempt 1
+2026-06-16 11:15:59,615 —   ✗  Family Seafood: ACCESS_DENIED
+2026-06-16 11:16:03,766 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 11:16:05,806 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:16:08,424 —   Loading Nando's Australia (direct)…
+2026-06-16 11:16:20,927 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:16:21,371 —     captured 6 XHR JSON responses
+2026-06-16 11:16:21,492 —     XHR yielded 41 candidate items
+2026-06-16 11:16:21,507 —   ✓ Nando's Australia: 41 items
+2026-06-16 11:16:22,381 —   waiting 45s before retry 2/2 …
+2026-06-16 11:16:27,035 —     GrabFood returned 0 items. title='[INACTV: COCO] Village Park Restaurant ⭐ 4.6'. HTML 162646 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-16 11:16:27,035 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 11:16:27,260 —   ✗  Village Park Nasi Lemak: 0 items scraped — page may not have loaded
+2026-06-16 11:17:08,955 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:17:22,572 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:17:22,753 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:17:22,754 — 
+31 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:17:32,764 — --- Attempt 2 (31 targets) ---
+
+2026-06-16 11:17:32,765 —   Parallel mode: 3 workers
+2026-06-16 11:17:39,450 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-16 11:17:42,705 —   Loading Rubato (foodpanda)…
+2026-06-16 11:17:45,698 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 11:17:47,497 —   Bot detected on attempt 1
+2026-06-16 11:17:47,886 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-16 11:17:50,288 —   Bot detected on attempt 1
+2026-06-16 11:17:50,607 —   ✗  Rubato: ACCESS_DENIED
+2026-06-16 11:17:55,688 —   Bot detected on attempt 1
+2026-06-16 11:17:56,008 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 11:17:57,629 —   Loading Putien (foodpanda)…
+2026-06-16 11:18:00,566 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-16 11:18:03,209 —   Bot detected on attempt 1
+2026-06-16 11:18:03,474 —   ✗  Putien: ACCESS_DENIED
+2026-06-16 11:18:06,244 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-16 11:18:07,342 —   Bot detected on attempt 1
+2026-06-16 11:18:07,596 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-16 11:18:11,942 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-16 11:18:12,327 —   Bot detected on attempt 1
+2026-06-16 11:18:12,762 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-16 11:18:16,509 —   Loading Pepper Lunch (foodpanda)…
+2026-06-16 11:18:19,497 —   Bot detected on attempt 1
+2026-06-16 11:18:20,066 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-16 11:18:21,890 —   Loading Toast Box (foodpanda)…
+2026-06-16 11:18:22,683 —   Bot detected on attempt 1
+2026-06-16 11:18:23,044 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-16 11:18:28,890 —   Bot detected on attempt 1
+2026-06-16 11:18:29,724 —   ✗  Toast Box: ACCESS_DENIED
+2026-06-16 11:18:29,854 —   Loading Old Chang Kee (foodpanda)…
+2026-06-16 11:18:34,689 —   Loading Crystal Jade GO (foodpanda)…
+2026-06-16 11:18:35,888 —   Bot detected on attempt 1
+2026-06-16 11:18:36,179 —   ✗  Old Chang Kee: ACCESS_DENIED
+2026-06-16 11:18:39,041 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+2026-06-16 11:18:44,086 —   Loading A Noodle Story (foodpanda)…
+2026-06-16 11:18:46,183 —   Bot detected on attempt 1
+2026-06-16 11:18:46,832 —   ✗  Crystal Jade GO: ACCESS_DENIED
+2026-06-16 11:18:51,347 —   Bot detected on attempt 1
+2026-06-16 11:18:51,678 —   ✗  A Noodle Story: ACCESS_DENIED
+2026-06-16 11:18:52,297 —   Bot detected on attempt 1
+2026-06-16 11:18:52,589 —   ✗  Song Fa Bak Kut Teh: ACCESS_DENIED
+2026-06-16 11:18:54,079 —   Loading 328 Katong Laksa (foodpanda)…
+2026-06-16 11:18:59,120 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-16 11:19:00,092 —   Bot detected on attempt 1
+2026-06-16 11:19:00,501 —   ✗  328 Katong Laksa: ACCESS_DENIED
+2026-06-16 11:19:02,764 —   Loading Tai Wah Pork Noodles (foodpanda)…
+2026-06-16 11:19:05,585 —   Bot detected on attempt 1
+2026-06-16 11:19:06,133 —   ✗  Crave Nasi Lemak: ACCESS_DENIED
+2026-06-16 11:19:08,026 —   Loading Janggut Laksa (foodpanda)…
+2026-06-16 11:19:11,010 —   Bot detected on attempt 1
+2026-06-16 11:19:11,344 —   ✗  Tai Wah Pork Noodles: ACCESS_DENIED
+2026-06-16 11:19:16,572 —   Loading Nam Kee Chicken Rice (foodpanda)…
+2026-06-16 11:19:19,099 —   Loading Killiney Kopitiam (foodpanda)…
+2026-06-16 11:19:24,906 —   Bot detected on attempt 1
+2026-06-16 11:19:25,143 —   ✗  Nam Kee Chicken Rice: ACCESS_DENIED
+2026-06-16 11:19:26,775 —   Bot detected on attempt 1
+2026-06-16 11:19:27,009 —   ✗  Killiney Kopitiam: ACCESS_DENIED
+2026-06-16 11:19:33,483 —   Loading Pepper Lunch KL (foodpanda)…
+2026-06-16 11:19:35,203 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-16 11:19:37,324 —     Saved first 5000 chars of HTML to debug_page.html
+2026-06-16 11:19:38,485 —   waiting 45s before retry 2/2 …
+2026-06-16 11:19:40,366 —   Bot detected on attempt 1
+2026-06-16 11:19:40,701 —   ✗  Pepper Lunch KL: ACCESS_DENIED
+2026-06-16 11:19:41,301 —   Bot detected on attempt 1
+2026-06-16 11:19:41,553 —   ✗  Ichiban Boshi KL: ACCESS_DENIED
+2026-06-16 11:19:48,853 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+2026-06-16 11:19:51,573 —   Loading OldTown White Coffee (foodpanda)…
+2026-06-16 11:19:54,705 —   Bot detected on attempt 1
+2026-06-16 11:19:55,005 —   ✗  Restoran Yusoof Dan Zakhir: ACCESS_DENIED
+2026-06-16 11:19:58,250 —   Bot detected on attempt 1
+2026-06-16 11:19:58,514 —   ✗  OldTown White Coffee: ACCESS_DENIED
+2026-06-16 11:20:03,203 —   Loading Kluang Rail Coffee (foodpanda)…
+2026-06-16 11:20:06,094 —   Loading Kim Lian Kee (foodpanda)…
+2026-06-16 11:20:09,083 —   Bot detected on attempt 1
+2026-06-16 11:20:09,361 —   ✗  Kluang Rail Coffee: ACCESS_DENIED
+2026-06-16 11:20:14,587 —   Bot detected on attempt 1
+2026-06-16 11:20:14,854 —   ✗  Kim Lian Kee: ACCESS_DENIED
+2026-06-16 11:20:18,570 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+2026-06-16 11:20:24,157 —   Bot detected on attempt 1
+2026-06-16 11:20:24,566 —   Loading Nasi Kandar Pelita (foodpanda)…
+2026-06-16 11:20:24,775 —   ✗  Hameed Pata Mee Sotong: ACCESS_DENIED
+2026-06-16 11:20:26,176 —   Loading Janggut Laksa (foodpanda)…
+2026-06-16 11:20:30,796 —   Bot detected on attempt 1
+2026-06-16 11:20:31,149 —   ✗  Nasi Kandar Pelita: ACCESS_DENIED
+2026-06-16 11:20:34,020 —   Loading Jerung Char Koay Teow (foodpanda)…
+2026-06-16 11:20:34,048 —   Bot detected on attempt 2
+2026-06-16 11:20:34,374 —   ✗  Janggut Laksa: ACCESS_DENIED
+2026-06-16 11:20:38,289 —   Loading Family Seafood (foodpanda)…
+2026-06-16 11:20:41,471 —   Bot detected on attempt 1
+2026-06-16 11:20:41,953 —   ✗  Jerung Char Koay Teow: ACCESS_DENIED
+2026-06-16 11:20:44,383 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 11:20:45,063 —   Bot detected on attempt 1
+2026-06-16 11:20:45,512 —   ✗  Family Seafood: ACCESS_DENIED
+2026-06-16 11:20:53,757 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:21:04,321 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:21:04,614 —   waiting 45s before retry 2/2 …
+2026-06-16 11:21:07,638 —     GrabFood returned 0 items. title='[INACTV: COCO] Village Park Restaurant ⭐ 4.6'. HTML 162621 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-16 11:21:07,638 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 11:21:07,909 —   waiting 45s before retry 2/2 …
+2026-06-16 11:21:51,080 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:21:55,279 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 11:22:03,924 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:22:04,197 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:22:18,667 —     GrabFood returned 0 items. title='[INACTV: COCO] Village Park Restaurant ⭐ 4.6'. HTML 162649 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-16 11:22:18,667 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 11:22:18,953 —   ✗  Village Park Nasi Lemak: 0 items scraped — page may not have loaded
+2026-06-16 11:22:18,954 — 
+31 failed — retrying immediately (after 10s breather)…
+2026-06-16 11:22:28,964 — --- Attempt 3 (31 targets) ---
+
+2026-06-16 11:22:28,964 —   Parallel mode: 3 workers
+2026-06-16 11:22:36,489 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-16 11:22:39,138 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-16 11:22:41,996 —   Bot detected on attempt 1
+2026-06-16 11:22:42,868 —   Loading Rubato (foodpanda)…
+2026-06-16 11:22:43,481 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-16 11:22:46,392 —   Bot detected on attempt 1
+2026-06-16 11:22:46,661 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-16 11:22:52,025 —   Bot detected on attempt 1
+2026-06-16 11:22:52,429 —   Loading Putien (foodpanda)…
+2026-06-16 11:22:52,550 —   ✗  Rubato: ACCESS_DENIED
+2026-06-16 11:22:58,068 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-16 11:22:59,776 —   Bot detected on attempt 1
+2026-06-16 11:23:00,911 —   ✗  Putien: ACCESS_DENIED
+2026-06-16 11:23:02,349 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-16 11:23:06,705 —   Bot detected on attempt 1
+2026-06-16 11:23:07,004 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-16 11:23:08,363 —   Bot detected on attempt 1
+2026-06-16 11:23:08,601 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-16 11:23:10,682 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-16 11:23:14,945 —   Loading Pepper Lunch (foodpanda)…
+2026-06-16 11:23:16,928 —   Bot detected on attempt 1
+2026-06-16 11:23:18,065 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-16 11:23:18,209 —   Loading Toast Box (foodpanda)…
+2026-06-16 11:23:22,146 —   Bot detected on attempt 1
+2026-06-16 11:23:22,452 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-16 11:23:24,594 —   Bot detected on attempt 1
+2026-06-16 11:23:24,854 —   ✗  Toast Box: ACCESS_DENIED
+2026-06-16 11:23:28,314 —   Loading Old Chang Kee (foodpanda)…
+2026-06-16 11:23:33,928 —   Loading Crystal Jade GO (foodpanda)…
+2026-06-16 11:23:34,685 —   Bot detected on attempt 1
+2026-06-16 11:23:35,741 —   ✗  Old Chang Kee: ACCESS_DENIED
+2026-06-16 11:23:35,796 —   Loading A Noodle Story (foodpanda)…
+2026-06-16 11:23:41,366 —   Bot detected on attempt 1
+2026-06-16 11:23:41,580 —   Bot detected on attempt 1
+2026-06-16 11:23:41,700 —   ✗  A Noodle Story: ACCESS_DENIED
+2026-06-16 11:23:41,864 —   ✗  Crystal Jade GO: ACCESS_DENIED
+2026-06-16 11:23:45,298 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+2026-06-16 11:23:49,578 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-16 11:23:52,454 —   Loading 328 Katong Laksa (foodpanda)…
+2026-06-16 11:23:54,274 —   Bot detected on attempt 1
+2026-06-16 11:23:54,519 —   ✗  Song Fa Bak Kut Teh: ACCESS_DENIED
+2026-06-16 11:24:00,591 —   Bot detected on attempt 1
+2026-06-16 11:24:01,035 —   ✗  328 Katong Laksa: ACCESS_DENIED
+2026-06-16 11:24:03,574 —   Loading Tai Wah Pork Noodles (foodpanda)…
+2026-06-16 11:24:09,811 —   Loading Nam Kee Chicken Rice (foodpanda)…
+2026-06-16 11:24:10,616 —   Bot detected on attempt 1
+2026-06-16 11:24:10,892 —   ✗  Tai Wah Pork Noodles: ACCESS_DENIED
+2026-06-16 11:24:16,014 —   Bot detected on attempt 1
+2026-06-16 11:24:16,265 —   ✗  Nam Kee Chicken Rice: ACCESS_DENIED
+2026-06-16 11:24:18,255 —   Loading Killiney Kopitiam (foodpanda)…
+2026-06-16 11:24:21,733 —     Saved first 5000 chars of HTML to debug_page.html
+2026-06-16 11:24:22,214 —   waiting 45s before retry 2/2 …
+2026-06-16 11:24:24,535 —   Bot detected on attempt 1
+2026-06-16 11:24:24,816 —   ✗  Killiney Kopitiam: ACCESS_DENIED
+2026-06-16 11:24:25,888 —   Loading Pepper Lunch KL (foodpanda)…
+2026-06-16 11:24:33,072 —   Bot detected on attempt 1
+2026-06-16 11:24:33,411 —   ✗  Pepper Lunch KL: ACCESS_DENIED
+2026-06-16 11:24:33,600 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-16 11:24:40,037 —   Bot detected on attempt 1
+2026-06-16 11:24:40,259 —   ✗  Ichiban Boshi KL: ACCESS_DENIED
+2026-06-16 11:24:43,359 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+2026-06-16 11:24:48,275 —   Loading OldTown White Coffee (foodpanda)…
+2026-06-16 11:24:49,873 —   Bot detected on attempt 1
+2026-06-16 11:24:50,421 —   ✗  Restoran Yusoof Dan Zakhir: ACCESS_DENIED
+2026-06-16 11:24:54,728 —   Bot detected on attempt 1
+2026-06-16 11:24:54,957 —   ✗  OldTown White Coffee: ACCESS_DENIED
+2026-06-16 11:25:00,094 —   Loading Kluang Rail Coffee (foodpanda)…
+2026-06-16 11:25:05,092 —   Loading Kim Lian Kee (foodpanda)…
+2026-06-16 11:25:08,358 —   Bot detected on attempt 1
+2026-06-16 11:25:08,790 —   ✗  Kluang Rail Coffee: ACCESS_DENIED
+2026-06-16 11:25:10,212 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-16 11:25:15,515 —   Bot detected on attempt 1
+2026-06-16 11:25:16,914 —   ✗  Kim Lian Kee: ACCESS_DENIED
+2026-06-16 11:25:17,151 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+2026-06-16 11:25:17,234 —   Bot detected on attempt 2
+2026-06-16 11:25:17,723 —   ✗  Crave Nasi Lemak: ACCESS_DENIED
+2026-06-16 11:25:23,287 —   Bot detected on attempt 1
+2026-06-16 11:25:23,512 —   ✗  Hameed Pata Mee Sotong: ACCESS_DENIED
+2026-06-16 11:25:26,715 —   Loading Nasi Kandar Pelita (foodpanda)…
+2026-06-16 11:25:28,682 —   Loading Janggut Laksa (foodpanda)…
+2026-06-16 11:25:32,829 —   Bot detected on attempt 1
+2026-06-16 11:25:33,214 —   ✗  Nasi Kandar Pelita: ACCESS_DENIED
+2026-06-16 11:25:35,311 —   Loading Jerung Char Koay Teow (foodpanda)…
+2026-06-16 11:25:35,380 —   Bot detected on attempt 1
+2026-06-16 11:25:35,831 —   ✗  Janggut Laksa: ACCESS_DENIED
+2026-06-16 11:25:41,129 —   Bot detected on attempt 1
+2026-06-16 11:25:41,355 —   ✗  Jerung Char Koay Teow: ACCESS_DENIED
+2026-06-16 11:25:43,941 —   Loading Family Seafood (foodpanda)…
+2026-06-16 11:25:47,568 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:25:50,713 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 11:25:51,675 —   Bot detected on attempt 1
+2026-06-16 11:25:52,790 —   ✗  Family Seafood: ACCESS_DENIED
+2026-06-16 11:26:00,724 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:26:01,243 —   waiting 45s before retry 2/2 …
+2026-06-16 11:26:17,517 —     GrabFood returned 0 items. title='[INACTV: COCO] Village Park Restaurant ⭐ 4.6'. HTML 162649 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-16 11:26:17,517 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 11:26:17,758 —   waiting 45s before retry 2/2 …
+2026-06-16 11:26:47,722 —   Loading Pizza Express London (Deliveroo) (js generic)…
+2026-06-16 11:26:58,865 —   ✓ Pizza Express London (Deliveroo): 0 items
+2026-06-16 11:26:59,085 —   ✗  Pizza Express London (Deliveroo): 0 items scraped — page may not have loaded
+2026-06-16 11:27:04,232 —   Loading Village Park Nasi Lemak (GrabFood)…
+2026-06-16 11:27:26,696 —     GrabFood returned 0 items. title='[INACTV: COCO] Village Park Restaurant ⭐ 4.6'. HTML 165228 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Me"
+2026-06-16 11:27:26,696 —   ✓ Village Park Nasi Lemak: 0 items
+2026-06-16 11:27:26,958 —   ✗  Village Park Nasi Lemak: 0 items scraped — page may not have loaded
+2026-06-16 11:27:27,043 — 
+Price changes detected: 30 items across 15 restaurants
+2026-06-16 11:27:27,043 — 
+Top 5 price increases:
+2026-06-16 11:27:27,043 —   ↑ Dragon-i                       其他 Others                                3.90 → 58.68  (+1404.62%)
+2026-06-16 11:27:27,043 —   ↑ Ippudo Ramen                   Beverages                                4.50 → 19.00  (+322.22%)
+2026-06-16 11:27:27,043 —   ↑ Din Tai Fung KL                Condiments 调味品                           17.92 → 69.44  (+287.50%)
+2026-06-16 11:27:27,043 —   ↑ Seoul Garden HotPot            Kimchi Retail Pack                       7.00 → 24.60  (+251.43%)
+2026-06-16 11:27:27,043 —   ↑ Nando's KL                     Nandos At Home                           18.77 → 56.42  (+200.59%)
+2026-06-16 11:27:27,043 — 
+Top 5 price decreases:
+2026-06-16 11:27:27,043 —   ↓ Swee Choon Tim Sum             Others / 其他                              61.40 → 1.50  (-97.56%)
+2026-06-16 11:27:27,044 —   ↓ Tim Ho Wan                     Premium Tea                              9.30 → 3.50  (-62.37%)
+2026-06-16 11:27:27,044 —   ↓ Sushi Tei                      Donmono                                  25.30 → 12.30  (-51.38%)
+2026-06-16 11:27:27,044 —   ↓ BreadTalk                      DRINKS TOP-UP                            3.60 → 2.90  (-19.44%)
+2026-06-16 11:27:27,044 —   ↓ Din Tai Fung                   Merchandise/商品                           19.62 → 16.89  (-13.91%)
+2026-06-16 11:27:27,045 —   ⚠  Failure rate 57.4% over threshold but GMAIL_USER/GMAIL_APP_PASSWORD not configured — skipping alert
+2026-06-16 11:27:27,068 — 
+⚠  Still failed after 3 attempts:
+2026-06-16 11:27:27,068 —    - Ichiban Boshi
+2026-06-16 11:27:27,068 —    - Crystal Jade La Mian Xiao Long Bao
+2026-06-16 11:27:27,068 —    - Rubato
+2026-06-16 11:27:27,069 —    - Putien
+2026-06-16 11:27:27,069 —    - No Signboard Prawn Noodles and Carrot Cake
+2026-06-16 11:27:27,069 —    - Paradise Dynasty
+2026-06-16 11:27:27,069 —    - Crystal Jade Hong Kong Kitchen
+2026-06-16 11:27:27,069 —    - Pepper Lunch
+2026-06-16 11:27:27,069 —    - Toast Box
+2026-06-16 11:27:27,069 —    - Old Chang Kee
+2026-06-16 11:27:27,069 —    - A Noodle Story
+2026-06-16 11:27:27,070 —    - Crystal Jade GO
+2026-06-16 11:27:27,070 —    - Song Fa Bak Kut Teh
+2026-06-16 11:27:27,070 —    - 328 Katong Laksa
+2026-06-16 11:27:27,070 —    - Tai Wah Pork Noodles
+2026-06-16 11:27:27,070 —    - Nam Kee Chicken Rice
+2026-06-16 11:27:27,070 —    - Killiney Kopitiam
+2026-06-16 11:27:27,070 —    - Pepper Lunch KL
+2026-06-16 11:27:27,070 —    - Ichiban Boshi KL
+2026-06-16 11:27:27,071 —    - Restoran Yusoof Dan Zakhir
+2026-06-16 11:27:27,071 —    - OldTown White Coffee
+2026-06-16 11:27:27,071 —    - Kluang Rail Coffee
+2026-06-16 11:27:27,071 —    - Kim Lian Kee
+2026-06-16 11:27:27,071 —    - Crave Nasi Lemak
+2026-06-16 11:27:27,072 —    - Hameed Pata Mee Sotong
+2026-06-16 11:27:27,072 —    - Nasi Kandar Pelita
+2026-06-16 11:27:27,072 —    - Janggut Laksa
+2026-06-16 11:27:27,072 —    - Jerung Char Koay Teow
+2026-06-16 11:27:27,072 —    - Family Seafood
+2026-06-16 11:27:27,072 —    - Pizza Express London (Deliveroo)
+2026-06-16 11:27:27,072 —    - Village Park Nasi Lemak
+2026-06-16 11:27:27,073 — 
+Done. Results in uifpi.db
