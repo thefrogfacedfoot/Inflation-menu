@@ -1,9 +1,8 @@
 country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through_formal,pass_through_significant,r_squared,note
-Australia,57,0.926,1,1,False,-0.0022,False,0.3006,
-India,55,0.2466,2,2,False,-0.0024,False,0.532,
-Indonesia,31,0.0053,1,1,True,-0.001,True,0.7583,
-Malaysia,70,0.0206,1,1,True,-0.0042,True,0.3262,
-Singapore,12,0.2171,2,2,False,0.017,False,0.1134,
-Thailand,57,0.5062,1,1,False,-0.0003,False,0.694,
-United Kingdom,77,0.0883,2,2,False,0.001,False,0.4594,
-United States,65,0.7843,1,1,False,0.002,False,0.388,
+Australia,5,,,,False,,False,,"insufficient_data (have 5, need 8)"
+Indonesia,1,,,,False,,False,,"insufficient_data (have 1, need 8)"
+Malaysia,6,,,,False,,False,,"insufficient_data (have 6, need 8)"
+Singapore,0,,,,False,,,,no_overlap
+Thailand,0,,,,False,,,,no_overlap
+United Kingdom,5,,,,False,,False,,"insufficient_data (have 5, need 8)"
+United States,5,,,,False,,False,,"insufficient_data (have 5, need 8)"

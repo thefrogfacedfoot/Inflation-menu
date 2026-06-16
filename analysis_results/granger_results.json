@@ -1,90 +1,67 @@
 {
   "Australia": {
-    "n_obs": 57,
+    "n_obs": 5,
     "granger_significant": false,
-    "granger_p_value": 0.926,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": -0.0022,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
     "pass_through_significant": false,
-    "r_squared": 0.3006,
-    "note": ""
-  },
-  "India": {
-    "n_obs": 55,
-    "granger_significant": false,
-    "granger_p_value": 0.2466,
-    "lead_months": 2,
-    "aic_lag": 2,
-    "pass_through_formal": -0.0024,
-    "pass_through_significant": false,
-    "r_squared": 0.532,
-    "note": ""
+    "r_squared": null,
+    "note": "insufficient_data (have 5, need 8)"
   },
   "Indonesia": {
-    "n_obs": 31,
-    "granger_significant": true,
-    "granger_p_value": 0.0053,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": -0.001,
-    "pass_through_significant": true,
-    "r_squared": 0.7583,
-    "note": ""
+    "n_obs": 1,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "note": "insufficient_data (have 1, need 8)"
   },
   "Malaysia": {
-    "n_obs": 70,
-    "granger_significant": true,
-    "granger_p_value": 0.0206,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": -0.0042,
-    "pass_through_significant": true,
-    "r_squared": 0.3262,
-    "note": ""
+    "n_obs": 6,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "note": "insufficient_data (have 6, need 8)"
   },
   "Singapore": {
-    "n_obs": 12,
-    "granger_significant": false,
-    "granger_p_value": 0.2171,
-    "lead_months": 2,
-    "aic_lag": 2,
-    "pass_through_formal": 0.017,
-    "pass_through_significant": false,
-    "r_squared": 0.1134,
-    "note": ""
+    "n_obs": 0,
+    "note": "no_overlap",
+    "granger_significant": false
   },
   "Thailand": {
-    "n_obs": 57,
-    "granger_significant": false,
-    "granger_p_value": 0.5062,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": -0.0003,
-    "pass_through_significant": false,
-    "r_squared": 0.694,
-    "note": ""
+    "n_obs": 0,
+    "note": "no_overlap",
+    "granger_significant": false
   },
   "United Kingdom": {
-    "n_obs": 77,
+    "n_obs": 5,
     "granger_significant": false,
-    "granger_p_value": 0.0883,
-    "lead_months": 2,
-    "aic_lag": 2,
-    "pass_through_formal": 0.001,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
     "pass_through_significant": false,
-    "r_squared": 0.4594,
-    "note": ""
+    "r_squared": null,
+    "note": "insufficient_data (have 5, need 8)"
   },
   "United States": {
-    "n_obs": 65,
+    "n_obs": 5,
     "granger_significant": false,
-    "granger_p_value": 0.7843,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": 0.002,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
     "pass_through_significant": false,
-    "r_squared": 0.388,
-    "note": ""
+    "r_squared": null,
+    "note": "insufficient_data (have 5, need 8)"
   }
 }

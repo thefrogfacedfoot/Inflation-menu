@@ -64,7 +64,13 @@ FALLBACK_RATES = {
 # ── Database helpers ──────────────────────────────────────────────────────────
 
 def init_output_table(conn: sqlite3.Connection) -> None:
-    """Create the uifpi_index table if it does not exist."""
+    """Create (and clear) the uifpi_index table.
+
+    Truncating before each rebuild is required: INSERT OR REPLACE only
+    overwrites months we re-emit, so months a new run no longer produces
+    would otherwise survive as stale rows and contaminate downstream
+    Granger analysis.
+    """
     # Create a stub nlp_results table so the LEFT JOIN in load_price_data works
     # even when nlp_pipeline.py hasn't been run yet.
     conn.execute("""
@@ -94,6 +100,9 @@ def init_output_table(conn: sqlite3.Connection) -> None:
             UNIQUE(country, year_month)
         )
     """)
+    # Clear prior rows so this rebuild's months are the only ones in the table.
+    conn.execute("DELETE FROM uifpi_index")
+    conn.commit()
     conn.execute("""
         CREATE TABLE IF NOT EXISTS category_relatives (
             id              INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -143,6 +152,19 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
         print(f"  Backfilled price_usd for {backfilled:,} rows using fallback exchange rates.")
 
     df = df[df["price_usd"] > 0].copy()
+
+    # Exclude TripAdvisor price-tier markers: historical_scraper stores
+    # priceRange ($, $$, $$$, $$$$) as the literal integers 1-4 in `price`,
+    # with item_name "Price tier (TripAdvisor: …)". They're categorical
+    # levels, not currency amounts. Including them in a price index mixes
+    # tier ordinals with real menu prices and produces wild ratios (e.g.,
+    # Indonesia's prior 26M index value). Raw rows stay in uifpi.db.
+    tier_mask = df["item_name"].str.startswith("Price tier", na=False)
+    if tier_mask.any():
+        print(f"  Excluded {tier_mask.sum():,} TripAdvisor price-tier rows "
+              f"(stored as 1-4 ordinals, not currency).")
+        df = df[~tier_mask].copy()
+
     df["collection_date"] = pd.to_datetime(df["collection_date"], errors="coerce")
     df = df.dropna(subset=["collection_date"])
     df["year_month"] = df["collection_date"].dt.to_period("M").astype(str)
