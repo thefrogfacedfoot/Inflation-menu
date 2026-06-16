@@ -169,6 +169,85 @@ def get_cdx_snapshots(url_pattern, limit=SNAPSHOTS_PER_COUNTRY,
     return []
 
 
+def _period_windows(from_year, to_year, period):
+    """Yield (start_yyyymmdd, end_yyyymmdd) windows covering the range."""
+    if period == 'month':
+        for y in range(from_year, to_year + 1):
+            for m in range(1, 13):
+                start = f'{y:04d}{m:02d}01'
+                if m == 12:
+                    end = f'{y:04d}1231'
+                else:
+                    end = f'{y:04d}{m + 1:02d}01'
+                yield start, end
+    elif period == 'quarter':
+        for y in range(from_year, to_year + 1):
+            for q in range(4):
+                m0 = q * 3 + 1
+                m1 = q * 3 + 3
+                last_day = {3: 31, 6: 30, 9: 30, 12: 31}[m1]
+                yield f'{y:04d}{m0:02d}01', f'{y:04d}{m1:02d}{last_day}'
+    else:
+        raise ValueError(f"unknown period: {period!r}")
+
+
+def get_cdx_snapshots_distributed(url_pattern, per_period=3,
+                                  from_year=2018, to_year=2025,
+                                  period='quarter'):
+    """Time-distributed CDX query.
+
+    Instead of one big query (which returns whatever Wayback indexed densest,
+    usually clustered in one year), issue one CDX query per period and take
+    up to `per_period` distinct-URL snapshots from each. Yields snapshots
+    spread evenly across (from_year, to_year), which is what Granger needs.
+    """
+    out = []
+    seen_urls = set()
+    windows = list(_period_windows(from_year, to_year, period))
+    print(f"    Distributed CDX: {len(windows)} {period} windows × ≤{per_period} snapshots each")
+    for start, end in windows:
+        params = {
+            'url':      url_pattern,
+            'output':   'json',
+            'fl':       'timestamp,original',
+            'limit':    per_period * 4,
+            'from':     start,
+            'to':       end,
+            'collapse': 'urlkey',
+            'filter':   'statuscode:200',
+        }
+        rows = None
+        for attempt in range(RETRY_ATTEMPTS):
+            try:
+                r = requests.get(CDX_BASE, params=params,
+                                 headers=HEADERS, timeout=30)
+                r.raise_for_status()
+                data = r.json()
+                rows = data[1:] if data and len(data) >= 2 else []
+                break
+            except Exception as e:
+                if attempt == RETRY_ATTEMPTS - 1:
+                    print(f"      CDX {start[:6]} failed: {e}")
+                else:
+                    time.sleep(RETRY_BACKOFF)
+        if rows is None:
+            rows = []
+        taken = 0
+        for row in rows:
+            ts, orig = row[0], row[1]
+            if orig in seen_urls:
+                continue
+            seen_urls.add(orig)
+            out.append({'timestamp': ts, 'url': orig})
+            taken += 1
+            if taken >= per_period:
+                break
+        if rows:
+            print(f"      {start[:6]}: kept {taken}/{len(rows)} (cum {len(out)})")
+        time.sleep(CDX_DELAY)
+    return out
+
+
 # ── Wayback fetcher ───────────────────────────────────────────────────────────
 
 def fetch_snapshot(timestamp, url):
@@ -351,13 +430,18 @@ def extract_prices(html, country, config):
 
 # ── Main collection loop ──────────────────────────────────────────────────────
 
-def run(countries=None):
+def run(countries=None, distributed=False, per_period=3,
+        period='quarter', from_year=2018, to_year=2025, rescan=False):
     conn = init_db()
     progress = load_progress()
 
     targets = countries or list(COUNTRY_CONFIG.keys())
     print(f"\nHistorical scraper — {len(targets)} countries")
-    print(f"Target: {SNAPSHOTS_PER_COUNTRY} snapshots each, 2018–2024\n")
+    if distributed:
+        print(f"Target: time-distributed, {per_period} snapshots per {period}, "
+              f"{from_year}–{to_year}\n")
+    else:
+        print(f"Target: {SNAPSHOTS_PER_COUNTRY} snapshots each, 2018–2024\n")
 
     total_inserted = 0
 
@@ -367,20 +451,26 @@ def run(countries=None):
         print(f"  {country} — pattern: {cfg['pattern']}")
         print(f"{'='*55}")
 
-        # Check if already completed
+        # Check if already completed (unless --rescan to force a fresh CDX query)
         country_progress = progress.get(country, {})
-        if country_progress.get('status') == 'complete':
-            print(f"  ↩  Already completed in a previous run — skipping")
+        if country_progress.get('status') == 'complete' and not rescan:
+            print(f"  ↩  Already completed in a previous run — skipping (use --rescan to override)")
             continue
 
         # Get snapshots list
         done_urls = set(country_progress.get('done_urls', []))
-        snapshots = country_progress.get('snapshots')
+        snapshots = country_progress.get('snapshots') if not rescan else None
 
         if not snapshots:
             print(f"  Querying CDX API …")
             time.sleep(CDX_DELAY)
-            snapshots = get_cdx_snapshots(cfg['pattern'])
+            if distributed:
+                snapshots = get_cdx_snapshots_distributed(
+                    cfg['pattern'], per_period=per_period,
+                    from_year=from_year, to_year=to_year, period=period,
+                )
+            else:
+                snapshots = get_cdx_snapshots(cfg['pattern'])
             print(f"  Found {len(snapshots)} snapshots")
             progress[country] = {
                 'snapshots': snapshots,
@@ -459,8 +549,31 @@ def run(countries=None):
 
 
 if __name__ == '__main__':
-    import sys
-    # Optionally pass specific country names as args
-    # e.g. python3 historical_scraper.py Singapore Malaysia
-    countries = sys.argv[1:] or None
-    run(countries)
+    import argparse
+    ap = argparse.ArgumentParser(
+        description='Wayback historical price scraper. Default mode pulls '
+                    'up to 80 snapshots per country; --distributed spreads '
+                    'queries across time windows so Granger has monthly '
+                    'observations to work with instead of one 2019 cluster.'
+    )
+    ap.add_argument('countries', nargs='*',
+                    help='Country names to scrape (default: all)')
+    ap.add_argument('--distributed', action='store_true',
+                    help='Spread CDX queries across time windows')
+    ap.add_argument('--per-period', type=int, default=3,
+                    help='Snapshots per time window (default 3)')
+    ap.add_argument('--period', choices=('month', 'quarter'), default='quarter',
+                    help='Time-window granularity (default quarter)')
+    ap.add_argument('--from-year', type=int, default=2018)
+    ap.add_argument('--to-year', type=int, default=2025)
+    ap.add_argument('--rescan', action='store_true',
+                    help='Re-query CDX even for countries marked complete; '
+                         'already-stored URLs are still skipped at fetch time')
+    args = ap.parse_args()
+    run(args.countries or None,
+        distributed=args.distributed,
+        per_period=args.per_period,
+        period=args.period,
+        from_year=args.from_year,
+        to_year=args.to_year,
+        rescan=args.rescan)
