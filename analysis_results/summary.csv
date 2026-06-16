@@ -1,9 +1,9 @@
 country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through_formal,pass_through_significant,r_squared,note
-Australia,23,,,1,False,-0.0,False,0.6991, granger_failed:The x values include a column with constant values and so the test statistic cannot be computed.
-India,24,0.2333,1,4,False,-0.0707,False,0.9086,
-Indonesia,5,,,,False,,False,,"insufficient_data (have 5, need 8)"
-Malaysia,21,,,1,False,0.0,False,0.4134, granger_failed:The x values include a column with constant values and so the test statistic cannot be computed.
-Singapore,10,,,1,False,0.0,False,0.0, granger_failed:The x values include a column with constant values and so the test statistic cannot be computed.
-Thailand,25,,,1,False,-0.0,False,0.6355, granger_failed:The x values include a column with constant values and so the test statistic cannot be computed.
-United Kingdom,39,0.1923,1,1,False,-0.3817,True,0.42,
-United States,35,,,1,False,-0.0,False,0.2775, granger_failed:The x values include a column with constant values and so the test statistic cannot be computed.
+Australia,57,0.926,1,1,False,-0.0022,False,0.3006,
+India,55,0.2466,2,2,False,-0.0024,False,0.532,
+Indonesia,31,0.0053,1,1,True,-0.001,True,0.7583,
+Malaysia,70,0.0206,1,1,True,-0.0042,True,0.3262,
+Singapore,12,0.2171,2,2,False,0.017,False,0.1134,
+Thailand,57,0.5062,1,1,False,-0.0003,False,0.694,
+United Kingdom,77,0.0883,2,2,False,0.001,False,0.4594,
+United States,65,0.7843,1,1,False,0.002,False,0.388,

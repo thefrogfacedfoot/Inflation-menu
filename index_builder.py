@@ -344,6 +344,86 @@ def build_stable_basket_index(df: pd.DataFrame, country: str) -> list[dict]:
 build_mean_price_index = build_stable_basket_index
 
 
+def build_restaurant_median_index(df: pd.DataFrame, country: str) -> list[dict]:
+    """
+    Restaurant-level index, robust to item-level basket churn.
+
+    For each (country, restaurant, year_month) compute the median price.
+    Then for each (sector, year_month) take the geometric mean across
+    restaurants. The earliest month is the base (100); later months are
+    expressed as a ratio. Formal/informal are computed separately and
+    combined with INFORMAL_WEIGHTS.
+
+    Trade-off vs stable-basket: this is sensitive to which restaurants
+    appear in a given month (composition bias). But on data where
+    individual menu items rarely span ≥2 months for the same restaurant
+    — true of Wayback TripAdvisor snapshots, which extract whatever
+    happened to be on that archive's page — stable-basket collapses to
+    a near-constant index. This method produces real variation and is
+    the right choice when item-level matching isn't feasible.
+    """
+    c_df = df[df["country"] == country].copy()
+    if c_df.empty:
+        return []
+
+    # Restaurant-month median price, keep sector tag.
+    rm = (c_df.groupby(["restaurant_name", "sector", "year_month"], as_index=False)
+              .agg(price_usd=("price_usd", "median")))
+    rm = rm[rm["price_usd"] > 0]
+    if rm.empty:
+        return []
+
+    informal_weight = INFORMAL_WEIGHTS.get(country, 0.40)
+
+    def _gmean(values: pd.Series) -> Optional[float]:
+        pos = values[values > 0]
+        return float(np.exp(np.log(pos).mean())) if not pos.empty else None
+
+    # Per-sector month-level geometric means
+    per_sector_month: dict = {}
+    for sector in ("formal", "informal"):
+        sd = rm[rm["sector"] == sector]
+        if sd.empty:
+            continue
+        for ym, grp in sd.groupby("year_month"):
+            gm = _gmean(grp["price_usd"])
+            if gm is not None:
+                per_sector_month[(sector, ym)] = gm
+
+    # Base = earliest month with data per sector
+    bases: dict = {}
+    for sector in ("formal", "informal"):
+        months_with = sorted(ym for (s, ym) in per_sector_month if s == sector)
+        if months_with:
+            bases[sector] = per_sector_month[(sector, months_with[0])]
+
+    all_months = sorted(c_df["year_month"].unique())
+    rows: list[dict] = []
+    for ym in all_months:
+        formal_v   = per_sector_month.get(("formal",   ym))
+        informal_v = per_sector_month.get(("informal", ym))
+        formal_idx   = (formal_v   / bases["formal"]   * 100.0) if (formal_v   and bases.get("formal"))   else None
+        informal_idx = (informal_v / bases["informal"] * 100.0) if (informal_v and bases.get("informal")) else None
+
+        if formal_idx is not None and informal_idx is not None:
+            combined = informal_weight * informal_idx + (1 - informal_weight) * formal_idx
+        else:
+            combined = formal_idx if formal_idx is not None else informal_idx
+
+        item_count = int((c_df["year_month"] == ym).sum())
+        rows.append({
+            "country":        country,
+            "year_month":     ym,
+            "formal_index":   round(formal_idx, 4)   if formal_idx   is not None else None,
+            "informal_index": round(informal_idx, 4) if informal_idx is not None else None,
+            "uifpi_combined": round(combined, 4)     if combined     is not None else None,
+            "item_count":     item_count,
+            "coverage_note":  f"restaurant-median index "
+                              f"({rm[rm['year_month'] == ym]['restaurant_name'].nunique()} restaurants this month)",
+        })
+    return rows
+
+
 def compute_price_relatives(monthly: pd.DataFrame,
                              months: list[str]) -> dict:
     """
@@ -559,8 +639,18 @@ def print_index_summary(all_rows: list[dict]) -> None:
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 
-def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT) -> None:
-    """Build the UIFPI for all countries and save results."""
+def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
+        method: str = "stable-basket") -> None:
+    """Build the UIFPI for all countries and save results.
+
+    method:
+      - "stable-basket": within-item price relatives (default; rigorous
+        but degenerates to constant 100 when items rarely span multiple
+        months for the same restaurant).
+      - "restaurant-median": geometric mean of per-restaurant monthly
+        medians, chained against the country's earliest month. Robust
+        to item-level basket churn; suitable for Wayback snapshot data.
+    """
     conn = sqlite3.connect(db_path)
     init_output_table(conn)
 
@@ -586,9 +676,19 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT) -> None:
     print("\nStep 4 — Saving category relatives …")
     save_category_relatives(conn, relatives)
 
-    print("\nStep 5 — Building sector and combined indices …")
+    print(f"\nStep 5 — Building sector and combined indices (method={method}) …")
     all_index_rows: list[dict] = []
     for country in sorted(monthly["country"].unique()):
+        if method == "restaurant-median":
+            # Skip matched-model entirely — restaurant-median is the index.
+            rmrows = build_restaurant_median_index(df, country)
+            if rmrows:
+                all_index_rows.extend(rmrows)
+                print(f"  {country}: {len(rmrows)} monthly observations (restaurant-median)")
+            else:
+                print(f"  {country}: insufficient data — skipped")
+            continue
+
         irows = build_country_index(country, relatives, monthly)
         if irows:
             all_index_rows.extend(irows)
@@ -632,4 +732,12 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT) -> None:
 
 
 if __name__ == "__main__":
-    run()
+    import argparse
+    ap = argparse.ArgumentParser(
+        description="Build the UIFPI from uifpi.db price observations."
+    )
+    ap.add_argument("--method", default="stable-basket",
+                    choices=("stable-basket", "restaurant-median"),
+                    help="Index aggregation method (default: stable-basket).")
+    args = ap.parse_args()
+    run(method=args.method)
