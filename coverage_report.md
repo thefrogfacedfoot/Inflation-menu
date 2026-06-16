@@ -66,3 +66,23 @@ actually be able to extract without re-running JavaScript.
 - `LD` / `ND` = whether the sample HTML has JSON-LD or `__NEXT_DATA__`; presence of either gives a clean structured data path that's usually more reliable than DOM regex.
 - A country clears the formal threshold only when BOTH ≥2-cap ≥ 15 **and** sample $-hits ≥ 5.
 - Common Crawl was not probed in this pass. It is a secondary archive available for Phase 1 if Wayback gaps are narrow.
+
+## Phase 0 re-probe — 2026-06-16 22:07
+### (1) Vietnam alternative URL patterns
+| Pattern | ≥2-cap restaurants | Snapshots | Sample $-hits | Sample bytes | Notes |
+|---|---:|---:|---:|---:|---|
+| `foody.vn/*-restaurant*` | 0 | 0 |  |  |  |
+| `foody.vn/*/` | 0 | 0 |  |  |  |
+| `foody.vn/restaurant/*` | 33 | 77 | 0 | 0 | tiny sample (redirect/stub) |
+| `foody.vn/ho-chi-minh/*/restaurant` | 0 | 0 |  |  |  |
+| `tripadvisor.com/Restaurant_Review-g293925*` | 732 | 5,133 | 0 | 1291 |  |
+| `tripadvisor.com/Restaurant_Review-g293924*` | 484 | 3,450 | 0 | 581 |  |
+
+### (2) JSON-LD deep-parse re-probes (5 samples each)
+| Platform | Pattern | ≥2-cap restaurants | Samples with LD prices | Mean LD prices/sample | Example item, price |
+|---|---|---:|---:|---:|---|
+| allmenus restaurant page | `allmenus.com/*/restaurant*` | 0 | — | — | empty |
+| allmenus city slug | `allmenus.com/il/chicago/*` | 2,291 | 0/5 | 0.0 |  |
+| wongnai restaurants | `wongnai.com/restaurants/*` | 5,545 | 1/5 | 0.2 | `ข้าวหมูแดงนายเคี้ยงคันคลอง หัวหิน` @ 55.0 |
+| dineout restaurants | `dineout.co.in/*-restaurants` | 0 | — | — | empty |
+| qraved jakarta restaurants | `qraved.com/jakarta/*-restaurant*` | 0 | — | — | empty |
