@@ -2252,6 +2252,21 @@ TARGETS = [
      # "https://www.swiggy.com/mumbai/sardar-pav-bhaji-tardeo-15578",
      # "informal", "swiggy", "INR", "India"),
 
+    # --- India direct chain sites (2026-06-16 probe round) ---
+    # mcdelivery.co.in shows 34 ₹ hits in static HTML but scrape_direct
+    # extracts 0 items (prices live in DOM cards the JSON-LD doesn't expose).
+    # Pizza Hut India + Starbucks India both pass HTTP/Title but scrape 0.
+    # All commented; would need per-chain custom selectors to extract.
+    # ("McDonald's India",
+    #  "https://www.mcdelivery.co.in/",
+    #  "formal", "direct", "INR", "India"),
+    # ("Pizza Hut India",
+    #  "https://www.pizzahut.co.in/menu/",
+    #  "formal", "js", "INR", "India"),
+    # ("Starbucks India",
+    #  "https://www.starbucks.in/menu",
+    #  "formal", "direct", "INR", "India"),
+
     # ==========================================================================
     # UNITED STATES  (direct chain websites with structured menus)
     # These are publicly accessible full-menu pages requiring no login.
@@ -2350,6 +2365,16 @@ TARGETS = [
     # All 11 DoorDash NYC URLs failed: Cloudflare "Just a moment..." challenge.
     # cloudscraper also failed (HTTP 403). DoorDash uses modern Cloudflare
     # protection that requires real browser fingerprinting + JS challenge.
+
+    # --- US chains: 2026-06-16 probe round ---
+    # Of 8 candidates not previously attempted, only Applebee's yielded any
+    # menu items via the existing scrapers (1 JSON-LD MenuItem captured).
+    # Cracker Barrel, Olive Garden, IHOP, Outback, TGI Fridays = 403 blocked.
+    # Cheesecake Factory, Red Lobster = 200 OK but 0 prices in static HTML.
+    # Yield is low but non-zero — keeping in until better US options surface.
+    ("Applebee's",
+     "https://www.applebees.com/en/menu",
+     "formal", "direct", "USD", "United States"),
 
     # ==========================================================================
     # UNITED KINGDOM  (direct chain websites)
