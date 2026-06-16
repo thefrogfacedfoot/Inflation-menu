@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+                       "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.uifpi.url-health</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-lc</string>
+        <string>cd /Users/erwenchen/Inflation-menu &amp;&amp; /usr/bin/python3 verify_targets.py --headed --concurrency 3 --digest auto</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/erwenchen/Inflation-menu</string>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>1</integer>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/erwenchen/Inflation-menu/scheduled/url-health.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/erwenchen/Inflation-menu/scheduled/url-health.err</string>
+</dict>
+</plist>

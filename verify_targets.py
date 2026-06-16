@@ -265,6 +265,11 @@ def main():
                     help='Use headed Chromium (matches live_scraper)')
     ap.add_argument('--skip-known-good', action='store_true',
                     help='Skip targets that already have rows in uifpi.db')
+    ap.add_argument('--digest', metavar='PATH',
+                    help='Also write a human-readable markdown digest to PATH '
+                         '(use "auto" for verify_digest_<date>.md).')
+    ap.add_argument('--fail-on-dead', action='store_true',
+                    help='Exit 1 if any DEAD/NAV_ERROR/WRONG_PAGE results.')
     args = ap.parse_args()
 
     HEADLESS = not args.headed
@@ -329,6 +334,21 @@ def main():
     _save(results)
     _print_summary(results)
 
+    if args.digest:
+        digest_path = args.digest
+        if digest_path == 'auto':
+            digest_path = os.path.join(
+                os.path.dirname(REPORT_PATH),
+                f"verify_digest_{datetime.now().strftime('%Y-%m-%d')}.md",
+            )
+        _write_digest(results, digest_path)
+        print(f"\nDigest → {digest_path}")
+
+    if args.fail_on_dead:
+        bad = {'DEAD', 'NAV_ERROR', 'WRONG_PAGE'}
+        if any(r['status'] in bad for r in results):
+            sys.exit(1)
+
 
 def _save(results):
     payload = {
@@ -338,6 +358,57 @@ def _save(results):
     }
     with open(REPORT_PATH, 'w') as fh:
         json.dump(payload, fh, indent=2, sort_keys=False)
+
+
+def _write_digest(results, path):
+    """Markdown digest grouped by status; lists every dead URL for action."""
+    bad = ('DEAD', 'NAV_ERROR', 'WRONG_PAGE')
+    by_status = {}
+    for r in results:
+        by_status.setdefault(r['status'], []).append(r)
+
+    lines = [f"# UIFPI URL Health Check — {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+             '',
+             '## Summary',
+             '']
+    for s in sorted(by_status):
+        lines.append(f"- **{s}**: {len(by_status[s])}")
+    lines.append('')
+
+    dead = [r for s in bad for r in by_status.get(s, [])]
+    if dead:
+        lines.append(f"## Needs action — {len(dead)} broken URL(s)")
+        lines.append('')
+        lines.append('Run `python3 apply_verifier_fixes.py --apply` to comment '
+                     'these out of live_scraper.py, then find replacement URLs.')
+        lines.append('')
+        for r in dead:
+            lines.append(f"### {r['name']} ({r['country']}, {r['source']})")
+            lines.append(f"- Status: `{r['status']}`")
+            lines.append(f"- URL: <{r['url']}>")
+            if r.get('final_url') and r['final_url'] != r['url']:
+                lines.append(f"- Final URL: <{r['final_url']}>")
+            if r.get('http_status'):
+                lines.append(f"- HTTP: {r['http_status']}")
+            if r.get('title'):
+                lines.append(f"- Title: `{r['title'][:120]}`")
+            if r.get('reason'):
+                lines.append(f"- Reason: {r['reason'][:200]}")
+            lines.append('')
+    else:
+        lines.append('## No broken URLs detected')
+        lines.append('')
+
+    blocked = by_status.get('BLOCKED', [])
+    if blocked:
+        lines.append(f"## Bot-blocked — {len(blocked)} (IP-level, usually transient)")
+        lines.append('')
+        for r in blocked:
+            lines.append(f"- {r['name']} ({r['country']}, {r['source']})")
+        lines.append('')
+
+    with open(path, 'w') as fh:
+        fh.write('\n'.join(lines))
 
 
 def _print_summary(results):

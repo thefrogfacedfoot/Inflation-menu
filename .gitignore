@@ -3,3 +3,7 @@
 *.db-shm
 ECC/
 debug_page.html
+uifpi.db
+scraper_log.txt
+
+
