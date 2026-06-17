@@ -1,0 +1,64 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Phase 0 probe (BR/DE/ZA) — 14 pairs
+Window: 20180101 → 20260601
+
+[ 1/14] Brazil         tripadvisor BR         tripadvisor.com.br/Restaurant_Review*
+           22219 distinct URLs,  2860 ≥2-cap,  30000 snapshots, 20180101-20260311 (TRUNCATED)
+          sampling 20220216220023 https://www.tripadvisor.com.br/Restaurant_Review-g1012170-d12616997-Re
+          sample: 1320 KB, 0 BRL hits, LD=True ND=False
+[ 2/14] Brazil         ifood SP               ifood.com.br/delivery/sao-paulo-sp/*
+           18977 distinct URLs,  4853 ≥2-cap,  30000 snapshots, 20180815-20260526 (TRUNCATED)
+          sampling 20201023223927 https://www.ifood.com.br/delivery/sao-paulo-sp/delicias-brasileiras-vi
+          sample fetch failed: HTTP 503
+[ 3/14] Brazil         ifood RJ               ifood.com.br/delivery/rio-de-janeiro-rj/*
+           20265 distinct URLs,  3760 ≥2-cap,  27556 snapshots, 20180815-20260524
+          sampling 20250123042921 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/tasca-filho-da-mae
+          sample: 43 KB, 5 BRL hits, LD=True ND=True
+[ 4/14] Brazil         rappi BR               rappi.com.br/restaurantes/*
+           20990 distinct URLs,  4885 ≥2-cap,  30000 snapshots, 20180829-20260520 (TRUNCATED)
+          sampling 20260209082037 https://www.rappi.com.br/restaurantes/900010394-allfry
+          sample fetch failed: HTTP 503
+[ 5/14] Brazil         ubereats BR            ubereats.com/br/*
+           22641 distinct URLs,  4590 ≥2-cap,  30000 snapshots, 20200312-20260531 (TRUNCATED)
+          sampling 20210620010457 https://www.ubereats.com/br-en/dish/mossor%C3%B3-rn/carne-asada
+          sample: 776 KB, 218 BRL hits, LD=True ND=False
+[ 6/14] Germany        tripadvisor DE         tripadvisor.de/Restaurant_Review*
+           22033 distinct URLs,  2972 ≥2-cap,  30000 snapshots, 20180103-20260513 (TRUNCATED)
+          sampling 20210712172708 https://www.tripadvisor.de/Restaurant_Review-g1034759-d10124279-Review
+          sample fetch failed: HTTP 503
+[ 7/14] Germany        lieferando             lieferando.de/speisekarte/*
+           19054 distinct URLs,  6464 ≥2-cap,  30000 snapshots, 20210202-20260531 (TRUNCATED)
+          sampling 20231003071258 https://www.lieferando.de/speisekarte/chinatown-chinesisches-restauran
+          sample: 617 KB, 102 EUR hits, LD=True ND=True
+[ 8/14] Germany        wolt DE                wolt.com/de/deu/*
+           19164 distinct URLs,  4358 ≥2-cap,  30000 snapshots, 20200924-20260530 (TRUNCATED)
+          sampling 20240528170118 https://wolt.com/de/deu/berlin/restaurant/hoa-rong-restaurant
+          sample: 920 KB, 50 EUR hits, LD=True ND=False
+[ 9/14] Germany        ubereats DE            ubereats.com/de/*
+           23670 distinct URLs,  2588 ≥2-cap,  30000 snapshots, 20180121-20260531 (TRUNCATED)
+          sampling 20241001174905 https://www.ubereats.com/de/category/berlin-be/ice-cream-and-frozen-yo
+          sample fetch failed: HTTP 503
+[10/14] Germany        yelp DE                yelp.de/biz/*
+           22981 distinct URLs,  5536 ≥2-cap,  30000 snapshots, 20180101-20251129 (TRUNCATED)
+          sampling 20190802085949 https://www.yelp.de/biz/%E3%82%AC%E3%83%81%E3%83%9E%E3%83%A4-%E7%A5%9E
+          sample: 372 KB, 0 EUR hits, LD=True ND=False
+[11/14] South Africa   tripadvisor ZA         tripadvisor.co.za/Restaurant_Review*
+           21540 distinct URLs,  2744 ≥2-cap,  30000 snapshots, 20180101-20260310 (TRUNCATED)
+          sampling 20190930170442 https://www.tripadvisor.co.za/Restaurant_Review-g1066443-d14018038-Rev
+          sample: 1229 KB, 16 ZAR hits, LD=True ND=False
+[12/14] South Africa   mrdfood                mrdfood.com/*
+            7892 distinct URLs,  5966 ≥2-cap,  30000 snapshots, 20180224-20251212 (TRUNCATED)
+          sampling 20210122172120 https://www.mrdfood.com/food-delivery/restaurant/freebird-canal-walk_c
+          sample fetch failed: HTTP 503
+[13/14] South Africa   ubereats ZA            ubereats.com/za/*
+            9816 distinct URLs,  1845 ≥2-cap,  13850 snapshots, 20200415-20260529
+          sampling 20220521065844 https://www.ubereats.com/za/store/sandwich-baron-meyersdal/UZ8kkbxVTOS
+          sample: 742 KB, 6 ZAR hits, LD=True ND=False
+[14/14] South Africa   eatout ZA              eatout.co.za/listings/*
+          0 rows
+
+CSV → /Users/erwenchen/Inflation-menu/coverage_report_br_de_za.csv
+MD  → /Users/erwenchen/Inflation-menu/coverage_report_br_de_za.md
+
+Done.

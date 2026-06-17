@@ -1,0 +1,58 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Historical HTML scraper — 14 target(s)
+per_period=3, max_per_target=100
+
+
+======================================================================
+  United States:menupages  (menupages.com/*)
+======================================================================
+
+  United States:menupages: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  India:zomato-ncr  (zomato.com/ncr/*)
+======================================================================
+
+  India:zomato-ncr: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Indonesia:zomato-jakarta  (zomato.com/jakarta/*)
+======================================================================
+
+  Indonesia:zomato-jakarta: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Thailand:eatigo-bkk  (eatigo.com/th/bangkok/*)
+======================================================================
+
+  Thailand:eatigo-bkk: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Australia:menulog  (menulog.com.au/restaurants/*)
+======================================================================
+
+  Australia:menulog: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Philippines:zomato-manila  (zomato.com/manila/*)
+======================================================================
+
+  Philippines:zomato-manila: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Singapore:grabfood-sg  (food.grab.com/sg/en/restaurant/*)
+======================================================================
+
+  Singapore:grabfood-sg: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Mexico:tripadvisor-mx  (tripadvisor.com.mx/Restaurant_Review*)
+======================================================================
+
+  Mexico:tripadvisor-mx: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Brazil:ubereats-br  (ubereats.com/br/*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
