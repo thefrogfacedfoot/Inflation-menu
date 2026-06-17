@@ -253,6 +253,10 @@ def main():
         roll = {}
         for r in results:
             c = r['country']
+            # Skip rows whose sample fetch failed — see phase0_probe_br_de_za.py
+            # for the rationale.
+            if (r.get('sample_status') or '').startswith('error:'):
+                continue
             best = roll.get(c)
             if (best is None or
                 (r['n_restaurants_ge2'], r['sample_price_hits'] or 0) >

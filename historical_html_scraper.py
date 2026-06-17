@@ -66,6 +66,14 @@ CURRENCY_REGEXES = {
     'SGD': re.compile(r'S\$\s?(\d+(?:\.\d{2})?)'),
     'PHP': re.compile(r'(?:₱|PHP)\s?(\d+(?:\.\d{2})?)'),
     'MXN': re.compile(r'\$\s?(\d+(?:\.\d{2})?)'),
+    # Added 2026-06-17 (Track C). BRL uses 'R$' with comma decimal; EUR
+    # in DE locale also uses comma decimal and frequently writes '€' at
+    # either end of the number. ZAR uses bare 'R' which collides with
+    # English words — validate downstream that the regex match is on a
+    # price field, not body text.
+    'BRL': re.compile(r'R\$\s?(\d+(?:[.,]\d{2})?)'),
+    'EUR': re.compile(r'(?:€\s?(\d+(?:[.,]\d{2})?)|(\d+(?:[.,]\d{2})?)\s?€)'),
+    'ZAR': re.compile(r'\bR\s?(\d+(?:[.,]\d{2})?)'),
 }
 
 # ── Generic JSON-LD price walker ─────────────────────────────────────────────
@@ -244,6 +252,32 @@ def parse_tripadvisor_mx(html, currency):
     return _coerce(extract_jsonld(html), currency)
 
 
+# ── Track C parsers (BR / DE / ZA), added 2026-06-17 ─────────────────────────
+
+def parse_ubereats(html, currency):
+    """Uber Eats per-country archived pages. Sample probes show JSON-LD
+    with Menu / MenuItem nodes; NEXT_DATA is sometimes present but the
+    price fields live in JSON-LD. Same shape as parse_menupages.
+    """
+    return _coerce(extract_jsonld(html), currency)
+
+
+def parse_lieferando(html, currency):
+    """Lieferando.de (Just Eat Takeaway DE) archived menu pages.
+    Probe shows LD + ND both present with 102 EUR hits in a single
+    sample. NEXT_DATA is the higher-yield path; fall back to LD."""
+    items = extract_nextdata(html) or extract_jsonld(html)
+    return _coerce(items, currency)
+
+
+def parse_tripadvisor_za(html, currency):
+    """TripAdvisor ZA restaurant pages. Same parser shape as
+    parse_tripadvisor_mx: JSON-LD MenuItem when present, FoodEstablishment
+    priceRange tier markers explicitly skipped by the _walk_ld @type
+    guard. (See the 2026-06-17 tier-marker purge for context.)"""
+    return _coerce(extract_jsonld(html), currency)
+
+
 def _coerce(items, default_currency):
     """Normalise (name, price, currency_or_None) → standard tuples."""
     out = []
@@ -273,6 +307,23 @@ TARGETS = [
      'food.grab.com/sg/en/restaurant/*', 'SGD', parse_grabfood),
     ('Mexico',        'formal', 'tripadvisor-mx','wayback-tripadvisor',
      'tripadvisor.com.mx/Restaurant_Review*', 'MXN', parse_tripadvisor_mx),
+    # Track C — added 2026-06-17 after the BR/DE/ZA Phase 0 probe.
+    # See coverage_report_br_de_za.md + docs/track_b_c_findings_2026-06-17.md.
+    # Smoke-test each with --per-period 2 before a full sweep; iFood pages
+    # and TripAdvisor BR/DE returned HTTP 503 in probing and may need
+    # different headers or a Cloudflare bypass.
+    ('Brazil',        'formal', 'ubereats-br',   'wayback-ubereats',
+     'ubereats.com/br/*', 'BRL', parse_ubereats),
+    ('Brazil',        'formal', 'ifood-rj',      'wayback-ifood',
+     'ifood.com.br/delivery/rio-de-janeiro-rj/*', 'BRL', parse_lieferando),
+    ('Germany',       'formal', 'lieferando',    'wayback-lieferando',
+     'lieferando.de/speisekarte/*', 'EUR', parse_lieferando),
+    ('Germany',       'formal', 'wolt-de',       'wayback-wolt',
+     'wolt.com/de/deu/*', 'EUR', parse_lieferando),
+    ('South Africa',  'formal', 'tripadvisor-za','wayback-tripadvisor',
+     'tripadvisor.co.za/Restaurant_Review*', 'ZAR', parse_tripadvisor_za),
+    ('South Africa',  'formal', 'ubereats-za',   'wayback-ubereats',
+     'ubereats.com/za/*', 'ZAR', parse_ubereats),
 ]
 
 

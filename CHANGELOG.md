@@ -2,6 +2,22 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-17 — Track B / Track C probe results
+
+### TL;DR
+- **3 new countries clear the formal-sector threshold**: Brazil (Uber Eats BR, 218 BRL hits/page), Germany (Lieferando, 102 EUR), South Africa (TripAdvisor ZA, 16 ZAR).
+- **2 candidate sources bail**: Indonesia GoFood (JS shell — 0 IDR hits in static HTML across 3 URL patterns); Thailand GrabFood (captcha-blocked on Wayback playback, both `/th/en/*` and `/th/th/*`).
+- **AU Menulog revisit**: sample shows 48 AUD hits/page with both JSON-LD and NEXT_DATA. The existing 12% parser yield is a parser undercount, not a source limit. Full re-sweep deferred pending parser work.
+
+### Scraper wiring
+- `historical_html_scraper.py`: added BRL / EUR / ZAR currency regexes; added `parse_ubereats`, `parse_lieferando`, `parse_tripadvisor_za` parsers; appended 6 new TARGETS (BR ubereats + ifood-rj, DE lieferando + wolt-de, ZA tripadvisor-za + ubereats-za). Not yet executed — each needs a small smoke test (`--per-period 2`) before a full sweep, partly because iFood / Rappi / TripAdvisor BR + DE sample fetches all returned HTTP 503 during probing and may need header tweaks.
+
+### Probe scripts
+- `phase0_probe_br_de_za.py` + `phase0_probe_track_b.py`: roll-up logic now skips rows whose sample fetch failed before ranking. The original auto-generated roll-up in `coverage_report_br_de_za.md` is preserved with a corrected version above it for clarity.
+
+### Docs
+- `docs/track_b_c_findings_2026-06-17.md`: per-country yields, parser/source verdicts, and the parser-yield gap for AU Menulog.
+
 ## 2026-06-17 — Mexico floor-only page; Track C kickoff
 
 ### Mexico added as proxy-only country on dashboard

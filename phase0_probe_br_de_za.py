@@ -234,6 +234,11 @@ def main():
         roll = {}
         for r in results:
             c = r['country']
+            # Skip rows whose sample fetch failed — they have no usable
+            # signal regardless of CDX yield, and treating their hit count
+            # as 0 would let a 503-blocked source out-rank a working one.
+            if (r.get('sample_status') or '').startswith('error:'):
+                continue
             best = roll.get(c)
             if (best is None or
                 (r['n_restaurants_ge2'], r['sample_price_hits'] or 0) >
