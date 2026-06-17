@@ -44,6 +44,14 @@ ROSTER = [
     ('Singapore',     'SG', 'SGP', 'SGD'),
     ('Mexico',        'MX', 'MEX', 'MXN'),
     ('Vietnam',       'VN', 'VNM', 'VND'),  # proxy-only
+    # Added 2026-06-18 — formal-sector roster expansion (BR/DE/ZA cleared
+    # Phase 0 threshold) plus GB/MY backfill (already item-level countries
+    # with monthly CPI but no Numbeo / Big Mac coverage).
+    ('United Kingdom','GB', 'GBR', 'GBP'),
+    ('Malaysia',      'MY', 'MYS', 'MYR'),
+    ('Brazil',        'BR', 'BRA', 'BRL'),
+    ('Germany',       'DE', 'DEU', 'EUR'),
+    ('South Africa',  'ZA', 'ZAF', 'ZAR'),
 ]
 
 # Numbeo "items" we want (their item-id integers from the URL):

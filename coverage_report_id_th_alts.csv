@@ -1,0 +1,8 @@
+country,sector,platform,pattern,currency,n_restaurants_ge2,n_snapshots,distinct_urls,earliest,latest,cdx_status,sample_url,sample_ts,sample_kb,sample_price_hits,sample_json_ld,sample_next_data,sample_block,sample_status
+Indonesia,formal,shopeefood SP,shopee.co.id/m/shopeefood-*,IDR,47,7636,7574,20210226,20260209,ok,https://shopee.co.id/m/shopeefood-jkt-001,20230702043232,37,0,N,N,captcha,block:captcha
+Indonesia,formal,shopeefood,shopeefood.co.id/*,IDR,4,29,6,20221031,20260215,ok,https://www.shopeefood.co.id/merchants/about-merchants,20221106182945,16,0,Y,Y,,ok
+Indonesia,formal,shopeefood jkt,shopeefood.co.id/jakarta/*,IDR,0,0,0,,,empty,,,,,,,,
+Thailand,formal,wongnai restaurants,wongnai.com/restaurants/*,THB,5545,30000,22271,20180306,20260521,truncated,https://www.wongnai.com/restaurants/1093073jJ-%E0%B9%82%E0%B8%AD%E0%B9%89%E0%B9%82%E0%B8%AB%E0%B8%AA%E0%B8%B8%E0%B8%81%E0%B8%B5%E0%B9%89-oho-sukiyaki/reviews,20251213215307,,,,,,"error:('Connection aborted.', ConnectionResetError(54, 'Connection"
+Thailand,formal,wongnai bangkok,wongnai.com/bangkok/*,THB,2,9,2,20190822,20241113,ok,https://www.wongnai.com/bangkok?locale=en,20210124221540,1024,6,N,N,,ok
+Thailand,formal,lineman wongnai,lineman.line.me/r/wongnai/*,THB,0,0,0,,,empty,,,,,,,,
+Thailand,formal,wongnai restaurant detail,wongnai.com/restaurants/*-*,THB,0,0,0,,,empty,,,,,,,,

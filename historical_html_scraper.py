@@ -80,9 +80,14 @@ CURRENCY_REGEXES = {
 
 def _walk_ld(node, items, name_ctx=None):
     """Walk a JSON-LD tree collecting (name, price, currency) where MenuItem
-    or Offer or Product carries a price."""
+    or Offer or Product carries a price.
+
+    Emission requires the local node to have its OWN `name` field — see
+    the 2026-06-18 fix below.
+    """
     if isinstance(node, dict):
-        nm = (node.get('name') or name_ctx)
+        local_name = node.get('name')
+        nm = local_name or name_ctx
         cur_node = node.get('priceCurrency')
         price_node = node.get('price')
         if price_node is None:
@@ -106,13 +111,22 @@ def _walk_ld(node, items, name_ctx=None):
         bad_types = {'PostalAddress', 'GeoCoordinates', 'Restaurant',
                      'FoodEstablishment', 'Place', 'LocalBusiness',
                      'BreadcrumbList', 'AggregateRating', 'Review'}
-        if nm and price_node is not None and node.get('@type') not in bad_types:
+        # Fix 2026-06-18: emit only when this node has its OWN name field.
+        # Inheriting name_ctx from a Restaurant/FoodEstablishment parent
+        # and pairing it with a child Offer/priceSpecification price
+        # produced the 15 wayback-menulog rows that all had restaurant
+        # names as item_names paired with 4.99 / 5.00 / 10.00 / 20.00
+        # values — i.e. delivery fees and min-order amounts, not menu
+        # items. MenuItem nodes that carry their own `name` are
+        # unaffected; anonymous Offer leaves under non-menu parents are
+        # correctly dropped.
+        if local_name and price_node is not None and node.get('@type') not in bad_types:
             try:
                 p = float(re.sub(r'[^\d.]', '', str(price_node)))
             except Exception:
                 p = None
             if p and 0 < p < 100_000:
-                items.append((str(nm)[:120], p, cur_node))
+                items.append((str(local_name)[:120], p, cur_node))
         for v in node.values():
             _walk_ld(v, items, nm)
     elif isinstance(node, list):
@@ -120,17 +134,60 @@ def _walk_ld(node, items, name_ctx=None):
             _walk_ld(v, items, name_ctx)
 
 
+def _extract_script_content(html, opening_re):
+    """Find a script tag matching ``opening_re`` and return its inner JSON
+    text. Tries the canonical ``(.*?)</script>`` shape first, then falls
+    back to ``[^<]+`` (until the next ``<`` character).
+
+    Wayback-archived pages frequently truncate or omit the closing
+    ``</script>`` tag, especially for very large JSON payloads (Lieferando
+    Restaurant pages store ~300 KB of JSON in __NEXT_DATA__). JSON-LD /
+    NEXT_DATA payloads escape ``<`` as ``\\u003c`` so [^<]+ is a safe
+    terminator when the closing tag is missing.
+    """
+    m = opening_re.search(html)
+    if not m:
+        return None
+    after = html[m.end():]
+    # Lazy match against </script> when present
+    close = re.match(r'(.*?)</script>', after, re.S | re.I)
+    if close:
+        return close.group(1)
+    # Fallback: grab until the next raw '<'
+    rest = re.match(r'([^<]+)', after, re.S)
+    if rest:
+        return rest.group(1)
+    return None
+
+
+_LD_OPENING = re.compile(
+    r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>',
+    re.I,
+)
+_NEXTDATA_OPENING = re.compile(
+    r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>',
+    re.I,
+)
+
+
 def extract_jsonld(html):
     """Return list of (name, price, currency_or_None) from all JSON-LD blocks."""
     if not html:
         return []
     out = []
-    for m in re.finditer(
-        r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
-        html, re.S | re.I,
-    ):
+    # Walk every JSON-LD opening tag; for each, extract content via the
+    # script-content helper (handles archived pages with no </script>).
+    for m in _LD_OPENING.finditer(html):
+        after = html[m.end():]
+        close = re.match(r'(.*?)</script>', after, re.S | re.I)
+        block = close.group(1) if close else (
+            re.match(r'([^<]+)', after, re.S).group(1)
+            if re.match(r'([^<]+)', after, re.S) else None
+        )
+        if not block:
+            continue
         try:
-            obj = json.loads(m.group(1))
+            obj = json.loads(block)
         except Exception:
             continue
         _walk_ld(obj, out)
@@ -148,14 +205,11 @@ def extract_nextdata(html):
     """Pull __NEXT_DATA__ JSON blob and walk for prices the same way."""
     if not html or '__NEXT_DATA__' not in html:
         return []
-    m = re.search(
-        r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(.*?)</script>',
-        html, re.S | re.I,
-    )
-    if not m:
+    block = _extract_script_content(html, _NEXTDATA_OPENING)
+    if not block:
         return []
     try:
-        obj = json.loads(m.group(1))
+        obj = json.loads(block)
     except Exception:
         return []
     out = []

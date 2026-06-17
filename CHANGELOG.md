@@ -2,6 +2,120 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-18 — Menulog parser fix; 11-country panel; ID/TH alt probes
+
+### JSON-LD walker: require local `name` on the emitting node
+
+`historical_html_scraper.py::_walk_ld` previously inherited a parent's
+`name` field into descendant price-bearing nodes. For Schema.org
+Restaurant JSON-LD that pattern produced
+`("Restaurant Name", 4.99)` where the price was the delivery fee from
+an anonymous `Offer` under `Restaurant.offers` and the name was the
+restaurant's name — the parent's. The 15 wayback-menulog rows that
+sat in `prices` were all of this shape (prices 4.99 / 5.00 / 10.00 /
+20.00 — Menulog's flat delivery fee and minimum-order tiers).
+
+Fix: the walker still recurses with the inherited `name_ctx` for
+descent, but emission requires the local node to have its own `name`.
+Anonymous Offer / priceSpecification leaves under non-menu parents
+are now correctly dropped. MenuPages-shaped JSON-LD
+(Menu → MenuSection → MenuItem with own name) is unaffected — all
+six synthetic test shapes pass.
+
+Action taken:
+  - The 15 polluted `wayback-menulog` rows in `prices` were deleted.
+  - The `Australia:menulog` entry in `historical_html_progress.json`
+    was reset so the 128 cached snapshots are re-walked with the
+    fixed parser.
+  - `historical_html_scraper.py --per-period 3 --max-per-target 100`
+    re-launched. The 8 existing-cache targets resume from `done_urls`
+    and skip in seconds; AU Menulog + 6 new BR/DE/ZA targets walk
+    fresh.
+
+### Dashboard: 8 → 11 countries (12 with Mexico proxy)
+
+`types/index.ts` `COUNTRIES` now lists Brazil, Germany, South Africa
+alongside the original 8. Mexico stays in `PROXY_COUNTRIES`. Flags,
+slugs, and `DEVELOPMENT_STATUS` extended for the new three. The world
+map (`components/CountryMap.tsx`) gets approximate viewBox positions
+for BR / DE / ZA so the dots render in the right hemispheres.
+
+South Africa ships with a `COVERAGE_NOTES` banner — *"limited coverage
+— supplementary only"* — given the thin 16-hit Phase 0 probe yield.
+
+`floor_datasets.py` ROSTER also extended: GB and MY are now included
+(both had monthly CPI but were missing Numbeo / Big Mac); BR / DE / ZA
+added for completeness so the next `floor_datasets.py` run loads
+their floor data too.
+
+### ID / TH alternative-source probe results
+
+`phase0_probe_id_th_alts.py` ran 7 probes against ShopeeFood (ID) and
+Wongnai / LineMan (TH). Per `coverage_report_id_th_alts.md`:
+
+  - **ID — bail**. ShopeeFood SP (47 ≥2-cap) is captcha-blocked.
+    `shopeefood.co.id/*` only has 4 ≥2-cap restaurants. No viable
+    item-level source.
+  - **TH — bail**. `wongnai.com/restaurants/*` has 5,545 ≥2-cap
+    restaurants but the sample fetch returned a connection reset.
+    Other Wongnai routes are too thin (2 URLs, 6 THB hits, no
+    LD/ND).
+
+Pivot: ID and TH ship as hybrid country pages — main country in the
+roster, item-level series shown (Zomato cost-for-two for ID; the
+single 2026-06 live snapshot for TH), with a supplementary floor-data
+section (Numbeo + Big Mac + WB CPI) and an explicit coverage banner.
+Not converted to `PROXY_COUNTRIES` because they still have direct
+price observations.
+
+### Reality check: Wayback doesn't capture modern delivery-app menus
+
+Running `historical_html_scraper.py` with the 14 wired targets
+returned **0 rows across all new targets**: AU Menulog (81 attempts),
+BR Uber Eats (66), BR iFood RJ (80), DE Lieferando (57), DE Wolt (60),
+ZA TripAdvisor (84), ZA Uber Eats (75).
+
+Diagnosis (verified on a 1 MB Lieferando archived page):
+  - The Phase 0 single-sample probes were misleading. The 102 EUR /
+    218 BRL / 48 AUD hit counts were body-text matches; the
+    structured data tells a different story.
+  - The archived JSON-LD on these pages is typically
+    `@type=Restaurant` with restaurant metadata only (address, hours)
+    and **no** MenuItem nodes.
+  - The archived `__NEXT_DATA__` blob contains the app's i18n
+    strings, service URLs, and feature flags but **no menu data**.
+    Menu data on modern SPAs (Lieferando, Uber Eats, iFood, GoFood,
+    GrabFood) loads via XHR from a BFF API after page render.
+    Wayback captures only the static HTML shell — never the
+    hydrated state.
+  - On many archived pages the embedded `__NEXT_DATA__` script is
+    even truncated mid-string at ~315 KB, so the old extractor's
+    `(.*?)</script>` regex returned nothing because there was no
+    closing tag. `extract_jsonld` and `extract_nextdata` were
+    updated to fall back to a `[^<]+` terminator when no
+    `</script>` is found; even so, the underlying JSON has no
+    menu items to extract.
+  - The lieferando ND payload contains **zero `"price"` substrings**
+    in its 314 KB — this was the cleanest possible proof.
+
+Action taken:
+  - The 15 prior `wayback-menulog` rows were correctly identified
+    as delivery fees (4.99 / 5.00 / 10.00 / 20.00 — Menulog's
+    flat-fee structure) and deleted. The cleaned `prices` table
+    now reflects only genuine menu items.
+  - BR / DE / ZA tiles ship as `"Data Collection Ongoing"` with 0
+    items — honest about coverage status. Live going-forward
+    collection via `live_scraper.py` is the realistic path; Wayback
+    is not.
+  - Documented in `docs/track_b_c_findings_2026-06-17.md` (revised)
+    and surfaced via the COVERAGE_NOTES banner for ZA.
+
+The original delivery-app probes (Uber Eats / iFood / GoFood /
+GrabFood / Lieferando / Wolt) are now understood to be **inherently
+unsuitable for archival item-level extraction**, regardless of CDX
+yield. This is a structural limitation of the SPA-by-XHR pattern,
+not a parser issue.
+
 ## 2026-06-17 — Track B / Track C probe results
 
 ### TL;DR

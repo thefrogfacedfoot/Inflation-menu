@@ -69,6 +69,9 @@ export const COUNTRIES = [
   "United States",
   "United Kingdom",
   "Australia",
+  "Brazil",
+  "Germany",
+  "South Africa",
 ] as const;
 
 export type Country = (typeof COUNTRIES)[number];
@@ -89,6 +92,9 @@ export const COUNTRY_FLAGS: Record<string, string> = {
   "United Kingdom": "🇬🇧",
   Australia: "🇦🇺",
   Mexico: "🇲🇽",
+  Brazil: "🇧🇷",
+  Germany: "🇩🇪",
+  "South Africa": "🇿🇦",
 };
 
 export const COUNTRY_SLUGS: Record<string, string> = {
@@ -101,6 +107,9 @@ export const COUNTRY_SLUGS: Record<string, string> = {
   "United Kingdom": "united-kingdom",
   Australia: "australia",
   Mexico: "mexico",
+  Brazil: "brazil",
+  Germany: "germany",
+  "South Africa": "south-africa",
 };
 
 export const SLUG_TO_COUNTRY: Record<string, string> = Object.fromEntries(
@@ -111,9 +120,15 @@ export const SLUG_TO_COUNTRY: Record<string, string> = Object.fromEntries(
 // methodology page carries the long form. Empty/absent ⇒ no banner.
 export const COVERAGE_NOTES: Record<string, string> = {
   Thailand:
-    "Single 2026-06 snapshot (11 items, 9 restaurants). Live collection going forward only — no archival depth.",
+    "Single 2026-06 snapshot (11 items, 9 restaurants). Live collection going forward only — no archival depth. Floor data (Numbeo / Big Mac / WB CPI) shown below as supplementary.",
   Indonesia:
-    "Restaurant-aggregate Zomato cost-for-two series (29 monthly observations from Jakarta). Treat each point as a typical-meal-for-two price, not item-level.",
+    "Restaurant-aggregate Zomato cost-for-two series (29 monthly observations from Jakarta). Treat each point as a typical-meal-for-two price, not item-level. Floor data shown below as supplementary.",
+  "South Africa":
+    "Wayback archives don't contain extractable menu items for ZA delivery sources — Uber Eats and TripAdvisor ZA pages carry only restaurant-level metadata. Showing floor data (Numbeo / Big Mac / WB CPI) only.",
+  Brazil:
+    "Wayback archives don't contain extractable menu items for BR delivery sources (Uber Eats, iFood, Rappi). All capture restaurant metadata only; menu items load via XHR after page render. Showing floor data only.",
+  Germany:
+    "Wayback archives don't contain extractable menu items for DE delivery sources (Lieferando, Wolt, Uber Eats). All capture restaurant metadata + i18n strings only. Showing floor data only.",
 };
 
 export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
@@ -126,4 +141,7 @@ export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
   "United Kingdom": "Developed",
   Australia: "Developed",
   Mexico: "Emerging",
+  Brazil: "Emerging",
+  Germany: "Developed",
+  "South Africa": "Emerging",
 };

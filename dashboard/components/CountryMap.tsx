@@ -19,6 +19,9 @@ const POSITIONS: Record<string, [number, number]> = {
   Thailand:         [72,  53],
   India:            [68,  47],
   Australia:        [79,  73],
+  Brazil:           [25,  62],
+  Germany:          [49,  30],
+  "South Africa":   [54,  77],
 };
 
 export default function CountryMap({ summaries }: Props) {
