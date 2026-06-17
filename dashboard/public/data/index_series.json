@@ -1,79 +1,15 @@
 {
   "Australia": [
     {
-      "month": "2018-01",
+      "month": "2019-07",
       "uifpi": null,
       "formal": null,
       "informal": null,
       "cpi": null,
       "item_count": 2
-    },
-    {
-      "month": "2018-07",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2018-12",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2019-06",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 2
-    },
-    {
-      "month": "2019-07",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 7
-    },
-    {
-      "month": "2019-08",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 4
     },
     {
       "month": "2019-09",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 20
-    },
-    {
-      "month": "2019-10",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 24
-    },
-    {
-      "month": "2019-11",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 7
-    },
-    {
-      "month": "2021-08",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -81,23 +17,79 @@
       "item_count": 1
     },
     {
-      "month": "2021-09",
-      "uifpi": 100.0,
+      "month": "2019-10",
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
+      "cpi": null,
+      "item_count": 3
+    },
+    {
+      "month": "2021-04",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
       "cpi": null,
       "item_count": 1
+    },
+    {
+      "month": "2021-05",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2021-11",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2021-12",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 3
+    },
+    {
+      "month": "2022-01",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 5
+    },
+    {
+      "month": "2022-05",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2022-06",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 2
     },
     {
       "month": "2023-05",
-      "uifpi": 100.0,
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 1
+      "item_count": 2
     },
     {
-      "month": "2024-02",
+      "month": "2025-11",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -110,44 +102,438 @@
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 44
+      "item_count": 127
     }
   ],
   "India": [
     {
       "month": "2018-01",
       "uifpi": 100.0,
-      "formal": null,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2018-03",
+      "uifpi": 100.0,
+      "formal": 100.0,
       "informal": 100.0,
       "cpi": null,
       "item_count": 1
     },
     {
-      "month": "2018-07",
+      "month": "2018-08",
       "uifpi": 100.0,
-      "formal": null,
+      "formal": 100.0,
       "informal": 100.0,
       "cpi": null,
-      "item_count": 1
+      "item_count": 3
+    },
+    {
+      "month": "2018-10",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
     },
     {
       "month": "2018-11",
       "uifpi": 100.0,
-      "formal": null,
+      "formal": 100.0,
       "informal": 100.0,
       "cpi": null,
       "item_count": 1
     },
     {
-      "month": "2018-12",
+      "month": "2019-01",
       "uifpi": 100.0,
-      "formal": null,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 4
+    },
+    {
+      "month": "2019-05",
+      "uifpi": 100.0,
+      "formal": 100.0,
       "informal": 100.0,
       "cpi": null,
       "item_count": 1
     },
     {
-      "month": "2019-02",
+      "month": "2019-11",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 4
+    },
+    {
+      "month": "2020-01",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2020-03",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2020-08",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2020-11",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2020-12",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 298
+    },
+    {
+      "month": "2021-01",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2021-05",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2021-07",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2021-09",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2021-11",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2021-12",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2022-01",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2022-03",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2022-04",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2022-05",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 13
+    },
+    {
+      "month": "2022-10",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2023-01",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2023-02",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2023-03",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2023-04",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2023-05",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 12
+    },
+    {
+      "month": "2023-08",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2023-09",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2023-12",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2024-01",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2024-03",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2024-04",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2024-06",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 3
+    },
+    {
+      "month": "2024-07",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2024-08",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2024-09",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2024-12",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2025-03",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2025-04",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2025-06",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2025-08",
+      "uifpi": 92.0,
+      "formal": 80.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2025-09",
+      "uifpi": 80.8,
+      "formal": 52.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2025-11",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2026-01",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2026-04",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 3
+    },
+    {
+      "month": "2026-05",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": 100.0,
+      "cpi": null,
+      "item_count": 1
+    }
+  ],
+  "Indonesia": [
+    {
+      "month": "2018-02",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2018-03",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2018-08",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": null,
+      "cpi": null,
+      "item_count": 4
+    },
+    {
+      "month": "2018-11",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": null,
+      "cpi": null,
+      "item_count": 4
+    },
+    {
+      "month": "2019-03",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -160,118 +546,34 @@
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 2
-    },
-    {
-      "month": "2019-05",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 2
+      "item_count": 1
     },
     {
       "month": "2019-06",
-      "uifpi": 100.0,
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 2
-    },
-    {
-      "month": "2019-07",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 2
-    },
-    {
-      "month": "2019-08",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 5
+      "item_count": 1
     },
     {
       "month": "2019-09",
-      "uifpi": 100.0,
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 25
+      "item_count": 1
     },
     {
-      "month": "2019-10",
-      "uifpi": 100.0,
+      "month": "2020-03",
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 18
-    },
-    {
-      "month": "2019-11",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 4
+      "item_count": 1
     },
     {
       "month": "2020-07",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 2
-    },
-    {
-      "month": "2022-03",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2022-06",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2023-05",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2023-06",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 1
-    }
-  ],
-  "Indonesia": [
-    {
-      "month": "2019-09",
-      "uifpi": 100.0,
-      "formal": 100.0,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    }
-  ],
-  "Malaysia": [
-    {
-      "month": "2019-03",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -279,71 +581,7 @@
       "item_count": 1
     },
     {
-      "month": "2019-05",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2019-06",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 5
-    },
-    {
-      "month": "2019-07",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 7
-    },
-    {
-      "month": "2019-08",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 3
-    },
-    {
-      "month": "2019-09",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 9
-    },
-    {
-      "month": "2019-10",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 5
-    },
-    {
-      "month": "2019-11",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 2
-    },
-    {
-      "month": "2019-12",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 4
-    },
-    {
-      "month": "2021-11",
+      "month": "2020-10",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -351,15 +589,7 @@
       "item_count": 1
     },
     {
-      "month": "2022-03",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 2
-    },
-    {
-      "month": "2023-01",
+      "month": "2020-11",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -367,17 +597,23 @@
       "item_count": 1
     },
     {
-      "month": "2026-06",
+      "month": "2021-02",
       "uifpi": null,
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 1944
-    }
-  ],
-  "Singapore": [
+      "item_count": 1
+    },
     {
-      "month": "2019-06",
+      "month": "2021-05",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2021-06",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -385,7 +621,15 @@
       "item_count": 3
     },
     {
-      "month": "2019-07",
+      "month": "2022-02",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2022-05",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -393,63 +637,7 @@
       "item_count": 2
     },
     {
-      "month": "2019-08",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 4
-    },
-    {
-      "month": "2019-09",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 5
-    },
-    {
-      "month": "2019-10",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 12
-    },
-    {
-      "month": "2019-11",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 3
-    },
-    {
-      "month": "2020-01",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2020-04",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2021-08",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2022-07",
+      "month": "2022-09",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -462,7 +650,49 @@
       "formal": null,
       "informal": null,
       "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2023-01",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
       "item_count": 1
+    },
+    {
+      "month": "2024-11",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 4
+    }
+  ],
+  "Malaysia": [
+    {
+      "month": "2019-07",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2019-10",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 1
+    },
+    {
+      "month": "2020-03",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 2
     },
     {
       "month": "2023-05",
@@ -470,7 +700,23 @@
       "formal": null,
       "informal": null,
       "cpi": null,
+      "item_count": 6
+    },
+    {
+      "month": "2024-06",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
       "item_count": 1
+    },
+    {
+      "month": "2025-02",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 3
     },
     {
       "month": "2026-06",
@@ -478,7 +724,81 @@
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 6046
+      "item_count": 300
+    }
+  ],
+  "Singapore": [
+    {
+      "month": "2022-07",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 54
+    },
+    {
+      "month": "2022-08",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2022-10",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 130
+    },
+    {
+      "month": "2022-11",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 46
+    },
+    {
+      "month": "2022-12",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 64
+    },
+    {
+      "month": "2023-03",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 15
+    },
+    {
+      "month": "2023-04",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 33
+    },
+    {
+      "month": "2023-07",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 91
+    },
+    {
+      "month": "2026-06",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
     }
   ],
   "Thailand": [
@@ -493,60 +813,12 @@
   ],
   "United Kingdom": [
     {
-      "month": "2018-07",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2018-12",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2019-05",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 6
-    },
-    {
-      "month": "2019-06",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 5
-    },
-    {
-      "month": "2019-07",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 6
-    },
-    {
-      "month": "2019-08",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 2
-    },
-    {
       "month": "2019-09",
       "uifpi": null,
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 5
+      "item_count": 1
     },
     {
       "month": "2019-10",
@@ -554,23 +826,15 @@
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 10
+      "item_count": 2
     },
     {
-      "month": "2019-11",
+      "month": "2021-02",
       "uifpi": null,
       "formal": null,
       "informal": null,
       "cpi": null,
       "item_count": 1
-    },
-    {
-      "month": "2021-09",
-      "uifpi": null,
-      "formal": null,
-      "informal": null,
-      "cpi": null,
-      "item_count": 3
     },
     {
       "month": "2023-05",
@@ -578,7 +842,15 @@
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 5
+      "item_count": 1
+    },
+    {
+      "month": "2025-03",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 3
     },
     {
       "month": "2026-06",
@@ -586,52 +858,140 @@
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 409
+      "item_count": 300
     }
   ],
   "United States": [
     {
-      "month": "2018-01",
-      "uifpi": 100.0,
+      "month": "2018-04",
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 15
+      "item_count": 3
     },
     {
       "month": "2018-07",
-      "uifpi": 100.0,
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 2
+      "item_count": 300
     },
     {
-      "month": "2018-12",
-      "uifpi": 100.0,
+      "month": "2018-11",
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 2
+      "item_count": 300
+    },
+    {
+      "month": "2019-01",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 52
     },
     {
       "month": "2019-02",
-      "uifpi": 100.0,
+      "uifpi": null,
       "formal": null,
-      "informal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 1
+      "item_count": 135
+    },
+    {
+      "month": "2019-05",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
     },
     {
       "month": "2019-07",
       "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
+      "formal": 100.0,
+      "informal": null,
       "cpi": null,
-      "item_count": 10
+      "item_count": 300
     },
     {
       "month": "2019-08",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": null,
+      "cpi": null,
+      "item_count": 286
+    },
+    {
+      "month": "2019-10",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2019-11",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 75
+    },
+    {
+      "month": "2019-12",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2020-03",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2020-04",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2020-08",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2020-10",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2020-11",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 203
+    },
+    {
+      "month": "2021-03",
       "uifpi": null,
       "formal": null,
       "informal": null,
@@ -639,44 +999,148 @@
       "item_count": 2
     },
     {
-      "month": "2019-09",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 6
-    },
-    {
-      "month": "2019-10",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 9
-    },
-    {
-      "month": "2021-09",
-      "uifpi": 100.0,
-      "formal": null,
-      "informal": 100.0,
-      "cpi": null,
-      "item_count": 1
-    },
-    {
-      "month": "2022-06",
+      "month": "2021-04",
       "uifpi": null,
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 1
+      "item_count": 129
     },
     {
-      "month": "2022-07",
+      "month": "2021-07",
+      "uifpi": 99.4,
+      "formal": 99.4,
+      "informal": null,
+      "cpi": null,
+      "item_count": 139
+    },
+    {
+      "month": "2021-11",
       "uifpi": null,
       "formal": null,
       "informal": null,
       "cpi": null,
-      "item_count": 1
+      "item_count": 241
+    },
+    {
+      "month": "2022-01",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 202
+    },
+    {
+      "month": "2022-03",
+      "uifpi": 99.79,
+      "formal": 99.79,
+      "informal": null,
+      "cpi": null,
+      "item_count": 139
+    },
+    {
+      "month": "2022-12",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 118
+    },
+    {
+      "month": "2023-06",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 16
+    },
+    {
+      "month": "2023-09",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2023-10",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 62
+    },
+    {
+      "month": "2023-11",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 139
+    },
+    {
+      "month": "2024-04",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2024-05",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 241
+    },
+    {
+      "month": "2024-08",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2024-10",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 23
+    },
+    {
+      "month": "2025-01",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 2
+    },
+    {
+      "month": "2025-03",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 48
+    },
+    {
+      "month": "2025-05",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 104
+    },
+    {
+      "month": "2026-06",
+      "uifpi": null,
+      "formal": null,
+      "informal": null,
+      "cpi": null,
+      "item_count": 2
     }
   ]
 }

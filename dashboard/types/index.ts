@@ -8,13 +8,17 @@ export interface IndexPoint {
 }
 
 export interface CountrySummary {
-  granger_significant: boolean;
+  granger_significant: boolean | null;
+  granger_p_value: number | null;
   lead_months: number | null;
   pass_through_formal: number | null;
   pass_through_informal: number | null;
+  pass_through_significant: boolean | null;
+  r_squared: number | null;
+  n_obs: number | null;
   months_of_data: number;
-  base_month: string;
-  latest_uifpi: number;
+  base_month: string | null;
+  latest_uifpi: number | null;
   latest_cpi: number | null;
   status: string;
   items_formal: number;
@@ -27,9 +31,9 @@ export interface CountrySummary {
 
 export interface LatestValue {
   month: string;
-  uifpi: number;
-  formal: number;
-  informal: number;
+  uifpi: number | null;
+  formal: number | null;
+  informal: number | null;
   cpi: number | null;
   yoy_change_pct: number | null;
   items_formal: number;

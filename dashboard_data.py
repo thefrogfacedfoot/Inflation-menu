@@ -16,7 +16,7 @@ import math
 import os
 import sqlite3
 import sys
-from typing import Union
+from typing import Optional, Union
 
 import pandas as pd
 
@@ -104,30 +104,77 @@ def build_index_series(index_df: pd.DataFrame, granger: dict) -> dict:
     return series
 
 
+# Same fallback rates index_builder.py uses to backfill price_usd when it's
+# null. Kept in sync so the dashboard averages reflect what the index uses.
+FALLBACK_RATES = {
+    "SGD": 1.35, "MYR": 4.70, "IDR": 15_750.0, "THB": 36.0,
+    "INR": 83.5, "USD": 1.0, "GBP": 0.79, "AUD": 1.55,
+}
+
+
+def _empty_country_stats() -> dict:
+    return {
+        "items_formal": 0,
+        "items_informal": 0,
+        "restaurants_formal": 0,
+        "restaurants_informal": 0,
+        "avg_price_formal_usd": None,
+        "avg_price_informal_usd": None,
+    }
+
+
 def load_price_counts(db_path: str = DB_PATH) -> dict:
-    """Return {country: {'items_formal': n, 'items_informal': m}} from prices."""
+    """Per-country, per-sector item count, distinct-restaurant count, and
+    mean price_usd. Backfills null price_usd from `price` + `currency`
+    using the same FALLBACK_RATES as index_builder.py.
+    """
     counts: dict = {}
     if not os.path.exists(db_path):
         return counts
     try:
         conn = sqlite3.connect(db_path)
         cur = conn.execute(
-            "SELECT country, sector, COUNT(*) FROM prices "
-            "GROUP BY country, sector"
+            "SELECT country, sector, restaurant_name, price, currency, price_usd "
+            "FROM prices "
+            "WHERE price IS NOT NULL AND price > 0"
         )
-        for country, sector, n in cur.fetchall():
-            row = counts.setdefault(country, {"items_formal": 0, "items_informal": 0})
-            if (sector or "").lower() == "formal":
-                row["items_formal"] = n
-            else:
-                row["items_informal"] = n
+        agg: dict = {}
+        for country, sector, restaurant, price, currency, price_usd in cur.fetchall():
+            if not country:
+                continue
+            sector_key = (sector or "").lower()
+            if sector_key not in ("formal", "informal"):
+                continue
+            usd = price_usd
+            if usd is None or usd <= 0:
+                rate = FALLBACK_RATES.get((currency or "").upper())
+                if rate and rate > 0:
+                    usd = price / rate
+            bucket = agg.setdefault((country, sector_key),
+                                    {"items": 0, "restaurants": set(),
+                                     "usd_sum": 0.0, "usd_n": 0})
+            bucket["items"] += 1
+            if restaurant:
+                bucket["restaurants"].add(restaurant)
+            if usd and usd > 0:
+                bucket["usd_sum"] += usd
+                bucket["usd_n"]   += 1
         conn.close()
+
+        for (country, sector_key), b in agg.items():
+            row = counts.setdefault(country, _empty_country_stats())
+            row[f"items_{sector_key}"]       = b["items"]
+            row[f"restaurants_{sector_key}"] = len(b["restaurants"])
+            row[f"avg_price_{sector_key}_usd"] = (
+                round(b["usd_sum"] / b["usd_n"], 2) if b["usd_n"] else None
+            )
     except Exception as e:
         print(f"  ⚠  price-count query failed: {e}")
     return counts
 
 
-def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
+def build_country_summary(granger: dict, index_df: pd.DataFrame,
+                           price_counts: Optional[dict] = None) -> dict:
     """
     Per-country summary of statistical findings.
 
@@ -147,7 +194,8 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
     }
     """
     summary: dict = {}
-    price_counts = load_price_counts()
+    if price_counts is None:
+        price_counts = load_price_counts()
 
     countries = set(index_df["country"].unique()) | set(granger.keys()) | set(price_counts.keys())
 
@@ -157,10 +205,25 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
 
         months_of_data = len(c_df)
         base_month = c_df["year_month"].iloc[0] if months_of_data else None
-        latest_uifpi = safe_round(c_df["uifpi_combined"].iloc[-1]) if months_of_data else None
+
+        # Prefer the latest row with a real uifpi value over a newer-but-null
+        # row (mirrors build_latest_values so the homepage card and country
+        # page agree).
+        with_uifpi = c_df[c_df["uifpi_combined"].notna()] if months_of_data else c_df
+        latest_uifpi = (
+            safe_round(with_uifpi["uifpi_combined"].iloc[-1])
+            if not with_uifpi.empty else None
+        )
+
+        # Latest CPI value for this country, if granger data carries one.
+        latest_cpi = None
+        for obs in reversed(g.get("data", []) or []):
+            if obs.get("cpi") is not None:
+                latest_cpi = safe_round(obs["cpi"])
+                break
 
         status = g.get("status", "no_granger_data")
-        pc = price_counts.get(country, {"items_formal": 0, "items_informal": 0})
+        pc = price_counts.get(country, _empty_country_stats())
 
         summary[country] = {
             "granger_significant":      g.get("granger_significant"),
@@ -177,15 +240,21 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame) -> dict:
             "months_of_data":           months_of_data,
             "base_month":               base_month,
             "latest_uifpi":             latest_uifpi,
+            "latest_cpi":               latest_cpi,
             "items_formal":             pc["items_formal"],
             "items_informal":           pc["items_informal"],
+            "restaurants_formal":       pc["restaurants_formal"],
+            "restaurants_informal":     pc["restaurants_informal"],
+            "avg_price_formal_usd":     pc["avg_price_formal_usd"],
+            "avg_price_informal_usd":   pc["avg_price_informal_usd"],
             "status":                   status,
         }
 
     return summary
 
 
-def build_latest_values(index_df: pd.DataFrame, granger: dict) -> dict:
+def build_latest_values(index_df: pd.DataFrame, granger: dict,
+                         price_counts: Optional[dict] = None) -> dict:
     """
     Most recent UIFPI and CPI per country, for a top-of-page summary card.
 
@@ -203,6 +272,7 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict) -> dict:
     }
     """
     latest: dict = {}
+    price_counts = price_counts or {}
 
     for country, group in index_df.groupby("country"):
         group = group.sort_values("year_month")
@@ -255,6 +325,7 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict) -> dict:
                         cpi_val = safe_round(obs["cpi"])
                         break
 
+        pc = price_counts.get(country, {})
         latest[country] = {
             "month":          last["year_month"],
             "uifpi":          safe_round(last.get("uifpi_combined")),
@@ -262,6 +333,8 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict) -> dict:
             "informal":       safe_round(last.get("informal_index")),
             "cpi":            cpi_val,
             "yoy_change_pct": yoy_change,
+            "items_formal":   pc.get("items_formal", 0),
+            "items_informal": pc.get("items_informal", 0),
         }
 
     return latest
@@ -302,18 +375,20 @@ def run(
     print(f"  {len(index_df):,} index rows across {len(countries)} countries")
     print(f"  {len(granger)} countries have Granger results\n")
 
+    price_counts = load_price_counts()
+
     print("Building index_series.json …")
     index_series = build_index_series(index_df, granger)
     write_json(index_series, os.path.join(out_dir, "index_series.json"))
     write_json(index_series, os.path.join(DASHBOARD_PUBLIC_DATA, "index_series.json"))
 
     print("Building country_summary.json …")
-    country_summary = build_country_summary(granger, index_df)
+    country_summary = build_country_summary(granger, index_df, price_counts)
     write_json(country_summary, os.path.join(out_dir, "country_summary.json"))
     write_json(country_summary, os.path.join(DASHBOARD_PUBLIC_DATA, "country_summary.json"))
 
     print("Building latest_values.json …")
-    latest_values = build_latest_values(index_df, granger)
+    latest_values = build_latest_values(index_df, granger, price_counts)
     write_json(latest_values, os.path.join(out_dir, "latest_values.json"))
     write_json(latest_values, os.path.join(DASHBOARD_PUBLIC_DATA, "latest_values.json"))
 

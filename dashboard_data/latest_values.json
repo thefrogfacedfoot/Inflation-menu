@@ -1,35 +1,43 @@
 {
   "Australia": {
-    "month": "2023-05",
-    "uifpi": 100.0,
+    "month": "2026-06",
+    "uifpi": null,
     "formal": null,
-    "informal": 100.0,
+    "informal": null,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": null,
+    "items_formal": 143,
+    "items_informal": 230
   },
   "India": {
-    "month": "2023-05",
-    "uifpi": 100.0,
-    "formal": null,
-    "informal": 100.0,
-    "cpi": null,
-    "yoy_change_pct": null
-  },
-  "Indonesia": {
-    "month": "2019-09",
+    "month": "2026-05",
     "uifpi": 100.0,
     "formal": 100.0,
     "informal": 100.0,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": null,
+    "items_formal": 635,
+    "items_informal": 237
+  },
+  "Indonesia": {
+    "month": "2018-11",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": null,
+    "cpi": null,
+    "yoy_change_pct": null,
+    "items_formal": 29,
+    "items_informal": 123
   },
   "Malaysia": {
-    "month": "2022-03",
-    "uifpi": 100.0,
+    "month": "2026-06",
+    "uifpi": null,
     "formal": null,
-    "informal": 100.0,
+    "informal": null,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": null,
+    "items_formal": 1468,
+    "items_informal": 1711
   },
   "Singapore": {
     "month": "2026-06",
@@ -37,7 +45,9 @@
     "formal": null,
     "informal": null,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": null,
+    "items_formal": 7515,
+    "items_informal": 1194
   },
   "Thailand": {
     "month": "2026-06",
@@ -45,7 +55,9 @@
     "formal": 100.0,
     "informal": 100.0,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": null,
+    "items_formal": 11,
+    "items_informal": 279
   },
   "United Kingdom": {
     "month": "2026-06",
@@ -53,14 +65,18 @@
     "formal": null,
     "informal": null,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": null,
+    "items_formal": 766,
+    "items_informal": 677
   },
   "United States": {
-    "month": "2021-09",
-    "uifpi": 100.0,
-    "formal": null,
-    "informal": 100.0,
+    "month": "2022-03",
+    "uifpi": 99.79,
+    "formal": 99.79,
+    "informal": null,
     "cpi": null,
-    "yoy_change_pct": null
+    "yoy_change_pct": null,
+    "items_formal": 8284,
+    "items_informal": 311
   }
 }
