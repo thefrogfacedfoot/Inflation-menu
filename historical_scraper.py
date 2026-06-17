@@ -330,50 +330,22 @@ def parse_idr_price(raw):
         return None
 
 
-PRICE_RANGE_TIERS = {
-    '$':        1,  'Inexpensive':    1,
-    '$$':       2,  'Moderate':       2,
-    '$$$':      3,  'Fine Dining':    3,
-    '$$$$':     4,  'Ultra Fine':     4,
-    '$$ - $$$': 2,  '$$-$$$':         2,
-    '$ - $$':   1,  '$-$$':           1,
-    '$$$ - $$$$':3, '$$$-$$$$':       3,
-}
-
-
-def price_range_to_tier(raw):
-    """
-    Convert a TripAdvisor priceRange string to a numeric tier (1–4).
-    Returns None if unrecognised.
-    """
-    raw = (raw or '').strip()
-    for key, tier in PRICE_RANGE_TIERS.items():
-        if key.lower() == raw.lower():
-            return tier
-    # Count dollar signs as a fallback
-    count = raw.count('$')
-    if 1 <= count <= 4:
-        return count
-    return None
-
-
 def extract_prices(html, country, config):
     """
     Extract (item_name, price) pairs from archived TripAdvisor HTML.
 
-    Strategy 1 — FoodEstablishment JSON-LD priceRange
-        TripAdvisor embeds a FoodEstablishment schema on every restaurant page
-        with a 'priceRange' field like '$', '$$', '$$-$$$' etc.
-        We convert this to a numeric tier (1–4) which gives a consistent
-        historical price-level signal even when item prices are unavailable.
-
-    Strategy 2 — Explicit MenuItem JSON-LD
+    Strategy 1 — Explicit MenuItem JSON-LD
         A small fraction of restaurants have full menu markup. Captured when
         present (rare on TripAdvisor but worth keeping).
 
-    Strategy 3 — Currency regex on page text
+    Strategy 2 — Currency regex on page text
         Catches prices quoted in user reviews (e.g. "paid S$25 per dish").
         Coarser signal, kept as secondary.
+
+    FoodEstablishment priceRange tiers ($, $$, $$$, $$$$) are deliberately
+    NOT emitted — they are categorical ordinals, not currency, and contaminate
+    the index when treated as prices. The FoodEstablishment node is still
+    visited to harvest the restaurant name as fallback context.
     """
     soup = BeautifulSoup(html, 'html.parser')
     items = []
@@ -389,19 +361,14 @@ def extract_prices(html, country, config):
         for o in objs:
             t = o.get('@type', '')
 
-            # Strategy 1: FoodEstablishment priceRange
+            # FoodEstablishment: harvest restaurant name only; priceRange
+            # tier markers are intentionally skipped (see docstring).
             if t == 'FoodEstablishment':
                 name = o.get('name', '')
-                price_range = o.get('priceRange', '')
-                tier = price_range_to_tier(price_range)
-                if tier and name:
+                if name and not restaurant_name_ld:
                     restaurant_name_ld = name
-                    items.append((
-                        f'Price tier (TripAdvisor: {price_range})',
-                        float(tier),
-                    ))
 
-            # Strategy 2: MenuItem
+            # MenuItem JSON-LD
             items.extend(extract_ld_menu_items(o))
 
     if items:
@@ -523,7 +490,12 @@ def run(countries=None, distributed=False, per_period=3,
                 collection_date = ts[:10]
 
             c = conn.cursor()
+            inserted_this_url = 0
             for item_name, price in items:
+                # Defensive: never write TripAdvisor priceRange tier markers
+                # ('$', '$$', '$$$', '$$$$') as if they were prices.
+                if str(item_name).startswith('Price tier'):
+                    continue
                 c.execute(
                     '''INSERT INTO prices
                        (restaurant_name, item_name, price, currency, country,
@@ -532,10 +504,11 @@ def run(countries=None, distributed=False, per_period=3,
                     (restaurant_name, item_name, price, cfg['currency'], country,
                      'informal', 'wayback', collection_date, wayback_url)
                 )
+                inserted_this_url += 1
             conn.commit()
-            print(f"{len(items)} items → {restaurant_name[:40]}")
-            country_inserted += len(items)
-            total_inserted += len(items)
+            print(f"{inserted_this_url} items → {restaurant_name[:40]}")
+            country_inserted += inserted_this_url
+            total_inserted += inserted_this_url
 
             done_urls.add(orig_url)
 

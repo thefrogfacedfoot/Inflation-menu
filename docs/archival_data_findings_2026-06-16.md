@@ -16,7 +16,9 @@ Already in pipeline via `historical_scraper.py`. Today's rescan added **+1,403 r
 
 Including tier-as-price in the index produced wildly inflated values (Indonesia's `uifpi_combined` hit **26,021,657**), and the apparent significant Granger results (MY p=0.021, ID p=0.005 under restaurant-median method) were entirely tier-bug artifacts. After excluding tier rows, every country drops below the 8-month minimum for Granger.
 
-Fix landed: `index_builder.py` now filters `item_name LIKE "Price tier%"` rows out of index construction. Raw rows remain in `uifpi.db` for transparency.
+Fix landed: `index_builder.py` filtered `item_name LIKE "Price tier%"` rows out of index construction. Raw rows remained in `uifpi.db` for transparency.
+
+**Resolved 2026-06-17.** The tier-marker rows were purged from the raw `prices` table (1,648 rows across 8 countries: TH 279, UK 293, US 277, IN 237, AU 221, MY 188, ID 118, SG 35) and `historical_scraper.py` was updated so it no longer emits them. The `index_builder.py` filter was removed as redundant. The pre-purge DB is preserved as `uifpi.db.backup_pre_tier_purge_20260617_204040`.
 
 ### 2. Chain restaurant PDF menus (Wayback)
 Hypothesis was that major chains publish menu PDFs on their websites with prices. Probed `*.mcdonalds.com/*.pdf`, `*.kfc.com/*.pdf`, `*.pizzahut.com/*.pdf`, plus per-country variants for 8 countries.

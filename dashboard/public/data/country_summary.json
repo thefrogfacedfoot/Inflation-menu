@@ -13,11 +13,11 @@
     "latest_uifpi": 218.75,
     "latest_cpi": null,
     "items_formal": 143,
-    "items_informal": 230,
+    "items_informal": 9,
     "restaurants_formal": 3,
-    "restaurants_informal": 177,
+    "restaurants_informal": 7,
     "avg_price_formal_usd": 5.57,
-    "avg_price_informal_usd": 1.78,
+    "avg_price_informal_usd": 12.26,
     "status": "no_granger_data"
   },
   "India": {
@@ -34,11 +34,11 @@
     "latest_uifpi": 800.0,
     "latest_cpi": null,
     "items_formal": 635,
-    "items_informal": 237,
+    "items_informal": 0,
     "restaurants_formal": 57,
-    "restaurants_informal": 180,
+    "restaurants_informal": 0,
     "avg_price_formal_usd": 4.81,
-    "avg_price_informal_usd": 0.03,
+    "avg_price_informal_usd": null,
     "status": "no_granger_data"
   },
   "Indonesia": {
@@ -55,11 +55,11 @@
     "latest_uifpi": 0.02,
     "latest_cpi": null,
     "items_formal": 29,
-    "items_informal": 123,
+    "items_informal": 5,
     "restaurants_formal": 24,
-    "restaurants_informal": 106,
+    "restaurants_informal": 2,
     "avg_price_formal_usd": 13.51,
-    "avg_price_informal_usd": 0.13,
+    "avg_price_informal_usd": 3.31,
     "status": "no_granger_data"
   },
   "Malaysia": {
@@ -76,11 +76,11 @@
     "latest_uifpi": 68.49,
     "latest_cpi": null,
     "items_formal": 1468,
-    "items_informal": 1711,
+    "items_informal": 1523,
     "restaurants_formal": 6,
-    "restaurants_informal": 157,
+    "restaurants_informal": 16,
     "avg_price_formal_usd": 7.08,
-    "avg_price_informal_usd": 3.08,
+    "avg_price_informal_usd": 3.4,
     "status": "no_granger_data"
   },
   "Singapore": {
@@ -97,11 +97,11 @@
     "latest_uifpi": 106.13,
     "latest_cpi": null,
     "items_formal": 7515,
-    "items_informal": 1194,
+    "items_informal": 1159,
     "restaurants_formal": 33,
-    "restaurants_informal": 39,
+    "restaurants_informal": 11,
     "avg_price_formal_usd": 15.07,
-    "avg_price_informal_usd": 6.64,
+    "avg_price_informal_usd": 6.79,
     "status": "no_granger_data"
   },
   "Thailand": {
@@ -118,11 +118,11 @@
     "latest_uifpi": 100.0,
     "latest_cpi": null,
     "items_formal": 11,
-    "items_informal": 279,
+    "items_informal": 0,
     "restaurants_formal": 8,
-    "restaurants_informal": 223,
+    "restaurants_informal": 0,
     "avg_price_formal_usd": 12.43,
-    "avg_price_informal_usd": 0.06,
+    "avg_price_informal_usd": null,
     "status": "no_granger_data"
   },
   "United Kingdom": {
@@ -139,11 +139,11 @@
     "latest_uifpi": 110.02,
     "latest_cpi": null,
     "items_formal": 766,
-    "items_informal": 677,
+    "items_informal": 384,
     "restaurants_formal": 4,
-    "restaurants_informal": 243,
+    "restaurants_informal": 9,
     "avg_price_formal_usd": 13.67,
-    "avg_price_informal_usd": 10.59,
+    "avg_price_informal_usd": 16.67,
     "status": "no_granger_data"
   },
   "United States": {
@@ -160,11 +160,11 @@
     "latest_uifpi": 33.34,
     "latest_cpi": null,
     "items_formal": 8284,
-    "items_informal": 311,
+    "items_informal": 34,
     "restaurants_formal": 56,
-    "restaurants_informal": 209,
+    "restaurants_informal": 7,
     "avg_price_formal_usd": 8.79,
-    "avg_price_informal_usd": 3.8,
+    "avg_price_informal_usd": 17.91,
     "status": "no_granger_data"
   }
 }

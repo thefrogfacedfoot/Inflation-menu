@@ -2,6 +2,62 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-17 — TripAdvisor tier-marker purge, dashboard honesty pass
+
+### TripAdvisor `priceRange` tier markers removed from `prices` table
+
+The TripAdvisor scraper historically stored `priceRange` tier strings (`$`,
+`$$`, `$$$`, `$$$$`) as integer ordinals 1–4 in the `price` column, with
+`item_name` beginning `"Price tier (TripAdvisor: …)"`. They are categorical
+levels, not currency, and were already excluded from index construction —
+but they inflated raw row counts on the dashboard tile and the country
+pages, which was misleading.
+
+- **Raw table purge**: 1,648 tier-marker rows deleted across 8 countries.
+  Per-country breakdown:
+
+  | Country | Rows removed |
+  |---|---|
+  | Thailand | 279 |
+  | United Kingdom | 293 |
+  | United States | 277 |
+  | India | 237 |
+  | Australia | 221 |
+  | Malaysia | 188 |
+  | Indonesia | 118 |
+  | Singapore | 35 |
+
+  Pre-purge snapshot preserved as
+  `uifpi.db.backup_pre_tier_purge_20260617_204040`.
+- **Scraper updated** (`historical_scraper.py`): the
+  `FoodEstablishment` JSON-LD branch no longer emits tier rows (restaurant
+  name harvesting is preserved). A defensive `startswith('Price tier')`
+  guard sits in the insert loop. The `PRICE_RANGE_TIERS` /
+  `price_range_to_tier` helpers are gone.
+- **Index builder** (`index_builder.py`): the post-load `tier_mask`
+  filter has been removed as redundant; a one-line comment points to
+  this changelog entry.
+- **Audit cleanup**: removed stale `("price tier", "OTHER")` rule from
+  `nlp_pipeline.py` and the `"price tier"` noise keyword from
+  `fill_manual_labels.py`. Updated `final_roster.md`, `data_gaps.md`,
+  and `docs/archival_data_findings_2026-06-16.md` to reflect that the
+  tier rows are gone, not just filtered.
+
+### Dashboard count honesty
+
+- Re-ran `index_builder.py` + `dashboard_data.py` against the post-purge
+  database. The homepage tile counts and per-country sector counts now
+  reflect **price-bearing rows only**, not raw rows.
+- **The visible drop in homepage item counts is from tier-marker
+  removal, not data loss.** Thailand: 290 → 11 (the 279 tier markers
+  are gone; the 11 real currency rows from the 2026-06 Wayback
+  TripAdvisor/Wongnai THB-regex sweep remain). Indonesia: 152 → 34.
+  Equivalent reductions across every country in the table above.
+- Added per-country `COVERAGE_NOTES` (Thailand, Indonesia) on the
+  country page, rendered as an amber caveat banner under the chart so
+  the visitor understands what the single TH point and the
+  restaurant-aggregate ID series actually represent.
+
 ## 2026-06-15 — Scraper hardening, URL audit, parallelism
 
 ### Scraper engine (`live_scraper.py`)

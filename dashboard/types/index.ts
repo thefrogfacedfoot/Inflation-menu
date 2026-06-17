@@ -83,6 +83,15 @@ export const SLUG_TO_COUNTRY: Record<string, string> = Object.fromEntries(
   Object.entries(COUNTRY_SLUGS).map(([k, v]) => [v, k])
 );
 
+// Per-country coverage caveat shown under the chart. Keep terse — the
+// methodology page carries the long form. Empty/absent ⇒ no banner.
+export const COVERAGE_NOTES: Record<string, string> = {
+  Thailand:
+    "Single 2026-06 snapshot (11 items, 9 restaurants). Live collection going forward only — no archival depth.",
+  Indonesia:
+    "Restaurant-aggregate Zomato cost-for-two series (29 monthly observations from Jakarta). Treat each point as a typical-meal-for-two price, not item-level.",
+};
+
 export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
   Singapore: "Developed",
   Malaysia: "Emerging",

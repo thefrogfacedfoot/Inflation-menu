@@ -21,7 +21,7 @@ def manual_label(item: str) -> str:
     """Best-effort manual label based on the item name alone."""
     s = item.lower()
     # noise / non-food
-    if any(k in s for k in ["price tier", "new!", "tripadvisor:",
+    if any(k in s for k in ["new!", "tripadvisor:",
                               "happy baking", "fast vegetarian"]):
         return "OTHER"
     # beverages

@@ -23,9 +23,9 @@ The Universal Informal–Formal Price Index covers nine countries: eight with it
 
 ### Thailand
 - **Eatigo Bangkok archived URLs returned 0 baht-token extractions across 69 sampled snapshots.** Eatigo's URL pattern at the CDX prefix level catches `/about-us`, `/privacy-policy`, and category index pages (`/c/{cuisine}-{id}`) rather than individual restaurant pages; even when restaurant pages were sampled, they contained no THB tokens in static HTML.
-- **Limited fallback**: TripAdvisor Bangkok pages give `priceRange` tier markers ($, $$, $$$, $$$$) for 290 restaurant-page snapshots over 79 months. These are categorical levels, not currency amounts, and are deliberately excluded from index construction (see `index_builder.py` tier-marker exclusion).
+- **Limited fallback**: TripAdvisor Bangkok pages give `priceRange` tier markers ($, $$, $$$, $$$$) for 290 restaurant-page snapshots over 79 months. These are categorical levels, not currency amounts. Initially they were ingested as integer 1–4 ordinals and filtered out in the index builder; on 2026-06-17 they were purged from the raw `prices` table entirely and the scraper updated to no longer emit them. A separate THB-regex extractor over the same TripAdvisor + Wongnai snapshots produced 11 real-currency rows on the 2026-06-13 sweep — those remain.
 - **Proxy used**: Numbeo + Big Mac + World Bank.
-- **Limitation**: TH formal-sector index is computed from a one-day 2026-06-13 live snapshot only. Going-forward live scraping will accumulate Thai data; archival depth is not available.
+- **Limitation**: TH formal-sector index is computed from a single 2026-06 snapshot (11 items, 9 restaurants). Going-forward live scraping will accumulate Thai data; archival depth is not available.
 
 ### Mexico
 - **TripAdvisor Mexico is the only confirmed-large source (2,873 ≥2-cap restaurants).** Pages contain only restaurant-level `FoodEstablishment` metadata with `priceRange` tier markers — the JSON-LD walker correctly skips these to avoid tier-as-price contamination. 0 menu items extracted.
@@ -65,9 +65,9 @@ These give the cross-country comparison its skeleton when item-level coverage is
 
 ## Known unresolved issues
 
-1. **Singapore tier-marker contamination** (already mitigated). The existing TripAdvisor historical pipeline stored `priceRange` tier markers as raw prices in `prices` rows with item_name beginning `'Price tier'`. The index builder filters these out in `load_price_data()` so they never contaminate the index, but they remain in raw `prices` for transparency.
+1. **TripAdvisor tier-marker contamination** (resolved 2026-06-17). The existing TripAdvisor historical pipeline stored `priceRange` tier markers as raw prices in `prices` rows with item_name beginning `'Price tier'`. The index builder previously filtered these out at index-construction time. On 2026-06-17 they were purged from the raw `prices` table (1,648 rows across 8 countries) and the scraper was modified to stop emitting them. The index-builder filter has been removed as redundant.
 2. **Australian Menulog `restaurant_name` collapse**: 10 yielding fetches collapsed to 1 distinct `restaurant_name` because the `_restaurant_from_url()` helper extracts the URL's last path segment, which for Menulog is often `restaurants` rather than the slug. A targeted fix would re-extract from the URL's structured slug. Not blocking the panel.
-3. **Indonesia historical `prices` rows**: only 1 row dated 2019-09. The 152 ID total in the per-country roll-up combines that 1 row + the 29 Zomato Jakarta wayback rows + 121 from earlier TripAdvisor historical scraping (mostly tier markers, excluded from the index).
+3. **Indonesia historical `prices` rows**: after the 2026-06-17 tier purge the ID series is restaurant-aggregate Zomato cost-for-two only — 29 formal rows across 21 monthly snapshots plus 5 informal rows; the prior tier-marker contribution (118 rows) is gone.
 4. **Vietnam exclusion from item-level analysis**: stated in roster.md; reiterated here so the limitations section captures it.
 
 ## What I would do with more time

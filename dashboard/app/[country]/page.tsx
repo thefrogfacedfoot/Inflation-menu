@@ -7,6 +7,7 @@ import {
   SLUG_TO_COUNTRY,
   COUNTRY_FLAGS,
   COUNTRY_SLUGS,
+  COVERAGE_NOTES,
   DEVELOPMENT_STATUS,
   COUNTRIES,
 } from "@/types";
@@ -172,6 +173,12 @@ export default async function CountryPage({ params }: PageProps) {
         {series.length === 0 && (
           <p className="text-sm text-gray-500 mt-3 text-center">
             Index data not yet available — price collection is ongoing.
+          </p>
+        )}
+        {COVERAGE_NOTES[countryName] && (
+          <p className="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded px-3 py-2 mt-3 leading-relaxed">
+            <span className="font-semibold">Coverage note:</span>{" "}
+            {COVERAGE_NOTES[countryName]}
           </p>
         )}
       </div>

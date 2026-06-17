@@ -309,7 +309,6 @@ RULE_KEYWORDS: list[tuple[str, str]] = [
     ("pork", "GRILLED_PROTEIN"), ("roast", "GRILLED_PROTEIN"),
     ("set meal", "SET_MEAL"), ("combo", "SET_MEAL"), ("value meal", "SET_MEAL"),
     ("family set", "SET_MEAL"), ("package", "SET_MEAL"),
-    ("price tier", "OTHER"),
 ]
 
 SIGNAL_KEYWORDS: dict[str, list[str]] = {

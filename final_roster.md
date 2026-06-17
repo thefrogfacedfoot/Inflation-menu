@@ -14,8 +14,8 @@ The thesis target was an 8-country panel for formal-vs-informal price pass-throu
 | United Kingdom | Deliveroo (live) + TripAdvisor + direct chain | item-level | 1,067 | 247 | 78 | ✓ | ✓ keep |
 | India | Zomato cost-for-two (Wayback) + TripAdvisor | restaurant-aggregate | 872 | 237 | 79 | ✓ | ✓ keep |
 | Australia | direct chains (live) + Menulog (Wayback) + TripAdvisor | item-level (sparse) | 331 | 180 | 59 | ✓ | ✓ keep |
-| Thailand | TripAdvisor priceRange tiers + live (one-day) | tier-only | 290 | 226 | 79 | ✓ | ✓ keep (formal weak, floor strong) |
-| Indonesia | Zomato cost-for-two (Wayback) + TripAdvisor | restaurant-aggregate | 152 | 130 | 57 | ✓ | ✓ keep |
+| Thailand | Wayback TripAdvisor/Wongnai THB-regex + live (one-day) | item-level (sparse) | 11 | 9 | 1 | ✓ | ✓ keep (formal weak, floor strong) |
+| Indonesia | Zomato cost-for-two (Wayback) | restaurant-aggregate | 34 | 26 | 21 | ✓ | ✓ keep |
 | Vietnam | — (no extractable archival source) | — | 0 | — | — | ✓ | ✓ keep as **proxy-only** |
 
 **Final 8-country formal roster**: US, SG, MY, UK, IN, AU, TH, ID.
@@ -34,7 +34,7 @@ Each country is judged against three filters:
 - **UK**: covered by Deliveroo (live) + 3 direct chains + 45 TripAdvisor wayback rows. Adequate breadth.
 - **IN**: Zomato pre-2020 archived pages don't expose item-level prices but do expose "cost for two" as a restaurant-level average meal price. Extracted 635 restaurant-level data points spanning 79 months across NCR — methodologically a restaurant-aggregate inflation signal, not item-level.
 - **AU**: covered by live direct chains (Oporto, Nando's) + 158 historical TripAdvisor rows + 15 from Menulog NEXT_DATA. Menulog yield was marginal (10/104 fetches) but counts.
-- **TH**: TripAdvisor wayback gives priceRange tier markers (1–4 ordinals); Eatigo archival sources had no extractable prices. Formal sector is weak — paper uses TH primarily via floor datasets + the one-day 2026-06-13 live snapshot.
+- **TH**: TripAdvisor priceRange tier markers (1–4 ordinals) were extracted historically but purged on 2026-06-17 as categorical, not currency. Wayback TripAdvisor/Wongnai THB-regex extraction now contributes 11 real-currency rows from the 2026-06-13 sweep; Eatigo archival sources had no extractable prices. Formal sector is weak — paper uses TH primarily via floor datasets + the going-forward live pipeline.
 - **ID**: Zomato Jakarta cost-for-two extracted 29 restaurant-level data points; floor datasets fill the panel.
 - **VN**: no extractable archival source confirmed. foody.vn URLs returned 0-byte Wayback playbacks; TripAdvisor HCMC/Hanoi pages have 0 VND tokens in static HTML. Vietnam is kept as a **proxy-only** country: cross-country comparison via Numbeo Restaurants Price Index + Big Mac Index + World Bank CPI, with no item-level UIFPI computed.
 

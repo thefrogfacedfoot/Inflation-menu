@@ -153,17 +153,8 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
 
     df = df[df["price_usd"] > 0].copy()
 
-    # Exclude TripAdvisor price-tier markers: historical_scraper stores
-    # priceRange ($, $$, $$$, $$$$) as the literal integers 1-4 in `price`,
-    # with item_name "Price tier (TripAdvisor: …)". They're categorical
-    # levels, not currency amounts. Including them in a price index mixes
-    # tier ordinals with real menu prices and produces wild ratios (e.g.,
-    # Indonesia's prior 26M index value). Raw rows stay in uifpi.db.
-    tier_mask = df["item_name"].str.startswith("Price tier", na=False)
-    if tier_mask.any():
-        print(f"  Excluded {tier_mask.sum():,} TripAdvisor price-tier rows "
-              f"(stored as 1-4 ordinals, not currency).")
-        df = df[~tier_mask].copy()
+    # TripAdvisor priceRange tier markers ($/$$/$$$/$$$$) were purged from
+    # the raw `prices` table on 2026-06-17 and are no longer ingested.
 
     df["collection_date"] = pd.to_datetime(df["collection_date"], errors="coerce")
     df = df.dropna(subset=["collection_date"])
