@@ -91,8 +91,14 @@ def _walk_ld(node, items, name_ctx=None):
             if isinstance(ps, dict):
                 price_node = ps.get('price')
                 cur_node = cur_node or ps.get('priceCurrency')
-        if nm and price_node is not None and node.get('@type') not in (
-                'PostalAddress', 'GeoCoordinates'):
+        # Skip non-menu @types (addresses, coordinates, restaurant-level
+        # entities). TripAdvisor encodes FoodEstablishment with a priceRange
+        # tier; restaurants have averagePrice fields that are restaurant-
+        # level not item-level. Only emit prices from menu-shaped nodes.
+        bad_types = {'PostalAddress', 'GeoCoordinates', 'Restaurant',
+                     'FoodEstablishment', 'Place', 'LocalBusiness',
+                     'BreadcrumbList', 'AggregateRating', 'Review'}
+        if nm and price_node is not None and node.get('@type') not in bad_types:
             try:
                 p = float(re.sub(r'[^\d.]', '', str(price_node)))
             except Exception:
@@ -155,99 +161,87 @@ def extract_nextdata(html):
     return uniq
 
 
-def extract_dom_regex(html, currency):
-    """Last-resort: scan body text for (item-name, currency-price) pairs by
-    finding price tokens and grabbing the preceding 3-8 word chunk as name."""
+def extract_zomato_costfortwo(html, currency):
+    """Zomato pre-2020 restaurant pages publish 'cost for two people'
+    as a restaurant-level average meal price rather than item-level prices.
+    Extract that single signal per page.
+
+    Returns [('cost_for_two', price, currency)] or [].
+    """
     if not html:
         return []
-    cre = CURRENCY_REGEXES.get(currency)
-    if not cre:
-        return []
-    # Strip script/style + tags to get body text
-    text = re.sub(r'<script[^>]*>.*?</script>', ' ', html, flags=re.S | re.I)
-    text = re.sub(r'<style[^>]*>.*?</style>',  ' ', text,  flags=re.S | re.I)
-    text = re.sub(r'<[^>]+>', ' ', text)
+    text = re.sub(r'<[^>]+>', ' ', html)
     text = re.sub(r'&[a-zA-Z]+;', ' ', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    out = []
-    # (item_name, price) — item name = up to 60 chars BEFORE the price token,
-    # cut at sentence boundary or another price.
-    for m in cre.finditer(text):
-        pos = m.start()
-        try:
-            price = float(m.group(1).replace(',', ''))
-        except Exception:
-            continue
-        if not (0 < price < 100_000):
-            continue
-        # Walk back to find a candidate name (up to 80 chars or a price)
-        left = text[max(0, pos - 80):pos]
-        # Trim from last sentence boundary
-        for delim in ('.', '!', '?', '|', '–', '—', '•', '•'):
-            if delim in left:
-                left = left.rsplit(delim, 1)[-1]
-        # Trim from any preceding currency token
-        for cm in cre.finditer(left):
-            pass
-        name = left.strip()[-60:]
-        # Reasonable name
-        if len(name) < 3 or name.lower() in {'price', 'total', 'add', 'qty'}:
-            continue
-        out.append((name, price, currency))
-    seen = set(); uniq = []
-    for n, p, c in out:
-        k = (n, round(p, 2))
-        if k in seen:
-            continue
-        seen.add(k); uniq.append((n, p, c))
-    return uniq
+    text = re.sub(r'\s+', ' ', text)
+    # Patterns like "₹1,600 for two people" or "Rs. 1600 for two"
+    patterns = [
+        r'(?:₹|Rs\.?\s)\s?([\d,]+)\s*for\s*two',
+        r'Rp\.?\s?([\d.,]+)\s*for\s*two',
+        r'₱\s?([\d,]+)\s*for\s*two',
+    ]
+    for pat in patterns:
+        m = re.search(pat, text, re.I)
+        if m:
+            raw = m.group(1)
+            # IDR uses dots as thousand separators with no decimals
+            if currency == 'IDR':
+                raw = raw.replace('.', '').replace(',', '')
+            else:
+                raw = raw.replace(',', '')
+            try:
+                p = float(raw)
+            except ValueError:
+                continue
+            if p > 0:
+                return [('cost_for_two', p, currency)]
+    return []
 
 
 # ── Per-platform parsers ─────────────────────────────────────────────────────
 
 def parse_zomato(html, currency):
-    """Zomato pre-2020 menu pages: JSON-LD MenuItem + Offer."""
+    """Zomato pre-2020 archived pages don't expose item-level prices in DOM
+    or JSON-LD — they show 'cost for two people' as a restaurant-level
+    average meal price. Extract that single signal per page; treat it as
+    item_name='cost_for_two' so the index can roll it up per restaurant.
+    """
     items = extract_jsonld(html)
-    if not items:
-        items = extract_nextdata(html)
-    if not items:
-        items = extract_dom_regex(html, currency)
-    return _coerce(items, currency)
+    if items:
+        return _coerce(items, currency)
+    return _coerce(extract_zomato_costfortwo(html, currency), currency)
 
 
 def parse_menupages(html, currency):
-    """MenuPages: JSON-LD + DOM regex fallback (USD)."""
-    items = extract_jsonld(html)
-    if len(items) < 3:
-        items = extract_dom_regex(html, currency)
-    return _coerce(items, currency)
+    """MenuPages: Schema.org Menu → MenuSection → MenuItem. The JSON-LD
+    walker hits these cleanly (200+ items/page in validation). No DOM
+    fallback — better an empty parse than junk."""
+    return _coerce(extract_jsonld(html), currency)
 
 
 def parse_eatigo(html, currency):
-    """Eatigo BKK: DOM-only (no LD price coverage in samples)."""
-    return _coerce(extract_dom_regex(html, currency), currency)
+    """Eatigo BKK: validation found 0 LD prices and the sampled pages were
+    mostly category/listing URLs. Returns empty; Thailand will need a
+    different source or fall back to the Numbeo proxy."""
+    return _coerce(extract_jsonld(html), currency)
 
 
 def parse_menulog(html, currency):
-    """Menulog: NEXT_DATA + JSON-LD + DOM fallback."""
+    """Menulog: NEXT_DATA has the menu structure, JSON-LD as backup."""
     items = extract_nextdata(html) or extract_jsonld(html)
-    if not items:
-        items = extract_dom_regex(html, currency)
     return _coerce(items, currency)
 
 
 def parse_grabfood(html, currency):
     """GrabFood SG archived: NEXT_DATA + JSON-LD."""
     items = extract_nextdata(html) or extract_jsonld(html)
-    if not items:
-        items = extract_dom_regex(html, currency)
     return _coerce(items, currency)
 
 
 def parse_tripadvisor_mx(html, currency):
-    """TripAdvisor MX restaurant pages: JSON-LD MenuItem when present."""
-    items = extract_jsonld(html)
-    return _coerce(items, currency)
+    """TripAdvisor MX restaurant pages: JSON-LD MenuItem when present.
+    Most pages only have FoodEstablishment with priceRange (a tier
+    marker) — we explicitly skip those via the _walk_ld @type guard."""
+    return _coerce(extract_jsonld(html), currency)
 
 
 def _coerce(items, default_currency):
