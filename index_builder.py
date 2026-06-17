@@ -662,16 +662,21 @@ def print_index_summary(all_rows: list[dict]) -> None:
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
-        method: str = "stable-basket") -> None:
+        method: str = "restaurant-median") -> None:
     """Build the UIFPI for all countries and save results.
 
     method:
-      - "stable-basket": within-item price relatives (default; rigorous
-        but degenerates to constant 100 when items rarely span multiple
-        months for the same restaurant).
-      - "restaurant-median": geometric mean of per-restaurant monthly
-        medians, chained against the country's earliest month. Robust
-        to item-level basket churn; suitable for Wayback snapshot data.
+      - "restaurant-median" (default): geometric mean of per-restaurant
+        monthly medians, chained against the country's earliest month.
+        Robust to item-level basket churn — the right choice for the
+        current Wayback-snapshot dataset, where the same menu item
+        rarely reappears across archive visits and stable-basket would
+        emit nulls for most countries.
+      - "stable-basket": within-item price relatives. More rigorous when
+        the data actually supports it, but degenerates to constant 100
+        (or all-null rows) when no item appears in ≥2 months for the
+        same restaurant. Kept available for future data sources where
+        item-level matching is feasible.
     """
     conn = sqlite3.connect(db_path)
     init_output_table(conn)
@@ -758,8 +763,8 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(
         description="Build the UIFPI from uifpi.db price observations."
     )
-    ap.add_argument("--method", default="stable-basket",
+    ap.add_argument("--method", default="restaurant-median",
                     choices=("stable-basket", "restaurant-median"),
-                    help="Index aggregation method (default: stable-basket).")
+                    help="Index aggregation method (default: restaurant-median).")
     args = ap.parse_args()
     run(method=args.method)
