@@ -1,13 +1,22 @@
 import Link from "next/link";
-import { getCountrySummaries, getLatestValues } from "@/lib/data";
+import {
+  getCountrySummaries,
+  getLatestValues,
+  getFloorData,
+} from "@/lib/data";
 import CountryMap from "@/components/CountryMap";
 import {
   COUNTRIES,
   COUNTRY_FLAGS,
   COUNTRY_SLUGS,
   DEVELOPMENT_STATUS,
+  PROXY_COUNTRIES,
 } from "@/types";
-import type { CountrySummaryMap, LatestValueMap } from "@/types";
+import type {
+  CountrySummaryMap,
+  LatestValueMap,
+  FloorDataMap,
+} from "@/types";
 
 function fmt(v: number | null | undefined, decimals = 1): string {
   if (v == null) return "—";
@@ -105,10 +114,84 @@ function CountryCard({
   );
 }
 
+function ProxyCountryCard({
+  country,
+  floor,
+}: {
+  country: string;
+  floor: FloorDataMap;
+}) {
+  const f = floor[country];
+  const slug = COUNTRY_SLUGS[country];
+  const latestBigMac = f?.bigmac_usd?.at(-1);
+  const latestCpi = f?.wb_cpi?.at(-1);
+  return (
+    <Link
+      href={`/${slug}`}
+      className="block rounded-xl border border-gray-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all duration-200 group"
+    >
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl leading-none">{COUNTRY_FLAGS[country]}</span>
+          <div>
+            <h3 className="font-semibold text-gray-900 group-hover:text-[#1a365d] transition-colors text-sm leading-tight">
+              {country}
+            </h3>
+            <span className="text-xs px-1.5 py-0.5 rounded font-medium bg-amber-50 text-amber-700">
+              {DEVELOPMENT_STATUS[country] ?? "—"}
+            </span>
+          </div>
+        </div>
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+          <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+          Proxy only
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2 text-sm">
+        <div className="bg-gray-50 rounded-lg p-2.5">
+          <p className="text-xs text-gray-500 mb-0.5">Big Mac (USD)</p>
+          {latestBigMac ? (
+            <>
+              <p className="font-bold text-gray-900 text-xl">
+                ${latestBigMac.value.toFixed(2)}
+              </p>
+              <p className="text-xs text-gray-400">
+                {String(latestBigMac.year).slice(0, 7)}
+              </p>
+            </>
+          ) : (
+            <p className="font-bold text-gray-400 text-sm mt-1">No data</p>
+          )}
+        </div>
+        <div className="bg-gray-50 rounded-lg p-2.5">
+          <p className="text-xs text-gray-500 mb-0.5">WB CPI</p>
+          {latestCpi ? (
+            <>
+              <p className="font-bold text-gray-900 text-xl">
+                {latestCpi.value.toFixed(1)}
+              </p>
+              <p className="text-xs text-gray-400">{latestCpi.year}</p>
+            </>
+          ) : (
+            <p className="font-bold text-gray-400 text-sm mt-1">No data</p>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+        <span>Numbeo + Big Mac + WB CPI</span>
+        <span className="text-gray-400">Floor data →</span>
+      </div>
+    </Link>
+  );
+}
+
 export default async function HomePage() {
-  const [summaries, latest] = await Promise.all([
+  const [summaries, latest, floor] = await Promise.all([
     getCountrySummaries(),
     getLatestValues(),
+    getFloorData(),
   ]);
 
   const sigCount = COUNTRIES.filter(
@@ -222,6 +305,28 @@ export default async function HomePage() {
             />
           ))}
         </div>
+
+        {PROXY_COUNTRIES.length > 0 && (
+          <div className="mt-10">
+            <div className="flex items-baseline justify-between mb-3">
+              <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                Proxy data only
+              </h3>
+              <span className="text-xs text-gray-500">
+                Floor datasets — no item-level UIFPI
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {PROXY_COUNTRIES.map((country) => (
+                <ProxyCountryCard
+                  key={country}
+                  country={country}
+                  floor={floor}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Map */}

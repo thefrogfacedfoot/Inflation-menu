@@ -2,6 +2,54 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-17 — Mexico floor-only page; Track C kickoff
+
+### Mexico added as proxy-only country on dashboard
+
+`final_roster.md` and `data_gaps.md` already document Mexico as proxy-only
+(TripAdvisor MX exposes restaurant-level tier markers, not menu items; no
+other Wayback source clears the formal-sector threshold). The data was
+loaded by `floor_datasets.py` — Numbeo (32 rows, 2018–2025), Big Mac
+(43 obs, 2000–2026), World Bank CPI (120 monthly rows, 2015–2024) — but
+the dashboard didn't surface it. The LatAm tile is now live with honest
+"proxy data only" labeling.
+
+- **Types** (`dashboard/types/index.ts`): added `PROXY_COUNTRIES`,
+  `FloorData`, `FloorDataMap`, Mexico to `COUNTRY_FLAGS` /
+  `COUNTRY_SLUGS` / `DEVELOPMENT_STATUS`.
+- **Floor-data export** (`dashboard_data.py`): new `build_floor_data()`
+  reads `numbeo_index`, `bigmac_index`, `monthly_cpi` for each proxy
+  country and writes `floor_data.json` to `dashboard_data/` and
+  `dashboard/public/data/`.
+- **Country page** (`dashboard/app/[country]/page.tsx`): proxy countries
+  detected at request time; render a separate `ProxyCountryPage`
+  template — no UIFPI chart, an amber "no item-level UIFPI computed"
+  banner, four StatCards (Big Mac USD, WB CPI, Numbeo inexpensive,
+  Numbeo midrange), two charts (Big Mac USD time series, WB CPI time
+  series), and a Numbeo year-table. Page docstring notes Numbeo's
+  current-snapshot methodology so the flat year-over-year values
+  aren't misread as missing data.
+- **Homepage** (`dashboard/app/page.tsx`): new "Proxy data only"
+  section below the main grid with a `ProxyCountryCard` showing the
+  latest Big Mac (USD) and WB CPI per country.
+- **FloorChart** (`dashboard/components/FloorChart.tsx`): a simpler
+  Recharts wrapper for floor time-series; same Recharts version as
+  `IndexChart` to avoid SSR shape surprises.
+
+`generateStaticParams()` now produces 9 routes (8 UIFPI + 1 proxy).
+`next build` completes; SSR Recharts width warnings are unchanged.
+
+### Phase 0 probes for BR + DE + ZA in flight
+
+Companion probe script (`phase0_probe_br_de_za.py`) launched against
+12 candidate (country, platform) patterns: TripAdvisor + iFood + Rappi
++ Uber Eats for BR, TripAdvisor + Lieferando + Wolt + Uber Eats + Yelp
+for DE, TripAdvisor + Mr D Food + Uber Eats + EatOut for ZA. Results
+land in `coverage_report_br_de_za.{csv,md}` in the same yields-table
+format as `coverage_report.md`. Decision: any country whose best
+platform has ≥15 ≥2-cap restaurants AND ≥5 currency-token hits in the
+sampled HTML gets queued for `historical_html_scraper.py` integration.
+
 ## 2026-06-17 — TripAdvisor tier-marker purge, dashboard honesty pass
 
 ### TripAdvisor `priceRange` tier markers removed from `prices` table

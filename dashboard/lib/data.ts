@@ -7,6 +7,8 @@ import type {
   IndexPoint,
   CountrySummary,
   LatestValue,
+  FloorData,
+  FloorDataMap,
 } from "@/types";
 
 // Read JSON files directly from disk during build/SSR.
@@ -31,6 +33,17 @@ export async function getLatestValues(): Promise<LatestValueMap> {
 
 export async function getIndexSeries(): Promise<IndexSeriesMap> {
   return readDataFile<IndexSeriesMap>("index_series.json");
+}
+
+export async function getFloorData(): Promise<FloorDataMap> {
+  return readDataFile<FloorDataMap>("floor_data.json");
+}
+
+export async function getFloorDataForCountry(
+  country: string
+): Promise<FloorData | null> {
+  const all = await getFloorData();
+  return all[country] ?? null;
 }
 
 export async function getCountryData(country: string): Promise<{

@@ -40,6 +40,22 @@ export interface LatestValue {
   items_informal: number;
 }
 
+// Floor-only proxy data for countries that don't clear the formal-sector
+// threshold (no item-level price source). Numbeo / Big Mac / WB CPI only.
+export interface FloorDataPoint {
+  year: number | string;
+  value: number;
+}
+export interface FloorData {
+  numbeo_inexpensive: FloorDataPoint[]; // local-currency MXN price per year
+  numbeo_midrange:    FloorDataPoint[];
+  bigmac_usd:         FloorDataPoint[]; // USD price per snapshot date
+  wb_cpi:             FloorDataPoint[]; // monthly CPI level
+  currency:           string;
+  iso2:               string;
+}
+export type FloorDataMap = Record<string, FloorData>;
+
 export type CountrySummaryMap = Record<string, CountrySummary>;
 export type LatestValueMap = Record<string, LatestValue>;
 export type IndexSeriesMap = Record<string, IndexPoint[]>;
@@ -57,6 +73,12 @@ export const COUNTRIES = [
 
 export type Country = (typeof COUNTRIES)[number];
 
+// Proxy-only countries: no item-level UIFPI, only Numbeo / Big Mac / WB CPI.
+// Rendered as separate tiles below the main UIFPI grid and as a different
+// template on the country page.
+export const PROXY_COUNTRIES = ["Mexico"] as const;
+export type ProxyCountry = (typeof PROXY_COUNTRIES)[number];
+
 export const COUNTRY_FLAGS: Record<string, string> = {
   Singapore: "🇸🇬",
   Malaysia: "🇲🇾",
@@ -66,6 +88,7 @@ export const COUNTRY_FLAGS: Record<string, string> = {
   "United States": "🇺🇸",
   "United Kingdom": "🇬🇧",
   Australia: "🇦🇺",
+  Mexico: "🇲🇽",
 };
 
 export const COUNTRY_SLUGS: Record<string, string> = {
@@ -77,6 +100,7 @@ export const COUNTRY_SLUGS: Record<string, string> = {
   "United States": "united-states",
   "United Kingdom": "united-kingdom",
   Australia: "australia",
+  Mexico: "mexico",
 };
 
 export const SLUG_TO_COUNTRY: Record<string, string> = Object.fromEntries(
@@ -101,4 +125,5 @@ export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
   "United States": "Developed",
   "United Kingdom": "Developed",
   Australia: "Developed",
+  Mexico: "Emerging",
 };
