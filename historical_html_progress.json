@@ -1,0 +1,1391 @@
+{
+  "United States:menupages": {
+    "snapshots": [
+      {
+        "timestamp": "20180104021433",
+        "url": "http://www.menupages.com/"
+      },
+      {
+        "timestamp": "20180324053436",
+        "url": "http://www.menupages.com/restaurants/all-areas/all-neighborhoods/mexican/"
+      },
+      {
+        "timestamp": "20180226122949",
+        "url": "http://www.menupages.com/restaurants/blondies-2/menu"
+      },
+      {
+        "timestamp": "20180101001756",
+        "url": "http://www.menupages.com/restaurants/boqueria-3/menu"
+      },
+      {
+        "timestamp": "20180721184057",
+        "url": "https://menupages.com/1-bite-grill/119-e-60th-street-new-york"
+      },
+      {
+        "timestamp": "20180721183554",
+        "url": "https://menupages.com/1-chinese-restaurant/1067-ralph-ave-brooklyn"
+      },
+      {
+        "timestamp": "20180721183559",
+        "url": "https://menupages.com/1-tortillas-king/2238-86th-st-brooklyn"
+      },
+      {
+        "timestamp": "20180721184101",
+        "url": "https://menupages.com/1-up-bistro/1404-madison-ave-new-york"
+      },
+      {
+        "timestamp": "20181004075530",
+        "url": "https://menupages.com/"
+      },
+      {
+        "timestamp": "20181117024314",
+        "url": "https://menupages.com/1428-haight-patio-and-crepery/1428-haight-st-san-francisco"
+      },
+      {
+        "timestamp": "20181101182730",
+        "url": "https://menupages.com/1428-haight-patio-and-crepery/1428-haight-st-san-francisco?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel"
+      },
+      {
+        "timestamp": "20181127042145",
+        "url": "https://menupages.com/3-js-food-market/801-n-2nd-st-philadelphia"
+      },
+      {
+        "timestamp": "20190202190839",
+        "url": "https://menupages.com/1742-pizza/1742-2nd-ave-new-york?utm_source=eat24hrs.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel"
+      },
+      {
+        "timestamp": "20190320021141",
+        "url": "https://menupages.com/404"
+      },
+      {
+        "timestamp": "20190108053236",
+        "url": "https://menupages.com/464/464-s-main-st-los-angeles?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel"
+      },
+      {
+        "timestamp": "20190212081615",
+        "url": "https://menupages.com/90-miles-cuban-cafe-clybourn/3101-n-clybourn-ave-chicago?utm_source=eat24hrs.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel"
+      },
+      {
+        "timestamp": "20190502200843",
+        "url": "https://menupages.com/105-deli-grill/922-amsterdam-ave-new-york"
+      },
+      {
+        "timestamp": "20190502200849",
+        "url": "https://menupages.com/107-west/2787-broadway-ave-new-york"
+      },
+      {
+        "timestamp": "20190502200852",
+        "url": "https://menupages.com/108-food-dried-hot-pot/2794-broadway-new-york"
+      },
+      {
+        "timestamp": "20190502200901",
+        "url": "https://menupages.com/109-spicy-gourmet-deli/990-amsterdam-ave-new-york"
+      },
+      {
+        "timestamp": "20190825014318",
+        "url": "https://menupages.com/1-chinese-kitchen/5585-snell-ave-san-jose"
+      },
+      {
+        "timestamp": "20190717102756",
+        "url": "https://menupages.com/1-chop-suey/2308-e-state-st-chicago"
+      },
+      {
+        "timestamp": "20190818014117",
+        "url": "https://menupages.com/1-chop-suey/4307-w-irving-park-rd-chicago"
+      },
+      {
+        "timestamp": "20190717060909",
+        "url": "https://menupages.com/1-chop-suey/4307-w-irving-park-rd-chicago?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel"
+      },
+      {
+        "timestamp": "20191215112011",
+        "url": "https://menupages.com/1-fish-2-fish/2423-pennsylvania-ave-nw-washington"
+      },
+      {
+        "timestamp": "20191122204637",
+        "url": "https://menupages.com/1-hawaiian-barbeque/5905-s-eastern-ave-las-vegas"
+      },
+      {
+        "timestamp": "20191006225443",
+        "url": "https://menupages.com/1-stop-pizza-deli-grocery/3701-germantown-ave-philadelphia"
+      },
+      {
+        "timestamp": "20191210071736",
+        "url": "https://menupages.com/100-de-agave/975-lincoln-st-denver"
+      },
+      {
+        "timestamp": "20200326161024",
+        "url": "https://menupages.com/10th-avenue-pizza-cafe/256-10th-ave-new-york"
+      },
+      {
+        "timestamp": "20200326161132",
+        "url": "https://menupages.com/11-hanover-greek/11-hanover-sq-new-york"
+      },
+      {
+        "timestamp": "20200326161238",
+        "url": "https://menupages.com/118-kitchen/1-e-118th-st-new-york"
+      },
+      {
+        "timestamp": "20200326161343",
+        "url": "https://menupages.com/11b-express/174-ave-b-new-york"
+      },
+      {
+        "timestamp": "20200415214743",
+        "url": "https://menupages.com/11th-street-cafe/327-w-11th-st-new-york"
+      },
+      {
+        "timestamp": "20200415214840",
+        "url": "https://menupages.com/12-chairs-soho/56-macdougal-st-new-york"
+      },
+      {
+        "timestamp": "20200415214935",
+        "url": "https://menupages.com/16-handles-frozen-yogurt-ice-cream-ues-1st-ave/1161-1st-ave-new-york"
+      },
+      {
+        "timestamp": "20200415215238",
+        "url": "https://menupages.com/16-handles-frozen-yogurt-ice-cream-ues-2nd-ave/1569-2nd-ave-new-york"
+      },
+      {
+        "timestamp": "20200808032420",
+        "url": "https://menupages.com/100-degree-chinese-cuisine/3903-fair-ridge-dr-fairfax"
+      },
+      {
+        "timestamp": "20200808122747",
+        "url": "https://menupages.com/100-montaditos-brickell/1401-brickell-ave-miami"
+      },
+      {
+        "timestamp": "20200806222256",
+        "url": "https://menupages.com/100-montaditos/13440-sw-120th-st-ste-608-miami"
+      },
+      {
+        "timestamp": "20200815110807",
+        "url": "https://menupages.com/1000-degrees-neapolitan-pizzeria/14821-biscayne-blvd-miami"
+      },
+      {
+        "timestamp": "20201026185124",
+        "url": "https://menupages.com/1-china-buffet/125-e-reynolds-rd-ste-120-lexington"
+      },
+      {
+        "timestamp": "20201125072117",
+        "url": "https://menupages.com/101-asian-fusion/101-madison-st-denver"
+      },
+      {
+        "timestamp": "20201022203604",
+        "url": "https://menupages.com/101-asian-kitchen/7170-beverly-blvd-los-angeles"
+      },
+      {
+        "timestamp": "20201025110017",
+        "url": "https://menupages.com/101-korean-bbq-sushi/11009-burbank-blvd-ste-108-north-hollywood"
+      },
+      {
+        "timestamp": "20210416083603",
+        "url": "https://menupages.com/1000-degrees-pizzeria/640-commons-way-bridgewater"
+      },
+      {
+        "timestamp": "20210414082350",
+        "url": "https://menupages.com/1001-nights-restaurant/706-w-southern-ave-mesa"
+      },
+      {
+        "timestamp": "20210917075944",
+        "url": "https://menupages.com/1000-degrees-neapolitan-pizzeria/20674-homestead-rd-cupertino"
+      },
+      {
+        "timestamp": "20210731191407",
+        "url": "https://menupages.com/11-degrees-north/824-w-belmont-ave-chicago?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel"
+      },
+      {
+        "timestamp": "20211027160756",
+        "url": "https://menupages.com/100-juice-bar/130-w-238th-st-bronx"
+      },
+      {
+        "timestamp": "20211128210907",
+        "url": "https://menupages.com/101-bagels-subs/323-n-coast-hwy-ste-c-oceanside"
+      },
+      {
+        "timestamp": "20211128200647",
+        "url": "https://menupages.com/101-cafe/631-s-coast-hwy-oceanside"
+      },
+      {
+        "timestamp": "20211027172704",
+        "url": "https://menupages.com/107-taste/1679-sw-107th-ave-miami"
+      },
+      {
+        "timestamp": "20220122083420",
+        "url": "https://menupages.com/101-noodle-express/6000-sepulveda-blvd-culver-city"
+      },
+      {
+        "timestamp": "20220324052559",
+        "url": "https://menupages.com/11-degrees-north/824-w-belmont-ave-chicago"
+      },
+      {
+        "timestamp": "20220127144716",
+        "url": "https://menupages.com/1230-restaurant-champagne-lounge/1230-9th-st-nw-washington"
+      },
+      {
+        "timestamp": "20220122082835",
+        "url": "https://menupages.com/1800-cafe/1800-monument-blvd-concord"
+      },
+      {
+        "timestamp": "20220702025212",
+        "url": "https://menupages.com"
+      },
+      {
+        "timestamp": "20221208162851",
+        "url": "https://menupages.com/101-noodle-express-monterey-park/500-n-atlantic-blvd-monterey-park"
+      },
+      {
+        "timestamp": "20221208025349",
+        "url": "https://menupages.com/10e/811-w-7th-st-los-angeles"
+      },
+      {
+        "timestamp": "20230921181440",
+        "url": "https://menupages.com/12-chairs-soho/142-w-houston-st-new-york"
+      },
+      {
+        "timestamp": "20230926212546",
+        "url": "https://menupages.com/14-parish/2333-s-michigan-ave-chicago"
+      },
+      {
+        "timestamp": "20230929034359",
+        "url": "https://menupages.com/14-twenty-bar-grill/1420-presidential-dr-columbus"
+      },
+      {
+        "timestamp": "20230927085216",
+        "url": "https://menupages.com/172-presbyterian-deli/1230-st-nicholas-ave-new-york"
+      },
+      {
+        "timestamp": "20231205084254",
+        "url": "https://menupages.com/12-south-bistro/907-12th-ave-s-nashville"
+      },
+      {
+        "timestamp": "20231128130815",
+        "url": "https://menupages.com/125th-street-grill/12255-aurora-ave-n-seattle"
+      },
+      {
+        "timestamp": "20231003150434",
+        "url": "https://menupages.com/1515-restaurant/1515-market-st-denver"
+      },
+      {
+        "timestamp": "20231002183722",
+        "url": "https://menupages.com/16-handles-frozen-yogurt-ice-cream/178-8th-ave-new-york"
+      },
+      {
+        "timestamp": "20240424122421",
+        "url": "https://menupages.com/1111-peruvian-bistro/1111-sw-1st-ave-ste-106-miami"
+      },
+      {
+        "timestamp": "20240424125303",
+        "url": "https://menupages.com/12-chairs/342-wythe-ave-brooklyn"
+      },
+      {
+        "timestamp": "20240526122946",
+        "url": "https://menupages.com/164-presbyterian-deli/1081-st-nicholas-ave-new-york"
+      },
+      {
+        "timestamp": "20240418134916",
+        "url": "https://menupages.com/165-ny-presbyterian-deli/2119-amsterdam-ave-new-york"
+      },
+      {
+        "timestamp": "20241014021952",
+        "url": "https://menupages.com/10th-ave-deli/561-17th-st-new-york"
+      },
+      {
+        "timestamp": "20241004140450",
+        "url": "https://menupages.com/16-handles/2010-hudson-st-fort-lee"
+      },
+      {
+        "timestamp": "20250322093205",
+        "url": "https://menupages.com/12-dumplings/83-benevolent-st-providence"
+      },
+      {
+        "timestamp": "20250422055857",
+        "url": "https://menupages.com/10th-street-live/104-n-10th-st-kenilworth"
+      },
+      {
+        "timestamp": "20250512234316",
+        "url": "https://menupages.com/1370-hibachi-express/1370-dixwell-ave-hamden"
+      },
+      {
+        "timestamp": "20251214050529",
+        "url": "https://menupages.com/153-akira-sushi/1137-greenleaf-ave-wilmette"
+      }
+    ],
+    "done_urls": [
+      "https://menupages.com/100-montaditos-brickell/1401-brickell-ave-miami",
+      "https://menupages.com/153-akira-sushi/1137-greenleaf-ave-wilmette",
+      "https://menupages.com/1800-cafe/1800-monument-blvd-concord",
+      "https://menupages.com/105-deli-grill/922-amsterdam-ave-new-york",
+      "https://menupages.com/464/464-s-main-st-los-angeles?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel",
+      "https://menupages.com/100-degree-chinese-cuisine/3903-fair-ridge-dr-fairfax",
+      "http://www.menupages.com/restaurants/blondies-2/menu",
+      "https://menupages.com/101-asian-fusion/101-madison-st-denver",
+      "https://menupages.com/10th-ave-deli/561-17th-st-new-york",
+      "https://menupages.com/172-presbyterian-deli/1230-st-nicholas-ave-new-york",
+      "https://menupages.com/12-south-bistro/907-12th-ave-s-nashville",
+      "https://menupages.com/107-west/2787-broadway-ave-new-york",
+      "https://menupages.com/12-chairs/342-wythe-ave-brooklyn",
+      "https://menupages.com/1-chinese-restaurant/1067-ralph-ave-brooklyn",
+      "https://menupages.com/1742-pizza/1742-2nd-ave-new-york?utm_source=eat24hrs.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel",
+      "https://menupages.com/109-spicy-gourmet-deli/990-amsterdam-ave-new-york",
+      "https://menupages.com/",
+      "https://menupages.com/1428-haight-patio-and-crepery/1428-haight-st-san-francisco",
+      "https://menupages.com/1-hawaiian-barbeque/5905-s-eastern-ave-las-vegas",
+      "http://www.menupages.com/",
+      "https://menupages.com/1-chop-suey/4307-w-irving-park-rd-chicago",
+      "https://menupages.com/16-handles-frozen-yogurt-ice-cream-ues-1st-ave/1161-1st-ave-new-york",
+      "https://menupages.com/107-taste/1679-sw-107th-ave-miami",
+      "https://menupages.com/1-china-buffet/125-e-reynolds-rd-ste-120-lexington",
+      "https://menupages.com/1-bite-grill/119-e-60th-street-new-york",
+      "https://menupages.com/101-korean-bbq-sushi/11009-burbank-blvd-ste-108-north-hollywood",
+      "http://www.menupages.com/restaurants/boqueria-3/menu",
+      "https://menupages.com/10e/811-w-7th-st-los-angeles",
+      "https://menupages.com/1111-peruvian-bistro/1111-sw-1st-ave-ste-106-miami",
+      "https://menupages.com/1-stop-pizza-deli-grocery/3701-germantown-ave-philadelphia",
+      "https://menupages.com/1-chop-suey/2308-e-state-st-chicago",
+      "https://menupages.com/11-degrees-north/824-w-belmont-ave-chicago?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel",
+      "https://menupages.com/12-chairs-soho/56-macdougal-st-new-york",
+      "https://menupages.com/118-kitchen/1-e-118th-st-new-york",
+      "https://menupages.com/12-chairs-soho/142-w-houston-st-new-york",
+      "https://menupages.com/1-chop-suey/4307-w-irving-park-rd-chicago?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel",
+      "https://menupages.com/16-handles-frozen-yogurt-ice-cream-ues-2nd-ave/1569-2nd-ave-new-york",
+      "https://menupages.com/101-bagels-subs/323-n-coast-hwy-ste-c-oceanside",
+      "https://menupages.com/1-chinese-kitchen/5585-snell-ave-san-jose",
+      "https://menupages.com/90-miles-cuban-cafe-clybourn/3101-n-clybourn-ave-chicago?utm_source=eat24hrs.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel",
+      "https://menupages.com/3-js-food-market/801-n-2nd-st-philadelphia",
+      "https://menupages.com/1000-degrees-pizzeria/640-commons-way-bridgewater",
+      "https://menupages.com/14-parish/2333-s-michigan-ave-chicago",
+      "https://menupages.com/11-hanover-greek/11-hanover-sq-new-york",
+      "https://menupages.com/1230-restaurant-champagne-lounge/1230-9th-st-nw-washington",
+      "https://menupages.com/1000-degrees-neapolitan-pizzeria/20674-homestead-rd-cupertino",
+      "https://menupages.com/10th-avenue-pizza-cafe/256-10th-ave-new-york",
+      "https://menupages.com/1370-hibachi-express/1370-dixwell-ave-hamden",
+      "https://menupages.com/16-handles-frozen-yogurt-ice-cream/178-8th-ave-new-york",
+      "http://www.menupages.com/restaurants/all-areas/all-neighborhoods/mexican/",
+      "https://menupages.com/101-asian-kitchen/7170-beverly-blvd-los-angeles",
+      "https://menupages.com/165-ny-presbyterian-deli/2119-amsterdam-ave-new-york",
+      "https://menupages.com/1428-haight-patio-and-crepery/1428-haight-st-san-francisco?utm_source=eat24hour.com&utm_medium=grubhub-owned-delivery-properties&utm_campaign=growth_redirect-eat24whitelabel",
+      "https://menupages.com/1-tortillas-king/2238-86th-st-brooklyn",
+      "https://menupages.com",
+      "https://menupages.com/404",
+      "https://menupages.com/11b-express/174-ave-b-new-york",
+      "https://menupages.com/1001-nights-restaurant/706-w-southern-ave-mesa",
+      "https://menupages.com/1-fish-2-fish/2423-pennsylvania-ave-nw-washington",
+      "https://menupages.com/100-de-agave/975-lincoln-st-denver",
+      "https://menupages.com/1-up-bistro/1404-madison-ave-new-york",
+      "https://menupages.com/10th-street-live/104-n-10th-st-kenilworth",
+      "https://menupages.com/11-degrees-north/824-w-belmont-ave-chicago",
+      "https://menupages.com/100-juice-bar/130-w-238th-st-bronx",
+      "https://menupages.com/100-montaditos/13440-sw-120th-st-ste-608-miami",
+      "https://menupages.com/164-presbyterian-deli/1081-st-nicholas-ave-new-york",
+      "https://menupages.com/101-noodle-express/6000-sepulveda-blvd-culver-city",
+      "https://menupages.com/12-dumplings/83-benevolent-st-providence",
+      "https://menupages.com/125th-street-grill/12255-aurora-ave-n-seattle",
+      "https://menupages.com/16-handles/2010-hudson-st-fort-lee",
+      "https://menupages.com/14-twenty-bar-grill/1420-presidential-dr-columbus",
+      "https://menupages.com/11th-street-cafe/327-w-11th-st-new-york",
+      "https://menupages.com/108-food-dried-hot-pot/2794-broadway-new-york",
+      "https://menupages.com/101-noodle-express-monterey-park/500-n-atlantic-blvd-monterey-park",
+      "https://menupages.com/1000-degrees-neapolitan-pizzeria/14821-biscayne-blvd-miami",
+      "https://menupages.com/101-cafe/631-s-coast-hwy-oceanside",
+      "https://menupages.com/1515-restaurant/1515-market-st-denver"
+    ],
+    "status": "complete"
+  },
+  "India:zomato-ncr": {
+    "snapshots": [
+      {
+        "timestamp": "20180118190443",
+        "url": "https://www.zomato.com/ncr"
+      },
+      {
+        "timestamp": "20180302223634",
+        "url": "https://www.zomato.com/ncr/4s-chinese-restaurant-defence-colony-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20180111115655",
+        "url": "https://www.zomato.com/ncr/andhra-bhavan-feroze-shah-road-new-delhi/reviews?amp=1"
+      },
+      {
+        "timestamp": "20180113072809",
+        "url": "https://www.zomato.com/ncr/andhra-bhavan-feroze-shah-road-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20180820042333",
+        "url": "https://www.zomato.com/ncr/aartibakes-sector-44-noida"
+      },
+      {
+        "timestamp": "20180821011205",
+        "url": "https://www.zomato.com/ncr/backstreet-kitchen-sector-110-noida"
+      },
+      {
+        "timestamp": "20180828170214",
+        "url": "https://www.zomato.com/ncr/bbq-factory-golf-course-road-gurgaon"
+      },
+      {
+        "timestamp": "20180917193026",
+        "url": "https://www.zomato.com/ncr/best-bars-and-pubs?ref=rescoll"
+      },
+      {
+        "timestamp": "20181024014429",
+        "url": "https://www.zomato.com/ncr/aartibakes-sector-44-noida?amp=1"
+      },
+      {
+        "timestamp": "20181027212803",
+        "url": "https://www.zomato.com/ncr/backstreet-kitchen-sector-110-noida?amp=1"
+      },
+      {
+        "timestamp": "20181119025823",
+        "url": "https://www.zomato.com/ncr/bbq-factory-golf-course-road-gurgaon?amp=1"
+      },
+      {
+        "timestamp": "20181221234935",
+        "url": "https://www.zomato.com/ncr/best-hauz-khas-village-restaurants?page=2"
+      },
+      {
+        "timestamp": "20190105035337",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi"
+      },
+      {
+        "timestamp": "20190105040942",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/info"
+      },
+      {
+        "timestamp": "20190105034250",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/menu"
+      },
+      {
+        "timestamp": "20190105043310",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/reviews"
+      },
+      {
+        "timestamp": "20190418221842",
+        "url": "https://www.zomato.com/ncr/56-ristorante-italiano-golf-course-road-gurgaon"
+      },
+      {
+        "timestamp": "20190530211811",
+        "url": "https://www.zomato.com/ncr/7-degrees-brauhaus-golf-course-road-gurgaon?zrp_bid=0&zrp_pid=1&ref_id=310&ref_type=subzone"
+      },
+      {
+        "timestamp": "20190530052130",
+        "url": "https://www.zomato.com/ncr/a-piece-of-paris-sector-21-gurgaon?zrp_bid=59031&zrp_pid=1&zrp_cid=223185&ref_id=2&ref_type=zone"
+      },
+      {
+        "timestamp": "20190530061906",
+        "url": "https://www.zomato.com/ncr/a-piece-of-paris-sector-21-gurgaon?zrp_bid=59030&zrp_pid=1&zrp_cid=223184&ref_id=310&ref_type=subzone"
+      },
+      {
+        "timestamp": "20190812115655",
+        "url": "https://www.zomato.com/ncr/adchini-restaurants"
+      },
+      {
+        "timestamp": "20190830192211",
+        "url": "https://www.zomato.com/ncr/after-stories-sector-29-gurgaon?amp=1"
+      },
+      {
+        "timestamp": "20190830200806",
+        "url": "https://www.zomato.com/ncr/amritsari-kitchen-sector-63-noida?amp=1"
+      },
+      {
+        "timestamp": "20190830201144",
+        "url": "https://www.zomato.com/ncr/asian-fun-sector-37-noida?amp=1"
+      },
+      {
+        "timestamp": "20191105080822",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/menu?amp=1"
+      },
+      {
+        "timestamp": "20191105200343",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/reviews?amp=1"
+      },
+      {
+        "timestamp": "20191105075202",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20191108011612",
+        "url": "https://www.zomato.com/ncr/ampm-caf%C3%A9-bar-dlf-phase-4-gurgaon?amp=1"
+      },
+      {
+        "timestamp": "20200323011500",
+        "url": "https://www.zomato.com/ncr/bengali-love-cafe-sector-43-gurgaon"
+      },
+      {
+        "timestamp": "20200102025109",
+        "url": "https://www.zomato.com/ncr/restaurants/desserts?category=1?utm_source=SHOPPINGNU.COM?utm_campaign=Listing1405&utm_medium=NU-ADLISTING"
+      },
+      {
+        "timestamp": "20200102103328",
+        "url": "https://www.zomato.com/ncr/tasty-tweets-sector-31-gurgaon"
+      },
+      {
+        "timestamp": "20200412191331",
+        "url": "https://www.zomato.com/ncr/cake-plaza-sector-49-gurgaon"
+      },
+      {
+        "timestamp": "20200605160828",
+        "url": "https://www.zomato.com/ncr/cool-point-shahi-tukda-1-jama-masjid-new-delhi"
+      },
+      {
+        "timestamp": "20200605160837",
+        "url": "https://www.zomato.com/ncr/dil-pasand-biryani-point-jama-masjid-new-delhi"
+      },
+      {
+        "timestamp": "20200522212609",
+        "url": "https://www.zomato.com/ncr/gold"
+      },
+      {
+        "timestamp": "20200821105828",
+        "url": "https://www.zomato.com/ncr/aamantran-bangla-1-indirapuram-ghaziabad"
+      },
+      {
+        "timestamp": "20200822053244",
+        "url": "https://www.zomato.com/ncr/aamantran-bangla-pandav-nagar-new-delhi/info"
+      },
+      {
+        "timestamp": "20200825210709",
+        "url": "https://www.zomato.com/ncr/aamantran-bangla-pandav-nagar-new-delhi/menu"
+      },
+      {
+        "timestamp": "20200823210837",
+        "url": "https://www.zomato.com/ncr/aami-bangali-chittaranjan-park-new-delhi"
+      },
+      {
+        "timestamp": "20201224053106",
+        "url": "https://www.zomato.com/ncr/aggrafe-sector-12-faridabad/order"
+      },
+      {
+        "timestamp": "20201220231124",
+        "url": "https://www.zomato.com/ncr/aleeshas-yummy-indian-madhu-vihar"
+      },
+      {
+        "timestamp": "20201105224858",
+        "url": "https://www.zomato.com/ncr/alex-n-ben-rohini-new-delhi"
+      },
+      {
+        "timestamp": "20201224173105",
+        "url": "https://www.zomato.com/ncr/ampm-cafe-bar-dlf-phase-4-gurgaon/order"
+      },
+      {
+        "timestamp": "20210111230918",
+        "url": "https://www.zomato.com/ncr/48-plates-dlf-phase-4-gurgaon"
+      },
+      {
+        "timestamp": "20210205172033",
+        "url": "https://www.zomato.com/ncr/aangan-restaurant-nit-faridabad/order"
+      },
+      {
+        "timestamp": "20210208064848",
+        "url": "https://www.zomato.com/ncr/al-nawaz-restaurant-jasola-new-delhi/order"
+      },
+      {
+        "timestamp": "20210105041841",
+        "url": "https://www.zomato.com/ncr/annies-kerala-kitchen-new-friends-colony-new-delhi/order"
+      },
+      {
+        "timestamp": "20210529154701",
+        "url": "https://www.zomato.com/ncr/al-zaid-rajouri-garden-new-delhi"
+      },
+      {
+        "timestamp": "20210602102934",
+        "url": "https://www.zomato.com/ncr/ananya-fire-food-mayur-vihar-new-delhi"
+      },
+      {
+        "timestamp": "20210525183857",
+        "url": "https://www.zomato.com/ncr/bengali-dada-pakora-corner-sector-3-faridabad"
+      },
+      {
+        "timestamp": "20210526091723",
+        "url": "https://www.zomato.com/ncr/bengali-sweet-house-mandi-house-new-delhi"
+      },
+      {
+        "timestamp": "20210709053524",
+        "url": "https://www.zomato.com/ncr/3bros-1-sector-63-noida"
+      },
+      {
+        "timestamp": "20210928180851",
+        "url": "https://www.zomato.com/ncr/al-taj-chicken-point-shahdara-new-delhi"
+      },
+      {
+        "timestamp": "20210923052207",
+        "url": "https://www.zomato.com/ncr/aquila-khel-gaon-marg-new-delhi"
+      },
+      {
+        "timestamp": "20210923133443",
+        "url": "https://www.zomato.com/ncr/aquila-khel-gaon-marg-new-delhi/reviews?amp=1&__twitter_impression=true"
+      },
+      {
+        "timestamp": "20211208140237",
+        "url": "https://www.zomato.com/ncr/21-gun-salute-sector-29"
+      },
+      {
+        "timestamp": "20211125174815",
+        "url": "https://www.zomato.com/ncr/21-gun-salute-sector-29-gurgaon?fbclid=IwAR2ucEC5DcimTJC0z97KEv6ZxVPOQjhGqXjgqRmEhC8zdjUAnzoR_MdJBSQ"
+      },
+      {
+        "timestamp": "20211208193435",
+        "url": "https://www.zomato.com/ncr/21-gun-salute-sector-29?amp=1"
+      },
+      {
+        "timestamp": "20211129091719",
+        "url": "https://www.zomato.com/ncr/4-on-44-restaurant-bar-pitampura-new-delhi"
+      },
+      {
+        "timestamp": "20220307091719",
+        "url": "https://www.zomato.com/ncr/21-gun-salute-sector-29-gurgaon"
+      },
+      {
+        "timestamp": "20220129154717",
+        "url": "https://www.zomato.com/ncr/al-jawahar-jama-masjid-new-delhi"
+      },
+      {
+        "timestamp": "20220130135236",
+        "url": "https://www.zomato.com/ncr/al-lazeez-lajpat-nagar-4-new-delhi?utm_source=referral-widget-5793&amp;utm_medium=restaurant_information_badge&amp;utm_campaign=widget-business"
+      },
+      {
+        "timestamp": "20220122083348",
+        "url": "https://www.zomato.com/ncr/al-lazeez-lajpat-nagar-4-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20220506151703",
+        "url": "https://www.zomato.com/ncr/7-heaven-amrapali-dream-valley-greater-noida/order"
+      },
+      {
+        "timestamp": "20220422060647",
+        "url": "https://www.zomato.com/ncr/al-taj-chicken-point-shahdara-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20220412151139",
+        "url": "https://www.zomato.com/ncr/azote-sector-43-gurgaon"
+      },
+      {
+        "timestamp": "20220416061959",
+        "url": "https://www.zomato.com/ncr/backbenchers-hq-by-cafeti%C3%A8res-sector-16-faridabad?amp=1"
+      },
+      {
+        "timestamp": "20220719171602",
+        "url": "https://www.zomato.com/ncr/alaturka-saket-new-delhi"
+      },
+      {
+        "timestamp": "20220719180221",
+        "url": "https://www.zomato.com/ncr/alaturka-saket-new-delhi/menu"
+      },
+      {
+        "timestamp": "20220721202359",
+        "url": "https://www.zomato.com/ncr/alaturka-saket-new-delhi/menu?amp=1"
+      },
+      {
+        "timestamp": "20220728063721",
+        "url": "https://www.zomato.com/ncr/alaturka-saket-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20221027195255",
+        "url": "https://www.zomato.com/ncr/ama-cafe-majnu-ka-tila-new-delhi"
+      },
+      {
+        "timestamp": "20221020174310",
+        "url": "https://www.zomato.com/ncr/aslam-chicken-jama-masjid-new-delhi"
+      },
+      {
+        "timestamp": "20221020212408",
+        "url": "https://www.zomato.com/ncr/aslam-chicken-jama-masjid-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20221026214934",
+        "url": "https://www.zomato.com/ncr/avantika-food-corner-lajpat-nagar-2-new-delhi"
+      },
+      {
+        "timestamp": "20230128114325",
+        "url": "https://www.zomato.com/ncr/al-maroosh-pandav-nagar-new-delhi"
+      },
+      {
+        "timestamp": "20230329054527",
+        "url": "https://www.zomato.com/ncr/aligarh-house-mughlai-biryani-patparganj-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20230202111741",
+        "url": "https://www.zomato.com/ncr/amrik-sukhdev-murthal-new-delhi"
+      },
+      {
+        "timestamp": "20230202111745",
+        "url": "https://www.zomato.com/ncr/amrik-sukhdev-murthal-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20230429193425",
+        "url": "https://www.zomato.com/ncr/1-oak-cafe-bar-defence-colony-new-delhi"
+      },
+      {
+        "timestamp": "20230529031153",
+        "url": "https://www.zomato.com/ncr/1-oak-cafe-bar-defence-colony-new-delhi/menu"
+      },
+      {
+        "timestamp": "20230525220101",
+        "url": "https://www.zomato.com/ncr/24seven-golf-course-road/order"
+      },
+      {
+        "timestamp": "20230529031153",
+        "url": "https://www.zomato.com/ncr/24seven-karol-bagh-new-delhi/order?contextual_menu_params=eyJkaXNoX3NlYXJjaCI6eyJ0aXRsZSI6IkJlc3QgaW4gU3RyZWV0IEZvb2QiLCJkaXNoX2lkcyI6W10sImN1aXNpbmVfaWRzIjpbIjkwIl19fQ%3D%3D"
+      },
+      {
+        "timestamp": "20230813085151",
+        "url": "https://www.zomato.com/ncr/1911-the-imperial-janpath-delhi"
+      },
+      {
+        "timestamp": "20230815162119",
+        "url": "https://www.zomato.com/ncr/alles-spice-sector-15-faridabad"
+      },
+      {
+        "timestamp": "20230908140935",
+        "url": "https://www.zomato.com/ncr/amour-bistro-chanakyapuri-new-delhi"
+      },
+      {
+        "timestamp": "20230814125416",
+        "url": "https://www.zomato.com/ncr/ardor-connaught-place-new-delhi"
+      },
+      {
+        "timestamp": "20231028003743",
+        "url": "https://www.zomato.com/ncr/aaharshala-anand-vihar-new-delhi/order"
+      },
+      {
+        "timestamp": "20231221034104",
+        "url": "https://www.zomato.com/ncr/ambrosia-bliss-connaught-place-new-delhi"
+      },
+      {
+        "timestamp": "20231221034126",
+        "url": "https://www.zomato.com/ncr/ampm-caf%C3%A9-bar-dlf-phase-4-gurgaon"
+      },
+      {
+        "timestamp": "20231217124951",
+        "url": "https://www.zomato.com/ncr/amrapali-dream-valley-restaurants"
+      },
+      {
+        "timestamp": "20240108070923",
+        "url": "https://www.zomato.com/ncr/adyar-ananda-bhavan-green-park-new-delhi"
+      },
+      {
+        "timestamp": "20240101100746",
+        "url": "https://www.zomato.com/ncr/aggarwal-bikaneri-sweets-kalkaji-new-delhi"
+      },
+      {
+        "timestamp": "20240101000412",
+        "url": "https://www.zomato.com/ncr/aka-saka-defence-colony-new-delhi"
+      },
+      {
+        "timestamp": "20240327075652",
+        "url": "https://www.zomato.com/ncr/alkakori-alkauser-r-k-puram-new-delhi"
+      },
+      {
+        "timestamp": "20240623222933",
+        "url": "https://www.zomato.com/ncr/1-cafe-lounge-connaught-place-delhi"
+      },
+      {
+        "timestamp": "20240623163847",
+        "url": "https://www.zomato.com/ncr/24-carat-lounge-rajouri-garden-delhi"
+      },
+      {
+        "timestamp": "20240629013723",
+        "url": "https://www.zomato.com/ncr/alco-hole-bar-sector-14-gurgaon"
+      },
+      {
+        "timestamp": "20240410201807",
+        "url": "https://www.zomato.com/ncr/amalfi-greater-kailash-gk-2-delhi"
+      },
+      {
+        "timestamp": "20240829121453",
+        "url": "https://www.zomato.com/ncr/19-chic-south-delhi-places"
+      },
+      {
+        "timestamp": "20240815044801",
+        "url": "https://www.zomato.com/ncr/5th-avenue-cafe-2-sector-50-gurgaon"
+      },
+      {
+        "timestamp": "20240922221540",
+        "url": "https://www.zomato.com/ncr/a2b-adyar-ananda-bhavan-green-park-new-delhi"
+      },
+      {
+        "timestamp": "20240706024440",
+        "url": "https://www.zomato.com/ncr/aggarwal-sweets-1-mahipalpur-new-delhi"
+      },
+      {
+        "timestamp": "20241224145329",
+        "url": "https://www.zomato.com/ncr/736-ad-culinary-bar-delhi-university-gtb-nagar-new-delhi/info"
+      },
+      {
+        "timestamp": "20241119032917",
+        "url": "https://www.zomato.com/ncr/a1-food-corner-nangloi-new-delhi/photos"
+      },
+      {
+        "timestamp": "20241228120307",
+        "url": "https://www.zomato.com/ncr/anardana-saket-new-delhi/info"
+      },
+      {
+        "timestamp": "20241213124743",
+        "url": "https://www.zomato.com/ncr/bar"
+      },
+      {
+        "timestamp": "20250207105409",
+        "url": "https://www.zomato.com/ncr/a-one-chicken-biryani-corner-sector-127-noida"
+      },
+      {
+        "timestamp": "20250118102343",
+        "url": "https://www.zomato.com/ncr/aerocity-restaurants"
+      },
+      {
+        "timestamp": "20250305180658",
+        "url": "https://www.zomato.com/ncr/anardana-saket-new-delhi"
+      },
+      {
+        "timestamp": "20250324065710",
+        "url": "https://www.zomato.com/ncr/annamaya-andaz-delhi-aerocity-new-delhi"
+      },
+      {
+        "timestamp": "20250616071128",
+        "url": "https://www.zomato.com/ncr/addonis-green-park-new-delhi"
+      },
+      {
+        "timestamp": "20250616071125",
+        "url": "https://www.zomato.com/ncr/addonis-green-park-new-delhi/info"
+      },
+      {
+        "timestamp": "20250616071126",
+        "url": "https://www.zomato.com/ncr/addonis-green-park-new-delhi?amp=1"
+      },
+      {
+        "timestamp": "20250425064051",
+        "url": "https://www.zomato.com/ncr/adolf-by-evva-rajinder-nagar-new-delhi"
+      },
+      {
+        "timestamp": "20250905043227",
+        "url": "https://www.zomato.com/ncr/11-places-for-book-lovers"
+      },
+      {
+        "timestamp": "20250907092922",
+        "url": "https://www.zomato.com/ncr/1m-punjabi-bagh-new-delhi/info"
+      },
+      {
+        "timestamp": "20250905040258",
+        "url": "https://www.zomato.com/ncr/3-kings-cafe-and-lounge-kamla-nagar-new-delhi/info"
+      },
+      {
+        "timestamp": "20250814101540",
+        "url": "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/info?contextual_menu_params=eyJkaXNoX3NlYXJjaCI6eyJ0aXRsZSI6IkJlc3QgaW4gS2ViYWIiLCJkaXNoX2lkcyI6W10sImN1aXNpbmVfaWRzIjpbIjE3OCJdfX0%3D"
+      },
+      {
+        "timestamp": "20251023120309",
+        "url": "https://www.zomato.com/ncr/100-rock-vasant-kunj-delhi/reviews"
+      },
+      {
+        "timestamp": "20251103004801",
+        "url": "https://www.zomato.com/ncr/12-brilliant-brunches"
+      },
+      {
+        "timestamp": "20251113144629",
+        "url": "https://www.zomato.com/ncr/33-food-malviya-nagar-new-delhi/reviews"
+      },
+      {
+        "timestamp": "20251124224748",
+        "url": "https://www.zomato.com/ncr/7-barrel-brew-pub-dlf-phase-1/info"
+      },
+      {
+        "timestamp": "20260116205529",
+        "url": "https://www.zomato.com/ncr/%E5%99%92%E5%99%A5%E5%99%B3%E5%99%B4%E5%99%A1%E5%99%B5%E5%99%B2%E5%99%A1%E5%99%AE%E5%99%B4%E5%98%A0%E5%99%84%E5%99%A5%E5%99%AC%E5%99%A9%E5%99%B6%E5%99%A5%E5%99%B2%E5%99%B9%E5%99%A4%E5%99%A9%E5%99%A5%E5%99%AC%E5%99%AA%E5%99%AD%E5%99%B4%E5%99%B8%E5%99%A7%E5%99%B9%E5%99%92%E5%99%A5%E5%99%B3%E5%99%B4%E5%99%A1%E5%99%B5%E5%99%B2%E5%99%A1%E5%99%AE%E5%99%B4%E5%98%A0%E5%99%84%E5%99%A5%E5%99%AC%E5%99%A9%E5%99%B6%E5%99%A5%E5%99%B2%E5%99%B9restaurants/west-delhi/paschim-hfenjovjux%22%3E%3Chfenjovjux%3A0/dilli-darbarH@HaopxiugtphH@H-email_verificationynsvvebccw-xpress-5649/menu?clearfilters=4640b80f"
+      },
+      {
+        "timestamp": "20260115225249",
+        "url": "https://www.zomato.com/ncr/%E5%99%B2%E5%99%AE%E5%99%BA%E5%99%BA%E5%99%AE%E5%99%A5%E5%99%A2%E5%99%B8%E5%99%AF%E5%99%A3/partner_sugenius_dcerfkrbqiwkpartner_sugenius_dcwest-delhi/paschim-hfenjovjux%22%3E%7D%3E"
+      },
+      {
+        "timestamp": "20260116113233",
+        "url": "https://www.zomato.com/ncr/1,5,25,50,100,250eqybqlpnmx_x_%22%3E"
+      },
+      {
+        "timestamp": "20260109023022",
+        "url": "https://www.zomato.com/ncr/10-Must-Visit-Hidden-Gems"
+      },
+      {
+        "timestamp": "20260411021748",
+        "url": "https://www.zomato.com/ncr/anardana-r-k-puram-new-delhi"
+      },
+      {
+        "timestamp": "20260411021750",
+        "url": "https://www.zomato.com/ncr/artisan-lab-cafe-greater-kailash-gk-1-new-delhi"
+      },
+      {
+        "timestamp": "20260411022023",
+        "url": "https://www.zomato.com/ncr/connaught-royale-1-connaught-place-new-delhi/info"
+      },
+      {
+        "timestamp": "20260517145447",
+        "url": "https://www.zomato.com/ncr/delivery"
+      }
+    ],
+    "done_urls": [
+      "https://www.zomato.com/ncr/aaharshala-anand-vihar-new-delhi/order",
+      "https://www.zomato.com/ncr/backbenchers-hq-by-cafeti%C3%A8res-sector-16-faridabad?amp=1",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/best-hauz-khas-village-restaurants?page=2",
+      "https://www.zomato.com/ncr/al-maroosh-pandav-nagar-new-delhi",
+      "https://www.zomato.com/ncr/backstreet-kitchen-sector-110-noida",
+      "https://www.zomato.com/ncr/anardana-r-k-puram-new-delhi",
+      "https://www.zomato.com/ncr/aggrafe-sector-12-faridabad/order",
+      "https://www.zomato.com/ncr/1,5,25,50,100,250eqybqlpnmx_x_%22%3E",
+      "https://www.zomato.com/ncr/a2b-adyar-ananda-bhavan-green-park-new-delhi",
+      "https://www.zomato.com/ncr/56-ristorante-italiano-golf-course-road-gurgaon",
+      "https://www.zomato.com/ncr/al-lazeez-lajpat-nagar-4-new-delhi?utm_source=referral-widget-5793&amp;utm_medium=restaurant_information_badge&amp;utm_campaign=widget-business",
+      "https://www.zomato.com/ncr/24seven-karol-bagh-new-delhi/order?contextual_menu_params=eyJkaXNoX3NlYXJjaCI6eyJ0aXRsZSI6IkJlc3QgaW4gU3RyZWV0IEZvb2QiLCJkaXNoX2lkcyI6W10sImN1aXNpbmVfaWRzIjpbIjkwIl19fQ%3D%3D",
+      "https://www.zomato.com/ncr/7-barrel-brew-pub-dlf-phase-1/info",
+      "https://www.zomato.com/ncr/andhra-bhavan-feroze-shah-road-new-delhi/reviews?amp=1",
+      "https://www.zomato.com/ncr/bbq-factory-golf-course-road-gurgaon?amp=1",
+      "https://www.zomato.com/ncr/alles-spice-sector-15-faridabad",
+      "https://www.zomato.com/ncr/aggarwal-bikaneri-sweets-kalkaji-new-delhi",
+      "https://www.zomato.com/ncr/cool-point-shahi-tukda-1-jama-masjid-new-delhi",
+      "https://www.zomato.com/ncr/adyar-ananda-bhavan-green-park-new-delhi",
+      "https://www.zomato.com/ncr/ampm-caf%C3%A9-bar-dlf-phase-4-gurgaon?amp=1",
+      "https://www.zomato.com/ncr/amrik-sukhdev-murthal-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/alaturka-saket-new-delhi/menu?amp=1",
+      "https://www.zomato.com/ncr/addonis-green-park-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/aquila-khel-gaon-marg-new-delhi/reviews?amp=1&__twitter_impression=true",
+      "https://www.zomato.com/ncr/5th-avenue-cafe-2-sector-50-gurgaon",
+      "https://www.zomato.com/ncr/annies-kerala-kitchen-new-friends-colony-new-delhi/order",
+      "https://www.zomato.com/ncr/ananya-fire-food-mayur-vihar-new-delhi",
+      "https://www.zomato.com/ncr/alkakori-alkauser-r-k-puram-new-delhi",
+      "https://www.zomato.com/ncr/4s-chinese-restaurant-defence-colony-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/4-on-44-restaurant-bar-pitampura-new-delhi",
+      "https://www.zomato.com/ncr/bbq-factory-golf-course-road-gurgaon",
+      "https://www.zomato.com/ncr/aerocity-restaurants",
+      "https://www.zomato.com/ncr/aligarh-house-mughlai-biryani-patparganj-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/aamantran-bangla-pandav-nagar-new-delhi/info",
+      "https://www.zomato.com/ncr/dil-pasand-biryani-point-jama-masjid-new-delhi",
+      "https://www.zomato.com/ncr/backstreet-kitchen-sector-110-noida?amp=1",
+      "https://www.zomato.com/ncr",
+      "https://www.zomato.com/ncr/aami-bangali-chittaranjan-park-new-delhi",
+      "https://www.zomato.com/ncr/anardana-saket-new-delhi/info",
+      "https://www.zomato.com/ncr/aslam-chicken-jama-masjid-new-delhi",
+      "https://www.zomato.com/ncr/amalfi-greater-kailash-gk-2-delhi",
+      "https://www.zomato.com/ncr/aggarwal-sweets-1-mahipalpur-new-delhi",
+      "https://www.zomato.com/ncr/7-heaven-amrapali-dream-valley-greater-noida/order",
+      "https://www.zomato.com/ncr/ama-cafe-majnu-ka-tila-new-delhi",
+      "https://www.zomato.com/ncr/ambrosia-bliss-connaught-place-new-delhi",
+      "https://www.zomato.com/ncr/asian-fun-sector-37-noida?amp=1",
+      "https://www.zomato.com/ncr/7-degrees-brauhaus-golf-course-road-gurgaon?zrp_bid=0&zrp_pid=1&ref_id=310&ref_type=subzone",
+      "https://www.zomato.com/ncr/after-stories-sector-29-gurgaon?amp=1",
+      "https://www.zomato.com/ncr/anardana-saket-new-delhi",
+      "https://www.zomato.com/ncr/addonis-green-park-new-delhi",
+      "https://www.zomato.com/ncr/aleeshas-yummy-indian-madhu-vihar",
+      "https://www.zomato.com/ncr/bengali-dada-pakora-corner-sector-3-faridabad",
+      "https://www.zomato.com/ncr/azote-sector-43-gurgaon",
+      "https://www.zomato.com/ncr/avantika-food-corner-lajpat-nagar-2-new-delhi",
+      "https://www.zomato.com/ncr/addonis-green-park-new-delhi/info",
+      "https://www.zomato.com/ncr/andhra-bhavan-feroze-shah-road-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/delivery",
+      "https://www.zomato.com/ncr/1m-punjabi-bagh-new-delhi/info",
+      "https://www.zomato.com/ncr/1-cafe-lounge-connaught-place-delhi",
+      "https://www.zomato.com/ncr/aka-saka-defence-colony-new-delhi",
+      "https://www.zomato.com/ncr/al-taj-chicken-point-shahdara-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/cake-plaza-sector-49-gurgaon",
+      "https://www.zomato.com/ncr/aartibakes-sector-44-noida?amp=1",
+      "https://www.zomato.com/ncr/amritsari-kitchen-sector-63-noida?amp=1",
+      "https://www.zomato.com/ncr/al-taj-chicken-point-shahdara-new-delhi",
+      "https://www.zomato.com/ncr/aamantran-bangla-pandav-nagar-new-delhi/menu",
+      "https://www.zomato.com/ncr/21-gun-salute-sector-29?amp=1",
+      "https://www.zomato.com/ncr/alaturka-saket-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/al-jawahar-jama-masjid-new-delhi",
+      "https://www.zomato.com/ncr/bengali-love-cafe-sector-43-gurgaon",
+      "https://www.zomato.com/ncr/aangan-restaurant-nit-faridabad/order",
+      "https://www.zomato.com/ncr/100-rock-vasant-kunj-delhi/reviews",
+      "https://www.zomato.com/ncr/annamaya-andaz-delhi-aerocity-new-delhi",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/menu?amp=1",
+      "https://www.zomato.com/ncr/a-piece-of-paris-sector-21-gurgaon?zrp_bid=59030&zrp_pid=1&zrp_cid=223184&ref_id=310&ref_type=subzone",
+      "https://www.zomato.com/ncr/gold",
+      "https://www.zomato.com/ncr/alaturka-saket-new-delhi/menu",
+      "https://www.zomato.com/ncr/amrik-sukhdev-murthal-new-delhi",
+      "https://www.zomato.com/ncr/33-food-malviya-nagar-new-delhi/reviews",
+      "https://www.zomato.com/ncr/al-lazeez-lajpat-nagar-4-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/%E5%99%92%E5%99%A5%E5%99%B3%E5%99%B4%E5%99%A1%E5%99%B5%E5%99%B2%E5%99%A1%E5%99%AE%E5%99%B4%E5%98%A0%E5%99%84%E5%99%A5%E5%99%AC%E5%99%A9%E5%99%B6%E5%99%A5%E5%99%B2%E5%99%B9%E5%99%A4%E5%99%A9%E5%99%A5%E5%99%AC%E5%99%AA%E5%99%AD%E5%99%B4%E5%99%B8%E5%99%A7%E5%99%B9%E5%99%92%E5%99%A5%E5%99%B3%E5%99%B4%E5%99%A1%E5%99%B5%E5%99%B2%E5%99%A1%E5%99%AE%E5%99%B4%E5%98%A0%E5%99%84%E5%99%A5%E5%99%AC%E5%99%A9%E5%99%B6%E5%99%A5%E5%99%B2%E5%99%B9restaurants/west-delhi/paschim-hfenjovjux%22%3E%3Chfenjovjux%3A0/dilli-darbarH@HaopxiugtphH@H-email_verificationynsvvebccw-xpress-5649/menu?clearfilters=4640b80f",
+      "https://www.zomato.com/ncr/11-places-for-book-lovers",
+      "https://www.zomato.com/ncr/%E5%99%B2%E5%99%AE%E5%99%BA%E5%99%BA%E5%99%AE%E5%99%A5%E5%99%A2%E5%99%B8%E5%99%AF%E5%99%A3/partner_sugenius_dcerfkrbqiwkpartner_sugenius_dcwest-delhi/paschim-hfenjovjux%22%3E%7D%3E",
+      "https://www.zomato.com/ncr/736-ad-culinary-bar-delhi-university-gtb-nagar-new-delhi/info",
+      "https://www.zomato.com/ncr/best-bars-and-pubs?ref=rescoll",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/info",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/reviews",
+      "https://www.zomato.com/ncr/48-plates-dlf-phase-4-gurgaon",
+      "https://www.zomato.com/ncr/alco-hole-bar-sector-14-gurgaon",
+      "https://www.zomato.com/ncr/alaturka-saket-new-delhi",
+      "https://www.zomato.com/ncr/aartibakes-sector-44-noida",
+      "https://www.zomato.com/ncr/aslam-chicken-jama-masjid-new-delhi?amp=1",
+      "https://www.zomato.com/ncr/restaurants/desserts?category=1?utm_source=SHOPPINGNU.COM?utm_campaign=Listing1405&utm_medium=NU-ADLISTING",
+      "https://www.zomato.com/ncr/bengali-sweet-house-mandi-house-new-delhi",
+      "https://www.zomato.com/ncr/3bros-1-sector-63-noida",
+      "https://www.zomato.com/ncr/alex-n-ben-rohini-new-delhi",
+      "https://www.zomato.com/ncr/amour-bistro-chanakyapuri-new-delhi",
+      "https://www.zomato.com/ncr/3-kings-cafe-and-lounge-kamla-nagar-new-delhi/info",
+      "https://www.zomato.com/ncr/artisan-lab-cafe-greater-kailash-gk-1-new-delhi",
+      "https://www.zomato.com/ncr/12-brilliant-brunches",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/info?contextual_menu_params=eyJkaXNoX3NlYXJjaCI6eyJ0aXRsZSI6IkJlc3QgaW4gS2ViYWIiLCJkaXNoX2lkcyI6W10sImN1aXNpbmVfaWRzIjpbIjE3OCJdfX0%3D",
+      "https://www.zomato.com/ncr/ampm-cafe-bar-dlf-phase-4-gurgaon/order",
+      "https://www.zomato.com/ncr/tasty-tweets-sector-31-gurgaon",
+      "https://www.zomato.com/ncr/19-chic-south-delhi-places",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi",
+      "https://www.zomato.com/ncr/al-zaid-rajouri-garden-new-delhi",
+      "https://www.zomato.com/ncr/ampm-caf%C3%A9-bar-dlf-phase-4-gurgaon",
+      "https://www.zomato.com/ncr/ardor-connaught-place-new-delhi",
+      "https://www.zomato.com/ncr/a-one-chicken-biryani-corner-sector-127-noida",
+      "https://www.zomato.com/ncr/a1-food-corner-nangloi-new-delhi/photos",
+      "https://www.zomato.com/ncr/adolf-by-evva-rajinder-nagar-new-delhi",
+      "https://www.zomato.com/ncr/24-carat-lounge-rajouri-garden-delhi",
+      "https://www.zomato.com/ncr/al-nawaz-restaurant-jasola-new-delhi/order",
+      "https://www.zomato.com/ncr/1-oak-cafe-bar-defence-colony-new-delhi",
+      "https://www.zomato.com/ncr/10-Must-Visit-Hidden-Gems",
+      "https://www.zomato.com/ncr/a-piece-of-paris-sector-21-gurgaon?zrp_bid=59031&zrp_pid=1&zrp_cid=223185&ref_id=2&ref_type=zone",
+      "https://www.zomato.com/ncr/amrapali-dream-valley-restaurants",
+      "https://www.zomato.com/ncr/1911-the-imperial-janpath-delhi",
+      "https://www.zomato.com/ncr/bar",
+      "https://www.zomato.com/ncr/21-gun-salute-sector-29-gurgaon",
+      "https://www.zomato.com/ncr/1-oak-cafe-bar-defence-colony-new-delhi/menu",
+      "https://www.zomato.com/ncr/24seven-golf-course-road/order",
+      "https://www.zomato.com/ncr/21-gun-salute-sector-29",
+      "https://www.zomato.com/ncr/adchini-restaurants",
+      "https://www.zomato.com/ncr/connaught-royale-1-connaught-place-new-delhi/info",
+      "https://www.zomato.com/ncr/aamantran-bangla-1-indirapuram-ghaziabad",
+      "https://www.zomato.com/ncr/aquila-khel-gaon-marg-new-delhi",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/reviews?amp=1",
+      "https://www.zomato.com/ncr/21-gun-salute-sector-29-gurgaon?fbclid=IwAR2ucEC5DcimTJC0z97KEv6ZxVPOQjhGqXjgqRmEhC8zdjUAnzoR_MdJBSQ",
+      "https://www.zomato.com/ncr/38-barracks-connaught-place-new-delhi/menu"
+    ],
+    "status": "complete"
+  },
+  "Indonesia:zomato-jakarta": {
+    "snapshots": [
+      {
+        "timestamp": "20180307122443",
+        "url": "https://www.zomato.com/jakarta/bean-tebet/photos?amp=1"
+      },
+      {
+        "timestamp": "20180204153605",
+        "url": "https://www.zomato.com/jakarta/bebek-kremes-bu-uju-slipi"
+      },
+      {
+        "timestamp": "20180204103724",
+        "url": "https://www.zomato.com/jakarta/beji-restaurants"
+      },
+      {
+        "timestamp": "20180117182509",
+        "url": "https://www.zomato.com/jakarta/bekasi-restaurants/chinese?page=1"
+      },
+      {
+        "timestamp": "20180825235651",
+        "url": "https://www.zomato.com/jakarta/bijin-nabe-senayan"
+      },
+      {
+        "timestamp": "20180824123943",
+        "url": "https://www.zomato.com/jakarta/black-sheep-kemang"
+      },
+      {
+        "timestamp": "20180827192912",
+        "url": "https://www.zomato.com/jakarta/cafe-de-burse-scbd"
+      },
+      {
+        "timestamp": "20180822122937",
+        "url": "https://www.zomato.com/jakarta/i-ta-suki-2-thamrin"
+      },
+      {
+        "timestamp": "20181111171056",
+        "url": "https://www.zomato.com/jakarta/bijin-nabe-senayan?amp=1"
+      },
+      {
+        "timestamp": "20181108172200",
+        "url": "https://www.zomato.com/jakarta/black-sheep-kemang?amp=1"
+      },
+      {
+        "timestamp": "20181117095223",
+        "url": "https://www.zomato.com/jakarta/cafe-de-burse-scbd?amp=1"
+      },
+      {
+        "timestamp": "20181103150225",
+        "url": "https://www.zomato.com/jakarta/i-ta-suki-2-thamrin?amp=1"
+      },
+      {
+        "timestamp": "20190107141615",
+        "url": "https://www.zomato.com/jakarta"
+      },
+      {
+        "timestamp": "20190204012022",
+        "url": "https://www.zomato.com/jakarta/ancol-restaurants"
+      },
+      {
+        "timestamp": "20190203224134",
+        "url": "https://www.zomato.com/jakarta/ancol-restaurants/casual-dining"
+      },
+      {
+        "timestamp": "20190320224704",
+        "url": "https://www.zomato.com/jakarta/anomali-coffee-senopati/menu"
+      },
+      {
+        "timestamp": "20190618012341",
+        "url": "https://www.zomato.com/jakarta/aneka-bubur-786-kemang"
+      },
+      {
+        "timestamp": "20190425114550",
+        "url": "https://www.zomato.com/jakarta/banainai-pantai-indah-kapuk"
+      },
+      {
+        "timestamp": "20190618041946",
+        "url": "https://www.zomato.com/jakarta/bar"
+      },
+      {
+        "timestamp": "20190618020906",
+        "url": "https://www.zomato.com/jakarta/best-kemang-restaurants"
+      },
+      {
+        "timestamp": "20190902104027",
+        "url": "https://www.zomato.com/jakarta/aneka-bubur-786-kemang?amp=1"
+      },
+      {
+        "timestamp": "20190717065809",
+        "url": "https://www.zomato.com/jakarta/angus-house-1-senayan"
+      },
+      {
+        "timestamp": "20190801230515",
+        "url": "https://www.zomato.com/jakarta/anomali-coffee-senopati/menu?amp=1"
+      },
+      {
+        "timestamp": "20190727113006",
+        "url": "https://www.zomato.com/jakarta/ban-ban-cheese-tea-puri-indah?amp=1"
+      },
+      {
+        "timestamp": "20191204135533",
+        "url": "https://www.zomato.com/jakarta/best-menteng-restaurants?page=2"
+      },
+      {
+        "timestamp": "20191129073351",
+        "url": "https://www.zomato.com/jakarta/central-jakarta-restaurants/betawi?page=2"
+      },
+      {
+        "timestamp": "20191206085531",
+        "url": "https://www.zomato.com/jakarta/central-jakarta-restaurants/fine-dining?page=2"
+      },
+      {
+        "timestamp": "20191130201334",
+        "url": "https://www.zomato.com/jakarta/central-jakarta-restaurants/indonesian?page=2"
+      },
+      {
+        "timestamp": "20200109220134",
+        "url": "https://www.zomato.com/jakarta/fitzroy-gastrobar-senopati"
+      },
+      {
+        "timestamp": "20200308005606",
+        "url": "https://www.zomato.com/jakarta/la-biere-tanjung-duren"
+      },
+      {
+        "timestamp": "20200701200010",
+        "url": "https://www.zomato.com/jakarta/the-cortado-palmerah"
+      },
+      {
+        "timestamp": "20201120084231",
+        "url": "https://www.zomato.com/jakarta/agneya-restaurant-dharmawangsa"
+      },
+      {
+        "timestamp": "20201104185255",
+        "url": "https://www.zomato.com/jakarta/all-you-can-eat"
+      },
+      {
+        "timestamp": "20201030033439",
+        "url": "https://www.zomato.com/jakarta/ardent-coffee-kitchen-puri-indah"
+      },
+      {
+        "timestamp": "20201031014038",
+        "url": "https://www.zomato.com/jakarta/authentic-indonesian-restaurants"
+      },
+      {
+        "timestamp": "20210119224909",
+        "url": "https://www.zomato.com/jakarta/3-wise-monkeys-senopati/menu"
+      },
+      {
+        "timestamp": "20210202095812",
+        "url": "https://www.zomato.com/jakarta/bakmi-medan-kebon-jahe-serpong"
+      },
+      {
+        "timestamp": "20210202153057",
+        "url": "https://www.zomato.com/jakarta/beji-restaurants?page=2"
+      },
+      {
+        "timestamp": "20210130055703",
+        "url": "https://www.zomato.com/jakarta/bekasi-selatan-restaurants"
+      },
+      {
+        "timestamp": "20210525110545",
+        "url": "https://www.zomato.com/jakarta/ayamayaman-bintaro"
+      },
+      {
+        "timestamp": "20210618062312",
+        "url": "https://www.zomato.com/jakarta/bakmi-dki-1-slipi"
+      },
+      {
+        "timestamp": "20210624020356",
+        "url": "https://www.zomato.com/jakarta/bakmie-bbt-matraman"
+      },
+      {
+        "timestamp": "20210616182439",
+        "url": "https://www.zomato.com/jakarta/bakoel-koffie-cikini"
+      },
+      {
+        "timestamp": "20210918045318",
+        "url": "https://www.zomato.com/jakarta/djournal-coffee-gandaria/menu"
+      },
+      {
+        "timestamp": "20210907001152",
+        "url": "https://www.zomato.com/jakarta/djournal-coffee-thamrin"
+      },
+      {
+        "timestamp": "20210718013511",
+        "url": "https://www.zomato.com/jakarta/dope-burger-co-menteng/photos"
+      },
+      {
+        "timestamp": "20210716044116",
+        "url": "https://www.zomato.com/jakarta/holywings-bekasi-utara-bekasi"
+      },
+      {
+        "timestamp": "20211003222807",
+        "url": "https://www.zomato.com/jakarta/ayam-goreng-fatmawati-jatinegara"
+      },
+      {
+        "timestamp": "20211003222834",
+        "url": "https://www.zomato.com/jakarta/ayam-goreng-fatmawati-jatinegara?amp=1"
+      },
+      {
+        "timestamp": "20211117181613",
+        "url": "https://www.zomato.com/jakarta/bakso-mukidi-cakung/menu"
+      },
+      {
+        "timestamp": "20211126061905",
+        "url": "https://www.zomato.com/jakarta/bakso-mukidi-cakung/menu?amp=1"
+      },
+      {
+        "timestamp": "20220217040759",
+        "url": "https://www.zomato.com/jakarta/arborea-cafe-senayan"
+      },
+      {
+        "timestamp": "20220217040028",
+        "url": "https://www.zomato.com/jakarta/arborea-cafe-senayan/menu"
+      },
+      {
+        "timestamp": "20220217041302",
+        "url": "https://www.zomato.com/jakarta/arborea-cafe-senayan/menu?amp=1"
+      },
+      {
+        "timestamp": "20220217035909",
+        "url": "https://www.zomato.com/jakarta/arborea-cafe-senayan/photos"
+      },
+      {
+        "timestamp": "20220417200613",
+        "url": "https://www.zomato.com/jakarta/blue-jasmine-blok-m"
+      },
+      {
+        "timestamp": "20220406201530",
+        "url": "https://www.zomato.com/jakarta/blue-jasmine-blok-m?amp=1"
+      },
+      {
+        "timestamp": "20220501044859",
+        "url": "https://www.zomato.com/jakarta/brew-and-else-pantai-indah-kapuk"
+      },
+      {
+        "timestamp": "20220501044927",
+        "url": "https://www.zomato.com/jakarta/cecemuwe-caf%C3%A9-and-space-blok-m"
+      },
+      {
+        "timestamp": "20220917164511",
+        "url": "https://www.zomato.com/jakarta/albatross-sports-bar-senayan"
+      },
+      {
+        "timestamp": "20220918080942",
+        "url": "https://www.zomato.com/jakarta/albatross-sports-bar-senayan?amp=1"
+      },
+      {
+        "timestamp": "20220913090753",
+        "url": "https://www.zomato.com/jakarta/b-steak-grill-pancake-green-ville"
+      },
+      {
+        "timestamp": "20220917233243",
+        "url": "https://www.zomato.com/jakarta/b-steak-grill-pancake-green-ville?amp=1"
+      },
+      {
+        "timestamp": "20221001225053",
+        "url": "https://www.zomato.com/jakarta/abuella-pondok-aren-tangerang"
+      },
+      {
+        "timestamp": "20221001225107",
+        "url": "https://www.zomato.com/jakarta/abuella-pondok-aren-tangerang?amp=1"
+      },
+      {
+        "timestamp": "20221019174053",
+        "url": "https://www.zomato.com/jakarta/anns-bakehouse-melawai"
+      },
+      {
+        "timestamp": "20221028154450",
+        "url": "https://www.zomato.com/jakarta/bandar-djakarta-ancol?amp=1"
+      },
+      {
+        "timestamp": "20230130040544",
+        "url": "https://www.zomato.com/jakarta/ayam-kremes-bu-tjondro-bintaro"
+      },
+      {
+        "timestamp": "20230102042055",
+        "url": "https://www.zomato.com/jakarta/blenger-burger-serpong/menu"
+      },
+      {
+        "timestamp": "20230129081332",
+        "url": "https://www.zomato.com/jakarta/gang-san-kelapa-gading/photos"
+      },
+      {
+        "timestamp": "20230210030640",
+        "url": "https://www.zomato.com/jakarta/goodbye"
+      },
+      {
+        "timestamp": "20240808114339",
+        "url": "https://www.zomato.com/jakarta/review/yYoxoq"
+      }
+    ],
+    "done_urls": [
+      "https://www.zomato.com/jakarta/aneka-bubur-786-kemang?amp=1",
+      "https://www.zomato.com/jakarta/i-ta-suki-2-thamrin?amp=1",
+      "https://www.zomato.com/jakarta/fitzroy-gastrobar-senopati",
+      "https://www.zomato.com/jakarta",
+      "https://www.zomato.com/jakarta/agneya-restaurant-dharmawangsa",
+      "https://www.zomato.com/jakarta/the-cortado-palmerah",
+      "https://www.zomato.com/jakarta/bekasi-selatan-restaurants",
+      "https://www.zomato.com/jakarta/ancol-restaurants",
+      "https://www.zomato.com/jakarta/black-sheep-kemang?amp=1",
+      "https://www.zomato.com/jakarta/central-jakarta-restaurants/fine-dining?page=2",
+      "https://www.zomato.com/jakarta/cafe-de-burse-scbd?amp=1",
+      "https://www.zomato.com/jakarta/best-kemang-restaurants",
+      "https://www.zomato.com/jakarta/bebek-kremes-bu-uju-slipi",
+      "https://www.zomato.com/jakarta/bijin-nabe-senayan?amp=1",
+      "https://www.zomato.com/jakarta/bean-tebet/photos?amp=1",
+      "https://www.zomato.com/jakarta/cafe-de-burse-scbd",
+      "https://www.zomato.com/jakarta/central-jakarta-restaurants/indonesian?page=2",
+      "https://www.zomato.com/jakarta/ancol-restaurants/casual-dining",
+      "https://www.zomato.com/jakarta/ardent-coffee-kitchen-puri-indah",
+      "https://www.zomato.com/jakarta/la-biere-tanjung-duren",
+      "https://www.zomato.com/jakarta/all-you-can-eat",
+      "https://www.zomato.com/jakarta/black-sheep-kemang",
+      "https://www.zomato.com/jakarta/i-ta-suki-2-thamrin",
+      "https://www.zomato.com/jakarta/anomali-coffee-senopati/menu",
+      "https://www.zomato.com/jakarta/bar",
+      "https://www.zomato.com/jakarta/best-menteng-restaurants?page=2",
+      "https://www.zomato.com/jakarta/central-jakarta-restaurants/betawi?page=2",
+      "https://www.zomato.com/jakarta/authentic-indonesian-restaurants",
+      "https://www.zomato.com/jakarta/3-wise-monkeys-senopati/menu",
+      "https://www.zomato.com/jakarta/banainai-pantai-indah-kapuk",
+      "https://www.zomato.com/jakarta/anomali-coffee-senopati/menu?amp=1",
+      "https://www.zomato.com/jakarta/ban-ban-cheese-tea-puri-indah?amp=1",
+      "https://www.zomato.com/jakarta/aneka-bubur-786-kemang",
+      "https://www.zomato.com/jakarta/bakmi-medan-kebon-jahe-serpong",
+      "https://www.zomato.com/jakarta/ayamayaman-bintaro",
+      "https://www.zomato.com/jakarta/angus-house-1-senayan",
+      "https://www.zomato.com/jakarta/beji-restaurants",
+      "https://www.zomato.com/jakarta/bijin-nabe-senayan",
+      "https://www.zomato.com/jakarta/beji-restaurants?page=2",
+      "https://www.zomato.com/jakarta/bekasi-restaurants/chinese?page=1"
+    ],
+    "status": "in_progress"
+  }
+}
