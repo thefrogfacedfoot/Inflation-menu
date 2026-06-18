@@ -1,0 +1,112 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Historical HTML scraper — 1 target(s)
+per_period=5, max_per_target=200
+
+
+======================================================================
+  Australia:menulog  (menulog.com.au/restaurants/*)
+======================================================================
+  [1/96] 20180227 https://www.menulog.com.au/restaurants-1-best-thai/menu … 0 items
+  [2/96] 20180225 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_source=1be … 0 items
+  [3/96] 20180227 https://www.menulog.com.au/restaurants-1-best-thai/reviews … 0 items
+  [4/96] 20180513 https://www.menulog.com.au/restaurants-1-best-thai … 0 items
+  [5/96] 20180401 https://www.menulog.com.au/restaurants-1-best-thai/reviews?utm_source= … 0 items
+  [6/96] 20180514 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu/ … 0 items
+  [7/96] 20180711 https://www.menulog.com.au/restaurants-126-asian-cuisine/menu … 0 items
+  [8/96] 20180904 https://www.menulog.com.au/restaurants-3-mangoes-thai-restaurant … 0 items
+  [9/96] 20180708 https://www.menulog.com.au/restaurants-3-mangoes-thai-restaurant/menu … 0 items
+  [10/96] 20181217 https://www.menulog.com.au/restaurants-3-seasons-thai-fusion-cuisine … 0 items
+  [11/96] 20181217 https://www.menulog.com.au/restaurants-8things/reviews … 0 items
+  [12/96] 20181206 https://www.menulog.com.au/restaurants-aachi-indian-cuisine/menu … 0 items
+  [13/96] 20190129 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu … 0 items
+  [14/96] 20190117 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu?utm_ … 0 items
+  [15/96] 20190226 https://www.menulog.com.au/restaurants-11-1-asian-kitchen-menu/menu … 0 items
+  [16/96] 20190412 https://www.menulog.com.au/restaurants-126-asian-cuisine … 0 items
+  [17/96] 20190412 https://www.menulog.com.au/restaurants-126-asian-cuisine/reviews/ … 0 items
+  [18/96] 20190403 https://www.menulog.com.au/restaurants-aaa-silkstone-chinese-and-fish- … 0 items
+  [19/96] 20190923 https://www.menulog.com.au/restaurants-02-pizza-pasta-fish-n-chips/men … 0 items
+  [20/96] 20190818 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu?utm_ … fetch fail
+  [21/96] 20190817 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu?utm_ … fetch fail
+  [22/96] 20191023 https://www.menulog.com.au/restaurants-02-pizza-pasta-fish-n-chips … 0 items
+  [23/96] 20191208 https://www.menulog.com.au/restaurants-02-pizza-pasta-fish-n-chips/men … fetch fail
+  [24/96] 20191016 https://www.menulog.com.au/restaurants-1-2-3-baguette-surfers-paradise … fetch fail
+  [25/96] 20200118 https://www.menulog.com.au/restaurants-a-brothers-kebab-pizza/menu?utm … fetch fail
+  [26/96] 20200322 https://www.menulog.com.au/restaurants-adams-kebabys/menu … 0 items
+  [27/96] 20200322 https://www.menulog.com.au/restaurants-afghan-chef/menu … 0 items
+  [28/96] 20200429 https://www.menulog.com.au/restaurants-5-senses-gourmet-bar-greenway/ … 0 items
+  [29/96] 20200524 https://www.menulog.com.au/restaurants-afghan-shaheen-restaurant-expre … 0 items
+  [30/96] 20200412 https://www.menulog.com.au/restaurants-afghan-star-charcoal-kebab-hous … 0 items
+  [31/96] 20200812 https://www.menulog.com.au/restaurants-1061-woodfired-pizza/menu … 0 items
+  [32/96] 20200925 https://www.menulog.com.au/restaurants-127-cafe-go/menu … 0 items
+  [33/96] 20200814 https://www.menulog.com.au/restaurants-1stop-pizza-and-kebab/menu … 0 items
+  [34/96] 20201021 https://www.menulog.com.au/restaurants-1-best-thai/ … 0 items
+  [35/96] 20201130 https://www.menulog.com.au/restaurants-1-stop-convenient/menu?mw-redir … 0 items
+  [36/96] 20201126 https://www.menulog.com.au/restaurants-123bingo-thai-food/?mw-redirect … 0 items
+  [37/96] 20210226 https://www.menulog.com.au/restaurants-11-1-asian-kitchen-menu/menu?ut … 0 items
+  [38/96] 20210226 https://www.menulog.com.au/restaurants-1stop-pizza-and-kebabs/menu?utm … 0 items
+  [39/96] 20210123 https://www.menulog.com.au/restaurants-2-fat-indians-wa-2/menu … 0 items
+  [40/96] 20210613 https://www.menulog.com.au/restaurants--aroras-indian-cuisine-/menu?ut … 0 items
+  [41/96] 20210513 https://www.menulog.com.au/restaurants-18-grams-hurstville/menu … 95 items
+  [42/96] 20210418 https://www.menulog.com.au/restaurants-218-chinese-style-restaurant-ei … 0 items
+  [43/96] 20210919 https://www.menulog.com.au/restaurants-2-b-luck/ … 0 items
+  [44/96] 20210801 https://www.menulog.com.au/restaurants-233/menu … 0 items
+  [45/96] 20210806 https://www.menulog.com.au/restaurants-3-black-bears-pizza-fairfield/m … fetch fail
+  [46/96] 20211201 https://www.menulog.com.au/restaurants-14-north-108-east/menu … 48 items
+  [47/96] 20211124 https://www.menulog.com.au/restaurants-14-north-108-east/menu?utm_sour … fetch fail
+  [48/96] 20211206 https://www.menulog.com.au/restaurants-1stop-pizza-and-kebabs/menu … fetch fail
+  [49/96] 20220111 https://www.menulog.com.au/restaurants-10-greek-plates/menu … fetch fail
+  [50/96] 20220111 https://www.menulog.com.au/restaurants-10-greek-plates/menu?utm_source … fetch fail
+  [51/96] 20220310 https://www.menulog.com.au/restaurants-1001-nights-restaurant-and-cafe … 0 items
+  [52/96] 20220629 https://www.menulog.com.au/restaurants-10-n-under/menu … 16 items
+  [53/96] 20220517 https://www.menulog.com.au/restaurants-1000-lire/menu … 39 items
+  [54/96] 20220526 https://www.menulog.com.au/restaurants-101-fish-and-chips/menu … 33 items
+  [55/96] 20220711 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_source=goo … 106 items
+  [56/96] 20220703 https://www.menulog.com.au/restaurants-10-indian-dishes/menu … 52 items
+  [57/96] 20220813 https://www.menulog.com.au/restaurants-18-grams-eastgardens/ … 0 items
+  [58/96] 20221104 https://www.menulog.com.au/restaurants-5-degrees-juice-and-fresh-fruit … 35 items
+  [59/96] 20221218 https://www.menulog.com.au/restaurants-8-degrees-pizzeria/menu … 102 items
+  [60/96] 20221109 https://www.menulog.com.au/restaurants-allspice-thai-kitchen/menu … 71 items
+  [61/96] 20230224 https://www.menulog.com.au/restaurants-3-brothers-on-chapel-indian-res … 104 items
+  [62/96] 20230224 https://www.menulog.com.au/restaurants-3-brothers-on-chapel-indian-res … 104 items
+  [63/96] 20230317 https://www.menulog.com.au/restaurants-323/menu … 126 items
+  [64/96] 20230615 https://www.menulog.com.au/restaurants-american-social-bites-and-brews … 0 items
+  [65/96] 20230531 https://www.menulog.com.au/restaurants-american-social-bites-and-brews … 32 items
+  [66/96] 20230603 https://www.menulog.com.au/restaurants-aroma-pizza-house-dernancourt/m … 114 items
+  [67/96] 20230706 https://www.menulog.com.au/restaurants-alabama-wings-strathpine/menu … 43 items
+  [68/96] 20230822 https://www.menulog.com.au/restaurants-alibaba-phillip/menu … 58 items
+  [69/96] 20230715 https://www.menulog.com.au/restaurants-athens-chargrill-and-yiros/menu … 19 items
+  [70/96] 20231020 https://www.menulog.com.au/restaurants-1000-lire/menu?utm_source=googl … fetch fail
+  [71/96] 20231020 https://www.menulog.com.au/restaurants-2-smoking-barrels-wollongong/me … 21 items
+  [72/96] 20231020 https://www.menulog.com.au/restaurants-2-smoking-barrels-wollongong/me … fetch fail
+  [73/96] 20240223 https://www.menulog.com.au/restaurants-1919-lanzhou-beef-noodle-market … fetch fail
+  [74/96] 20240301 https://www.menulog.com.au/restaurants-3-black-bears-chermside/menu … fetch fail
+  [75/96] 20240316 https://www.menulog.com.au/restaurants-3-brothers-on-chapel-indian-res … 104 items
+  [76/96] 20240519 https://www.menulog.com.au/restaurants--marhaba-quality-halal-meats-/m … fetch fail
+  [77/96] 20240416 https://www.menulog.com.au/restaurants-00-pizza-zillmere/menu … 31 items
+  [78/96] 20240529 https://www.menulog.com.au/restaurants-01-kebab-roxburgh-park/menu … 49 items
+  [79/96] 20240910 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_campaign=m … 100 items
+  [80/96] 20240910 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_source=goo … 100 items
+  [81/96] 20240806 https://www.menulog.com.au/restaurants-1919-lanzhou-beef-noodle---gard … 50 items
+  [82/96] 20241012 https://www.menulog.com.au/restaurants-1-best-thai/basket … 0 items
+  [83/96] 20241014 https://www.menulog.com.au/restaurants-1000-lire/menu?utm_campaign=foo … 0 items
+  [84/96] 20241110 https://www.menulog.com.au/restaurants-101-thai-and-cafe-wheeler-heigh … 0 items
+  [85/96] 20250315 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_campaign=f … 0 items
+  [86/96] 20250207 https://www.menulog.com.au/restaurants-1-stop-convenient-6059/menu … 0 items
+  [87/96] 20250325 https://www.menulog.com.au/restaurants-111-pizza-place-caloundra/menu … 0 items
+  [88/96] 20250425 https://www.menulog.com.au/restaurants--mangis-kitchen-bar-harris-park … 0 items
+  [89/96] 20250409 https://www.menulog.com.au/restaurants-100-degree-momo-sunbury/100-deg … 0 items
+  [90/96] 20250409 https://www.menulog.com.au/restaurants-100-degree-momo-sunbury/100-deg … 0 items
+  [91/96] 20250811 https://www.menulog.com.au/restaurants-1021-mediterranean/menu … 0 items
+  [92/96] 20250914 https://www.menulog.com.au/restaurants-12-pizzas/menu … 0 items
+  [93/96] 20250811 https://www.menulog.com.au/restaurants-123-sushi-burwood/menu … 0 items
+  [94/96] 20251016 https://www.menulog.com.au/restaurants-100c-hot-pot-lightsview/menu … 0 items
+  [95/96] 20251010 https://www.menulog.com.au/restaurants-118-kovenant-pooraka/menu … 0 items
+  [96/96] 20251015 https://www.menulog.com.au/restaurants-1903-restaurant-perth/menu … fetch fail
+
+  Australia:menulog: 80 attempts, 25 with items, 1652 rows inserted
+
+======================================================================
+Done.
+target                                    attempts  hits    rows
+  Australia:menulog                             80    25    1652
