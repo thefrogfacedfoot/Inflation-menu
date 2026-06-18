@@ -1,5 +1,5 @@
 country,n_obs,granger_p_value,lead_months,aic_lag,granger_significant,pass_through_formal,pass_through_significant,r_squared,note
-Australia,12,,,,False,,False,,"insufficient_data (have 12, need 24)"
+Australia,23,,,,False,,False,,"insufficient_data (have 23, need 24)"
 India,47,0.4742,1,1,False,0.0007,False,0.4997,
 Indonesia,20,,,,False,,False,,"insufficient_data (have 20, need 24)"
 Malaysia,6,,,,False,,False,,"insufficient_data (have 6, need 24)"

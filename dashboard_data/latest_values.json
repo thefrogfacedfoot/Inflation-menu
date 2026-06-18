@@ -1,12 +1,12 @@
 {
   "Australia": {
     "month": "2026-06",
-    "uifpi": 218.75,
-    "formal": 218.75,
+    "uifpi": 136.69,
+    "formal": 136.69,
     "informal": null,
     "cpi": null,
     "yoy_change_pct": null,
-    "items_formal": 128,
+    "items_formal": 1822,
     "items_informal": 9
   },
   "India": {
@@ -31,23 +31,23 @@
   },
   "Malaysia": {
     "month": "2026-06",
-    "uifpi": 68.49,
+    "uifpi": 69.75,
     "formal": 100.0,
-    "informal": 29.97,
+    "informal": 32.77,
     "cpi": null,
     "yoy_change_pct": null,
-    "items_formal": 1468,
-    "items_informal": 1523
+    "items_formal": 1803,
+    "items_informal": 1702
   },
   "Singapore": {
     "month": "2026-06",
-    "uifpi": 106.13,
-    "formal": 109.43,
+    "uifpi": 108.21,
+    "formal": 112.63,
     "informal": 100.0,
     "cpi": null,
     "yoy_change_pct": null,
-    "items_formal": 7515,
-    "items_informal": 1159
+    "items_formal": 8240,
+    "items_informal": 1317
   },
   "Thailand": {
     "month": "2026-06",
@@ -61,13 +61,13 @@
   },
   "United Kingdom": {
     "month": "2026-06",
-    "uifpi": 110.02,
+    "uifpi": 116.01,
     "formal": 100.0,
-    "informal": 166.79,
+    "informal": 206.75,
     "cpi": null,
     "yoy_change_pct": null,
-    "items_formal": 766,
-    "items_informal": 384
+    "items_formal": 1028,
+    "items_informal": 498
   },
   "United States": {
     "month": "2026-06",
@@ -76,7 +76,7 @@
     "informal": null,
     "cpi": null,
     "yoy_change_pct": null,
-    "items_formal": 8284,
+    "items_formal": 8285,
     "items_informal": 34
   }
 }

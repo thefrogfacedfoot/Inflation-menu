@@ -614,12 +614,31 @@ def run_target(target, per_period, max_per_target):
 
 
 def _restaurant_from_url(url, platform_label):
-    """Extract a restaurant slug for restaurant_name col."""
-    # Strip query / fragment
+    """Extract a restaurant slug for restaurant_name col.
+
+    Many aggregator URLs end in a generic action segment like
+    `/menu`, `/reviews`, or `/info`. The slug we actually want is
+    one level up, e.g.
+
+      menulog.com.au/restaurants-1-best-thai/menu
+                    ↑ restaurant slug         ↑ action segment
+
+    Falling through to the last segment gives every row the same
+    name ("menu"), which then collapses every restaurant into a
+    single bucket in restaurant-median index construction. Skip
+    trailing action segments; also strip the `restaurants-` /
+    `restaurant-` prefix Menulog and Foodpanda use.
+    """
     u = url.split('?', 1)[0].split('#', 1)[0]
     parts = [p for p in u.rstrip('/').split('/') if p]
-    # Last meaningful path component is usually the restaurant slug
+    SKIP = {'menu', 'reviews', 'info', 'about', 'gallery'}
+    while parts and parts[-1].lower() in SKIP:
+        parts.pop()
     slug = parts[-1] if parts else url
+    if slug.startswith('restaurants-'):
+        slug = slug[len('restaurants-'):]
+    elif slug.startswith('restaurant-'):
+        slug = slug[len('restaurant-'):]
     slug = slug.replace('-', ' ').replace('_', ' ')[:80]
     return f'{slug} ({platform_label})'
 
