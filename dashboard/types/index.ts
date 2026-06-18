@@ -90,6 +90,8 @@ export const COVERAGE_NOTES: Record<string, string> = {
     "Single 2026-06 snapshot (11 items, 9 restaurants). Live collection going forward only — no archival depth.",
   Indonesia:
     "Restaurant-aggregate Zomato cost-for-two series (29 monthly observations from Jakarta). Treat each point as a typical-meal-for-two price, not item-level.",
+  "United Kingdom":
+    "18 months of UIFPI data collected. Granger testing requires n ≥ 24 — threshold expected Q4 2026 via monthly accumulation.",
 };
 
 export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
