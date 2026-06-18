@@ -29,11 +29,32 @@ OUT_DIR      = "dashboard_data"
 # new numbers without a manual copy.
 DASHBOARD_PUBLIC_DATA = os.path.join("dashboard", "public", "data")
 
-# Proxy-only countries get an additional floor_data.json export with
-# Numbeo / Big Mac / World Bank CPI series. No item-level UIFPI.
+# Every roster country gets a floor_data.json entry — Numbeo / Big Mac /
+# WB CPI. For proxy-only countries (Mexico) it's the entire page; for
+# main-roster countries it's a supplementary cross-country reference
+# section under the UIFPI chart.
 PROXY_COUNTRIES = [
-    # (country_name, iso2, iso3, local_currency)
+    # Kept for backwards compatibility — used by the
+    # dashboard/types/index.ts PROXY_COUNTRIES literal.
     ("Mexico", "MX", "MEX", "MXN"),
+]
+
+FLOOR_COUNTRIES = [
+    # (country_name, iso2, iso3, local_currency)
+    ("United States",  "US", "USA", "USD"),
+    ("India",          "IN", "IND", "INR"),
+    ("Indonesia",      "ID", "IDN", "IDR"),
+    ("Thailand",       "TH", "THA", "THB"),
+    ("Australia",      "AU", "AUS", "AUD"),
+    ("Philippines",    "PH", "PHL", "PHP"),
+    ("Singapore",      "SG", "SGP", "SGD"),
+    ("United Kingdom", "GB", "GBR", "GBP"),
+    ("Malaysia",       "MY", "MYS", "MYR"),
+    ("Mexico",         "MX", "MEX", "MXN"),
+    ("Vietnam",        "VN", "VNM", "VND"),
+    ("Brazil",         "BR", "BRA", "BRL"),
+    ("Germany",        "DE", "DEU", "EUR"),
+    ("South Africa",   "ZA", "ZAF", "ZAR"),
 ]
 
 
@@ -371,7 +392,7 @@ def build_floor_data(db_path: str = DB_PATH) -> dict:
     try:
         conn = sqlite3.connect(db_path)
         cur = conn.cursor()
-        for country, iso2, iso3, currency in PROXY_COUNTRIES:
+        for country, iso2, iso3, currency in FLOOR_COUNTRIES:
             # Numbeo: 'Meal, Inexpensive Restaurant' & 'Meal for 2 People...'
             # Values are USD-normalised in the table; the dashboard renders
             # them as USD-equivalent local-currency proxies.
