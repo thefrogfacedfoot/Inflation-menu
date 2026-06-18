@@ -150,6 +150,12 @@ export default async function CountryPage({ params }: PageProps) {
         <DownloadButton country={countryName} csvData={csvData} />
       </div>
 
+      {/* Granger results callout — only on US (positive) and India (null).
+          The other 6 countries don't yet have enough months for a valid
+          test; they keep the in-chart "Data Collection Ongoing" notice. */}
+      {countryName === "United States" && <USGrangerCallout />}
+      {countryName === "India" && <IndiaGrangerCallout />}
+
       {/* Chart */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
@@ -312,6 +318,108 @@ export default async function CountryPage({ params }: PageProps) {
           {COUNTRY_FLAGS[nextCountry]} {nextCountry} →
         </Link>
       </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Granger result callouts — numbers are mirrored verbatim from
+// docs/granger_results_2026-06-18.md. Anything that changes should be
+// changed here in lock-step with that file (and the granger_analysis.py
+// regenerated JSON). Single sentence per row; consistent with the rest
+// of the design system's amber/green chip pattern.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const FULL_RESULTS_URL =
+  "https://github.com/thefrogfacedfoot/Inflation-menu/blob/main/docs/granger_results_2026-06-18.md";
+
+function USGrangerCallout() {
+  return (
+    <div className="rounded-xl border border-green-200 bg-green-50 p-5 mb-6">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="inline-flex w-2 h-2 rounded-full bg-green-500" />
+        <h2 className="font-semibold text-green-900 text-base">
+          UIFPI Granger-causes CPI at 1-month lead
+        </h2>
+      </div>
+      <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm mb-3">
+        <div>
+          <dt className="text-xs text-green-700 uppercase tracking-wide">F</dt>
+          <dd className="font-mono font-semibold text-green-900">6.034</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-green-700 uppercase tracking-wide">p</dt>
+          <dd className="font-mono font-semibold text-green-900">0.021</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-green-700 uppercase tracking-wide">n</dt>
+          <dd className="font-mono font-semibold text-green-900">31</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-green-700 uppercase tracking-wide">Lag</dt>
+          <dd className="font-mono font-semibold text-green-900">1 mo</dd>
+        </div>
+      </dl>
+      <p className="text-sm text-green-900 leading-relaxed">
+        AIC selected lag = 4, but lag = 1 dominates (p-values rise to 0.090
+        / 0.138 / 0.146 at lags 2 / 3 / 4). Pass-through β is negative and
+        only marginally significant (p = 0.083, 95% CI includes zero) — the
+        result is a <span className="font-semibold">timing signal</span>,
+        not a level coincidence.
+      </p>
+      <a
+        href={FULL_RESULTS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-3 text-xs font-medium text-green-800 underline hover:text-green-900"
+      >
+        Full multi-lag table & methodology notes →
+      </a>
+    </div>
+  );
+}
+
+function IndiaGrangerCallout() {
+  return (
+    <div className="rounded-xl border border-gray-300 bg-gray-50 p-5 mb-6">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="inline-flex w-2 h-2 rounded-full bg-gray-500" />
+        <h2 className="font-semibold text-gray-900 text-base">
+          Null result over 47 months
+        </h2>
+      </div>
+      <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm mb-3">
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">F</dt>
+          <dd className="font-mono font-semibold text-gray-900">0.521</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">p</dt>
+          <dd className="font-mono font-semibold text-gray-900">0.47</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">n</dt>
+          <dd className="font-mono font-semibold text-gray-900">47</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">Lag</dt>
+          <dd className="font-mono font-semibold text-gray-900">1 mo</dd>
+        </div>
+      </dl>
+      <p className="text-sm text-gray-800 leading-relaxed">
+        UIFPI does <span className="font-semibold">not</span>{" "}
+        Granger-cause CPI in this sample. Both series stationary at
+        levels; the F-statistic is essentially zero. See the methodology
+        page for the developed-vs-emerging discussion.
+      </p>
+      <a
+        href={FULL_RESULTS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-3 text-xs font-medium text-gray-700 underline hover:text-gray-900"
+      >
+        Full results & methodology notes →
+      </a>
     </div>
   );
 }
