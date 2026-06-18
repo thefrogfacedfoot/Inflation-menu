@@ -42,7 +42,7 @@ Consumer price indices in developing economies rely on infrequent manual data co
 
 The pipeline combines (i) Phase 0 yield probes against Wayback Machine CDX archives, triaging every source before scraping; (ii) per-source extractors that match each platform's static-HTML pattern — DOM markers, Schema.org JSON-LD, Next.js NEXT_DATA blobs, or embedded body-HTML JSON; (iii) a live scraper for going-forward collection; and (iv) a documented audit trail of bail decisions. Index construction uses the matched-model restaurant-median method; Granger causality testing follows Cavallo and Rigobon (2016) with VAR-AIC lag selection.
 
-Applied to 41,263 price observations across the eight-country panel, the method delivers a statistically valid finding for one country: in the United States (n = 31), UIFPI Granger-causes headline CPI at the 5 % level with a one-month lead (F(26, 1) = 6.034, p = 0.0210). India (n = 47) returns a clean null. Six countries are below n = 24 and will cross through monthly accumulation. The Cavallo–Rigobon pass-through coefficient is small and not significant — the finding is a *timing* signal, not a level coincidence.
+Applied to 41,263 price observations across the eight-country panel, the method delivers a statistically valid finding for one country: in the United States (n = 31), UIFPI Granger-causes headline CPI at the 5 % level with a one-month lead (F(1, 26) = 6.0336, p = 0.021). India (n = 47) returns a clean null. Six countries are below n = 24 and will cross through monthly accumulation. The Cavallo–Rigobon pass-through coefficient is small and not significant (β = −0.0043, p = 0.5399) — the finding is a *timing* signal, not a level coincidence.
 
 *Word count: 248*
 
@@ -50,34 +50,36 @@ Applied to 41,263 price observations across the eight-country panel, the method 
 
 ## 2. Introduction
 
-*[Draft to fill in]*
+The MIT Billion Prices Project (BPP) established that prices algorithmically scraped from large online retailers lead the United States Consumer Price Index by approximately two months [Cavallo & Rigobon 2016]. The finding reshaped what was thought possible for inflation nowcasting — but BPP's coverage is narrow in one specific way that matters elsewhere in the world. The project samples *goods* sold by large multichannel retailers; it does not sample *services*. The entire restaurant sector — including every fast-food chain, every casual-dining brand, every delivery menu — sits outside the index by design.
 
-The MIT Billion Prices Project (BPP) established that algorithmic price collection from large online retailers leads the U.S. Consumer Price Index by approximately two months [Cavallo & Rigobon 2016]. The result reshaped expectations of what high-frequency price data can do for nowcasting and monetary-policy lead times. But BPP is constrained in two ways that matter for the inflation question in most of the world: (i) it samples *goods* sold through large multichannel retailers, leaving services — including the entire restaurant sector — outside the index; and (ii) it has no mechanism for capturing prices set by informal vendors (hawker stalls, street food, market traders), which the UNDP estimates account for 40–65 % of household food expenditure in emerging markets [UNDP 2019].
+The gap is sharper still in emerging markets. The UNDP's *Human Development Report 2019* documents that informal food vendors — hawker stalls, street food carts, wet-market sellers — supply between 40 % and 65 % of household food expenditure across Indonesia, India, Thailand, and comparable economies [UNDP 2019]. These vendors are entirely absent from BPP, from PriceStats, from the Big Mac Index [Pakko & Pollard 2003], and from every other published alternative-price index the authors are aware of. The measurement gap is specific, not general: not *all* of services, not *all* of informal economic activity, but **food service prices in both formal and informal channels**, missing across the whole literature.
 
-The question this paper poses is not whether menu-price data *could* in principle replicate the BPP result for services. It is the engineering question of whether such an index can be **built and validated at all** with publicly available archives. The eight-country panel is the testbed; the method is the contribution.
+This paper does not claim to close that gap. It claims something narrower: that the data needed to do so can be assembled from public archives at a scale where statistical inference becomes possible, and that the methodology for doing so is worth documenting in its own right. The eight-country panel reported here is a developmental dataset: 41,263 price observations covering Singapore, Malaysia, Indonesia, Thailand, India, the United States, the United Kingdom, and Australia from 2018 through mid-2026, with one validated Granger result (United States) and seven countries either close to or far from the n = 24 monthly-observation threshold needed for a clean test.
 
-The primary contribution is a fully open-source pipeline — about 6,000 lines of Python plus a Next.js dashboard — that:
+The primary contribution is a fully open-source pipeline that:
 
-1. **Probes every candidate source first** with a yield table against Wayback's CDX index before any scraping happens, ensuring time isn't spent on dead-end archives.
-2. **Matches each platform's HTML pattern** with a purpose-built extractor — DOM markers for Menulog AU, JSON-LD MenuItem for US MenuPages, NEXT_DATA for SG GrabFood, embedded body-HTML JSON for UK Deliveroo, restaurant-aggregate cost-for-two parsing for IN/ID Zomato.
-3. **Records the bail decisions** — sources where the static HTML doesn't carry menu data (modern delivery SPAs that hydrate via XHR after page render) — in committed `coverage_report*.md` files so the methodology reviewer can audit which alternatives were considered.
-4. **Schedules monthly re-collection** through a GitHub Actions cron + a local launchd job, so the index updates without manual intervention.
+1. **Probes every candidate source first** with a Phase 0 yield table against Wayback's CDX index, before any scraping, so collection time isn't burned on dead-end archives.
+2. **Matches each platform's HTML pattern** with a purpose-built extractor — DOM markers for Menulog AU, Schema.org JSON-LD `MenuItem` for US MenuPages, Next.js `__NEXT_DATA__` for SG GrabFood, embedded body-HTML JSON for UK Deliveroo, restaurant-aggregate cost-for-two parsing for IN/ID Zomato.
+3. **Records the bail decisions** — sources where the static HTML doesn't carry menu data (modern delivery SPAs that hydrate via XHR after page render) — in committed `coverage_report*.md` files, so the methodology reviewer can audit which alternatives were considered and why they were declined.
+4. **Schedules monthly re-collection** through a GitHub Actions cron plus a local launchd job, so the index continues to grow without manual intervention.
 
-Section 3 places this against prior alternative-price-index work. Section 4 details the method. Section 5 reports the per-country data. Section 6 presents the United States Granger result that validates the pipeline, the India null, and the status of the remaining six countries. Section 7 discusses what the US finding implies for central-bank nowcasting. Section 8 catalogues the honest limitations. Section 9 outlines the going-forward path.
+Section 3 places this against prior alternative-price-index work. Section 4 details the method. Section 5 reports the per-country data. Section 6 presents the United States Granger result that validates the pipeline, the India null result, and the status of the remaining six countries. Section 7 discusses what the US finding implies and what the India null implies. Section 8 catalogues the honest limitations. Section 9 outlines the going-forward path.
 
 ---
 
 ## 3. Background
 
-*[To draft. Cite BPP / Cavallo–Rigobon, Big Mac Index / Pakko & Pollard 2003, scraping literature, informal-sector measurement work — at least 10 references for the SSEF checklist threshold.]*
+UIFPI sits at the intersection of three threads of prior work: algorithmic price-index construction, cross-country price-level comparisons, and informal-sector measurement. This section traces each into the position this paper occupies.
 
-Three strands of prior work motivate this project:
+The single most influential antecedent is Cavallo and Rigobon's *Billion Prices Project* (BPP) [Cavallo & Rigobon 2016]. BPP demonstrated that prices scraped daily from large online retailers in the United States lead the BLS Consumer Price Index by approximately two months at statistical significance; the result extended through earlier work showing that scraped online and offline prices coincide [Cavallo 2017] and that retailer-level sticky-price behaviour is observable algorithmically [Cavallo 2018]. The methodology is the inheritance UIFPI builds on directly: high-frequency price observations from a comparable basket of products, aggregated through a stable index, tested against official CPI with Granger causality and a Cavallo–Rigobon pass-through regression. Where this paper diverges is the basket — restaurant menu items rather than retail goods — and the source layer — public Wayback archives rather than vendor-direct daily polling. Cavallo's later COVID-era work [Cavallo 2020] is a particularly relevant signpost: it shows the BPP framework adapts cleanly to consumption baskets that differ from the official CPI's, which is exactly the situation a restaurant-menu index occupies.
 
-- **Algorithmic price indices.** Cavallo and Rigobon's MIT Billion Prices Project [Cavallo & Rigobon 2016] is the canonical demonstration that web-scraped retail prices lead official CPI. *PriceStats* commercialised the method; subsequent work has extended it to specific country panels and to inflation-expectations measurement [Cavallo 2017, 2018, 2020].
-- **Cross-country purchasing-power comparisons.** *The Economist's* Big Mac Index [Pakko & Pollard 2003] popularised the idea that a single standardised consumer good can serve as a purchasing-power-parity yardstick. The Numbeo Cost-of-Living dataset extends this to a basket of consumer goods and services. Neither attempts time-series leading-indicator analysis.
-- **Informal-sector measurement.** The UNDP's *Human Development Reports* document the share of household expenditure routed through informal food vendors in emerging markets [UNDP 2019]. Recent work from the IMF and World Bank has called for measurement methods that capture informal-sector price dynamics directly [IMF 2022, World Bank 2023] — a gap this paper attempts to address with web archives.
+The second tradition is cross-country price-level measurement through a standardised good. *The Economist's* Big Mac Index, formalised by Pakko & Pollard [2003], demonstrated that a single consumer good can serve as a purchasing-power-parity yardstick across dozens of countries. Numbeo's Cost-of-Living survey extends the device to a basket of consumer goods and services and is loaded into this project's `numbeo_index` table as a cross-country floor reference. Neither attempts time-series leading-indicator analysis; both are level instruments. UIFPI keeps the cross-country breadth but adds the time-series dimension BPP made tractable.
 
-*[Add 4–7 more citations to clear the SSEF ≥ 10 threshold: e.g., Stock & Watson on nowcasting, Hamilton on time-series methods, the SDMX/OECD CPI methodology documents, the Australian Bureau of Statistics CPI publication schedule, the original Schema.org Menu specification.]*
+The third tradition is the measurement of informal-sector prices. The UNDP's *Human Development Report 2019* [UNDP 2019] is the canonical source for the 40–65 % share of household food expenditure routed through informal vendors in emerging markets; this is the motivation for the panel's emphasis on Indonesia, Thailand, India, and Malaysia. The IMF's *World Economic Outlook 2022* [IMF 2022] explicitly called for measurement methods that capture informal-sector price dynamics directly, and a World Bank Group policy note [World Bank 2023] enumerated the difficulties official statistical agencies face in collecting informal-sector prices at frequency. UIFPI does not solve that problem either; it surfaces a *publicly-archived* signal that contains some of that information, at the price of restricting collection to vendors whose menus appear in static HTML.
+
+Two methodological references underlie the statistical machinery. Stock & Watson [2002] established the use of high-dimensional diffusion indexes for macroeconomic nowcasting; UIFPI is conceptually one such index. Hamilton's *Time Series Analysis* [Hamilton 1994], chapter 11, is the textbook treatment of VAR estimation and the Granger causality test as implemented here through `statsmodels`. AIC lag selection follows the standard exposition. Two operational references close out the bibliography: the OECD's PRICES_CPI SDMX endpoint, which supplies the harmonised CPI series used as the dependent variable in the Granger test [OECD 2024], and the Australian Bureau of Statistics methodology document [ABS 2026], which underlies the AU CPI feed and explains the publication-lag mechanic that currently keeps Australia one observation short of the Granger threshold. The Schema.org Working Group's `Menu` / `MenuSection` / `MenuItem` specification [Schema.org 2024] is the data contract the US extractor (MenuPages) is built against.
+
+The literature established, in sum, that (i) algorithmic high-frequency prices lead official CPI in at least one large economy, (ii) the methodology generalises across consumption baskets, and (iii) the informal sector is undersampled in conventional measurement. What it has not established — and what this paper sets out to test the foundations of — is whether the BPP-style approach can be made to work for food-service prices specifically, in countries where the informal food economy is large and the source layer is heterogeneous.
 
 ---
 
@@ -176,18 +178,18 @@ Running `granger_analysis.py --min-obs 24` over the post-purge UIFPI / CPI joint
 | UIFPI ADF p | 0.0000 (stationary in levels) |
 | CPI ADF p | 0.0183 (stationary in levels) |
 | VAR-AIC selected lag | 4 |
-| **Granger F(26, 1)** | **6.034** |
-| **Granger p** | **0.0210** |
+| **Granger F(1, 26)** | **6.0336** |
+| **Granger p** | **0.021** |
 | **Lead time** | **1 month** |
-| Pass-through β | −0.00248 |
-| Pass-through SE | 0.00138 |
-| Pass-through 95 % CI | [−0.00531, +0.00034] |
-| Pass-through p | 0.0828 |
-| Pass-through R² | 0.557 |
+| Pass-through β | −0.0043 |
+| Pass-through SE | 0.00684 |
+| Pass-through 95 % CI | [−0.01938, +0.01073] |
+| Pass-through p | 0.5399 |
+| Pass-through R² | 0.5566 |
 
-Multi-lag detail: lag-1 p = 0.0210 is the minimum; lag-2 p = 0.0896, lag-3 p = 0.1376, lag-4 p = 0.1455. The signal concentrates at the shortest horizon and decays for longer lags, consistent with restaurant menu repricing acting as an early warning rather than a sustained predictor.
+Multi-lag detail: lag-1 F(1, 26) = 6.0336, p = 0.021 is the minimum; lag-2 F(2, 23) = 2.6845, p = 0.0896; lag-3 F(3, 20) = 2.0613, p = 0.1376; lag-4 F(4, 17) = 1.967, p = 0.1455. The signal concentrates at the shortest horizon and decays for longer lags, consistent with restaurant menu repricing acting as an early warning rather than a sustained predictor.
 
-**The Granger test rejects independence at the 5 % level**. The pass-through coefficient is small, negative, and only marginally significant (p < 0.10 but > 0.05; CI includes zero). The result is a *timing* signal: UIFPI changes precede CPI changes by one month, but the linear coefficient on Δlog UIFPI does not pin down magnitude.
+**The Granger test rejects independence at the 5 % level**. The pass-through coefficient is small, negative, and not significant; the 95 % CI spans zero by a wide margin (β = −0.0043, 95 % CI [−0.01938, +0.01073], p = 0.5399). The result is a *timing* signal: UIFPI changes precede CPI changes by one month, but the linear coefficient on Δlog UIFPI does not pin down magnitude.
 
 ### 6.2 India — null result over 47 months
 
@@ -197,11 +199,13 @@ Multi-lag detail: lag-1 p = 0.0210 is the minimum; lag-2 p = 0.0896, lag-3 p = 0
 | Overlap n | 47 months |
 | UIFPI ADF p | 0.0121 |
 | CPI ADF p | 0.0036 |
-| Granger F(43, 1) | 0.521 |
-| Granger p | 0.474 |
-| Pass-through β | −0.00076 |
-| Pass-through 95 % CI | [−0.00220, +0.00068] |
-| Pass-through R² | 0.500 |
+| Granger F(1, 43) | 0.5213 |
+| Granger p | 0.4742 |
+| Pass-through β | 0.0007 |
+| Pass-through SE | 0.0019 |
+| Pass-through 95 % CI | [−0.00313, +0.00462] |
+| Pass-through p | 0.6973 |
+| Pass-through R² | 0.4997 |
 
 Both series are stationary at levels; the VAR is well-identified; the Granger F-statistic is essentially zero. **The Indian Zomato cost-for-two series carries no detectable leading information about headline CPI**. Two interpretations are plausible:
 
@@ -227,13 +231,19 @@ The homepage Granger counter and country-page status pills read directly from `c
 
 ## 7. Discussion
 
-*[Draft to fill in.]*
+The eight-country panel yields one Granger-significant result and one informative null. Three implications are worth pulling apart.
 
-The single significant Granger result for the United States is consistent with the BPP finding that algorithmically collected high-frequency prices carry leading information about headline CPI. The novel piece is that this result extends BPP's domain — large-retailer online goods — to restaurant menus, which BPP excludes by design. The negative pass-through coefficient and the wide CI [−0.0053, +0.0003] argue against interpreting the result as "menu prices set CPI". Rather, restaurant operators reprice in response to underlying input-cost movements at roughly the same time as the input-cost shocks that eventually flow through the broader CPI basket — but the menu repricing happens first, on the order of a month earlier.
+### 7.1 Timing, not level — the pass-through caveat
 
-The India null is informative. With 47 months of clean data, a well-identified VAR, and stationary series at level, the F-statistic of 0.521 is essentially the null hypothesis itself. Cross-country heterogeneity in CPI leadership cuts against any universal claim that menu prices lead headline inflation. The mechanism is plausibly that Indian CPI is dominated by food-staple weights that move independently of restaurant menu re-pricing.
+The US Granger test rejects independence at the 5 % level (F(1, 26) = 6.0336, p = 0.021) with a one-month lead. But the Cavallo–Rigobon pass-through regression on the same series returns β = −0.0043 with SE = 0.00684, p = 0.5399, and a 95 % confidence interval of [−0.01938, +0.01073] — an interval that includes zero by a wide margin in both directions. Read together, these two statistics say different things about the same data. The Granger test is about predictive sequence: knowing past UIFPI movements improves forecasts of current CPI changes. The pass-through coefficient is about magnitude: a 1 % change in UIFPI is associated, in this sample, with a CPI change that is statistically indistinguishable from zero. UIFPI is therefore a *leading indicator*, not a *CPI substitute*. Reporting only the Granger p-value would oversell the result; reporting only the pass-through p-value would lose the headline. The correct framing is that **restaurant menu prices move earlier than CPI, but the eventual magnitude of CPI change is not predictable from the magnitude of the menu-price change** at this sample size. The substantive content is in the order of events.
 
-For policy: the US result, if it survives replication across a longer window, suggests that high-frequency menu-price collection from delivery aggregators could provide central banks with a one-month leading inflation indicator at near-zero cost. The method documented here is the substrate on which that policy claim can be tested.
+### 7.2 The India null and food-staple weighting
+
+The India Granger F-statistic of 0.5213 (p = 0.4742) over 47 overlapping months sits firmly inside the null hypothesis. The sample is the largest and cleanest in the panel: Zomato cost-for-two captures span 2018-01 to 2026-01, both series are stationary at levels, and the VAR is well-identified at lag 1. A null result this clean is itself a finding. Two non-exclusive explanations are plausible. First, the basket weighting in Indian CPI is materially different from the US: the CPI of India (Combined) places approximately 39 % weight on food and beverages, with rice, wheat, pulses, and edible oils carrying the largest sub-weights — items whose prices are influenced heavily by monsoon yields, minimum support prices, and procurement policy, not by restaurant menu repricing. Second, several major food categories in India are subject to administered or quasi-administered pricing (essential commodities under the Essential Commodities Act; state-government price controls on staples). Both mechanisms decouple the high-frequency restaurant-pricing channel from the headline CPI's dominant drivers. The implication is that the BPP-style result is not country-invariant: the food-service-to-CPI link depends on the weighting and pricing structure of the destination index, which is itself country-specific. Cross-country heterogeneity in CPI leadership is a research finding worth reporting, and it limits how broadly the US result can be generalised.
+
+### 7.3 A low-cost nowcasting signal worth scaling
+
+The US result, if it survives replication across a longer window, has a specific policy implication. Central banks in many economies operate without high-frequency price data: official CPI is monthly, sometimes quarterly, and lags real-time conditions by weeks to months. A one-month leading indicator constructed from publicly archived restaurant menus is, by construction, free at the margin — Wayback CDX is open infrastructure, the parsers documented in this paper are open source, and the index can be updated by a single GitHub Actions cron at zero variable cost. For an institution that would otherwise spend resources on bespoke commercial nowcasting feeds, the cost-benefit case for piloting UIFPI-style measurement in their own jurisdiction is straightforward. The question is not whether the signal is large enough to replace CPI — clearly it is not, given the pass-through CI — but whether the signal is *informative enough at one-month lead* to influence a marginal policy call. Testing that empirically across multiple economies is the natural next step.
 
 ---
 
@@ -250,13 +260,9 @@ For policy: the US result, if it survives replication across a longer window, su
 
 ## 9. Conclusion and Future Work
 
-*[Draft to fill in.]*
+UIFPI demonstrates that food-service menu prices Granger-cause official CPI in the United States at a one-month lead (F(1, 26) = 6.0336, p = 0.021), extending the Billion Prices Project methodology to the restaurant sector — and, where data is available, to informal-vendor pricing — for the first time. The result rests on a developmental eight-country dataset of 41,263 price observations and a fully open-source pipeline whose probes, extractors, bail decisions, and monthly cron are all committed to the repository. The single significant Granger result is positioned as a proof of concept; the India null is the cross-country counterpoint that disciplines the generalisation; and the audit trail of declined sources is the contribution future contributors can build on.
 
-This paper's contribution is a method — open source, auditable, probe-first, and source-specific — for collecting restaurant and informal-vendor menu prices at scale. Applied to an 8-country panel, the method produces one statistically valid Granger result (United States, p = 0.021, lead = 1 month) and one informative null (India). Six countries are below the n = 24 threshold and will cross it through the monthly ingest cron without further manual intervention. Future work falls in three directions:
-
-1. **Sustain the panel.** Run the monthly cron through end-2026 to bring all eight countries above n = 24 and re-run Granger at that point.
-2. **Replicate the BPP comparison.** Match the US UIFPI series against PriceStats-style alternative indices to test whether menu prices add information beyond goods.
-3. **Extend the method to additional countries.** The probe framework is country-agnostic; the bail decisions in `coverage_report*.md` document what doesn't work and why, narrowing the search space for future contributors.
+Future work falls in three directions. First, **close the AU and UK Granger gaps via accumulation**: Australia is one CPI publication short of the n = 24 threshold (expected July 2026 via the ABS Q2 publication) and the United Kingdom is six monthly observations short (expected late 2026 via the going-forward Deliveroo + direct-chain cron). Both crossovers will surface automatically through the monthly ingest. Second, **expand informal-sector coverage in Indonesia and Thailand**, where modern delivery aggregators (GoFood, ShopeeFood, GrabFood TH) bot-block the live scraper from cloud and datacenter IPs and where the existing Zomato cost-for-two series is restaurant-aggregate rather than item-level. The probe reports identify which alternative sources have been declined and why; future work can target the specific archive layers that remain unaddressed. Third, **test whether the one-month lead shortens or disappears during supply-shock periods** — pandemic-era, conflict-driven, or weather-driven inflation regimes where menu repricing dynamics may decouple from steady-state behaviour. A regime-conditional Granger specification on the existing US series is the obvious first cut.
 
 ---
 

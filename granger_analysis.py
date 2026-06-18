@@ -227,6 +227,10 @@ def run_granger(country: str, uifpi_s: pd.Series, cpi_s: pd.Series,
         "lead_months":              None,
         "aic_lag":                  None,
         "pass_through_formal":      None,
+        "pass_through_se":          None,
+        "pass_through_p_value":     None,
+        "pass_through_ci_low":      None,
+        "pass_through_ci_high":     None,
         "pass_through_significant": False,
         "r_squared":                None,
         "note":                     "",
@@ -273,14 +277,25 @@ def run_granger(country: str, uifpi_s: pd.Series, cpi_s: pd.Series,
     try:
         gc_data = pd.DataFrame({"cpi": c_clean, "uifpi": u_clean}).dropna()
         gc_res  = grangercausalitytests(gc_data, maxlag=aic_lag, verbose=False)
-        best_p, best_lag = 1.0, 1
+        best_p, best_lag, best_F, best_df_num, best_df_denom = 1.0, 1, None, None, None
+        per_lag = []
         for lag, tests in gc_res.items():
-            p = tests[0]["ssr_ftest"][1]
+            F, p, df_denom, df_num = tests[0]["ssr_ftest"]
+            per_lag.append({"lag": int(lag),
+                             "F": round(float(F), 4),
+                             "p": round(float(p), 4),
+                             "df_num": int(df_num),
+                             "df_denom": int(df_denom)})
             if p < best_p:
                 best_p, best_lag = p, lag
-        result["granger_p_value"]     = round(best_p, 4)
-        result["lead_months"]         = best_lag
-        result["granger_significant"] = best_p < 0.05
+                best_F, best_df_num, best_df_denom = F, df_num, df_denom
+        result["granger_p_value"]      = round(best_p, 4)
+        result["granger_f_statistic"]  = round(float(best_F), 4) if best_F is not None else None
+        result["granger_df_num"]       = int(best_df_num) if best_df_num is not None else None
+        result["granger_df_denom"]     = int(best_df_denom) if best_df_denom is not None else None
+        result["granger_per_lag"]      = per_lag
+        result["lead_months"]          = best_lag
+        result["granger_significant"]  = best_p < 0.05
         sig_str = "SIGNIFICANT ✓" if best_p < 0.05 else "not significant"
         print(f"  Granger: p={best_p:.4f} at lag={best_lag} ({sig_str})")
     except Exception as e:
@@ -320,11 +335,17 @@ def run_granger(country: str, uifpi_s: pd.Series, cpi_s: pd.Series,
                 f"insufficient DOF: n={len(y)}, k={X_raw.shape[1]+1}")
         X = add_constant(X_raw)
         fit = OLS(y, X).fit()
+        ci = fit.conf_int(alpha=0.05)[1]   # 95% CI on β (the duifpi coef)
         result["pass_through_formal"]      = round(float(fit.params[1]), 4)
+        result["pass_through_se"]          = round(float(fit.bse[1]), 5)
+        result["pass_through_p_value"]     = round(float(fit.pvalues[1]), 4)
+        result["pass_through_ci_low"]      = round(float(ci[0]), 5)
+        result["pass_through_ci_high"]     = round(float(ci[1]), 5)
         result["pass_through_significant"] = float(fit.pvalues[1]) < 0.05
         result["r_squared"]                = round(float(fit.rsquared), 4)
-        print(f"  Pass-through: β={fit.params[1]:.3f} p={fit.pvalues[1]:.3f} "
-              f"R²={fit.rsquared:.3f}")
+        print(f"  Pass-through: β={fit.params[1]:.4f} "
+              f"SE={fit.bse[1]:.4f} p={fit.pvalues[1]:.4f} "
+              f"95%CI=[{ci[0]:.4f}, {ci[1]:.4f}] R²={fit.rsquared:.4f}")
     except Exception as e:
         print(f"  Pass-through: {e}")
 

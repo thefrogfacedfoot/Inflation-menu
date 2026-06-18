@@ -1,9 +1,9 @@
 Country,N Obs,ADF Stat,F-Statistic,p-value,Lead (months),Significant,Note
-Singapore,12,—,—,—,—,No,"insufficient_data: need >= 24 months, have 12"
-Malaysia,—,—,—,—,—,No,no_cpi_data
-Indonesia,10,—,—,—,—,No,"insufficient_data: need >= 24 months, have 10"
-Thailand,—,—,—,—,—,No,
-India,15,—,—,—,—,No,"insufficient_data: need >= 24 months, have 15"
-United States,11,—,—,—,—,No,"insufficient_data: need >= 24 months, have 11"
-United Kingdom,11,—,—,—,—,No,"insufficient_data: need >= 24 months, have 11"
-Australia,12,—,—,—,—,No,"insufficient_data: need >= 24 months, have 12"
+Singapore,8,—,—,—,—,No,"insufficient_data (have 8, need 24)"
+Malaysia,6,—,—,—,—,No,"insufficient_data (have 6, need 24)"
+Indonesia,20,—,—,—,—,No,"insufficient_data (have 20, need 24)"
+Thailand,0,—,—,—,—,No,no_overlap
+India,47,—,—,0.4742,1,No,
+United States,31,—,—,0.0210,1,Yes,
+United Kingdom,18,—,—,—,—,No,"insufficient_data (have 18, need 24)"
+Australia,23,—,—,—,—,No,"insufficient_data (have 23, need 24)"

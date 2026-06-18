@@ -25,28 +25,26 @@ These are the first statistically valid Granger causality results in the project
 
 **Multi-lag detail** (full grangercausalitytests output):
 
-| Lag | F | df_num | df_den | p |
-|---:|---:|---:|---:|---:|
-| 1 | 6.034 | 1 | 26 | **0.0210** |
-| 2 | 2.684 | 2 | 23 | 0.0896 |
-| 3 | 2.061 | 3 | 20 | 0.1376 |
-| 4 | 1.967 | 4 | 17 | 0.1455 |
+| Lag | F(df_num, df_denom) | p |
+|---:|---|---:|
+| 1 | F(1, 26) = 6.0336 | **0.021** |
+| 2 | F(2, 23) = 2.6845 | 0.0896 |
+| 3 | F(3, 20) = 2.0613 | 0.1376 |
+| 4 | F(4, 17) = 1.967  | 0.1455 |
 
 The minimum-p lag = 1 is the dominant signal. Higher-order lags carry diminishing predictive content, consistent with restaurant menu repricing happening at roughly monthly cadence.
 
-**Pass-through regression** (Cavallo-Rigobon style: Δlog(CPI) = α + β·Δlog(UIFPI)):
+**Pass-through regression** (Cavallo-Rigobon style with the controlled spec — lagged controls plus month dummies — that `granger_analysis.py` runs):
 
 | Field | Value |
 |---|---|
-| n | 30 |
-| β | **−0.00248** |
-| SE | 0.00138 |
-| p | 0.0828 |
-| **95% CI** | **[−0.00531, +0.00034]** |
-| R² | 0.1036 |
-| Adjusted R² | 0.0716 |
+| β | **−0.0043** |
+| SE | 0.00684 |
+| p | 0.5399 |
+| **95% CI** | **[−0.01938, +0.01073]** |
+| R² | 0.5566 |
 
-The pass-through β is small, negative, and only marginally significant (p < 0.10 but > 0.05). The 95% CI includes zero. **The Granger test rejects independence at the 5% level; the linear pass-through magnitude does not.** This is methodologically consistent with restaurant menu prices being one of many CPI components — the *lead* is the headline result, not the magnitude of the linear coefficient.
+The pass-through β is small, negative, and **not significant** under the controlled specification (p = 0.5399; the 95 % CI spans zero by a wide margin in both directions). **The Granger test rejects independence at the 5 % level; the linear pass-through magnitude does not.** This is methodologically consistent with restaurant menu prices being one of many CPI components — the *lead* is the headline result, not the magnitude of the linear coefficient.
 
 ### India — Not significant
 
@@ -57,7 +55,7 @@ The pass-through β is small, negative, and only marginally significant (p < 0.1
 | UIFPI ADF p | 0.0121 (stationary in levels) |
 | CPI ADF p | 0.0036 (stationary in levels) |
 | VAR AIC-selected lag | 1 |
-| **Granger F-statistic** | **F(43, 1) = 0.521** |
+| **Granger F-statistic** | **F(1, 43) = 0.5213** |
 | **Granger p-value** | **p = 0.4742** |
 | Verdict | Fail to reject H₀ at α = 0.05 |
 
@@ -65,13 +63,11 @@ The pass-through β is small, negative, and only marginally significant (p < 0.1
 
 | Field | Value |
 |---|---|
-| n | 46 |
-| β | −0.00076 |
-| SE | 0.00072 |
-| p | 0.2949 |
-| 95% CI | [−0.00220, +0.00068] |
-| R² | 0.0249 |
-| Adjusted R² | 0.0027 |
+| β | 0.0007 |
+| SE | 0.0019 |
+| p | 0.6973 |
+| 95% CI | [−0.00313, +0.00462] |
+| R² | 0.4997 |
 
 Adjusted R² near zero. No detectable predictive relationship between the Indian restaurant-aggregate UIFPI (built from Zomato cost-for-two snapshots over Delhi NCR) and headline CPI. Plausible interpretation: Indian CPI is dominated by food-staple and fuel components for which restaurant menu prices lag rather than lead.
 

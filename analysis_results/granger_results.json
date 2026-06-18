@@ -6,6 +6,10 @@
     "lead_months": null,
     "aic_lag": null,
     "pass_through_formal": null,
+    "pass_through_se": null,
+    "pass_through_p_value": null,
+    "pass_through_ci_low": null,
+    "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
     "note": "insufficient_data (have 23, need 24)"
@@ -17,9 +21,25 @@
     "lead_months": 1,
     "aic_lag": 1,
     "pass_through_formal": 0.0007,
+    "pass_through_se": 0.0019,
+    "pass_through_p_value": 0.6973,
+    "pass_through_ci_low": -0.00313,
+    "pass_through_ci_high": 0.00462,
     "pass_through_significant": false,
     "r_squared": 0.4997,
-    "note": ""
+    "note": "",
+    "granger_f_statistic": 0.5213,
+    "granger_df_num": 1,
+    "granger_df_denom": 43,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 0.5213,
+        "p": 0.4742,
+        "df_num": 1,
+        "df_denom": 43
+      }
+    ]
   },
   "Indonesia": {
     "n_obs": 20,
@@ -28,6 +48,10 @@
     "lead_months": null,
     "aic_lag": null,
     "pass_through_formal": null,
+    "pass_through_se": null,
+    "pass_through_p_value": null,
+    "pass_through_ci_low": null,
+    "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
     "note": "insufficient_data (have 20, need 24)"
@@ -39,6 +63,10 @@
     "lead_months": null,
     "aic_lag": null,
     "pass_through_formal": null,
+    "pass_through_se": null,
+    "pass_through_p_value": null,
+    "pass_through_ci_low": null,
+    "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
     "note": "insufficient_data (have 6, need 24)"
@@ -50,6 +78,10 @@
     "lead_months": null,
     "aic_lag": null,
     "pass_through_formal": null,
+    "pass_through_se": null,
+    "pass_through_p_value": null,
+    "pass_through_ci_low": null,
+    "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
     "note": "insufficient_data (have 8, need 24)"
@@ -66,6 +98,10 @@
     "lead_months": null,
     "aic_lag": null,
     "pass_through_formal": null,
+    "pass_through_se": null,
+    "pass_through_p_value": null,
+    "pass_through_ci_low": null,
+    "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
     "note": "insufficient_data (have 18, need 24)"
@@ -77,8 +113,45 @@
     "lead_months": 1,
     "aic_lag": 4,
     "pass_through_formal": -0.0043,
+    "pass_through_se": 0.00684,
+    "pass_through_p_value": 0.5399,
+    "pass_through_ci_low": -0.01938,
+    "pass_through_ci_high": 0.01073,
     "pass_through_significant": false,
     "r_squared": 0.5566,
-    "note": ""
+    "note": "",
+    "granger_f_statistic": 6.0336,
+    "granger_df_num": 1,
+    "granger_df_denom": 26,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 6.0336,
+        "p": 0.021,
+        "df_num": 1,
+        "df_denom": 26
+      },
+      {
+        "lag": 2,
+        "F": 2.6845,
+        "p": 0.0896,
+        "df_num": 2,
+        "df_denom": 23
+      },
+      {
+        "lag": 3,
+        "F": 2.0613,
+        "p": 0.1376,
+        "df_num": 3,
+        "df_denom": 20
+      },
+      {
+        "lag": 4,
+        "F": 1.967,
+        "p": 0.1455,
+        "df_num": 4,
+        "df_denom": 17
+      }
+    ]
   }
 }
