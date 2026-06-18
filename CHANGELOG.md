@@ -2,6 +2,76 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-06-18 — First valid Granger result (US); 8-country panel finalised
+
+### Headline: US Granger-significant at p = 0.021
+
+Running `granger_analysis.py --min-obs 24` (the standard
+publication threshold) restricts the panel to the two countries
+with enough overlapping months: **India (47 obs, 2018-01 → 2026-01)
+and United States (31 obs, 2018-04 → 2024-10)**.
+
+| Country | n | Granger F | p | Lead | Pass-through β | 95% CI | R² |
+|---|---:|---:|---:|---:|---:|---|---:|
+| **United States** | 31 | **6.034** | **0.0210** ✓ | **1 month** | −0.00248 | [−0.00531, +0.00034] | 0.557 |
+| India | 47 | 0.521 | 0.4742 | — | −0.00076 | [−0.00220, +0.00068] | 0.500 |
+
+Both series stationary at levels (UIFPI ADF p ≤ 0.012, CPI ADF
+p ≤ 0.018). VAR-AIC selected lag = 4 for the US, lag = 1 for
+India; in both cases the minimum-p lag is 1.
+
+**Interpretation.** The US Granger result is the first
+statistically valid finding in the project: restaurant menu prices
+Granger-cause headline CPI at the 5% level with a one-month lead.
+The pass-through coefficient is small and only marginally
+significant (p = 0.083, 95% CI includes zero), which is
+methodologically consistent with restaurant menus being one of
+many CPI components — the *lead* is the headline, not the
+magnitude of the linear pass-through. The Indian sample, with
+47 months and a strong stationary identification, finds no
+relationship (F ≈ 0.5, p = 0.47); cross-country heterogeneity in
+CPI leadership is itself a result.
+
+Full numbers in `docs/granger_results_2026-06-18.md`. JSON in
+`analysis_results/granger_results.json`.
+
+### Roster decision: keep 8 countries
+
+The final roster is Singapore, Malaysia, Indonesia, Thailand,
+India, United States, United Kingdom, Australia — the same eight
+that have ever had item-level price observations in `prices`. No
+new countries are added.
+
+Reverted from the 2026-06-17 / 2026-06-18 attempts:
+  - **Mexico** dashboard tile + ProxyCountryPage template (was
+    floor-only because no archival item-level source clears the
+    formal-sector threshold).
+  - **Brazil, Germany, South Africa** dashboard tiles + tile
+    expansion (8 → 11). The Phase 0 probes found CDX-yield in all
+    three but the actual archived HTML carries restaurant
+    metadata + i18n strings only — modern SPA delivery sources
+    don't expose menu data through Wayback at all. Not worth
+    pursuing.
+  - **PROXY_COUNTRIES** literal in `dashboard/types/index.ts`.
+  - **FloorChart** component + `getFloorData` / `getFloorDataForCountry`
+    + `floor_data.json` exports — supplementary floor-data section
+    removed for the sample countries too, since the project's
+    artifact is the item-level UIFPI and not cross-country
+    Numbeo/Big Mac.
+  - **historical_html_scraper.py** Track C TARGETS (UberEats BR,
+    iFood RJ, Lieferando, Wolt DE, TripAdvisor ZA, UberEats ZA)
+    and the BRL / EUR / ZAR currency regexes + parsers. The
+    `_walk_ld` fix and the truncated-`</script>` tolerant
+    extractor stay — both are genuine parser improvements
+    independent of the country-expansion direction.
+  - **floor_datasets.py** ROSTER additions (GB, MY, BR, DE, ZA).
+    Numbeo / Big Mac / WB CPI rows for these countries remain in
+    `uifpi.db` but are no longer surfaced anywhere; they're
+    harmless historical residue.
+
+`generateStaticParams()` now produces 8 country routes; `next
+build` clean; `tsc --noEmit` clean.
+
 ## 2026-06-18 — Menulog parser fix; 11-country panel; ID/TH alt probes
 
 ### JSON-LD walker: require local `name` on the emitting node

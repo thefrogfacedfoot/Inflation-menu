@@ -40,22 +40,6 @@ export interface LatestValue {
   items_informal: number;
 }
 
-// Floor-only proxy data for countries that don't clear the formal-sector
-// threshold (no item-level price source). Numbeo / Big Mac / WB CPI only.
-export interface FloorDataPoint {
-  year: number | string;
-  value: number;
-}
-export interface FloorData {
-  numbeo_inexpensive: FloorDataPoint[]; // local-currency MXN price per year
-  numbeo_midrange:    FloorDataPoint[];
-  bigmac_usd:         FloorDataPoint[]; // USD price per snapshot date
-  wb_cpi:             FloorDataPoint[]; // monthly CPI level
-  currency:           string;
-  iso2:               string;
-}
-export type FloorDataMap = Record<string, FloorData>;
-
 export type CountrySummaryMap = Record<string, CountrySummary>;
 export type LatestValueMap = Record<string, LatestValue>;
 export type IndexSeriesMap = Record<string, IndexPoint[]>;
@@ -69,18 +53,9 @@ export const COUNTRIES = [
   "United States",
   "United Kingdom",
   "Australia",
-  "Brazil",
-  "Germany",
-  "South Africa",
 ] as const;
 
 export type Country = (typeof COUNTRIES)[number];
-
-// Proxy-only countries: no item-level UIFPI, only Numbeo / Big Mac / WB CPI.
-// Rendered as separate tiles below the main UIFPI grid and as a different
-// template on the country page.
-export const PROXY_COUNTRIES = ["Mexico"] as const;
-export type ProxyCountry = (typeof PROXY_COUNTRIES)[number];
 
 export const COUNTRY_FLAGS: Record<string, string> = {
   Singapore: "🇸🇬",
@@ -91,10 +66,6 @@ export const COUNTRY_FLAGS: Record<string, string> = {
   "United States": "🇺🇸",
   "United Kingdom": "🇬🇧",
   Australia: "🇦🇺",
-  Mexico: "🇲🇽",
-  Brazil: "🇧🇷",
-  Germany: "🇩🇪",
-  "South Africa": "🇿🇦",
 };
 
 export const COUNTRY_SLUGS: Record<string, string> = {
@@ -106,10 +77,6 @@ export const COUNTRY_SLUGS: Record<string, string> = {
   "United States": "united-states",
   "United Kingdom": "united-kingdom",
   Australia: "australia",
-  Mexico: "mexico",
-  Brazil: "brazil",
-  Germany: "germany",
-  "South Africa": "south-africa",
 };
 
 export const SLUG_TO_COUNTRY: Record<string, string> = Object.fromEntries(
@@ -120,15 +87,9 @@ export const SLUG_TO_COUNTRY: Record<string, string> = Object.fromEntries(
 // methodology page carries the long form. Empty/absent ⇒ no banner.
 export const COVERAGE_NOTES: Record<string, string> = {
   Thailand:
-    "Single 2026-06 snapshot (11 items, 9 restaurants). Live collection going forward only — no archival depth. Floor data (Numbeo / Big Mac / WB CPI) shown below as supplementary.",
+    "Single 2026-06 snapshot (11 items, 9 restaurants). Live collection going forward only — no archival depth.",
   Indonesia:
-    "Restaurant-aggregate Zomato cost-for-two series (29 monthly observations from Jakarta). Treat each point as a typical-meal-for-two price, not item-level. Floor data shown below as supplementary.",
-  "South Africa":
-    "Wayback archives don't contain extractable menu items for ZA delivery sources — Uber Eats and TripAdvisor ZA pages carry only restaurant-level metadata. Showing floor data (Numbeo / Big Mac / WB CPI) only.",
-  Brazil:
-    "Wayback archives don't contain extractable menu items for BR delivery sources (Uber Eats, iFood, Rappi). All capture restaurant metadata only; menu items load via XHR after page render. Showing floor data only.",
-  Germany:
-    "Wayback archives don't contain extractable menu items for DE delivery sources (Lieferando, Wolt, Uber Eats). All capture restaurant metadata + i18n strings only. Showing floor data only.",
+    "Restaurant-aggregate Zomato cost-for-two series (29 monthly observations from Jakarta). Treat each point as a typical-meal-for-two price, not item-level.",
 };
 
 export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
@@ -140,8 +101,4 @@ export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
   "United States": "Developed",
   "United Kingdom": "Developed",
   Australia: "Developed",
-  Mexico: "Emerging",
-  Brazil: "Emerging",
-  Germany: "Developed",
-  "South Africa": "Emerging",
 };

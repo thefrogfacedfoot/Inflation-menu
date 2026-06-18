@@ -29,35 +29,6 @@ OUT_DIR      = "dashboard_data"
 # new numbers without a manual copy.
 DASHBOARD_PUBLIC_DATA = os.path.join("dashboard", "public", "data")
 
-# Every roster country gets a floor_data.json entry — Numbeo / Big Mac /
-# WB CPI. For proxy-only countries (Mexico) it's the entire page; for
-# main-roster countries it's a supplementary cross-country reference
-# section under the UIFPI chart.
-PROXY_COUNTRIES = [
-    # Kept for backwards compatibility — used by the
-    # dashboard/types/index.ts PROXY_COUNTRIES literal.
-    ("Mexico", "MX", "MEX", "MXN"),
-]
-
-FLOOR_COUNTRIES = [
-    # (country_name, iso2, iso3, local_currency)
-    ("United States",  "US", "USA", "USD"),
-    ("India",          "IN", "IND", "INR"),
-    ("Indonesia",      "ID", "IDN", "IDR"),
-    ("Thailand",       "TH", "THA", "THB"),
-    ("Australia",      "AU", "AUS", "AUD"),
-    ("Philippines",    "PH", "PHL", "PHP"),
-    ("Singapore",      "SG", "SGP", "SGD"),
-    ("United Kingdom", "GB", "GBR", "GBP"),
-    ("Malaysia",       "MY", "MYS", "MYR"),
-    ("Mexico",         "MX", "MEX", "MXN"),
-    ("Vietnam",        "VN", "VNM", "VND"),
-    ("Brazil",         "BR", "BRA", "BRL"),
-    ("Germany",        "DE", "DEU", "EUR"),
-    ("South Africa",   "ZA", "ZAF", "ZAR"),
-]
-
-
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def safe_round(v, digits=2):
@@ -370,78 +341,6 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict,
 
 # ── Writer ────────────────────────────────────────────────────────────────────
 
-def build_floor_data(db_path: str = DB_PATH) -> dict:
-    """Per-proxy-country export of Numbeo, Big Mac, and World Bank CPI
-    series. Consumed by the dashboard's proxy-country page (Mexico).
-
-    Schema:
-    {
-      "Mexico": {
-        "iso2":     "MX",
-        "currency": "MXN",
-        "numbeo_inexpensive": [{"year": 2018, "value": 8.42}, ...],
-        "numbeo_midrange":    [{"year": 2018, "value": 30.10}, ...],
-        "bigmac_usd":         [{"year": "2018-01-01", "value": 2.50}, ...],
-        "wb_cpi":             [{"year": "2018-01", "value": 102.1}, ...]
-      }
-    }
-    """
-    out: dict = {}
-    if not os.path.exists(db_path):
-        return out
-    try:
-        conn = sqlite3.connect(db_path)
-        cur = conn.cursor()
-        for country, iso2, iso3, currency in FLOOR_COUNTRIES:
-            # Numbeo: 'Meal, Inexpensive Restaurant' & 'Meal for 2 People...'
-            # Values are USD-normalised in the table; the dashboard renders
-            # them as USD-equivalent local-currency proxies.
-            inexp = cur.execute(
-                "SELECT year, value FROM numbeo_index "
-                "WHERE iso2 = ? AND indicator LIKE 'Meal, Inexpensive%' "
-                "ORDER BY year",
-                (iso2,)
-            ).fetchall()
-            midrange = cur.execute(
-                "SELECT year, value FROM numbeo_index "
-                "WHERE iso2 = ? AND indicator LIKE 'Meal for 2 People%' "
-                "ORDER BY year",
-                (iso2,)
-            ).fetchall()
-            bigmac = cur.execute(
-                "SELECT date, dollar_price FROM bigmac_index "
-                "WHERE iso3 = ? AND dollar_price IS NOT NULL "
-                "ORDER BY date",
-                (iso3,)
-            ).fetchall()
-            cpi = cur.execute(
-                "SELECT year_month, cpi_value FROM monthly_cpi "
-                "WHERE country_code = ? AND cpi_value IS NOT NULL "
-                "ORDER BY year_month",
-                (iso2,)
-            ).fetchall()
-            out[country] = {
-                "iso2":     iso2,
-                "currency": currency,
-                "numbeo_inexpensive": [
-                    {"year": y, "value": safe_round(v, 2)} for y, v in inexp
-                ],
-                "numbeo_midrange": [
-                    {"year": y, "value": safe_round(v, 2)} for y, v in midrange
-                ],
-                "bigmac_usd": [
-                    {"year": d, "value": safe_round(v, 2)} for d, v in bigmac
-                ],
-                "wb_cpi": [
-                    {"year": ym, "value": safe_round(v, 1)} for ym, v in cpi
-                ],
-            }
-        conn.close()
-    except Exception as e:
-        print(f"  ⚠  floor-data query failed: {e}")
-    return out
-
-
 def write_json(obj: Union[dict, list], path: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -492,10 +391,6 @@ def run(
     write_json(latest_values, os.path.join(out_dir, "latest_values.json"))
     write_json(latest_values, os.path.join(DASHBOARD_PUBLIC_DATA, "latest_values.json"))
 
-    print("Building floor_data.json …")
-    floor_data = build_floor_data()
-    write_json(floor_data, os.path.join(out_dir, "floor_data.json"))
-    write_json(floor_data, os.path.join(DASHBOARD_PUBLIC_DATA, "floor_data.json"))
 
     print(f"\nAll dashboard JSON written to {out_dir}/ and {DASHBOARD_PUBLIC_DATA}/")
 

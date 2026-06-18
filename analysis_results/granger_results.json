@@ -1,6 +1,6 @@
 {
   "Australia": {
-    "n_obs": 5,
+    "n_obs": 12,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
@@ -8,10 +8,21 @@
     "pass_through_formal": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 5, need 8)"
+    "note": "insufficient_data (have 12, need 24)"
+  },
+  "India": {
+    "n_obs": 47,
+    "granger_significant": false,
+    "granger_p_value": 0.4742,
+    "lead_months": 1,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0007,
+    "pass_through_significant": false,
+    "r_squared": 0.4997,
+    "note": ""
   },
   "Indonesia": {
-    "n_obs": 1,
+    "n_obs": 20,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
@@ -19,7 +30,7 @@
     "pass_through_formal": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 1, need 8)"
+    "note": "insufficient_data (have 20, need 24)"
   },
   "Malaysia": {
     "n_obs": 6,
@@ -30,12 +41,18 @@
     "pass_through_formal": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 6, need 8)"
+    "note": "insufficient_data (have 6, need 24)"
   },
   "Singapore": {
-    "n_obs": 0,
-    "note": "no_overlap",
-    "granger_significant": false
+    "n_obs": 8,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "note": "insufficient_data (have 8, need 24)"
   },
   "Thailand": {
     "n_obs": 0,
@@ -51,17 +68,17 @@
     "pass_through_formal": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 5, need 8)"
+    "note": "insufficient_data (have 5, need 24)"
   },
   "United States": {
-    "n_obs": 5,
-    "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
+    "n_obs": 31,
+    "granger_significant": true,
+    "granger_p_value": 0.021,
+    "lead_months": 1,
+    "aic_lag": 4,
+    "pass_through_formal": -0.0043,
     "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data (have 5, need 8)"
+    "r_squared": 0.5566,
+    "note": ""
   }
 }

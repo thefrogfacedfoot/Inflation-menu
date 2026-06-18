@@ -1,12 +1,7 @@
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
-import {
-  getCountryData,
-  getFloorDataForCountry,
-  seriesToCsv,
-} from "@/lib/data";
+import { getCountryData, seriesToCsv } from "@/lib/data";
 import IndexChart from "@/components/IndexChart";
-import FloorChart from "@/components/FloorChart";
 import StatCard from "@/components/StatCard";
 import {
   SLUG_TO_COUNTRY,
@@ -15,9 +10,7 @@ import {
   COVERAGE_NOTES,
   DEVELOPMENT_STATUS,
   COUNTRIES,
-  PROXY_COUNTRIES,
 } from "@/types";
-import type { FloorData } from "@/types";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -26,10 +19,6 @@ interface PageProps {
 
 export async function generateStaticParams() {
   return Object.values(COUNTRY_SLUGS).map((slug) => ({ country: slug }));
-}
-
-function isProxyCountry(country: string): boolean {
-  return (PROXY_COUNTRIES as readonly string[]).includes(country);
 }
 
 /**
@@ -101,19 +90,7 @@ export default async function CountryPage({ params }: PageProps) {
 
   const countryName = resolved.country;
 
-  // Proxy-only countries (Mexico) get a different template: no UIFPI chart,
-  // just Numbeo + Big Mac + WB CPI.
-  if (isProxyCountry(countryName)) {
-    const floor = await getFloorDataForCountry(countryName);
-    return (
-      <ProxyCountryPage countryName={countryName} floor={floor} />
-    );
-  }
-
   const { summary, latest, series } = await getCountryData(countryName);
-  // Floor data is loaded for every roster country. Surfaced as a
-  // supplementary cross-country reference section under the main stats.
-  const floor = await getFloorDataForCountry(countryName);
   const csvData = seriesToCsv(countryName, series);
   const devStatus = DEVELOPMENT_STATUS[countryName];
   const totalItems = (summary?.items_formal ?? 0) + (summary?.items_informal ?? 0);
@@ -314,14 +291,6 @@ export default async function CountryPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Supplementary floor data — Numbeo / Big Mac / WB CPI.
-          Shown for every roster country with loaded floor data so that
-          cross-country comparison is always available even when the
-          item-level UIFPI series is thin. */}
-      {floor && (
-        <FloorDataSection countryName={countryName} floor={floor} />
-      )}
-
       {/* Navigation */}
       <div className="flex justify-between pt-4 border-t border-gray-200">
         <Link
@@ -347,303 +316,3 @@ export default async function CountryPage({ params }: PageProps) {
   );
 }
 
-// Proxy-only countries (Mexico, in this build) render a stripped template:
-// no UIFPI chart, no item-level stats. We surface Numbeo restaurant
-// price levels, Big Mac USD, and the World Bank CPI so the country is
-// honestly represented in the cross-country panel without implying we
-// have menu-price data we don't.
-function ProxyCountryPage({
-  countryName,
-  floor,
-}: {
-  countryName: string;
-  floor: FloorData | null;
-}) {
-  const latestBigMac = floor?.bigmac_usd?.at(-1);
-  const latestCpi = floor?.wb_cpi?.at(-1);
-  const latestInexp = floor?.numbeo_inexpensive?.at(-1);
-  const latestMid = floor?.numbeo_midrange?.at(-1);
-
-  return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-        <Link href="/" className="hover:text-gray-700 transition-colors">
-          Dashboard
-        </Link>
-        <span>/</span>
-        <span className="text-gray-900 font-medium">{countryName}</span>
-      </nav>
-
-      <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
-        <div className="flex items-center gap-3">
-          <span className="text-4xl">{COUNTRY_FLAGS[countryName]}</span>
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              {countryName}
-            </h1>
-            <div className="flex items-center gap-2 mt-1 flex-wrap">
-              <span className="text-xs px-2 py-0.5 rounded font-medium bg-amber-50 text-amber-700">
-                {DEVELOPMENT_STATUS[countryName]}
-              </span>
-              <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
-                Proxy data only
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 mb-6 text-sm text-amber-900 leading-relaxed">
-        <strong>No item-level UIFPI computed for {countryName}.</strong>{" "}
-        No archival menu-price source (Wayback, direct, or aggregator) currently
-        clears the formal-sector threshold. {countryName} is included in the
-        cross-country panel via three macro floor datasets only:{" "}
-        <span className="font-medium">Numbeo</span> restaurant price levels,{" "}
-        <span className="font-medium">The Economist Big Mac Index</span>{" "}
-        (USD-normalised), and{" "}
-        <span className="font-medium">World Bank CPI</span>. Item-level price
-        leadership (the core UIFPI signal) cannot be tested here.
-      </div>
-
-      {/* Top stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-        <StatCard
-          label="Big Mac (latest)"
-          value={latestBigMac ? `$${latestBigMac.value.toFixed(2)}` : null}
-          sub={
-            latestBigMac
-              ? `${String(latestBigMac.year).slice(0, 7)} USD-normalised`
-              : undefined
-          }
-          highlight
-        />
-        <StatCard
-          label="World Bank CPI"
-          value={latestCpi ? latestCpi.value.toFixed(1) : null}
-          sub={latestCpi ? `${latestCpi.year} (2010 = 100)` : undefined}
-        />
-        <StatCard
-          label="Inexpensive meal"
-          value={latestInexp ? `$${latestInexp.value.toFixed(2)}` : null}
-          sub={
-            latestInexp
-              ? `Numbeo ${latestInexp.year}, USD-equivalent`
-              : undefined
-          }
-        />
-        <StatCard
-          label="Mid-range meal (2)"
-          value={latestMid ? `$${latestMid.value.toFixed(2)}` : null}
-          sub={
-            latestMid
-              ? `Numbeo ${latestMid.year}, USD-equivalent`
-              : undefined
-          }
-        />
-      </div>
-
-      {/* Charts */}
-      <div className="grid sm:grid-cols-2 gap-6 mb-8">
-        <div className="rounded-xl border border-gray-200 bg-white p-5">
-          <h3 className="font-semibold text-gray-900 mb-1">
-            Big Mac price (USD)
-          </h3>
-          <p className="text-xs text-gray-500 mb-3">
-            The Economist, semi-annual snapshots
-          </p>
-          <FloorChart
-            data={floor?.bigmac_usd ?? []}
-            label="Big Mac USD"
-            yUnit="USD"
-            color="#1a365d"
-            height={220}
-          />
-        </div>
-        <div className="rounded-xl border border-gray-200 bg-white p-5">
-          <h3 className="font-semibold text-gray-900 mb-1">
-            World Bank CPI ({floor?.iso2})
-          </h3>
-          <p className="text-xs text-gray-500 mb-3">
-            Annual FP.CPI.TOTL, monthly-expanded
-          </p>
-          <FloorChart
-            data={floor?.wb_cpi ?? []}
-            label="CPI"
-            color="#718096"
-            height={220}
-          />
-        </div>
-      </div>
-
-      <div className="rounded-xl border border-gray-200 bg-white p-5 mb-8">
-        <h3 className="font-semibold text-gray-900 mb-1">
-          Numbeo restaurant price levels (USD-equivalent)
-        </h3>
-        <p className="text-xs text-gray-500 mb-3">
-          Numbeo snapshots overwrite year-over-year (their methodology), so
-          values often appear flat across years — the cross-country comparison
-          is the useful signal, not the time series.
-        </p>
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200 text-left text-xs uppercase text-gray-500">
-                <th className="py-2 pr-4">Year</th>
-                <th className="py-2 pr-4">Inexpensive meal</th>
-                <th className="py-2 pr-4">Mid-range meal (2)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(floor?.numbeo_inexpensive ?? []).map((p, i) => {
-                const mid = floor?.numbeo_midrange?.[i];
-                return (
-                  <tr key={p.year} className="border-b border-gray-100">
-                    <td className="py-1.5 pr-4 font-medium text-gray-700">
-                      {p.year}
-                    </td>
-                    <td className="py-1.5 pr-4 font-mono">
-                      ${p.value.toFixed(2)}
-                    </td>
-                    <td className="py-1.5 pr-4 font-mono">
-                      {mid ? `$${mid.value.toFixed(2)}` : "—"}
-                    </td>
-                  </tr>
-                );
-              })}
-              {(floor?.numbeo_inexpensive ?? []).length === 0 && (
-                <tr>
-                  <td
-                    colSpan={3}
-                    className="py-3 text-center text-xs text-gray-400"
-                  >
-                    Numbeo data not loaded
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div className="flex justify-between pt-4 border-t border-gray-200">
-        <Link
-          href="/"
-          className="text-sm font-medium text-gray-500 hover:text-[#1a365d] transition-colors"
-        >
-          ← All Countries
-        </Link>
-        <Link
-          href="/methodology"
-          className="text-sm font-medium text-gray-500 hover:text-[#1a365d] transition-colors"
-        >
-          Methodology →
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-// Supplementary floor-data section shared between regular country pages
-// and the ProxyCountryPage template. Surfaces Big Mac (USD), WB CPI, and
-// the Numbeo restaurant-price table as a cross-country reference panel.
-function FloorDataSection({
-  countryName,
-  floor,
-}: {
-  countryName: string;
-  floor: FloorData;
-}) {
-  return (
-    <div className="mb-8">
-      <div className="flex items-baseline justify-between mb-3">
-        <h2 className="font-semibold text-gray-900">
-          Cross-country reference — {countryName}
-        </h2>
-        <span className="text-xs text-gray-500">
-          Numbeo · Big Mac · World Bank CPI
-        </span>
-      </div>
-      <div className="grid sm:grid-cols-2 gap-6 mb-4">
-        <div className="rounded-xl border border-gray-200 bg-white p-5">
-          <h3 className="font-semibold text-gray-900 mb-1">
-            Big Mac price (USD)
-          </h3>
-          <p className="text-xs text-gray-500 mb-3">
-            The Economist, semi-annual snapshots
-          </p>
-          <FloorChart
-            data={floor.bigmac_usd ?? []}
-            label="Big Mac USD"
-            yUnit="USD"
-            color="#1a365d"
-            height={200}
-          />
-        </div>
-        <div className="rounded-xl border border-gray-200 bg-white p-5">
-          <h3 className="font-semibold text-gray-900 mb-1">
-            World Bank CPI ({floor.iso2})
-          </h3>
-          <p className="text-xs text-gray-500 mb-3">
-            FP.CPI.TOTL annual, monthly-expanded
-          </p>
-          <FloorChart
-            data={floor.wb_cpi ?? []}
-            label="CPI"
-            color="#718096"
-            height={200}
-          />
-        </div>
-      </div>
-      <div className="rounded-xl border border-gray-200 bg-white p-5">
-        <h3 className="font-semibold text-gray-900 mb-1">
-          Numbeo restaurant price levels (USD-equivalent)
-        </h3>
-        <p className="text-xs text-gray-500 mb-3">
-          Numbeo snapshots overwrite year-over-year (their methodology), so
-          values often appear flat across years — the cross-country
-          comparison is the useful signal, not the time series.
-        </p>
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200 text-left text-xs uppercase text-gray-500">
-                <th className="py-2 pr-4">Year</th>
-                <th className="py-2 pr-4">Inexpensive meal</th>
-                <th className="py-2 pr-4">Mid-range meal (2)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(floor.numbeo_inexpensive ?? []).map((p, i) => {
-                const mid = floor.numbeo_midrange?.[i];
-                return (
-                  <tr key={p.year} className="border-b border-gray-100">
-                    <td className="py-1.5 pr-4 font-medium text-gray-700">
-                      {p.year}
-                    </td>
-                    <td className="py-1.5 pr-4 font-mono">
-                      ${p.value.toFixed(2)}
-                    </td>
-                    <td className="py-1.5 pr-4 font-mono">
-                      {mid ? `$${mid.value.toFixed(2)}` : "—"}
-                    </td>
-                  </tr>
-                );
-              })}
-              {(floor.numbeo_inexpensive ?? []).length === 0 && (
-                <tr>
-                  <td
-                    colSpan={3}
-                    className="py-3 text-center text-xs text-gray-400"
-                  >
-                    Numbeo data not loaded for this country
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
-}
