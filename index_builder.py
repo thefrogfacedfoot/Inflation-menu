@@ -160,6 +160,13 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
     df = df.dropna(subset=["collection_date"])
     df["year_month"] = df["collection_date"].dt.to_period("M").astype(str)
 
+    # Restrict to UIFPI-relevant sectors BEFORE the per-month row cap so that
+    # out-of-scope rows (e.g. BLS APU grocery, official CPI input series)
+    # cannot perturb the deterministic sampling of menu prices. Out-of-scope
+    # rows survive in the raw `prices` table for downstream analysis but
+    # never enter the index.
+    df = df[df["sector"].isin(("formal", "informal"))].copy()
+
     # Cap rows per (country, year_month) so dense months don't dominate the
     # cross-country index. Deterministic via SAMPLE_SEED.
     before_rows = len(df)

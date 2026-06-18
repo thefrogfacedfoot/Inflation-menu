@@ -2,17 +2,29 @@
   "Australia": {
     "n_obs": 23,
     "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
-    "pass_through_se": null,
-    "pass_through_p_value": null,
-    "pass_through_ci_low": null,
-    "pass_through_ci_high": null,
+    "granger_p_value": 0.1388,
+    "lead_months": 1,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0115,
+    "pass_through_se": 0.00896,
+    "pass_through_p_value": 0.2399,
+    "pass_through_ci_low": -0.00967,
+    "pass_through_ci_high": 0.03268,
     "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data (have 23, need 24)"
+    "r_squared": 0.7342,
+    "note": "",
+    "granger_f_statistic": 2.3997,
+    "granger_df_num": 1,
+    "granger_df_denom": 18,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 2.3997,
+        "p": 0.1388,
+        "df_num": 1,
+        "df_denom": 18
+      }
+    ]
   },
   "India": {
     "n_obs": 47,
@@ -44,17 +56,29 @@
   "Indonesia": {
     "n_obs": 20,
     "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
-    "pass_through_se": null,
-    "pass_through_p_value": null,
-    "pass_through_ci_low": null,
-    "pass_through_ci_high": null,
+    "granger_p_value": 0.17,
+    "lead_months": 1,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0014,
+    "pass_through_se": 0.00169,
+    "pass_through_p_value": 0.4296,
+    "pass_through_ci_low": -0.0022,
+    "pass_through_ci_high": 0.00494,
     "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data (have 20, need 24)"
+    "r_squared": 0.0371,
+    "note": "",
+    "granger_f_statistic": 2.0781,
+    "granger_df_num": 1,
+    "granger_df_denom": 15,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 2.0781,
+        "p": 0.17,
+        "df_num": 1,
+        "df_denom": 15
+      }
+    ]
   },
   "Malaysia": {
     "n_obs": 6,
@@ -69,7 +93,7 @@
     "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 6, need 24)"
+    "note": "insufficient_data (have 6, need 8)"
   },
   "Singapore": {
     "n_obs": 8,
@@ -84,7 +108,7 @@
     "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 8, need 24)"
+    "note": "insufficient_data_after_differencing (7 obs)"
   },
   "Thailand": {
     "n_obs": 0,
@@ -94,17 +118,43 @@
   "United Kingdom": {
     "n_obs": 18,
     "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
-    "pass_through_se": null,
-    "pass_through_p_value": null,
-    "pass_through_ci_low": null,
-    "pass_through_ci_high": null,
+    "granger_p_value": 0.1387,
+    "lead_months": 3,
+    "aic_lag": 3,
+    "pass_through_formal": -0.0011,
+    "pass_through_se": 0.00569,
+    "pass_through_p_value": 0.8555,
+    "pass_through_ci_low": -0.01319,
+    "pass_through_ci_high": 0.01108,
     "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data (have 18, need 24)"
+    "r_squared": 0.0023,
+    "note": "",
+    "granger_f_statistic": 2.5515,
+    "granger_df_num": 3,
+    "granger_df_denom": 7,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 0.2353,
+        "p": 0.6357,
+        "df_num": 1,
+        "df_denom": 13
+      },
+      {
+        "lag": 2,
+        "F": 0.1386,
+        "p": 0.8722,
+        "df_num": 2,
+        "df_denom": 10
+      },
+      {
+        "lag": 3,
+        "F": 2.5515,
+        "p": 0.1387,
+        "df_num": 3,
+        "df_denom": 7
+      }
+    ]
   },
   "United States": {
     "n_obs": 31,
