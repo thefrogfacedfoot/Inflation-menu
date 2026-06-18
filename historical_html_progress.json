@@ -6371,5 +6371,1653 @@
       "https://www.ubereats.com/za"
     ],
     "status": "complete"
+  },
+  "Malaysia:grabfood-my": {
+    "snapshots": [
+      {
+        "timestamp": "20200521100758",
+        "url": "https://food.grab.com/my/en/restaurant/crust-163-retail-park-delivery/1-CY5FNLDVGFXWAN"
+      },
+      {
+        "timestamp": "20200521191739",
+        "url": "https://food.grab.com/my/en/restaurant/ssi-wifi-arabic-restaurant-street-mall-delivery/1-CYVDSAUUT7MBAE"
+      },
+      {
+        "timestamp": "20200521162047",
+        "url": "https://food.grab.com/my/en/restaurant/yin-s-sourdough-bakery-cafe-delivery/MYDD11003"
+      },
+      {
+        "timestamp": "20200422104343",
+        "url": "https://food.grab.com/my/en/restaurants"
+      },
+      {
+        "timestamp": "20200518052459",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=secret%20recipe&pid=Facebook&c=MY20GFPDF2MEXDEEPLINK&is_retargeting=true&af_force_deeplink=true"
+      },
+      {
+        "timestamp": "20200422093655",
+        "url": "https://food.grab.com/my/en/restaurants?category=bubble-tea-29"
+      },
+      {
+        "timestamp": "20200502084838",
+        "url": "https://food.grab.com/my/en/restaurants?category=burger-33"
+      },
+      {
+        "timestamp": "20200501233153",
+        "url": "https://food.grab.com/my/en/restaurants?category=chinese-45"
+      },
+      {
+        "timestamp": "20200422152036",
+        "url": "https://food.grab.com/my/en/restaurants?category=coffee-47"
+      },
+      {
+        "timestamp": "20200501123222",
+        "url": "https://food.grab.com/my/en/restaurants?category=dessert-55"
+      },
+      {
+        "timestamp": "20200502075408",
+        "url": "https://food.grab.com/my/en/restaurants?category=fast-food-62"
+      },
+      {
+        "timestamp": "20200605185541",
+        "url": "https://food.grab.com/my/en/restaurants?category=filipino-63"
+      },
+      {
+        "timestamp": "20200422143032",
+        "url": "https://food.grab.com/my/en/restaurants?category=hainanese-chicken-rice-197"
+      },
+      {
+        "timestamp": "20200507045647",
+        "url": "https://food.grab.com/my/en/restaurants?category=hot-deals-237"
+      },
+      {
+        "timestamp": "20200501211800",
+        "url": "https://food.grab.com/my/en/restaurants?category=indian-86"
+      },
+      {
+        "timestamp": "20200502020735",
+        "url": "https://food.grab.com/my/en/restaurants?category=indonesian-87"
+      },
+      {
+        "timestamp": "20200505093227",
+        "url": "https://food.grab.com/my/en/restaurants?category=italian-88"
+      },
+      {
+        "timestamp": "20200501165437",
+        "url": "https://food.grab.com/my/en/restaurants?category=japanese-89"
+      },
+      {
+        "timestamp": "20200501201014",
+        "url": "https://food.grab.com/my/en/restaurants?category=korean-96"
+      },
+      {
+        "timestamp": "20200531201216",
+        "url": "https://food.grab.com/my/en/restaurants?category=mexican-110"
+      },
+      {
+        "timestamp": "20200928215729",
+        "url": "https://food.grab.com/my/en/restaurant/15-minutes-bake-royal-plaza-putatan-delivery/1-CZJ2KE4EJRJHJJ"
+      },
+      {
+        "timestamp": "20200929105744",
+        "url": "https://food.grab.com/my/en/restaurant/1981-florist-cafe-riverson-delivery/1-CY6YWENZR623AN"
+      },
+      {
+        "timestamp": "20200808154425",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-masjid-jamek-delivery/1-CY5ZR8EENKDAJ2"
+      },
+      {
+        "timestamp": "20200924060448",
+        "url": "https://food.grab.com/my/en/restaurant/899-hokkien-mee-kobusak-non-halal-delivery/1-CZKXCKKAVCDFA6"
+      },
+      {
+        "timestamp": "20200920070122",
+        "url": "https://food.grab.com/my/en/restaurant/a-container-cafe-jalan-kilang-delivery/1-CYVUREN1CB2XLN"
+      },
+      {
+        "timestamp": "20200919035115",
+        "url": "https://food.grab.com/my/en/restaurant/a-w-bandar-baru-nilai-delivery/1-CY32TEM1ERCTE6"
+      },
+      {
+        "timestamp": "20200928034047",
+        "url": "https://food.grab.com/my/en/restaurant/a-w-mydin-seremban-2-delivery/1-CY32TEM1EPVTSE"
+      },
+      {
+        "timestamp": "20200924145750",
+        "url": "https://food.grab.com/my/en/restaurant/a-w-seremban-dt-delivery/1-CY32TEM1E25VVT"
+      },
+      {
+        "timestamp": "20200921114204",
+        "url": "https://food.grab.com/my/en/restaurant/a1-chicken-rice-imago-shopping-mall-delivery/1-CZJFAXDUPF5TAX"
+      },
+      {
+        "timestamp": "20200925045107",
+        "url": "https://food.grab.com/my/en/restaurant/a1-chicken-rice-itcc-mall-delivery/1-CZJFAXDVEEMZE2"
+      },
+      {
+        "timestamp": "20200919065707",
+        "url": "https://food.grab.com/my/en/restaurant/abg-long-coconut-shake-cendol-putatan-square-delivery/1-CZDEANNYHBCUGT"
+      },
+      {
+        "timestamp": "20200928151827",
+        "url": "https://food.grab.com/my/en/restaurant/adelphi-co-jalan-damai-non-halal-delivery/1-CZK1JRJCREJ2CN"
+      },
+      {
+        "timestamp": "20200927175937",
+        "url": "https://food.grab.com/my/en/restaurant/alpro-pharmacy-biz-avenue-delivery/1-CZEJRAMDJA3KTT"
+      },
+      {
+        "timestamp": "20200926161451",
+        "url": "https://food.grab.com/my/en/restaurant/alpro-pharmacy-garden-homes-delivery/1-CZEJRAMDJ2XJCN"
+      },
+      {
+        "timestamp": "20200928161641",
+        "url": "https://food.grab.com/my/en/restaurant/alpro-pharmacy-jalan-rasah-delivery/1-CZEXJBVJGXAER6"
+      },
+      {
+        "timestamp": "20200921165635",
+        "url": "https://food.grab.com/my/en/restaurant/alpro-pharmacy-lobak-delivery/1-CZEXJBVHPEJ1KE"
+      },
+      {
+        "timestamp": "20200923172101",
+        "url": "https://food.grab.com/my/en/restaurant/artos-cafe-damai-point-delivery/1-CY5HJPTDE6WKJA"
+      },
+      {
+        "timestamp": "20200921042213",
+        "url": "https://food.grab.com/my/en/restaurant/auntie-anne-s-aeon-seremban-2-delivery/1-CZEJRAMZNYXEVT"
+      },
+      {
+        "timestamp": "20200919113741",
+        "url": "https://food.grab.com/my/en/restaurant/awah-alifa-api-api-centre-delivery/1-CZJVKA6VLEADDE"
+      },
+      {
+        "timestamp": "20200920092541",
+        "url": "https://food.grab.com/my/en/restaurant/ay-trad-fried-pork-kuey-teow-sdkn-wet-mrket-inanam-kapital-non-halal-delivery/1-CZJGJP4EN4A2PA"
+      },
+      {
+        "timestamp": "20201021082531",
+        "url": "https://food.grab.com/my/en/restaurant/%C2%B1-canteen-mkh-boulevard-non-halal-delivery/1-CZDXNYC1J33VVT"
+      },
+      {
+        "timestamp": "20201020040610",
+        "url": "https://food.grab.com/my/en/restaurant/%E6%BA%90%E6%9D%A5-the-origin-taman-eng-ann-non-halal-delivery/1-CZBUJPBFREWJVN"
+      },
+      {
+        "timestamp": "20201204173159",
+        "url": "https://food.grab.com/my/en/restaurant/1-taste-food-centre-jalan-sekama-non-halal-delivery/1-CY6KAPNJPEK3DE"
+      },
+      {
+        "timestamp": "20201027065859",
+        "url": "https://food.grab.com/my/en/restaurant/100-houz-coffee-breakfast-jalan-reko-delivery/1-CZDFALNCLEE2LJ"
+      },
+      {
+        "timestamp": "20201023062301",
+        "url": "https://food.grab.com/my/en/restaurant/118-papa-mama-restaurant-metro-prima-non-halal-delivery/1-CZKYRGBJL3T1WE"
+      },
+      {
+        "timestamp": "20201128211248",
+        "url": "https://food.grab.com/my/en/restaurant/11ridgeway-jalan-ridgeway-delivery/1-CZCKNT4CAPDWLA"
+      },
+      {
+        "timestamp": "20201019222106",
+        "url": "https://food.grab.com/my/en/restaurant/13th-house-cafe-plaza-prima-setapak-delivery/1-CZJFJ232JCLFWA"
+      },
+      {
+        "timestamp": "20201028083638",
+        "url": "https://food.grab.com/my/en/restaurant/15-grams-coffee-bar-promenade-delivery/1-CYXHV7VBAVNXBA"
+      },
+      {
+        "timestamp": "20201022071040",
+        "url": "https://food.grab.com/my/en/restaurant/168-store-wisma-hainan-delivery/1-CY43NU3CT8NZJ2"
+      },
+      {
+        "timestamp": "20201025233954",
+        "url": "https://food.grab.com/my/en/restaurant/18%C2%B0c-cool-blend-jalan-raya-delivery/1-CZKUPFKBJJ41V6"
+      },
+      {
+        "timestamp": "20201024235548",
+        "url": "https://food.grab.com/my/en/restaurant/1977-new-ipoh-chicken-rice-damansara-jaya-non-halal-delivery/MYDD00216"
+      },
+      {
+        "timestamp": "20201029172419",
+        "url": "https://food.grab.com/my/en/restaurant/2-sneks-little-susan-delivery/MYDD05146"
+      },
+      {
+        "timestamp": "20201022130425",
+        "url": "https://food.grab.com/my/en/restaurant/21-street-cafe-taman-melaka-raya-delivery/1-CY4TEJ2DEXL3BE"
+      },
+      {
+        "timestamp": "20201026204742",
+        "url": "https://food.grab.com/my/en/restaurant/28-barthehood-28-boulevard-non-halal-delivery/1-CZEWG8C2LK4VL6"
+      },
+      {
+        "timestamp": "20201029054256",
+        "url": "https://food.grab.com/my/en/restaurant/3-monkeys-cafe-bandar-botanik-delivery/1-CZAZRECHMCEXA2"
+      },
+      {
+        "timestamp": "20201028200551",
+        "url": "https://food.grab.com/my/en/restaurant/34-bishop-delivery/1-CYLZJTACVLLXSE"
+      },
+      {
+        "timestamp": "20201026064921",
+        "url": "https://food.grab.com/my/en/restaurant/37-2%C2%B0c-cafe-delivery/1-CZACTU4CCZEVG2"
+      },
+      {
+        "timestamp": "20201027214104",
+        "url": "https://food.grab.com/my/en/restaurant/3922-wan-tan-mee-jalan-munshi-abdullah-non-halal-delivery/1-CZJUN3NZT3EXJA"
+      },
+      {
+        "timestamp": "20201101012446",
+        "url": "https://food.grab.com/my/en/restaurant/4-season-music-restaurant-plaza-arkadia-non-halal-delivery/1-CZBXVX52T7CZA6"
+      },
+      {
+        "timestamp": "20201029105654",
+        "url": "https://food.grab.com/my/en/restaurant/49-snow-chew-jetty-delivery/1-CZDZJB4TJPN3G2"
+      },
+      {
+        "timestamp": "20210126094751",
+        "url": "https://food.grab.com/my/en/restaurant/13-bento-taman-bukit-indah-delivery/1-CY4YEFADLFK3KE"
+      },
+      {
+        "timestamp": "20210117032446",
+        "url": "https://food.grab.com/my/en/restaurant/1901-hot-dogs-swan-setapak-delivery/1-CZL2C7AJVVEXGX"
+      },
+      {
+        "timestamp": "20210125120437",
+        "url": "https://food.grab.com/my/en/restaurant/2nd-home-marina-square-2-non-halal-delivery/1-CZKFHBAZUEM2UE"
+      },
+      {
+        "timestamp": "20210302191759",
+        "url": "https://food.grab.com/my/en/restaurant/388-chicken-recipe-taman-island-glades-delivery/1-CZDHSEEZLJCGLX"
+      },
+      {
+        "timestamp": "20210117042307",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-east-coast-mall-delivery/1-CZCGR2TGJK51NN"
+      },
+      {
+        "timestamp": "20210117042212",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-gombak-delivery/1-CZMZLJBVTZBURT"
+      },
+      {
+        "timestamp": "20210303144742",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-penang-sentral-delivery/1-CZCGR2TGJP4WTA"
+      },
+      {
+        "timestamp": "20210305110949",
+        "url": "https://food.grab.com/my/en/restaurant/53-larut-matang-food-court-non-halal-delivery/1-CZKFHBAZNNEGCJ"
+      },
+      {
+        "timestamp": "20210121091937",
+        "url": "https://food.grab.com/my/en/restaurant/7-to-8-cafe-lutong-baru-delivery/1-CZLCA6AHNUCUMA"
+      },
+      {
+        "timestamp": "20210302181509",
+        "url": "https://food.grab.com/my/en/restaurant/718-pizza-persiaran-greentown-8-delivery/1-CZB3A3TGAFVJEE"
+      },
+      {
+        "timestamp": "20210305111353",
+        "url": "https://food.grab.com/my/en/restaurant/77-penang-best-rojak-persiaran-gurney-delivery/1-CZBBA2WYT73AJT"
+      },
+      {
+        "timestamp": "20210307035548",
+        "url": "https://food.grab.com/my/en/restaurant/918-cafe-jalan-chung-thye-phin-delivery/1-CZB3CJEYNZDDT6"
+      },
+      {
+        "timestamp": "20210302184324",
+        "url": "https://food.grab.com/my/en/restaurant/a-w-penang-hill-delivery/1-CZCUE22HAA5ZRE"
+      },
+      {
+        "timestamp": "20210301132047",
+        "url": "https://food.grab.com/my/en/restaurant/a-w-setapak-central-delivery/MYDD09080"
+      },
+      {
+        "timestamp": "20210117042412",
+        "url": "https://food.grab.com/my/en/restaurant/aariya-bhavan-jalan-tun-sambanthan-delivery/1-CZBGC3T1SANEJ2"
+      },
+      {
+        "timestamp": "20210120172907",
+        "url": "https://food.grab.com/my/en/restaurant/absolute-thai-toppen-shopping-centre-delivery/1-CZBWRPMAET5VLT"
+      },
+      {
+        "timestamp": "20210308125104",
+        "url": "https://food.grab.com/my/en/restaurant/addon-white-coffee-jalan-raja-ekram-delivery/1-CZAYAAEXCELTCA"
+      },
+      {
+        "timestamp": "20210301142215",
+        "url": "https://food.grab.com/my/en/restaurant/adyar-ananda-bhavan-brickfields-delivery/1-CZMBCTBVKF2AAJ"
+      },
+      {
+        "timestamp": "20210122070117",
+        "url": "https://food.grab.com/my/en/restaurant/ages-ago-sutera-mall-delivery/1-CZDTEXECEK42NN"
+      },
+      {
+        "timestamp": "20210301142208",
+        "url": "https://food.grab.com/my/en/restaurant/ah-cheng-bbq-seafood-jalan-medan-bayan-relau-delivery/1-CZJVNBEDLANDMA"
+      },
+      {
+        "timestamp": "20210423092707",
+        "url": "https://food.grab.com/my/en/restaurant/103-coffee-workshop-aeon-maluri-non-halal-delivery/1-CZDEANMVUEWGGE"
+      },
+      {
+        "timestamp": "20210517171548",
+        "url": "https://food.grab.com/my/en/restaurant/1977-new-ipoh-chicken-rice-petaling-street-non-halal-delivery/MYDD03581"
+      },
+      {
+        "timestamp": "20210518150317",
+        "url": "https://food.grab.com/my/en/restaurant/200%C3%A2%C2%B0c-chicken-cutlet-rice-jalan-permas-10-delivery/1-CYXYR7EAALE2VN"
+      },
+      {
+        "timestamp": "20210414163258",
+        "url": "https://food.grab.com/my/en/restaurant/2118-lorong-baru-non-halal-delivery/1-CZJUL8KUWF4EEJ"
+      },
+      {
+        "timestamp": "20210622172527",
+        "url": "https://food.grab.com/my/en/restaurant/22-kam-wan-white-coffee-aneka-selera-ipoh-garden-delivery/1-CZDUDAM1WFBUVJ"
+      },
+      {
+        "timestamp": "20210623063810",
+        "url": "https://food.grab.com/my/en/restaurant/28-hainanese-chicken-rice-pavilion-bundusan-non-halal-delivery/1-CZCGR2NZRFVAJT"
+      },
+      {
+        "timestamp": "20210421153458",
+        "url": "https://food.grab.com/my/en/restaurant/2f-coffee-roastery-mart-relau-delivery/1-CZJTTKDWR4CWNA"
+      },
+      {
+        "timestamp": "20210508020719",
+        "url": "https://food.grab.com/my/en/restaurant/300-restaurant-bar-desserts-delivery/MYDD06149"
+      },
+      {
+        "timestamp": "20210518074750",
+        "url": "https://food.grab.com/my/en/restaurant/3bg-%E2%80%93-3bg-food-station-delivery/1-CZE2N8B3R8MTV6"
+      },
+      {
+        "timestamp": "20210509180709",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-desa-sri-hartamas-delivery/1-CZAWEKUHCBB2AN"
+      },
+      {
+        "timestamp": "20210418165028",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-dpulze-delivery/1-CZDBJ6KTLPA2L6"
+      },
+      {
+        "timestamp": "20210517230447",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-ioi-city-mall-delivery/1-CZCGR2TGJ3NZNE"
+      },
+      {
+        "timestamp": "20210512000115",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-komtar-jbcc-delivery/1-CZDBJ6KTLPAKEN"
+      },
+      {
+        "timestamp": "20210423033521",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-medan-niaga-delivery/1-C2BWNLJFA23KVT"
+      },
+      {
+        "timestamp": "20210517233228",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-petronas-nkve-delivery/1-CZBHAPAKSEKJVE"
+      },
+      {
+        "timestamp": "20210410125700",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-sunway-velocity-delivery/1-CZDBJ6KTL76VNA"
+      },
+      {
+        "timestamp": "20210615010712",
+        "url": "https://food.grab.com/my/en/restaurant/575-restaurant-plaza-kingfisher-non-halal-delivery/1-CZCDJAB2CXAUHA"
+      },
+      {
+        "timestamp": "20210620194549",
+        "url": "https://food.grab.com/my/en/restaurant/67-bus-cafe-changkat-bukit-bintang-delivery/1-C2TAA7UGFFC2WA"
+      },
+      {
+        "timestamp": "20210507231841",
+        "url": "https://food.grab.com/my/en/restaurant/67-cafe-jalan-putera-delivery/1-CZBFFBACAJMKN2"
+      },
+      {
+        "timestamp": "20210508124933",
+        "url": "https://food.grab.com/my/en/restaurant/7-sins-fusion-kayu-ara-delivery/1-CY4BJ4CCJKBKPE"
+      },
+      {
+        "timestamp": "20210921012132",
+        "url": "https://food.grab.com/my/en/restaurant/18-topspot-seafood-ah-hock-jalan-bukit-mata-delivery/1-CZLBFBBYLK2TUA"
+      },
+      {
+        "timestamp": "20210727093338",
+        "url": "https://food.grab.com/my/en/restaurant/88keto-mart-bangsar-delivery/1-C2TYAENCTUVZJ6"
+      },
+      {
+        "timestamp": "20210724211718",
+        "url": "https://food.grab.com/my/en/restaurant/899-classic-bistro-cafe-bandar-utama-delivery/1-CZEHJEB2JVD3TA"
+      },
+      {
+        "timestamp": "20210921085002",
+        "url": "https://food.grab.com/my/en/restaurant/96-takar-pastry-house-tabuan-jaya-delivery/1-CZJFAXDULFUKR2"
+      },
+      {
+        "timestamp": "20210917005548",
+        "url": "https://food.grab.com/my/en/restaurant/99-fresh-mart-tabuan-tranquility-non-halal-delivery/1-CZDWTALKVZJ3FE"
+      },
+      {
+        "timestamp": "20210725215452",
+        "url": "https://food.grab.com/my/en/restaurant/a-look-eyewear-aeon-seremban-2-delivery/1-CZJUN3N1NJ31RT"
+      },
+      {
+        "timestamp": "20210919001432",
+        "url": "https://food.grab.com/my/en/restaurant/a-mart-jalan-medan-tuanku-delivery/1-C2J3C24CMFAWTT"
+      },
+      {
+        "timestamp": "20210724010146",
+        "url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-kluang-mall-delivery/1-CZKZAJKVJNCFTX"
+      },
+      {
+        "timestamp": "20210926134823",
+        "url": "https://food.grab.com/my/en/restaurant/abc-anak-melaka-medan-selera-dataran-bukit-baru-delivery/1-CZBAV6D1CP3BEE"
+      },
+      {
+        "timestamp": "20210726211257",
+        "url": "https://food.grab.com/my/en/restaurant/absolute-thai-sunway-big-box-delivery/1-CZJFNPBBTUCYGA"
+      },
+      {
+        "timestamp": "20210803104645",
+        "url": "https://food.grab.com/my/en/restaurant/adult-food-beverage-bangsar-village-non-halal-delivery/1-C2MBJPNEVVBBL6"
+      },
+      {
+        "timestamp": "20210916182536",
+        "url": "https://food.grab.com/my/en/restaurant/after-4-kopitiam-aiman-mall-delivery/1-CZDEE7CFRJWDGT"
+      },
+      {
+        "timestamp": "20210917233915",
+        "url": "https://food.grab.com/my/en/restaurant/after-4-kopitiam-jalan-rubber-delivery/1-CYLBVFEZAEBYKA"
+      },
+      {
+        "timestamp": "20210921081841",
+        "url": "https://food.grab.com/my/en/restaurant/ags-fried-chicken-bachang-delivery/1-CZDXNUEVSFBDCN"
+      },
+      {
+        "timestamp": "20210918074042",
+        "url": "https://food.grab.com/my/en/restaurant/ah-boon-chicken-rice-icom-square-delivery/1-CZDTGLCAVXU3EJ"
+      },
+      {
+        "timestamp": "20210924133916",
+        "url": "https://food.grab.com/my/en/restaurant/ah-boon-chicken-rice-jalan-ang-cheng-ho-delivery/1-CZECJPCAUALBJ6"
+      },
+      {
+        "timestamp": "20210927153158",
+        "url": "https://food.grab.com/my/en/restaurant/ah-boon-chicken-rice-jalan-rubber-delivery/1-CZDTGLCBE8LJEJ"
+      },
+      {
+        "timestamp": "20210731134021",
+        "url": "https://food.grab.com/my/en/restaurant/ah-cheng-laksa-aeon-nilai-delivery/1-CZJAE32CLBEURX"
+      },
+      {
+        "timestamp": "20210925195301",
+        "url": "https://food.grab.com/my/en/restaurant/ah-fen-cafe-jalan-ang-cheng-ho-non-halal-delivery/1-CYMAAANVN2JWLE"
+      },
+      {
+        "timestamp": "20210917164900",
+        "url": "https://food.grab.com/my/en/restaurant/ah-huat-nasi-lemak-kukus-tradisional-taman-kerjasama-delivery/1-CY42NEWBTTLEAA"
+      },
+      {
+        "timestamp": "20211225161044",
+        "url": "https://food.grab.com/my/en/restaurant/canton-kitchen-sri-rampai-non-halal-delivery/1-CYLKTYKCTFUARE"
+      },
+      {
+        "timestamp": "20211127115850",
+        "url": "https://food.grab.com/my/en/restaurant/fahrenheit-600-delivery/MYDD04897"
+      },
+      {
+        "timestamp": "20211205070454",
+        "url": "https://food.grab.com/my/en/restaurant/madam-kwan-s-imago-shopping-mall-delivery/1-CZDEDB6FEP3GGA"
+      },
+      {
+        "timestamp": "20211023081304",
+        "url": "https://food.grab.com/my/en/restaurant/nanyang-cafe-cheras-traders-square-non-halal-delivery/1-C2KHRZNZR32BAT"
+      },
+      {
+        "timestamp": "20211018111939",
+        "url": "https://food.grab.com/my/en/restaurant/nanyang-cafe-pavilion-elite-non-halal-delivery/1-C2KHTKEBLVMKVJ"
+      },
+      {
+        "timestamp": "20211018110629",
+        "url": "https://food.grab.com/my/en/restaurant/starbucks-johor-bahru-city-square-delivery/1-CYVZNNNBGKJBLN"
+      },
+      {
+        "timestamp": "20211216140633",
+        "url": "https://food.grab.com/my/en/restaurant/takoatok-1-shamelin-delivery/1-C25BAF2ATLCTEE"
+      },
+      {
+        "timestamp": "20211220041151",
+        "url": "https://food.grab.com/my/en/restaurant/the-cafe-more-the-fare-delivery/1-CY4KHE3BE6AJRX"
+      },
+      {
+        "timestamp": "20211028084431",
+        "url": "https://food.grab.com/my/en/restaurant/the-majapahit-mont-kiara-delivery/MYDD07438"
+      },
+      {
+        "timestamp": "20211116191353",
+        "url": "https://food.grab.com/my/en/restaurant/warung-pok-kob-de-salai-jalan-long-yunus-delivery/1-C25HC6WUMB2ZKE"
+      },
+      {
+        "timestamp": "20220315083104",
+        "url": "https://food.grab.com/my/en/restaurant/cafe-marhaban-rizq-maju-jalan-silang-delivery/1-C3DBC4LYJJ61CA"
+      },
+      {
+        "timestamp": "20220313100203",
+        "url": "https://food.grab.com/my/en/restaurant/chef-kecik-jalan-eco-majestic-9-1b-delivery/1-C3B2TVDZC6XHNN"
+      },
+      {
+        "timestamp": "20220112153220",
+        "url": "https://food.grab.com/my/en/restaurant/d-laksa-mytown-delivery/1-CYVZVBNFEY3XG6"
+      },
+      {
+        "timestamp": "20220208073536",
+        "url": "https://food.grab.com/my/en/restaurant/dt-cafe-shellout-and-western-delivery/1-CYMWTXKTL3EFEE"
+      },
+      {
+        "timestamp": "20220208064559",
+        "url": "https://food.grab.com/my/en/restaurant/dt-cafe-shellout-and-western-delivery/1-CYMWTXKTL3EFEE?fbclid=IwAR0B1NM8__bNPX42EbTQFaeKDs54MUcvniwsiecgj0poIT2UZsTo6JYCiVI"
+      },
+      {
+        "timestamp": "20220325143004",
+        "url": "https://food.grab.com/my/en/restaurant/kopi-saigon-kampung-baru-delivery/1-C25WABEJCNBUSE"
+      },
+      {
+        "timestamp": "20220227165400",
+        "url": "https://food.grab.com/my/en/restaurant/mikey-s-original-new-york-pizza-mont-kiara-delivery/MYDD03228"
+      },
+      {
+        "timestamp": "20220308062111",
+        "url": "https://food.grab.com/my/en/restaurant/nasi-gadow-taman-villa-putra-delivery/1-C2VELJ5BCAXCET"
+      },
+      {
+        "timestamp": "20220205121114",
+        "url": "https://food.grab.com/my/en/restaurant/nitro-kl-enjoys-corner-delivery/1-C2CKSGKELTMTJ2"
+      },
+      {
+        "timestamp": "20220106051840",
+        "url": "https://food.grab.com/my/en/restaurant/soong-kee-setapak-since-1945-non-halal-delivery/1-CZCFVJ4YHCNHEE"
+      },
+      {
+        "timestamp": "20220310120242",
+        "url": "https://food.grab.com/my/en/restaurant/tasty-chapathi-pj-delivery/MYDD05855"
+      },
+      {
+        "timestamp": "20220316050112",
+        "url": "https://food.grab.com/my/en/restaurant/the-brew-crew-lalaport-bukit-bintang-delivery/1-C3BDVY5XRPJJTN"
+      },
+      {
+        "timestamp": "20220316050114",
+        "url": "https://food.grab.com/my/en/restaurant/the-brew-crew-serba-dinamik-bieh-bintulu-integrated-energy-hub-delivery/1-C23CEJ3JVPMGBA"
+      },
+      {
+        "timestamp": "20220114140621",
+        "url": "https://food.grab.com/my/en/restaurant/watsons-pavilion-delivery/1-CZMHVUVYJGBTNX"
+      },
+      {
+        "timestamp": "20220201020652",
+        "url": "https://food.grab.com/my/en/restaurant/watsons-pavilion-delivery/1-CZMHVUVYJGBTNX?utm_campaign=20220201_ec-grab-mart&utm_medium=social&utm_source=twitter&utm_content="
+      },
+      {
+        "timestamp": "20220111104607",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true"
+      },
+      {
+        "timestamp": "20220111104324",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=211228_grabfood&utm_source=twitter&utm_medium=social&utm_content="
+      },
+      {
+        "timestamp": "20220214005235",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=220204_grabmart&utm_source=twitter&utm_medium=social&utm_content="
+      },
+      {
+        "timestamp": "20220326000134",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=HeroMarket&pid=Facebook&c=MY20GFPDF2MEXDEEPLINK&is_retargeting=true&af_force_deeplink=true"
+      },
+      {
+        "timestamp": "20220407124546",
+        "url": "https://food.grab.com/my/en/restaurant/john-satay-taman-tenaga-delivery/1-CZBUJPBFNB4HKA"
+      },
+      {
+        "timestamp": "20220407124740",
+        "url": "https://food.grab.com/my/en/restaurant/restoran-satay-point-sri-bandar-besi-delivery/1-C2ECN34ZNK4DLT"
+      },
+      {
+        "timestamp": "20220505102102",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=220505_grabmart&utm_source=twitter&utm_medium=social&utm_content="
+      },
+      {
+        "timestamp": "20220406090339",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=4fingers&pid"
+      },
+      {
+        "timestamp": "20220728030628",
+        "url": "https://food.grab.com/my/en/restaurant/orka-kava-taman-petronesa-delivery/1-C3JUECE3UFN2TN"
+      },
+      {
+        "timestamp": "20220921130028",
+        "url": "https://food.grab.com/my/en/restaurant/pak-ali-char-kuey-teow-setia-alam-delivery/1-C3AANBJDCY2ZJ6"
+      },
+      {
+        "timestamp": "20220902004141",
+        "url": "https://food.grab.com/my/en/restaurant/shariff-nasi-kandar-gelugor-taman-brown-delivery/1-C25AWAJCT2KZV2"
+      },
+      {
+        "timestamp": "20220710131338",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=220627_grabmart&utm_source=twitter&utm_medium=social&utm_content="
+      },
+      {
+        "timestamp": "20220814092947",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p8-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-220813"
+      },
+      {
+        "timestamp": "20220911105511",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p9-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-220911"
+      },
+      {
+        "timestamp": "20220828162635",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Watsons&pid=Website&c=MY_WATSONS&is_retargeting=true&af_force_deeplink=true"
+      },
+      {
+        "timestamp": "20221105024352",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-kicap-gaduh-taman-salak-perdana-delivery/1-C3TVFF2VEZBKAJ"
+      },
+      {
+        "timestamp": "20221002091435",
+        "url": "https://food.grab.com/my/en/restaurant/ayo-taman-desa-petaling-delivery/1-C3UZRBD3FBU2NE"
+      },
+      {
+        "timestamp": "20221008141854",
+        "url": "https://food.grab.com/my/en/restaurant/che-minah-ayam-percik-taman-permata-delivery/1-C26DG62ZA7TBDA"
+      },
+      {
+        "timestamp": "20221214002720",
+        "url": "https://food.grab.com/my/en/restaurant/chicken-rice-%E8%80%81%E5%8F%8B%E8%AE%B0%E7%83%A7%E8%85%8A-lau-tan-kopitiam-non-halal-delivery/1-C3VYN3EHFEKBWE"
+      },
+      {
+        "timestamp": "20221025002618",
+        "url": "https://food.grab.com/my/en/restaurant/kopitok-jalan-raja-syed-alwi-delivery/1-C3D3FEJEE6JUV6"
+      },
+      {
+        "timestamp": "20221129095826",
+        "url": "https://food.grab.com/my/en/restaurant/mohd-chan-sunway-geo-avenue-delivery/1-CZC2BBVWG76WEN"
+      },
+      {
+        "timestamp": "20221115174058",
+        "url": "https://food.grab.com/my/en/restaurant/mr-tako-kelana-jaya-dataran-glomac-delivery/1-C26TJX2HNFEVTT"
+      },
+      {
+        "timestamp": "20221219142658",
+        "url": "https://food.grab.com/my/en/restaurant/sri-ganapathi-mess-petaling-jaya-delivery/1-CZE3RFWGVUKYGJ"
+      },
+      {
+        "timestamp": "20221110182906",
+        "url": "https://food.grab.com/my/en/restaurant/the-coffee-bean-tea-leaf-pavilion-delivery/1-CY5WGBBXLJBXC2"
+      },
+      {
+        "timestamp": "20221013233806",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p10-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-221006"
+      },
+      {
+        "timestamp": "20221112024845",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p11-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-221012"
+      },
+      {
+        "timestamp": "20221210090649",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p12-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-221209"
+      },
+      {
+        "timestamp": "20230227041726",
+        "url": "https://food.grab.com/my/en/restaurant/bowleh-glomac-square-delivery/1-CZKKAFBDLF6KJT"
+      },
+      {
+        "timestamp": "20230331064650",
+        "url": "https://food.grab.com/my/en/restaurant/hot-cross-buns-whole-cakes-centre-point-delivery/1-C2MGJ72HJ4CEGA"
+      },
+      {
+        "timestamp": "20230314082320",
+        "url": "https://food.grab.com/my/en/restaurant/ipoh-station-cafe-medan-stesen-18-16-delivery/1-C2JGV2EFPEDWEX"
+      },
+      {
+        "timestamp": "20230325092710",
+        "url": "https://food.grab.com/my/en/restaurant/kopi-dan-studio-taman-tun-dr-ismail-delivery/1-C3E2EP5AWFW1LT"
+      },
+      {
+        "timestamp": "20230331070126",
+        "url": "https://food.grab.com/my/en/restaurant/lot-10-hutong-lot-10-non-halal-delivery/1-C2DCCXKKVNUDG2"
+      },
+      {
+        "timestamp": "20230209084803",
+        "url": "https://food.grab.com/my/en/restaurant/nazaria-corner-medan-selera-menara-condong-delivery/1-C2LFTVNAV7LYGT"
+      },
+      {
+        "timestamp": "20230224075848",
+        "url": "https://food.grab.com/my/en/restaurant/restoran-patatimo-jalan-wangsa-delima-10-delivery/1-CZD3N8CZTZDUKA"
+      },
+      {
+        "timestamp": "20230127080419",
+        "url": "https://food.grab.com/my/en/restaurant/starbucks-batu-ferringhi-delivery/1-CZMGUEKEE6VZCN"
+      },
+      {
+        "timestamp": "20230331125205",
+        "url": "https://food.grab.com/my/en/restaurant/tapaqking-ikan-bakar-jalan-pantai-delivery/1-C2XTVXKHWGKEVE"
+      },
+      {
+        "timestamp": "20230309211513",
+        "url": "https://food.grab.com/my/en/restaurant/taste-of-asia-cafe-bangunan-perdagangan-d6-delivery/1-C2UWARKJNNM2J2"
+      },
+      {
+        "timestamp": "20230224060745",
+        "url": "https://food.grab.com/my/en/restaurant/the-bao-cuisine-taman-setapak-indah-non-halal-delivery/1-C2NXE8NBEJU1T2"
+      },
+      {
+        "timestamp": "20230110201307",
+        "url": "https://food.grab.com/my/en/restaurant/the-coffee-lounge-grand-hallmark-hotel-taman-molek-delivery/1-C2TBUA6VCA2FEE"
+      },
+      {
+        "timestamp": "20230110235813",
+        "url": "https://food.grab.com/my/en/restaurant/the-coffee-lounge-hallmark-regency-hotel-taman-abad-delivery/1-C2TBUA6VFCKZCT"
+      },
+      {
+        "timestamp": "20230329235241",
+        "url": "https://food.grab.com/my/en/restaurant/the-piggy-mookata-taipan-business-centre-non-halal-delivery/1-C2CDUCBHLTETGX"
+      },
+      {
+        "timestamp": "20230329235313",
+        "url": "https://food.grab.com/my/en/restaurant/warung-kak-ros-kampung-jana-baru-delivery/1-C22YVPNXAU5BC2"
+      },
+      {
+        "timestamp": "20230315225220",
+        "url": "https://food.grab.com/my/en/restaurant/yolomen-taman-melaka-raya-delivery/1-CZMARZNJNFMXTX"
+      },
+      {
+        "timestamp": "20230108050144",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p1-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-230107"
+      },
+      {
+        "timestamp": "20230311054646",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p3-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-110223"
+      },
+      {
+        "timestamp": "20230525032352",
+        "url": "https://food.grab.com/my/en/restaurant/froth-summit-usj-delivery/1-C2WGTB6KNCKFUE"
+      },
+      {
+        "timestamp": "20230628043933",
+        "url": "https://food.grab.com/my/en/restaurant/kaloori-taman-desa-tebrau-delivery/1-C2LFTVNAVA6BMA"
+      },
+      {
+        "timestamp": "20230525025853",
+        "url": "https://food.grab.com/my/en/restaurant/kungfu-ramen-summit-usj-delivery/1-CZNKKGKZJY2EVJ"
+      },
+      {
+        "timestamp": "20230525055817",
+        "url": "https://food.grab.com/my/en/restaurant/nyonya-cendol-summit-usj-delivery/1-C2UBJPKHFFATPE"
+      },
+      {
+        "timestamp": "20230524204513",
+        "url": "https://food.grab.com/my/en/restaurant/subway-summit-usj-delivery/1-CY5FNLDUPBJDTE"
+      },
+      {
+        "timestamp": "20230626230732",
+        "url": "https://food.grab.com/my/en/restaurant/tok-ibu-heritage-residensi-puchongmas-delivery/1-C3AXL2NHFCAXA6"
+      },
+      {
+        "timestamp": "20230629235142",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=220627_grabmart&utm_source=instagram&utm_medium=social&utm_content="
+      },
+      {
+        "timestamp": "20230408000744",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p4-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-080423"
+      },
+      {
+        "timestamp": "20230513192017",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p5-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-130523"
+      },
+      {
+        "timestamp": "20230611060350",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p6-grabmart&utm_source=twitter&utm_medium=social&utm_content=static-twitter-110623"
+      },
+      {
+        "timestamp": "20230621000742",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true&utm_campaign=p8-grabmart&utm_source=instagram&utm_medium=social&utm_content=static-ig-220813"
+      },
+      {
+        "timestamp": "20230629045419",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true.html?page=1"
+      },
+      {
+        "timestamp": "20230629065125",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true.html?page=1&utm_campaign=p9-thematic-grabmart&utm_source=facebook&utm_medium=paid-social&utm_content=reach-static-220911"
+      },
+      {
+        "timestamp": "20231028180555",
+        "url": "https://food.grab.com/my/en/restaurant/1901-petronas-setapak-indah-delivery/1-C3DAEAEZPAUYEN"
+      },
+      {
+        "timestamp": "20231218030306",
+        "url": "https://food.grab.com/my/en/restaurant/1977-new-ipoh-chicken-rice-sri-petaling-non-halal-delivery/1-CYUBGA4EAAL1LT?"
+      },
+      {
+        "timestamp": "20231214012239",
+        "url": "https://food.grab.com/my/en/restaurant/9t6-chicken-eon-s-foodcourt-delivery/1-C2XVLANYNBCGVE"
+      },
+      {
+        "timestamp": "20231012195527",
+        "url": "https://food.grab.com/my/en/restaurant/abento-kampung-pulau-rusa-delivery/1-C3EGFF61GBBXCA"
+      },
+      {
+        "timestamp": "20231023161846",
+        "url": "https://food.grab.com/my/en/restaurant/addin-ayam-rangup-platinum-walk-delivery/1-C3JKJN3AJ3TVNN"
+      },
+      {
+        "timestamp": "20231028162531",
+        "url": "https://food.grab.com/my/en/restaurant/ador-cafe-vegetarian-kl-gateway-mall-delivery/1-C3D3JPDUN7DWGX"
+      },
+      {
+        "timestamp": "20231021043407",
+        "url": "https://food.grab.com/my/en/restaurant/alta-burger-jalan-sultan-delivery/1-C3MDWF2ESEDGN2"
+      },
+      {
+        "timestamp": "20231211211030",
+        "url": "https://food.grab.com/my/en/restaurant/ann-ash-beverages-kuala-lumpur-delivery/1-C2MTBEKBEFJWRA"
+      },
+      {
+        "timestamp": "20231020192351",
+        "url": "https://food.grab.com/my/en/restaurant/asam-pedas-premier-ioi-city-mall-delivery/1-C3UZNUNUFFD1SE"
+      },
+      {
+        "timestamp": "20231025133236",
+        "url": "https://food.grab.com/my/en/restaurant/asam-pedas-premier-setia-city-mall-delivery/1-CZDFAZNTNJDAVT"
+      },
+      {
+        "timestamp": "20231013191120",
+        "url": "https://food.grab.com/my/en/restaurant/asam-pedas-premier-tropicana-gardens-mall-delivery/1-CZDFAZNTN2ABLN"
+      },
+      {
+        "timestamp": "20231011143338",
+        "url": "https://food.grab.com/my/en/restaurant/atdekat-lepaking-2-0-delivery/1-C3BWJ7A2HFXGCN"
+      },
+      {
+        "timestamp": "20231026133340",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-gunting-subdepo-branch-putrajaya-presint-16-delivery/1-C25AVCD1EE6DWE"
+      },
+      {
+        "timestamp": "20231023144131",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-gunting-subdepo-branch-surau-ikhlas-pusat-bandar-putra-permai-delivery/1-C23EN3CXCVCBJN"
+      },
+      {
+        "timestamp": "20231021120659",
+        "url": "https://food.grab.com/my/en/restaurant/big-big-bowl-dessert-wisma-rampai-delivery/1-C25EJ2MECVABA6"
+      },
+      {
+        "timestamp": "20231217062313",
+        "url": "https://food.grab.com/my/en/restaurant/bloo-berry-bakes-seksyen-u13-delivery/1-C2UFG6MHCEKYNE"
+      },
+      {
+        "timestamp": "20231013194652",
+        "url": "https://food.grab.com/my/en/restaurant/breadfruits-hartamas-non-halal-delivery/MYDD06752"
+      },
+      {
+        "timestamp": "20231011153757",
+        "url": "https://food.grab.com/my/en/restaurant/breakfast-from-the-barn-lorong-bangkok-non-halal-delivery/1-CY3XNK22HE5KKA"
+      },
+      {
+        "timestamp": "20231023160541",
+        "url": "https://food.grab.com/my/en/restaurant/bsy-sugarstation-mart-taman-bukti-delivery/1-C26HR3JKEB22TE"
+      },
+      {
+        "timestamp": "20231011171414",
+        "url": "https://food.grab.com/my/en/restaurant/btb-x-kiesar-taman-pekan-baru-delivery/1-C2UCCYKHNU42KE"
+      },
+      {
+        "timestamp": "20240212094729",
+        "url": "https://food.grab.com/my/en/restaurant/toh-thoo%E9%A3%9F%E9%A5%B1%E5%91%B3%E7%BE%8E%E9%A3%9F%E5%9D%8A-taman-gembira-non-halal-delivery/1-C3UXRVDUHGBXTN?"
+      },
+      {
+        "timestamp": "20240212094656",
+        "url": "https://food.grab.com/my/en/restaurant/tsuen-wan-restaurant-pearl-shopping-gallery-non-halal-delivery/1-CZKDALBCV6CHTT?"
+      },
+      {
+        "timestamp": "20240112100821",
+        "url": "https://food.grab.com/my/en/restaurant/warakuya-japanese-garden-sri-petaling-non-halal-delivery/1-CZEWN6ABGJWKCN?"
+      },
+      {
+        "timestamp": "20240212094338",
+        "url": "https://food.grab.com/my/en/restaurants?category=promos-delivery&id=7077&lng=en&search=CHINESE"
+      },
+      {
+        "timestamp": "20240212094407",
+        "url": "https://food.grab.com/my/en/restaurants?category=promos-delivery&id=7077&lng=en&search=CHINESE&support-deeplink=true&searchParameter=CHINESE"
+      },
+      {
+        "timestamp": "20240112100905",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=warakuya"
+      },
+      {
+        "timestamp": "20240112101050",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=warakuya&support-deeplink=true&searchParameter=warakuya"
+      },
+      {
+        "timestamp": "20240621233602",
+        "url": "https://food.grab.com/my/en/restaurant/taiwani%E2%80%99s-dessert-cyberjaya-delivery/1-C261EUJBRJ6YTE"
+      },
+      {
+        "timestamp": "20240619040735",
+        "url": "https://food.grab.com/my/en/restaurants?search=korean-food"
+      },
+      {
+        "timestamp": "20240914174744",
+        "url": "https://food.grab.com/my/en/restaurant/dedaun-cafe-jalan-gong-dermin-delivery/1-C3L1VXAGGU31L2"
+      },
+      {
+        "timestamp": "20240729122340",
+        "url": "https://food.grab.com/my/en/restaurant/mynews-crown-regency-delivery/1-CZDZG26FPB6JMA?"
+      },
+      {
+        "timestamp": "20240910023701",
+        "url": "https://food.grab.com/my/en/restaurant/nasi-kukus-dam-chow-kit-delivery/1-C2VULYKKEBTGWA"
+      },
+      {
+        "timestamp": "20240911064119",
+        "url": "https://food.grab.com/my/en/restaurant/rasa-rosz-publika-delivery/1-CZDYJCD2TKKBUE"
+      },
+      {
+        "timestamp": "20240706030815",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=Guardian&pid=Facebook&c=MY20GFPDF2MARTGROCER&is_retargeting=true&af_force_deeplink=true.html?page=1&utm_campaign=p3-thematic-grabmart&utm_source=facebook&utm_medium=paid-social&utm_content=traffic-collection-240306"
+      },
+      {
+        "timestamp": "20240729122345",
+        "url": "https://food.grab.com/my/en/restaurants?search=cheetos&lng=en&support-deeplink=true&searchParameter=cheetos"
+      },
+      {
+        "timestamp": "20240818010915",
+        "url": "https://food.grab.com/my/en/restaurants?lng=en&search=potato%20story"
+      },
+      {
+        "timestamp": "20240729122250",
+        "url": "https://food.grab.com/my/en/restaurants?search=cheetos&support-deeplink=true&searchParameter=mynews"
+      },
+      {
+        "timestamp": "20241202103206",
+        "url": "https://food.grab.com/my/en/restaurant/1977-new-ipoh-chicken-rice-desa-sri-hartamas-non-halal-delivery/1-C6JFNJ2AJRMAAE?"
+      },
+      {
+        "timestamp": "20241104121941",
+        "url": "https://food.grab.com/my/en/restaurant/21-shopping-mart-damansara-perdana-delivery/1-C3T1NKE2VJAJDA?"
+      },
+      {
+        "timestamp": "20241212080825",
+        "url": "https://food.grab.com/my/en/restaurant/8p-concept-sdn-bhd-taman-midah-delivery/1-C6DWUEBHVBTDAA?"
+      },
+      {
+        "timestamp": "20241213141044",
+        "url": "https://food.grab.com/my/en/restaurant/abadi-cafeteria-ttdi-delivery/MYDD08665?"
+      },
+      {
+        "timestamp": "20241212082957",
+        "url": "https://food.grab.com/my/en/restaurant/abang-adik-kopitiam-bandar-menjalara-delivery/1-C4LWL8AZLU31A2?"
+      },
+      {
+        "timestamp": "20241202110001",
+        "url": "https://food.grab.com/my/en/restaurant/adult-food-beverage-bukit-damansara-non-halal-delivery/1-C2X1APKJJFV2NE?"
+      },
+      {
+        "timestamp": "20241202113040",
+        "url": "https://food.grab.com/my/en/restaurant/akak-western-bazaria-pantai-delivery/1-C2NKVTBJMEUBGE?"
+      },
+      {
+        "timestamp": "20241202110227",
+        "url": "https://food.grab.com/my/en/restaurant/all-star-burgers-foodle-kuchai-lama-delivery/1-C6JUAEJ3VAVFAA?"
+      },
+      {
+        "timestamp": "20241213145937",
+        "url": "https://food.grab.com/my/en/restaurant/an-viet-the-gardens-non-halal-delivery/MYDD12590?"
+      },
+      {
+        "timestamp": "20241202113302",
+        "url": "https://food.grab.com/my/en/restaurant/auntea-jenny-bandar-baru-sri-petaling-delivery/1-C6XCATJUKCL1V2?"
+      },
+      {
+        "timestamp": "20241213151455",
+        "url": "https://food.grab.com/my/en/restaurant/auntie-anne-s-sogo-kl-delivery/1-CZEJRAMGVKTHSA?"
+      },
+      {
+        "timestamp": "20241213151118",
+        "url": "https://food.grab.com/my/en/restaurant/avocadian-avocado-milkshake-bangsar-telawi-delivery/1-CZNYGPX1V6W1EN?"
+      },
+      {
+        "timestamp": "20241202101844",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-crispy-house-damansara-perdana-delivery/1-C32DVFXEUA3TJJ?"
+      },
+      {
+        "timestamp": "20241213154635",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-gepuk-pak-gembus-jalan-bangsar-delivery/1-CZDTVVN1ACNBV6?"
+      },
+      {
+        "timestamp": "20241107233650",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-kipuk-viral-kicap-gepuk-pv128-delivery/1-C3WVACJJVVKFTT"
+      },
+      {
+        "timestamp": "20241104120018",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-penyet-kak-zai-ridzuan-condo-delivery/1-C3JVAEXCEBEJLE?"
+      },
+      {
+        "timestamp": "20241212065338",
+        "url": "https://food.grab.com/my/en/restaurant/b%E2%80%99fries-seasons-garden-delivery/1-C4EJJ72ER3EYT6?"
+      },
+      {
+        "timestamp": "20241202110023",
+        "url": "https://food.grab.com/my/en/restaurant/b-bap-on-the-go-nu-sentral-delivery/1-CYVURENZTJMDGJ?"
+      },
+      {
+        "timestamp": "20241213144937",
+        "url": "https://food.grab.com/my/en/restaurant/bachelor-s-pizza-co-bangsar-delivery/1-C4K2CJ23JGBGCA?"
+      },
+      {
+        "timestamp": "20241104123305",
+        "url": "https://food.grab.com/my/en/restaurant/bachelor-s-pizza-co-petaling-jaya-delivery/1-C4K1G3VGBEXDRA?"
+      },
+      {
+        "timestamp": "20250318140742",
+        "url": "https://food.grab.com/my/en/restaurant/%E5%BE%90%E5%B8%88%E5%82%85%E5%8F%B0%E6%B9%BE%E5%B0%8F%E5%90%83master-hsu-taiwan-xiao-chi-taman-maju-jaya-non-halal-delivery/1-CZLAGTUAKFXCL2"
+      },
+      {
+        "timestamp": "20250117103300",
+        "url": "https://food.grab.com/my/en/restaurant/8p-concept-sdn-bhd-taman-midah-delivery/1-C6DWUEBHVBTDAA"
+      },
+      {
+        "timestamp": "20250323235015",
+        "url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-petaling-jaya-delivery/1-C6UDENA3BA3BV6?"
+      },
+      {
+        "timestamp": "20250117112539",
+        "url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-rivercity-delivery/1-C4CBDGEBKALUGE"
+      },
+      {
+        "timestamp": "20250115154758",
+        "url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-sunway-putra-mall-delivery/1-C3TCCUDEPB2CJ2?"
+      },
+      {
+        "timestamp": "20250119163229",
+        "url": "https://food.grab.com/my/en/restaurant/abadi-cafeteria-ttdi-delivery/MYDD08665"
+      },
+      {
+        "timestamp": "20250117101725",
+        "url": "https://food.grab.com/my/en/restaurant/abang-adik-kopitiam-bandar-menjalara-delivery/1-C4LWL8AZLU31A2"
+      },
+      {
+        "timestamp": "20250317020847",
+        "url": "https://food.grab.com/my/en/restaurant/abc-banana-leaf-brickfields-delivery/1-C6VTVAJZNYT1RE?"
+      },
+      {
+        "timestamp": "20250115163125",
+        "url": "https://food.grab.com/my/en/restaurant/abc-bistro-cafe-delivery/MYDD10955?"
+      },
+      {
+        "timestamp": "20250322154831",
+        "url": "https://food.grab.com/my/en/restaurant/abc-bistro-cafe-selangor-mansion-delivery/1-C6D3A6XECTB1LX?"
+      },
+      {
+        "timestamp": "20250119165113",
+        "url": "https://food.grab.com/my/en/restaurant/abc-food-s-corner-pantai-dalam-delivery/1-C6EJAKEVNTXJJJ"
+      },
+      {
+        "timestamp": "20250119171716",
+        "url": "https://food.grab.com/my/en/restaurant/abc-one-bistro-banana-leaf-brickfields-delivery/MYDD11229"
+      },
+      {
+        "timestamp": "20250115163729",
+        "url": "https://food.grab.com/my/en/restaurant/abc-z-cafe-pantai-hill-park-delivery/1-C4LFRX4CTY4DRA?"
+      },
+      {
+        "timestamp": "20250115155712",
+        "url": "https://food.grab.com/my/en/restaurant/addy-buang-burger-corner-delivery/MYDD11044?"
+      },
+      {
+        "timestamp": "20250209205302",
+        "url": "https://food.grab.com/my/en/restaurant/adult-food-beverage-bangsar-non-halal-delivery/1-C4ABLE4AJ7AVVT?"
+      },
+      {
+        "timestamp": "20250322152830",
+        "url": "https://food.grab.com/my/en/restaurant/agrain-menara-hap-seng-delivery/1-CYMUDFTGCVDBUE?"
+      },
+      {
+        "timestamp": "20250322160825",
+        "url": "https://food.grab.com/my/en/restaurant/ai-cha-berjaya-times-square-delivery/1-C6JKTYLFAN6DMA?"
+      },
+      {
+        "timestamp": "20250323235111",
+        "url": "https://food.grab.com/my/en/restaurant/ai-cha-pantai-dalam-taman-bukit-angkasa-delivery/1-C62KMFXFLT4GCN?"
+      },
+      {
+        "timestamp": "20250322155300",
+        "url": "https://food.grab.com/my/en/restaurant/aim-burger-kerinchi-delivery/1-C6EEVBMFSCBAJA?"
+      },
+      {
+        "timestamp": "20250322155214",
+        "url": "https://food.grab.com/my/en/restaurant/al-haji-bistro-kampung-attap-delivery/1-C4LFTAMTVNMKLE?"
+      },
+      {
+        "timestamp": "20250516203947",
+        "url": "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-masjid-jamek-delivery/1-CY5ZR8EENKDAJ2?"
+      },
+      {
+        "timestamp": "20250622150204",
+        "url": "https://food.grab.com/my/en/restaurant/a-pie-thing-delivery/MYDD06474"
+      },
+      {
+        "timestamp": "20250620100537",
+        "url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-rivercity-delivery/1-C4CBDGEBKALUGE?"
+      },
+      {
+        "timestamp": "20250429042018",
+        "url": "https://food.grab.com/my/en/restaurant/abc-banana-leaf-brickfields-delivery/1-C6VTVAJZNYT1RE"
+      },
+      {
+        "timestamp": "20250419074628",
+        "url": "https://food.grab.com/my/en/restaurant/abc-one-bistro-banana-leaf-brickfields-delivery/MYDD11229?"
+      },
+      {
+        "timestamp": "20250516201114",
+        "url": "https://food.grab.com/my/en/restaurant/aburi-sushi-gurney-plaza-delivery/1-C3UVVKDHLGL1TA"
+      },
+      {
+        "timestamp": "20250622151328",
+        "url": "https://food.grab.com/my/en/restaurant/achutha-banana-leaf-brickfields-delivery/1-C2EXUGKBRLKBNJ?"
+      },
+      {
+        "timestamp": "20250620095303",
+        "url": "https://food.grab.com/my/en/restaurant/adriana-burger-shop-pantai-hillpark-delivery/1-C4K3BFBGJBLBEA?"
+      },
+      {
+        "timestamp": "20250429050506",
+        "url": "https://food.grab.com/my/en/restaurant/agrain-menara-hap-seng-delivery/1-CYMUDFTGCVDBUE"
+      },
+      {
+        "timestamp": "20250519204255",
+        "url": "https://food.grab.com/my/en/restaurant/ai-cha-cova-square-damansara-delivery/1-C7BVJAD3WFNFSE?"
+      },
+      {
+        "timestamp": "20250622154250",
+        "url": "https://food.grab.com/my/en/restaurant/al-bidayah-juice-king-brickfields-delivery/1-C6W1N24KSAKWV2?"
+      },
+      {
+        "timestamp": "20250622141312",
+        "url": "https://food.grab.com/my/en/restaurant/albertwines2u-taman-perindustrian-kip-non-halal-delivery/1-C2NDVKW1FEMALE"
+      },
+      {
+        "timestamp": "20250422054249",
+        "url": "https://food.grab.com/my/en/restaurant/ali-food-corner-bandar-tun-razak-delivery/1-CY3EAJTWLCMKMA?"
+      },
+      {
+        "timestamp": "20250622141849",
+        "url": "https://food.grab.com/my/en/restaurant/amazen-house-q-sentral-delivery/1-C7A3J73WMB52GA?"
+      },
+      {
+        "timestamp": "20250422064223",
+        "url": "https://food.grab.com/my/en/restaurant/amira-one-bistro-bandar-sri-permaisuri-delivery/1-CZK1RYJJCYEZCX?"
+      },
+      {
+        "timestamp": "20250419085311",
+        "url": "https://food.grab.com/my/en/restaurant/an-viet-the-gardens-non-halal-delivery/MYDD12590"
+      },
+      {
+        "timestamp": "20250622143350",
+        "url": "https://food.grab.com/my/en/restaurant/atio-brickfields-delivery/1-CZKHC8J1VGNHTA?"
+      },
+      {
+        "timestamp": "20250419080243",
+        "url": "https://food.grab.com/my/en/restaurant/auntea-jenny-sunway-velocity-mall-delivery/1-C6X1NYBDGGLDRJ?"
+      },
+      {
+        "timestamp": "20250622152138",
+        "url": "https://food.grab.com/my/en/restaurant/auntie-anne-s-nu-sentral-delivery/1-CZEJRAMUTXAGSA?"
+      },
+      {
+        "timestamp": "20250519214901",
+        "url": "https://food.grab.com/my/en/restaurant/azuma-japanese-restaurant-queensbay-mall-delivery/1-C7BDSEK2RJVGHA"
+      },
+      {
+        "timestamp": "20250918090418",
+        "url": "https://food.grab.com/my/en/restaurant/17-gram-beans-usj-7-delivery/1-C6CKL8CKAYTYHA?"
+      },
+      {
+        "timestamp": "20250720111402",
+        "url": "https://food.grab.com/my/en/restaurant/19-avenue-persiaran-greenhill-delivery/1-C2DKA35GLBXDGX"
+      },
+      {
+        "timestamp": "20250814234250",
+        "url": "https://food.grab.com/my/en/restaurant/1901-hot-dogs-kl-east-mall-delivery/1-C7C3EK6UGZBEJ6?"
+      },
+      {
+        "timestamp": "20250814233043",
+        "url": "https://food.grab.com/my/en/restaurant/1901-menara-pernas-delivery/1-C65BJ6BJSEL1N6?"
+      },
+      {
+        "timestamp": "20250814233922",
+        "url": "https://food.grab.com/my/en/restaurant/1901-plaza-shah-alam-delivery/1-C3DCC76TTNUUCE?"
+      },
+      {
+        "timestamp": "20250815002143",
+        "url": "https://food.grab.com/my/en/restaurant/1901-sogo-kl-delivery/1-C65BJ6BJTPLBCN?"
+      },
+      {
+        "timestamp": "20250918092628",
+        "url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-pearl-point-delivery/1-C4AARUUZERABJE?"
+      },
+      {
+        "timestamp": "20250710225150",
+        "url": "https://food.grab.com/my/en/restaurant/abc-food-s-corner-pantai-dalam-delivery/1-C6EJAKEVNTXJJJ?"
+      },
+      {
+        "timestamp": "20250718171001",
+        "url": "https://food.grab.com/my/en/restaurant/ai-cha-pudu-plaza-pudu-plaza-shopping-centre-delivery/1-C6VTCPU3JXVDLA?"
+      },
+      {
+        "timestamp": "20250815003533",
+        "url": "https://food.grab.com/my/en/restaurant/al-khatiri-kofee-bandar-baru-kubang-kerian-delivery/1-C2A2T22UTXTESA"
+      },
+      {
+        "timestamp": "20250917180801",
+        "url": "https://food.grab.com/my/en/restaurant/ali-muthu-ah-hock-kopitiam-petaling-street-delivery/1-CYNANBCTTCADLT"
+      },
+      {
+        "timestamp": "20250718161633",
+        "url": "https://food.grab.com/my/en/restaurant/alriaz-catering-baby-food-villa-putra-condominium-delivery/1-C7DWN7NBRAKEA6?"
+      },
+      {
+        "timestamp": "20250718164634",
+        "url": "https://food.grab.com/my/en/restaurant/amazen-house-q-sentral-delivery/1-C7A3J73WMB52GA"
+      },
+      {
+        "timestamp": "20250913150013",
+        "url": "https://food.grab.com/my/en/restaurant/antipodean-sunway-velocity-two-non-halal-delivery/1-C6D3N621LLCZLE?"
+      },
+      {
+        "timestamp": "20250813043819",
+        "url": "https://food.grab.com/my/en/restaurant/arzu-restaurant-jalan-sultan-azlan-shah-delivery/1-C2BWG7DCNYCTCA?"
+      },
+      {
+        "timestamp": "20250917185902",
+        "url": "https://food.grab.com/my/en/restaurant/asiari-seksyen-9-delivery/1-C2UHET3JC7CJJ6"
+      },
+      {
+        "timestamp": "20250917174520",
+        "url": "https://food.grab.com/my/en/restaurant/auntea-jenny-express-my-town-shopping-centre-delivery/1-C6D2A3MZJEJ3PA"
+      },
+      {
+        "timestamp": "20250815000918",
+        "url": "https://food.grab.com/my/en/restaurant/auntea-jenny-lot-10-delivery/1-C6WGGCKVE7WVC6?"
+      },
+      {
+        "timestamp": "20250805164324",
+        "url": "https://food.grab.com/my/en/restaurant/auntie-anne-s-sogo-kl-delivery/1-CZEJRAMGVKTHSA"
+      },
+      {
+        "timestamp": "20250917183001",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-kipuk-viral-kicap-gepuk-pv128-delivery/1-C3WVACJJVVKFTT?"
+      },
+      {
+        "timestamp": "20251013153403",
+        "url": "https://food.grab.com/my/en/restaurant/16-degrees-chinatown-delivery/1-C6WER2JKTK2UN2?"
+      },
+      {
+        "timestamp": "20251106213119",
+        "url": "https://food.grab.com/my/en/restaurant/888-cheese-potato-kl-citywalk-delivery/1-C6XGDE6GEVCGJN?"
+      },
+      {
+        "timestamp": "20251013113903",
+        "url": "https://food.grab.com/my/en/restaurant/adalah-bangsar-baru-delivery/1-C2E1HENFT6LDVE"
+      },
+      {
+        "timestamp": "20251014143319",
+        "url": "https://food.grab.com/my/en/restaurant/all-star-burgers-foodle-kl-city-centre-delivery/1-C6TFTLN2EFJXJ2?"
+      },
+      {
+        "timestamp": "20251106220053",
+        "url": "https://food.grab.com/my/en/restaurant/amazin-graze-official-store-bukit-damansara-delivery/1-C64DGK2CRJKJA6?"
+      },
+      {
+        "timestamp": "20251207125913",
+        "url": "https://food.grab.com/my/en/restaurant/amira-one-bistro-bandar-sri-permaisuri-delivery/1-CZK1RYJJCYEZCX"
+      },
+      {
+        "timestamp": "20251013142706",
+        "url": "https://food.grab.com/my/en/restaurant/art-embroidery-southgate-commercial-centre-delivery/1-C2BJHFNFTEAXN6?"
+      },
+      {
+        "timestamp": "20251113065614",
+        "url": "https://food.grab.com/my/en/restaurant/asiari-ioi-city-mall-delivery/1-C2UHET3JCK5TBE?utm_source=facebook&utm_medium=post&utm_campaign=instagram+post"
+      },
+      {
+        "timestamp": "20251014143549",
+        "url": "https://food.grab.com/my/en/restaurant/auntea-jenny-express-my-town-shopping-centre-delivery/1-C6D2A3MZJEJ3PA?"
+      },
+      {
+        "timestamp": "20251109072955",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-kicap-berapi-jalan-bangsar-utama-1-delivery/1-C2VZV33HNXKACJ"
+      },
+      {
+        "timestamp": "20251210045100",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-kipuk-viral-kicap-gepuk-ppr-anggerik-delivery/1-C6JTUAVXE7DAJX?"
+      },
+      {
+        "timestamp": "20251013151050",
+        "url": "https://food.grab.com/my/en/restaurant/azuma-sushi-village-mall-delivery/1-C7BJVUKFCKBKLE"
+      },
+      {
+        "timestamp": "20251116192125",
+        "url": "https://food.grab.com/my/en/restaurant/bachelor-s-pizza-co-kuala-lumpur-delivery/1-C4JFL3VXJ7D2JN?"
+      },
+      {
+        "timestamp": "20251013155306",
+        "url": "https://food.grab.com/my/en/restaurant/bae-go-pa-korean-grocer-sunway-nexis-delivery/1-C3NXV65YGAXCPE?"
+      },
+      {
+        "timestamp": "20251207130942",
+        "url": "https://food.grab.com/my/en/restaurant/bakernextdoor-desa-park-city-delivery/1-C6KFRTMZJAUFWE?"
+      },
+      {
+        "timestamp": "20251109065901",
+        "url": "https://food.grab.com/my/en/restaurant/bala-s-banana-leaf-lucky-garden-delivery/1-CZEFEF5ER8DCLN?"
+      },
+      {
+        "timestamp": "20251013113537",
+        "url": "https://food.grab.com/my/en/restaurant/banana-leaf-corner-brickfields-delivery/1-C6XZR3MJVTXXNJ"
+      },
+      {
+        "timestamp": "20251012015415",
+        "url": "https://food.grab.com/my/en/restaurant/bangkok-xpress-bangsar-delivery/1-C4KUVBMCJJA3RN?"
+      },
+      {
+        "timestamp": "20251209233024",
+        "url": "https://food.grab.com/my/en/restaurant/basheer-bistro-lebuh-ampang-delivery/1-C2VJN3AWE4BCTE?"
+      },
+      {
+        "timestamp": "20251106213700",
+        "url": "https://food.grab.com/my/en/restaurant/bask-bear-coffee-pavilion-elite-delivery/1-C6T1EBJ2N6BTJT?"
+      },
+      {
+        "timestamp": "20260208211655",
+        "url": "https://food.grab.com/my/en/restaurant/adult-food-beverage-bangsar-non-halal-delivery/1-C4ABLE4AJ7AVVT"
+      },
+      {
+        "timestamp": "20260211185821",
+        "url": "https://food.grab.com/my/en/restaurant/al-khatiri-restaurant-bandar-baru-kubang-kerian-delivery/1-C2A2J33VRUTGTA"
+      },
+      {
+        "timestamp": "20260123211907",
+        "url": "https://food.grab.com/my/en/restaurant/ame-soeur-jalan-jalil-jaya-2-delivery/1-CY4JLF5HFEL1RX"
+      },
+      {
+        "timestamp": "20260213065816",
+        "url": "https://food.grab.com/my/en/restaurant/antipodean-sunway-velocity-two-non-halal-delivery/1-C6D3N621LLCZLE"
+      },
+      {
+        "timestamp": "20260119060745",
+        "url": "https://food.grab.com/my/en/restaurant/ariff-maju-bistro-jalan-putra-delivery/1-CZKUJYWVJYUWKA?"
+      },
+      {
+        "timestamp": "20260308035754",
+        "url": "https://food.grab.com/my/en/restaurant/autumn-shrimp-ss15-delivery/1-CZEFSFVFNU5YKA"
+      },
+      {
+        "timestamp": "20260211194633",
+        "url": "https://food.grab.com/my/en/restaurant/avocadian-bangsar-delivery/1-CZNYGPX1V6W1EN"
+      },
+      {
+        "timestamp": "20260211194355",
+        "url": "https://food.grab.com/my/en/restaurant/avosome-z-residence-delivery/1-C2THBA3BE76XLA"
+      },
+      {
+        "timestamp": "20260123013420",
+        "url": "https://food.grab.com/my/en/restaurant/ayam-gepuk-pak-gembus-jalan-bangsar-delivery/1-CZDTVVN1ACNBV6"
+      },
+      {
+        "timestamp": "20260116181702",
+        "url": "https://food.grab.com/my/en/restaurant/azuma-japanese-restaurant-seremban-2-delivery/1-C7BDSEJKC4CEAN"
+      },
+      {
+        "timestamp": "20260213074834",
+        "url": "https://food.grab.com/my/en/restaurant/b%E2%80%99fries-seasons-garden-delivery/1-C4EJJ72ER3EYT6"
+      },
+      {
+        "timestamp": "20260208202958",
+        "url": "https://food.grab.com/my/en/restaurant/bah-ku-teh-klang-yip-yong-kepong-non-halal-delivery/1-C2LBJADABFNBUE?"
+      },
+      {
+        "timestamp": "20260213064338",
+        "url": "https://food.grab.com/my/en/restaurant/bakernextdoor-desa-park-city-delivery/1-C6KFRTMZJAUFWE"
+      },
+      {
+        "timestamp": "20260308035409",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-3-damansara-delivery/1-C3K3T3KZLP4DKE?"
+      },
+      {
+        "timestamp": "20260215070033",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-jaya-section-14-delivery/MYDD05779?"
+      },
+      {
+        "timestamp": "20260123204341",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-mid-valley-delivery/1-C3K3T3K1NGBFNX"
+      },
+      {
+        "timestamp": "20260119180557",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-the-exchange-trx-delivery/1-C6DAA8EKG63BJ6?"
+      },
+      {
+        "timestamp": "20260123204107",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-the-gardens-delivery/1-CYXVGXMGLCC1J2"
+      },
+      {
+        "timestamp": "20260317060417",
+        "url": "https://food.grab.com/my/en/restaurant/bei-gong-cha-%E5%8C%97%E5%AE%AB%E8%8C%B6%E9%A5%AE-damansara-utama-delivery/1-C3UJTJEBWCDGL2?"
+      },
+      {
+        "timestamp": "20260119172334",
+        "url": "https://food.grab.com/my/en/restaurant/being-juice-foodle-kl-city-center-delivery/1-C66USCLCNE3BRJ?"
+      },
+      {
+        "timestamp": "20260521071328",
+        "url": "https://food.grab.com/my/en/restaurant/abc-bistro-cafe-delivery/MYDD10955"
+      },
+      {
+        "timestamp": "20260508113730",
+        "url": "https://food.grab.com/my/en/restaurant/ah-cheng-laksa-ioi-puchong-delivery/1-CY4ZAYW3DBJFJT"
+      },
+      {
+        "timestamp": "20260520140950",
+        "url": "https://food.grab.com/my/en/restaurant/all-star-burgers-foodle-kl-city-centre-delivery/1-C6TFTLN2EFJXJ2"
+      },
+      {
+        "timestamp": "20260520050730",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-bangsar-delivery/MYDD05683?"
+      },
+      {
+        "timestamp": "20260520131541",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-nu-sentral-delivery/MYDD05769"
+      },
+      {
+        "timestamp": "20260520133832",
+        "url": "https://food.grab.com/my/en/restaurant/baskin-robbins-uptown-delivery/MYDD05893"
+      },
+      {
+        "timestamp": "20260520125838",
+        "url": "https://food.grab.com/my/en/restaurant/boost-juice-bars-jakel-mall-delivery/1-C2UVA7BDEY3VE2"
+      },
+      {
+        "timestamp": "20260411232306",
+        "url": "https://food.grab.com/my/en/restaurant/burger-q-bukit-damansara-delivery/1-C4LTDE5HTEDJRE"
+      },
+      {
+        "timestamp": "20260508112304",
+        "url": "https://food.grab.com/my/en/restaurant/cafe-la-croisette-by-dadi-cinema-jln-bukit-bintang-delivery/1-C3DXAP3WCFLZLJ"
+      },
+      {
+        "timestamp": "20260520130826",
+        "url": "https://food.grab.com/my/en/restaurant/caveman-coffee-ioi-mall-damansara-delivery/1-C6KVNGCTKFBZDE"
+      },
+      {
+        "timestamp": "20260520141440",
+        "url": "https://food.grab.com/my/en/restaurant/chocolate-concierge-bsc-delivery/1-CZCZGFLWLF6WPA"
+      },
+      {
+        "timestamp": "20260520133623",
+        "url": "https://food.grab.com/my/en/restaurant/d-apple-fried-chicken-kota-damansara-delivery/1-C66YFGJYERK3R6?sourceID=20250301_092801_91957DF27CD146B4B47650013DCE93C3_MEXMPS&nameSlug=online-delivery&id=1-C66YFGJYERK3R6"
+      },
+      {
+        "timestamp": "20260520124643",
+        "url": "https://food.grab.com/my/en/restaurant/damascus-restaurant-mont-kiara-delivery/1-C4DJJXBKCZATC2"
+      },
+      {
+        "timestamp": "20260520125738",
+        "url": "https://food.grab.com/my/en/restaurant/dancing-fish-bsc-delivery/1-CYVDSAUXKGB1E2"
+      },
+      {
+        "timestamp": "20260520032427",
+        "url": "https://food.grab.com/my/en/restaurant/dara-burger-bakar-desa-sri-hartamas-delivery/1-CZCFVJ4ZN4CTKE"
+      },
+      {
+        "timestamp": "20260520124059",
+        "url": "https://food.grab.com/my/en/restaurant/eato-enjoy-japanese-teppanyaki-aeon-food-market-midvalley-delivery/1-C4MJE8LJN3AHE2"
+      },
+      {
+        "timestamp": "20260520125131",
+        "url": "https://food.grab.com/my/en/restaurant/flint-the-curve-delivery/1-C6DAVLM1RNKYJT"
+      },
+      {
+        "timestamp": "20260411235735",
+        "url": "https://food.grab.com/my/en/restaurant/gila-burger-damansara-perdana-delivery/1-C4DULCK3CP3ZE6?"
+      },
+      {
+        "timestamp": "20260520131706",
+        "url": "https://food.grab.com/my/en/restaurant/gong-cha-lrt-masjid-jamek-delivery/1-CZCYG72JRPNCLE?"
+      },
+      {
+        "timestamp": "20260521073147",
+        "url": "https://food.grab.com/my/en/restaurant/goobne-chicken-mytown-delivery/MYDD06850"
+      }
+    ],
+    "done_urls": [
+      "https://food.grab.com/my/en/restaurant/3922-wan-tan-mee-jalan-munshi-abdullah-non-halal-delivery/1-CZJUN3NZT3EXJA",
+      "https://food.grab.com/my/en/restaurant/718-pizza-persiaran-greentown-8-delivery/1-CZB3A3TGAFVJEE",
+      "https://food.grab.com/my/en/restaurant/ages-ago-sutera-mall-delivery/1-CZDTEXECEK42NN",
+      "https://food.grab.com/my/en/restaurants?category=hainanese-chicken-rice-197",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-komtar-jbcc-delivery/1-CZDBJ6KTLPAKEN",
+      "https://food.grab.com/my/en/restaurant/after-4-kopitiam-aiman-mall-delivery/1-CZDEE7CFRJWDGT",
+      "https://food.grab.com/my/en/restaurant/118-papa-mama-restaurant-metro-prima-non-halal-delivery/1-CZKYRGBJL3T1WE",
+      "https://food.grab.com/my/en/restaurant/yin-s-sourdough-bakery-cafe-delivery/MYDD11003",
+      "https://food.grab.com/my/en/restaurant/34-bishop-delivery/1-CYLZJTACVLLXSE",
+      "https://food.grab.com/my/en/restaurant/ah-huat-nasi-lemak-kukus-tradisional-taman-kerjasama-delivery/1-CY42NEWBTTLEAA",
+      "https://food.grab.com/my/en/restaurant/ah-fen-cafe-jalan-ang-cheng-ho-non-halal-delivery/1-CYMAAANVN2JWLE",
+      "https://food.grab.com/my/en/restaurants?category=burger-33",
+      "https://food.grab.com/my/en/restaurant/a-w-seremban-dt-delivery/1-CY32TEM1E25VVT",
+      "https://food.grab.com/my/en/restaurant/49-snow-chew-jetty-delivery/1-CZDZJB4TJPN3G2",
+      "https://food.grab.com/my/en/restaurant/adelphi-co-jalan-damai-non-halal-delivery/1-CZK1JRJCREJ2CN",
+      "https://food.grab.com/my/en/restaurants?category=indonesian-87",
+      "https://food.grab.com/my/en/restaurant/1981-florist-cafe-riverson-delivery/1-CY6YWENZR623AN",
+      "https://food.grab.com/my/en/restaurant/2-sneks-little-susan-delivery/MYDD05146",
+      "https://food.grab.com/my/en/restaurants?category=mexican-110",
+      "https://food.grab.com/my/en/restaurant/ags-fried-chicken-bachang-delivery/1-CZDXNUEVSFBDCN",
+      "https://food.grab.com/my/en/restaurants?category=chinese-45",
+      "https://food.grab.com/my/en/restaurant/67-bus-cafe-changkat-bukit-bintang-delivery/1-C2TAA7UGFFC2WA",
+      "https://food.grab.com/my/en/restaurant/addon-white-coffee-jalan-raja-ekram-delivery/1-CZAYAAEXCELTCA",
+      "https://food.grab.com/my/en/restaurant/a-w-penang-hill-delivery/1-CZCUE22HAA5ZRE",
+      "https://food.grab.com/my/en/restaurants?category=italian-88",
+      "https://food.grab.com/my/en/restaurant/899-hokkien-mee-kobusak-non-halal-delivery/1-CZKXCKKAVCDFA6",
+      "https://food.grab.com/my/en/restaurant/21-street-cafe-taman-melaka-raya-delivery/1-CY4TEJ2DEXL3BE",
+      "https://food.grab.com/my/en/restaurant/ah-cheng-laksa-aeon-nilai-delivery/1-CZJAE32CLBEURX",
+      "https://food.grab.com/my/en/restaurant/3-monkeys-cafe-bandar-botanik-delivery/1-CZAZRECHMCEXA2",
+      "https://food.grab.com/my/en/restaurant/adyar-ananda-bhavan-brickfields-delivery/1-CZMBCTBVKF2AAJ",
+      "https://food.grab.com/my/en/restaurant/canton-kitchen-sri-rampai-non-halal-delivery/1-CYLKTYKCTFUARE",
+      "https://food.grab.com/my/en/restaurants?category=hot-deals-237",
+      "https://food.grab.com/my/en/restaurant/awah-alifa-api-api-centre-delivery/1-CZJVKA6VLEADDE",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-petronas-nkve-delivery/1-CZBHAPAKSEKJVE",
+      "https://food.grab.com/my/en/restaurant/a-w-mydin-seremban-2-delivery/1-CY32TEM1EPVTSE",
+      "https://food.grab.com/my/en/restaurant/13-bento-taman-bukit-indah-delivery/1-CY4YEFADLFK3KE",
+      "https://food.grab.com/my/en/restaurant/a1-chicken-rice-imago-shopping-mall-delivery/1-CZJFAXDUPF5TAX",
+      "https://food.grab.com/my/en/restaurant/a-container-cafe-jalan-kilang-delivery/1-CYVUREN1CB2XLN",
+      "https://food.grab.com/my/en/restaurant/ssi-wifi-arabic-restaurant-street-mall-delivery/1-CYVDSAUUT7MBAE",
+      "https://food.grab.com/my/en/restaurant/388-chicken-recipe-taman-island-glades-delivery/1-CZDHSEEZLJCGLX",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-medan-niaga-delivery/1-C2BWNLJFA23KVT",
+      "https://food.grab.com/my/en/restaurant/abg-long-coconut-shake-cendol-putatan-square-delivery/1-CZDEANNYHBCUGT",
+      "https://food.grab.com/my/en/restaurant/ah-cheng-bbq-seafood-jalan-medan-bayan-relau-delivery/1-CZJVNBEDLANDMA",
+      "https://food.grab.com/my/en/restaurant/ay-trad-fried-pork-kuey-teow-sdkn-wet-mrket-inanam-kapital-non-halal-delivery/1-CZJGJP4EN4A2PA",
+      "https://food.grab.com/my/en/restaurant/88keto-mart-bangsar-delivery/1-C2TYAENCTUVZJ6",
+      "https://food.grab.com/my/en/restaurant/67-cafe-jalan-putera-delivery/1-CZBFFBACAJMKN2",
+      "https://food.grab.com/my/en/restaurant/alpro-pharmacy-jalan-rasah-delivery/1-CZEXJBVJGXAER6",
+      "https://food.grab.com/my/en/restaurant/alpro-pharmacy-garden-homes-delivery/1-CZEJRAMDJ2XJCN",
+      "https://food.grab.com/my/en/restaurant/37-2%C2%B0c-cafe-delivery/1-CZACTU4CCZEVG2",
+      "https://food.grab.com/my/en/restaurants?category=filipino-63",
+      "https://food.grab.com/my/en/restaurant/alpro-pharmacy-lobak-delivery/1-CZEXJBVHPEJ1KE",
+      "https://food.grab.com/my/en/restaurants?category=indian-86",
+      "https://food.grab.com/my/en/restaurant/artos-cafe-damai-point-delivery/1-CY5HJPTDE6WKJA",
+      "https://food.grab.com/my/en/restaurant/1-taste-food-centre-jalan-sekama-non-halal-delivery/1-CY6KAPNJPEK3DE",
+      "https://food.grab.com/my/en/restaurant/1977-new-ipoh-chicken-rice-damansara-jaya-non-halal-delivery/MYDD00216",
+      "https://food.grab.com/my/en/restaurant/99-fresh-mart-tabuan-tranquility-non-halal-delivery/1-CZDWTALKVZJ3FE",
+      "https://food.grab.com/my/en/restaurant/auntie-anne-s-aeon-seremban-2-delivery/1-CZEJRAMZNYXEVT",
+      "https://food.grab.com/my/en/restaurant/96-takar-pastry-house-tabuan-jaya-delivery/1-CZJFAXDULFUKR2",
+      "https://food.grab.com/my/en/restaurant/alpro-pharmacy-biz-avenue-delivery/1-CZEJRAMDJA3KTT",
+      "https://food.grab.com/my/en/restaurant/4-season-music-restaurant-plaza-arkadia-non-halal-delivery/1-CZBXVX52T7CZA6",
+      "https://food.grab.com/my/en/restaurant/1977-new-ipoh-chicken-rice-petaling-street-non-halal-delivery/MYDD03581",
+      "https://food.grab.com/my/en/restaurant/13th-house-cafe-plaza-prima-setapak-delivery/1-CZJFJ232JCLFWA",
+      "https://food.grab.com/my/en/restaurant/aariya-bhavan-jalan-tun-sambanthan-delivery/1-CZBGC3T1SANEJ2",
+      "https://food.grab.com/my/en/restaurant/575-restaurant-plaza-kingfisher-non-halal-delivery/1-CZCDJAB2CXAUHA",
+      "https://food.grab.com/my/en/restaurant/200%C3%A2%C2%B0c-chicken-cutlet-rice-jalan-permas-10-delivery/1-CYXYR7EAALE2VN",
+      "https://food.grab.com/my/en/restaurant/a-look-eyewear-aeon-seremban-2-delivery/1-CZJUN3N1NJ31RT",
+      "https://food.grab.com/my/en/restaurant/18-topspot-seafood-ah-hock-jalan-bukit-mata-delivery/1-CZLBFBBYLK2TUA",
+      "https://food.grab.com/my/en/restaurant/918-cafe-jalan-chung-thye-phin-delivery/1-CZB3CJEYNZDDT6",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-desa-sri-hartamas-delivery/1-CZAWEKUHCBB2AN",
+      "https://food.grab.com/my/en/restaurant/77-penang-best-rojak-persiaran-gurney-delivery/1-CZBBA2WYT73AJT",
+      "https://food.grab.com/my/en/restaurants?category=bubble-tea-29",
+      "https://food.grab.com/my/en/restaurants?lng=en&search=secret%20recipe&pid=Facebook&c=MY20GFPDF2MEXDEEPLINK&is_retargeting=true&af_force_deeplink=true",
+      "https://food.grab.com/my/en/restaurant/7-to-8-cafe-lutong-baru-delivery/1-CZLCA6AHNUCUMA",
+      "https://food.grab.com/my/en/restaurants?category=korean-96",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-ioi-city-mall-delivery/1-CZCGR2TGJ3NZNE",
+      "https://food.grab.com/my/en/restaurants?category=japanese-89",
+      "https://food.grab.com/my/en/restaurant/a-w%C2%AE-kluang-mall-delivery/1-CZKZAJKVJNCFTX",
+      "https://food.grab.com/my/en/restaurant/53-larut-matang-food-court-non-halal-delivery/1-CZKFHBAZNNEGCJ",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-east-coast-mall-delivery/1-CZCGR2TGJK51NN",
+      "https://food.grab.com/my/en/restaurants?category=fast-food-62",
+      "https://food.grab.com/my/en/restaurant/ah-boon-chicken-rice-jalan-ang-cheng-ho-delivery/1-CZECJPCAUALBJ6",
+      "https://food.grab.com/my/en/restaurant/%C2%B1-canteen-mkh-boulevard-non-halal-delivery/1-CZDXNYC1J33VVT",
+      "https://food.grab.com/my/en/restaurant/100-houz-coffee-breakfast-jalan-reko-delivery/1-CZDFALNCLEE2LJ",
+      "https://food.grab.com/my/en/restaurant/15-grams-coffee-bar-promenade-delivery/1-CYXHV7VBAVNXBA",
+      "https://food.grab.com/my/en/restaurant/300-restaurant-bar-desserts-delivery/MYDD06149",
+      "https://food.grab.com/my/en/restaurant/28-hainanese-chicken-rice-pavilion-bundusan-non-halal-delivery/1-CZCGR2NZRFVAJT",
+      "https://food.grab.com/my/en/restaurant/abc-anak-melaka-medan-selera-dataran-bukit-baru-delivery/1-CZBAV6D1CP3BEE",
+      "https://food.grab.com/my/en/restaurant/ah-boon-chicken-rice-jalan-rubber-delivery/1-CZDTGLCBE8LJEJ",
+      "https://food.grab.com/my/en/restaurant/after-4-kopitiam-jalan-rubber-delivery/1-CYLBVFEZAEBYKA",
+      "https://food.grab.com/my/en/restaurant/adult-food-beverage-bangsar-village-non-halal-delivery/1-C2MBJPNEVVBBL6",
+      "https://food.grab.com/my/en/restaurant/1901-hot-dogs-swan-setapak-delivery/1-CZL2C7AJVVEXGX",
+      "https://food.grab.com/my/en/restaurant/3bg-%E2%80%93-3bg-food-station-delivery/1-CZE2N8B3R8MTV6",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-sunway-velocity-delivery/1-CZDBJ6KTL76VNA",
+      "https://food.grab.com/my/en/restaurant/28-barthehood-28-boulevard-non-halal-delivery/1-CZEWG8C2LK4VL6",
+      "https://food.grab.com/my/en/restaurant/18%C2%B0c-cool-blend-jalan-raya-delivery/1-CZKUPFKBJJ41V6",
+      "https://food.grab.com/my/en/restaurant/168-store-wisma-hainan-delivery/1-CY43NU3CT8NZJ2",
+      "https://food.grab.com/my/en/restaurant/a-w-setapak-central-delivery/MYDD09080",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-masjid-jamek-delivery/1-CY5ZR8EENKDAJ2",
+      "https://food.grab.com/my/en/restaurant/absolute-thai-sunway-big-box-delivery/1-CZJFNPBBTUCYGA",
+      "https://food.grab.com/my/en/restaurant/a1-chicken-rice-itcc-mall-delivery/1-CZJFAXDVEEMZE2",
+      "https://food.grab.com/my/en/restaurants?category=dessert-55",
+      "https://food.grab.com/my/en/restaurant/11ridgeway-jalan-ridgeway-delivery/1-CZCKNT4CAPDWLA",
+      "https://food.grab.com/my/en/restaurant/103-coffee-workshop-aeon-maluri-non-halal-delivery/1-CZDEANMVUEWGGE",
+      "https://food.grab.com/my/en/restaurant/crust-163-retail-park-delivery/1-CY5FNLDVGFXWAN",
+      "https://food.grab.com/my/en/restaurant/7-sins-fusion-kayu-ara-delivery/1-CY4BJ4CCJKBKPE",
+      "https://food.grab.com/my/en/restaurant/22-kam-wan-white-coffee-aneka-selera-ipoh-garden-delivery/1-CZDUDAM1WFBUVJ",
+      "https://food.grab.com/my/en/restaurant/2f-coffee-roastery-mart-relau-delivery/1-CZJTTKDWR4CWNA",
+      "https://food.grab.com/my/en/restaurant/absolute-thai-toppen-shopping-centre-delivery/1-CZBWRPMAET5VLT",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-penang-sentral-delivery/1-CZCGR2TGJP4WTA",
+      "https://food.grab.com/my/en/restaurant/2118-lorong-baru-non-halal-delivery/1-CZJUL8KUWF4EEJ",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-dpulze-delivery/1-CZDBJ6KTLPA2L6",
+      "https://food.grab.com/my/en/restaurants",
+      "https://food.grab.com/my/en/restaurants?category=coffee-47",
+      "https://food.grab.com/my/en/restaurant/15-minutes-bake-royal-plaza-putatan-delivery/1-CZJ2KE4EJRJHJJ",
+      "https://food.grab.com/my/en/restaurant/%E6%BA%90%E6%9D%A5-the-origin-taman-eng-ann-non-halal-delivery/1-CZBUJPBFREWJVN",
+      "https://food.grab.com/my/en/restaurant/4fingers-crispy-chicken-gombak-delivery/1-CZMZLJBVTZBURT",
+      "https://food.grab.com/my/en/restaurant/899-classic-bistro-cafe-bandar-utama-delivery/1-CZEHJEB2JVD3TA",
+      "https://food.grab.com/my/en/restaurant/a-mart-jalan-medan-tuanku-delivery/1-C2J3C24CMFAWTT",
+      "https://food.grab.com/my/en/restaurant/2nd-home-marina-square-2-non-halal-delivery/1-CZKFHBAZUEM2UE",
+      "https://food.grab.com/my/en/restaurant/ah-boon-chicken-rice-icom-square-delivery/1-CZDTGLCAVXU3EJ",
+      "https://food.grab.com/my/en/restaurant/a-w-bandar-baru-nilai-delivery/1-CY32TEM1ERCTE6"
+    ],
+    "status": "in_progress"
   }
 }

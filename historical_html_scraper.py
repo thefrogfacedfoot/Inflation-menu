@@ -457,6 +457,11 @@ TARGETS = [
      'zomato.com/manila/*', 'PHP', parse_zomato),
     ('Singapore',     'formal', 'grabfood-sg',   'wayback-grabfood',
      'food.grab.com/sg/en/restaurant/*', 'SGD', parse_grabfood),
+    # Added 2026-06-18 after MY Phase 0 probe: 303 ≥40KB CDX URLs over
+    # 2020-2026, NEXT_DATA populated, RM prices in static HTML (probe
+    # samples yielded 7-188 prices/page). Same extractor as GrabFood SG.
+    ('Malaysia',      'formal', 'grabfood-my',   'wayback-grabfood',
+     'food.grab.com/my/en/restaurant/*', 'MYR', parse_grabfood),
     ('Mexico',        'formal', 'tripadvisor-mx','wayback-tripadvisor',
      'tripadvisor.com.mx/Restaurant_Review*', 'MXN', parse_tripadvisor_mx),
     # Added 2026-06-18 after the SG/UK Phase 0 probe: Deliveroo UK
