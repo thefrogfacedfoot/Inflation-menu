@@ -279,7 +279,18 @@ def _interpolate_quarterly(quarterly: List[Tuple[str, float]]) -> List[Dict]:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def fetch_australia() -> Tuple[List[Dict], str]:
-    """ABS CPI via OECD PRICES_CPI quarterly (key 41:2:0:0:3:0:0:3)."""
+    """ABS CPI via OECD PRICES_CPI quarterly (key 41:2:0:0:3:0:0:3).
+
+    AU watch (2026-06-18): Australia is the next country expected to cross
+    the Granger n ≥ 24 threshold. UIFPI for AU now covers 24 distinct
+    months; the UIFPI/CPI overlap is 23 because the live 2026-06 snapshot
+    sits outside the CPI series, which here lags by one publication cycle.
+    The ABS publishes the Q2 quarterly CPI in late July; this fetch will
+    pick up 2026-04, 2026-05, 2026-06 (interpolated from the Q2 reading)
+    as soon as OECD's PRICES_CPI dataset mirrors the publication. No
+    manual intervention required — the next `monthly_ingest.py` after the
+    publication will close the overlap and trigger Granger automatically.
+    """
     print("  Primary: OECD PRICES_CPI quarterly (ABS source) …")
     all_key, food_key, freq = OECD_SERIES["AU"]
     quarterly = _oecd_series_to_records(all_key, freq)

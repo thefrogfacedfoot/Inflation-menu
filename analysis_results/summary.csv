@@ -5,5 +5,5 @@ Indonesia,20,,,,False,,False,,"insufficient_data (have 20, need 24)"
 Malaysia,6,,,,False,,False,,"insufficient_data (have 6, need 24)"
 Singapore,8,,,,False,,False,,"insufficient_data (have 8, need 24)"
 Thailand,0,,,,False,,,,no_overlap
-United Kingdom,5,,,,False,,False,,"insufficient_data (have 5, need 24)"
+United Kingdom,18,,,,False,,False,,"insufficient_data (have 18, need 24)"
 United States,31,0.021,1,4,True,-0.0043,False,0.5566,

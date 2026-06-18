@@ -354,6 +354,69 @@ def parse_menulog(html, currency):
     return _coerce(items, currency)
 
 
+# ── Deliveroo UK ─────────────────────────────────────────────────────────────
+# 1-page diagnostic on 2020-09-29 Wirral Papa John's: prices live inside an
+# embedded JSON blob in body HTML with shape
+#   {"items":[{"name":"X","raw_price":10.99,"price":"£10.99",...}]}
+# No JSON-LD, no __NEXT_DATA__, no data-test-id markers.
+# 245 unique items extracted from a single 389 KB sample (Menulog AU peak
+# was 126); the high count partly reflects pizza-house modifier explosion
+# but the typed `raw_price` is reliable.
+
+_DELIVEROO_PAIR = re.compile(
+    r'"name"\s*:\s*"((?:\\.|[^"\\]){1,80})"'   # JSON string with backslash-escapes
+    r'(?:[^{}]{0,800})'                         # within the same object
+    r'"raw_price"\s*:\s*(\d+(?:\.\d+)?)',
+    re.S,
+)
+
+
+def _unescape_json_string(s: str) -> str:
+    """Decode a JSON-style escaped string fragment without re-parsing the
+    whole document. Handles \\uXXXX, \\&, \\", \\/, \\n, etc."""
+    try:
+        return json.loads(f'"{s}"')
+    except Exception:
+        # Fallback for malformed escapes — strip the most common ones.
+        return (s.replace('\\u0026', '&').replace('\\"', '"')
+                  .replace('\\/', '/').replace('\\n', ' ').replace('\\t', ' '))
+
+
+def extract_deliveroo_body_json(html):
+    """Pull (name, raw_price, None) pairs from Deliveroo's embedded body-HTML
+    JSON. Returns dedup'd list. Currency left None so `_coerce` fills it
+    from the per-target default (GBP for Deliveroo UK)."""
+    if not html or '"raw_price"' not in html:
+        return []
+    out = []
+    for m in _DELIVEROO_PAIR.finditer(html):
+        name = _unescape_json_string(m.group(1)).strip()
+        try:
+            price = float(m.group(2))
+        except ValueError:
+            continue
+        if name and 0 < price < 10_000:
+            out.append((name[:120], price, None))
+    seen = set(); uniq = []
+    for n, p, c in out:
+        k = (n.lower(), round(p, 2))
+        if k in seen:
+            continue
+        seen.add(k); uniq.append((n, p, c))
+    return uniq
+
+
+def parse_deliveroo_uk(html, currency):
+    """Deliveroo UK parser. Tries the embedded-JSON body extractor first,
+    then falls back to NEXT_DATA + JSON-LD for future template changes.
+    Use `raw_price` (typed float) rather than the £-string `price` to
+    sidestep currency-parsing edge cases."""
+    items = extract_deliveroo_body_json(html)
+    if not items:
+        items = extract_nextdata(html) or extract_jsonld(html)
+    return _coerce(items, currency)
+
+
 def parse_grabfood(html, currency):
     """GrabFood SG archived: NEXT_DATA + JSON-LD."""
     items = extract_nextdata(html) or extract_jsonld(html)
@@ -396,6 +459,11 @@ TARGETS = [
      'food.grab.com/sg/en/restaurant/*', 'SGD', parse_grabfood),
     ('Mexico',        'formal', 'tripadvisor-mx','wayback-tripadvisor',
      'tripadvisor.com.mx/Restaurant_Review*', 'MXN', parse_tripadvisor_mx),
+    # Added 2026-06-18 after the SG/UK Phase 0 probe: Deliveroo UK
+    # carries 245 items/page in an embedded body-HTML JSON blob
+    # (different shape than Menulog's DOM markers, but tractable).
+    ('United Kingdom','formal', 'deliveroo-uk',  'wayback-deliveroo',
+     'deliveroo.co.uk/menu/*', 'GBP', parse_deliveroo_uk),
 ]
 
 
