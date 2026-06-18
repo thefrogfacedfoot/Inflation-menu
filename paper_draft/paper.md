@@ -266,7 +266,13 @@ Future work falls in three directions. First, **close the AU and UK Granger gaps
 
 ---
 
-## 10. References
+## 10. Acknowledgments
+
+The UIFPI codebase, pipeline, audit trail, ingestion scripts, and dashboard (https://github.com/thefrogfacedfoot/Inflation-menu) are released open source under the repository's existing licence so that the probe decisions, parser specifics, and bail trail can be independently audited and the index reproduced or extended for other economies. This work depends entirely on open data infrastructure: the Internet Archive's Wayback Machine and CDX index, the UK Office for National Statistics' consumer price quotes (Crown Copyright, Open Government Licence v3.0), the Malaysia KPDN PriceCatcher dataset (data.gov.my, Terbuka 1.0), the OECD SDMX endpoint for harmonised CPI series, the Australian Bureau of Statistics CPI publications, the US Bureau of Labor Statistics' Average Price Data (APU) bulk files, and the Schema.org Working Group's `Menu` type specification. The author thanks [advisor name, if applicable] for guidance on the statistical specification and the framing of the cross-country heterogeneity result, and the maintainers of `statsmodels`, `pandas`, `playwright`, and `requests` for the libraries on which the pipeline is built. Any errors are the author's own.
+
+---
+
+## 11. References
 
 *[Draft to fill in. SSEF checklist threshold is ≥ 10 citations. Current list:]*
 
