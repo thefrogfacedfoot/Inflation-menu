@@ -6058,3 +6058,17 @@ Top 5 price decreases:
 Done. Results in uifpi.db
 2026-06-17 21:07:23,269 — 
 Done. Results in uifpi.db
+2026-06-18 09:53:01,811 — 
+UIFPI Daily Collection — 2026-06-18
+2026-06-18 09:53:01,812 — Fetching USD exchange rates …
+2026-06-18 09:53:01,812 —   ✓ Using cached USD rates (12.9h old)
+2026-06-18 09:53:01,813 —   Rates loaded: SGD=1.28, MYR=4.07, IDR=17725.97, THB=32.52
+2026-06-18 09:53:01,813 — 
+Total targets: 53
+2026-06-18 09:53:01,840 — To scrape: 53
+
+2026-06-18 09:53:01,840 — --- Attempt 1 (53 targets) ---
+
+2026-06-18 09:53:01,841 —   Parallel mode: 3 workers
+2026-06-18 09:53:14,241 —   Loading Rubato (foodpanda)…
+2026-06-18 09:53:14,242 —   Loading Ichiban Boshi (foodpanda)…

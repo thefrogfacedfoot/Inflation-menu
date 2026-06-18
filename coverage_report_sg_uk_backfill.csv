@@ -1,0 +1,11 @@
+country,sector,platform,pattern,currency,n_restaurants_ge2,n_snapshots,distinct_urls,earliest,latest,cdx_status,sample_url,sample_ts,sample_kb,sample_price_hits,sample_json_ld,sample_next_data,sample_block,sample_status
+Singapore,formal,deliveroo SG,deliveroo.com.sg/menu/*,SGD,5421,30000,17697,20190916,20260213,truncated,https://deliveroo.com.sg/menu/singapore/boon-lay/meng-tai-katong-laksa,20201125051831,181,0,N,N,,ok
+Singapore,formal,deliveroo SG (slug),deliveroo.com.sg/menu/singapore/*,SGD,5421,30000,17697,20190916,20260213,truncated,https://deliveroo.com.sg/menu/singapore/bugis-arab-street/burger-king-burlington-square?day=today&geohash=w21z7ks1bw3m&time=ASAP,20210413014411,378,0,N,N,,ok
+Singapore,formal,foodpanda SG menu,foodpanda.sg/menu/*,SGD,0,0,0,,,empty,,,,,,,,
+Singapore,formal,foodpanda SG rest,foodpanda.sg/restaurant/*,SGD,1819,9111,6548,20180102,20260203,ok,https://www.foodpanda.sg/restaurant/w6ug/kaki,20190921170951,401,0,Y,N,captcha,block:captcha
+Singapore,formal,hungrygowhere,hungrygowhere.com/*-restaurant-*,SGD,0,0,0,,,empty,,,,,,,,
+United Kingdom,formal,deliveroo UK,deliveroo.co.uk/menu/*,GBP,3080,30000,21882,20180903,20260511,truncated,https://deliveroo.co.uk/menu/birkenhead/higher-bebington/papa-johns-pizza-wirral,20200929081834,391,321,N,N,,ok
+United Kingdom,formal,deliveroo UK london,deliveroo.co.uk/menu/london/*,GBP,3716,30000,24275,20180122,20260530,truncated,https://deliveroo.co.uk/menu/london/battersea/fresh-pizza-cla,20250212135609,363,99,N,Y,cloudflare-challenge,block:cloudflare-challenge
+United Kingdom,formal,just-eat UK,just-eat.co.uk/restaurants-*/menu,GBP,0,0,0,,,empty,,,,,,,,
+United Kingdom,formal,just-eat UK alt,just-eat.co.uk/restaurants/*,GBP,5303,30000,16291,20180104,20260530,truncated,https://www.just-eat.co.uk/restaurants-avanti-chiswick-chiswick/menu,20251010181350,894,18,Y,Y,cloudflare-challenge,block:cloudflare-challenge
+United Kingdom,formal,foodhub UK,foodhub.co.uk/*-menu,GBP,0,0,0,,,empty,,,,,,,,

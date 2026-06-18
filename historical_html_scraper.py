@@ -279,9 +279,78 @@ def parse_eatigo(html, currency):
     return _coerce(extract_jsonld(html), currency)
 
 
+_MENULOG_ITEM_CHUNK = re.compile(r'(?=data-test-id="menu-item")')
+_MENULOG_NAME = re.compile(
+    r'<h\d[^>]+data-test-id="menu-item-name"[^>]*>(.*?)</h\d>',
+    re.S | re.I,
+)
+_MENULOG_PRICE = re.compile(
+    r'<p[^>]+(?:data-js-test|data-test-id)="menu-item-price"[^>]*>(.*?)</p>',
+    re.S | re.I,
+)
+
+
+def _strip_html(s: str) -> str:
+    """Drop HTML comments + tags, decode common entities, collapse whitespace."""
+    s = re.sub(r'<!--.*?-->', ' ', s, flags=re.S)
+    s = re.sub(r'<[^>]+>', ' ', s)
+    s = (s.replace('&amp;', '&').replace('&quot;', '"').replace('&#39;', "'")
+           .replace('&apos;', "'").replace('&lt;', '<').replace('&gt;', '>')
+           .replace('&nbsp;', ' '))
+    return re.sub(r'\s+', ' ', s).strip()
+
+
+def extract_menulog_dom(html):
+    """DOM-based menulog extractor. Menulog archived pages have menu items
+    in static HTML inside `<button data-test-id="menu-item">` containers
+    that wrap an `<h3 data-test-id="menu-item-name">` heading and a
+    `<p data-js-test="menu-item-price">` price element. The JSON-LD on
+    these pages is only Restaurant metadata — see commit 7a4d34f for the
+    history of why this DOM fallback is necessary.
+
+    Returns list of (name, price, currency_or_None). Currency is left as
+    None so the per-target default ('AUD' for Menulog) is filled by
+    `_coerce`.
+    """
+    if not html or 'data-test-id="menu-item"' not in html:
+        return []
+    out = []
+    for chunk in _MENULOG_ITEM_CHUNK.split(html)[1:]:
+        body = chunk[:4000]
+        n = _MENULOG_NAME.search(body)
+        p = _MENULOG_PRICE.search(body)
+        if not (n and p):
+            continue
+        name = _strip_html(n.group(1))
+        price_text = _strip_html(p.group(1))
+        pm = re.search(r'(\d+(?:\.\d{1,2})?)', price_text.replace(',', ''))
+        if not pm or not name:
+            continue
+        try:
+            price = float(pm.group(1))
+        except ValueError:
+            continue
+        if 0 < price < 10_000:
+            out.append((name[:120], price, None))
+    # Dedup
+    seen = set(); uniq = []
+    for n, pr, c in out:
+        k = (n.lower(), round(pr, 2))
+        if k in seen:
+            continue
+        seen.add(k); uniq.append((n, pr, c))
+    return uniq
+
+
 def parse_menulog(html, currency):
-    """Menulog: NEXT_DATA has the menu structure, JSON-LD as backup."""
-    items = extract_nextdata(html) or extract_jsonld(html)
+    """Menulog parser. Order: DOM (consistent, 100% yield on validated
+    Sydney sample) → NEXT_DATA → JSON-LD. The JSON-LD path historically
+    only matched restaurant-level metadata; the NEXT_DATA path was
+    inconsistent. DOM-first reflects what actually carries menu prices
+    on archived Menulog pages."""
+    items = extract_menulog_dom(html)
+    if not items:
+        items = extract_nextdata(html) or extract_jsonld(html)
     return _coerce(items, currency)
 
 

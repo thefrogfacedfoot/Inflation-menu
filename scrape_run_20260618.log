@@ -1,0 +1,702 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Historical HTML scraper — 14 target(s)
+per_period=3, max_per_target=100
+
+
+======================================================================
+  United States:menupages  (menupages.com/*)
+======================================================================
+
+  United States:menupages: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  India:zomato-ncr  (zomato.com/ncr/*)
+======================================================================
+
+  India:zomato-ncr: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Indonesia:zomato-jakarta  (zomato.com/jakarta/*)
+======================================================================
+
+  Indonesia:zomato-jakarta: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Thailand:eatigo-bkk  (eatigo.com/th/bangkok/*)
+======================================================================
+
+  Thailand:eatigo-bkk: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Australia:menulog  (menulog.com.au/restaurants/*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
+  Found 96 candidate snapshots
+  [1/96] 20180227 https://www.menulog.com.au/restaurants-1-best-thai/menu … 0 items
+  [2/96] 20180225 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_source=1be … 0 items
+  [3/96] 20180227 https://www.menulog.com.au/restaurants-1-best-thai/reviews … 0 items
+  [4/96] 20180513 https://www.menulog.com.au/restaurants-1-best-thai … 0 items
+  [5/96] 20180401 https://www.menulog.com.au/restaurants-1-best-thai/reviews?utm_source= … 0 items
+  [6/96] 20180514 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu/ … 0 items
+  [7/96] 20180711 https://www.menulog.com.au/restaurants-126-asian-cuisine/menu … 0 items
+  [8/96] 20180904 https://www.menulog.com.au/restaurants-3-mangoes-thai-restaurant … 0 items
+  [9/96] 20180708 https://www.menulog.com.au/restaurants-3-mangoes-thai-restaurant/menu … 0 items
+  [10/96] 20181217 https://www.menulog.com.au/restaurants-3-seasons-thai-fusion-cuisine … 0 items
+  [11/96] 20181217 https://www.menulog.com.au/restaurants-8things/reviews … 0 items
+  [12/96] 20181206 https://www.menulog.com.au/restaurants-aachi-indian-cuisine/menu … 0 items
+  [13/96] 20190129 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu … 0 items
+  [14/96] 20190117 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu?utm_ … 0 items
+  [15/96] 20190226 https://www.menulog.com.au/restaurants-11-1-asian-kitchen-menu/menu … 0 items
+  [16/96] 20190412 https://www.menulog.com.au/restaurants-126-asian-cuisine … 0 items
+  [17/96] 20190412 https://www.menulog.com.au/restaurants-126-asian-cuisine/reviews/ … 0 items
+  [18/96] 20190403 https://www.menulog.com.au/restaurants-aaa-silkstone-chinese-and-fish- … 0 items
+  [19/96] 20190923 https://www.menulog.com.au/restaurants-02-pizza-pasta-fish-n-chips/men … 0 items
+  [20/96] 20190818 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu?utm_ … 0 items
+  [21/96] 20190817 https://www.menulog.com.au/restaurants-1061-wood-fired-pizza/menu?utm_ … fetch fail
+  [22/96] 20191023 https://www.menulog.com.au/restaurants-02-pizza-pasta-fish-n-chips … fetch fail
+  [23/96] 20191208 https://www.menulog.com.au/restaurants-02-pizza-pasta-fish-n-chips/men … fetch fail
+  [24/96] 20191016 https://www.menulog.com.au/restaurants-1-2-3-baguette-surfers-paradise … fetch fail
+  [25/96] 20200118 https://www.menulog.com.au/restaurants-a-brothers-kebab-pizza/menu?utm … fetch fail
+  [26/96] 20200322 https://www.menulog.com.au/restaurants-adams-kebabys/menu … 0 items
+  [27/96] 20200322 https://www.menulog.com.au/restaurants-afghan-chef/menu … 0 items
+  [28/96] 20200429 https://www.menulog.com.au/restaurants-5-senses-gourmet-bar-greenway/ … 0 items
+  [29/96] 20200524 https://www.menulog.com.au/restaurants-afghan-shaheen-restaurant-expre … 0 items
+  [30/96] 20200412 https://www.menulog.com.au/restaurants-afghan-star-charcoal-kebab-hous … 0 items
+  [31/96] 20200812 https://www.menulog.com.au/restaurants-1061-woodfired-pizza/menu … 0 items
+  [32/96] 20200925 https://www.menulog.com.au/restaurants-127-cafe-go/menu … 0 items
+  [33/96] 20200814 https://www.menulog.com.au/restaurants-1stop-pizza-and-kebab/menu … 0 items
+  [34/96] 20201021 https://www.menulog.com.au/restaurants-1-best-thai/ … 0 items
+  [35/96] 20201130 https://www.menulog.com.au/restaurants-1-stop-convenient/menu?mw-redir … 0 items
+  [36/96] 20201126 https://www.menulog.com.au/restaurants-123bingo-thai-food/?mw-redirect … 0 items
+  [37/96] 20210226 https://www.menulog.com.au/restaurants-11-1-asian-kitchen-menu/menu?ut … 0 items
+  [38/96] 20210226 https://www.menulog.com.au/restaurants-1stop-pizza-and-kebabs/menu?utm … 0 items
+  [39/96] 20210123 https://www.menulog.com.au/restaurants-2-fat-indians-wa-2/menu … 0 items
+  [40/96] 20210613 https://www.menulog.com.au/restaurants--aroras-indian-cuisine-/menu?ut … 0 items
+  [41/96] 20210513 https://www.menulog.com.au/restaurants-18-grams-hurstville/menu … 0 items
+  [42/96] 20210418 https://www.menulog.com.au/restaurants-218-chinese-style-restaurant-ei … 0 items
+  [43/96] 20210919 https://www.menulog.com.au/restaurants-2-b-luck/ … 0 items
+  [44/96] 20210801 https://www.menulog.com.au/restaurants-233/menu … 0 items
+  [45/96] 20210806 https://www.menulog.com.au/restaurants-3-black-bears-pizza-fairfield/m … 0 items
+  [46/96] 20211201 https://www.menulog.com.au/restaurants-14-north-108-east/menu … fetch fail
+  [47/96] 20211124 https://www.menulog.com.au/restaurants-14-north-108-east/menu?utm_sour … fetch fail
+  [48/96] 20211206 https://www.menulog.com.au/restaurants-1stop-pizza-and-kebabs/menu … fetch fail
+  [49/96] 20220111 https://www.menulog.com.au/restaurants-10-greek-plates/menu … fetch fail
+  [50/96] 20220111 https://www.menulog.com.au/restaurants-10-greek-plates/menu?utm_source … fetch fail
+  [51/96] 20220310 https://www.menulog.com.au/restaurants-1001-nights-restaurant-and-cafe … fetch fail
+  [52/96] 20220629 https://www.menulog.com.au/restaurants-10-n-under/menu … 0 items
+  [53/96] 20220517 https://www.menulog.com.au/restaurants-1000-lire/menu … 0 items
+  [54/96] 20220526 https://www.menulog.com.au/restaurants-101-fish-and-chips/menu … 0 items
+  [55/96] 20220711 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_source=goo … 0 items
+  [56/96] 20220703 https://www.menulog.com.au/restaurants-10-indian-dishes/menu … 0 items
+  [57/96] 20220813 https://www.menulog.com.au/restaurants-18-grams-eastgardens/ … 0 items
+  [58/96] 20221104 https://www.menulog.com.au/restaurants-5-degrees-juice-and-fresh-fruit … 0 items
+  [59/96] 20221218 https://www.menulog.com.au/restaurants-8-degrees-pizzeria/menu … 0 items
+  [60/96] 20221109 https://www.menulog.com.au/restaurants-allspice-thai-kitchen/menu … 0 items
+  [61/96] 20230224 https://www.menulog.com.au/restaurants-3-brothers-on-chapel-indian-res … 0 items
+  [62/96] 20230224 https://www.menulog.com.au/restaurants-3-brothers-on-chapel-indian-res … 0 items
+  [63/96] 20230317 https://www.menulog.com.au/restaurants-323/menu … 0 items
+  [64/96] 20230615 https://www.menulog.com.au/restaurants-american-social-bites-and-brews … 0 items
+  [65/96] 20230531 https://www.menulog.com.au/restaurants-american-social-bites-and-brews … 0 items
+  [66/96] 20230603 https://www.menulog.com.au/restaurants-aroma-pizza-house-dernancourt/m … 0 items
+  [67/96] 20230706 https://www.menulog.com.au/restaurants-alabama-wings-strathpine/menu … 0 items
+  [68/96] 20230822 https://www.menulog.com.au/restaurants-alibaba-phillip/menu … 0 items
+  [69/96] 20230715 https://www.menulog.com.au/restaurants-athens-chargrill-and-yiros/menu … 0 items
+  [70/96] 20231020 https://www.menulog.com.au/restaurants-1000-lire/menu?utm_source=googl … fetch fail
+  [71/96] 20231020 https://www.menulog.com.au/restaurants-2-smoking-barrels-wollongong/me … fetch fail
+  [72/96] 20231020 https://www.menulog.com.au/restaurants-2-smoking-barrels-wollongong/me … 0 items
+  [73/96] 20240223 https://www.menulog.com.au/restaurants-1919-lanzhou-beef-noodle-market … 0 items
+  [74/96] 20240301 https://www.menulog.com.au/restaurants-3-black-bears-chermside/menu … 0 items
+  [75/96] 20240316 https://www.menulog.com.au/restaurants-3-brothers-on-chapel-indian-res … 0 items
+  [76/96] 20240519 https://www.menulog.com.au/restaurants--marhaba-quality-halal-meats-/m … 0 items
+  [77/96] 20240416 https://www.menulog.com.au/restaurants-00-pizza-zillmere/menu … 0 items
+  [78/96] 20240529 https://www.menulog.com.au/restaurants-01-kebab-roxburgh-park/menu … 0 items
+  [79/96] 20240910 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_campaign=m … 0 items
+  [80/96] 20240910 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_source=goo … 0 items
+  [81/96] 20240806 https://www.menulog.com.au/restaurants-1919-lanzhou-beef-noodle---gard … 0 items
+  [82/96] 20241012 https://www.menulog.com.au/restaurants-1-best-thai/basket … 0 items
+  [83/96] 20241014 https://www.menulog.com.au/restaurants-1000-lire/menu?utm_campaign=foo … 0 items
+  [84/96] 20241110 https://www.menulog.com.au/restaurants-101-thai-and-cafe-wheeler-heigh … 0 items
+  [85/96] 20250315 https://www.menulog.com.au/restaurants-1-best-thai/menu?utm_campaign=f … fetch fail
+  [86/96] 20250207 https://www.menulog.com.au/restaurants-1-stop-convenient-6059/menu … 0 items
+  [87/96] 20250325 https://www.menulog.com.au/restaurants-111-pizza-place-caloundra/menu … 0 items
+  [88/96] 20250425 https://www.menulog.com.au/restaurants--mangis-kitchen-bar-harris-park … 0 items
+  [89/96] 20250409 https://www.menulog.com.au/restaurants-100-degree-momo-sunbury/100-deg … 0 items
+  [90/96] 20250409 https://www.menulog.com.au/restaurants-100-degree-momo-sunbury/100-deg … 0 items
+  [91/96] 20250811 https://www.menulog.com.au/restaurants-1021-mediterranean/menu … 0 items
+  [92/96] 20250914 https://www.menulog.com.au/restaurants-12-pizzas/menu … fetch fail
+  [93/96] 20250811 https://www.menulog.com.au/restaurants-123-sushi-burwood/menu … 0 items
+  [94/96] 20251016 https://www.menulog.com.au/restaurants-100c-hot-pot-lightsview/menu … 0 items
+  [95/96] 20251010 https://www.menulog.com.au/restaurants-118-kovenant-pooraka/menu … 0 items
+  [96/96] 20251015 https://www.menulog.com.au/restaurants-1903-restaurant-perth/menu … 0 items
+
+  Australia:menulog: 81 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Philippines:zomato-manila  (zomato.com/manila/*)
+======================================================================
+
+  Philippines:zomato-manila: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Singapore:grabfood-sg  (food.grab.com/sg/en/restaurant/*)
+======================================================================
+
+  Singapore:grabfood-sg: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Mexico:tripadvisor-mx  (tripadvisor.com.mx/Restaurant_Review*)
+======================================================================
+
+  Mexico:tripadvisor-mx: 0 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Brazil:ubereats-br  (ubereats.com/br/*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
+  Found 79 candidate snapshots
+  [1/79] 20180413 https://www.ubereats.com/brussels/food-delivery/sushi-factory-schuman/ … 0 items
+  [2/79] 20200312 https://www.ubereats.com/br … 0 items
+  [3/79] 20200330 https://www.ubereats.com/br/location … 0 items
+  [4/79] 20200330 https://www.ubereats.com/br/near-me … 0 items
+  [5/79] 20200404 https://www.ubereats.com/br-en/sao-paulo/food-delivery/meats/q6qdDtydT … 0 items
+  [6/79] 20200404 https://www.ubereats.com/br-en/sao-paulo/food-delivery/thai-e-san/TTjk … 0 items
+  [7/79] 20200608 https://www.ubereats.com/br/brand/mcdonalds?utm_source=mcdonalds_br&ut … 0 items
+  [8/79] 20200804 https://www.ubereats.com/br-en … 0 items
+  [9/79] 20200920 https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/ZI7a … 0 items
+  [10/79] 20200920 https://www.ubereats.com/br-en/anapolis/food-delivery/acai-real/GYVHsJ … 0 items
+  [11/79] 20201125 https://www.ubereats.com/br-en/anapolis/food-delivery/acai-da-frutta/j … 0 items
+  [12/79] 20201127 https://www.ubereats.com/br-en/anapolis/food-delivery/acai-house/h0gV_ … 0 items
+  [13/79] 20201127 https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/8C8e … 0 items
+  [14/79] 20210115 https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0 … 0 items
+  [15/79] 20210120 https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0 … 0 items
+  [16/79] 20210123 https://www.ubereats.com/br-en/anapolis/food-delivery/animals-burguer/ … 0 items
+  [17/79] 20210414 https://www.ubereats.com/br-en/belem/food-delivery/94-burger-artesanal … 0 items
+  [18/79] 20210414 https://www.ubereats.com/br-en/belem/food-delivery/alo-pizza-forneria/ … 0 items
+  [19/79] 20210411 https://www.ubereats.com/br-en/belem/food-delivery/amazon-pizza/s4FIZK … 0 items
+  [20/79] 20210919 https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/shell … 0 items
+  [21/79] 20210730 https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/spoleto … fetch fail
+  [22/79] 20210917 https://www.ubereats.com/br-en/brand-city/juiz-de-fora-mg/kibon-sorvet … fetch fail
+  [23/79] 20211129 https://www.ubereats.com/br-en/brand-city/boa-vista-rr/burger-king … fetch fail
+  [24/79] 20211020 https://www.ubereats.com/br-en/brand-city/boa-vista-rr/gianni … fetch fail
+  [25/79] 20211025 https://www.ubereats.com/br-en/brand-city/boa-vista-rr/spoleto … fetch fail
+  [26/79] 20220128 https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/american-b … fetch fail
+  [27/79] 20220128 https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/bacio-di-l … 0 items
+  [28/79] 20220123 https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/chocolates … 0 items
+  [29/79] 20220626 https://www.ubereats.com/br-en/store/multisabores/adehtncnsrie3rqiqa3y … 0 items
+  [30/79] 20220626 https://www.ubereats.com/br-en/store/vila-izaura/apvubftqt8sup3-kp286e … 0 items
+  [31/79] 20220511 https://www.ubereats.com/brand-city/abilene-tx/starbucks … 0 items
+  [32/79] 20220813 https://www.ubereats.com/brand-city/albany-ny/bbq-chicken … 0 items
+  [33/79] 20220707 https://www.ubereats.com/brand-city/albany-ny/buca-di-beppo … 0 items
+  [34/79] 20220812 https://www.ubereats.com/brand-city/albany-ny/busters-american-kitchen … 0 items
+  [35/79] 20221126 https://www.ubereats.com/brand-city/abilene-tx/chipotle … 0 items
+  [36/79] 20221218 https://www.ubereats.com/brand-city/adrian-mi/starbucks … 0 items
+  [37/79] 20221204 https://www.ubereats.com/brand-city/akron-oh/burger-king … 0 items
+  [38/79] 20230324 https://www.ubereats.com/br-en/category/campo-grande-ms/american … 0 items
+  [39/79] 20230328 https://www.ubereats.com/br-en/category/natal-rn/bbq … 0 items
+  [40/79] 20230322 https://www.ubereats.com/br-en/category/presidente-prudente-sp/burger … 0 items
+  [41/79] 20230401 https://www.ubereats.com/br-en/category/campo-grande-ms/dessert … 0 items
+  [42/79] 20230608 https://www.ubereats.com/br-en/category/presidente-prudente-sp/america … 0 items
+  [43/79] 20230605 https://www.ubereats.com/br-en/category/teresina-pi/american … 0 items
+  [44/79] 20230812 https://www.ubereats.com/br/sao-paulo/food-delivery/seu-melie/1ai2J4j6 … 0 items
+  [45/79] 20230927 https://www.ubereats.com/brand-city/akron-oh/chipotle … 0 items
+  [46/79] 20230923 https://www.ubereats.com/brand-city/albany-ny/ihop … 0 items
+  [47/79] 20231022 https://www.ubereats.com/br/category/jundia%C3%AD-sp/sushi … fetch fail
+  [48/79] 20231011 http://www.ubereats.com/br/location … fetch fail
+  [49/79] 20231011 https://www.ubereats.com/br/rio-de-janeiro/food-delivery/sacole-pai-de … fetch fail
+  [50/79] 20240303 https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/grocery … 0 items
+  [51/79] 20240303 https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/pharmac … 0 items
+  [52/79] 20240222 https://www.ubereats.com/br-en/category/vit%C3%B3ria-es/grocery … 0 items
+  [53/79] 20240414 https://www.ubereats.com/br-en/category/cuiab%C3%A1-mt/alcohol … 0 items
+  [54/79] 20240416 https://www.ubereats.com/br-en/category/florian%C3%B3polis-sc/pharmacy … 0 items
+  [55/79] 20240419 https://www.ubereats.com/br-en/category/santos-sp/pharmacy … 0 items
+  [56/79] 20240720 https://www.ubereats.com/br/brand/subway … 0 items
+  [57/79] 20240920 https://www.ubereats.com/brand-city/aberdeen-nc/mcdonalds … 0 items
+  [58/79] 20240809 https://www.ubereats.com/brand-city/acworth-ga/volcano-steak-sushi … 0 items
+  [59/79] 20241009 https://www.ubereats.com/br/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMkNhbX … 0 items
+  [60/79] 20241016 https://www.ubereats.com/brand-city/alexandria-va/buffalo-wild-wings … 0 items
+  [61/79] 20241013 https://www.ubereats.com/brand-city/alexandria-va/burger-king … 0 items
+  [62/79] 20250212 https://www.ubereats.com/br/rio-de-janeiro/food-delivery/pepe-rio-sul/ … 0 items
+  [63/79] 20250214 https://www.ubereats.com/br/sao-paulo/food-delivery/bistro-da-picanha/ … 0 items
+  [64/79] 20250223 https://www.ubereats.com/brand-city/abbeville-la/chilis … 0 items
+  [65/79] 20250523 https://www.ubereats.com/br/brand/taco-bell … 0 items
+  [66/79] 20250612 https://www.ubereats.com/br/orders/3fba46a6-9a95-4197-b077-d2281c470b5 … 0 items
+  [67/79] 20250617 https://www.ubereats.com/brand-city/ada-ok/3.0.0 … 0 items
+  [68/79] 20250719 https://www.ubereats.com/brand-city/addison-tx/7-eleven … 0 items
+  [69/79] 20250719 https://www.ubereats.com/brand-city/addison-tx/big-deal-burger … 0 items
+  [70/79] 20250719 https://www.ubereats.com/brand-city/addison-tx/burger-house … fetch fail
+  [71/79] 20251117 https://www.ubereats.com/brand-city/aberdeen-md/wendys … fetch fail
+  [72/79] 20251117 https://www.ubereats.com/brand-city/aberdeen-ms/wendys … fetch fail
+  [73/79] 20251023 https://www.ubereats.com/brand-city/aberdeen-nc/dunkin-donuts … 0 items
+  [74/79] 20260217 https://www.ubereats.com/br/brand/burger-king … fetch fail
+  [75/79] 20260308 https://www.ubereats.com/brand-city/acton-ca/jack-in-the-box … 0 items
+  [76/79] 20260313 https://www.ubereats.com/brand-city/adams-ma/adams-hometown-market … 0 items
+  [77/79] 20260526 https://www.ubereats.com/br/orders/b3e0664d-b686-479f-911b-4b40b08cff8 … 0 items
+  [78/79] 20260412 https://www.ubereats.com/brand-city/akron-oh/bob-evans … 0 items
+  [79/79] 20260520 https://www.ubereats.com/brand-city/akron-oh/dairy-queen … 0 items
+
+  Brazil:ubereats-br: 66 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Brazil:ifood-rj  (ifood.com.br/delivery/rio-de-janeiro-rj/*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
+  Found 94 candidate snapshots
+  [1/94] 20180815 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/ … 0 items
+  [2/94] 20180906 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bacalhau-do-rei-ga … 0 items
+  [3/94] 20180815 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/cozinha/japonesa … 0 items
+  [4/94] 20181129 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bacalhau-do-rei-ga … 0 items
+  [5/94] 20181203 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/comuna-botafogo … 0 items
+  [6/94] 20181127 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/mr-lenha-barra-da- … 0 items
+  [7/94] 20190101 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bacalhau-do-rei-ga … 0 items
+  [8/94] 20190101 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/benkei-sushi-barra … 0 items
+  [9/94] 20190101 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/benkei-sushi-barra … 0 items
+  [10/94] 20190502 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/paozinho-delicia-d … 0 items
+  [11/94] 20190824 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio-cucina-i … 0 items
+  [12/94] 20190722 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio-cucina-i … 0 items
+  [13/94] 20190723 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio-cucina-i … 0 items
+  [14/94] 20191214 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/a-casa-da-sopa-taq … 0 items
+  [15/94] 20191213 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio-cucina-i … 0 items
+  [16/94] 20191112 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio-cucina-i … 0 items
+  [17/94] 20200320 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/gui-bolos-e-doceri … 0 items
+  [18/94] 20200329 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/gui-bolos-e-doceri … 0 items
+  [19/94] 20200320 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/gui-bolos-e-doceri … 0 items
+  [20/94] 20200619 https://www.ifood.com.br/delivery/rio-de-janeiro-rj … 0 items
+  [21/94] 20200528 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bar-do-mineiro-san … fetch fail
+  [22/94] 20200610 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bolinhos-luciana-c … fetch fail
+  [23/94] 20200815 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/2-sabores-marmiter … fetch fail
+  [24/94] 20200815 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/2-sabores-marmiter … fetch fail
+  [25/94] 20200807 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/2-sabores-marmiter … fetch fail
+  [26/94] 20201001 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/--orienthai-botafo … 0 items
+  [27/94] 20201028 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/--orienthai-botafo … 0 items
+  [28/94] 20201028 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/--orienthai-botafo … 0 items
+  [29/94] 20210117 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/-gourmet-na-brasa- … 0 items
+  [30/94] 20210308 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/13-sabores-cordovi … 0 items
+  [31/94] 20210126 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/2nite-japa--burger … 0 items
+  [32/94] 20210617 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/1--casa-nossa-jard … 0 items
+  [33/94] 20210622 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/1--vrumm-restauran … 0 items
+  [34/94] 20210622 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/247-bistro-congela … 0 items
+  [35/94] 20210921 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio---leblon … 0 items
+  [36/94] 20210814 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio---rio-su … 0 items
+  [37/94] 20210921 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-do-bro-tijuca … 0 items
+  [38/94] 20211011 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio---rio-de … 0 items
+  [39/94] 20211025 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-do-bro-tijuca … 0 items
+  [40/94] 20211203 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-do-jacare-fre … 0 items
+  [41/94] 20220221 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acaraje-da-jo-mara … 0 items
+  [42/94] 20220122 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/aconchego-carioca- … 0 items
+  [43/94] 20220125 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acougue-vegano-jac … 0 items
+  [44/94] 20220630 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-de-elite-padr … 0 items
+  [45/94] 20220523 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/adegao-portugues-- … fetch fail
+  [46/94] 20220626 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/al-khayam-centro/f … 0 items
+  [47/94] 20220819 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/1--fatto-a-mano-ge … fetch fail
+  [48/94] 20220714 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/aguia-foods-andara … fetch fail
+  [49/94] 20220714 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/aguia-foods-andara … fetch fail
+  [50/94] 20221031 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-carioquinha-c … 0 items
+  [51/94] 20221031 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-carioquinha-c … 0 items
+  [52/94] 20221012 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/borda-e-lenha---ja … 0 items
+  [53/94] 20230119 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/adega-altas-horas- … 0 items
+  [54/94] 20230119 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/adega-altas-horas- … 0 items
+  [55/94] 20230306 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/amir-copacabana/c4 … 0 items
+  [56/94] 20230425 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-beach-tanque/ … 0 items
+  [57/94] 20230424 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-beach-tanque/ … 0 items
+  [58/94] 20230428 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-beach-tanque/ … 0 items
+  [59/94] 20230904 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/aham-forneria---pi … 0 items
+  [60/94] 20230904 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/armazen-pirata-bur … 0 items
+  [61/94] 20230908 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/arretado-do-rao--- … 0 items
+  [62/94] 20231028 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/55-creperia-centro … 0 items
+  [63/94] 20231012 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/a-italiana-mineira … 0 items
+  [64/94] 20231026 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/a-risoteria-carioc … 0 items
+  [65/94] 20240118 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/artigrano-padaria- … 0 items
+  [66/94] 20240118 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/artigrano-padaria- … 0 items
+  [67/94] 20240225 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/artisani-botafogo/ … 0 items
+  [68/94] 20240520 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/adegao-portugues-- … 0 items
+  [69/94] 20240425 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/agatha-chocolates- … 0 items
+  [70/94] 20240425 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/amor-aos-pedacos-- … fetch fail
+  [71/94] 20240725 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio---leblon … fetch fail
+  [72/94] 20240910 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/adonai-supermercad … fetch fail
+  [73/94] 20240724 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/alfaia-copacabana/ … 0 items
+  [74/94] 20241214 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/-arabe-express--ca … 0 items
+  [75/94] 20241125 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-vips-recreio- … 0 items
+  [76/94] 20241101 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acaiteria-tijuca-m … 0 items
+  [77/94] 20250314 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/academia-da-cachac … 0 items
+  [78/94] 20250314 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/academia-da-cachac … 0 items
+  [79/94] 20250212 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-gold-tijuca/9 … 0 items
+  [80/94] 20250522 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio---rio-de … 0 items
+  [81/94] 20250522 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abbraccio-tijuca-t … 0 items
+  [82/94] 20250428 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/al-kuwait-restaura … 0 items
+  [83/94] 20250805 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/40-sabores-barra-- … 0 items
+  [84/94] 20250811 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/a-fonte-barra-da-t … 0 items
+  [85/94] 20250906 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-mundo-do-sabo … 0 items
+  [86/94] 20251108 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/adega-santiago---v … 0 items
+  [87/94] 20251010 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/al-kuwait-restaura … 0 items
+  [88/94] 20251016 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/alveole-barra-da-t … 0 items
+  [89/94] 20260225 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/a-hora-do-vinho--- … 0 items
+  [90/94] 20260225 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/a-hora-do-vinho--- … 0 items
+  [91/94] 20260124 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/abba--co-gluten-fr … 0 items
+  [92/94] 20260510 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/angu-do-gomes-saud … 0 items
+  [93/94] 20260411 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bar-do-adao---flam … fetch fail
+  [94/94] 20260411 https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bar-urca-urca/8d29 … fetch fail
+
+  Brazil:ifood-rj: 80 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Germany:lieferando  (lieferando.de/speisekarte/*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
+  Found 66 candidate snapshots
+  [1/66] 20210301 https://www.lieferando.de/speisekarte/aendre … 0 items
+  [2/66] 20210302 https://www.lieferando.de/speisekarte/al-giardino-zum-stern … 0 items
+  [3/66] 20210228 https://www.lieferando.de/speisekarte/al-mundo-cafe-und-restaurant … 0 items
+  [4/66] 20210516 https://www.lieferando.de/speisekarte/123-pizzeria-1 … 0 items
+  [5/66] 20210619 https://www.lieferando.de/speisekarte/1852-landgasthof … 0 items
+  [6/66] 20210625 https://www.lieferando.de/speisekarte/36grad … 0 items
+  [7/66] 20210923 https://www.lieferando.de/speisekarte/030-boba … 0 items
+  [8/66] 20210728 https://www.lieferando.de/speisekarte/123-pizzeria … 0 items
+  [9/66] 20210920 https://www.lieferando.de/speisekarte/1885-die-burger-bremen … 0 items
+  [10/66] 20211203 https://www.lieferando.de/speisekarte/1001nacht … 0 items
+  [11/66] 20211129 https://www.lieferando.de/speisekarte/1990-vegan-living … 0 items
+  [12/66] 20211206 https://www.lieferando.de/speisekarte/200g-grillbar … 0 items
+  [13/66] 20220125 https://www.lieferando.de/speisekarte/35-millimeter-kinopolis … 0 items
+  [14/66] 20220127 https://www.lieferando.de/speisekarte/90s-burger … 0 items
+  [15/66] 20220121 https://www.lieferando.de/speisekarte/a-one … 0 items
+  [16/66] 20220601 https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische- … 0 items
+  [17/66] 20220602 https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische- … 0 items
+  [18/66] 20220615 https://www.lieferando.de/speisekarte/7itk … 0 items
+  [19/66] 20220929 https://www.lieferando.de/speisekarte/1111-pizza-pasta … 0 items
+  [20/66] 20220930 https://www.lieferando.de/speisekarte/123-pizzeria-hainburg-63512 … 0 items
+  [21/66] 20220929 https://www.lieferando.de/speisekarte/1982-vegan-sushi … fetch fail
+  [22/66] 20221002 https://www.lieferando.de/speisekarte/00-da-rosario-1 … fetch fail
+  [23/66] 20221005 https://www.lieferando.de/speisekarte/123-pizzeria-babenhausen-1 … fetch fail
+  [24/66] 20221007 https://www.lieferando.de/speisekarte/1961-fusion … fetch fail
+  [25/66] 20230206 https://www.lieferando.de/speisekarte/3-bs-burger-barbecue-brothers-br … fetch fail
+  [26/66] 20230322 https://www.lieferando.de/speisekarte/60-seconds-to-napoli-04109 … 0 items
+  [27/66] 20230329 https://www.lieferando.de/speisekarte/abelos-griechische-mittelmeerkue … 0 items
+  [28/66] 20230519 https://www.lieferando.de/speisekarte/089-burgermore … 0 items
+  [29/66] 20230519 https://www.lieferando.de/speisekarte/11ses … 0 items
+  [30/66] 20230510 https://www.lieferando.de/speisekarte/1990-viva-vegan-1 … 0 items
+  [31/66] 20230922 https://www.lieferando.de/speisekarte/480grad-neapolitan-pizza-wurzbur … 0 items
+  [32/66] 20230924 https://www.lieferando.de/speisekarte/adler-pizza-express … 0 items
+  [33/66] 20230926 https://www.lieferando.de/speisekarte/ali-baba-38154 … 0 items
+  [34/66] 20231228 https://www.lieferando.de/speisekarte/12s-pho-weimar-ecke-vietnam … 0 items
+  [35/66] 20231201 https://www.lieferando.de/speisekarte/2-brothers-gemusedoner-burger-bo … 0 items
+  [36/66] 20231201 https://www.lieferando.de/speisekarte/36-grad … 0 items
+  [37/66] 20240226 https://www.lieferando.de/speisekarte/089-sushi-20355 … 0 items
+  [38/66] 20240226 https://www.lieferando.de/speisekarte/1001-nacht-cafe-restaurant … 0 items
+  [39/66] 20240224 https://www.lieferando.de/speisekarte/485grad-gmbh … 0 items
+  [40/66] 20240415 https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische- … 0 items
+  [41/66] 20240417 https://www.lieferando.de/speisekarte/1001-nacht-caf-restaurant … 0 items
+  [42/66] 20240604 https://www.lieferando.de/speisekarte/108-flora … 0 items
+  [43/66] 20240815 https://www.lieferando.de/speisekarte/3-pyramids … 0 items
+  [44/66] 20240917 https://www.lieferando.de/speisekarte/3p-italian-easy-food … 0 items
+  [45/66] 20240806 https://www.lieferando.de/speisekarte/85-grad-berlin … 0 items
+  [46/66] 20241214 https://www.lieferando.de/speisekarte/0711-burger-manufaktur … fetch fail
+  [47/66] 20241112 https://www.lieferando.de/speisekarte/a1-grill-kebap-haus … fetch fail
+  [48/66] 20241111 https://www.lieferando.de/speisekarte/aapka-berlin-mitte-1 … fetch fail
+  [49/66] 20250124 https://www.lieferando.de/speisekarte/--xds-color-content-brand … fetch fail
+  [50/66] 20250124 https://www.lieferando.de/speisekarte/--xds-color-content-default … 0 items
+  [51/66] 20250124 https://www.lieferando.de/speisekarte/--xds-color-content-subdued … 0 items
+  [52/66] 20250512 https://www.lieferando.de/speisekarte/--xds-font-size-12 … 0 items
+  [53/66] 20250512 https://www.lieferando.de/speisekarte/--xds-font-size-16 … 0 items
+  [54/66] 20250512 https://www.lieferando.de/speisekarte/--xds-font-size-24 … 0 items
+  [55/66] 20250710 https://www.lieferando.de/speisekarte/0.1.14064 … 0 items
+  [56/66] 20250731 https://www.lieferando.de/speisekarte/0.1.14222 … 0 items
+  [57/66] 20250929 https://www.lieferando.de/speisekarte/0.1.14663 … 0 items
+  [58/66] 20251013 https://www.lieferando.de/speisekarte/1-apotheke … 0 items
+  [59/66] 20251219 https://www.lieferando.de/speisekarte/1-apotheke?utm_campaign=foodorde … 0 items
+  [60/66] 20251015 https://www.lieferando.de/speisekarte/123-pizzeria-hauptstrasse … 0 items
+  [61/66] 20260223 https://www.lieferando.de/speisekarte/3hs-burger-chicken-leipzig … 0 items
+  [62/66] 20260302 https://www.lieferando.de/speisekarte/ahimsa-restaurant … 0 items
+  [63/66] 20260302 https://www.lieferando.de/speisekarte/ahimsa-restaurant?utm_campaign=f … 0 items
+  [64/66] 20260421 https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant … 0 items
+  [65/66] 20260421 https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant?utm … 0 items
+  [66/66] 20260415 https://www.lieferando.de/speisekarte/annam-ahlem?utm_source=google&sh … 0 items
+
+  Germany:lieferando: 57 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  Germany:wolt-de  (wolt.com/de/deu/*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
+  Found 72 candidate snapshots
+  [1/72] 20200927 https://wolt.com/de/deu/berlin/article/berlin_deliveryarea … 0 items
+  [2/72] 20200924 https://wolt.com/de/deu/berlin/restaurant/chupenga-burritos-salads-geo … 0 items
+  [3/72] 20200924 https://wolt.com/de/deu/berlin/restaurant/good-bank-dorotheenstr … 0 items
+  [4/72] 20201029 https://wolt.com/de/deu/berlin/restaurant/aapka-kreuzberg … 0 items
+  [5/72] 20201203 https://wolt.com/de/deu/berlin/restaurant/brlo-brwhouse … 0 items
+  [6/72] 20201031 https://wolt.com/de/deu/berlin/restaurant/burgeramt … 0 items
+  [7/72] 20210210 https://wolt.com/de/deu … 0 items
+  [8/72] 20210317 https://wolt.com/de/deu/berlin/article/vytal_pilot_ber … 0 items
+  [9/72] 20210115 https://wolt.com/de/deu/berlin/restaurant/al-hamra … 0 items
+  [10/72] 20210624 https://wolt.com/de/deu/ … 0 items
+  [11/72] 20210421 https://wolt.com/de/deu/berlin/article/howto_tipping … 0 items
+  [12/72] 20210622 https://wolt.com/de/deu/berlin/restaurant/agenor-falafel … 0 items
+  [13/72] 20210804 https://wolt.com/de/deu/berlin/article/retail_voucher_ber … 0 items
+  [14/72] 20210727 https://wolt.com/de/deu/berlin/discovery/flowers_gifts_berlin … 0 items
+  [15/72] 20210929 https://wolt.com/de/deu/berlin/restaurant/amici-amici … 0 items
+  [16/72] 20211023 https://wolt.com/de/deu/berlin/restaurant/american-ice-cream … 0 items
+  [17/72] 20211024 https://wolt.com/de/deu/berlin/restaurant/ammamma … 0 items
+  [18/72] 20211209 https://wolt.com/de/deu/berlin/restaurant/blackbeards?gclid=Cj0KCQiAzZ … 0 items
+  [19/72] 20220128 https://wolt.com/de/deu/berlin … 0 items
+  [20/72] 20220128 https://wolt.com/de/deu/berlin/c/american … 0 items
+  [21/72] 20220119 https://wolt.com/de/deu/berlin/c/asian … fetch fail
+  [22/72] 20220627 https://wolt.com/de/deu/berlin/category/alcohol … fetch fail
+  [23/72] 20220625 https://wolt.com/de/deu/berlin/category/american … fetch fail
+  [24/72] 20220627 https://wolt.com/de/deu/berlin/category/asian … fetch fail
+  [25/72] 20220803 https://wolt.com/de/deu/berlin/article/germany_mastercard_article … fetch fail
+  [26/72] 20220926 https://wolt.com/de/deu/berlin/article/germany_mastercard_article_sept … 0 items
+  [27/72] 20220725 https://wolt.com/de/deu/berlin/ber_hotsummerdeals … 0 items
+  [28/72] 20221003 https://wolt.com/de/deu/berlin/category/arabic … 0 items
+  [29/72] 20221005 https://wolt.com/de/deu/berlin/category/bakeries … 0 items
+  [30/72] 20221005 https://wolt.com/de/deu/berlin/category/bakery … 0 items
+  [31/72] 20230113 https://wolt.com/de/deu/berlin/article/qa_berlin … 0 items
+  [32/72] 20230203 https://wolt.com/de/deu/berlin/ber_tannenparadies … 0 items
+  [33/72] 20230130 https://wolt.com/de/deu/berlin/category/austrian … 0 items
+  [34/72] 20230610 https://wolt.com/de/deu/berlin/article/impressum-info … 0 items
+  [35/72] 20230402 https://wolt.com/de/deu/berlin/category/burgers … 0 items
+  [36/72] 20230608 https://wolt.com/de/deu/berlin/category/chicken … 0 items
+  [37/72] 20230929 https://wolt.com/de/deu/aachen/restaurant/smashup-burger … 0 items
+  [38/72] 20230801 https://wolt.com/de/deu/augsburg/article/agb_prelaunch_registernow … 0 items
+  [39/72] 20230922 https://wolt.com/de/deu/berlin/category/coffee-tea … 0 items
+  [40/72] 20231211 https://wolt.com/de/deu/aachen … 0 items
+  [41/72] 20231211 https://wolt.com/de/deu/augsburg … 0 items
+  [42/72] 20231001 https://wolt.com/de/deu/augsburg/restaurant/katzentempel-augsburg … 0 items
+  [43/72] 20240226 https://wolt.com/de/deu/aachen/restaurant/aposto-aachen … 0 items
+  [44/72] 20240226 https://wolt.com/de/deu/berlin/article/berlin-ber_ftu_fd … 0 items
+  [45/72] 20240205 https://wolt.com/de/deu/berlin/article/germany_mastercard_012023 … 0 items
+  [46/72] 20240423 https://wolt.com/de/deu/aachen/restaurant/five-guys-aachen … fetch fail
+  [47/72] 20240421 https://wolt.com/de/deu/augsburg/restaurant/hamburgerei … fetch fail
+  [48/72] 20240623 https://wolt.com/de/deu/berlin/brand/risa-chicken … fetch fail
+  [49/72] 20240707 https://wolt.com/de/deu/aachen/restaurant/noima-by-degustino … fetch fail
+  [50/72] 20240713 https://wolt.com/de/deu/augsburg/restaurant/kfc-augsburg-flandernstrae … fetch fail
+  [51/72] 20240712 https://wolt.com/de/deu/augsburg/restaurant/kfc-augsburg-ulmer-str … 0 items
+  [52/72] 20241217 https://wolt.com/de/deu/aachen/restaurant/60-seconds-to-napoli-aachen … 0 items
+  [53/72] 20241004 https://wolt.com/de/deu/aachen/restaurant/aachener-brauhaus?rwg_token= … 0 items
+  [54/72] 20241004 https://wolt.com/de/deu/aachen/restaurant/aachener-brauhaus?utm_conten … 0 items
+  [55/72] 20250108 https://wolt.com/de/deu/aachen/category/italian … 0 items
+  [56/72] 20250108 https://wolt.com/de/deu/aachen/category/pasta … 0 items
+  [57/72] 20250108 https://wolt.com/de/deu/aachen/category/pizza … 0 items
+  [58/72] 20250621 https://wolt.com/de/deu/aachen/category/alcohol … 0 items
+  [59/72] 20250621 https://wolt.com/de/deu/aachen/category/arabic … 0 items
+  [60/72] 20250621 https://wolt.com/de/deu/aachen/category/bakeries … 0 items
+  [61/72] 20250711 https://wolt.com/de/deu/aachen/restaurant/chief-kebap?srsltid=AfmBOoqx … 0 items
+  [62/72] 20250907 https://wolt.com/de/deu/aachen/restaurant/rush-food … 0 items
+  [63/72] 20250819 https://wolt.com/de/deu/aachen/restaurant/tokyo-sushi-fusion-kitchen … 0 items
+  [64/72] 20251210 https://wolt.com/de/deu/augsburg/restaurant/cardamocca … 0 items
+  [65/72] 20251210 https://wolt.com/de/deu/augsburg/restaurant/zhem-toast-waffle-co … 0 items
+  [66/72] 20251211 https://wolt.com/de/deu/augsburg/stores … 0 items
+  [67/72] 20260116 https://wolt.com/de/deu/aachen/restaurant/omami-sushi?search=Gebratene … 0 items
+  [68/72] 20260116 https://wolt.com/de/deu/aachen/restaurant/omami-sushi?search=Maki … 0 items
+  [69/72] 20260116 https://wolt.com/de/deu/aachen/restaurant/omami-sushi?search=Nigi … 0 items
+  [70/72] 20260428 https://wolt.com/de/deu/aachen/restaurant/chickn-mundo-aachen-hubertus … 0 items
+  [71/72] 20260428 https://wolt.com/de/deu/aachen/restaurant/friends-tasty-kitchen-c46887 … fetch fail
+  [72/72] 20260428 https://wolt.com/de/deu/aachen/restaurant/pizza-nanino … fetch fail
+
+  Germany:wolt-de: 60 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  South Africa:tripadvisor-za  (tripadvisor.co.za/Restaurant_Review*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
+  Found 99 candidate snapshots
+  [1/99] 20180118 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d1045880-Rev … 0 items
+  [2/99] 20180315 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d1045886-Rev … 0 items
+  [3/99] 20180227 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11856439-Re … 0 items
+  [4/99] 20180623 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11856439-Re … 0 items
+  [5/99] 20180623 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d1733596-Rev … 0 items
+  [6/99] 20180623 https://www.tripadvisor.co.za/Restaurant_Review-g1006538-d9697126-Revi … 0 items
+  [7/99] 20180826 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11856439-Re … 0 items
+  [8/99] 20180826 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11856439-Re … 0 items
+  [9/99] 20180816 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11856439-Re … 0 items
+  [10/99] 20181226 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d1045886-Rev … 0 items
+  [11/99] 20181226 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11856439-Re … 0 items
+  [12/99] 20181226 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d1733596-Rev … 0 items
+  [13/99] 20190217 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d9464691-Revi … 0 items
+  [14/99] 20190217 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d9464691-Revi … 0 items
+  [15/99] 20190220 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d9464691-Revi … 0 items
+  [16/99] 20190521 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d1733596-Rev … 0 items
+  [17/99] 20190620 https://www.tripadvisor.co.za/Restaurant_Review-g10039827-d10539355-Re … 0 items
+  [18/99] 20190528 https://www.tripadvisor.co.za/Restaurant_Review-g1006191-d5008794-Revi … 0 items
+  [19/99] 20190913 https://www.tripadvisor.co.za/Restaurant_Review-g10003001-d13238337-Re … 0 items
+  [20/99] 20190718 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d1045886-Rev … fetch fail
+  [21/99] 20190718 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11856439-Re … 0 items
+  [22/99] 20191015 https://www.tripadvisor.co.za/Restaurant_Review-g10006722-d10804978-Re … fetch fail
+  [23/99] 20191029 https://www.tripadvisor.co.za/Restaurant_Review-g10006722-d17288097-Re … fetch fail
+  [24/99] 20191005 https://www.tripadvisor.co.za/Restaurant_Review-g10021880-d13763192-Re … fetch fail
+  [25/99] 20200129 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d11509999-Re … 0 items
+  [26/99] 20200129 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d7192813-Rev … 0 items
+  [27/99] 20200224 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d13291006-Rev … 0 items
+  [28/99] 20200523 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d14789396-Re … 0 items
+  [29/99] 20200606 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d14789396-Re … 0 items
+  [30/99] 20200410 https://www.tripadvisor.co.za/Restaurant_Review-g1005978-d12403193-Rev … 0 items
+  [31/99] 20200805 https://www.tripadvisor.co.za/Restaurant_Review-g1006068-d17025684-Rev … 0 items
+  [32/99] 20200714 https://www.tripadvisor.co.za/Restaurant_Review-g1006068-d17025684-Rev … 0 items
+  [33/99] 20200806 https://www.tripadvisor.co.za/Restaurant_Review-g1006068-d17025684-Rev … 0 items
+  [34/99] 20201224 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d3734895-Rev … 0 items
+  [35/99] 20201115 https://www.tripadvisor.co.za/Restaurant_Review-g1006156-d1540309-Revi … 0 items
+  [36/99] 20201114 https://www.tripadvisor.co.za/Restaurant_Review-g1006156-d1991546-Revi … 0 items
+  [37/99] 20210218 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d1728927-Revi … 0 items
+  [38/99] 20210218 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d1728927-Revi … 0 items
+  [39/99] 20210218 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d1728927-Revi … 0 items
+  [40/99] 20210629 https://www.tripadvisor.co.za/Restaurant_Review-g10092436-d4777694-Rev … 0 items
+  [41/99] 20210425 https://www.tripadvisor.co.za/Restaurant_Review-g1012170-d12616997-Rev … 0 items
+  [42/99] 20210420 https://www.tripadvisor.co.za/Restaurant_Review-g1015902-d11914681-Rev … 0 items
+  [43/99] 20210805 https://www.tripadvisor.co.za/Restaurant_Review-g1006045-d10028667-Rev … 0 items
+  [44/99] 20210805 https://www.tripadvisor.co.za/Restaurant_Review-g1006045-d10028667-Rev … fetch fail
+  [45/99] 20210805 https://www.tripadvisor.co.za/Restaurant_Review-g1006045-d10273195-Rev … fetch fail
+  [46/99] 20211031 https://www.tripadvisor.co.za/Restaurant_Review-g10006722-d14008892-Re … 0 items
+  [47/99] 20211007 https://www.tripadvisor.co.za/Restaurant_Review-g1006498-d1006835-Revi … fetch fail
+  [48/99] 20211010 https://www.tripadvisor.co.za/Restaurant_Review-g1006498-d1006835-Revi … fetch fail
+  [49/99] 20220321 https://www.tripadvisor.co.za/Restaurant_Review-g1005757-d10218496-Rev … 0 items
+  [50/99] 20220321 https://www.tripadvisor.co.za/Restaurant_Review-g1005757-d10218496-Rev … 0 items
+  [51/99] 20220321 https://www.tripadvisor.co.za/Restaurant_Review-g1005757-d14860734-Rev … 0 items
+  [52/99] 20220422 https://www.tripadvisor.co.za/Restaurant_Review-g10050626-d13847741-Re … 0 items
+  [53/99] 20220510 https://www.tripadvisor.co.za/Restaurant_Review-g1005744-d5017869-Revi … 0 items
+  [54/99] 20220409 https://www.tripadvisor.co.za/Restaurant_Review-g1005937-d13223000-Rev … 0 items
+  [55/99] 20220716 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d19834255-Rev … 0 items
+  [56/99] 20220715 https://www.tripadvisor.co.za/Restaurant_Review-g1006068-d10478608-Rev … 0 items
+  [57/99] 20220715 https://www.tripadvisor.co.za/Restaurant_Review-g1006068-d10478608-Rev … 0 items
+  [58/99] 20221107 https://www.tripadvisor.co.za/Restaurant_Review-g1005978-d2412619-Revi … 0 items
+  [59/99] 20221010 https://www.tripadvisor.co.za/Restaurant_Review-g1006845-d1535646-Revi … 0 items
+  [60/99] 20221003 https://www.tripadvisor.co.za/Restaurant_Review-g1006845-d1535646-Revi … 0 items
+  [61/99] 20230211 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d1728927-Revi … 0 items
+  [62/99] 20230211 https://www.tripadvisor.co.za/Restaurant_Review-g1005959-d1728927-Revi … 0 items
+  [63/99] 20230317 https://www.tripadvisor.co.za/Restaurant_Review-g1006488-d3646772-Revi … 0 items
+  [64/99] 20230524 https://www.tripadvisor.co.za/Restaurant_Review-g1006156-d13140102-Rev … 0 items
+  [65/99] 20230626 https://www.tripadvisor.co.za/Restaurant_Review-g1006581-d1331645-Revi … 0 items
+  [66/99] 20230405 https://www.tripadvisor.co.za/Restaurant_Review-g1009332-d7620310-Revi … 0 items
+  [67/99] 20230906 https://www.tripadvisor.co.za/Restaurant_Review-g1010800-d10336472-Rev … 0 items
+  [68/99] 20230901 https://www.tripadvisor.co.za/Restaurant_Review-g1013018-d12705582-Rev … fetch fail
+  [69/99] 20230729 https://www.tripadvisor.co.za/Restaurant_Review-g1021199-d1379934-Revi … fetch fail
+  [70/99] 20231014 https://www.tripadvisor.co.za/Restaurant_Review-g1006209-d6681497-Revi … 0 items
+  [71/99] 20231013 https://www.tripadvisor.co.za/Restaurant_Review-g1006209-d6681497-Revi … fetch fail
+  [72/99] 20231112 https://www.tripadvisor.co.za/Restaurant_Review-g1007281-d17367008-Rev … fetch fail
+  [73/99] 20240229 https://www.tripadvisor.co.za/Restaurant_Review-g1005764-d10636727-Rev … 0 items
+  [74/99] 20240308 https://www.tripadvisor.co.za/Restaurant_Review-g1006071-d1038122-Revi … 0 items
+  [75/99] 20240308 https://www.tripadvisor.co.za/Restaurant_Review-g1006071-d1038122-Revi … 0 items
+  [76/99] 20240501 https://www.tripadvisor.co.za/Restaurant_Review-g1006216-d9802761-Revi … 0 items
+  [77/99] 20240425 https://www.tripadvisor.co.za/Restaurant_Review-g1006216-d9802761-Revi … 0 items
+  [78/99] 20240428 https://www.tripadvisor.co.za/Restaurant_Review-g1007324-d3649441-Revi … 0 items
+  [79/99] 20240703 https://www.tripadvisor.co.za/Restaurant_Review-g1006497-d1006834-Revi … 0 items
+  [80/99] 20240721 https://www.tripadvisor.co.za/Restaurant_Review-g1009339-d1757098-Revi … 0 items
+  [81/99] 20240720 https://www.tripadvisor.co.za/Restaurant_Review-g1010312-d23853459-Rev … 0 items
+  [82/99] 20241029 https://www.tripadvisor.co.za/Restaurant_Review-g10060619-d3217419-Rev … 0 items
+  [83/99] 20241221 https://www.tripadvisor.co.za/Restaurant_Review-g1007643-d10079707-Rev … 0 items
+  [84/99] 20241009 https://www.tripadvisor.co.za/Restaurant_Review-g1016047-d4870899-Revi … 0 items
+  [85/99] 20250331 https://www.tripadvisor.co.za/Restaurant_Review-g1005967-d2459574-Revi … 0 items
+  [86/99] 20250318 https://www.tripadvisor.co.za/Restaurant_Review-g10139044-d3321194-Rev … 0 items
+  [87/99] 20250227 https://www.tripadvisor.co.za/Restaurant_Review-g1015944-d7580276-Revi … 0 items
+  [88/99] 20250428 https://www.tripadvisor.co.za/Restaurant_Review-g1023360-d12988705-Rev … 0 items
+  [89/99] 20250507 https://www.tripadvisor.co.za/Restaurant_Review-g1024017-d23379383-Rev … 0 items
+  [90/99] 20250601 https://www.tripadvisor.co.za/Restaurant_Review-g1041941-d8133265-Revi … 0 items
+  [91/99] 20250820 https://www.tripadvisor.co.za/Restaurant_Review-g10046289-d10321472-Re … 0 items
+  [92/99] 20250820 https://www.tripadvisor.co.za/Restaurant_Review-g10046289-d12208449-Re … fetch fail
+  [93/99] 20250820 https://www.tripadvisor.co.za/Restaurant_Review-g10046289-d19468852-Re … 0 items
+  [94/99] 20251021 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d23804945-Re … fetch fail
+  [95/99] 20251021 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d26730536-Re … fetch fail
+  [96/99] 20251020 https://www.tripadvisor.co.za/Restaurant_Review-g1005972-d2179732-Revi … 0 items
+  [97/99] 20260111 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d13565909-Re … 0 items
+  [98/99] 20260111 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d16647050-Re … 0 items
+  [99/99] 20260111 https://www.tripadvisor.co.za/Restaurant_Review-g10006284-d21232546-Re … 0 items
+
+  South Africa:tripadvisor-za: 84 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+  South Africa:ubereats-za  (ubereats.com/za/*)
+======================================================================
+  Querying CDX (distributed, per_period=3, max=100) …
+  Found 75 candidate snapshots
+  [1/75] 20200416 https://www.ubereats.com/za … 0 items
+  [2/75] 20200607 https://www.ubereats.com/za/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjEwNS … 0 items
+  [3/75] 20200415 https://www.ubereats.com/za/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMk5ldy … 0 items
+  [4/75] 20200805 https://www.ubereats.com/za/brand/burger-king … 0 items
+  [5/75] 20200804 https://www.ubereats.com/za/cape-town/food-delivery/anvil-burger-compa … 0 items
+  [6/75] 20200926 https://www.ubereats.com/za/cape-town/food-delivery/burger-%2526-lobst … 0 items
+  [7/75] 20201029 https://www.ubereats.com/za/brand/mcdonalds … 0 items
+  [8/75] 20201025 https://www.ubereats.com/za/cape-town/food-delivery/aneesas-foods/bk08 … 0 items
+  [9/75] 20201025 https://www.ubereats.com/za/cape-town/food-delivery/da-vincis-on-kloof … 0 items
+  [10/75] 20210305 https://www.ubereats.com/za/brand/free-bird … 0 items
+  [11/75] 20210227 https://www.ubereats.com/za/cape-town/food-delivery/1890-house-of-sush … 0 items
+  [12/75] 20210228 https://www.ubereats.com/za/cape-town/food-delivery/3-wise-monkeys/Xbj … 0 items
+  [13/75] 20210414 https://www.ubereats.com/za/bloemfontein/food-delivery/cinnabon-bloemf … 0 items
+  [14/75] 20210511 https://www.ubereats.com/za/bloemfontein/food-delivery/debonairs-pizza … 0 items
+  [15/75] 20210511 https://www.ubereats.com/za/bloemfontein/food-delivery/kfc-bloemfontei … 0 items
+  [16/75] 20210918 https://www.ubereats.com/za/brand-city/cape-town-wc/galitos-flame-gril … 0 items
+  [17/75] 20210918 https://www.ubereats.com/za/brand-city/cape-town-wc/naked-coffee … 0 items
+  [18/75] 20210725 https://www.ubereats.com/za/brand-city/cape-town-wc/nikos?mod=seoEnter … 0 items
+  [19/75] 20211024 https://www.ubereats.com/za/brand-city/bloemfontein-fs/kauai-1 … 0 items
+  [20/75] 20211018 https://www.ubereats.com/za/brand-city/cape-town-wc/asami … 0 items
+  [21/75] 20211018 https://www.ubereats.com/za/brand-city/cape-town-wc/mochacho … 0 items
+  [22/75] 20220126 https://www.ubereats.com/za/brand/hungry-lion … 0 items
+  [23/75] 20220122 https://www.ubereats.com/za/category/cape-town-wc/cupcake … 0 items
+  [24/75] 20220122 https://www.ubereats.com/za/category/cape-town-wc/drink … 0 items
+  [25/75] 20220523 https://www.ubereats.com/za/brand-city/cape-town-wc/brocka … 0 items
+  [26/75] 20220626 https://www.ubereats.com/za/brand-city/cape-town-wc/burger-king … 0 items
+  [27/75] 20220524 https://www.ubereats.com/za/brand-city/cape-town-wc/chiledo … 0 items
+  [28/75] 20220928 https://www.ubereats.com/za/brand-city/bloemfontein-fs/burger-king … 0 items
+  [29/75] 20220809 https://www.ubereats.com/za/brand-city/bloemfontein-fs/hungry-lion … 0 items
+  [30/75] 20220809 https://www.ubereats.com/za/brand-city/bloemfontein-fs/mcdonalds … 0 items
+  [31/75] 20221001 https://www.ubereats.com/za/brand-city/bloemfontein-fs/kfc … 0 items
+  [32/75] 20221005 https://www.ubereats.com/za/brand-city/cape-town-wc/hungry-lion … 0 items
+  [33/75] 20221207 https://www.ubereats.com/za/brand-city/cape-town-wc/osaka-sushi … 0 items
+  [34/75] 20230130 https://www.ubereats.com/za/brand-city/cape-town-wc/mehanos-pizza … 0 items
+  [35/75] 20230202 https://www.ubereats.com/za/brand-city/cape-town-wc/the-dairy-den … 0 items
+  [36/75] 20230323 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/bird-co … 0 items
+  [37/75] 20230609 https://www.ubereats.com/za/brand-city/cape-town-wc/free-bird … 0 items
+  [38/75] 20230610 https://www.ubereats.com/za/brand-city/cape-town-wc/nikos … 0 items
+  [39/75] 20230609 https://www.ubereats.com/za/brand-city/cape-town-wc/trecastelli … 0 items
+  [40/75] 20230928 https://www.ubereats.com/za/brand-city/bloemfontein-fs/romans-pizza … 0 items
+  [41/75] 20230926 https://www.ubereats.com/za/brand-city/cape-town-wc/colcacchio … 0 items
+  [42/75] 20230924 https://www.ubereats.com/za/brand-city/cape-town-wc/didis-mexican … 0 items
+  [43/75] 20231206 https://www.ubereats.com/za/brand-city/cape-town-wc/el-burro … 0 items
+  [44/75] 20231003 https://www.ubereats.com/za/brand-city/cape-town-wc/freshgo … 0 items
+  [45/75] 20231206 https://www.ubereats.com/za/brand-city/cape-town-wc/hokey-poke … 0 items
+  [46/75] 20240228 https://www.ubereats.com/za/brand-city/bloemfontein-fs/stadium-fast-fo … 0 items
+  [47/75] 20240228 https://www.ubereats.com/za/brand-city/cape-town-wc/maharajah-2 … 0 items
+  [48/75] 20240305 https://www.ubereats.com/za/brand-city/cape-town-wc/punjab-express … 0 items
+  [49/75] 20240414 https://www.ubereats.com/za/brand-city/bloemfontein-fs/spur … 0 items
+  [50/75] 20240621 https://www.ubereats.com/za/brand-city/buffalo-city-ec/hungry-lion … 0 items
+  [51/75] 20240617 https://www.ubereats.com/za/brand-city/cape-town-wc/mcdonalds … 0 items
+  [52/75] 20240714 https://www.ubereats.com/za/brand-city/cape-town-wc/kfc … 0 items
+  [53/75] 20240911 https://www.ubereats.com/za/brand-city/cape-town-wc/mystique-india … 0 items
+  [54/75] 20240721 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/biltong-nut- … 0 items
+  [55/75] 20241005 https://www.ubereats.com/za/brand-city/cape-town-wc/nu … 0 items
+  [56/75] 20241012 https://www.ubereats.com/za/brand-city/cape-town-wc/saigon … 0 items
+  [57/75] 20241013 https://www.ubereats.com/za/brand-city/cape-town-wc/simply-asia … 0 items
+  [58/75] 20250209 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/aroma-coffee … 0 items
+  [59/75] 20250217 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/asia-house … 0 items
+  [60/75] 20250325 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/braaiblock … 0 items
+  [61/75] 20250420 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/kfc … 0 items
+  [62/75] 20250428 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/rebels-pizza … 0 items
+  [63/75] 20250524 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/shell … 0 items
+  [64/75] 20250708 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/hungry-lion … 0 items
+  [65/75] 20250814 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/kauai-1 … 0 items
+  [66/75] 20250807 https://www.ubereats.com/za/brand-city/johannesburg-gp/kfc … 0 items
+  [67/75] 20251012 https://www.ubereats.com/za/brand-city/bloemfontein-fs/cinnabon … 0 items
+  [68/75] 20251107 https://www.ubereats.com/za/brand-city/bloemfontein-fs/mochacho … 0 items
+  [69/75] 20251215 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/brewers-bbq … 0 items
+  [70/75] 20260215 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/burger-king … 0 items
+  [71/75] 20260119 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/chiapas-eat- … 0 items
+  [72/75] 20260308 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/mcdonalds … 0 items
+  [73/75] 20260411 https://www.ubereats.com/za/brand-city/city-of-tshwane-gp/cowfish … 0 items
+  [74/75] 20260521 https://www.ubereats.com/za/brand-city/ekurhuleni-gp/braaiblock … 0 items
+  [75/75] 20260412 https://www.ubereats.com/za/brand-city/ekurhuleni-gp/hungry-lion … 0 items
+
+  South Africa:ubereats-za: 75 attempts, 0 with items, 0 rows inserted
+
+======================================================================
+Done.
+target                                    attempts  hits    rows
+  United States:menupages                        0     0       0
+  India:zomato-ncr                               0     0       0
+  Indonesia:zomato-jakarta                       0     0       0
+  Thailand:eatigo-bkk                            0     0       0
+  Australia:menulog                             81     0       0
+  Philippines:zomato-manila                      0     0       0
+  Singapore:grabfood-sg                          0     0       0
+  Mexico:tripadvisor-mx                          0     0       0
+  Brazil:ubereats-br                            66     0       0
+  Brazil:ifood-rj                               80     0       0
+  Germany:lieferando                            57     0       0
+  Germany:wolt-de                               60     0       0
+  South Africa:tripadvisor-za                   84     0       0
+  South Africa:ubereats-za                      75     0       0

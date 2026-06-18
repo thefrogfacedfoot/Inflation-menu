@@ -1,0 +1,28 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Phase 0 ID/TH alts probe — 7 pairs
+[ 1/7] Indonesia  shopeefood SP                shopee.co.id/m/shopeefood-*
+            7574 URLs,    47 ≥2-cap,   7636 snaps, 20210226-20260209
+          sampling 20230702043232 https://shopee.co.id/m/shopeefood-jkt-001
+          37KB, 0 IDR hits, LD=False ND=False BLOCK=captcha
+[ 2/7] Indonesia  shopeefood                   shopeefood.co.id/*
+               6 URLs,     4 ≥2-cap,     29 snaps, 20221031-20260215
+          sampling 20221106182945 https://www.shopeefood.co.id/merchants/about-merchants
+          16KB, 0 IDR hits, LD=True ND=True
+[ 3/7] Indonesia  shopeefood jkt               shopeefood.co.id/jakarta/*
+          0 rows
+[ 4/7] Thailand   wongnai restaurants          wongnai.com/restaurants/*
+           22271 URLs,  5545 ≥2-cap,  30000 snaps, 20180306-20260521 (TRUNC)
+          sampling 20251213215307 https://www.wongnai.com/restaurants/1093073jJ-%E0%B9%82%E0%B
+          sample fetch failed: ('Connection aborted.', ConnectionResetError(54, 'Connection
+[ 5/7] Thailand   wongnai bangkok              wongnai.com/bangkok/*
+               2 URLs,     2 ≥2-cap,      9 snaps, 20190822-20241113
+          sampling 20210124221540 https://www.wongnai.com/bangkok?locale=en
+          1024KB, 6 THB hits, LD=False ND=False
+[ 6/7] Thailand   lineman wongnai              lineman.line.me/r/wongnai/*
+          0 rows
+[ 7/7] Thailand   wongnai restaurant detail    wongnai.com/restaurants/*-*
+          0 rows
+
+CSV → /Users/erwenchen/Inflation-menu/coverage_report_id_th_alts.csv
+MD  → /Users/erwenchen/Inflation-menu/coverage_report_id_th_alts.md
