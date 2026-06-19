@@ -3905,408 +3905,6 @@
     ],
     "status": "complete"
   },
-  "Brazil:ubereats-br": {
-    "snapshots": [
-      {
-        "timestamp": "20180413165325",
-        "url": "https://www.ubereats.com/brussels/food-delivery/sushi-factory-schuman/0t1q6y8DRY2kKejMJrC-Gg/"
-      },
-      {
-        "timestamp": "20200312230637",
-        "url": "https://www.ubereats.com/br"
-      },
-      {
-        "timestamp": "20200330081430",
-        "url": "https://www.ubereats.com/br/location"
-      },
-      {
-        "timestamp": "20200330084201",
-        "url": "https://www.ubereats.com/br/near-me"
-      },
-      {
-        "timestamp": "20200404004400",
-        "url": "https://www.ubereats.com/br-en/sao-paulo/food-delivery/meats/q6qdDtydTbeQWgyBPdKNWA"
-      },
-      {
-        "timestamp": "20200404004416",
-        "url": "https://www.ubereats.com/br-en/sao-paulo/food-delivery/thai-e-san/TTjkedZzR66wSJD_CTiBBA"
-      },
-      {
-        "timestamp": "20200608023217",
-        "url": "https://www.ubereats.com/br/brand/mcdonalds?utm_source=mcdonalds_br&utm_medium=brandpage&utm_campaign=instagram_0420"
-      },
-      {
-        "timestamp": "20200804205936",
-        "url": "https://www.ubereats.com/br-en"
-      },
-      {
-        "timestamp": "20200920114928",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/ZI7a_-gLTQ6okoLfJ_Vx0A"
-      },
-      {
-        "timestamp": "20200920114032",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-real/GYVHsJlQQ6ajbdyTC_-bHw"
-      },
-      {
-        "timestamp": "20201125082529",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-da-frutta/j_RLgf0pTDquabE7-X309g"
-      },
-      {
-        "timestamp": "20201127092816",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-house/h0gV_A2AQ_GSE2AMVdOXxQ"
-      },
-      {
-        "timestamp": "20201127203726",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/8C8ex8qgSrymDJRNdlV-jA"
-      },
-      {
-        "timestamp": "20210115152830",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0CdTFHbjTFSEgYSlh6dXrQ?mod=selectLanguage&ps=1"
-      },
-      {
-        "timestamp": "20210120014015",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0CdTFHbjTFSEgYSlh6dXrQ?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522acai-pai-degua%2522%252C%2522storeUuid%2522%253A%2522d0275314-76e3-4c54-8481-84a587a757ad%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
-      },
-      {
-        "timestamp": "20210123151731",
-        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/animals-burguer/cXgsGxXgSTKRdSzHkzinrA"
-      },
-      {
-        "timestamp": "20210414090817",
-        "url": "https://www.ubereats.com/br-en/belem/food-delivery/94-burger-artesanal/lbg3ewBKQTyMUL30zs-FTw"
-      },
-      {
-        "timestamp": "20210414175829",
-        "url": "https://www.ubereats.com/br-en/belem/food-delivery/alo-pizza-forneria/tXGtikFsRpCURiQ_vD2h2w"
-      },
-      {
-        "timestamp": "20210411230736",
-        "url": "https://www.ubereats.com/br-en/belem/food-delivery/amazon-pizza/s4FIZKIoSOKDCoVJbFzV2w"
-      },
-      {
-        "timestamp": "20210919061741",
-        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/shell"
-      },
-      {
-        "timestamp": "20210730095345",
-        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/spoleto"
-      },
-      {
-        "timestamp": "20210917020151",
-        "url": "https://www.ubereats.com/br-en/brand-city/juiz-de-fora-mg/kibon-sorveteria"
-      },
-      {
-        "timestamp": "20211129202424",
-        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/burger-king"
-      },
-      {
-        "timestamp": "20211020144957",
-        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/gianni"
-      },
-      {
-        "timestamp": "20211025222935",
-        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/spoleto"
-      },
-      {
-        "timestamp": "20220128031211",
-        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/american-burger"
-      },
-      {
-        "timestamp": "20220128025152",
-        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/bacio-di-latte"
-      },
-      {
-        "timestamp": "20220123071221",
-        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/chocolates-brasil-cacau"
-      },
-      {
-        "timestamp": "20220626122810",
-        "url": "https://www.ubereats.com/br-en/store/multisabores/adehtncnsrie3rqiqa3yja"
-      },
-      {
-        "timestamp": "20220626121743",
-        "url": "https://www.ubereats.com/br-en/store/vila-izaura/apvubftqt8sup3-kp286eg"
-      },
-      {
-        "timestamp": "20220511073925",
-        "url": "https://www.ubereats.com/brand-city/abilene-tx/starbucks"
-      },
-      {
-        "timestamp": "20220813193127",
-        "url": "https://www.ubereats.com/brand-city/albany-ny/bbq-chicken"
-      },
-      {
-        "timestamp": "20220707004820",
-        "url": "https://www.ubereats.com/brand-city/albany-ny/buca-di-beppo"
-      },
-      {
-        "timestamp": "20220812205136",
-        "url": "https://www.ubereats.com/brand-city/albany-ny/busters-american-kitchen"
-      },
-      {
-        "timestamp": "20221126203606",
-        "url": "https://www.ubereats.com/brand-city/abilene-tx/chipotle"
-      },
-      {
-        "timestamp": "20221218202453",
-        "url": "https://www.ubereats.com/brand-city/adrian-mi/starbucks"
-      },
-      {
-        "timestamp": "20221204131749",
-        "url": "https://www.ubereats.com/brand-city/akron-oh/burger-king"
-      },
-      {
-        "timestamp": "20230324163518",
-        "url": "https://www.ubereats.com/br-en/category/campo-grande-ms/american"
-      },
-      {
-        "timestamp": "20230328064255",
-        "url": "https://www.ubereats.com/br-en/category/natal-rn/bbq"
-      },
-      {
-        "timestamp": "20230322095431",
-        "url": "https://www.ubereats.com/br-en/category/presidente-prudente-sp/burger"
-      },
-      {
-        "timestamp": "20230401202729",
-        "url": "https://www.ubereats.com/br-en/category/campo-grande-ms/dessert"
-      },
-      {
-        "timestamp": "20230608080605",
-        "url": "https://www.ubereats.com/br-en/category/presidente-prudente-sp/american"
-      },
-      {
-        "timestamp": "20230605195536",
-        "url": "https://www.ubereats.com/br-en/category/teresina-pi/american"
-      },
-      {
-        "timestamp": "20230812042507",
-        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/seu-melie/1ai2J4j6T86CNar9EpRmBQ"
-      },
-      {
-        "timestamp": "20230927114142",
-        "url": "https://www.ubereats.com/brand-city/akron-oh/chipotle"
-      },
-      {
-        "timestamp": "20230923191758",
-        "url": "https://www.ubereats.com/brand-city/albany-ny/ihop"
-      },
-      {
-        "timestamp": "20231022152318",
-        "url": "https://www.ubereats.com/br/category/jundia%C3%AD-sp/sushi"
-      },
-      {
-        "timestamp": "20231011201924",
-        "url": "http://www.ubereats.com/br/location"
-      },
-      {
-        "timestamp": "20231011224756",
-        "url": "https://www.ubereats.com/br/rio-de-janeiro/food-delivery/sacole-pai-degua/yOL7vPlDSqCj3mQph1zbEghttps:/www.ubereats.com/br/rio-de-janeiro/food-delivery/sacole-pai-degua/yOL7vPlDSqCj3mQph1zbEg"
-      },
-      {
-        "timestamp": "20240303064322",
-        "url": "https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/grocery"
-      },
-      {
-        "timestamp": "20240303054007",
-        "url": "https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/pharmacy"
-      },
-      {
-        "timestamp": "20240222143725",
-        "url": "https://www.ubereats.com/br-en/category/vit%C3%B3ria-es/grocery"
-      },
-      {
-        "timestamp": "20240414225828",
-        "url": "https://www.ubereats.com/br-en/category/cuiab%C3%A1-mt/alcohol"
-      },
-      {
-        "timestamp": "20240416081346",
-        "url": "https://www.ubereats.com/br-en/category/florian%C3%B3polis-sc/pharmacy"
-      },
-      {
-        "timestamp": "20240419113217",
-        "url": "https://www.ubereats.com/br-en/category/santos-sp/pharmacy"
-      },
-      {
-        "timestamp": "20240720085334",
-        "url": "https://www.ubereats.com/br/brand/subway"
-      },
-      {
-        "timestamp": "20240920223839",
-        "url": "https://www.ubereats.com/brand-city/aberdeen-nc/mcdonalds"
-      },
-      {
-        "timestamp": "20240809144607",
-        "url": "https://www.ubereats.com/brand-city/acworth-ga/volcano-steak-sushi"
-      },
-      {
-        "timestamp": "20241009073901",
-        "url": "https://www.ubereats.com/br/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMkNhbXBpbmFzJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSkpXTkw1eDNHeUpRUktzSjRJV282NVJjJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0yMi45MDk5Mzg0JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTQ3LjA2MjYzMzIlN0Q%3D"
-      },
-      {
-        "timestamp": "20241016045529",
-        "url": "https://www.ubereats.com/brand-city/alexandria-va/buffalo-wild-wings"
-      },
-      {
-        "timestamp": "20241013160044",
-        "url": "https://www.ubereats.com/brand-city/alexandria-va/burger-king"
-      },
-      {
-        "timestamp": "20250212214500",
-        "url": "https://www.ubereats.com/br/rio-de-janeiro/food-delivery/pepe-rio-sul/cpaKlteATGmSUWIH046o2A"
-      },
-      {
-        "timestamp": "20250214202527",
-        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/bistro-da-picanha/Bdh4js2pQf2PSMlrq8iGWA"
-      },
-      {
-        "timestamp": "20250223123642",
-        "url": "https://www.ubereats.com/brand-city/abbeville-la/chilis"
-      },
-      {
-        "timestamp": "20250523213918",
-        "url": "https://www.ubereats.com/br/brand/taco-bell"
-      },
-      {
-        "timestamp": "20250612143935",
-        "url": "https://www.ubereats.com/br/orders/3fba46a6-9a95-4197-b077-d2281c470b55"
-      },
-      {
-        "timestamp": "20250617165138",
-        "url": "https://www.ubereats.com/brand-city/ada-ok/3.0.0"
-      },
-      {
-        "timestamp": "20250719055907",
-        "url": "https://www.ubereats.com/brand-city/addison-tx/7-eleven"
-      },
-      {
-        "timestamp": "20250719060001",
-        "url": "https://www.ubereats.com/brand-city/addison-tx/big-deal-burger"
-      },
-      {
-        "timestamp": "20250719060001",
-        "url": "https://www.ubereats.com/brand-city/addison-tx/burger-house"
-      },
-      {
-        "timestamp": "20251117180359",
-        "url": "https://www.ubereats.com/brand-city/aberdeen-md/wendys"
-      },
-      {
-        "timestamp": "20251117195406",
-        "url": "https://www.ubereats.com/brand-city/aberdeen-ms/wendys"
-      },
-      {
-        "timestamp": "20251023193950",
-        "url": "https://www.ubereats.com/brand-city/aberdeen-nc/dunkin-donuts"
-      },
-      {
-        "timestamp": "20260217035320",
-        "url": "https://www.ubereats.com/br/brand/burger-king"
-      },
-      {
-        "timestamp": "20260308141942",
-        "url": "https://www.ubereats.com/brand-city/acton-ca/jack-in-the-box"
-      },
-      {
-        "timestamp": "20260313111916",
-        "url": "https://www.ubereats.com/brand-city/adams-ma/adams-hometown-market"
-      },
-      {
-        "timestamp": "20260526174203",
-        "url": "https://www.ubereats.com/br/orders/b3e0664d-b686-479f-911b-4b40b08cff83"
-      },
-      {
-        "timestamp": "20260412062927",
-        "url": "https://www.ubereats.com/brand-city/akron-oh/bob-evans"
-      },
-      {
-        "timestamp": "20260520172710",
-        "url": "https://www.ubereats.com/brand-city/akron-oh/dairy-queen"
-      }
-    ],
-    "done_urls": [
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0CdTFHbjTFSEgYSlh6dXrQ?mod=selectLanguage&ps=1",
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-house/h0gV_A2AQ_GSE2AMVdOXxQ",
-      "https://www.ubereats.com/br-en/store/multisabores/adehtncnsrie3rqiqa3yja",
-      "https://www.ubereats.com/br-en/belem/food-delivery/94-burger-artesanal/lbg3ewBKQTyMUL30zs-FTw",
-      "https://www.ubereats.com/brand-city/ada-ok/3.0.0",
-      "https://www.ubereats.com/brand-city/albany-ny/bbq-chicken",
-      "https://www.ubereats.com/br-en/category/santos-sp/pharmacy",
-      "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/shell",
-      "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/spoleto",
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/ZI7a_-gLTQ6okoLfJ_Vx0A",
-      "https://www.ubereats.com/br/sao-paulo/food-delivery/bistro-da-picanha/Bdh4js2pQf2PSMlrq8iGWA",
-      "https://www.ubereats.com/brand-city/akron-oh/burger-king",
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-da-frutta/j_RLgf0pTDquabE7-X309g",
-      "https://www.ubereats.com/brand-city/aberdeen-nc/mcdonalds",
-      "https://www.ubereats.com/br-en/category/presidente-prudente-sp/burger",
-      "https://www.ubereats.com/brand-city/acworth-ga/volcano-steak-sushi",
-      "https://www.ubereats.com/br-en/category/cuiab%C3%A1-mt/alcohol",
-      "https://www.ubereats.com/brand-city/alexandria-va/buffalo-wild-wings",
-      "https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/grocery",
-      "https://www.ubereats.com/brand-city/abilene-tx/starbucks",
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/animals-burguer/cXgsGxXgSTKRdSzHkzinrA",
-      "https://www.ubereats.com/brand-city/albany-ny/buca-di-beppo",
-      "https://www.ubereats.com/br/sao-paulo/food-delivery/seu-melie/1ai2J4j6T86CNar9EpRmBQ",
-      "https://www.ubereats.com/br-en/category/natal-rn/bbq",
-      "https://www.ubereats.com/br-en/category/vit%C3%B3ria-es/grocery",
-      "https://www.ubereats.com/br-en/sao-paulo/food-delivery/meats/q6qdDtydTbeQWgyBPdKNWA",
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0CdTFHbjTFSEgYSlh6dXrQ?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522acai-pai-degua%2522%252C%2522storeUuid%2522%253A%2522d0275314-76e3-4c54-8481-84a587a757ad%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1",
-      "https://www.ubereats.com/brand-city/akron-oh/chipotle",
-      "https://www.ubereats.com/brand-city/aberdeen-ms/wendys",
-      "https://www.ubereats.com/brussels/food-delivery/sushi-factory-schuman/0t1q6y8DRY2kKejMJrC-Gg/",
-      "https://www.ubereats.com/brand-city/abilene-tx/chipotle",
-      "https://www.ubereats.com/br",
-      "http://www.ubereats.com/br/location",
-      "https://www.ubereats.com/br/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMkNhbXBpbmFzJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSkpXTkw1eDNHeUpRUktzSjRJV282NVJjJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0yMi45MDk5Mzg0JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTQ3LjA2MjYzMzIlN0Q%3D",
-      "https://www.ubereats.com/br/rio-de-janeiro/food-delivery/sacole-pai-degua/yOL7vPlDSqCj3mQph1zbEghttps:/www.ubereats.com/br/rio-de-janeiro/food-delivery/sacole-pai-degua/yOL7vPlDSqCj3mQph1zbEg",
-      "https://www.ubereats.com/br/brand/burger-king",
-      "https://www.ubereats.com/brand-city/abbeville-la/chilis",
-      "https://www.ubereats.com/br/near-me",
-      "https://www.ubereats.com/br-en/store/vila-izaura/apvubftqt8sup3-kp286eg",
-      "https://www.ubereats.com/br/orders/b3e0664d-b686-479f-911b-4b40b08cff83",
-      "https://www.ubereats.com/brand-city/adrian-mi/starbucks",
-      "https://www.ubereats.com/br/category/jundia%C3%AD-sp/sushi",
-      "https://www.ubereats.com/br-en/category/campo-grande-ms/dessert",
-      "https://www.ubereats.com/brand-city/addison-tx/7-eleven",
-      "https://www.ubereats.com/br-en",
-      "https://www.ubereats.com/br-en/category/teresina-pi/american",
-      "https://www.ubereats.com/brand-city/aberdeen-md/wendys",
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-real/GYVHsJlQQ6ajbdyTC_-bHw",
-      "https://www.ubereats.com/br/rio-de-janeiro/food-delivery/pepe-rio-sul/cpaKlteATGmSUWIH046o2A",
-      "https://www.ubereats.com/brand-city/akron-oh/dairy-queen",
-      "https://www.ubereats.com/br-en/belem/food-delivery/alo-pizza-forneria/tXGtikFsRpCURiQ_vD2h2w",
-      "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/8C8ex8qgSrymDJRNdlV-jA",
-      "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/spoleto",
-      "https://www.ubereats.com/br/brand/mcdonalds?utm_source=mcdonalds_br&utm_medium=brandpage&utm_campaign=instagram_0420",
-      "https://www.ubereats.com/brand-city/albany-ny/ihop",
-      "https://www.ubereats.com/br-en/category/presidente-prudente-sp/american",
-      "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/gianni",
-      "https://www.ubereats.com/brand-city/acton-ca/jack-in-the-box",
-      "https://www.ubereats.com/brand-city/akron-oh/bob-evans",
-      "https://www.ubereats.com/br/location",
-      "https://www.ubereats.com/brand-city/alexandria-va/burger-king",
-      "https://www.ubereats.com/br-en/sao-paulo/food-delivery/thai-e-san/TTjkedZzR66wSJD_CTiBBA",
-      "https://www.ubereats.com/br/orders/3fba46a6-9a95-4197-b077-d2281c470b55",
-      "https://www.ubereats.com/brand-city/adams-ma/adams-hometown-market",
-      "https://www.ubereats.com/br-en/category/campo-grande-ms/american",
-      "https://www.ubereats.com/brand-city/addison-tx/burger-house",
-      "https://www.ubereats.com/br-en/category/florian%C3%B3polis-sc/pharmacy",
-      "https://www.ubereats.com/brand-city/aberdeen-nc/dunkin-donuts",
-      "https://www.ubereats.com/br/brand/taco-bell",
-      "https://www.ubereats.com/br-en/belem/food-delivery/amazon-pizza/s4FIZKIoSOKDCoVJbFzV2w",
-      "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/bacio-di-latte",
-      "https://www.ubereats.com/brand-city/addison-tx/big-deal-burger",
-      "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/chocolates-brasil-cacau",
-      "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/american-burger",
-      "https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/pharmacy",
-      "https://www.ubereats.com/brand-city/albany-ny/busters-american-kitchen",
-      "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/burger-king",
-      "https://www.ubereats.com/br/brand/subway",
-      "https://www.ubereats.com/br-en/brand-city/juiz-de-fora-mg/kibon-sorveteria"
-    ],
-    "status": "complete"
-  },
   "Brazil:ifood-rj": {
     "snapshots": [
       {
@@ -4781,343 +4379,6 @@
       "https://www.ifood.com.br/delivery/rio-de-janeiro-rj/40-sabores-barra---sorvetes-e-acai-barra-da-tijuca/e4b1e4b3-5301-4022-80cb-5a3b3b963892",
       "https://www.ifood.com.br/delivery/rio-de-janeiro-rj/alfaia-copacabana/7ec0ed7a-b45f-4a1d-b6bd-c328ffb46396",
       "https://www.ifood.com.br/delivery/rio-de-janeiro-rj/bolinhos-luciana-castrioto-santa-teresa/e6168f38-bb81-4811-a448-cc5b84b76b6c"
-    ],
-    "status": "complete"
-  },
-  "Germany:lieferando": {
-    "snapshots": [
-      {
-        "timestamp": "20210301171321",
-        "url": "https://www.lieferando.de/speisekarte/aendre"
-      },
-      {
-        "timestamp": "20210302014404",
-        "url": "https://www.lieferando.de/speisekarte/al-giardino-zum-stern"
-      },
-      {
-        "timestamp": "20210228090652",
-        "url": "https://www.lieferando.de/speisekarte/al-mundo-cafe-und-restaurant"
-      },
-      {
-        "timestamp": "20210516065831",
-        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-1"
-      },
-      {
-        "timestamp": "20210619104637",
-        "url": "https://www.lieferando.de/speisekarte/1852-landgasthof"
-      },
-      {
-        "timestamp": "20210625100614",
-        "url": "https://www.lieferando.de/speisekarte/36grad"
-      },
-      {
-        "timestamp": "20210923090458",
-        "url": "https://www.lieferando.de/speisekarte/030-boba"
-      },
-      {
-        "timestamp": "20210728194832",
-        "url": "https://www.lieferando.de/speisekarte/123-pizzeria"
-      },
-      {
-        "timestamp": "20210920230241",
-        "url": "https://www.lieferando.de/speisekarte/1885-die-burger-bremen"
-      },
-      {
-        "timestamp": "20211203075454",
-        "url": "https://www.lieferando.de/speisekarte/1001nacht"
-      },
-      {
-        "timestamp": "20211129150522",
-        "url": "https://www.lieferando.de/speisekarte/1990-vegan-living"
-      },
-      {
-        "timestamp": "20211206060322",
-        "url": "https://www.lieferando.de/speisekarte/200g-grillbar"
-      },
-      {
-        "timestamp": "20220125023718",
-        "url": "https://www.lieferando.de/speisekarte/35-millimeter-kinopolis"
-      },
-      {
-        "timestamp": "20220127124131",
-        "url": "https://www.lieferando.de/speisekarte/90s-burger"
-      },
-      {
-        "timestamp": "20220121080008",
-        "url": "https://www.lieferando.de/speisekarte/a-one"
-      },
-      {
-        "timestamp": "20220601221313",
-        "url": "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitaeten"
-      },
-      {
-        "timestamp": "20220602001701",
-        "url": "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitaeten?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
-      },
-      {
-        "timestamp": "20220615045548",
-        "url": "https://www.lieferando.de/speisekarte/7itk"
-      },
-      {
-        "timestamp": "20220929090732",
-        "url": "https://www.lieferando.de/speisekarte/1111-pizza-pasta"
-      },
-      {
-        "timestamp": "20220930002728",
-        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-hainburg-63512"
-      },
-      {
-        "timestamp": "20220929083616",
-        "url": "https://www.lieferando.de/speisekarte/1982-vegan-sushi"
-      },
-      {
-        "timestamp": "20221002104137",
-        "url": "https://www.lieferando.de/speisekarte/00-da-rosario-1"
-      },
-      {
-        "timestamp": "20221005082808",
-        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-babenhausen-1"
-      },
-      {
-        "timestamp": "20221007120959",
-        "url": "https://www.lieferando.de/speisekarte/1961-fusion"
-      },
-      {
-        "timestamp": "20230206005244",
-        "url": "https://www.lieferando.de/speisekarte/3-bs-burger-barbecue-brothers-bremen-1"
-      },
-      {
-        "timestamp": "20230322063702",
-        "url": "https://www.lieferando.de/speisekarte/60-seconds-to-napoli-04109"
-      },
-      {
-        "timestamp": "20230329012829",
-        "url": "https://www.lieferando.de/speisekarte/abelos-griechische-mittelmeerkueche-berlin-1"
-      },
-      {
-        "timestamp": "20230519054340",
-        "url": "https://www.lieferando.de/speisekarte/089-burgermore"
-      },
-      {
-        "timestamp": "20230519054955",
-        "url": "https://www.lieferando.de/speisekarte/11ses"
-      },
-      {
-        "timestamp": "20230510070553",
-        "url": "https://www.lieferando.de/speisekarte/1990-viva-vegan-1"
-      },
-      {
-        "timestamp": "20230922113808",
-        "url": "https://www.lieferando.de/speisekarte/480grad-neapolitan-pizza-wurzburg"
-      },
-      {
-        "timestamp": "20230924072308",
-        "url": "https://www.lieferando.de/speisekarte/adler-pizza-express"
-      },
-      {
-        "timestamp": "20230926123424",
-        "url": "https://www.lieferando.de/speisekarte/ali-baba-38154"
-      },
-      {
-        "timestamp": "20231228155003",
-        "url": "https://www.lieferando.de/speisekarte/12s-pho-weimar-ecke-vietnam"
-      },
-      {
-        "timestamp": "20231201030655",
-        "url": "https://www.lieferando.de/speisekarte/2-brothers-gemusedoner-burger-bowls"
-      },
-      {
-        "timestamp": "20231201163502",
-        "url": "https://www.lieferando.de/speisekarte/36-grad"
-      },
-      {
-        "timestamp": "20240226110214",
-        "url": "https://www.lieferando.de/speisekarte/089-sushi-20355"
-      },
-      {
-        "timestamp": "20240226021041",
-        "url": "https://www.lieferando.de/speisekarte/1001-nacht-cafe-restaurant"
-      },
-      {
-        "timestamp": "20240224124117",
-        "url": "https://www.lieferando.de/speisekarte/485grad-gmbh"
-      },
-      {
-        "timestamp": "20240415092720",
-        "url": "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitten"
-      },
-      {
-        "timestamp": "20240417062623",
-        "url": "https://www.lieferando.de/speisekarte/1001-nacht-caf-restaurant"
-      },
-      {
-        "timestamp": "20240604133808",
-        "url": "https://www.lieferando.de/speisekarte/108-flora"
-      },
-      {
-        "timestamp": "20240815021729",
-        "url": "https://www.lieferando.de/speisekarte/3-pyramids"
-      },
-      {
-        "timestamp": "20240917161409",
-        "url": "https://www.lieferando.de/speisekarte/3p-italian-easy-food"
-      },
-      {
-        "timestamp": "20240806110258",
-        "url": "https://www.lieferando.de/speisekarte/85-grad-berlin"
-      },
-      {
-        "timestamp": "20241214045531",
-        "url": "https://www.lieferando.de/speisekarte/0711-burger-manufaktur"
-      },
-      {
-        "timestamp": "20241112210312",
-        "url": "https://www.lieferando.de/speisekarte/a1-grill-kebap-haus"
-      },
-      {
-        "timestamp": "20241111181619",
-        "url": "https://www.lieferando.de/speisekarte/aapka-berlin-mitte-1"
-      },
-      {
-        "timestamp": "20250124213842",
-        "url": "https://www.lieferando.de/speisekarte/--xds-color-content-brand"
-      },
-      {
-        "timestamp": "20250124213841",
-        "url": "https://www.lieferando.de/speisekarte/--xds-color-content-default"
-      },
-      {
-        "timestamp": "20250124213842",
-        "url": "https://www.lieferando.de/speisekarte/--xds-color-content-subdued"
-      },
-      {
-        "timestamp": "20250512103512",
-        "url": "https://www.lieferando.de/speisekarte/--xds-font-size-12"
-      },
-      {
-        "timestamp": "20250512103511",
-        "url": "https://www.lieferando.de/speisekarte/--xds-font-size-16"
-      },
-      {
-        "timestamp": "20250512103512",
-        "url": "https://www.lieferando.de/speisekarte/--xds-font-size-24"
-      },
-      {
-        "timestamp": "20250710120408",
-        "url": "https://www.lieferando.de/speisekarte/0.1.14064"
-      },
-      {
-        "timestamp": "20250731214625",
-        "url": "https://www.lieferando.de/speisekarte/0.1.14222"
-      },
-      {
-        "timestamp": "20250929161954",
-        "url": "https://www.lieferando.de/speisekarte/0.1.14663"
-      },
-      {
-        "timestamp": "20251013085018",
-        "url": "https://www.lieferando.de/speisekarte/1-apotheke"
-      },
-      {
-        "timestamp": "20251219194039",
-        "url": "https://www.lieferando.de/speisekarte/1-apotheke?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
-      },
-      {
-        "timestamp": "20251015125645",
-        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-hauptstrasse"
-      },
-      {
-        "timestamp": "20260223180308",
-        "url": "https://www.lieferando.de/speisekarte/3hs-burger-chicken-leipzig"
-      },
-      {
-        "timestamp": "20260302031529",
-        "url": "https://www.lieferando.de/speisekarte/ahimsa-restaurant"
-      },
-      {
-        "timestamp": "20260302031531",
-        "url": "https://www.lieferando.de/speisekarte/ahimsa-restaurant?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
-      },
-      {
-        "timestamp": "20260421041211",
-        "url": "https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant"
-      },
-      {
-        "timestamp": "20260421041214",
-        "url": "https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
-      },
-      {
-        "timestamp": "20260415171934",
-        "url": "https://www.lieferando.de/speisekarte/annam-ahlem?utm_source=google&shipping=delivery&utm_campaign=foodorder&utm_medium=organic"
-      }
-    ],
-    "done_urls": [
-      "https://www.lieferando.de/speisekarte/a-one",
-      "https://www.lieferando.de/speisekarte/3p-italian-easy-food",
-      "https://www.lieferando.de/speisekarte/123-pizzeria-hauptstrasse",
-      "https://www.lieferando.de/speisekarte/123-pizzeria-hainburg-63512",
-      "https://www.lieferando.de/speisekarte/1982-vegan-sushi",
-      "https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant",
-      "https://www.lieferando.de/speisekarte/0.1.14222",
-      "https://www.lieferando.de/speisekarte/aapka-berlin-mitte-1",
-      "https://www.lieferando.de/speisekarte/1961-fusion",
-      "https://www.lieferando.de/speisekarte/1001-nacht-cafe-restaurant",
-      "https://www.lieferando.de/speisekarte/1885-die-burger-bremen",
-      "https://www.lieferando.de/speisekarte/1-apotheke",
-      "https://www.lieferando.de/speisekarte/030-boba",
-      "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitaeten?utm_campaign=foodorder&utm_medium=organic&utm_source=google",
-      "https://www.lieferando.de/speisekarte/adler-pizza-express",
-      "https://www.lieferando.de/speisekarte/11ses",
-      "https://www.lieferando.de/speisekarte/--xds-color-content-brand",
-      "https://www.lieferando.de/speisekarte/--xds-font-size-12",
-      "https://www.lieferando.de/speisekarte/35-millimeter-kinopolis",
-      "https://www.lieferando.de/speisekarte/123-pizzeria-1",
-      "https://www.lieferando.de/speisekarte/60-seconds-to-napoli-04109",
-      "https://www.lieferando.de/speisekarte/--xds-font-size-16",
-      "https://www.lieferando.de/speisekarte/480grad-neapolitan-pizza-wurzburg",
-      "https://www.lieferando.de/speisekarte/abelos-griechische-mittelmeerkueche-berlin-1",
-      "https://www.lieferando.de/speisekarte/90s-burger",
-      "https://www.lieferando.de/speisekarte/00-da-rosario-1",
-      "https://www.lieferando.de/speisekarte/a1-grill-kebap-haus",
-      "https://www.lieferando.de/speisekarte/3-bs-burger-barbecue-brothers-bremen-1",
-      "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitten",
-      "https://www.lieferando.de/speisekarte/36-grad",
-      "https://www.lieferando.de/speisekarte/ahimsa-restaurant?utm_campaign=foodorder&utm_medium=organic&utm_source=google",
-      "https://www.lieferando.de/speisekarte/485grad-gmbh",
-      "https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant?utm_campaign=foodorder&utm_medium=organic&utm_source=google",
-      "https://www.lieferando.de/speisekarte/12s-pho-weimar-ecke-vietnam",
-      "https://www.lieferando.de/speisekarte/aendre",
-      "https://www.lieferando.de/speisekarte/1990-viva-vegan-1",
-      "https://www.lieferando.de/speisekarte/ali-baba-38154",
-      "https://www.lieferando.de/speisekarte/0711-burger-manufaktur",
-      "https://www.lieferando.de/speisekarte/1852-landgasthof",
-      "https://www.lieferando.de/speisekarte/--xds-color-content-subdued",
-      "https://www.lieferando.de/speisekarte/089-sushi-20355",
-      "https://www.lieferando.de/speisekarte/--xds-font-size-24",
-      "https://www.lieferando.de/speisekarte/al-mundo-cafe-und-restaurant",
-      "https://www.lieferando.de/speisekarte/1-apotheke?utm_campaign=foodorder&utm_medium=organic&utm_source=google",
-      "https://www.lieferando.de/speisekarte/123-pizzeria-babenhausen-1",
-      "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitaeten",
-      "https://www.lieferando.de/speisekarte/1001-nacht-caf-restaurant",
-      "https://www.lieferando.de/speisekarte/0.1.14663",
-      "https://www.lieferando.de/speisekarte/108-flora",
-      "https://www.lieferando.de/speisekarte/0.1.14064",
-      "https://www.lieferando.de/speisekarte/ahimsa-restaurant",
-      "https://www.lieferando.de/speisekarte/123-pizzeria",
-      "https://www.lieferando.de/speisekarte/al-giardino-zum-stern",
-      "https://www.lieferando.de/speisekarte/200g-grillbar",
-      "https://www.lieferando.de/speisekarte/1990-vegan-living",
-      "https://www.lieferando.de/speisekarte/1111-pizza-pasta",
-      "https://www.lieferando.de/speisekarte/089-burgermore",
-      "https://www.lieferando.de/speisekarte/2-brothers-gemusedoner-burger-bowls",
-      "https://www.lieferando.de/speisekarte/85-grad-berlin",
-      "https://www.lieferando.de/speisekarte/3hs-burger-chicken-leipzig",
-      "https://www.lieferando.de/speisekarte/annam-ahlem?utm_source=google&shipping=delivery&utm_campaign=foodorder&utm_medium=organic",
-      "https://www.lieferando.de/speisekarte/--xds-color-content-default",
-      "https://www.lieferando.de/speisekarte/1001nacht",
-      "https://www.lieferando.de/speisekarte/7itk",
-      "https://www.lieferando.de/speisekarte/36grad",
-      "https://www.lieferando.de/speisekarte/3-pyramids"
     ],
     "status": "complete"
   },
@@ -8278,5 +7539,3595 @@
       "https://food.grab.com/my/en/restaurant/baskin-robbins-uptown-delivery/MYDD05893"
     ],
     "status": "complete"
+  },
+  "Germany:lieferando": {
+    "snapshots": [
+      {
+        "timestamp": "20210301171321",
+        "url": "https://www.lieferando.de/speisekarte/aendre"
+      },
+      {
+        "timestamp": "20210302014404",
+        "url": "https://www.lieferando.de/speisekarte/al-giardino-zum-stern"
+      },
+      {
+        "timestamp": "20210228090652",
+        "url": "https://www.lieferando.de/speisekarte/al-mundo-cafe-und-restaurant"
+      },
+      {
+        "timestamp": "20210302014509",
+        "url": "https://www.lieferando.de/speisekarte/allergretto"
+      },
+      {
+        "timestamp": "20210228001316",
+        "url": "https://www.lieferando.de/speisekarte/aloha-poke-bremen"
+      },
+      {
+        "timestamp": "20210227234942",
+        "url": "https://www.lieferando.de/speisekarte/aloha-poke-in-unterbilk"
+      },
+      {
+        "timestamp": "20210302201529",
+        "url": "https://www.lieferando.de/speisekarte/american-burger-more"
+      },
+      {
+        "timestamp": "20210302015818",
+        "url": "https://www.lieferando.de/speisekarte/an-banh-mi-ackerstr"
+      },
+      {
+        "timestamp": "20210306114350",
+        "url": "https://www.lieferando.de/speisekarte/an-hoang-asiastuebchen-magdeburg"
+      },
+      {
+        "timestamp": "20210228085817",
+        "url": "https://www.lieferando.de/speisekarte/anboard-pizzeria-bar"
+      },
+      {
+        "timestamp": "20210302024342",
+        "url": "https://www.lieferando.de/speisekarte/aptera"
+      },
+      {
+        "timestamp": "20210301171750",
+        "url": "https://www.lieferando.de/speisekarte/ararat-grill-warendorf-48231"
+      },
+      {
+        "timestamp": "20210306123236",
+        "url": "https://www.lieferando.de/speisekarte/arethussa"
+      },
+      {
+        "timestamp": "20210214155118",
+        "url": "https://www.lieferando.de/speisekarte/asia-china-imbiss-eurasia-duesseldorf"
+      },
+      {
+        "timestamp": "20210306023555",
+        "url": "https://www.lieferando.de/speisekarte/asia-restaurant-golden-lotus"
+      },
+      {
+        "timestamp": "20210302014707",
+        "url": "https://www.lieferando.de/speisekarte/asia-tam-erfurt"
+      },
+      {
+        "timestamp": "20210306125323",
+        "url": "https://www.lieferando.de/speisekarte/augenweide"
+      },
+      {
+        "timestamp": "20210218140730",
+        "url": "https://www.lieferando.de/speisekarte/bahalo-echt-griechisch"
+      },
+      {
+        "timestamp": "20210202085354",
+        "url": "https://www.lieferando.de/speisekarte/bazis-schlemmerkucherl-muenchen-1"
+      },
+      {
+        "timestamp": "20210301171838",
+        "url": "https://www.lieferando.de/speisekarte/bistro-cockpit-reichelsheim"
+      },
+      {
+        "timestamp": "20210516065831",
+        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-1"
+      },
+      {
+        "timestamp": "20210619104637",
+        "url": "https://www.lieferando.de/speisekarte/1852-landgasthof"
+      },
+      {
+        "timestamp": "20210625100614",
+        "url": "https://www.lieferando.de/speisekarte/36grad"
+      },
+      {
+        "timestamp": "20210511185854",
+        "url": "https://www.lieferando.de/speisekarte/84-asian-deli-vegan-kitchen"
+      },
+      {
+        "timestamp": "20210512013536",
+        "url": "https://www.lieferando.de/speisekarte/aapka-berlin-mitte-1"
+      },
+      {
+        "timestamp": "20210512070234",
+        "url": "https://www.lieferando.de/speisekarte/aarna-indisches-restaurant-berlin"
+      },
+      {
+        "timestamp": "20210511050356",
+        "url": "https://www.lieferando.de/speisekarte/adria-2"
+      },
+      {
+        "timestamp": "20210509003438",
+        "url": "https://www.lieferando.de/speisekarte/adria-grill-1"
+      },
+      {
+        "timestamp": "20210506065751",
+        "url": "https://www.lieferando.de/speisekarte/adria-heimservice"
+      },
+      {
+        "timestamp": "20210614223030",
+        "url": "https://www.lieferando.de/speisekarte/akademiesalon"
+      },
+      {
+        "timestamp": "20210622055345",
+        "url": "https://www.lieferando.de/speisekarte/akropolis"
+      },
+      {
+        "timestamp": "20210614212951",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-gelsenkirchen"
+      },
+      {
+        "timestamp": "20210510225520",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-wuppertal"
+      },
+      {
+        "timestamp": "20210506195243",
+        "url": "https://www.lieferando.de/speisekarte/al-canale"
+      },
+      {
+        "timestamp": "20210622121034",
+        "url": "https://www.lieferando.de/speisekarte/al-capone-regensburg"
+      },
+      {
+        "timestamp": "20210512182804",
+        "url": "https://www.lieferando.de/speisekarte/al-lupo-oberdiessemer"
+      },
+      {
+        "timestamp": "20210512172604",
+        "url": "https://www.lieferando.de/speisekarte/al-mondo"
+      },
+      {
+        "timestamp": "20210511191937",
+        "url": "https://www.lieferando.de/speisekarte/al-mundo-cafe-und-restaurant?k1111=k1111&gclid=EAIaIQobChMI4uGItJet8AIVjeh3Ch3mSATMEAAYASAAEgKgc_D_BwE&gclsrc=aw.ds"
+      },
+      {
+        "timestamp": "20210612214824",
+        "url": "https://www.lieferando.de/speisekarte/alanya-herford"
+      },
+      {
+        "timestamp": "20210619224613",
+        "url": "https://www.lieferando.de/speisekarte/albertos-stuebchen"
+      },
+      {
+        "timestamp": "20210923090458",
+        "url": "https://www.lieferando.de/speisekarte/030-boba"
+      },
+      {
+        "timestamp": "20210728194832",
+        "url": "https://www.lieferando.de/speisekarte/123-pizzeria"
+      },
+      {
+        "timestamp": "20210920230241",
+        "url": "https://www.lieferando.de/speisekarte/1885-die-burger-bremen"
+      },
+      {
+        "timestamp": "20210927221955",
+        "url": "https://www.lieferando.de/speisekarte/2friends"
+      },
+      {
+        "timestamp": "20210920054136",
+        "url": "https://www.lieferando.de/speisekarte/34-foods"
+      },
+      {
+        "timestamp": "20210805043824",
+        "url": "https://www.lieferando.de/speisekarte/485grad-gmbh"
+      },
+      {
+        "timestamp": "20210927221517",
+        "url": "https://www.lieferando.de/speisekarte/90s-burger"
+      },
+      {
+        "timestamp": "20210724212137",
+        "url": "https://www.lieferando.de/speisekarte/ab-der-fisch"
+      },
+      {
+        "timestamp": "20210725164300",
+        "url": "https://www.lieferando.de/speisekarte/abi-kebap-bistro"
+      },
+      {
+        "timestamp": "20210919131156",
+        "url": "https://www.lieferando.de/speisekarte/achims-heimservice"
+      },
+      {
+        "timestamp": "20210926075028",
+        "url": "https://www.lieferando.de/speisekarte/addis-abeba-restaurant-1"
+      },
+      {
+        "timestamp": "20210920052038",
+        "url": "https://www.lieferando.de/speisekarte/adria-restaurant-pizzeria-regensburg"
+      },
+      {
+        "timestamp": "20210801124025",
+        "url": "https://www.lieferando.de/speisekarte/afropot-berlin"
+      },
+      {
+        "timestamp": "20210927071439",
+        "url": "https://www.lieferando.de/speisekarte/ahiah"
+      },
+      {
+        "timestamp": "20210917154711",
+        "url": "https://www.lieferando.de/speisekarte/ahsa"
+      },
+      {
+        "timestamp": "20210927051915",
+        "url": "https://www.lieferando.de/speisekarte/ajino-sushibar-mannheim"
+      },
+      {
+        "timestamp": "20210920055518",
+        "url": "https://www.lieferando.de/speisekarte/akaszja"
+      },
+      {
+        "timestamp": "20210923100309",
+        "url": "https://www.lieferando.de/speisekarte/akdogan-grill"
+      },
+      {
+        "timestamp": "20210730145656",
+        "url": "https://www.lieferando.de/speisekarte/akiko-sushi"
+      },
+      {
+        "timestamp": "20210927073544",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-grill-dortmund"
+      },
+      {
+        "timestamp": "20211203075454",
+        "url": "https://www.lieferando.de/speisekarte/1001nacht"
+      },
+      {
+        "timestamp": "20211129150522",
+        "url": "https://www.lieferando.de/speisekarte/1990-vegan-living"
+      },
+      {
+        "timestamp": "20211206060322",
+        "url": "https://www.lieferando.de/speisekarte/200g-grillbar"
+      },
+      {
+        "timestamp": "20211025114538",
+        "url": "https://www.lieferando.de/speisekarte/3-brueder-doener-pizzeria"
+      },
+      {
+        "timestamp": "20211130030126",
+        "url": "https://www.lieferando.de/speisekarte/35-millimeter-kinopolis"
+      },
+      {
+        "timestamp": "20211208042044",
+        "url": "https://www.lieferando.de/speisekarte/3hs-1"
+      },
+      {
+        "timestamp": "20211128082913",
+        "url": "https://www.lieferando.de/speisekarte/60-secondi-pizza-napoletana"
+      },
+      {
+        "timestamp": "20211017013600",
+        "url": "https://www.lieferando.de/speisekarte/7-dumpling-schoenhauser-allee"
+      },
+      {
+        "timestamp": "20211020012802",
+        "url": "https://www.lieferando.de/speisekarte/a-casa-mia"
+      },
+      {
+        "timestamp": "20211128052616",
+        "url": "https://www.lieferando.de/speisekarte/a-domani"
+      },
+      {
+        "timestamp": "20211025050321",
+        "url": "https://www.lieferando.de/speisekarte/a-roma"
+      },
+      {
+        "timestamp": "20211020065004",
+        "url": "https://www.lieferando.de/speisekarte/aab"
+      },
+      {
+        "timestamp": "20211031115234",
+        "url": "https://www.lieferando.de/speisekarte/aarna-devi"
+      },
+      {
+        "timestamp": "20211209010859",
+        "url": "https://www.lieferando.de/speisekarte/about-body-poke-bowl"
+      },
+      {
+        "timestamp": "20211129142824",
+        "url": "https://www.lieferando.de/speisekarte/acquire-paddys-pizza"
+      },
+      {
+        "timestamp": "20211017232706",
+        "url": "https://www.lieferando.de/speisekarte/action-catering-1"
+      },
+      {
+        "timestamp": "20211203230602",
+        "url": "https://www.lieferando.de/speisekarte/adabina"
+      },
+      {
+        "timestamp": "20211129091651",
+        "url": "https://www.lieferando.de/speisekarte/adana-doener-imbiss-1"
+      },
+      {
+        "timestamp": "20211022102802",
+        "url": "https://www.lieferando.de/speisekarte/addys-bistro-cafe"
+      },
+      {
+        "timestamp": "20211122085452",
+        "url": "https://www.lieferando.de/speisekarte/adellino"
+      },
+      {
+        "timestamp": "20220121080008",
+        "url": "https://www.lieferando.de/speisekarte/a-one"
+      },
+      {
+        "timestamp": "20220127062136",
+        "url": "https://www.lieferando.de/speisekarte/a1-pizzeria"
+      },
+      {
+        "timestamp": "20220124042635",
+        "url": "https://www.lieferando.de/speisekarte/abelos-griechische-mittelmeerkueche-berlin-1"
+      },
+      {
+        "timestamp": "20220122180628",
+        "url": "https://www.lieferando.de/speisekarte/acasa-pizza-1"
+      },
+      {
+        "timestamp": "20220129111018",
+        "url": "https://www.lieferando.de/speisekarte/achims-beckshaus"
+      },
+      {
+        "timestamp": "20220117183751",
+        "url": "https://www.lieferando.de/speisekarte/adems-imbiss"
+      },
+      {
+        "timestamp": "20220120201226",
+        "url": "https://www.lieferando.de/speisekarte/adler-pizza-express"
+      },
+      {
+        "timestamp": "20220301051028",
+        "url": "https://www.lieferando.de/speisekarte/agathes"
+      },
+      {
+        "timestamp": "20220301042515",
+        "url": "https://www.lieferando.de/speisekarte/agathes?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20220122095120",
+        "url": "https://www.lieferando.de/speisekarte/agra-pak-indian-cuisine-berlin"
+      },
+      {
+        "timestamp": "20220119120001",
+        "url": "https://www.lieferando.de/speisekarte/akdeniz-doener-backwaren-1997-dinslaken"
+      },
+      {
+        "timestamp": "20220211012647",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-grill-falkenstrasse"
+      },
+      {
+        "timestamp": "20220122081140",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-grillhaus"
+      },
+      {
+        "timestamp": "20220117163512",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-reilingen?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20220122052211",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-restaurant-pforzheim"
+      },
+      {
+        "timestamp": "20220122093700",
+        "url": "https://www.lieferando.de/speisekarte/al-baqara-halal"
+      },
+      {
+        "timestamp": "20220121104039",
+        "url": "https://www.lieferando.de/speisekarte/al-cappuccino-kleinostheim"
+      },
+      {
+        "timestamp": "20220125030817",
+        "url": "https://www.lieferando.de/speisekarte/alanya-grill-stavenhagen"
+      },
+      {
+        "timestamp": "20220121031104",
+        "url": "https://www.lieferando.de/speisekarte/alanya-kebab-bad-klosterlausnitz"
+      },
+      {
+        "timestamp": "20220212232515",
+        "url": "https://www.lieferando.de/speisekarte/alara-kebap-pizza"
+      },
+      {
+        "timestamp": "20220601221313",
+        "url": "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitaeten"
+      },
+      {
+        "timestamp": "20220602001701",
+        "url": "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitaeten?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20220615045548",
+        "url": "https://www.lieferando.de/speisekarte/7itk"
+      },
+      {
+        "timestamp": "20220613004125",
+        "url": "https://www.lieferando.de/speisekarte/7itk?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20220628113402",
+        "url": "https://www.lieferando.de/speisekarte/a-magica"
+      },
+      {
+        "timestamp": "20220618165313",
+        "url": "https://www.lieferando.de/speisekarte/aapka-berlin-1?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20220625153050",
+        "url": "https://www.lieferando.de/speisekarte/aapka-maybachufer"
+      },
+      {
+        "timestamp": "20220517214451",
+        "url": "https://www.lieferando.de/speisekarte/adam-pizzeria-und-burgerhaus"
+      },
+      {
+        "timestamp": "20220423210814",
+        "url": "https://www.lieferando.de/speisekarte/ajino-sushibar-mannheim?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20220519085921",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-grill-bochum"
+      },
+      {
+        "timestamp": "20220517214848",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-grill-restaurant"
+      },
+      {
+        "timestamp": "20220626015322",
+        "url": "https://www.lieferando.de/speisekarte/al-capone-langenselbold"
+      },
+      {
+        "timestamp": "20220628033559",
+        "url": "https://www.lieferando.de/speisekarte/al-dente-pizza-pasta"
+      },
+      {
+        "timestamp": "20220626045126",
+        "url": "https://www.lieferando.de/speisekarte/alanya-grill-und-pizzeria-herford"
+      },
+      {
+        "timestamp": "20220626052648",
+        "url": "https://www.lieferando.de/speisekarte/alanyali-kebab-haus"
+      },
+      {
+        "timestamp": "20220626140322",
+        "url": "https://www.lieferando.de/speisekarte/alexs-diner"
+      },
+      {
+        "timestamp": "20220626015621",
+        "url": "https://www.lieferando.de/speisekarte/alfredo-pizza-service-dessauer-str"
+      },
+      {
+        "timestamp": "20220529073917",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-38154"
+      },
+      {
+        "timestamp": "20220626024510",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-bruecken"
+      },
+      {
+        "timestamp": "20220627080134",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-doener-kebap"
+      },
+      {
+        "timestamp": "20220929090732",
+        "url": "https://www.lieferando.de/speisekarte/1111-pizza-pasta"
+      },
+      {
+        "timestamp": "20220930002728",
+        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-hainburg-63512"
+      },
+      {
+        "timestamp": "20220929083616",
+        "url": "https://www.lieferando.de/speisekarte/1982-vegan-sushi"
+      },
+      {
+        "timestamp": "20220925165634",
+        "url": "https://www.lieferando.de/speisekarte/24-autohof-bad-rappenau"
+      },
+      {
+        "timestamp": "20220926220152",
+        "url": "https://www.lieferando.de/speisekarte/3-birken"
+      },
+      {
+        "timestamp": "20220926031716",
+        "url": "https://www.lieferando.de/speisekarte/36-grad"
+      },
+      {
+        "timestamp": "20220930053840",
+        "url": "https://www.lieferando.de/speisekarte/3h-s-burger-chicken-duesseldorf"
+      },
+      {
+        "timestamp": "20220812201912",
+        "url": "https://www.lieferando.de/speisekarte/a-la-erols"
+      },
+      {
+        "timestamp": "20220927214455",
+        "url": "https://www.lieferando.de/speisekarte/aao-ji-lieferservice"
+      },
+      {
+        "timestamp": "20220930002451",
+        "url": "https://www.lieferando.de/speisekarte/aao-ji-restaurant-eichwalde"
+      },
+      {
+        "timestamp": "20220926212524",
+        "url": "https://www.lieferando.de/speisekarte/abra-kebapra-rickling"
+      },
+      {
+        "timestamp": "20220929163427",
+        "url": "https://www.lieferando.de/speisekarte/abu-samra-restaurant"
+      },
+      {
+        "timestamp": "20220925005859",
+        "url": "https://www.lieferando.de/speisekarte/achilles-griechisches-restaurant"
+      },
+      {
+        "timestamp": "20220701095408",
+        "url": "https://www.lieferando.de/speisekarte/achillion-stuttgart"
+      },
+      {
+        "timestamp": "20220927044355",
+        "url": "https://www.lieferando.de/speisekarte/achmet-doenerhaus"
+      },
+      {
+        "timestamp": "20220930214813",
+        "url": "https://www.lieferando.de/speisekarte/adams-schawerma-palst"
+      },
+      {
+        "timestamp": "20220808173752",
+        "url": "https://www.lieferando.de/speisekarte/adendorfer-pizza-kebabhaus"
+      },
+      {
+        "timestamp": "20220925015820",
+        "url": "https://www.lieferando.de/speisekarte/adesso"
+      },
+      {
+        "timestamp": "20220927214810",
+        "url": "https://www.lieferando.de/speisekarte/aeaedjeschoss"
+      },
+      {
+        "timestamp": "20220927085441",
+        "url": "https://www.lieferando.de/speisekarte/affenfelsen-burger-25524"
+      },
+      {
+        "timestamp": "20221002104137",
+        "url": "https://www.lieferando.de/speisekarte/00-da-rosario-1"
+      },
+      {
+        "timestamp": "20221005082808",
+        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-babenhausen-1"
+      },
+      {
+        "timestamp": "20221007120959",
+        "url": "https://www.lieferando.de/speisekarte/1961-fusion"
+      },
+      {
+        "timestamp": "20221017175654",
+        "url": "https://www.lieferando.de/speisekarte/3133994"
+      },
+      {
+        "timestamp": "20221017175700",
+        "url": "https://www.lieferando.de/speisekarte/3133994?zanpid=12403_1666029310_847408f599687f2c583a650283dfe0dd&utm_source=awin&utm_medium=cps&utm_campaign=CM_P_AW_DEU_DE_%5BENGM%5D_%5BOTHR%5D_%5B85858%5D_PERFDIS&utm_content=deeplink&awc=12403_1666029310_847408f599687f2c583a650283dfe0dd"
+      },
+      {
+        "timestamp": "20221017175739",
+        "url": "https://www.lieferando.de/speisekarte/3133994?zanpid=12403_1666029310_847408f599687f2c583a650283dfe0dd&awc=12403_1666029310_847408f599687f2c583a650283dfe0dd"
+      },
+      {
+        "timestamp": "20221004210637",
+        "url": "https://www.lieferando.de/speisekarte/5sher"
+      },
+      {
+        "timestamp": "20221004222122",
+        "url": "https://www.lieferando.de/speisekarte/7-days-pizza-1"
+      },
+      {
+        "timestamp": "20221002085152",
+        "url": "https://www.lieferando.de/speisekarte/a-casa-mia-lorrach"
+      },
+      {
+        "timestamp": "20221031192726",
+        "url": "https://www.lieferando.de/speisekarte/a-casa-mia?zanpid=12403_1667242166_21220f01d4ceca178261af90c2b72680&utm_source=awin&utm_medium=cps&utm_campaign=CM_P_AW_DEU_DE_%5BENGM%5D_%5BOTHR%5D_%5B85858%5D_PERFDIS&utm_content=deeplink&awc=12403_1667242166_21220f01d4ceca178261af90c2b72680"
+      },
+      {
+        "timestamp": "20221031184952",
+        "url": "https://www.lieferando.de/speisekarte/a-casa-mia?zanpid=12403_1667242166_21220f01d4ceca178261af90c2b72680&awc=12403_1667242166_21220f01d4ceca178261af90c2b72680"
+      },
+      {
+        "timestamp": "20221210062555",
+        "url": "https://www.lieferando.de/speisekarte/a-casa-tua-ristorantino-muenchen"
+      },
+      {
+        "timestamp": "20221006132728",
+        "url": "https://www.lieferando.de/speisekarte/a-zo-drinks-more"
+      },
+      {
+        "timestamp": "20221204230255",
+        "url": "https://www.lieferando.de/speisekarte/aashirvad-restaurant-berlin"
+      },
+      {
+        "timestamp": "20221129115748",
+        "url": "https://www.lieferando.de/speisekarte/abang-totos-malaysian-deli"
+      },
+      {
+        "timestamp": "20221205064833",
+        "url": "https://www.lieferando.de/speisekarte/abt-restaurant"
+      },
+      {
+        "timestamp": "20221005121102",
+        "url": "https://www.lieferando.de/speisekarte/ada-doener-insel"
+      },
+      {
+        "timestamp": "20221005085135",
+        "url": "https://www.lieferando.de/speisekarte/ada-kebap-doener-pizzeria"
+      },
+      {
+        "timestamp": "20221204041258",
+        "url": "https://www.lieferando.de/speisekarte/adana-pizza-kebab-haus-huenfeld"
+      },
+      {
+        "timestamp": "20221209000333",
+        "url": "https://www.lieferando.de/speisekarte/adem-cafe"
+      },
+      {
+        "timestamp": "20230206005244",
+        "url": "https://www.lieferando.de/speisekarte/3-bs-burger-barbecue-brothers-bremen-1"
+      },
+      {
+        "timestamp": "20230322063702",
+        "url": "https://www.lieferando.de/speisekarte/60-seconds-to-napoli-04109"
+      },
+      {
+        "timestamp": "20230127171011",
+        "url": "https://www.lieferando.de/speisekarte/adana-kebap-pizza-haus-1"
+      },
+      {
+        "timestamp": "20230201154538",
+        "url": "https://www.lieferando.de/speisekarte/ados-internationale-kueche"
+      },
+      {
+        "timestamp": "20230131130536",
+        "url": "https://www.lieferando.de/speisekarte/afan-lieferservice"
+      },
+      {
+        "timestamp": "20230320181613",
+        "url": "https://www.lieferando.de/speisekarte/afrin-kebap"
+      },
+      {
+        "timestamp": "20230205162559",
+        "url": "https://www.lieferando.de/speisekarte/ajooo-xxl-hotdogs-fabrikstrasse"
+      },
+      {
+        "timestamp": "20230131144839",
+        "url": "https://www.lieferando.de/speisekarte/akin-1"
+      },
+      {
+        "timestamp": "20230131144711",
+        "url": "https://www.lieferando.de/speisekarte/al-baraka-80336"
+      },
+      {
+        "timestamp": "20230207203953",
+        "url": "https://www.lieferando.de/speisekarte/al-golfo-pizzeria"
+      },
+      {
+        "timestamp": "20230127090059",
+        "url": "https://www.lieferando.de/speisekarte/al-hana"
+      },
+      {
+        "timestamp": "20230207135540",
+        "url": "https://www.lieferando.de/speisekarte/alanya-restaurant-55469"
+      },
+      {
+        "timestamp": "20230131131811",
+        "url": "https://www.lieferando.de/speisekarte/alexs-to-go-17491"
+      },
+      {
+        "timestamp": "20230208010558",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-ascheroder-strasse"
+      },
+      {
+        "timestamp": "20230328180530",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-bernau-bei-berlin"
+      },
+      {
+        "timestamp": "20230206064528",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-grillhaus-63911"
+      },
+      {
+        "timestamp": "20230325005751",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-kebab"
+      },
+      {
+        "timestamp": "20230207055737",
+        "url": "https://www.lieferando.de/speisekarte/all-manns-doener"
+      },
+      {
+        "timestamp": "20230129223931",
+        "url": "https://www.lieferando.de/speisekarte/aloha-poke-regensburg"
+      },
+      {
+        "timestamp": "20230207145546",
+        "url": "https://www.lieferando.de/speisekarte/altes-bierhaus-arzbach"
+      },
+      {
+        "timestamp": "20230519054340",
+        "url": "https://www.lieferando.de/speisekarte/089-burgermore"
+      },
+      {
+        "timestamp": "20230519054955",
+        "url": "https://www.lieferando.de/speisekarte/11ses"
+      },
+      {
+        "timestamp": "20230510070553",
+        "url": "https://www.lieferando.de/speisekarte/1990-viva-vegan-1"
+      },
+      {
+        "timestamp": "20230604203306",
+        "url": "https://www.lieferando.de/speisekarte/1994-eatery"
+      },
+      {
+        "timestamp": "20230519054619",
+        "url": "https://www.lieferando.de/speisekarte/2-friends-burger-charlottenburg-berlin"
+      },
+      {
+        "timestamp": "20230519054357",
+        "url": "https://www.lieferando.de/speisekarte/2-friends-burger-pizza"
+      },
+      {
+        "timestamp": "20230519054950",
+        "url": "https://www.lieferando.de/speisekarte/21-tassen-alt-moabit"
+      },
+      {
+        "timestamp": "20230519054253",
+        "url": "https://www.lieferando.de/speisekarte/23-sarcon-lieferservice"
+      },
+      {
+        "timestamp": "20230519054831",
+        "url": "https://www.lieferando.de/speisekarte/2jahreszeiten"
+      },
+      {
+        "timestamp": "20230519055805",
+        "url": "https://www.lieferando.de/speisekarte/4-brothers-burger"
+      },
+      {
+        "timestamp": "20230519054625",
+        "url": "https://www.lieferando.de/speisekarte/7-days-finest-fresh-food"
+      },
+      {
+        "timestamp": "20230519054652",
+        "url": "https://www.lieferando.de/speisekarte/7-dumpling-wittenbergplatz"
+      },
+      {
+        "timestamp": "20230519054753",
+        "url": "https://www.lieferando.de/speisekarte/7-tepe-restaurant"
+      },
+      {
+        "timestamp": "20230519055156",
+        "url": "https://www.lieferando.de/speisekarte/90-degree-c-bubble-tea-waffle-berlin"
+      },
+      {
+        "timestamp": "20230401100843",
+        "url": "https://www.lieferando.de/speisekarte/997-sushi-robata"
+      },
+      {
+        "timestamp": "20230519054545",
+        "url": "https://www.lieferando.de/speisekarte/a-petit-1"
+      },
+      {
+        "timestamp": "20230401144428",
+        "url": "https://www.lieferando.de/speisekarte/a-pizza"
+      },
+      {
+        "timestamp": "20230519054607",
+        "url": "https://www.lieferando.de/speisekarte/a-spatkauf-36"
+      },
+      {
+        "timestamp": "20230519054725",
+        "url": "https://www.lieferando.de/speisekarte/aaina"
+      },
+      {
+        "timestamp": "20230519054827",
+        "url": "https://www.lieferando.de/speisekarte/aao-ji-restaurant-schoneiche"
+      },
+      {
+        "timestamp": "20230922113808",
+        "url": "https://www.lieferando.de/speisekarte/480grad-neapolitan-pizza-wurzburg"
+      },
+      {
+        "timestamp": "20230922121535",
+        "url": "https://www.lieferando.de/speisekarte/altstadt-kebap-haus-wertheim"
+      },
+      {
+        "timestamp": "20230927143451",
+        "url": "https://www.lieferando.de/speisekarte/ambach?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20230922123609",
+        "url": "https://www.lieferando.de/speisekarte/amir-pizza"
+      },
+      {
+        "timestamp": "20230925034154",
+        "url": "https://www.lieferando.de/speisekarte/amore-pizzeria-und-grillhaus"
+      },
+      {
+        "timestamp": "20230928144435",
+        "url": "https://www.lieferando.de/speisekarte/amrit-berlin-mitte"
+      },
+      {
+        "timestamp": "20230926234725",
+        "url": "https://www.lieferando.de/speisekarte/anatolia-restaurant-kaiserstrasse"
+      },
+      {
+        "timestamp": "20230929132450",
+        "url": "https://www.lieferando.de/speisekarte/anno-19"
+      },
+      {
+        "timestamp": "20230922114607",
+        "url": "https://www.lieferando.de/speisekarte/aposto-karlsruhe"
+      },
+      {
+        "timestamp": "20230926230651",
+        "url": "https://www.lieferando.de/speisekarte/appruzis"
+      },
+      {
+        "timestamp": "20230928120300",
+        "url": "https://www.lieferando.de/speisekarte/asia-focus-gourmet"
+      },
+      {
+        "timestamp": "20230923052339",
+        "url": "https://www.lieferando.de/speisekarte/asmara"
+      },
+      {
+        "timestamp": "20230922223811",
+        "url": "https://www.lieferando.de/speisekarte/bagelmann-cafe-berlin"
+      },
+      {
+        "timestamp": "20230922204849",
+        "url": "https://www.lieferando.de/speisekarte/be-low"
+      },
+      {
+        "timestamp": "20230929132946",
+        "url": "https://www.lieferando.de/speisekarte/bella-italia-heppenheim-bergstrasse"
+      },
+      {
+        "timestamp": "20230927215147",
+        "url": "https://www.lieferando.de/speisekarte/ben-jerrys-koeln-grosse-budengasse"
+      },
+      {
+        "timestamp": "20230927204311",
+        "url": "https://www.lieferando.de/speisekarte/ben-jerrys-koeln-venloer-strasse"
+      },
+      {
+        "timestamp": "20230927212750",
+        "url": "https://www.lieferando.de/speisekarte/ben-jerrys-leipzig-dreilindenstr"
+      },
+      {
+        "timestamp": "20230927222503",
+        "url": "https://www.lieferando.de/speisekarte/ben-jerrys-und-magnum-augsburg-1"
+      },
+      {
+        "timestamp": "20230927214622",
+        "url": "https://www.lieferando.de/speisekarte/ben-jerrys-und-magnum-augsburg-bluecherstr"
+      },
+      {
+        "timestamp": "20231228155003",
+        "url": "https://www.lieferando.de/speisekarte/12s-pho-weimar-ecke-vietnam"
+      },
+      {
+        "timestamp": "20231201030655",
+        "url": "https://www.lieferando.de/speisekarte/2-brothers-gemusedoner-burger-bowls"
+      },
+      {
+        "timestamp": "20231204223628",
+        "url": "https://www.lieferando.de/speisekarte/3hs-burger-chicken-1"
+      },
+      {
+        "timestamp": "20231128202450",
+        "url": "https://www.lieferando.de/speisekarte/3in1-buble-tee-und-sushi"
+      },
+      {
+        "timestamp": "20231208034020",
+        "url": "https://www.lieferando.de/speisekarte/44-pizzeria-cocktailbar"
+      },
+      {
+        "timestamp": "20231129111538",
+        "url": "https://www.lieferando.de/speisekarte/abus-burger-1"
+      },
+      {
+        "timestamp": "20231205161120",
+        "url": "https://www.lieferando.de/speisekarte/adana-et-restaurant"
+      },
+      {
+        "timestamp": "20231205153332",
+        "url": "https://www.lieferando.de/speisekarte/adana-kebab"
+      },
+      {
+        "timestamp": "20231203200346",
+        "url": "https://www.lieferando.de/speisekarte/affenfelsen-paul-sorge-str"
+      },
+      {
+        "timestamp": "20231208164744",
+        "url": "https://www.lieferando.de/speisekarte/aichtaler-pizzaservice-aichtal"
+      },
+      {
+        "timestamp": "20231202222034",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-1"
+      },
+      {
+        "timestamp": "20231130170017",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-grill-bei-tasso"
+      },
+      {
+        "timestamp": "20231128183718",
+        "url": "https://www.lieferando.de/speisekarte/al-basha-restaurant"
+      },
+      {
+        "timestamp": "20231205153559",
+        "url": "https://www.lieferando.de/speisekarte/al-civico-restaurant"
+      },
+      {
+        "timestamp": "20231208201557",
+        "url": "https://www.lieferando.de/speisekarte/al-halal-pizzaservice-1"
+      },
+      {
+        "timestamp": "20231002082737",
+        "url": "https://www.lieferando.de/speisekarte/al-hayat-falafel-30161-hannover"
+      },
+      {
+        "timestamp": "20231210175737",
+        "url": "https://www.lieferando.de/speisekarte/aladin73"
+      },
+      {
+        "timestamp": "20231211015842",
+        "url": "https://www.lieferando.de/speisekarte/aldos-la-prego-croque-co"
+      },
+      {
+        "timestamp": "20231002154232",
+        "url": "https://www.lieferando.de/speisekarte/alforat-pizzagrill"
+      },
+      {
+        "timestamp": "20231203181058",
+        "url": "https://www.lieferando.de/speisekarte/alfredo-pizza-service-toepfergasse"
+      },
+      {
+        "timestamp": "20240226110214",
+        "url": "https://www.lieferando.de/speisekarte/089-sushi-20355"
+      },
+      {
+        "timestamp": "20240226021041",
+        "url": "https://www.lieferando.de/speisekarte/1001-nacht-cafe-restaurant"
+      },
+      {
+        "timestamp": "20240221062911",
+        "url": "https://www.lieferando.de/speisekarte/5sher-max-liebermann-strasse"
+      },
+      {
+        "timestamp": "20240228003901",
+        "url": "https://www.lieferando.de/speisekarte/60-seconds-to-napoli-2"
+      },
+      {
+        "timestamp": "20240225205152",
+        "url": "https://www.lieferando.de/speisekarte/73-burger-bar-mnchen?kw1&&adj_tracker=tn818ro&adj_campaign=978359644&k1111=k1111&campaignname=CM_S_G_DEU_DE_%5BRES%5D_%5BENGM%5D_OD_Munich_1004234&gad_source=1&gclid=Cj0KCQiAqsitBhDlARIsAGMR1Rgn5Wd5-w0DTbKZJAz0YQ4MBEBYUqp0FbSP1WYPiMGtcD3SZNolFpAaAuewEALw_wcB&gclsrc=aw.ds"
+      },
+      {
+        "timestamp": "20240227023456",
+        "url": "https://www.lieferando.de/speisekarte/a-bao-asia-express-1"
+      },
+      {
+        "timestamp": "20240117074016",
+        "url": "https://www.lieferando.de/speisekarte/abbys-kitchen"
+      },
+      {
+        "timestamp": "20240226231423",
+        "url": "https://www.lieferando.de/speisekarte/abis-feinkost-imbiss"
+      },
+      {
+        "timestamp": "20240303014408",
+        "url": "https://www.lieferando.de/speisekarte/achilles-spandau"
+      },
+      {
+        "timestamp": "20240222051024",
+        "url": "https://www.lieferando.de/speisekarte/adana-grill-hamburg"
+      },
+      {
+        "timestamp": "20240220232927",
+        "url": "https://www.lieferando.de/speisekarte/adana-kebab-trossingen"
+      },
+      {
+        "timestamp": "20240115171606",
+        "url": "https://www.lieferando.de/speisekarte/adana-ruebenach-koblenz"
+      },
+      {
+        "timestamp": "20240302200156",
+        "url": "https://www.lieferando.de/speisekarte/adler-drive-karlsdorf-neuthard"
+      },
+      {
+        "timestamp": "20240227031923",
+        "url": "https://www.lieferando.de/speisekarte/adlerklause"
+      },
+      {
+        "timestamp": "20240226111822",
+        "url": "https://www.lieferando.de/speisekarte/adoo-pizza-kebaphaus"
+      },
+      {
+        "timestamp": "20240228050211",
+        "url": "https://www.lieferando.de/speisekarte/aegi-dner"
+      },
+      {
+        "timestamp": "20240221221008",
+        "url": "https://www.lieferando.de/speisekarte/afghan-chopan"
+      },
+      {
+        "timestamp": "20240120010234",
+        "url": "https://www.lieferando.de/speisekarte/aindara-restaurant"
+      },
+      {
+        "timestamp": "20240304142339",
+        "url": "https://www.lieferando.de/speisekarte/air-buns"
+      },
+      {
+        "timestamp": "20240304152104",
+        "url": "https://www.lieferando.de/speisekarte/ajad"
+      },
+      {
+        "timestamp": "20240415092720",
+        "url": "https://www.lieferando.de/speisekarte/008-look-feel-grill-chinesische-spezialitten"
+      },
+      {
+        "timestamp": "20240417062623",
+        "url": "https://www.lieferando.de/speisekarte/1001-nacht-caf-restaurant"
+      },
+      {
+        "timestamp": "20240604133808",
+        "url": "https://www.lieferando.de/speisekarte/108-flora"
+      },
+      {
+        "timestamp": "20240527043357",
+        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-hauptstrasse"
+      },
+      {
+        "timestamp": "20240415094101",
+        "url": "https://www.lieferando.de/speisekarte/2-brothers-gemsedner-burger-bowls"
+      },
+      {
+        "timestamp": "20240415220311",
+        "url": "https://www.lieferando.de/speisekarte/3e-imbiss"
+      },
+      {
+        "timestamp": "20240419145105",
+        "url": "https://www.lieferando.de/speisekarte/4-you-pizza"
+      },
+      {
+        "timestamp": "20240413065748",
+        "url": "https://www.lieferando.de/speisekarte/44-chkn-korean-fried-chicken"
+      },
+      {
+        "timestamp": "20240527162810",
+        "url": "https://www.lieferando.de/speisekarte/5s-grill"
+      },
+      {
+        "timestamp": "20240522082334",
+        "url": "https://www.lieferando.de/speisekarte/73-burger-bar"
+      },
+      {
+        "timestamp": "20240413060215",
+        "url": "https://www.lieferando.de/speisekarte/85-grad-cube-1"
+      },
+      {
+        "timestamp": "20240413161533",
+        "url": "https://www.lieferando.de/speisekarte/9-to-5"
+      },
+      {
+        "timestamp": "20240624223847",
+        "url": "https://www.lieferando.de/speisekarte/a-celik-restaurant"
+      },
+      {
+        "timestamp": "20240422030653",
+        "url": "https://www.lieferando.de/speisekarte/abbas-bek"
+      },
+      {
+        "timestamp": "20240423183010",
+        "url": "https://www.lieferando.de/speisekarte/abo-anass-falafel-shawarma"
+      },
+      {
+        "timestamp": "20240413153830",
+        "url": "https://www.lieferando.de/speisekarte/acck-cikftem"
+      },
+      {
+        "timestamp": "20240422033812",
+        "url": "https://www.lieferando.de/speisekarte/acicik-cigkofte"
+      },
+      {
+        "timestamp": "20240415084126",
+        "url": "https://www.lieferando.de/speisekarte/acuns-gemse-dner-asia-kche"
+      },
+      {
+        "timestamp": "20240420144048",
+        "url": "https://www.lieferando.de/speisekarte/ada-bckerei"
+      },
+      {
+        "timestamp": "20240624233322",
+        "url": "https://www.lieferando.de/speisekarte/adis-grill-56170"
+      },
+      {
+        "timestamp": "20240815021729",
+        "url": "https://www.lieferando.de/speisekarte/3-pyramids"
+      },
+      {
+        "timestamp": "20240917161409",
+        "url": "https://www.lieferando.de/speisekarte/3p-italian-easy-food"
+      },
+      {
+        "timestamp": "20240806110258",
+        "url": "https://www.lieferando.de/speisekarte/85-grad-berlin"
+      },
+      {
+        "timestamp": "20240721122326",
+        "url": "https://www.lieferando.de/speisekarte/a-casa-tua-ristorantino-mnchen"
+      },
+      {
+        "timestamp": "20240913154754",
+        "url": "https://www.lieferando.de/speisekarte/aao-ji-restaurant-schneiche"
+      },
+      {
+        "timestamp": "20240720025810",
+        "url": "https://www.lieferando.de/speisekarte/aarappar"
+      },
+      {
+        "timestamp": "20240805152239",
+        "url": "https://www.lieferando.de/speisekarte/aceto-chicken-dner-dner-dach"
+      },
+      {
+        "timestamp": "20240721141300",
+        "url": "https://www.lieferando.de/speisekarte/achilles-21339"
+      },
+      {
+        "timestamp": "20240802235153",
+        "url": "https://www.lieferando.de/speisekarte/acicik-ikfte"
+      },
+      {
+        "timestamp": "20240815015418",
+        "url": "https://www.lieferando.de/speisekarte/adam-wedding-mllerstrasse"
+      },
+      {
+        "timestamp": "20240806233337",
+        "url": "https://www.lieferando.de/speisekarte/adams-burger"
+      },
+      {
+        "timestamp": "20240806114923",
+        "url": "https://www.lieferando.de/speisekarte/adams-pizza-time"
+      },
+      {
+        "timestamp": "20240810100618",
+        "url": "https://www.lieferando.de/speisekarte/adeli-sushi-more-reeder-bischoff-strasse"
+      },
+      {
+        "timestamp": "20240716061604",
+        "url": "https://www.lieferando.de/speisekarte/affenfelsen-burger-kaltenkirchen-kisdorfer-weg"
+      },
+      {
+        "timestamp": "20240715210630",
+        "url": "https://www.lieferando.de/speisekarte/afu-dumpling-house"
+      },
+      {
+        "timestamp": "20240719113914",
+        "url": "https://www.lieferando.de/speisekarte/ainu-sushi"
+      },
+      {
+        "timestamp": "20240917065242",
+        "url": "https://www.lieferando.de/speisekarte/al-furat-restaurant-leer"
+      },
+      {
+        "timestamp": "20240812163720",
+        "url": "https://www.lieferando.de/speisekarte/ala-turka-schningen"
+      },
+      {
+        "timestamp": "20240921022111",
+        "url": "https://www.lieferando.de/speisekarte/aladdin-hildesheim"
+      },
+      {
+        "timestamp": "20240704142110",
+        "url": "https://www.lieferando.de/speisekarte/alba-restaurant"
+      },
+      {
+        "timestamp": "20241214045531",
+        "url": "https://www.lieferando.de/speisekarte/0711-burger-manufaktur"
+      },
+      {
+        "timestamp": "20241112210312",
+        "url": "https://www.lieferando.de/speisekarte/a1-grill-kebap-haus"
+      },
+      {
+        "timestamp": "20241206043346",
+        "url": "https://www.lieferando.de/speisekarte/acai-lovers"
+      },
+      {
+        "timestamp": "20241210154341",
+        "url": "https://www.lieferando.de/speisekarte/ada-kebap-rheingaustr-dieburg"
+      },
+      {
+        "timestamp": "20241203080753",
+        "url": "https://www.lieferando.de/speisekarte/adana-kebab-hermannstrasse"
+      },
+      {
+        "timestamp": "20241207003751",
+        "url": "https://www.lieferando.de/speisekarte/adana-kebaphaus-bergkamener-strasse"
+      },
+      {
+        "timestamp": "20241205212355",
+        "url": "https://www.lieferando.de/speisekarte/adanus-cigkfte"
+      },
+      {
+        "timestamp": "20241204033953",
+        "url": "https://www.lieferando.de/speisekarte/adil-benkarroum"
+      },
+      {
+        "timestamp": "20241012082638",
+        "url": "https://www.lieferando.de/speisekarte/african-kingdom-restaurant-berlin"
+      },
+      {
+        "timestamp": "20241208103208",
+        "url": "https://www.lieferando.de/speisekarte/african-vibes"
+      },
+      {
+        "timestamp": "20241016071648",
+        "url": "https://www.lieferando.de/speisekarte/afro-base"
+      },
+      {
+        "timestamp": "20241016065246",
+        "url": "https://www.lieferando.de/speisekarte/aha-ramen-n-poke"
+      },
+      {
+        "timestamp": "20241209013601",
+        "url": "https://www.lieferando.de/speisekarte/ahimsa-restaurant"
+      },
+      {
+        "timestamp": "20241204204037",
+        "url": "https://www.lieferando.de/speisekarte/akcan-dner"
+      },
+      {
+        "timestamp": "20241005154535",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-grillstolberg"
+      },
+      {
+        "timestamp": "20241011050111",
+        "url": "https://www.lieferando.de/speisekarte/alexandros-22305"
+      },
+      {
+        "timestamp": "20241207144331",
+        "url": "https://www.lieferando.de/speisekarte/algl-dner"
+      },
+      {
+        "timestamp": "20241205214329",
+        "url": "https://www.lieferando.de/speisekarte/ali-baba-restaurant-munchen"
+      },
+      {
+        "timestamp": "20241206235238",
+        "url": "https://www.lieferando.de/speisekarte/all-about"
+      },
+      {
+        "timestamp": "20241009140101",
+        "url": "https://www.lieferando.de/speisekarte/alma-finest-chicken"
+      },
+      {
+        "timestamp": "20250124213842",
+        "url": "https://www.lieferando.de/speisekarte/--xds-color-content-brand"
+      },
+      {
+        "timestamp": "20250124213841",
+        "url": "https://www.lieferando.de/speisekarte/--xds-color-content-default"
+      },
+      {
+        "timestamp": "20250124213842",
+        "url": "https://www.lieferando.de/speisekarte/--xds-color-content-subdued"
+      },
+      {
+        "timestamp": "20250124213841",
+        "url": "https://www.lieferando.de/speisekarte/--xds-spacing-a"
+      },
+      {
+        "timestamp": "20250124213841",
+        "url": "https://www.lieferando.de/speisekarte/--xds-spacing-b"
+      },
+      {
+        "timestamp": "20250124213841",
+        "url": "https://www.lieferando.de/speisekarte/--xds-spacing-d"
+      },
+      {
+        "timestamp": "20250124213841",
+        "url": "https://www.lieferando.de/speisekarte/--xds-spacing-e"
+      },
+      {
+        "timestamp": "20250124213842",
+        "url": "https://www.lieferando.de/speisekarte/--xds-spacing-f"
+      },
+      {
+        "timestamp": "20250216210405",
+        "url": "https://www.lieferando.de/speisekarte/11-street-burger"
+      },
+      {
+        "timestamp": "20250124201155",
+        "url": "https://www.lieferando.de/speisekarte/123-pizzeria-alzenau-1"
+      },
+      {
+        "timestamp": "20250210174338",
+        "url": "https://www.lieferando.de/speisekarte/2-bros-pizza-burger"
+      },
+      {
+        "timestamp": "20250120193236",
+        "url": "https://www.lieferando.de/speisekarte/22essbar"
+      },
+      {
+        "timestamp": "20250323065444",
+        "url": "https://www.lieferando.de/speisekarte/2bro-pizzeria-kaltenengers"
+      },
+      {
+        "timestamp": "20250321092425",
+        "url": "https://www.lieferando.de/speisekarte/3-bs-burger-barbeque-brothers"
+      },
+      {
+        "timestamp": "20250119210437",
+        "url": "https://www.lieferando.de/speisekarte/55secondpizza"
+      },
+      {
+        "timestamp": "20250319194244",
+        "url": "https://www.lieferando.de/speisekarte/73-burger-bar-landsberger-strasse"
+      },
+      {
+        "timestamp": "20250116025416",
+        "url": "https://www.lieferando.de/speisekarte/a-casa-mia-lrrach"
+      },
+      {
+        "timestamp": "20250327160918",
+        "url": "https://www.lieferando.de/speisekarte/acapulco-grill"
+      },
+      {
+        "timestamp": "20250321092416",
+        "url": "https://www.lieferando.de/speisekarte/adana-kebap-haus-kiel"
+      },
+      {
+        "timestamp": "20250327210226",
+        "url": "https://www.lieferando.de/speisekarte/adana-rbenach-koblenz"
+      },
+      {
+        "timestamp": "20250512103512",
+        "url": "https://www.lieferando.de/speisekarte/--xds-font-size-12"
+      },
+      {
+        "timestamp": "20250512103511",
+        "url": "https://www.lieferando.de/speisekarte/--xds-font-size-16"
+      },
+      {
+        "timestamp": "20250512103512",
+        "url": "https://www.lieferando.de/speisekarte/--xds-font-size-24"
+      },
+      {
+        "timestamp": "20250512103512",
+        "url": "https://www.lieferando.de/speisekarte/--xds-spacing-g"
+      },
+      {
+        "timestamp": "20250407013002",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13305"
+      },
+      {
+        "timestamp": "20250512103552",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13575"
+      },
+      {
+        "timestamp": "20250522044033",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13675"
+      },
+      {
+        "timestamp": "20250524025724",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13692"
+      },
+      {
+        "timestamp": "20250530195819",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13712"
+      },
+      {
+        "timestamp": "20250605072749",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13743"
+      },
+      {
+        "timestamp": "20250609215455",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13768"
+      },
+      {
+        "timestamp": "20250615202514",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13810"
+      },
+      {
+        "timestamp": "20250622145235",
+        "url": "https://www.lieferando.de/speisekarte/0.1.13830"
+      },
+      {
+        "timestamp": "20250419140728",
+        "url": "https://www.lieferando.de/speisekarte/2-bros-pizza-robert-bosch-strasse"
+      },
+      {
+        "timestamp": "20250420070254",
+        "url": "https://www.lieferando.de/speisekarte/2-brothers-gemusedoner-burger-bowls-saarbrucken"
+      },
+      {
+        "timestamp": "20250407013002",
+        "url": "https://www.lieferando.de/speisekarte/7.1.0"
+      },
+      {
+        "timestamp": "20250512103554",
+        "url": "https://www.lieferando.de/speisekarte/7.4.0"
+      },
+      {
+        "timestamp": "20250522044033",
+        "url": "https://www.lieferando.de/speisekarte/7.5.1"
+      },
+      {
+        "timestamp": "20250530195819",
+        "url": "https://www.lieferando.de/speisekarte/7.5.2"
+      },
+      {
+        "timestamp": "20250527105820",
+        "url": "https://www.lieferando.de/speisekarte/9.parT4YmrbG8JHq4tuMtZGE4jjUvxhD"
+      },
+      {
+        "timestamp": "20250710120408",
+        "url": "https://www.lieferando.de/speisekarte/0.1.14064"
+      },
+      {
+        "timestamp": "20250731214625",
+        "url": "https://www.lieferando.de/speisekarte/0.1.14222"
+      },
+      {
+        "timestamp": "20250929161954",
+        "url": "https://www.lieferando.de/speisekarte/0.1.14663"
+      },
+      {
+        "timestamp": "20250831030224",
+        "url": "https://www.lieferando.de/speisekarte/1-apotheke"
+      },
+      {
+        "timestamp": "20250715000439",
+        "url": "https://www.lieferando.de/speisekarte/1burger-hannover-sudstadt"
+      },
+      {
+        "timestamp": "20250712091212",
+        "url": "https://www.lieferando.de/speisekarte/247-spatkauf"
+      },
+      {
+        "timestamp": "20250805042545",
+        "url": "https://www.lieferando.de/speisekarte/2bro-pizzeria-battenberg-marburger-strasse"
+      },
+      {
+        "timestamp": "20250917055949",
+        "url": "https://www.lieferando.de/speisekarte/2m-grill-42275"
+      },
+      {
+        "timestamp": "20250929161954",
+        "url": "https://www.lieferando.de/speisekarte/2wYJLC9nt0IkEW4V.4DHU_qowtzc9lQX"
+      },
+      {
+        "timestamp": "20250712220439",
+        "url": "https://www.lieferando.de/speisekarte/3e-imbiss-3-e-imbiss"
+      },
+      {
+        "timestamp": "20250929161954",
+        "url": "https://www.lieferando.de/speisekarte/7.11.1"
+      },
+      {
+        "timestamp": "20250731214625",
+        "url": "https://www.lieferando.de/speisekarte/7.7.0"
+      },
+      {
+        "timestamp": "20250811010334",
+        "url": "https://www.lieferando.de/speisekarte/73344-tasty-food-service"
+      },
+      {
+        "timestamp": "20250929161954",
+        "url": "https://www.lieferando.de/speisekarte/a1gjho6s4gqe2l-ats.iot.eu-central-1.amazonaws.com"
+      },
+      {
+        "timestamp": "20250731214625",
+        "url": "https://www.lieferando.de/speisekarte/a_V7zbIaN4I.Te_749z8F_.c7meoDvbd"
+      },
+      {
+        "timestamp": "20250909103410",
+        "url": "https://www.lieferando.de/speisekarte/adam-restaurant-kopernikusstrasse"
+      },
+      {
+        "timestamp": "20250804055432",
+        "url": "https://www.lieferando.de/speisekarte/adria-grill-griechische-spezialitaeten-jena?shipping=pickup"
+      },
+      {
+        "timestamp": "20250707221146",
+        "url": "https://www.lieferando.de/speisekarte/ajwa-restaurant"
+      },
+      {
+        "timestamp": "20250808133301",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-oldenburg"
+      },
+      {
+        "timestamp": "20250915220047",
+        "url": "https://www.lieferando.de/speisekarte/al-hamra"
+      },
+      {
+        "timestamp": "20251219194039",
+        "url": "https://www.lieferando.de/speisekarte/1-apotheke?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20251007144851",
+        "url": "https://www.lieferando.de/speisekarte/1burger-berlin-rummelsburg"
+      },
+      {
+        "timestamp": "20251011010050",
+        "url": "https://www.lieferando.de/speisekarte/1burger-bremen-burglesum"
+      },
+      {
+        "timestamp": "20251016095126",
+        "url": "https://www.lieferando.de/speisekarte/1burger-bremen-neustadt"
+      },
+      {
+        "timestamp": "20251016131033",
+        "url": "https://www.lieferando.de/speisekarte/39-datteln-1"
+      },
+      {
+        "timestamp": "20251016070155",
+        "url": "https://www.lieferando.de/speisekarte/42-spati-steinbeck"
+      },
+      {
+        "timestamp": "20251013090304",
+        "url": "https://www.lieferando.de/speisekarte/60-seconds-to-napoli-berlin"
+      },
+      {
+        "timestamp": "20251011012412",
+        "url": "https://www.lieferando.de/speisekarte/8-euro-pizza"
+      },
+      {
+        "timestamp": "20251014221939",
+        "url": "https://www.lieferando.de/speisekarte/abishas-foodcorner"
+      },
+      {
+        "timestamp": "20251007220247",
+        "url": "https://www.lieferando.de/speisekarte/aceto-lokanta-pizza-dach-simon-dach-strasse"
+      },
+      {
+        "timestamp": "20251011012306",
+        "url": "https://www.lieferando.de/speisekarte/adams-pizza-und-pasta"
+      },
+      {
+        "timestamp": "20251127015414",
+        "url": "https://www.lieferando.de/speisekarte/adana-grill-79730"
+      },
+      {
+        "timestamp": "20251127015412",
+        "url": "https://www.lieferando.de/speisekarte/adana-grill-79730?awc=12403_1764208451_d67e43f169eb1284227822d2a9687ccb&utm_content=deeplink&zanpid=12403_1764208451_d67e43f169eb1284227822d2a9687ccb&utm_source=awin&utm_medium=cps&utm_campaign=CM_P_AW_DEU_DE_%5BENGM%5D_%5BOTHR%5D_%5B678149%5D_PERFDIS&sv1=affiliate&sv_campaign_id=678149"
+      },
+      {
+        "timestamp": "20251127015414",
+        "url": "https://www.lieferando.de/speisekarte/adana-grill-79730?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20251015160046",
+        "url": "https://www.lieferando.de/speisekarte/afghan-supermarkt"
+      },
+      {
+        "timestamp": "20251016091221",
+        "url": "https://www.lieferando.de/speisekarte/akropolis-vegesack"
+      },
+      {
+        "timestamp": "20251018162814",
+        "url": "https://www.lieferando.de/speisekarte/al-medina-bremen"
+      },
+      {
+        "timestamp": "20251018101337",
+        "url": "https://www.lieferando.de/speisekarte/al-noor-pakistanisch-indische-spezialitaten"
+      },
+      {
+        "timestamp": "20251011095635",
+        "url": "https://www.lieferando.de/speisekarte/al-salama-restaurant"
+      },
+      {
+        "timestamp": "20251228155049",
+        "url": "https://www.lieferando.de/speisekarte/alex-apotheke-im-globus-hafelsstrasse"
+      },
+      {
+        "timestamp": "20260223180308",
+        "url": "https://www.lieferando.de/speisekarte/3hs-burger-chicken-leipzig"
+      },
+      {
+        "timestamp": "20260302031531",
+        "url": "https://www.lieferando.de/speisekarte/ahimsa-restaurant?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20260311084018",
+        "url": "https://www.lieferando.de/speisekarte/al-huda"
+      },
+      {
+        "timestamp": "20260201111120",
+        "url": "https://www.lieferando.de/speisekarte/amoneburger-pizza-kebabhaus"
+      },
+      {
+        "timestamp": "20260213083548",
+        "url": "https://www.lieferando.de/speisekarte/antik-lokales-darmstadt-1"
+      },
+      {
+        "timestamp": "20260312052705",
+        "url": "https://www.lieferando.de/speisekarte/augustiner-gasthaus-jagdschlossl"
+      },
+      {
+        "timestamp": "20260312052707",
+        "url": "https://www.lieferando.de/speisekarte/augustiner-gasthaus-jagdschlossl?zanpid=12403_1773293226_2afbfa28509d4edbd7202b6d15698aa2&utm_source=awin&utm_medium=cps&utm_campaign=CM_P_AW_DEU_DE_[ENGM]_[OTHR]_[397999]_PERFDIS&sv1=affiliate&sv_campaign_id=397999&awc=12403_1773293226_2afbfa28509d4edbd7202b6d15698aa2&utm_content=deeplink"
+      },
+      {
+        "timestamp": "20260322074629",
+        "url": "https://www.lieferando.de/speisekarte/ayurveda-indische-restaurant"
+      },
+      {
+        "timestamp": "20260224202124",
+        "url": "https://www.lieferando.de/speisekarte/balcone-fusion-kitchen"
+      },
+      {
+        "timestamp": "20260113104337",
+        "url": "https://www.lieferando.de/speisekarte/banh-mi-you"
+      },
+      {
+        "timestamp": "20260216150751",
+        "url": "https://www.lieferando.de/speisekarte/barmbecker-schach-cafe"
+      },
+      {
+        "timestamp": "20260215053947",
+        "url": "https://www.lieferando.de/speisekarte/barmbeker-schachcafe"
+      },
+      {
+        "timestamp": "20260215053950",
+        "url": "https://www.lieferando.de/speisekarte/barmbeker-schachcafe?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20260112170219",
+        "url": "https://www.lieferando.de/speisekarte/bun-cha"
+      },
+      {
+        "timestamp": "20260302121740",
+        "url": "https://www.lieferando.de/speisekarte/caf-day-date"
+      },
+      {
+        "timestamp": "20260312211744",
+        "url": "https://www.lieferando.de/speisekarte/chopstixx-asia-food-delivery-service"
+      },
+      {
+        "timestamp": "20260312211746",
+        "url": "https://www.lieferando.de/speisekarte/chopstixx-asia-food-delivery-service?zanpid=12403_1773350265_1c11cf55a35fb93f27eda6b73000823c&utm_source=awin&utm_medium=cps&utm_campaign=CM_P_AW_DEU_DE_[ENGM]_[OTHR]_[397999]_PERFDIS&sv1=affiliate&sv_campaign_id=397999&awc=12403_1773350265_1c11cf55a35fb93f27eda6b73000823c&utm_content=deeplink"
+      },
+      {
+        "timestamp": "20260312162115",
+        "url": "https://www.lieferando.de/speisekarte/city-lounge-sonnenstrasse"
+      },
+      {
+        "timestamp": "20260312162113",
+        "url": "https://www.lieferando.de/speisekarte/city-lounge-sonnenstrasse?zanpid=12403_1773332472_7d86be1d056731abc2b3d937c3a0e6bc&utm_source=awin&utm_medium=cps&utm_campaign=CM_P_AW_DEU_DE_[ENGM]_[OTHR]_[397999]_PERFDIS&sv1=affiliate&sv_campaign_id=397999&awc=12403_1773332472_7d86be1d056731abc2b3d937c3a0e6bc&utm_content=deeplink"
+      },
+      {
+        "timestamp": "20260314114815",
+        "url": "https://www.lieferando.de/speisekarte/consumerWebCommon.countryAndLanguageSelector.countryList.au"
+      },
+      {
+        "timestamp": "20260421041211",
+        "url": "https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant"
+      },
+      {
+        "timestamp": "20260421041214",
+        "url": "https://www.lieferando.de/speisekarte/anadolu-der-diwan-restaurant?utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20260415171930",
+        "url": "https://www.lieferando.de/speisekarte/annam-ahlem?shipping=collection&utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20260415171930",
+        "url": "https://www.lieferando.de/speisekarte/annam-ahlem?utm_campaign=foodorder&utm_medium=organic&utm_source=google&shipping=delivery"
+      },
+      {
+        "timestamp": "20260405112147",
+        "url": "https://www.lieferando.de/speisekarte/arjun-s-bistro-dresden"
+      },
+      {
+        "timestamp": "20260415171930",
+        "url": "https://www.lieferando.de/speisekarte/asia-banh?shipping=collection&utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20260415171930",
+        "url": "https://www.lieferando.de/speisekarte/asia-banh?shipping=delivery&utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20260415171930",
+        "url": "https://www.lieferando.de/speisekarte/asia-cuisine-hannover-anderter-str?shipping=collection&utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      },
+      {
+        "timestamp": "20260415171940",
+        "url": "https://www.lieferando.de/speisekarte/asia-cuisine-hannover-anderter-str?utm_source=google&shipping=delivery&utm_campaign=foodorder&utm_medium=organic"
+      },
+      {
+        "timestamp": "20260508170918",
+        "url": "https://www.lieferando.de/speisekarte/asia-imbiss-hannover"
+      },
+      {
+        "timestamp": "20260508170920",
+        "url": "https://www.lieferando.de/speisekarte/asia-imbiss-hannover?utm_source=google&utm_campaign=foodorder&utm_medium=organic"
+      },
+      {
+        "timestamp": "20260415092258",
+        "url": "https://www.lieferando.de/speisekarte/baba-x-bros-rheine"
+      },
+      {
+        "timestamp": "20260403173151",
+        "url": "https://www.lieferando.de/speisekarte/burgermeister-braunschweig"
+      },
+      {
+        "timestamp": "20260403173153",
+        "url": "https://www.lieferando.de/speisekarte/burgermeister-braunschweig?utm_source=google&utm_campaign=foodorder&utm_medium=organic"
+      },
+      {
+        "timestamp": "20260403173149",
+        "url": "https://www.lieferando.de/speisekarte/burgermeister-leipzig"
+      },
+      {
+        "timestamp": "20260519024625",
+        "url": "https://www.lieferando.de/speisekarte/burgschnke-nrnberg"
+      },
+      {
+        "timestamp": "20260519024622",
+        "url": "https://www.lieferando.de/speisekarte/burgschnke-nrnberg?utm_source=tripadvisor&utm_medium=cps&utm_campaign=CM_P_TA_DEU_DE_%5BENGM%5D_%5BOTHR%5D_%5BTRIPADVISOR%5D_PERFDIS_3702188&TAHotelCode=3702188"
+      },
+      {
+        "timestamp": "20260519024625",
+        "url": "https://www.lieferando.de/speisekarte/burgschnke-nrnberg?utm_medium=organic&utm_source=google&utm_campaign=foodorder"
+      },
+      {
+        "timestamp": "20260419185135",
+        "url": "https://www.lieferando.de/speisekarte/caffe-rinaldi-regensburg-1?utm_source=google&shipping=collection&utm_campaign=foodorder&utm_medium=organic"
+      },
+      {
+        "timestamp": "20260419185135",
+        "url": "https://www.lieferando.de/speisekarte/caffe-rinaldi-regensburg-1?shipping=delivery&utm_campaign=foodorder&utm_medium=organic&utm_source=google"
+      }
+    ],
+    "done_urls": [
+      "https://www.lieferando.de/speisekarte/anboard-pizzeria-bar",
+      "https://www.lieferando.de/speisekarte/aendre",
+      "https://www.lieferando.de/speisekarte/an-banh-mi-ackerstr",
+      "https://www.lieferando.de/speisekarte/bistro-cockpit-reichelsheim",
+      "https://www.lieferando.de/speisekarte/aloha-poke-in-unterbilk",
+      "https://www.lieferando.de/speisekarte/bazis-schlemmerkucherl-muenchen-1",
+      "https://www.lieferando.de/speisekarte/aptera",
+      "https://www.lieferando.de/speisekarte/an-hoang-asiastuebchen-magdeburg",
+      "https://www.lieferando.de/speisekarte/bahalo-echt-griechisch",
+      "https://www.lieferando.de/speisekarte/asia-restaurant-golden-lotus",
+      "https://www.lieferando.de/speisekarte/american-burger-more",
+      "https://www.lieferando.de/speisekarte/allergretto",
+      "https://www.lieferando.de/speisekarte/aloha-poke-bremen",
+      "https://www.lieferando.de/speisekarte/ararat-grill-warendorf-48231",
+      "https://www.lieferando.de/speisekarte/asia-tam-erfurt",
+      "https://www.lieferando.de/speisekarte/al-giardino-zum-stern",
+      "https://www.lieferando.de/speisekarte/al-mundo-cafe-und-restaurant",
+      "https://www.lieferando.de/speisekarte/arethussa",
+      "https://www.lieferando.de/speisekarte/asia-china-imbiss-eurasia-duesseldorf",
+      "https://www.lieferando.de/speisekarte/augenweide"
+    ],
+    "status": "complete",
+    "note": "bail: 0 items, DOM extractor required (Restaurant-only JSON-LD, no MenuItem nodes) \u2014 see probe 2026-06-19"
+  },
+  "Brazil:ubereats-br": {
+    "snapshots": [
+      {
+        "timestamp": "20180413165325",
+        "url": "https://www.ubereats.com/brussels/food-delivery/sushi-factory-schuman/0t1q6y8DRY2kKejMJrC-Gg/"
+      },
+      {
+        "timestamp": "20200312230637",
+        "url": "https://www.ubereats.com/br"
+      },
+      {
+        "timestamp": "20200330081430",
+        "url": "https://www.ubereats.com/br/location"
+      },
+      {
+        "timestamp": "20200330084201",
+        "url": "https://www.ubereats.com/br/near-me"
+      },
+      {
+        "timestamp": "20200330083600",
+        "url": "https://www.ubereats.com/br?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20200313194326",
+        "url": "https://www.ubereats.com/brand/mcdonalds"
+      },
+      {
+        "timestamp": "20200404004400",
+        "url": "https://www.ubereats.com/br-en/sao-paulo/food-delivery/meats/q6qdDtydTbeQWgyBPdKNWA"
+      },
+      {
+        "timestamp": "20200404004416",
+        "url": "https://www.ubereats.com/br-en/sao-paulo/food-delivery/thai-e-san/TTjkedZzR66wSJD_CTiBBA"
+      },
+      {
+        "timestamp": "20200608023217",
+        "url": "https://www.ubereats.com/br/brand/mcdonalds?utm_source=mcdonalds_br&utm_medium=brandpage&utm_campaign=instagram_0420"
+      },
+      {
+        "timestamp": "20200521225242",
+        "url": "https://www.ubereats.com/br/cuiaba/food-delivery/marido-na-cozinha-rotisseria/AGQSyjFmTgCeBEdaSZxxZQ"
+      },
+      {
+        "timestamp": "20200607184728",
+        "url": "https://www.ubereats.com/br/curitiba/food-delivery/poke-to-wok-vila-urbana/P2LQp-kXQeKsuAamq8XWBA"
+      },
+      {
+        "timestamp": "20200428103858",
+        "url": "https://www.ubereats.com/br/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlIuJTIwTWFyaWElMjA2OSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpOZnFpR0pBekdRMFJWNFFKZlltNjFwdyUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzOC43MjQ2MjA1JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTkuMTMzMTk3MTk5OTk5OTk4JTdE"
+      },
+      {
+        "timestamp": "20200422040711",
+        "url": "https://www.ubereats.com/br/porto-alegre/food-delivery/cestas-basicas-a-comunidade-nos-move/TOTRhVOOQO6Sv-5GZbZncg"
+      },
+      {
+        "timestamp": "20200428093350",
+        "url": "https://www.ubereats.com/br/porto-alegre/food-delivery/cestas-basicas-a-comunidade-nos-move/TOTRhVOOQO6Sv-5GZbZncg/location-and-hours?ps=1"
+      },
+      {
+        "timestamp": "20200428100302",
+        "url": "https://www.ubereats.com/br/porto-alegre/food-delivery/cestas-basicas-a-comunidade-nos-move/TOTRhVOOQO6Sv-5GZbZncg?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20200608183732",
+        "url": "https://www.ubereats.com/br/sao-jose-dos-campos/food-delivery/rainha-do-gelo/ZRuZ4uqwQne55TvQaFl8FQ"
+      },
+      {
+        "timestamp": "20200404004343",
+        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/hi-pokee/3JcWziGtTZ-3W2S2O1I6OA"
+      },
+      {
+        "timestamp": "20200404004347",
+        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/holy-burger/-CoaCYc_RN2uKjIC_9QDkg"
+      },
+      {
+        "timestamp": "20200412043439",
+        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/la-peruana-cevicheria-combos-promocionais/Zx8qWXaHQV-b3brfXfgVbw"
+      },
+      {
+        "timestamp": "20200404004354",
+        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/la-peruana-cevicheria/Zx8qWXaHQV-b3brfXfgVbw"
+      },
+      {
+        "timestamp": "20200416075006",
+        "url": "https://www.ubereats.com/brand/chick-fil-a"
+      },
+      {
+        "timestamp": "20200416092420",
+        "url": "https://www.ubereats.com/brand/chick-fil-a?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20200608012007",
+        "url": "https://www.ubereats.com/brand/chick-fil-a?utm_source=chickfila_us&utm_medium=brandpage"
+      },
+      {
+        "timestamp": "20200419010846",
+        "url": "https://www.ubereats.com/brand/starbucks"
+      },
+      {
+        "timestamp": "20200422061211",
+        "url": "https://www.ubereats.com/brand/starbucks?utm_content=deliverypage&utm_medium=starbucks_website_us&utm_source=starbucks"
+      },
+      {
+        "timestamp": "20200509011228",
+        "url": "https://www.ubereats.com/brand/starbucks?utm_source=starbucks&utm_medium=starbucks_website_us&utm_content=homepage"
+      },
+      {
+        "timestamp": "20200804205936",
+        "url": "https://www.ubereats.com/br-en"
+      },
+      {
+        "timestamp": "20200920114928",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/ZI7a_-gLTQ6okoLfJ_Vx0A"
+      },
+      {
+        "timestamp": "20200920114032",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-real/GYVHsJlQQ6ajbdyTC_-bHw"
+      },
+      {
+        "timestamp": "20200923013111",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/atomic-burguer/nbh8MMG5QBeihcnorlieVA"
+      },
+      {
+        "timestamp": "20200921163617",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/batatas-nuevas/QaUy3Q3ARWOxUBa-Jyoi7w"
+      },
+      {
+        "timestamp": "20200923202441",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bbq-in-box/S1giiEHYTYykfW_tzck7aQ"
+      },
+      {
+        "timestamp": "20200923172832",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/beefalo-burger/okDP5HMDSimSOA6xc2qVEQ"
+      },
+      {
+        "timestamp": "20200923013920",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/big-black-sanduicheria/4AVHOW9YRNyz3SMOEtsAQA"
+      },
+      {
+        "timestamp": "20200924192321",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bispo%60s-burguer/f6VfVX1USY-NOOl7puzw7Q"
+      },
+      {
+        "timestamp": "20200929082851",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bobaos-an%E2%88%9Apolis/xumDA7AiRGmgEjUHX_GcOw"
+      },
+      {
+        "timestamp": "20200920121959",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/brigaderia-gourmet-da-thati/QtV1bCqVQWK4XblIozAjLg"
+      },
+      {
+        "timestamp": "20200923172943",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/brocas-burger/KPHoSZDoRJK744n_ASO1kQ"
+      },
+      {
+        "timestamp": "20200924193439",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bufalos-burger/TNGmZoKoT8Ome57XTwfJKA"
+      },
+      {
+        "timestamp": "20200923172457",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/burger-767/Aw6IZVdlRu2WxVn2Rj4hXQ"
+      },
+      {
+        "timestamp": "20200919125626",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/burger-king-av-sao-francisco-de-assis/0p7f444RS9CVxixYzFun7g"
+      },
+      {
+        "timestamp": "20200929010722",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-da-feijoada/EUlvbnuNQkq6LamMz60v6A"
+      },
+      {
+        "timestamp": "20200923164514",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-do-chef/R7RN_MihTVa0h3Ieq25vAw"
+      },
+      {
+        "timestamp": "20200924192615",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-do-hamburguer-c%26a/8CucIN0ZRdunG_0yY7UobQ"
+      },
+      {
+        "timestamp": "20200923003242",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-do-kebab-e-acai/luMRXSeSSy2S9vCmNZFVvg"
+      },
+      {
+        "timestamp": "20200929004352",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-nobre-restaurante/0n7l0DXORdqXp-3I7h_nJA"
+      },
+      {
+        "timestamp": "20201125082529",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-da-frutta/j_RLgf0pTDquabE7-X309g"
+      },
+      {
+        "timestamp": "20201127092816",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-house/h0gV_A2AQ_GSE2AMVdOXxQ"
+      },
+      {
+        "timestamp": "20201127203726",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-master/8C8ex8qgSrymDJRNdlV-jA"
+      },
+      {
+        "timestamp": "20201204174442",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0CdTFHbjTFSEgYSlh6dXrQ"
+      },
+      {
+        "timestamp": "20201203233642",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acaiteria-golden-chef/ihheIYcMRRy-_hUXq1XM0Q"
+      },
+      {
+        "timestamp": "20201204082853",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acaiteria-gourmet-anapolis/Povopb9NR-Wd1sm5nUTbfg"
+      },
+      {
+        "timestamp": "20201124211342",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acaiteria-mix-o-melhor-acai-da-cidade/FKQW9CWlSkOfmVPWEqJagQ"
+      },
+      {
+        "timestamp": "20201203174237",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acaiteria-o-acai-do-seu-jeito-brasil-park-shopping/m4uv1NcKS9uOdSYTstjh4w"
+      },
+      {
+        "timestamp": "20201128104602",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acaizar/zdbUFPiDSve1OKZX1yeM4w"
+      },
+      {
+        "timestamp": "20201127150844",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bark-burgers/zP7DyGWuT4qv1NJVkTNAaw"
+      },
+      {
+        "timestamp": "20201029061938",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/beefalo-burger/okDP5HMDSimSOA6xc2qVEQ?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20201025001830",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/beefalo-burger/okDP5HMDSimSOA6xc2qVEQ?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522beefalo-burger%2522%252C%2522storeUuid%2522%253A%2522a240cfe4-7303-4a29-9238-0eb1736a9511%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20201028120637",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bispo%60s-burguer/f6VfVX1USY-NOOl7puzw7Q?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20201027044045",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bispo%60s-burguer/f6VfVX1USY-NOOl7puzw7Q?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522bispo%252560s-burguer%2522%252C%2522storeUuid%2522%253A%25227fa55f55-7d54-498f-8d38-e97ba6ecf0ed%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20201124065341",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bovinos-hamburgueria/nwZiZvxrTwKt_HC3IBwmeg"
+      },
+      {
+        "timestamp": "20201126045004",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bruno-carvalho-freitas/RJx6ClW2T36RtRDvVOtx7Q"
+      },
+      {
+        "timestamp": "20201022083845",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bufalos-burger/TNGmZoKoT8Ome57XTwfJKA/nugget/AGGREGATOR_STOREFRONT"
+      },
+      {
+        "timestamp": "20201022092605",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bufalos-burger/TNGmZoKoT8Ome57XTwfJKA?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20201020235654",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/bufalos-burger/TNGmZoKoT8Ome57XTwfJKA?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522bufalos-burger%2522%252C%2522storeUuid%2522%253A%25224cd1a666-82a8-4fc3-a67b-9ed74f07c928%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20201128135940",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/burger-king-anashopping/TzEixMlLTJ-pVMquz33T6w"
+      },
+      {
+        "timestamp": "20210115152830",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0CdTFHbjTFSEgYSlh6dXrQ?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20210120014015",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/acai-pai-degua/0CdTFHbjTFSEgYSlh6dXrQ?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522acai-pai-degua%2522%252C%2522storeUuid%2522%253A%2522d0275314-76e3-4c54-8481-84a587a757ad%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20210123151731",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/animals-burguer/cXgsGxXgSTKRdSzHkzinrA"
+      },
+      {
+        "timestamp": "20210115154732",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/burger-king-anashopping/TzEixMlLTJ-pVMquz33T6w?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20210115155143",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/burger-king-anashopping/TzEixMlLTJ-pVMquz33T6w?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522burger-king-anashopping%2522%252C%2522storeUuid%2522%253A%25224f3122c4-c94b-4c9f-a954-caaecf7dd3eb%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20210117104423",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-do-espeto/5-5AWrKbTAub0ZCu36NK7g"
+      },
+      {
+        "timestamp": "20210226195415",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-do-espeto/5-5AWrKbTAub0ZCu36NK7g?mod=selectLanguage&modctx=persist&ps=1"
+      },
+      {
+        "timestamp": "20210307155940",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/casa-do-espeto/5-5AWrKbTAub0ZCu36NK7g?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522casa-do-espeto%2522%252C%2522storeUuid%2522%253A%2522e7ee405a-b29b-4c0b-9bd1-90aedfa34aee%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20210117140044",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/di-dario/eJah4IilRxC-mdyaYerGmg"
+      },
+      {
+        "timestamp": "20210119034942",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/e-doce/fegwVNUMTDGr8NoiTnzyjA"
+      },
+      {
+        "timestamp": "20210117171152",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/estacao-carioca/z1M8mTg_QxWAEzjxYyOgVw"
+      },
+      {
+        "timestamp": "20210115155432",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/giraffas-ana-shopping/E8zx4V_2T8u2XF3pEbpy4g?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20210115150003",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/giraffas-ana-shopping/E8zx4V_2T8u2XF3pEbpy4g?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522giraffas-ana-shopping%2522%252C%2522storeUuid%2522%253A%252213ccf1e1-5ff6-4fcb-b65c-5de911ba72e2%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20210117173548",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/gomes-burger-shop/xkJJh_i7RxKE5lmp2-9eQg"
+      },
+      {
+        "timestamp": "20210118114206",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/gurilaum/0kik496SQUaSu2OwmoopNQ"
+      },
+      {
+        "timestamp": "20210119001453",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/na-brasa-hamburgueria/2QOes3HoQaauGeY8SYYUNw/nugget/AGGREGATOR_STOREFRONT"
+      },
+      {
+        "timestamp": "20210117172513",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/na-brasa-hamburgueria/2QOes3HoQaauGeY8SYYUNw?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20210119002153",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/na-brasa-hamburgueria/2QOes3HoQaauGeY8SYYUNw?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522anapolis%2522%252C%2522storeSlug%2522%253A%2522na-brasa-hamburgueria%2522%252C%2522storeUuid%2522%253A%2522d9039eb3-71e8-41a6-ae19-e63c49861437%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20210116161336",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/super-massa-macarrao-italiano/eQdMn6zxQLeeU6FOOWmD5w/nugget/AGGREGATOR_STOREFRONT"
+      },
+      {
+        "timestamp": "20210115205713",
+        "url": "https://www.ubereats.com/br-en/anapolis/food-delivery/super-massa-macarrao-italiano/eQdMn6zxQLeeU6FOOWmD5w?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20210414090817",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/94-burger-artesanal/lbg3ewBKQTyMUL30zs-FTw"
+      },
+      {
+        "timestamp": "20210414175829",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/alo-pizza-forneria/tXGtikFsRpCURiQ_vD2h2w"
+      },
+      {
+        "timestamp": "20210411230736",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/amazon-pizza/s4FIZKIoSOKDCoVJbFzV2w"
+      },
+      {
+        "timestamp": "20210417203247",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/baviera-boutique-bar/EfFfyWuwQNSRUKvPLL3KfQ?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20210414041920",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/baviera-boutique-bar/EfFfyWuwQNSRUKvPLL3KfQ?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522belem%2522%252C%2522storeSlug%2522%253A%2522baviera-boutique-bar%2522%252C%2522storeUuid%2522%253A%252211f15fc9-6bb0-40d4-9150-abcf2cbdca7d%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20210414173715",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/bazar-do-pao/NJAXerRASdmlKVRXQd940A"
+      },
+      {
+        "timestamp": "20210410153711",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/bistro-dos-ursos/ogbuqsqHSempFi3INsojeQ"
+      },
+      {
+        "timestamp": "20210420114657",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/boa-pizza-forno-a-lenha/s3nvvrFfTRa583NGVT-giQ?mod=selectLanguage&ps=1"
+      },
+      {
+        "timestamp": "20210421201711",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/boa-pizza-forno-a-lenha/s3nvvrFfTRa583NGVT-giQ?mod=storeLocationHours&modctx=%257B%2522citySlug%2522%253A%2522belem%2522%252C%2522storeSlug%2522%253A%2522boa-pizza-forno-a-lenha%2522%252C%2522storeUuid%2522%253A%2522b379efbe-b15f-4d16-b9f3-7346553fa089%2522%252C%2522sectionUuid%2522%253A%2522%2522%257D&ps=1"
+      },
+      {
+        "timestamp": "20210411231738",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/brothers/WQgSvr1RSea_pPMWNPowIg"
+      },
+      {
+        "timestamp": "20210414165348",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/cantinho-do-sabor/kEk45vwJRQ2oOEqHNbdj6A"
+      },
+      {
+        "timestamp": "20210414170744",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/carne-de-sol-de-picui/m2UMuC1DTd-zXlSfSaRitg"
+      },
+      {
+        "timestamp": "20210414182646",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/chicken-house/1oGusE0aRia5LibhQZhryA"
+      },
+      {
+        "timestamp": "20210411231835",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/churrasco-na-chapa-do-enzo/qOHGpO2ZT8qQ_TFFito1jw"
+      },
+      {
+        "timestamp": "20210423052804",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/classic-hotdog-da-lore/nAVYkPUIRUORD9TZyEmtEA"
+      },
+      {
+        "timestamp": "20210410152701",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/comillon-grill/tfUqKe_0TX6-vBZo72IrYg"
+      },
+      {
+        "timestamp": "20210410152336",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/dan-pizza-delivery/zjx_JNHQQ6mb7K4QPa8jAQ"
+      },
+      {
+        "timestamp": "20210410153729",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/dom-marco/Kw7yhQzMTXusvC8Nu7yNAA"
+      },
+      {
+        "timestamp": "20210411204629",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/dom-pedro-i/g-UhL9_NRV2ebpI_4zb-8Q"
+      },
+      {
+        "timestamp": "20210414091315",
+        "url": "https://www.ubereats.com/br-en/belem/food-delivery/dom-restaurante-e-pizzaria/_VRP9t6nThWHVVrJZzWRWA"
+      },
+      {
+        "timestamp": "20211129202424",
+        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/burger-king"
+      },
+      {
+        "timestamp": "20211020144957",
+        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/gianni"
+      },
+      {
+        "timestamp": "20211025222935",
+        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/spoleto"
+      },
+      {
+        "timestamp": "20211020133008",
+        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/subway"
+      },
+      {
+        "timestamp": "20211203001328",
+        "url": "https://www.ubereats.com/br-en/brand-city/boa-vista-rr/vivenda-do-camarao"
+      },
+      {
+        "timestamp": "20211017171929",
+        "url": "https://www.ubereats.com/br-en/brand-city/campo-grande-ms/subway"
+      },
+      {
+        "timestamp": "20211019013213",
+        "url": "https://www.ubereats.com/br-en/brand-city/cascavel-pr/gianni"
+      },
+      {
+        "timestamp": "20211019024022",
+        "url": "https://www.ubereats.com/br-en/brand-city/cascavel-pr/spoleto"
+      },
+      {
+        "timestamp": "20211025150715",
+        "url": "https://www.ubereats.com/br-en/brand-city/caxias-do-sul-rs/burger-king"
+      },
+      {
+        "timestamp": "20211021092001",
+        "url": "https://www.ubereats.com/br-en/brand-city/caxias-do-sul-rs/capizze"
+      },
+      {
+        "timestamp": "20211021075253",
+        "url": "https://www.ubereats.com/br-en/brand-city/caxias-do-sul-rs/kibon-sorveteria"
+      },
+      {
+        "timestamp": "20211203202939",
+        "url": "https://www.ubereats.com/br-en/brand-city/uberaba-mg/vivenda-do-camarao"
+      },
+      {
+        "timestamp": "20211017105125",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/bangladeshi"
+      },
+      {
+        "timestamp": "20211028113527",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/bistro"
+      },
+      {
+        "timestamp": "20211202201125",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/bread"
+      },
+      {
+        "timestamp": "20211017060156",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/charcuterie"
+      },
+      {
+        "timestamp": "20211207181628",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/chinese"
+      },
+      {
+        "timestamp": "20211017091333",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/congee"
+      },
+      {
+        "timestamp": "20211017094247",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/deli"
+      },
+      {
+        "timestamp": "20211017090107",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/dosa"
+      },
+      {
+        "timestamp": "20220128031211",
+        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/american-burger"
+      },
+      {
+        "timestamp": "20220128025152",
+        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/bacio-di-latte"
+      },
+      {
+        "timestamp": "20220123071221",
+        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/chocolates-brasil-cacau"
+      },
+      {
+        "timestamp": "20220127082031",
+        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/si-senor"
+      },
+      {
+        "timestamp": "20220123065906",
+        "url": "https://www.ubereats.com/br-en/brand-city/belo-horizonte-mg/vivenda-do-camarao"
+      },
+      {
+        "timestamp": "20220124173204",
+        "url": "https://www.ubereats.com/br-en/brand-city/blumenau-sc/cobasi"
+      },
+      {
+        "timestamp": "20220124080803",
+        "url": "https://www.ubereats.com/br-en/brand-city/blumenau-sc/pizza-prime"
+      },
+      {
+        "timestamp": "20220124181355",
+        "url": "https://www.ubereats.com/br-en/brand-city/blumenau-sc/shell"
+      },
+      {
+        "timestamp": "20220125182644",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg"
+      },
+      {
+        "timestamp": "20220122125803",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/allergy-friendly"
+      },
+      {
+        "timestamp": "20220122181611",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/american"
+      },
+      {
+        "timestamp": "20220122113348",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/arabian"
+      },
+      {
+        "timestamp": "20220122104645",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/asian"
+      },
+      {
+        "timestamp": "20220125172742",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/australian"
+      },
+      {
+        "timestamp": "20220125182136",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/bakery"
+      },
+      {
+        "timestamp": "20220120030928",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/bbq"
+      },
+      {
+        "timestamp": "20220125183019",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/brazilian"
+      },
+      {
+        "timestamp": "20220122121555",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/breakfast-and-brunch"
+      },
+      {
+        "timestamp": "20220122125250",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/comfort-food"
+      },
+      {
+        "timestamp": "20220125174917",
+        "url": "https://www.ubereats.com/br-en/category/belo-horizonte-mg/fast-food"
+      },
+      {
+        "timestamp": "20220626122810",
+        "url": "https://www.ubereats.com/br-en/store/multisabores/adehtncnsrie3rqiqa3yja"
+      },
+      {
+        "timestamp": "20220626121743",
+        "url": "https://www.ubereats.com/br-en/store/vila-izaura/apvubftqt8sup3-kp286eg"
+      },
+      {
+        "timestamp": "20220511073925",
+        "url": "https://www.ubereats.com/brand-city/abilene-tx/starbucks"
+      },
+      {
+        "timestamp": "20220515082116",
+        "url": "https://www.ubereats.com/brand-city/accokeek-md/starbucks"
+      },
+      {
+        "timestamp": "20220504201948",
+        "url": "https://www.ubereats.com/brand-city/acworth-ga/starbucks"
+      },
+      {
+        "timestamp": "20220517132928",
+        "url": "https://www.ubereats.com/brand-city/addison-il/starbucks"
+      },
+      {
+        "timestamp": "20220508064111",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/freebirds-world-burrito"
+      },
+      {
+        "timestamp": "20220523202336",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/subway"
+      },
+      {
+        "timestamp": "20220523215008",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/tgi-fridays"
+      },
+      {
+        "timestamp": "20220512133250",
+        "url": "https://www.ubereats.com/brand-city/adelanto-ca/starbucks"
+      },
+      {
+        "timestamp": "20220511073846",
+        "url": "https://www.ubereats.com/brand-city/adrian-mi/starbucks"
+      },
+      {
+        "timestamp": "20220516121506",
+        "url": "https://www.ubereats.com/brand-city/aiea-hi/starbucks"
+      },
+      {
+        "timestamp": "20220515084155",
+        "url": "https://www.ubereats.com/brand-city/aiken-sc/starbucks"
+      },
+      {
+        "timestamp": "20220517132513",
+        "url": "https://www.ubereats.com/brand-city/airmont-ny/starbucks"
+      },
+      {
+        "timestamp": "20220519024243",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/cosmic-wings"
+      },
+      {
+        "timestamp": "20220519202412",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/starbucks"
+      },
+      {
+        "timestamp": "20220508102817",
+        "url": "https://www.ubereats.com/brand-city/alabaster-al/starbucks"
+      },
+      {
+        "timestamp": "20220515065258",
+        "url": "https://www.ubereats.com/brand-city/alameda-ca/starbucks"
+      },
+      {
+        "timestamp": "20220505054251",
+        "url": "https://www.ubereats.com/brand-city/alamo-ca/starbucks"
+      },
+      {
+        "timestamp": "20220511074000",
+        "url": "https://www.ubereats.com/brand-city/albany-ca/starbucks"
+      },
+      {
+        "timestamp": "20220813193127",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/bbq-chicken"
+      },
+      {
+        "timestamp": "20220707004820",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/buca-di-beppo"
+      },
+      {
+        "timestamp": "20220812205136",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/busters-american-kitchen"
+      },
+      {
+        "timestamp": "20220707022018",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/chipotle"
+      },
+      {
+        "timestamp": "20220707051946",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/cinnabon"
+      },
+      {
+        "timestamp": "20220706165610",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/crown-fried-chicken"
+      },
+      {
+        "timestamp": "20220812221511",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/dunkin-donuts"
+      },
+      {
+        "timestamp": "20220812081622",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/hooters"
+      },
+      {
+        "timestamp": "20220812095226",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/ihop"
+      },
+      {
+        "timestamp": "20220707004129",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/jersey-mikes"
+      },
+      {
+        "timestamp": "20220819104030",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/papa-johns"
+      },
+      {
+        "timestamp": "20220818075229",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/popeyes"
+      },
+      {
+        "timestamp": "20220705153900",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/sonic-drive-in"
+      },
+      {
+        "timestamp": "20220705131003",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/taco-bell"
+      },
+      {
+        "timestamp": "20220928030001",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/texas-de-brazil"
+      },
+      {
+        "timestamp": "20220702000354",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/baskin-robbins"
+      },
+      {
+        "timestamp": "20220702105555",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/buca-di-beppo"
+      },
+      {
+        "timestamp": "20220704061542",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/buffalo-wild-wings"
+      },
+      {
+        "timestamp": "20220819204010",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/buy-buy-baby"
+      },
+      {
+        "timestamp": "20220702001139",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/chick-fil-a"
+      },
+      {
+        "timestamp": "20221126203606",
+        "url": "https://www.ubereats.com/brand-city/abilene-tx/chipotle"
+      },
+      {
+        "timestamp": "20221204131749",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/burger-king"
+      },
+      {
+        "timestamp": "20221130184648",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/chick-fil-a"
+      },
+      {
+        "timestamp": "20221130175155",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/chipotle"
+      },
+      {
+        "timestamp": "20221130181647",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/dairy-queen"
+      },
+      {
+        "timestamp": "20221130183853",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/five-guys"
+      },
+      {
+        "timestamp": "20221204130554",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/kfc"
+      },
+      {
+        "timestamp": "20221127100821",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/krispy-kreme"
+      },
+      {
+        "timestamp": "20221127101013",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/little-caesars"
+      },
+      {
+        "timestamp": "20221130181504",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/mcdonalds"
+      },
+      {
+        "timestamp": "20221204055756",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/panera"
+      },
+      {
+        "timestamp": "20221127084054",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/papa-johns"
+      },
+      {
+        "timestamp": "20221204122203",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/red-lobster"
+      },
+      {
+        "timestamp": "20221130181031",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/subway"
+      },
+      {
+        "timestamp": "20221204131927",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/taco-bell"
+      },
+      {
+        "timestamp": "20221204132409",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/wendys"
+      },
+      {
+        "timestamp": "20221001052232",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/bjs-restaurant-and-brewhouse"
+      },
+      {
+        "timestamp": "20221126193745",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/dave-busters"
+      },
+      {
+        "timestamp": "20221006203330",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/smokey-bones"
+      },
+      {
+        "timestamp": "20221001053104",
+        "url": "https://www.ubereats.com/brand-city/albany-ny/the-wing-experience"
+      },
+      {
+        "timestamp": "20230324163518",
+        "url": "https://www.ubereats.com/br-en/category/campo-grande-ms/american"
+      },
+      {
+        "timestamp": "20230328064255",
+        "url": "https://www.ubereats.com/br-en/category/natal-rn/bbq"
+      },
+      {
+        "timestamp": "20230322095431",
+        "url": "https://www.ubereats.com/br-en/category/presidente-prudente-sp/burger"
+      },
+      {
+        "timestamp": "20230315174258",
+        "url": "https://www.ubereats.com/br/brand/taco-bell"
+      },
+      {
+        "timestamp": "20230320191702",
+        "url": "https://www.ubereats.com/br/category/guarulhos-sp/allergy-friendly"
+      },
+      {
+        "timestamp": "20230313102834",
+        "url": "https://www.ubereats.com/brand-city/abilene-tx/outback-steakhouse"
+      },
+      {
+        "timestamp": "20230313101954",
+        "url": "https://www.ubereats.com/brand-city/abilene-tx/red-lobster"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/7-eleven"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/apps-all-around"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/bjs-restaurant-and-brewhouse"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/bonchon"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/burger-house"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/chipotle"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/cinnaholic"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/flying-saucer"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/gyu-kaku"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/hopdoddy-burger-bar"
+      },
+      {
+        "timestamp": "20230319185339",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/ihop"
+      },
+      {
+        "timestamp": "20230319185338",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/jasons-deli"
+      },
+      {
+        "timestamp": "20230313102833",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/outback-steakhouse"
+      },
+      {
+        "timestamp": "20230812042507",
+        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/seu-melie/1ai2J4j6T86CNar9EpRmBQ"
+      },
+      {
+        "timestamp": "20230925205346",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/chipotle"
+      },
+      {
+        "timestamp": "20230924231447",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/jersey-mikes"
+      },
+      {
+        "timestamp": "20230927152554",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/chipotle"
+      },
+      {
+        "timestamp": "20230930164540",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/kfc"
+      },
+      {
+        "timestamp": "20230929092426",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/panda-express"
+      },
+      {
+        "timestamp": "20230924205644",
+        "url": "https://www.ubereats.com/brand-city/american-fork-ut/cold-stone-creamery"
+      },
+      {
+        "timestamp": "20230923175813",
+        "url": "https://www.ubereats.com/brand-city/arlington-heights-il/chilis"
+      },
+      {
+        "timestamp": "20230921235011",
+        "url": "https://www.ubereats.com/brand-city/arlington-heights-il/qdoba"
+      },
+      {
+        "timestamp": "20230927101240",
+        "url": "https://www.ubereats.com/brand-city/arlington-heights-il/speedway"
+      },
+      {
+        "timestamp": "20230925000725",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/chapps-burgers"
+      },
+      {
+        "timestamp": "20230925104130",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/panda-express"
+      },
+      {
+        "timestamp": "20230927011957",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/walgreens"
+      },
+      {
+        "timestamp": "20230921162752",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/wingstop"
+      },
+      {
+        "timestamp": "20230925055238",
+        "url": "https://www.ubereats.com/brand-city/ashburn-va/burger-21"
+      },
+      {
+        "timestamp": "20230922004706",
+        "url": "https://www.ubereats.com/brand-city/ashburn-va/california-tortilla"
+      },
+      {
+        "timestamp": "20230929030132",
+        "url": "https://www.ubereats.com/brand-city/ashburn-va/dunkin-donuts"
+      },
+      {
+        "timestamp": "20230929055329",
+        "url": "https://www.ubereats.com/brand-city/ashburn-va/santinis-new-york-style-deli"
+      },
+      {
+        "timestamp": "20230928043325",
+        "url": "https://www.ubereats.com/brand-city/asheville-nc/burger-king"
+      },
+      {
+        "timestamp": "20230928153113",
+        "url": "https://www.ubereats.com/brand-city/asheville-nc/chick-fil-a"
+      },
+      {
+        "timestamp": "20231022152318",
+        "url": "https://www.ubereats.com/br/category/jundia%C3%AD-sp/sushi"
+      },
+      {
+        "timestamp": "20231011201924",
+        "url": "http://www.ubereats.com/br/location"
+      },
+      {
+        "timestamp": "20231011224756",
+        "url": "https://www.ubereats.com/br/rio-de-janeiro/food-delivery/sacole-pai-degua/yOL7vPlDSqCj3mQph1zbEghttps:/www.ubereats.com/br/rio-de-janeiro/food-delivery/sacole-pai-degua/yOL7vPlDSqCj3mQph1zbEg"
+      },
+      {
+        "timestamp": "20231127155627",
+        "url": "https://www.ubereats.com/br?next=%2Ffeed&promoCode=eats-jagjits87que%22"
+      },
+      {
+        "timestamp": "20231211092524",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/panda-express"
+      },
+      {
+        "timestamp": "20231208225820",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/papa-johns"
+      },
+      {
+        "timestamp": "20231208232241",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/wendys"
+      },
+      {
+        "timestamp": "20231003153541",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/ihop"
+      },
+      {
+        "timestamp": "20231001144047",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/mcdonalds"
+      },
+      {
+        "timestamp": "20231004005047",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/panera"
+      },
+      {
+        "timestamp": "20231208223229",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/popeyes"
+      },
+      {
+        "timestamp": "20231129084202",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/taco-bell"
+      },
+      {
+        "timestamp": "20231004121512",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/wendys"
+      },
+      {
+        "timestamp": "20231004123429",
+        "url": "https://www.ubereats.com/brand-city/allentown-pa/mcdonalds"
+      },
+      {
+        "timestamp": "20231128193757",
+        "url": "https://www.ubereats.com/brand-city/american-fork-ut/costa-vida"
+      },
+      {
+        "timestamp": "20231204062342",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/mcdonalds"
+      },
+      {
+        "timestamp": "20231203150849",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/taco-bell"
+      },
+      {
+        "timestamp": "20231202204645",
+        "url": "https://www.ubereats.com/brand-city/ankeny-ia/pizza-hut"
+      },
+      {
+        "timestamp": "20231201164453",
+        "url": "https://www.ubereats.com/brand-city/ankeny-ia/starbucks"
+      },
+      {
+        "timestamp": "20231201234403",
+        "url": "https://www.ubereats.com/brand-city/ann-arbor-mi/jersey-mikes"
+      },
+      {
+        "timestamp": "20240303064322",
+        "url": "https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/grocery"
+      },
+      {
+        "timestamp": "20240303054007",
+        "url": "https://www.ubereats.com/br-en/category/ribeir%C3%A3o-preto-sp/pharmacy"
+      },
+      {
+        "timestamp": "20240222143725",
+        "url": "https://www.ubereats.com/br-en/category/vit%C3%B3ria-es/grocery"
+      },
+      {
+        "timestamp": "20240222153201",
+        "url": "https://www.ubereats.com/br-en/category/vit%C3%B3ria-es/pharmacy"
+      },
+      {
+        "timestamp": "20240222143037",
+        "url": "https://www.ubereats.com/br-en/city/vit%C3%B3ria-es"
+      },
+      {
+        "timestamp": "20240114132032",
+        "url": "https://www.ubereats.com/br/sao-carlos/food-delivery/piassa-restaurante/XrCDF_e0Q6KcvP9PvCV0MA"
+      },
+      {
+        "timestamp": "20240114114530",
+        "url": "https://www.ubereats.com/brand-city/airway-heights-wa/pizza-hut"
+      },
+      {
+        "timestamp": "20240222182046",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/marcos-pizza"
+      },
+      {
+        "timestamp": "20240226110846",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/sheetz"
+      },
+      {
+        "timestamp": "20240114114530",
+        "url": "https://www.ubereats.com/brand-city/albany-in/pizza-hut"
+      },
+      {
+        "timestamp": "20240114114657",
+        "url": "https://www.ubereats.com/brand-city/albany-or/big-lots"
+      },
+      {
+        "timestamp": "20240114114718",
+        "url": "https://www.ubereats.com/brand-city/albany-or/cosmic-wings"
+      },
+      {
+        "timestamp": "20240114114735",
+        "url": "https://www.ubereats.com/brand-city/albany-or/johnny-carinos"
+      },
+      {
+        "timestamp": "20240114114721",
+        "url": "https://www.ubereats.com/brand-city/albany-or/kfc"
+      },
+      {
+        "timestamp": "20240114114657",
+        "url": "https://www.ubereats.com/brand-city/albany-or/krispy-krunchy-chicken"
+      },
+      {
+        "timestamp": "20240114114726",
+        "url": "https://www.ubereats.com/brand-city/albany-or/proflowers"
+      },
+      {
+        "timestamp": "20240114114728",
+        "url": "https://www.ubereats.com/brand-city/albany-or/sharis"
+      },
+      {
+        "timestamp": "20240114114657",
+        "url": "https://www.ubereats.com/brand-city/albany-or/staples"
+      },
+      {
+        "timestamp": "20240114114719",
+        "url": "https://www.ubereats.com/brand-city/albany-or/subway"
+      },
+      {
+        "timestamp": "20240114114724",
+        "url": "https://www.ubereats.com/brand-city/albany-or/taco-bell"
+      },
+      {
+        "timestamp": "20240414225828",
+        "url": "https://www.ubereats.com/br-en/category/cuiab%C3%A1-mt/alcohol"
+      },
+      {
+        "timestamp": "20240416081346",
+        "url": "https://www.ubereats.com/br-en/category/florian%C3%B3polis-sc/pharmacy"
+      },
+      {
+        "timestamp": "20240419113217",
+        "url": "https://www.ubereats.com/br-en/category/santos-sp/pharmacy"
+      },
+      {
+        "timestamp": "20240413033038",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/applebees"
+      },
+      {
+        "timestamp": "20240420160825",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/buffalo-wild-wings"
+      },
+      {
+        "timestamp": "20240422165053",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/burger-den"
+      },
+      {
+        "timestamp": "20240413041118",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/cold-stone-creamery"
+      },
+      {
+        "timestamp": "20240414103231",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/honey-baked-ham"
+      },
+      {
+        "timestamp": "20240615115808",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/jersey-mikes"
+      },
+      {
+        "timestamp": "20240415093609",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/jimmy-johns"
+      },
+      {
+        "timestamp": "20240413041713",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/nothing-bundt-cakes"
+      },
+      {
+        "timestamp": "20240422164629",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/steak-n-shake"
+      },
+      {
+        "timestamp": "20240425114339",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/walgreens"
+      },
+      {
+        "timestamp": "20240417014540",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/five-guys"
+      },
+      {
+        "timestamp": "20240417163357",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/mcdonalds"
+      },
+      {
+        "timestamp": "20240518031127",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/popeyes"
+      },
+      {
+        "timestamp": "20240625094216",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/chick-fil-a"
+      },
+      {
+        "timestamp": "20240418012344",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/krispy-kreme"
+      },
+      {
+        "timestamp": "20240612152639",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/subway"
+      },
+      {
+        "timestamp": "20240418141231",
+        "url": "https://www.ubereats.com/brand-city/alhambra-ca/phoenix-food"
+      },
+      {
+        "timestamp": "20240720085334",
+        "url": "https://www.ubereats.com/br/brand/subway"
+      },
+      {
+        "timestamp": "20240920223839",
+        "url": "https://www.ubereats.com/brand-city/aberdeen-nc/mcdonalds"
+      },
+      {
+        "timestamp": "20240809144607",
+        "url": "https://www.ubereats.com/brand-city/acworth-ga/volcano-steak-sushi"
+      },
+      {
+        "timestamp": "20240718110112",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/donatos-pizza"
+      },
+      {
+        "timestamp": "20240719204240",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/pizza-hut"
+      },
+      {
+        "timestamp": "20240716200255",
+        "url": "https://www.ubereats.com/brand-city/alamo-tx/dominos"
+      },
+      {
+        "timestamp": "20240915131759",
+        "url": "https://www.ubereats.com/brand-city/alpharetta-ga/the-original-pancake-house"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/burger-king"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/burger-king-see"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/captain-ds"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/firehouse-subs"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/panera"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/pizza-hut"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/rallys"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/red-lobster"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/save-a-lot"
+      },
+      {
+        "timestamp": "20240801160151",
+        "url": "https://www.ubereats.com/brand-city/alton-il/sharis"
+      },
+      {
+        "timestamp": "20240920223839",
+        "url": "https://www.ubereats.com/brand-city/amarillo-tx/mcdonalds"
+      },
+      {
+        "timestamp": "20240714195315",
+        "url": "https://www.ubereats.com/brand-city/amityville-ny/starbucks"
+      },
+      {
+        "timestamp": "20240717153455",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/7-eleven"
+      },
+      {
+        "timestamp": "20241009073901",
+        "url": "https://www.ubereats.com/br/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMkNhbXBpbmFzJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSkpXTkw1eDNHeUpRUktzSjRJV282NVJjJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0yMi45MDk5Mzg0JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTQ3LjA2MjYzMzIlN0Q%3D"
+      },
+      {
+        "timestamp": "20241016045529",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/buffalo-wild-wings"
+      },
+      {
+        "timestamp": "20241013160044",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/burger-king"
+      },
+      {
+        "timestamp": "20241209231019",
+        "url": "https://www.ubereats.com/brand-city/altoona-pa/mcdonalds?srsltid=AfmBOorvlybuwO0WRrfFL170mJOyLVH6Rizcs8joTrpBhE1XNw6DXLM6"
+      },
+      {
+        "timestamp": "20241117032413",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/charleys-cheesesteaks"
+      },
+      {
+        "timestamp": "20241126201410",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/cvs-pharmacy"
+      },
+      {
+        "timestamp": "20241116205808",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/dennys"
+      },
+      {
+        "timestamp": "20241117164631",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/firehouse-subs"
+      },
+      {
+        "timestamp": "20241117213251",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/gnc"
+      },
+      {
+        "timestamp": "20241117080323",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/kfc"
+      },
+      {
+        "timestamp": "20241119032304",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/pizza-hut"
+      },
+      {
+        "timestamp": "20241127055905",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/the-habit-burger-grill"
+      },
+      {
+        "timestamp": "20241203032615",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/buffalo-wild-wings"
+      },
+      {
+        "timestamp": "20241016043655",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/chipotle"
+      },
+      {
+        "timestamp": "20241111195509",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/dominos"
+      },
+      {
+        "timestamp": "20241015011402",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/little-caesars"
+      },
+      {
+        "timestamp": "20241005114903",
+        "url": "https://www.ubereats.com/brand-city/arlington-tx/starbucks"
+      },
+      {
+        "timestamp": "20241006075334",
+        "url": "https://www.ubereats.com/brand-city/arlington-va/gnc-us"
+      },
+      {
+        "timestamp": "20241001055254",
+        "url": "https://www.ubereats.com/brand-city/arlington-va/sweetgreen"
+      },
+      {
+        "timestamp": "20241212231052",
+        "url": "https://www.ubereats.com/brand-city/ashburn-va/five-guys"
+      },
+      {
+        "timestamp": "20250212214500",
+        "url": "https://www.ubereats.com/br/rio-de-janeiro/food-delivery/pepe-rio-sul/cpaKlteATGmSUWIH046o2A"
+      },
+      {
+        "timestamp": "20250214202527",
+        "url": "https://www.ubereats.com/br/sao-paulo/food-delivery/bistro-da-picanha/Bdh4js2pQf2PSMlrq8iGWA"
+      },
+      {
+        "timestamp": "20250223123642",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/chilis"
+      },
+      {
+        "timestamp": "20250306103607",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/dairy-queen"
+      },
+      {
+        "timestamp": "20250319142241",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/lowes"
+      },
+      {
+        "timestamp": "20250213060443",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/mcdonalds"
+      },
+      {
+        "timestamp": "20250215163303",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/pizza-hut"
+      },
+      {
+        "timestamp": "20250319092504",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/popeyes"
+      },
+      {
+        "timestamp": "20250306103500",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/subway"
+      },
+      {
+        "timestamp": "20250319095003",
+        "url": "https://www.ubereats.com/brand-city/abbeville-la/wendys"
+      },
+      {
+        "timestamp": "20250213124958",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/arbys"
+      },
+      {
+        "timestamp": "20250321110624",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/beyond-juicery-eatery"
+      },
+      {
+        "timestamp": "20250321102647",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/bob-evans"
+      },
+      {
+        "timestamp": "20250321105913",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/churchs-chicken"
+      },
+      {
+        "timestamp": "20250321110550",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/cvs-pharmacy"
+      },
+      {
+        "timestamp": "20250321095841",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/flemings"
+      },
+      {
+        "timestamp": "20250321104812",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/pet-supplies-plus"
+      },
+      {
+        "timestamp": "20250212214419",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/proflowers"
+      },
+      {
+        "timestamp": "20250214082921",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/speedway"
+      },
+      {
+        "timestamp": "20250321105245",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/swensons"
+      },
+      {
+        "timestamp": "20250612143935",
+        "url": "https://www.ubereats.com/br/orders/3fba46a6-9a95-4197-b077-d2281c470b55"
+      },
+      {
+        "timestamp": "20250617165138",
+        "url": "https://www.ubereats.com/brand-city/ada-ok/3.0.0"
+      },
+      {
+        "timestamp": "20250617165130",
+        "url": "https://www.ubereats.com/brand-city/ada-ok/chilis"
+      },
+      {
+        "timestamp": "20250617165130",
+        "url": "https://www.ubereats.com/brand-city/ada-ok/cinemark"
+      },
+      {
+        "timestamp": "20250617165130",
+        "url": "https://www.ubereats.com/brand-city/ada-ok/subway"
+      },
+      {
+        "timestamp": "20250617165131",
+        "url": "https://www.ubereats.com/brand-city/ada-ok/tropical-smoothie"
+      },
+      {
+        "timestamp": "20250413114136",
+        "url": "https://www.ubereats.com/brand-city/addison-il/mcdonalds"
+      },
+      {
+        "timestamp": "20250504180307",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/amc"
+      },
+      {
+        "timestamp": "20250427210427",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/bloomhaus"
+      },
+      {
+        "timestamp": "20250511100237",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/ra-sushi"
+      },
+      {
+        "timestamp": "20250519091431",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/sally-beauty-us"
+      },
+      {
+        "timestamp": "20250509171104",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/target"
+      },
+      {
+        "timestamp": "20250513224447",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/zoes-kitchen"
+      },
+      {
+        "timestamp": "20250604025219",
+        "url": "https://www.ubereats.com/brand-city/airway-heights-wa/grocery-outlet"
+      },
+      {
+        "timestamp": "20250609164058",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/dominos"
+      },
+      {
+        "timestamp": "20250430112106",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/hardees"
+      },
+      {
+        "timestamp": "20250609164058",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/wingstop"
+      },
+      {
+        "timestamp": "20250609164148",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/dominos"
+      },
+      {
+        "timestamp": "20250609164148",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/panera"
+      },
+      {
+        "timestamp": "20250506205009",
+        "url": "https://www.ubereats.com/brand-city/albuquerque-nm/starbucks"
+      },
+      {
+        "timestamp": "20250719060001",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/big-deal-burger"
+      },
+      {
+        "timestamp": "20250719055907",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/flying-fish"
+      },
+      {
+        "timestamp": "20250719060001",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/jenis-splendid-ice-creams"
+      },
+      {
+        "timestamp": "20250719060001",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/lazy-dog-restaurant-bar"
+      },
+      {
+        "timestamp": "20250719060001",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/potbelly-sandwich-works"
+      },
+      {
+        "timestamp": "20250719060001",
+        "url": "https://www.ubereats.com/brand-city/addison-tx/wing-boss"
+      },
+      {
+        "timestamp": "20250827020403",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/sally-beauty-us"
+      },
+      {
+        "timestamp": "20250815170433",
+        "url": "https://www.ubereats.com/brand-city/albany-or/fresh-and-ready-fredmeyer"
+      },
+      {
+        "timestamp": "20250722033303",
+        "url": "https://www.ubereats.com/brand-city/albemarle-nc/pizza-hut"
+      },
+      {
+        "timestamp": "20250722033253",
+        "url": "https://www.ubereats.com/brand-city/albemarle-nc/pizza-hut?srsltid=AfmBOoriN6JTZgGQnN2n_9JYmmDtmyO4DeoIGn-mF9wqR2D70GbhfB8M"
+      },
+      {
+        "timestamp": "20250725201823",
+        "url": "https://www.ubereats.com/brand-city/american-fork-ut/arbys"
+      },
+      {
+        "timestamp": "20250906004009",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/applebees"
+      },
+      {
+        "timestamp": "20250916111848",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/arbys"
+      },
+      {
+        "timestamp": "20250901054354",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/breakfast-beauties"
+      },
+      {
+        "timestamp": "20250903231457",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/buffalo-wild-wings"
+      },
+      {
+        "timestamp": "20250912141715",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/chick-fil-a"
+      },
+      {
+        "timestamp": "20250902071234",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/chipotle"
+      },
+      {
+        "timestamp": "20250918053833",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/cold-stone-creamery"
+      },
+      {
+        "timestamp": "20250914070654",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/culvers"
+      },
+      {
+        "timestamp": "20250916225836",
+        "url": "https://www.ubereats.com/brand-city/ames-ia/dominos"
+      },
+      {
+        "timestamp": "20251117180359",
+        "url": "https://www.ubereats.com/brand-city/aberdeen-md/wendys"
+      },
+      {
+        "timestamp": "20251117195406",
+        "url": "https://www.ubereats.com/brand-city/aberdeen-ms/wendys"
+      },
+      {
+        "timestamp": "20251023193950",
+        "url": "https://www.ubereats.com/brand-city/aberdeen-nc/dunkin-donuts"
+      },
+      {
+        "timestamp": "20251117050429",
+        "url": "https://www.ubereats.com/brand-city/aberdeen-nc/wendys"
+      },
+      {
+        "timestamp": "20251103192513",
+        "url": "https://www.ubereats.com/brand-city/abingdon-va/dunkin-donuts"
+      },
+      {
+        "timestamp": "20251117051714",
+        "url": "https://www.ubereats.com/brand-city/abingdon-va/wendys"
+      },
+      {
+        "timestamp": "20251123012930",
+        "url": "https://www.ubereats.com/brand-city/abington-ma/wendys"
+      },
+      {
+        "timestamp": "20251027204601",
+        "url": "https://www.ubereats.com/brand-city/accokeek-md/dunkin-donuts"
+      },
+      {
+        "timestamp": "20251026214919",
+        "url": "https://www.ubereats.com/brand-city/acushnet-ma/dunkin-donuts"
+      },
+      {
+        "timestamp": "20251118003337",
+        "url": "https://www.ubereats.com/brand-city/acworth-ga/wendys"
+      },
+      {
+        "timestamp": "20251121162316",
+        "url": "https://www.ubereats.com/brand-city/adairsville-ga/wendys"
+      },
+      {
+        "timestamp": "20251208014822",
+        "url": "https://www.ubereats.com/brand-city/adel-ga/wendys"
+      },
+      {
+        "timestamp": "20251119024835",
+        "url": "https://www.ubereats.com/brand-city/adrian-mi/wendys"
+      },
+      {
+        "timestamp": "20251127031625",
+        "url": "https://www.ubereats.com/brand-city/agawam-ma/wendys"
+      },
+      {
+        "timestamp": "20251117052248",
+        "url": "https://www.ubereats.com/brand-city/aguadilla-aguadilla/wendys"
+      },
+      {
+        "timestamp": "20251117130450",
+        "url": "https://www.ubereats.com/brand-city/aguadilla-aguadilla/wendys?modctx=Get+Wendy%27s+delivered&next=%2Fclosest%2Fwendys&ps=1&mod=seoEnterAddress"
+      },
+      {
+        "timestamp": "20251121172305",
+        "url": "https://www.ubereats.com/brand-city/ahoskie-nc/wendys"
+      },
+      {
+        "timestamp": "20251121071650",
+        "url": "https://www.ubereats.com/brand-city/aiea-hi/wendys"
+      },
+      {
+        "timestamp": "20251130020005",
+        "url": "https://www.ubereats.com/brand-city/aiken-sc/wendys"
+      },
+      {
+        "timestamp": "20251023123147",
+        "url": "https://www.ubereats.com/brand-city/airmont-ny/dunkin-donuts"
+      },
+      {
+        "timestamp": "20260526174203",
+        "url": "https://www.ubereats.com/br/orders/b3e0664d-b686-479f-911b-4b40b08cff83"
+      },
+      {
+        "timestamp": "20260414033203",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/smoothie-king"
+      },
+      {
+        "timestamp": "20260414024311",
+        "url": "https://www.ubereats.com/brand-city/akron-oh/tim-hortons"
+      },
+      {
+        "timestamp": "20260430042333",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/blimpie"
+      },
+      {
+        "timestamp": "20260430042318",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/jersey-mikes"
+      },
+      {
+        "timestamp": "20260430042318",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/petco-us"
+      },
+      {
+        "timestamp": "20260430042318",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/restaurant-depot"
+      },
+      {
+        "timestamp": "20260430042359",
+        "url": "https://www.ubereats.com/brand-city/alexandria-va/starbucks"
+      },
+      {
+        "timestamp": "20260518044517",
+        "url": "https://www.ubereats.com/brand-city/altoona-ia/raising-canes-chicken-fingers"
+      },
+      {
+        "timestamp": "20260415031239",
+        "url": "https://www.ubereats.com/brand-city/ammon-id/capriottis"
+      },
+      {
+        "timestamp": "20260415031201",
+        "url": "https://www.ubereats.com/brand-city/ammon-id/costa-vida"
+      },
+      {
+        "timestamp": "20260415031239",
+        "url": "https://www.ubereats.com/brand-city/ammon-id/jamba-juice"
+      },
+      {
+        "timestamp": "20260415031257",
+        "url": "https://www.ubereats.com/brand-city/ammon-id/mcdonalds"
+      },
+      {
+        "timestamp": "20260415031239",
+        "url": "https://www.ubereats.com/brand-city/ammon-id/starbucks"
+      },
+      {
+        "timestamp": "20260410093028",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/little-caesars"
+      },
+      {
+        "timestamp": "20260413022519",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/panda-express"
+      },
+      {
+        "timestamp": "20260410224616",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/panera"
+      },
+      {
+        "timestamp": "20260412032451",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/popeyes"
+      },
+      {
+        "timestamp": "20260510145002",
+        "url": "https://www.ubereats.com/brand-city/anaheim-ca/smart-final"
+      },
+      {
+        "timestamp": "20260413085107",
+        "url": "https://www.ubereats.com/brand-city/arlington-heights-il/dennys"
+      }
+    ],
+    "done_urls": [
+      "https://www.ubereats.com/br-en/sao-paulo/food-delivery/meats/q6qdDtydTbeQWgyBPdKNWA",
+      "https://www.ubereats.com/br/location",
+      "https://www.ubereats.com/br/cuiaba/food-delivery/marido-na-cozinha-rotisseria/AGQSyjFmTgCeBEdaSZxxZQ",
+      "https://www.ubereats.com/br/near-me",
+      "https://www.ubereats.com/br?mod=selectLanguage&ps=1",
+      "https://www.ubereats.com/brand/mcdonalds",
+      "https://www.ubereats.com/brussels/food-delivery/sushi-factory-schuman/0t1q6y8DRY2kKejMJrC-Gg/",
+      "https://www.ubereats.com/br-en/sao-paulo/food-delivery/thai-e-san/TTjkedZzR66wSJD_CTiBBA",
+      "https://www.ubereats.com/br",
+      "https://www.ubereats.com/br/brand/mcdonalds?utm_source=mcdonalds_br&utm_medium=brandpage&utm_campaign=instagram_0420"
+    ],
+    "status": "complete",
+    "note": "bail: 0 items, DOM extractor required (Restaurant-only JSON-LD, no MenuItem nodes) \u2014 see probe 2026-06-19"
   }
 }

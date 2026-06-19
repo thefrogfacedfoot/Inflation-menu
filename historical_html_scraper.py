@@ -66,6 +66,11 @@ CURRENCY_REGEXES = {
     'SGD': re.compile(r'S\$\s?(\d+(?:\.\d{2})?)'),
     'PHP': re.compile(r'(?:₱|PHP)\s?(\d+(?:\.\d{2})?)'),
     'MXN': re.compile(r'\$\s?(\d+(?:\.\d{2})?)'),
+    # Added 2026-06-19 (Track C re-resurrect). EUR in DE locale uses comma
+    # decimal and frequently writes '€' at either end of the number; BRL
+    # uses 'R$' with comma decimal.
+    'EUR': re.compile(r'(?:€\s?(\d+(?:[.,]\d{2})?)|(\d+(?:[.,]\d{2})?)\s?€)'),
+    'BRL': re.compile(r'R\$\s?(\d+(?:[.,]\d{2})?)'),
 }
 
 # ── Generic JSON-LD price walker ─────────────────────────────────────────────
@@ -446,6 +451,25 @@ def parse_tripadvisor_mx(html, currency):
     return _coerce(extract_jsonld(html), currency)
 
 
+def parse_lieferando(html, currency):
+    """Lieferando.de (Just Eat Takeaway DE) archived menu pages.
+    2026-06-17 probe + 2026-06-19 3-page sanity check: LD + ND both
+    present, 14-115 EUR hits/sample, 2/3 unblocked. NEXT_DATA is the
+    higher-yield path; fall back to JSON-LD."""
+    items = extract_nextdata(html) or extract_jsonld(html)
+    return _coerce(items, currency)
+
+
+def parse_ubereats(html, currency):
+    """Uber Eats per-country archived pages: JSON-LD Menu / MenuItem.
+    The captcha-string detection in the 2026-06-19 sanity probe was a
+    false positive — all 'captcha'/'recaptcha' matches sit OUTSIDE the
+    JSON-LD blocks (Google reCAPTCHA v3 badge + boilerplate footer).
+    Menu data extracts cleanly. NEXT_DATA absent in BR sample, LD is
+    the only signal — same shape as parse_menupages."""
+    return _coerce(extract_jsonld(html), currency)
+
+
 def _coerce(items, default_currency):
     """Normalise (name, price, currency_or_None) → standard tuples."""
     out = []
@@ -485,6 +509,30 @@ TARGETS = [
     # (different shape than Menulog's DOM markers, but tractable).
     ('United Kingdom','formal', 'deliveroo-uk',  'wayback-deliveroo',
      'deliveroo.co.uk/menu/*', 'GBP', parse_deliveroo_uk),
+    # Added 2026-06-19 (Track C re-resurrect; original tuples lived in
+    # 7a4d34f^ before the country-expansion revert). BOTH BAILED — leave
+    # in TARGETS so the warning is visible to anyone re-running, but do
+    # NOT sweep until DOM extractors are written.
+    #
+    # - Lieferando: DOM extractor required — JSON-LD has no MenuItem
+    #   nodes, current parser returns 0. See probe 2026-06-19. The 168/440
+    #   pages fetched on 2026-06-19 all produced 0 items because Lieferando
+    #   archived pages only carry @type='Restaurant' (name/address/geo/
+    #   openingHours); EUR regex hits in the page text are template
+    #   fragments the JSON-LD walker can't recurse into.
+    # - Uber Eats BR: 17/17 sweep iterations on 2026-06-19 produced 0
+    #   items. Captcha was a false alarm (reCAPTCHA v3 badge + Google
+    #   ToS boilerplate, not a gate), but the underlying JSON-LD has
+    #   the same Restaurant-only shape as Lieferando — no MenuItem /
+    #   Offer / hasMenu nodes. Same DOM-extractor work required.
+    # - iFood RJ probed on 2026-06-19 as a BR fallback (3 random
+    #   ≥2-cap samples). All 3 showed Restaurant + OpeningHours +
+    #   OrderAction + Review JSON-LD with ZERO MenuItem/Offer nodes;
+    #   same Restaurant-only pattern. Not adding it as a TARGETS entry.
+    ('Germany',       'formal', 'lieferando',    'wayback-lieferando',
+     'lieferando.de/speisekarte/*', 'EUR', parse_lieferando),
+    ('Brazil',        'formal', 'ubereats-br',   'wayback-ubereats',
+     'ubereats.com/br/*', 'BRL', parse_ubereats),
 ]
 
 
