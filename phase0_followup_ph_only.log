@@ -1,0 +1,80 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+  CDX food.grab.com/ph/en/restaurant/bonchon*
+  CDX food.grab.com/ph/en/restaurant/sunae*
+  CDX food.grab.com/ph/en/restaurant/jollibee*
+  CDX food.grab.com/ph/en/restaurant/mang*
+
+  candidate pool: 25 snapshots
+
+  [1/25] try 20210620080251 https://food.grab.com/ph/en/restaurant/bonchon-legarda-delivery/PHGFSTI000004jb
+      200, ld_blocks=3, nd=True, menuitems=134
+
+  === Inspecting 20210620080251 https://food.grab.com/ph/en/restaurant/bonchon-legarda-delivery/PHGFSTI000004jb ===
+  collected: 134 Offer nodes, 134 MenuItem nodes
+
+  --- First MenuItem with inline offers (raw JSON, truncated) ---
+{
+  "@type": "MenuItem",
+  "name": "Staykchon 2+1 Bibimbowl Promo (1)",
+  "description": "Buy 2 Bibimbowl with Drink and get a free 1pc Klassic Fried Chikin ala carte. 2 Bibimbowl with Drink + Free 1pc Klassic Fried Chikin ala carte",
+  "offers": {
+    "@type": "Offer",
+    "price": "",
+    "priceCurrency": "PHP"
+  }
+}
+
+  --- First standalone Offer node (raw JSON) ---
+{
+  "@type": "Offer",
+  "price": "",
+  "priceCurrency": "PHP"
+}
+
+  --- Offer.price / priceCurrency / priceSpecification summary ---
+  total offers: 134
+  offers with priceSpecification: 0
+  offers with priceInMinorUnit:   0
+  offers with null/zero price:    134
+  distinct Offer.price values (top 10):
+      "''"                 × 134
+  distinct Offer.priceCurrency values: [('PHP', 134)]
+
+  --- First 5 Offers with non-zero price ---
+  (no Offer carries a non-zero numeric price)
+
+  --- Sample MenuItem raw JSON (price probably lives here) ---
+{
+  "@type": "MenuItem",
+  "name": "Staykchon 2+1 Bibimbowl Promo (1)",
+  "description": "Buy 2 Bibimbowl with Drink and get a free 1pc Klassic Fried Chikin ala carte. 2 Bibimbowl with Drink + Free 1pc Klassic Fried Chikin ala carte",
+  "offers": {
+    "@type": "Offer",
+    "price": "",
+    "priceCurrency": "PHP"
+  }
+}
+
+{
+  "@type": "MenuItem",
+  "name": "Staykchon 2+1 Bibimbowl Promo (2)",
+  "description": "Buy 2 Bibimbowl with Drink and get a free 1pc Klassic Fried Chikin ala carte. 2 Loaded Bibimbowl with Drink + Free 1pc Klassic Fried Chikin ala carte",
+  "offers": {
+    "@type": "Offer",
+    "price": "",
+    "priceCurrency": "PHP"
+  }
+}
+
+{
+  "@type": "MenuItem",
+  "name": "Father's Day Promo (1)",
+  "description": "(Promo) 1 order of Kstyle 2pc Chicken with rice + 1 order of 3pc Crispy Fish with rice + 1 order of Spicy Beef Stew with rice + 1L RTD Iced tea FREE",
+  "offers": {
+    "@type": "Offer",
+    "price": "",
+    "priceCurrency": "PHP"
+  }
+}
+

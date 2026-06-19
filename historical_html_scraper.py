@@ -502,6 +502,15 @@ TARGETS = [
     # samples yielded 7-188 prices/page). Same extractor as GrabFood SG.
     ('Malaysia',      'formal', 'grabfood-my',   'wayback-grabfood',
      'food.grab.com/my/en/restaurant/*', 'MYR', parse_grabfood),
+    # Added 2026-06-19 after structural probe (phase0_structural_probe_grab_
+    # deliveroo.py): 10,818 distinct URLs, 1,811 ≥2-cap, 13,136 snapshots,
+    # 2019-08 → 2026-05. Tree shape MenuItem:35/Offer:35/MenuSection/Menu/
+    # Restaurant; priceInMinorUnit carries real VND values (e.g.
+    # 'Chả bò Đà Nẵng (500g)' = 150,000 VND). Same parser as SG/MY.
+    # (PH GrabFood probed same day — BAILED: Offer.price="" empty-string
+    # on every node, schema tree decorative only. Not adding.)
+    ('Vietnam',       'formal', 'grabfood-vn',   'wayback-grabfood',
+     'food.grab.com/vn/en/restaurant/*', 'VND', parse_grabfood),
     ('Mexico',        'formal', 'tripadvisor-mx','wayback-tripadvisor',
      'tripadvisor.com.mx/Restaurant_Review*', 'MXN', parse_tripadvisor_mx),
     # Added 2026-06-18 after the SG/UK Phase 0 probe: Deliveroo UK
@@ -509,6 +518,19 @@ TARGETS = [
     # (different shape than Menulog's DOM markers, but tractable).
     ('United Kingdom','formal', 'deliveroo-uk',  'wayback-deliveroo',
      'deliveroo.co.uk/menu/*', 'GBP', parse_deliveroo_uk),
+    # Added 2026-06-19 after structural probe + body-JSON spot-check
+    # (phase0_followup_ph_ae.py): 17,134 distinct URLs, 5,704 ≥2-cap,
+    # CDX truncated at 30,000 snapshots, 2018-07 → 2026-04. No JSON-LD
+    # and NEXT_DATA absent on early templates, but the embedded
+    # body-HTML JSON shape is identical to UK — extract_deliveroo_body_
+    # _json (line 406) pulled 92 (name, raw_price) pairs from the
+    # Ladurée Abu Dhabi 2021-04 sample (AED 6-449, mean 76, sensible
+    # for a Dubai café). Same parser as UK.
+    # (HK Deliveroo probed same day — BAILED: CDX returned zero rows for
+    # deliveroo.com.hk/menu/* over the full window. Wayback never
+    # indexed the menu paths; Deliveroo exited HK 2025-04. Not adding.)
+    ('United Arab Emirates','formal','deliveroo-ae','wayback-deliveroo',
+     'deliveroo.ae/menu/*', 'AED', parse_deliveroo_uk),
     # Added 2026-06-19 (Track C re-resurrect; original tuples lived in
     # 7a4d34f^ before the country-expansion revert). BOTH BAILED — leave
     # in TARGETS so the warning is visible to anyone re-running, but do
