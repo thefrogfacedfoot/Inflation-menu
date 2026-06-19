@@ -1,11 +1,11 @@
-# First valid Granger results — India and United States
+# First valid Granger results — India, Malaysia and United States
 
-**Date**: 2026-06-18
+**Date**: 2026-06-18 (Malaysia added 2026-06-19 after wayback-grabfood sweep)
 **Threshold**: ≥24 overlapping months (`--min-obs 24`)
-**Eligible countries**: India (47 obs), United States (31 obs)
+**Eligible countries**: India (47 obs), United States (31 obs), Malaysia (30 obs)
 **Final 8-country roster (unchanged)**: Singapore, Malaysia, Indonesia, Thailand, India, US, UK, Australia.
 
-These are the first statistically valid Granger causality results in the project. All other countries fall below the 24-month threshold (see `analysis_results/summary.csv` for the full table) and report `insufficient_data`.
+These are the first statistically valid Granger causality results in the project. The other 5 countries fall below the 24-month threshold (see `analysis_results/summary.csv` for the full table) and report `insufficient_data`.
 
 ## Results
 
@@ -71,11 +71,36 @@ The pass-through β is small, negative, and **not significant** under the contro
 
 Adjusted R² near zero. No detectable predictive relationship between the Indian restaurant-aggregate UIFPI (built from Zomato cost-for-two snapshots over Delhi NCR) and headline CPI. Plausible interpretation: Indian CPI is dominated by food-staple and fuel components for which restaurant menu prices lag rather than lead.
 
+### Malaysia — Not significant
+
+| Field | Value |
+|---|---|
+| Sample window | 2019-07 → 2025-10 |
+| Overlapping months (n) | **30** |
+| UIFPI ADF p | 0.0000 (stationary in levels) |
+| CPI ADF p | 0.0000 (stationary in levels) |
+| VAR AIC-selected lag | 1 |
+| **Granger F-statistic** | **F(1, 25) = 0.1109** |
+| **Granger p-value** | **p = 0.7419** |
+| Verdict | Fail to reject H₀ at α = 0.05 |
+
+**Pass-through regression**:
+
+| Field | Value |
+|---|---|
+| β | 0.0034 |
+| SE | 0.00267 |
+| p | 0.2206 |
+| 95% CI | [−0.0023, +0.00915] |
+| R² | 0.5892 |
+
+Malaysia replicates the India null with an even smaller F-statistic (0.11 vs 0.52) and slightly higher R² (0.59 vs 0.50). UIFPI built from 9,307 formal-sector items across 32 months of food.grab.com Wayback snapshots; first valid Granger test for the country, enabled by the `priceInMinorUnit` extractor extension added 2026-06-19 (lifted MY usable months from 7 → 30). Cross-country pattern now reads: **1 significant (US), 2 null (India, Malaysia)** at the 24-month threshold.
+
 ## Interpretation — what to lead with
 
 **The US result is the first publishable finding of the project.** UIFPI Granger-causes CPI at the 5% significance level with a one-month lead. The relationship is concentrated at lag 1 and decays for longer lags, which is consistent with the underlying mechanism — restaurant operators repricing menus in response to input-cost movements ahead of CPI publication. The pass-through magnitude is small (and the linear coefficient's CI includes zero), which means the result is a *leading indicator* story, not a "menu prices set CPI" story.
 
-The India result is informative as a negative case: 47 months of data, fully stationary, well-identified VAR, and the F-statistic is essentially 0.5 (close to 1.0 = no relationship). Cross-country heterogeneity in CPI-leadership is itself a result worth reporting.
+The India result is informative as a negative case: 47 months of data, fully stationary, well-identified VAR, and the F-statistic is essentially 0.5 (close to 1.0 = no relationship). Malaysia replicates that null over 30 months with an F-statistic an order of magnitude smaller. Cross-country heterogeneity in CPI-leadership — emerging-market nulls flanking the developed-market US positive — is itself a result worth reporting.
 
 ## Reproduction
 

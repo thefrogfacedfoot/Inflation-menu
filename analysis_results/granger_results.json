@@ -81,19 +81,31 @@
     ]
   },
   "Malaysia": {
-    "n_obs": 6,
+    "n_obs": 30,
     "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
-    "pass_through_se": null,
-    "pass_through_p_value": null,
-    "pass_through_ci_low": null,
-    "pass_through_ci_high": null,
+    "granger_p_value": 0.7419,
+    "lead_months": 1,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0034,
+    "pass_through_se": 0.00267,
+    "pass_through_p_value": 0.2206,
+    "pass_through_ci_low": -0.0023,
+    "pass_through_ci_high": 0.00915,
     "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data (have 6, need 8)"
+    "r_squared": 0.5892,
+    "note": "",
+    "granger_f_statistic": 0.1109,
+    "granger_df_num": 1,
+    "granger_df_denom": 25,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 0.1109,
+        "p": 0.7419,
+        "df_num": 1,
+        "df_denom": 25
+      }
+    ]
   },
   "Singapore": {
     "n_obs": 8,

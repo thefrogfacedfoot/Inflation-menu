@@ -42,7 +42,7 @@ Consumer price indices in developing economies rely on infrequent manual data co
 
 The pipeline combines (i) Phase 0 yield probes against Wayback Machine CDX archives, triaging every source before scraping; (ii) per-source extractors that match each platform's static-HTML pattern — DOM markers, Schema.org JSON-LD, Next.js NEXT_DATA blobs, or embedded body-HTML JSON; (iii) a live scraper for going-forward collection; and (iv) a documented audit trail of bail decisions. Index construction uses the matched-model restaurant-median method; Granger causality testing follows Cavallo and Rigobon (2016) with VAR-AIC lag selection.
 
-Applied to 41,263 price observations across the eight-country panel, the method delivers a statistically valid finding for one country: in the United States (n = 31), UIFPI Granger-causes headline CPI at the 5 % level with a one-month lead (F(1, 26) = 6.0336, p = 0.021). India (n = 47) returns a clean null. Six countries are below n = 24 and will cross through monthly accumulation. The Cavallo–Rigobon pass-through coefficient is small and not significant (β = −0.0043, p = 0.5399) — the finding is a *timing* signal, not a level coincidence.
+Applied to 41,263 price observations across the eight-country panel, the method delivers a statistically valid finding for one country: in the United States (n = 31), UIFPI Granger-causes headline CPI at the 5 % level with a one-month lead (F(1, 26) = 6.0336, p = 0.021). India (n = 47) and Malaysia (n = 30) both return clean nulls (F = 0.521, p = 0.474; F = 0.111, p = 0.742). Five countries are below n = 24 and will cross through monthly accumulation. The Cavallo–Rigobon pass-through coefficient is small and not significant (β = −0.0043, p = 0.5399) — the finding is a *timing* signal, not a level coincidence.
 
 *Word count: 248*
 
@@ -63,7 +63,7 @@ The primary contribution is a fully open-source pipeline that:
 3. **Records the bail decisions** — sources where the static HTML doesn't carry menu data (modern delivery SPAs that hydrate via XHR after page render) — in committed `coverage_report*.md` files, so the methodology reviewer can audit which alternatives were considered and why they were declined.
 4. **Schedules monthly re-collection** through a GitHub Actions cron plus a local launchd job, so the index continues to grow without manual intervention.
 
-Section 3 places this against prior alternative-price-index work. Section 4 details the method. Section 5 reports the per-country data. Section 6 presents the United States Granger result that validates the pipeline, the India null result, and the status of the remaining six countries. Section 7 discusses what the US finding implies and what the India null implies. Section 8 catalogues the honest limitations. Section 9 outlines the going-forward path.
+Section 3 places this against prior alternative-price-index work. Section 4 details the method. Section 5 reports the per-country data. Section 6 presents the United States Granger result that validates the pipeline, the India and Malaysia null results, and the status of the remaining five countries. Section 7 discusses what the US finding implies and what the emerging-market nulls imply. Section 8 catalogues the honest limitations. Section 9 outlines the going-forward path.
 
 ---
 
@@ -148,7 +148,7 @@ For pass-through, OLS of Δlog CPI on Δlog UIFPI per Cavallo–Rigobon, with 95
 |---|---|---|---:|---:|
 | United States | MenuPages (Wayback, JSON-LD MenuItem) | item-level | 8,282 | 35 |
 | Singapore | GrabFood + foodpanda (live + Wayback NEXT_DATA) | item-level | 9,557 | 9 |
-| Malaysia | foodpanda + GrabFood (live) | item-level | 3,505 | 7 |
+| Malaysia | foodpanda + GrabFood (live + Wayback NEXT_DATA `priceInMinorUnit`) | item-level | 11,009 | 32 |
 | United Kingdom | Deliveroo (Wayback embedded-JSON) + live | item-level | 17,371 | 20 |
 | India | Zomato NCR cost-for-two (Wayback) | restaurant-aggregate | 635 | 49 |
 | Indonesia | Zomato Jakarta cost-for-two (Wayback) | restaurant-aggregate | 34 | 21 |
@@ -214,7 +214,9 @@ Both series are stationary at levels; the VAR is well-identified; the Granger F-
 
 Cross-country heterogeneity in CPI leadership is itself a research finding worth reporting; it argues against any single-country generalisation of the BPP result.
 
-### 6.3 The other six countries
+### 6.3 The other five countries
+
+Malaysia has crossed the threshold via the 2026-06-19 Wayback `food.grab.com/my` sweep (n = 30 overlap, F = 0.111, p = 0.7419 at lag 1 — null result, reported alongside India in §6.2). The remaining countries are still accumulating:
 
 | Country | n overlap | Status | Expected crossover |
 |---|---:|---|---|
@@ -222,7 +224,6 @@ Cross-country heterogeneity in CPI leadership is itself a research finding worth
 | United Kingdom | 18 | Accumulating monthly; 15 of 20 UIFPI months are 2025+ (Deliveroo embeds menu JSON only post-SPA-migration) | Late 2026 via monthly accumulation |
 | Indonesia | 20 | Restaurant-aggregate Zomato cost-for-two; nearest to threshold | Late 2026 via monthly accumulation |
 | Singapore | 8 | Going-forward live started mid-2026 | ~2027 |
-| Malaysia | 6 | Live collection only | ~2027 |
 | Thailand | 0 | Single 2026-06-13 live snapshot; no archival depth — every alternative Wayback source probed (Wongnai, LineMan, GrabFood TH) bailed at Phase 0 | Sustained monthly accumulation required |
 
 The homepage Granger counter and country-page status pills read directly from `country_summary.json`, so any crossover triggered by the monthly cron will surface on Vercel within minutes of the commit.
@@ -231,7 +232,7 @@ The homepage Granger counter and country-page status pills read directly from `c
 
 ## 7. Discussion
 
-The eight-country panel yields one Granger-significant result and one informative null. Three implications are worth pulling apart.
+The eight-country panel yields one Granger-significant result (United States) and two informative nulls (India, Malaysia). Three implications are worth pulling apart.
 
 ### 7.1 Timing, not level — the pass-through caveat
 

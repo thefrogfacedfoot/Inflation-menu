@@ -78,6 +78,22 @@ def _walk_ld(node, items, name_ctx=None):
     the 2026-06-18 fix below.
     """
     if isinstance(node, dict):
+        # 2026-06-18: priceInMinorUnit (GrabFood MY / SG NEXT_DATA).
+        # Key-guarded; nodes without priceInMinorUnit fall through to the
+        # existing price / offers / priceSpecification logic untouched.
+        # Same 0 < p < 100_000 sanity guard as the existing path (line ~120):
+        # GrabFood emits priceInMinorUnit=0 for hidden / out-of-stock items
+        # and the first sweep wrote 8,914 zero-priced rows that distort
+        # any index aggregate. Drop them at the source.
+        if 'priceInMinorUnit' in node and node.get('name'):
+            try:
+                p = float(node['priceInMinorUnit']) / 100.0
+            except (TypeError, ValueError):
+                p = None
+            if p and 0 < p < 100_000:
+                items.append((str(node['name'])[:120], p,
+                              node.get('priceCurrency')))
+            return
         local_name = node.get('name')
         nm = local_name or name_ctx
         cur_node = node.get('priceCurrency')

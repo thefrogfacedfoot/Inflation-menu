@@ -150,11 +150,12 @@ export default async function CountryPage({ params }: PageProps) {
         <DownloadButton country={countryName} csvData={csvData} />
       </div>
 
-      {/* Granger results callout — only on US (positive) and India (null).
-          The other 6 countries don't yet have enough months for a valid
+      {/* Granger results callout — US (positive) and India / Malaysia (null).
+          The other 5 countries don't yet have enough months for a valid
           test; they keep the in-chart "Data Collection Ongoing" notice. */}
       {countryName === "United States" && <USGrangerCallout />}
       {countryName === "India" && <IndiaGrangerCallout />}
+      {countryName === "Malaysia" && <MalaysiaGrangerCallout />}
 
       {/* Chart */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 mb-6">
@@ -411,6 +412,52 @@ function IndiaGrangerCallout() {
         Granger-cause CPI in this sample. Both series stationary at
         levels; the F-statistic is essentially zero. See the methodology
         page for the developed-vs-emerging discussion.
+      </p>
+      <a
+        href={FULL_RESULTS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-3 text-xs font-medium text-gray-700 underline hover:text-gray-900"
+      >
+        Full results & methodology notes →
+      </a>
+    </div>
+  );
+}
+
+function MalaysiaGrangerCallout() {
+  return (
+    <div className="rounded-xl border border-gray-300 bg-gray-50 p-5 mb-6">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="inline-flex w-2 h-2 rounded-full bg-gray-500" />
+        <h2 className="font-semibold text-gray-900 text-base">
+          Null result over 30 months
+        </h2>
+      </div>
+      <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm mb-3">
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">F</dt>
+          <dd className="font-mono font-semibold text-gray-900">0.111</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">p</dt>
+          <dd className="font-mono font-semibold text-gray-900">0.74</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">n</dt>
+          <dd className="font-mono font-semibold text-gray-900">30</dd>
+        </div>
+        <div>
+          <dt className="text-xs text-gray-600 uppercase tracking-wide">Lag</dt>
+          <dd className="font-mono font-semibold text-gray-900">1 mo</dd>
+        </div>
+      </dl>
+      <p className="text-sm text-gray-800 leading-relaxed">
+        UIFPI does <span className="font-semibold">not</span>{" "}
+        Granger-cause CPI in this sample. Both series stationary at
+        levels; the F-statistic is essentially zero. Consistent with the
+        India null — see the methodology page for the developed-vs-emerging
+        discussion.
       </p>
       <a
         href={FULL_RESULTS_URL}

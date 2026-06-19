@@ -783,33 +783,233 @@
       "item_count": 2
     },
     {
+      "month": "2021-05",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": null,
+      "cpi": null,
+      "item_count": 45
+    },
+    {
+      "month": "2021-06",
+      "uifpi": 100.0,
+      "formal": 100.0,
+      "informal": null,
+      "cpi": null,
+      "item_count": 30
+    },
+    {
+      "month": "2022-07",
+      "uifpi": 145.83,
+      "formal": 145.83,
+      "informal": null,
+      "cpi": null,
+      "item_count": 15
+    },
+    {
+      "month": "2022-09",
+      "uifpi": 129.66,
+      "formal": 129.66,
+      "informal": null,
+      "cpi": null,
+      "item_count": 23
+    },
+    {
+      "month": "2022-10",
+      "uifpi": 95.92,
+      "formal": 95.92,
+      "informal": null,
+      "cpi": null,
+      "item_count": 136
+    },
+    {
+      "month": "2022-11",
+      "uifpi": 224.79,
+      "formal": 224.79,
+      "informal": null,
+      "cpi": null,
+      "item_count": 189
+    },
+    {
+      "month": "2022-12",
+      "uifpi": 145.93,
+      "formal": 145.93,
+      "informal": null,
+      "cpi": null,
+      "item_count": 73
+    },
+    {
+      "month": "2023-01",
+      "uifpi": 235.83,
+      "formal": 235.83,
+      "informal": null,
+      "cpi": null,
+      "item_count": 132
+    },
+    {
+      "month": "2023-02",
+      "uifpi": 74.63,
+      "formal": 74.63,
+      "informal": null,
+      "cpi": null,
+      "item_count": 137
+    },
+    {
+      "month": "2023-03",
+      "uifpi": 155.54,
+      "formal": 155.54,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
       "month": "2023-05",
-      "uifpi": 82.7,
-      "formal": null,
+      "uifpi": 118.0,
+      "formal": 146.89,
       "informal": 82.7,
       "cpi": null,
-      "item_count": 6
+      "item_count": 246
+    },
+    {
+      "month": "2023-06",
+      "uifpi": 290.34,
+      "formal": 290.34,
+      "informal": null,
+      "cpi": null,
+      "item_count": 60
+    },
+    {
+      "month": "2023-10",
+      "uifpi": 198.49,
+      "formal": 198.49,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2023-12",
+      "uifpi": 376.74,
+      "formal": 376.74,
+      "informal": null,
+      "cpi": null,
+      "item_count": 190
+    },
+    {
+      "month": "2024-01",
+      "uifpi": 248.75,
+      "formal": 248.75,
+      "informal": null,
+      "cpi": null,
+      "item_count": 185
+    },
+    {
+      "month": "2024-02",
+      "uifpi": 219.93,
+      "formal": 219.93,
+      "informal": null,
+      "cpi": null,
+      "item_count": 180
     },
     {
       "month": "2024-06",
-      "uifpi": 3.76,
-      "formal": null,
+      "uifpi": 70.02,
+      "formal": 124.24,
       "informal": 3.76,
       "cpi": null,
-      "item_count": 1
+      "item_count": 73
+    },
+    {
+      "month": "2024-09",
+      "uifpi": 125.0,
+      "formal": 125.0,
+      "informal": null,
+      "cpi": null,
+      "item_count": 26
+    },
+    {
+      "month": "2024-11",
+      "uifpi": 203.24,
+      "formal": 203.24,
+      "informal": null,
+      "cpi": null,
+      "item_count": 229
+    },
+    {
+      "month": "2024-12",
+      "uifpi": 231.92,
+      "formal": 231.92,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2025-01",
+      "uifpi": 128.98,
+      "formal": 128.98,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
     },
     {
       "month": "2025-02",
-      "uifpi": 481.16,
-      "formal": null,
+      "uifpi": 521.31,
+      "formal": 554.17,
       "informal": 481.16,
       "cpi": null,
-      "item_count": 3
+      "item_count": 154
+    },
+    {
+      "month": "2025-03",
+      "uifpi": 165.97,
+      "formal": 165.97,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2025-07",
+      "uifpi": 164.67,
+      "formal": 164.67,
+      "informal": null,
+      "cpi": null,
+      "item_count": 294
+    },
+    {
+      "month": "2025-08",
+      "uifpi": 157.59,
+      "formal": 157.59,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2025-09",
+      "uifpi": 218.88,
+      "formal": 218.88,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2025-10",
+      "uifpi": 191.77,
+      "formal": 191.77,
+      "informal": null,
+      "cpi": null,
+      "item_count": 300
+    },
+    {
+      "month": "2026-05",
+      "uifpi": 170.38,
+      "formal": 170.38,
+      "informal": null,
+      "cpi": null,
+      "item_count": 169
     },
     {
       "month": "2026-06",
-      "uifpi": 69.75,
-      "formal": 100.0,
+      "uifpi": 210.18,
+      "formal": 355.34,
       "informal": 32.77,
       "cpi": null,
       "item_count": 300
