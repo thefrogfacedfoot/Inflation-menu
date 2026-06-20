@@ -1,0 +1,105 @@
+================================================================================
+UIFPI PROJECT DIAGNOSTIC REPORT — VERSION 3
+Date: 2026-06-13
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATABASE CHECKS (uifpi.db)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✓  prices table — total rows: 4,227
+
+   ROWS PER COUNTRY:
+   ✓  Singapore               3521 rows
+   ✓  Malaysia                 433 rows
+   ✗  Indonesia                  1 rows  ← UNDER 100
+   ✗  Thailand                  11 rows  ← UNDER 100
+   ✗  India                     71 rows  ← UNDER 100
+   ✗  United States             50 rows  ← UNDER 100
+   ✗  United Kingdom            67 rows  ← UNDER 100
+   ✗  Australia                 73 rows  ← UNDER 100
+
+   ROWS PER SECTOR:
+   ✓  formal         3258
+   ✓  informal        969
+
+  ✓  Date range: 2018-01-17 → 2026-06-13
+  ✓  price_usd populated: 4,216 of 4,227 rows (99.7%)
+  ✓  NULL/zero prices: 0
+  ✓  Out-of-range price_usd (<0.01 or >10k): 0
+
+  ✓  nlp_results populated: 2,142 rows
+  ✗  NLP confidence >0.85: 0/2,142 (0.0%)  (need API key with credits to exceed 0.85)
+
+   NLP CATEGORY BREAKDOWN:
+      OTHER                    574
+      SEAFOOD_DISH             311
+      BEVERAGE                 228
+      NOODLE_DISH              219
+      RICE_DISH                185
+      GRILLED_PROTEIN          166
+      BREAD_PASTRY             120
+      SOUP_STEW                113
+      DIM_SUM_DUMPLING          96
+      DESSERT                   56
+      SALAD_VEGETABLE           35
+      FAST_FOOD                 32
+      SET_MEAL                   7
+
+  ✓  uifpi_index rows: 83
+  ✓  uifpi_index countries: 8
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FILE CHECKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   REQUIRED SCRIPTS:
+  ✓  live_scraper.py
+  ✓  historical_scraper.py
+  ✓  nlp_pipeline.py
+  ✓  index_builder.py
+  ✓  granger_analysis.py
+  ✓  dashboard_data.py
+  ✓  migrate_db.py
+  ✓  run_all.py
+  ✓  requirements.txt
+  ✓  balance_check.py
+  ✓  cpi_data/ — 16 JSON files
+  ✓  analysis_results/ folder exists
+  ✓  granger_results.json — 8 country entries
+  ✓  uifpi_index.csv — 83 data rows
+
+   DASHBOARD JSON:
+  ✓  index_series.json (12,440 bytes)
+  ✓  country_summary.json (1,803 bytes)
+  ✓  latest_values.json (1,100 bytes)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GRANGER CAUSALITY SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Country                 n_obs    p-value   Lead   Sig  Note
+  ──────────────────────────────────────────────────────────────────────
+  Australia                  13      0.415      2     ✗  
+  India                      18      0.811      2     ✗  
+  Indonesia                   1          —   None     ✗  insufficient_data (have 1, nee
+  Malaysia                   12      0.704      1     ✗  
+  Singapore                  12      0.092      2     ✗  
+  Thailand                    0          —      —     ✗  no_overlap
+  United Kingdom             11      0.823      2     ✗  
+  United States              11      0.586      1     ✗  
+
+  ✗  Granger significant: 0/8 countries
+  ✓  Best Granger p-value: 0.092 (Singapore)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUMMARY TABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Passed: 28/36 checks
+
+  VERDICT: *** NOT READY
+
+================================================================================
+END OF REPORT
+================================================================================

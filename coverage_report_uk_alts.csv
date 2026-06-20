@@ -1,0 +1,8 @@
+country,sector,platform,pattern,currency,n_restaurants_ge2,n_snapshots,distinct_urls,earliest,latest,cdx_status,sample_url,sample_ts,sample_kb,sample_price_hits,sample_json_ld,sample_next_data,sample_block,sample_status
+United Kingdom,formal,just-eat UK menu,just-eat.co.uk/restaurants/*/menu,GBP,0,0,0,,,empty,,,,,,,,
+United Kingdom,formal,ubereats UK,ubereats.com/gb/store/*,GBP,3000,30000,24763,20210612,20260531,truncated,https://www.ubereats.com/gb/store/bp-m%26s-food-west-end/gM8A6evEVHCZrrew-3EH9g,20250825202424,1071,156,Y,N,captcha,block:captcha
+United Kingdom,formal,pret,pret.co.uk/en-gb/menu/*,GBP,0,0,0,,,empty,,,,,,,,
+United Kingdom,formal,greggs,greggs.co.uk/*menu*,GBP,0,0,0,,,empty,,,,,,,,
+United Kingdom,formal,wagamama,wagamama.com/menu/*,GBP,23,238,40,20231001,20260522,ok,https://wagamama.com/menu?diets=vegan,20260214100010,1226,4,N,N,captcha,block:captcha
+United Kingdom,formal,nandos UK,nandos.co.uk/*menu*,GBP,0,0,0,,,empty,,,,,,,,
+United Kingdom,formal,itsu,itsu.com/*menu*,GBP,0,0,0,,,empty,,,,,,,,

@@ -26,6 +26,7 @@ from sqlalchemy import and_, select, text
 from sqlalchemy.orm import Session
 
 from visibility.db import SCHEMA
+from visibility.metrics import visibility_cross_schema_link_failures_total
 from visibility.models import Entity, Mention, Query, Run, Task
 
 log = logging.getLogger(__name__)
@@ -47,22 +48,27 @@ def _reset_link_warnings() -> None:
 
 
 def _warn_link_failure(exc: BaseException, *, task_id: Optional[int], query_id: int) -> None:
-    """Log a single warning per (exception_class, schema) per process.
+    """Log a single warning per (exception_class, schema) per process AND
+    increment the failure counter on every call.
 
-    SQLite/empty-schema mode is silent: the cross-schema query can never
-    succeed there, and tests would drown in noise otherwise.
+    SQLite/empty-schema mode is silent (warnings AND counter): the cross-schema
+    query can never succeed there, and tests would drown in noise otherwise.
+    Counter cardinality is bounded by exception_class — labels are not
+    user-derived.
     """
     schema = os.getenv("VISIBILITY_DB_SCHEMA", "")
     if not schema:
         return
-    key = (type(exc).__name__, schema)
+    exc_class = type(exc).__name__
+    visibility_cross_schema_link_failures_total.labels(exception_class=exc_class).inc()
+    key = (exc_class, schema)
     if key in _LINK_WARNED:
         return
     _LINK_WARNED.add(key)
     log.warning(
         "cross-schema opportunity link failed "
         "(task_id=%s query_id=%s exc=%s schema=%s): %s",
-        task_id, query_id, type(exc).__name__, schema, exc,
+        task_id, query_id, exc_class, schema, exc,
     )
 
 

@@ -1,0 +1,37 @@
+2026-06-13 [SG] Primary failed: 404 Client Error: Not Found for url: https://tablebuilder.singstat.gov.sg/api/table/tabledata/M212882
+2026-06-13 [SG] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.SG.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [US] Primary failed: ('Connection aborted.', TimeoutError(60, 'Operation timed out'))
+2026-06-13 [US] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.US.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [GB] Primary failed: 404 Client Error: Not Found for url: https://api.ons.gov.uk/v1/datasets/cpih01/timeseries/l55o/data
+2026-06-13 [GB] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.GB.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [AU] Primary failed: 422 Client Error: Unprocessable Entity for url: https://data.api.abs.gov.au:443/rest/data/CPI/1.10001.10.Q?startPeriod=2015-Q1&format=jsondata
+2026-06-13 [AU] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.AU.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [MY] Primary failed: No all-items CPI from DOSM
+2026-06-13 [MY] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.MY.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [TH] Primary failed: HTTPSConnectionPool(host='iapi.bot.or.th', port=443): Max retries exceeded with url: /Stat/Api/EconomicAndFinancial?Series_Code=CPI_CI&language=ENG (Caused by NameResolutionError("HTTPSConnection(host='iapi.bot.or.th', port=443): Failed to resolve 'iapi.bot.or.th' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [TH] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.TH.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [IN] Primary failed: 403 Client Error: Forbidden for url: https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad38d76fee680fa1a&format=json&limit=500
+2026-06-13 [IN] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.IN.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [ID] Primary failed: BPS requires registration key — using fallback
+2026-06-13 [ID] IMF IFS failed: HTTPSConnectionPool(host='dataservices.imf.org', port=443): Max retries exceeded with url: /REST/SDMX_JSON.svc/CompactData/IFS/M.ID.PCPI_IX?startPeriod=2015-01&endPeriod=2025-12 (Caused by NameResolutionError("HTTPSConnection(host='dataservices.imf.org', port=443): Failed to resolve 'dataservices.imf.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-06-13 [GB] Primary failed: ONS API not reachable (network timeout); using fallback
+2026-06-13 [SG] Primary failed: SingStat API 404 on known table IDs; using fallback
+2026-06-13 [MY] Primary failed: DOSM API 404; using fallback
+2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
+2026-06-13 [ID] Primary failed: BPS requires registration key; using fallback
+2026-06-13 [GB] Primary failed: ONS API not reachable (network timeout); using fallback
+2026-06-13 [SG] Primary failed: SingStat API 404 on known table IDs; using fallback
+2026-06-13 [MY] Primary failed: DOSM API 404; using fallback
+2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
+2026-06-13 [ID] Primary failed: BPS requires registration key; using fallback
+2026-06-13 [GB] Primary failed: ONS API not reachable (network timeout); using fallback
+2026-06-13 [SG] Primary failed: SingStat API 404 on known table IDs; using fallback
+2026-06-13 [MY] Primary failed: DOSM API 404; using fallback
+2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
+2026-06-13 [ID] Primary failed: BPS requires registration key; using fallback
+2026-06-13 [SG] Primary failed: SingStat API 404 on known table IDs; using fallback
+2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
+2026-06-13 [ID] Primary failed: BPS requires registration key; using fallback
+2026-06-13 [SG] Primary failed: SingStat API 404 on known table IDs; using fallback
+2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
+2026-06-13 [ID] Primary failed: name 'os' is not defined

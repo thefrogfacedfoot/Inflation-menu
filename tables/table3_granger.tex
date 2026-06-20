@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+        \centering
+        \caption{Granger Causality Results: UIFPI \textbackslash{}$\textbackslash{}rightarrow\textbackslash{}$ Official CPI}
+        \label{tab:granger}
+        \begin{tabular}{lrrrrrrr}
+        \toprule
+        \textbf{Country} & \textbf{N Obs} & \textbf{ADF Stat} & \textbf{F-Statistic} & \textbf{p-value} & \textbf{Lead (months)} & \textbf{Significant} & \textbf{Note} \\
+        \midrule
+        Singapore & 8 & — & — & — & — & No & insufficient\textbackslash{}_data (have 8, need 24) \\
+Malaysia & 6 & — & — & — & — & No & insufficient\textbackslash{}_data (have 6, need 24) \\
+Indonesia & 20 & — & — & — & — & No & insufficient\textbackslash{}_data (have 20, need 24) \\
+Thailand & 0 & — & — & — & — & No & no\textbackslash{}_overlap \\
+India & 47 & — & — & 0.4742 & 1 & No & --- \\
+United States & 31 & — & — & 0.0210 & 1 & Yes & --- \\
+United Kingdom & 18 & — & — & — & — & No & insufficient\textbackslash{}_data (have 18, need 24) \\
+Australia & 23 & — & — & — & — & No & insufficient\textbackslash{}_data (have 23, need 24) \\
+        \bottomrule
+        \end{tabular}
+        \footnotesize Note: All series first-differenced before testing. Lag order selected by AIC (max 6 lags). Significance threshold: p < 0.10. Countries requiring >= 24 monthly observations are marked insufficient.
+        \end{table}

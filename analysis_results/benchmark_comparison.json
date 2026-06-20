@@ -1,0 +1,40 @@
+{
+  "Singapore": {
+    "n_total": 5,
+    "n_train": 3,
+    "n_test": 2,
+    "ar1_accuracy": 1.0,
+    "uifpi_accuracy": 0.0,
+    "uifpi_ar1_combined": 0.5,
+    "uifpi_adds_value": false,
+    "note": "Annual data used (3 train / 2 test years). Monthly data will strengthen these estimates once collection completes."
+  },
+  "Malaysia": {
+    "skip": "no_cpi_data"
+  },
+  "Indonesia": {
+    "skip": "insufficient_overlap (4 common years, need 5)"
+  },
+  "Thailand": {
+    "skip": "no_uifpi_data"
+  },
+  "India": {
+    "skip": "insufficient_overlap (4 common years, need 5)"
+  },
+  "United States": {
+    "skip": "insufficient_overlap (4 common years, need 5)"
+  },
+  "United Kingdom": {
+    "skip": "insufficient_overlap (4 common years, need 5)"
+  },
+  "Australia": {
+    "n_total": 5,
+    "n_train": 3,
+    "n_test": 2,
+    "ar1_accuracy": 1.0,
+    "uifpi_accuracy": 1.0,
+    "uifpi_ar1_combined": 1.0,
+    "uifpi_adds_value": false,
+    "note": "Annual data used (3 train / 2 test years). Monthly data will strengthen these estimates once collection completes."
+  }
+}

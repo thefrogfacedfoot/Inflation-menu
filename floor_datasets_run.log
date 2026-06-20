@@ -1,0 +1,75 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Floor datasets loader
+Roster: United States, India, Indonesia, Thailand, Australia, Philippines, Singapore, Mexico, Vietnam, United Kingdom, Malaysia, Brazil, Germany, South Africa
+
+=== World Bank CPI (FP.CPI.TOTL) ===
+  United States  US  already has 10 years — skip
+  India          IN  already has 12 years — skip
+  Indonesia      ID  already has 10 years — skip
+  Thailand       TH  already has 10 years — skip
+  Australia      AU  already has 12 years — skip
+  Philippines    PH  already has 10 years — skip
+  Singapore      SG  already has 10 years — skip
+  Mexico         MX  already has 10 years — skip
+  Vietnam        VN  already has 10 years — skip
+  United Kingdom GB  already has 12 years — skip
+  Malaysia       MY  already has 12 years — skip
+  Brazil         BR  +120 rows (10 years)
+  Germany        DE  +120 rows (10 years)
+  South Africa   ZA  +120 rows (10 years)
+  World Bank: 360 new rows inserted
+
+=== Big Mac index (Economist) ===
+  Big Mac: 524 rows inserted/refreshed across 14 countries
+    United States  USA   43 obs  2000-04-01 → 2026-01-01
+    India          IND   29 obs  2011-07-01 → 2026-01-01
+    Indonesia      IDN   43 obs  2000-04-01 → 2026-01-01
+    Thailand       THA   43 obs  2000-04-01 → 2026-01-01
+    Australia      AUS   43 obs  2000-04-01 → 2026-01-01
+    Philippines    PHL   42 obs  2001-04-01 → 2026-01-01
+    Singapore      SGP   43 obs  2000-04-01 → 2026-01-01
+    Mexico         MEX   43 obs  2000-04-01 → 2026-01-01
+    Vietnam        VNM   23 obs  2014-07-01 → 2026-01-01
+    United Kingdom GBR   43 obs  2000-04-01 → 2026-01-01
+    Malaysia       MYS   43 obs  2000-04-01 → 2026-01-01
+    Brazil         BRA   43 obs  2000-04-01 → 2026-01-01
+    Germany        DEU    0 obs  None → None
+    South Africa   ZAF   43 obs  2000-04-01 → 2026-01-01
+
+=== Numbeo item rankings ===
+  2018 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2018 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2018 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2018 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  2019 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2019 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2019 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2019 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  2020 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2020 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2020 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2020 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  2021 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2021 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2021 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2021 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  2022 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2022 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2022 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2022 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  2023 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2023 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2023 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2023 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  2024 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2024 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2024 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2024 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  2025 item 1  'Meal, Inexpensive Restaurant            '  +14
+  2025 item 2  'Meal for 2 People, Mid-range Restaurant,'  +14
+  2025 item 4  'McMeal at McDonalds (or Equivalent Combo'  +14
+  2025 item 5  'Domestic Beer (0.5 liter draught)       '  +14
+  Numbeo total rows: 448
+
+Done.

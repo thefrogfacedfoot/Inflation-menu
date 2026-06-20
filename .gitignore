@@ -1,0 +1,11 @@
+.env
+*.db-wal
+*.db-shm
+ECC/
+debug_page.html
+uifpi.db
+uifpi.db.backup_*
+*.bak_*
+scraper_log.txt
+
+

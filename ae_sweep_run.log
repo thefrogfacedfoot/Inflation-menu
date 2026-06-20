@@ -1,0 +1,188 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Historical HTML scraper — 1 target(s)
+per_period=20, max_per_target=500
+
+
+======================================================================
+  United Arab Emirates:deliveroo-ae  (deliveroo.ae/menu/*)
+======================================================================
+  Querying CDX (distributed, per_period=20, max=500) …
+  Found 506 candidate snapshots
+  [1/506] 20180725 https://deliveroo.ae/menu/dubai/al-quoz-1/tom-and-serge … 72 items
+  [2/506] 20180725 https://deliveroo.ae/menu/dubai/al-quoz-1/tom-and-serge?day=today&rpos … 72 items
+  [3/506] 20180822 https://deliveroo.ae/menu/dubai/al-wasl/rice-creamery-city-walk … 35 items
+  [4/506] 20180813 https://deliveroo.ae/menu/dubai/jbr/nouq-icecream … 24 items
+  [5/506] 20180813 https://deliveroo.ae/menu/dubai/the-lakes/reform-social-grill … 17 items
+  [6/506] 20180813 https://deliveroo.ae/menu/dubai/the-palm/chippys … 28 items
+  [7/506] 20180825 https://deliveroo.ae/menu/dubai/umm-suqeim-2/the-surf-cafe … 144 items
+  [8/506] 20181209 https://deliveroo.ae/menu/dubai/al-wasl/bianca-mozzarella-andco … 87 items
+  [9/506] 20181029 https://deliveroo.ae/menu/dubai/design-district/one-life-kitchen-and-c … 64 items
+  [10/506] 20181212 https://deliveroo.ae/menu/dubai/jbr/bianca-mozzarella-and-co-jbr … 142 items
+  [11/506] 20190330 https://deliveroo.ae/menu/dubai/city-walk/burger-pit-city-walk … 29 items
+  [12/506] 20190330 https://deliveroo.ae/menu/dubai/city-walk/burger-pit-city-walk?utm_cam … 29 items
+  [13/506] 20190114 https://deliveroo.ae/menu/dubai/jlt-west/cafe-isan … 122 items
+  [14/506] 20190510 https://deliveroo.ae/menu/dubai/al-barsha-1/eat-greek-moe?day=today&rp … 64 items
+  [15/506] 20190413 https://deliveroo.ae/menu/dubai/al-barsha-1/tribes … 123 items
+  [16/506] 20190510 https://deliveroo.ae/menu/dubai/dubai-mall/eat-greek-dubai-mall?day=to … 72 items
+  [17/506] 20190510 https://deliveroo.ae/menu/dubai/jbr/eat-greek-jbr?day=today&rpos=78&ti … 69 items
+  [18/506] 20190412 https://deliveroo.ae/menu/dubai/jlt/mythos … 36 items
+  [19/506] 20190421 https://deliveroo.ae/menu/dubai/jlt/nola/ … 55 items
+  [20/506] 20190817 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/mcdonalds-adno … 331 items
+  [21/506] 20190718 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/sea-shell-rest … 260 items
+  [22/506] 20190822 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/cafe-28 … 38 items
+  [23/506] 20190917 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/la-brioche-gol … 237 items
+  [24/506] 20190718 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/maharaja-resta … 102 items
+  [25/506] 20190718 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/oregano-al-for … 360 items
+  [26/506] 20190718 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/weirdough-al-f … 42 items
+  [27/506] 20190825 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-polytechnic/hardees-muss … 138 items
+  [28/506] 20190822 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-polytechnic/tea-junction … 204 items
+  [29/506] 20190717 https://deliveroo.ae/menu/abu-dhabi/academic-city/ocean-chinese-restau … 294 items
+  [30/506] 20190822 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/bait-ward … 79 items
+  [31/506] 20190919 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/bait-ward?day=today&time … 79 items
+  [32/506] 20190717 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/grano-coffee-al-rahba-ci … 56 items
+  [33/506] 20190717 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/subway-deerfield-mall … 123 items
+  [34/506] 20190919 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/subway-deerfield-mall?da … /Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Historical HTML scraper — 1 target(s)
+per_period=5, max_per_target=500
+
+
+======================================================================
+  United Arab Emirates:deliveroo-ae  (deliveroo.ae/menu/*)
+======================================================================
+  Querying CDX (distributed, per_period=5, max=500) …
+  Found 151 candidate snapshots
+  [22/151] 20191115 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/bareburger-kha … 139 items
+  [24/151] 20191015 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/the-coffee-clu … 106 items
+  [27/151] 20200319 https://deliveroo.ae/menu/dubai/dubai-mall/hurricanes-grill-dubai-mall … 86 items
+  [28/151] 20200223 https://deliveroo.ae/menu/dubai/jlt-west/kcal-jlt … 136 items
+  [29/151] 20200223 https://deliveroo.ae/menu/dubai/jlt-west/kcal-jlt?day=today&time=1130 … 136 items
+  [30/151] 20200223 https://deliveroo.ae/menu/dubai/jlt/nine-elephants-jlt … 100 items
+  [31/151] 20200223 https://deliveroo.ae/menu/dubai/jlt/nine-elephants-jlt?day=today&time= … 100 items
+  [32/151] 20200515 https://deliveroo.ae/menu/abu-dhabi/al-khubeirah/tori-no-su … 59 items
+  [33/151] 20200515 https://deliveroo.ae/menu/abu-dhabi/al-maryah-island/coya-abu-dhabi … 50 items
+  [34/151] 20200429 https://deliveroo.ae/menu/abu-dhabi/al-maryah-island/coya-abu-dhabi?da … 47 items
+  [35/151] 20200620 https://deliveroo.ae/menu/abu-dhabi/al-nahyan/shabby-chic-cafe-abn?day … 110 items
+  [36/151] 20200608 https://deliveroo.ae/menu/dubai/al-barsha-3/chez-sushi-arabian-ranches … 94 items
+  [37/151] 20200808 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/circle-cafe-ma … 223 items
+  [38/151] 20200921 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/katsu-and-co-m … 83 items
+  [39/151] 20200919 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/sea-shell-refr … 269 items
+  [40/151] 20200809 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/the-breakfast- … 103 items
+  [41/151] 20200809 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/the-chicken-sh … 35 items
+  [42/151] 20201024 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/gourmet-lab-re … 100 items
+  [43/151] 20201027 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-hills/beetza … 14 items
+  [44/151] 20201022 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-polytechnic/super-tea-ju … 203 items
+  [46/151] 20201022 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/al-mandi-and-al-madhbi-h … 34 items
+  [47/151] 20210305 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/muscle-fuel-ad … 321 items
+  [48/151] 20210301 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/al-rifai-deerfield-mall … 183 items
+  [49/151] 20210122 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/bloom-vegan-kitchen-deer … 84 items
+  [50/151] 20210116 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/cake-hut-deerfields … 78 items
+  [51/151] 20210305 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/coffeelism-cafe … 95 items
+  [52/151] 20210414 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-polytechnic/ragag-alasem … 86 items
+  [53/151] 20210612 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/chilis-deerfields … 146 items
+  [54/151] 20210414 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/dessert-cafe-bek-deerfei … 43 items
+  [55/151] 20210419 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/fresh-start … 48 items
+  [56/151] 20210421 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/hardees-al-shahama … 127 items
+  [57/151] 20210921 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-gate-city/italiano-pizza … 72 items
+  [58/151] 20210804 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-hills/beetza?day=today&g … 15 items
+  [59/151] 20210920 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/al-ghawas … 99 items
+  [60/151] 20210730 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/bursa-kebap-evi-deerfiel … 150 items
+  [61/151] 20210803 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/chilis-deerfields?day=to … 142 items
+  [62/151] 20211207 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/dawat-biryani- … 45 items
+  [63/151] 20211129 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-polytechnic/gulf-pastry- … 92 items
+  [64/151] 20211019 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/aldar-garden … 81 items
+  [65/151] 20211019 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/aldar-garden-marketplace … 86 items
+  [66/151] 20211020 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/bake-al-arab-deerfields … 22 items
+  [67/151] 20220127 https://deliveroo.ae/menu/abu-dhabi/al-khubeirah/nahaam?utm_medium=aff … 0 items
+  [68/151] 20220125 https://deliveroo.ae/menu/abu-dhabi/al-khubeirah/toki-restaurant?utm_m … 1 items
+  [69/151] 20220214 https://deliveroo.ae/menu/abu-dhabi/saadiyat/larte-manarat-al-sadiyat? … 0 items
+  [70/151] 20220125 https://deliveroo.ae/menu/ajman/uni-west/bloom-vegan-kitchen-al-zorah? … 29 items
+  [71/151] 20220127 https://deliveroo.ae/menu/dubai/al-nahda-2/al-kabab-al-afghani-al-qusa … 12 items
+  [72/151] 20220819 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/fuel-cafe-abu-dhabi … 4 items
+  [73/151] 20220810 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/hatam-deerfields … 15 items
+  [74/151] 20220810 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/india-palace-restaurant- … 19 items
+  [75/151] 20220810 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/india-palace-restaurant- … 19 items
+  [76/151] 20220810 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/kanafandi-sweets … 4 items
+  [77/151] 20221007 https://deliveroo.ae/menu/abu-dhabi/abu-dhabi-golf-club/weirdough-al-f … 1 items
+  [78/151] 20221007 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/dessert-cafe-bek-deerfei … 11 items
+  [79/151] 20221007 https://deliveroo.ae/menu/abu-dhabi/al-bahyah/papa-johns-raha/ … 139 items
+  [80/151] 20221205 https://deliveroo.ae/menu/abu-dhabi/al-bandar/buns-n-bulls?day=today&g … 7 items
+  [81/151] 20221007 https://deliveroo.ae/menu/abu-dhabi/al-bandar/fern-el-balad-al-bandar- … 39 items
+  [82/151] 20230205 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-golf-club/biryani-bae- … 2 items
+  [83/151] 20230328 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-golf-club/curry-home-k … 2 items
+  [84/151] 20230205 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-golf-club/curry-home-k … 2 items
+  [85/151] 20230328 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-golf-club/dawat-biryan … 2 items
+  [86/151] 20230205 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-golf-club/dawat-biryan … 2 items
+  [87/151] 20230401 https://deliveroo.ae/menu/Abu%20Dhabi/al-bandar/bombay-canteen-al-raha … 16 items
+  [88/151] 20230529 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/barada-bakery?day=today … 22 items
+  [89/151] 20230529 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/brooklyn-pizza-company- … 6 items
+  [90/151] 20230529 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/brooklyn-pizza-company- … 6 items
+  [91/151] 20230531 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/desi-house-restaurant?d … 39 items
+  [92/151] 20230926 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/edge-special … 3 items
+  [93/151] 20230926 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/slaw-al-qana … 15 items
+  [94/151] 20230928 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/slaw-al-qana … 15 items
+  [95/151] 20230924 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-hills/icons-coffee-cou … 52 items
+  [96/151] 20230926 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-polytechnic/hardees-mu … 0 items
+  [97/151] 20231210 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-polytechnic/hardees-mu … 0 items
+  [98/151] 20231001 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/chilis-deerfields?day= … fetch fail
+  [99/151] 20231001 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/jf-restaurant-and-cafe … 0 items
+  [100/151] 20231001 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/mcdonalds-adnoc-al-bah … 0 items
+  [101/151] 20231210 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/papa-johns-raha … 0 items
+  [102/151] 20240225 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/tazal-restau … 1 items
+  [103/151] 20240225 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/the-breakfas … 0 items
+  [104/151] 20240225 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-hills/boon-coffee-roas … 12 items
+  [105/151] 20240226 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/bach-cafe?day=today&ge … 1 items
+  [106/151] 20240226 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/lavazza-expression?day … 0 items
+  [107/151] 20240625 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/jf-restaurant-and-cafe … 0 items
+  [108/151] 20240417 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/papa-johns-raha?geohas … 0 items
+  [109/151] 20240417 https://deliveroo.ae/menu/Abu%20Dhabi/al-bandar/bombay-canteen-al-raha … 15 items
+  [110/151] 20240422 https://deliveroo.ae/menu/Abu%20Dhabi/al-bandar/manoushe-street-bloom- … 0 items
+  [111/151] 20240529 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/1918cafe?day=today&geo … 10 items
+  [112/151] 20240813 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/otoro-modern … 3 items
+  [113/151] 20240915 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/otoro-modern … 3 items
+  [114/151] 20240810 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/jf-restaurant-and-cafe … 0 items
+  [115/151] 20240914 https://deliveroo.ae/menu/Abu%20Dhabi/al-bandar/desert-lotus?geohash=t … 0 items
+  [116/151] 20240917 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/aroy-dee-thai-restauran … 6 items
+  [117/151] 20241010 https://deliveroo.ae/menu/Abu%20Dhabi/al-bahyah/papa-johns-raha?geohas … 0 items
+  [118/151] 20241115 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/eggcellent-cafe … 11 items
+  [119/151] 20241005 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/koshari-el-khedewy-abu … 3 items
+  [120/151] 20241005 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/mcdonalds-al-bateen?da … 0 items
+  [121/151] 20241115 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/nolus-khalidiyah … 0 items
+  [122/151] 20250116 https://deliveroo.ae/menu/Abu%20Dhabi/al-bandar/antonia-trattoria … 13 items
+  [123/151] 20250116 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/rush-coffee-abs?day=to … 28 items
+  [124/151] 20250320 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/al-farah-restaurant-ham … 54 items
+  [125/151] 20250116 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/al-fujairah-restaurant? … 5 items
+  [126/151] 20250213 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/bagel-and-co-abn?day=to … 0 items
+  [127/151] 20250622 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/al-adil-supermarket-ele … 0 items
+  [128/151] 20250613 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/al-farah-restaurant-ham … 0 items
+  [129/151] 20250616 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/bait-el-khetyar-al-mark … 15 items
+  [130/151] 20250622 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/bait-el-khetyar-najda?d … 18 items
+  [131/151] 20250620 https://deliveroo.ae/menu/Abu%20Dhabi/al-danah/go-greek-al-jazira?day= … 19 items
+  [132/151] 20250908 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/the-bridge-l … 0 items
+  [133/151] 20250913 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/brd-al-safa?day=today& … 24 items
+  [134/151] 20250805 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/origami-sushi-abu-dhab … 8 items
+  [135/151] 20250811 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/spin-cafe?day=today&ge … 6 items
+  [136/151] 20250805 https://deliveroo.ae/menu/Abu%20Dhabi/al-bateen/viva-al-bateen?day=tod … 0 items
+  [137/151] 20251011 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/arabica-al-q … 47 items
+  [138/151] 20251011 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/mcdonalds-ad … 129 items
+  [139/151] 20251011 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/mcdonalds-ad … 129 items
+  [140/151] 20251011 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/slaw-al-qana … 32 items
+  [141/151] 20251008 https://deliveroo.ae/menu/Abu%20Dhabi/abu-dhabi-gate-city/the-bridge-l … 0 items
+  [142/151] 20260305 https://deliveroo.ae/menu/Abu%20Dhabi/al-khubeirah/miss-j-cafe-khalidi … 3 items
+  [143/151] 20260218 https://deliveroo.ae/menu/Abu%20Dhabi/al-khubeirah/nano-mini-mart?day= … 0 items
+  [144/151] 20260226 https://deliveroo.ae/menu/abu-dhabi/al-etihad/chu-premium-tea-blends-f … 129 items
+  [145/151] 20260117 https://deliveroo.ae/menu/abu-dhabi/al-musalla/tatli-sarayi-cafe?day=t … 4 items
+  [146/151] 20260117 https://deliveroo.ae/menu/abu-dhabi/al-zahraa/vietnamese-pho-danat-squ … 1 items
+  [147/151] 20260413 https://deliveroo.ae/menu/Abu%20Dhabi/al-zahraa/lebanese-palace-muroor … 0 items
+  [148/151] 20260411 https://deliveroo.ae/menu/Dubai/al-quoz-3/azwaq-restaurant?day=today&g … 0 items
+  [149/151] 20260428 https://deliveroo.ae/menu/dubai/al-quoz-3/semisweet-cafe-umm-suqiem … 11 items
+  [150/151] 20260428 https://deliveroo.ae/menu/Dubai/al-safa-1/semisweet-cafe-al-safa-park? … 13 items
+  [151/151] 20260413 https://deliveroo.ae/menu/Dubai/al-sufouh/mexicano-canteen-media-city? … 137 items
+
+  United Arab Emirates:deliveroo-ae: 125 attempts, 99 with items, 5616 rows inserted
+
+======================================================================
+Done.
+target                                    attempts  hits    rows
+  United Arab Emirates:deliveroo-ae            125    99    5616

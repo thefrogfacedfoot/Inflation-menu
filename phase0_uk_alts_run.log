@@ -1,0 +1,24 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Phase 0 UK alt-source probe — 7 patterns
+[ 1/7] United Kingdom just-eat UK menu     just-eat.co.uk/restaurants/*/menu
+          0 rows
+[ 2/7] United Kingdom ubereats UK          ubereats.com/gb/store/*
+           24763 URLs,  3000 ≥2-cap,  30000 snaps, 20210612-20260531 (TRUNC)
+          sampling 20250825202424 https://www.ubereats.com/gb/store/bp-m%26s-food-west-end/gM8
+          1071KB, 156 GBP hits, LD=True ND=False BLOCK=captcha
+[ 3/7] United Kingdom pret                 pret.co.uk/en-gb/menu/*
+          0 rows
+[ 4/7] United Kingdom greggs               greggs.co.uk/*menu*
+          0 rows
+[ 5/7] United Kingdom wagamama             wagamama.com/menu/*
+              40 URLs,    23 ≥2-cap,    238 snaps, 20231001-20260522
+          sampling 20260214100010 https://wagamama.com/menu?diets=vegan
+          1226KB, 4 GBP hits, LD=False ND=False BLOCK=captcha
+[ 6/7] United Kingdom nandos UK            nandos.co.uk/*menu*
+          0 rows
+[ 7/7] United Kingdom itsu                 itsu.com/*menu*
+          0 rows
+
+CSV → /Users/erwenchen/Inflation-menu/coverage_report_uk_alts.csv
+MD  → /Users/erwenchen/Inflation-menu/coverage_report_uk_alts.md

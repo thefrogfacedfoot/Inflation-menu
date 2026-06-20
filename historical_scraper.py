@@ -1,0 +1,562 @@
+"""
+UIFPI — Historical Price Scraper (Wayback Machine)
+Finds archived TripAdvisor restaurant pages via the CDX API,
+fetches them from archive.org, parses whatever price signals exist,
+and stores them in uifpi.db with the actual archived date.
+
+Run order: after migrate_db.py, independent of live_scraper.py.
+Progress is saved to historical_progress.json so runs can be resumed.
+"""
+import json
+import os
+import re
+import sqlite3
+import time
+from datetime import datetime
+
+import requests
+from bs4 import BeautifulSoup
+
+# ── Config ────────────────────────────────────────────────────────────────────
+
+DB_PATH            = 'uifpi.db'
+PROGRESS_FILE      = 'historical_progress.json'
+CDX_BASE           = 'http://web.archive.org/cdx/search/cdx'
+WBM_BASE           = 'https://web.archive.org/web'
+SNAPSHOTS_PER_COUNTRY = 80          # CDX limit per country
+MIN_CONTENT_BYTES  = 3_072          # skip archive shells < 3 KB
+CDX_DELAY          = 2.0            # seconds between CDX API calls
+FETCH_DELAY        = 3.0            # seconds between Wayback fetches
+RETRY_ATTEMPTS     = 3
+RETRY_BACKOFF      = 10             # seconds before retry
+
+HEADERS = {
+    'User-Agent': (
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    )
+}
+
+# CDX URL patterns per country.
+# Uses TripAdvisor geo IDs (g######) to restrict results to the correct city/region.
+# Domain-level patterns like tripadvisor.com.sg/* don't work — the .sg TLD is just a
+# locale for Singaporean users who review restaurants worldwide; it isn't geo-restricted.
+#
+# Geo IDs used:
+#   g294265 = Singapore city
+#   g298570 = Kuala Lumpur, Malaysia
+#   g294229 = Jakarta, Indonesia
+#   g293916 = Bangkok, Thailand
+#   g304554 = Mumbai, India
+#   g60763  = New York City, USA
+#   g186338 = London, UK
+#   g255068 = Sydney, Australia
+COUNTRY_CONFIG = {
+    'Singapore': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g294265*',
+        'currency': 'SGD',
+        'price_re': r'S\$\s*([\d,]+(?:\.\d{1,2})?)',
+    },
+    'Malaysia': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g298570*',
+        'currency': 'MYR',
+        'price_re': r'RM\s*([\d,]+(?:\.\d{1,2})?)',
+    },
+    'Indonesia': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g294229*',
+        'currency': 'IDR',
+        'price_re': r'Rp\.?\s*([\d.,]+)',
+    },
+    'Thailand': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g293916*',
+        'currency': 'THB',
+        'price_re': r'฿\s*([\d,]+)',
+    },
+    'India': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g304554-*',
+        'currency': 'INR',
+        'price_re': r'₹\s*([\d,]+)',
+    },
+    'United States': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g60763*',
+        'currency': 'USD',
+        'price_re': r'\$(\d+(?:\.\d{1,2})?)',
+    },
+    'United Kingdom': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g186338*',
+        'currency': 'GBP',
+        'price_re': r'£(\d+(?:\.\d{1,2})?)',
+    },
+    'Australia': {
+        'pattern':  'tripadvisor.com/Restaurant_Review-g255068*',
+        'currency': 'AUD',
+        'price_re': r'\$(\d+(?:\.\d{1,2})?)',
+    },
+}
+
+
+# ── Database ──────────────────────────────────────────────────────────────────
+
+def init_db():
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS prices (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            restaurant_name TEXT,
+            item_name TEXT,
+            price REAL,
+            currency TEXT,
+            price_usd REAL,
+            country TEXT DEFAULT 'Singapore',
+            sector TEXT,
+            source TEXT,
+            collection_date TEXT,
+            url TEXT
+        )
+    ''')
+    conn.commit()
+    return conn
+
+
+def already_have_url(conn, url):
+    c = conn.cursor()
+    c.execute('SELECT COUNT(*) FROM prices WHERE url = ? AND source = ?', (url, 'wayback'))
+    return c.fetchone()[0] > 0
+
+
+# ── Progress tracking ─────────────────────────────────────────────────────────
+
+def load_progress():
+    if os.path.exists(PROGRESS_FILE):
+        with open(PROGRESS_FILE) as f:
+            return json.load(f)
+    return {}
+
+
+def save_progress(progress):
+    with open(PROGRESS_FILE, 'w') as f:
+        json.dump(progress, f, indent=2)
+
+
+# ── CDX API ───────────────────────────────────────────────────────────────────
+
+def get_cdx_snapshots(url_pattern, limit=SNAPSHOTS_PER_COUNTRY,
+                      from_year=2018, to_year=2024):
+    """Return list of {timestamp, url} dicts from Wayback CDX."""
+    params = {
+        'url':      url_pattern,
+        'output':   'json',
+        'fl':       'timestamp,original',
+        'limit':    limit,
+        'from':     f'{from_year}0101',
+        'to':       f'{to_year}1231',
+        'collapse': 'urlkey',       # one snapshot per unique page
+        'filter':   'statuscode:200',
+    }
+    for attempt in range(RETRY_ATTEMPTS):
+        try:
+            r = requests.get(CDX_BASE, params=params, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            data = r.json()
+            if not data or len(data) < 2:
+                return []
+            return [{'timestamp': row[0], 'url': row[1]} for row in data[1:]]
+        except Exception as e:
+            print(f"    CDX attempt {attempt+1} failed: {e}")
+            if attempt < RETRY_ATTEMPTS - 1:
+                time.sleep(RETRY_BACKOFF)
+    return []
+
+
+def _period_windows(from_year, to_year, period):
+    """Yield (start_yyyymmdd, end_yyyymmdd) windows covering the range."""
+    if period == 'month':
+        for y in range(from_year, to_year + 1):
+            for m in range(1, 13):
+                start = f'{y:04d}{m:02d}01'
+                if m == 12:
+                    end = f'{y:04d}1231'
+                else:
+                    end = f'{y:04d}{m + 1:02d}01'
+                yield start, end
+    elif period == 'quarter':
+        for y in range(from_year, to_year + 1):
+            for q in range(4):
+                m0 = q * 3 + 1
+                m1 = q * 3 + 3
+                last_day = {3: 31, 6: 30, 9: 30, 12: 31}[m1]
+                yield f'{y:04d}{m0:02d}01', f'{y:04d}{m1:02d}{last_day}'
+    else:
+        raise ValueError(f"unknown period: {period!r}")
+
+
+def get_cdx_snapshots_distributed(url_pattern, per_period=3,
+                                  from_year=2018, to_year=2025,
+                                  period='quarter', max_snapshots=None):
+    """Time-distributed CDX query.
+
+    Instead of one big query (which returns whatever Wayback indexed densest,
+    usually clustered in one year), issue one CDX query per period and take
+    up to `per_period` distinct-URL snapshots from each. Yields snapshots
+    spread evenly across (from_year, to_year), which is what Granger needs.
+    """
+    out = []
+    seen_urls = set()
+    windows = list(_period_windows(from_year, to_year, period))
+    print(f"    Distributed CDX: {len(windows)} {period} windows × ≤{per_period} snapshots each")
+    for start, end in windows:
+        params = {
+            'url':      url_pattern,
+            'output':   'json',
+            'fl':       'timestamp,original',
+            'limit':    per_period * 4,
+            'from':     start,
+            'to':       end,
+            'collapse': 'urlkey',
+            'filter':   'statuscode:200',
+        }
+        rows = None
+        for attempt in range(RETRY_ATTEMPTS):
+            try:
+                r = requests.get(CDX_BASE, params=params,
+                                 headers=HEADERS, timeout=30)
+                r.raise_for_status()
+                data = r.json()
+                rows = data[1:] if data and len(data) >= 2 else []
+                break
+            except Exception as e:
+                if attempt == RETRY_ATTEMPTS - 1:
+                    print(f"      CDX {start[:6]} failed: {e}")
+                else:
+                    time.sleep(RETRY_BACKOFF)
+        if rows is None:
+            rows = []
+        taken = 0
+        for row in rows:
+            ts, orig = row[0], row[1]
+            if orig in seen_urls:
+                continue
+            seen_urls.add(orig)
+            out.append({'timestamp': ts, 'url': orig})
+            taken += 1
+            if taken >= per_period:
+                break
+        if rows:
+            print(f"      {start[:6]}: kept {taken}/{len(rows)} (cum {len(out)})")
+        if max_snapshots is not None and len(out) >= max_snapshots:
+            print(f"      Reached --max-snapshots {max_snapshots}, stopping CDX walk.")
+            break
+        time.sleep(CDX_DELAY)
+    return out
+
+
+# ── Wayback fetcher ───────────────────────────────────────────────────────────
+
+def fetch_snapshot(timestamp, url):
+    """Fetch archived page; returns HTML string or None if too small / failed."""
+    wayback_url = f'{WBM_BASE}/{timestamp}/{url}'
+    for attempt in range(RETRY_ATTEMPTS):
+        try:
+            r = requests.get(wayback_url, headers=HEADERS, timeout=30)
+            if r.status_code != 200:
+                return None
+            if len(r.content) < MIN_CONTENT_BYTES:
+                return None     # empty archive shell
+            return r.text
+        except Exception as e:
+            print(f"      fetch attempt {attempt+1} failed: {e}")
+            if attempt < RETRY_ATTEMPTS - 1:
+                time.sleep(RETRY_BACKOFF)
+    return None
+
+
+# ── Price extraction ──────────────────────────────────────────────────────────
+
+def extract_restaurant_name(soup):
+    """Best-effort restaurant name from archived TripAdvisor HTML."""
+    for sel in (
+        'h1[data-test-target="top-info-header"]',
+        'h1.ui_header',
+        'h1',
+        'title',
+    ):
+        el = soup.select_one(sel)
+        if el:
+            text = el.get_text(strip=True)
+            # Strip " - TripAdvisor" suffix if present
+            for suffix in (' - TripAdvisor', ' - Menu', ' | TripAdvisor'):
+                text = text.replace(suffix, '')
+            if text and len(text) > 2:
+                return text[:100]
+    return 'Unknown Restaurant'
+
+
+def extract_ld_menu_items(obj, depth=0):
+    """Recursively extract MenuItem prices from JSON-LD."""
+    if depth > 10 or not isinstance(obj, dict):
+        return []
+    items = []
+    if obj.get('@type') == 'MenuItem':
+        name = obj.get('name', '')
+        offers = obj.get('offers', {})
+        price = None
+        if isinstance(offers, dict):
+            price = offers.get('price')
+        elif isinstance(offers, list) and offers:
+            price = offers[0].get('price')
+        if name and price is not None:
+            try:
+                items.append((str(name)[:200], float(price)))
+            except (ValueError, TypeError):
+                pass
+    for key in ('hasMenuSection', 'hasMenuItem', 'itemListElement', 'menu'):
+        child = obj.get(key)
+        if isinstance(child, list):
+            for c in child:
+                items.extend(extract_ld_menu_items(c, depth + 1))
+        elif isinstance(child, dict):
+            items.extend(extract_ld_menu_items(child, depth + 1))
+    return items
+
+
+def parse_idr_price(raw):
+    """Parse IDR price string: '25.000' or '25,000' → 25000.0"""
+    # IDR uses dots as thousand separators
+    cleaned = raw.replace('.', '').replace(',', '')
+    try:
+        return float(cleaned)
+    except ValueError:
+        return None
+
+
+def extract_prices(html, country, config):
+    """
+    Extract (item_name, price) pairs from archived TripAdvisor HTML.
+
+    Strategy 1 — Explicit MenuItem JSON-LD
+        A small fraction of restaurants have full menu markup. Captured when
+        present (rare on TripAdvisor but worth keeping).
+
+    Strategy 2 — Currency regex on page text
+        Catches prices quoted in user reviews (e.g. "paid S$25 per dish").
+        Coarser signal, kept as secondary.
+
+    FoodEstablishment priceRange tiers ($, $$, $$$, $$$$) are deliberately
+    NOT emitted — they are categorical ordinals, not currency, and contaminate
+    the index when treated as prices. The FoodEstablishment node is still
+    visited to harvest the restaurant name as fallback context.
+    """
+    soup = BeautifulSoup(html, 'html.parser')
+    items = []
+    restaurant_name_ld = None
+
+    for script in soup.find_all('script', type='application/ld+json'):
+        try:
+            obj = json.loads(script.string or '')
+        except (json.JSONDecodeError, TypeError):
+            continue
+
+        objs = obj if isinstance(obj, list) else [obj]
+        for o in objs:
+            t = o.get('@type', '')
+
+            # FoodEstablishment: harvest restaurant name only; priceRange
+            # tier markers are intentionally skipped (see docstring).
+            if t == 'FoodEstablishment':
+                name = o.get('name', '')
+                if name and not restaurant_name_ld:
+                    restaurant_name_ld = name
+
+            # MenuItem JSON-LD
+            items.extend(extract_ld_menu_items(o))
+
+    if items:
+        return soup, items[:30], restaurant_name_ld
+
+    # Strategy 3: Currency regex on visible text
+    text = soup.get_text(separator=' ')
+    pattern = config['price_re']
+    matches = re.findall(pattern, text)
+
+    seen = set()
+    for raw in matches:
+        if country == 'Indonesia':
+            price = parse_idr_price(raw)
+        else:
+            try:
+                price = float(raw.replace(',', ''))
+            except ValueError:
+                continue
+        if price is None or price <= 0 or price >= 500_000:
+            continue
+        if price in seen:
+            continue
+        seen.add(price)
+        items.append(('Review-quoted price (historical)', price))
+
+    return soup, items[:20], None
+
+
+# ── Main collection loop ──────────────────────────────────────────────────────
+
+def run(countries=None, distributed=False, per_period=3,
+        period='quarter', from_year=2018, to_year=2025, rescan=False,
+        max_snapshots=None):
+    conn = init_db()
+    progress = load_progress()
+
+    targets = countries or list(COUNTRY_CONFIG.keys())
+    print(f"\nHistorical scraper — {len(targets)} countries")
+    if distributed:
+        print(f"Target: time-distributed, {per_period} snapshots per {period}, "
+              f"{from_year}–{to_year}\n")
+    else:
+        print(f"Target: {SNAPSHOTS_PER_COUNTRY} snapshots each, 2018–2024\n")
+
+    total_inserted = 0
+
+    for country in targets:
+        cfg = COUNTRY_CONFIG[country]
+        print(f"\n{'='*55}")
+        print(f"  {country} — pattern: {cfg['pattern']}")
+        print(f"{'='*55}")
+
+        # Check if already completed (unless --rescan to force a fresh CDX query)
+        country_progress = progress.get(country, {})
+        if country_progress.get('status') == 'complete' and not rescan:
+            print(f"  ↩  Already completed in a previous run — skipping (use --rescan to override)")
+            continue
+
+        # Get snapshots list
+        done_urls = set(country_progress.get('done_urls', []))
+        snapshots = country_progress.get('snapshots') if not rescan else None
+
+        if not snapshots:
+            print(f"  Querying CDX API …")
+            time.sleep(CDX_DELAY)
+            if distributed:
+                snapshots = get_cdx_snapshots_distributed(
+                    cfg['pattern'], per_period=per_period,
+                    from_year=from_year, to_year=to_year, period=period,
+                    max_snapshots=max_snapshots,
+                )
+            else:
+                limit = max_snapshots or SNAPSHOTS_PER_COUNTRY
+                snapshots = get_cdx_snapshots(cfg['pattern'], limit=limit)
+            print(f"  Found {len(snapshots)} snapshots")
+            progress[country] = {
+                'snapshots': snapshots,
+                'done_urls': list(done_urls),
+                'status': 'in_progress',
+            }
+            save_progress(progress)
+
+        country_inserted = 0
+
+        for i, snap in enumerate(snapshots):
+            ts, orig_url = snap['timestamp'], snap['url']
+            wayback_url = f'{WBM_BASE}/{ts}/{orig_url}'
+
+            if orig_url in done_urls:
+                print(f"  ↩  [{i+1}/{len(snapshots)}] already done")
+                continue
+
+            if already_have_url(conn, wayback_url):
+                done_urls.add(orig_url)
+                continue
+
+            print(f"  [{i+1}/{len(snapshots)}] {orig_url[:60]} @ {ts[:8]} … ", end='', flush=True)
+            time.sleep(FETCH_DELAY)
+
+            html = fetch_snapshot(ts, orig_url)
+            if not html:
+                print("skipped (empty/failed)")
+                done_urls.add(orig_url)
+                continue
+
+            soup, items, name_from_ld = extract_prices(html, country, cfg)
+            if not items:
+                print("0 prices found")
+                done_urls.add(orig_url)
+                continue
+
+            # Prefer name extracted from JSON-LD (more reliable than H1)
+            restaurant_name = name_from_ld or extract_restaurant_name(soup)
+            # Convert timestamp YYYYMMDDHHMMSS → YYYY-MM-DD
+            try:
+                collection_date = datetime.strptime(ts[:8], '%Y%m%d').strftime('%Y-%m-%d')
+            except ValueError:
+                collection_date = ts[:10]
+
+            c = conn.cursor()
+            inserted_this_url = 0
+            for item_name, price in items:
+                # Defensive: never write TripAdvisor priceRange tier markers
+                # ('$', '$$', '$$$', '$$$$') as if they were prices.
+                if str(item_name).startswith('Price tier'):
+                    continue
+                c.execute(
+                    '''INSERT INTO prices
+                       (restaurant_name, item_name, price, currency, country,
+                        sector, source, collection_date, url)
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                    (restaurant_name, item_name, price, cfg['currency'], country,
+                     'informal', 'wayback', collection_date, wayback_url)
+                )
+                inserted_this_url += 1
+            conn.commit()
+            print(f"{inserted_this_url} items → {restaurant_name[:40]}")
+            country_inserted += inserted_this_url
+            total_inserted += inserted_this_url
+
+            done_urls.add(orig_url)
+
+            # Save progress after each successful fetch
+            progress[country]['done_urls'] = list(done_urls)
+            if len(done_urls) >= len(snapshots):
+                progress[country]['status'] = 'complete'
+            save_progress(progress)
+
+        print(f"\n  {country}: {country_inserted} items inserted this run")
+
+    conn.close()
+    print(f"\n{'='*55}")
+    print(f"Historical scraper done. Total inserted: {total_inserted}")
+    print(f"Progress saved to {PROGRESS_FILE}")
+    print(f"Run again to continue from where it left off.")
+
+
+if __name__ == '__main__':
+    import argparse
+    ap = argparse.ArgumentParser(
+        description='Wayback historical price scraper. Default mode pulls '
+                    'up to 80 snapshots per country; --distributed spreads '
+                    'queries across time windows so Granger has monthly '
+                    'observations to work with instead of one 2019 cluster.'
+    )
+    ap.add_argument('countries', nargs='*',
+                    help='Country names to scrape (default: all)')
+    ap.add_argument('--distributed', action='store_true',
+                    help='Spread CDX queries across time windows')
+    ap.add_argument('--per-period', type=int, default=3,
+                    help='Snapshots per time window (default 3)')
+    ap.add_argument('--period', choices=('month', 'quarter'), default='quarter',
+                    help='Time-window granularity (default quarter)')
+    ap.add_argument('--from-year', type=int, default=2018)
+    ap.add_argument('--to-year', type=int, default=2025)
+    ap.add_argument('--rescan', action='store_true',
+                    help='Re-query CDX even for countries marked complete; '
+                         'already-stored URLs are still skipped at fetch time')
+    ap.add_argument('--max-snapshots', type=int, default=None,
+                    help='Cap on total snapshots per country (applies to both '
+                         'distributed and legacy modes)')
+    args = ap.parse_args()
+    run(args.countries or None,
+        distributed=args.distributed,
+        per_period=args.per_period,
+        period=args.period,
+        from_year=args.from_year,
+        to_year=args.to_year,
+        rescan=args.rescan,
+        max_snapshots=args.max_snapshots)

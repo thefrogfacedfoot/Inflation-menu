@@ -1,0 +1,204 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Deliveroo UK sweep — 8 city patterns
+Per pattern: ≤20 fetches, sampled by size desc
+
+[1/8] CDX deliveroo.co.uk/menu/london/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [  1] 20250423 621 items co op 311 lower addiscombe roa
+  [  2] 20251126 151 items regina pizza 309 lower addisco
+  [  3] 20260312 151 items regina pizza 309 lower addisco
+  [  4] 20260523 240 items little dessert shop croydon (d
+  [  5] 20250602 480 items sainsburys addiscombe local (d
+  [  6] 20250602 480 items sainsburys addiscombe local (d
+  [  7] 20250602 480 items sainsburys addiscombe local (d
+  [  8] 20250602 480 items sainsburys addiscombe local (d
+  [  9] 20260525 240 items little dessert shop croydon (d
+  [ 10] 20250422 425 items co op 311 lower addiscombe roa
+  [ 11] 20250122 539 items sainsburys addiscombe local (d
+  [ 12] 20250122 539 items sainsburys addiscombe local (d
+  [ 13] 20250122 539 items sainsburys addiscombe local (d
+  [ 14] 20250418 383 items co op 311 lower addiscombe roa
+  [ 15] 20251126 199 items co op 61 lower addiscombe road
+  [ 16] 20250423 396 items co op 311 lower addiscombe roa
+  [ 17] 20250421 371 items co op 311 lower addiscombe roa
+  [ 18] 20250421 392 items co op 311 lower addiscombe roa
+  [ 19] 20250630  71 items harvester cricketers (delivero
+  [ 20] 20250908 232 items sainsburys abbey wood (deliver
+[2/8] CDX deliveroo.co.uk/menu/manchester/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [ 21] 20250521 fetch fail  yne/fireaway-ashton?day=today&geohash=gcw2q2qb9qsk&time=ASAP
+  [ 22] 20250211 fetch fail  eroo.co.uk/menu/manchester/ashton-under-lyne/fireaway-ashton
+  [ 23] 20250423 fetch fail  e/papa-johns-ashton?day=today&geohash=gcw2xgb55xyj&time=ASAP
+  [ 24] 20250321 fetch fail  -200-stockport-road?day=today&geohash=gcw2wdwcdf3z&time=ASAP
+  [ 25] 20260113 fetch fail  /nandos-ashton-moss?day=today&geohash=gcw2q2q8fwh4&time=ASAP
+  [ 26] 20250520 fetch fail  ton-under-lyne-8147?day=today&geohash=gcw2qyz4nxcv&time=ASAP
+  [ 27] 20251011 fetch fail  imperley/?category_id=%23AISLE-OFFERS&source=offers_carousel
+  [ 28] 20251009 fetch fail  rincham-retail-park?day=today&geohash=gcqrffkhxp3j&time=ASAP
+  [ 29] 20251006 fetch fail  rincham-retail-park?day=today&geohash=gcqrdxexpwpy&time=ASAP
+  [ 30] 20251006 fetch fail  rincham-retail-park?day=today&geohash=gcqrdubqsyfz&time=ASAP
+  [ 31] 20251013 fetch fail  lds-0876-pendlebury?day=today&geohash=gcw26wp9645u&time=ASAP
+  [ 32] 20250804 fetch fail  vel&linked_request_uuid=a989d964-eaca-471e-ae26-abd26091f3b5
+  [ 33] 20251006 fetch fail  m/12309-starbucks-altrincham-sainsburys?geohash=gcqrdubqsyfz
+  [ 34] 20251013 fetch fail  am/co-op-timperley/?category_id=942871879&source=explore_tab
+  [ 35] 20250515 fetch fail  trincham-foundation?day=today&geohash=gcw25fmrzb5k&time=ASAP
+  [ 36] 20250517 fetch fail  -200-stockport-road?day=today&geohash=gcw25fmrzb5k&time=ASAP
+  [ 37] 20250518 fetch fail  ton-moss-sainsburys?day=today&geohash=gcw2qyz4nxcv&time=ASAP
+  [ 38] 20250815 fetch fail  vel&linked_request_uuid=a989d964-eaca-471e-ae26-abd26091f3b5
+  [ 39] 20250427 fetch fail  /nandos-ashton-moss?day=today&geohash=gcw2xgb55xyj&time=1215
+  [ 40] 20250430 fetch fail  /nandos-ashton-moss?day=today&geohash=gcw2xgb55xyj&time=ASAP
+[3/8] CDX deliveroo.co.uk/menu/birmingham/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [ 41] 20250516 fetch fail  rmingham/aldridge/subway-aldridge-45123?geohash=gcqek1qqytrq
+  [ 42] 20250515 fetch fail  -central-birchfield/chaiibox-birmingham?geohash=gcqek1qqytrq
+  [ 43] 20211007 fetch fail  ark/co-op-wolverhampton-griffiths-drive?geohash=gcqe6k8d6yrb
+  [ 44] 20251008 fetch fail  ton-griffiths-drive?day=today&geohash=gcqe17dpf5mg&time=ASAP
+  [ 45] 20251008 fetch fail  ton-griffiths-drive?day=today&geohash=gcqe0eyh4xe9&time=ASAP
+  [ 46] 20251111 fetch fail  rid&linked_request_uuid=4cf28d10-a0e6-463e-a854-48dacb3f7566
+  [ 47] 20250516 fetch fail  dge/wingers-walsall?day=today&geohash=gcqek1qqytrq&time=1230
+  [ 48] 20250515 fetch fail  house-sizzling-pubs?day=today&geohash=gcqek1qqytrq&time=0945
+  [ 49] 20250517 fetch fail  own-sizzling-pubs-1?day=today&geohash=gcqek1qqytrq&time=1230
+  [ 50] 20250518 fetch fail  big-johns-perry-bar?day=today&geohash=gcqek1qqytrq&time=1200
+  [ 51] 20250520 fetch fail  big-johns-perry-bar?day=today&geohash=gcqdtvppdc5y&time=ASAP
+  [ 52] 20250620 fetch fail  vel&linked_request_uuid=dfc80168-bada-4222-9679-f6ea6c37c2d8
+  [ 53] 20250319 fetch fail  vel&linked_request_uuid=01aa63c0-4927-48e1-9615-7d70b7ddb0f8
+  [ 54] 20250515 118 items seavers fish and chips willenh
+  [ 55] 20251117  78 items co op wolverhampton griffiths 
+  [ 56] 20250322 fetch fail  vel&linked_request_uuid=01aa63c0-4927-48e1-9615-7d70b7ddb0f8
+  [ 57] 20250522 fetch fail  gate-express-petrol?day=today&geohash=gcqek1qqytrq&time=ASAP
+  [ 58] 20250422 fetch fail  burger-king-hopwood?day=today&geohash=gcqdhtgkzj91&time=ASAP
+  [ 59] 20250321 fetch fail  vel&linked_request_uuid=01aa63c0-4927-48e1-9615-7d70b7ddb0f8
+  [ 60] 20250514 fetch fail  ridge/241-aldridge-anchor-rd-morrisosns?geohash=gcqek1qqytrq
+[4/8] CDX deliveroo.co.uk/menu/edinburgh/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [ 61] 20250320 0 items     roo.co.uk/menu/edinburgh/calton/nandos-edinburgh-omni-centre
+  [ 62] 20251209 134 items luxford burgers picardy place 
+  [ 63] 20250621 0 items     o.co.uk/menu/edinburgh/alnwickhill/tartan-tandori-gracemount
+  [ 64] 20250620 0 items     veroo.co.uk/menu/edinburgh/bonnyrigg/cheeky-chicken-dalkeith
+  [ 65] 20250621 150 items go pizza gorgie road (delivero
+  [ 66] 20250320 0 items     inburgh-omni-centre?day=today&geohash=gcvwrdtpehvr&time=ASAP
+  [ 67] 20250614 267 items subway 67597 polbeth service s
+  [ 68] 20250620 178 items mcdonalds 1539 dalkeith (deliv
+  [ 69] 20250802 fetch fail  gmg&time=ASAP&fulfillment_method=DELIVERY&item-id=2627375644
+  [ 70] 20250802 fetch fail  y&geohash=gcvwnx9wxgmg&time=ASAP&fulfillment_method=DELIVERY
+  [ 71] 20250613 124 items luxford burgers picardy place 
+  [ 72] 20250613 110 items nandos edinburgh omni centre (
+  [ 73] 20250616 173 items 28720 starbucks leith walk (de
+  [ 74] 20250516 173 items 15291 starbucks edinburgh the 
+  [ 75] 20250621 173 items 57779 starbucks dalkeith (deli
+  [ 76] 20250320 125 items taco bell edinburgh picardy (d
+  [ 77] 20250322 161 items sainsburys edinburgh shrubhill
+  [ 78] 20250320  64 items hongfu noodle bar (deliveroo-u
+  [ 79] 20250323 fetch fail  rgers-picardy-place?day=today&geohash=gcvwrdtpehvr&time=ASAP
+  [ 80] 20250708 233 items sainsburys edinburgh shrubhill
+[5/8] CDX deliveroo.co.uk/menu/glasgow/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [ 81] 20250811 fetch fail  ab-glasgow-west-end?day=today&geohash=gcuvy3wd1yyf&time=ASAP
+  [ 82] 20250808 fetch fail  ri-peri-duke-street?day=today&geohash=gcuvzb88sp7q&time=ASAP
+  [ 83] 20250614 fetch fail  iveroo.co.uk/menu/glasgow/barrhead/black-rooster-t-a-br-peri
+  [ 84] 20250618 fetch fail  iveroo.co.uk/menu/glasgow/airdrie/pizza-hut-delivery-airdrie
+  [ 85] 20241001 fetch fail  p-coffee-byres-road?time=ASAP&day=today&geohash=gcuvvgxwbsk3
+  [ 86] 20250614 fetch fail  /deliveroo.co.uk/menu/glasgow/barrhead/subway-barrhead-42273
+  [ 87] 20250621 fetch fail  deliveroo.co.uk/menu/glasgow/bridgeton-camlachie/spice-magic
+  [ 88] 20250614 fetch fail  veroo.co.uk/menu/glasgow/baljaffray/mcdonalds-0772-milngavie
+  [ 89] 20250613 fetch fail  glasgow/bridgeton-camlachie/subway-bridgeton-723-london-road
+  [ 90] 20250618 fetch fail  https://deliveroo.co.uk/menu/glasgow/airdrie/pathans
+  [ 91] 20250622 fetch fail  liveroo.co.uk/menu/glasgow/airdrie/mcdonalds-0453-coatbridge
+  [ 92] 20250620 504 items madras tandoori kyleakin rd (d
+  [ 93] 20250621 fetch fail  uk/menu/glasgow/bishopbriggs/subway-kirkintilloch-road-42636
+  [ 94] 20250616 fetch fail  https://deliveroo.co.uk/menu/glasgow/airdrie/the-big-chef
+  [ 95] 20250620 fetch fail  oo.co.uk/menu/glasgow/barrhead/charghas-fast-food-barrhead-2
+  [ 96] 20250622 fetch fail  nu/glasgow/bridgeton-camlachie/francos-continental-bridgeton
+  [ 97] 20260405 fetch fail  gle_maps_link&fulfillment_type=DELIVERY&utm_medium=affiliate
+  [ 98] 20250614 fetch fail  co.uk/menu/glasgow/arden-thornliebank/peters-chippie-glasgow
+  [ 99] 20250621 fetch fail  s://deliveroo.co.uk/menu/glasgow/airdrie/tasty-point-airdrie
+  [100] 20250708 fetch fail  rid&linked_request_uuid=8547f3d9-63bb-4524-8179-782cd6f318a5
+[6/8] CDX deliveroo.co.uk/menu/bristol/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [101] 20250423 0 items     -coffee-queens-road?day=today&geohash=gcnhubg9xqud&time=ASAP
+  [102] 20250622 fetch fail  tol/brandon/jos-tea?day=today&geohash=gcnhy13c1z52&time=1100
+  [103] 20250618 fetch fail  -coffee-queens-road?day=today&geohash=gcnhy13c1z52&time=ASAP
+  [104] 20250322 fetch fail  bristol-park-street?day=today&geohash=gcnhszm9qgyp&time=1147
+  [105] 20250720 fetch fail  -coffee-queens-road?day=today&geohash=gcnhsv000d2w&time=ASAP
+  [106] 20250710 fetch fail  bristol-park-street?day=today&geohash=gcnhsv000d2w&time=ASAP
+  [107] 20250324 fetch fail  randon/cupp-clifton?day=today&geohash=gcnhszm9qgyp&time=1116
+  [108] 20250322 145 items waitrose clifton (deliveroo-uk
+  [109] 20250711 fetch fail  urys-winterstoke-rd?day=today&geohash=gcnhmqk0fh3f&time=ASAP
+  [110] 20250717 198 items sainsburys dingles brs (delive
+  [111] 20250323 116 items yakinori 78 park street (deliv
+  [112] 20250710 145 items waitrose clifton (deliveroo-uk
+  [113] 20250717 132 items shake poke (deliveroo-uk)
+  [114] 20250908 110 items waitrose clifton (deliveroo-uk
+  [115] 20250713 137 items wagamama bristol (deliveroo-uk
+  [116] 20250624 137 items wagamama bristol (deliveroo-uk
+  [117] 20250624 fetch fail  /brandon/shake-poke?day=today&geohash=gcnhy13c1z52&time=1145
+  [118] 20250623 fetch fail  nori-78-park-street?day=today&geohash=gcnhy13c1z52&time=1145
+  [119] 20250429 fetch fail  on/wagamama-bristol?day=today&geohash=gcnhu28842rp&time=1030
+  [120] 20250618 fetch fail  aka-taka-magic-roll?day=today&geohash=gcnhy13c1z52&time=1145
+[7/8] CDX deliveroo.co.uk/menu/leeds/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [121] 20220523 1233 items sainsburys bradford broadwy lo
+  [122] 20220523 1233 items sainsburys bradford broadwy lo
+  [123] 20250321 0 items     eliveroo.co.uk/menu/leeds/austhorpe/subway-colton-mill-62662
+  [124] 20250525 0 items     o.uk/menu/leeds/bradford-central/franksters-burgers-bradford
+  [125] 20250516 577 items co op baildon northgate (deliv
+  [126] 20250517 292 items subway bradford road 39074 (de
+  [127] 20250906 234 items subway elland road 34563 (deli
+  [128] 20260123 218 items subway westfield 53747 (delive
+  [129] 20250613 180 items mcdonalds 1277 asda rooley (de
+  [130] 20260217 197 items 28701 starbucks bradford cente
+  [131] 20250515 fetch fail  rid&linked_request_uuid=459b9e57-3cc6-4359-ab1f-fa15720630f9
+  [132] 20250518 fetch fail  rid&linked_request_uuid=459b9e57-3cc6-4359-ab1f-fa15720630f9
+  [133] 20250518 fetch fail  enu/leeds/birstall-gomersal/3363-pizzaexpress-leeds-birstall
+  [134] 20250614 fetch fail  nu/leeds/burley-and-kirkstall/adils-takeaway-3-burley-street
+  [135] 20250512 fetch fail  way-3-burley-street?day=today&geohash=gcwfhbg7b60e&time=ASAP
+  [136] 20250518 fetch fail  liveroo.co.uk/menu/leeds/armley-and-new-wortley/bilals-pizza
+  [137] 20250515 fetch fail  rid&linked_request_uuid=459b9e57-3cc6-4359-ab1f-fa15720630f9
+  [138] 20250516 fetch fail  rid&linked_request_uuid=459b9e57-3cc6-4359-ab1f-fa15720630f9
+  [139] 20250614 fetch fail  tps://deliveroo.co.uk/menu/leeds/batley-centre/oodles-batley
+  [140] 20250515 fetch fail  rid&linked_request_uuid=459b9e57-3cc6-4359-ab1f-fa15720630f9
+[8/8] CDX deliveroo.co.uk/menu/liverpool/*
+  CDX returned 1000 captures (collapsed by urlkey)
+  [141] 20250804 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+  [142] 20251014 fetch fail  vale/spar-childwall?day=today&geohash=gcmztr1bd5zj&time=ASAP
+  [143] 20250710 fetch fail  vale/spar-childwall?day=today&geohash=gctbj08zs2s8&time=ASAP
+  [144] 20250905 fetch fail  vale/spar-childwall?day=today&geohash=gcmzv4mc5rrs&time=ASAP
+  [145] 20250809 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+  [146] 20250809 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+  [147] 20250809 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+  [148] 20250810 387 items sainsburys liverpool great hom
+  [149] 20250815 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+  [150] 20260415 fetch fail  za-liverpool-oo9313?day=today&geohash=gcqpbe33b02s&time=ASAP
+  [151] 20260415 fetch fail  uk/menu/Liverpool/allerton/papa-johns-pizza-liverpool-oo9313
+  [152] 20250815 fetch fail  vel&linked_request_uuid=50bb1310-2a5c-4924-a7e1-9597f6171919
+  [153] 20251014 fetch fail  rpool-aigburth-road?day=today&geohash=gcmztr1bd5zj&time=ASAP
+  [154] 20250425 fetch fail  vel&linked_request_uuid=8a053038-3ba1-4315-916f-cd3b158c6064
+  [155] 20250614 fetch fail  ool/everton-park/mcdonalds-1511-liverpool-great-homer-street
+  [156] 20250814 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+  [157] 20250804 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+  [158] 20250324 fetch fail  vel&linked_request_uuid=4e4cd863-13e8-4aa1-8a42-5237f0d66dff
+  [159] 20250813 fetch fail  vel&linked_request_uuid=50bb1310-2a5c-4924-a7e1-9597f6171919
+  [160] 20250809 fetch fail  rid&linked_request_uuid=812455bb-8dbc-450a-963e-ecb82e04063d
+
+=== Summary ===
+  Fetches attempted: 160
+  Hit pages:         53
+  Rows inserted:     15845
+  Distinct months:   15
+
+  Per-month yield:
+    2022-05: 2 pages, 2466 items
+    2025-01: 3 pages, 1617 items
+    2025-03: 5 pages, 611 items
+    2025-04: 6 pages, 2588 items
+    2025-05: 4 pages, 1160 items
+    2025-06: 15 pages, 3987 items
+    2025-07: 5 pages, 845 items
+    2025-08: 1 pages, 387 items
+    2025-09: 3 pages, 576 items
+    2025-11: 3 pages, 428 items
+    2025-12: 1 pages, 134 items
+    2026-01: 1 pages, 218 items
+    2026-02: 1 pages, 197 items
+    2026-03: 1 pages, 151 items
+    2026-05: 2 pages, 480 items

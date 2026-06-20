@@ -1,0 +1,136 @@
+UIFPI — FORMAL / INFORMAL CLASSIFICATION RATIONALE
+(Section 3.4 source — research paper)
+Last updated: 2026-06-13
+================================================================
+
+1. DEFINITION
+-------------
+Informal sector: food vendors with hawker or street food origins,
+operating from a single stall or a maximum of three outlets at the
+time of the first price observation, primarily serving traditional
+local dishes without full table service.
+
+Formal sector: restaurant chains and casual / full-service
+establishments that (a) operate four or more outlets at the time
+of the first price observation, OR (b) provide full table service
+with printed menus, taxed receipts, and a registered company entity,
+OR (c) are publicly listed or operate as franchised entities.
+
+2. APPLICATION NOTES
+--------------------
+- Outlet count is measured at the time of the *first* observation in
+  the dataset. A vendor that later expands above the threshold keeps
+  its initial classification to preserve the time-series integrity
+  of the informal index.
+- Brand recognition outside the home market (e.g., international
+  franchise rollout) automatically promotes a vendor to formal even
+  if the home-country outlet count is small.
+- TripAdvisor / Yelp listings are not used as a classification signal.
+  Number of outlets and presence of full table service are determined
+  from each vendor's own website or press coverage.
+- Items priced in non-local currency on the menu (USD-denominated
+  Singapore hotel restaurants, GBP menus in luxury London hotels) are
+  classified formal by default.
+
+3. RECLASSIFICATIONS APPLIED 2026-06-13
+---------------------------------------
+The following Singapore vendors were initially scraped as 'informal'
+because they appear on hawker-style listings, but meet the formal
+definition under (a) and (c). Records updated in uifpi.db:
+
+  Song Fa Bak Kut Teh     — 7 outlets in SG + overseas franchise (HK, JP)
+  Hawker Chan             — Michelin-origin but now international chain
+  A Noodle Story          — multi-outlet brand
+  Old Chang Kee           — 80+ outlets, SGX-listed
+  BreadTalk               — public listed multinational chain
+  Toast Box               — BreadTalk subsidiary chain
+  Crystal Jade GO         — sub-brand of Crystal Jade Group (chain)
+
+Total rows updated: 1014 (sector flipped from 'informal' to 'formal').
+After update, the Singapore formal-sector restaurant count rose from
+13 to 20 unique brands.
+
+4. RESTAURANT INVENTORY BY COUNTRY / SECTOR
+-------------------------------------------
+Counts of distinct restaurant brands per (country, sector) following
+the 2026-06-13 reclassification:
+
+  Australia       formal :   1
+  Australia       informal: 53
+  India           informal: 53
+  Indonesia       informal:  1
+  Malaysia        formal :   1
+  Malaysia        informal: 25
+  Singapore       formal :  20
+  Singapore       informal: 34
+  Thailand        formal :   8   (newly added this run, Wayback TripAdvisor)
+  United Kingdom  formal :   1
+  United Kingdom  informal: 32
+  United States   informal: 26
+
+  Total distinct (country, sector, restaurant) tuples: 254
+
+A full enumeration is shipped alongside this file as
+classification_inventory.csv (one row per (country, sector, restaurant,
+n_observations) tuple), generated from:
+
+  SELECT country, sector, restaurant_name, COUNT(*)
+  FROM prices
+  GROUP BY country, sector, restaurant_name
+  ORDER BY country, sector, COUNT(*) DESC;
+
+5. JUSTIFICATION FOR EACH SINGAPORE FORMAL ENTRY
+------------------------------------------------
+  Song Fa Bak Kut Teh : 7 SG outlets + HK/JP franchise; central group
+  Hawker Chan         : Michelin one-star origin; now Singapore, Bangkok,
+                        Taipei, Melbourne and Las Vegas outlets — chain
+  A Noodle Story      : Michelin Bib Gourmand; multi-outlet (Tanjong Pagar,
+                        Amoy St); commissary-style operation
+  Old Chang Kee       : 80+ outlets, SGX-listed since 2008
+  BreadTalk           : SGX-listed public chain, hundreds of outlets
+                        internationally
+  Toast Box           : BreadTalk subsidiary, 60+ outlets in SG alone
+  Crystal Jade GO     : Quick-service sub-brand of Crystal Jade Culinary
+                        Concepts (Singapore/HK/Shanghai)
+  Other formal SG entries: hotel restaurants, casual chains (Sushi Tei,
+  Pizza Hut, McDonald's, KFC, Subway, Burger King, etc.) and full-service
+  restaurants.
+
+6. JUSTIFICATION FOR INFORMAL CLASSIFICATIONS (sample)
+------------------------------------------------------
+  India informal vendors: Mumbai street-vendor stalls, Delhi chaat
+    counters, single-shop South Indian tiffin spots — all single-outlet
+    or family-run.
+  Australia informal: independent cafés, food-court stalls, single-outlet
+    restaurants documented in OpenStreetMap / Yelp local listings.
+  UK informal: independent takeaway and café establishments, no chain
+    presence beyond a single location.
+  US informal: NYC food carts, food trucks, single-outlet diners.
+  Singapore informal: hawker stall vendors documented in NHB hawker
+    surveys, NEA stall listings, and Wayback-indexed hawker centre menus.
+  Malaysia informal: kopitiams and single-outlet mamak stalls.
+
+7. EDGE CASES ON THE BOUNDARY
+-----------------------------
+  Crystal Jade GO          : flipped to formal (chain sub-brand)
+  Song Fa Bak Kut Teh      : flipped to formal (multi-outlet, overseas)
+  Famous individual hawkers (e.g., Tian Tian Chicken Rice): remain
+                             informal — single Maxwell Centre stall.
+  Sushi Edo (Australia)    : remains informal — sub-3-outlet franchise.
+  Boss Hogg's (Australia)  : remains informal — single venue.
+
+8. AUDIT TRAIL
+--------------
+The reclassification SQL run on 2026-06-13:
+
+  UPDATE prices SET sector='formal'
+  WHERE restaurant_name IN (
+    'Song Fa Bak Kut Teh', 'Hawker Chan', 'A Noodle Story',
+    'Old Chang Kee', 'BreadTalk', 'Toast Box', 'Crystal Jade GO'
+  );
+
+rows_updated: 1014
+
+This document supersedes any earlier informal classifications for
+these brands in derived files (uifpi_index, dashboard_data,
+aligned_series.csv).

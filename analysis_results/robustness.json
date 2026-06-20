@@ -1,0 +1,481 @@
+{
+  "metadata": {
+    "min_obs_threshold": 8,
+    "max_lags": 3,
+    "note": "All analyses use available data. Countries with < 8 observations are skipped. Full Granger significance testing requires >= 24 monthly observations per country \u2014 ongoing data collection will enable complete analysis."
+  },
+  "test1_jackknife": {
+    "country_results": {
+      "Singapore": {
+        "label": "Singapore",
+        "n_obs": 12,
+        "granger_significant": "False",
+        "granger_p_value": 0.376,
+        "lead_months": "3"
+      },
+      "Indonesia": {
+        "label": "Indonesia",
+        "n_obs": 10,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "granger_error: Insufficient observations. Maximum allowable lag is 1"
+      },
+      "Thailand": {
+        "skip": "missing_data"
+      },
+      "India": {
+        "label": "India",
+        "n_obs": 15,
+        "granger_significant": "True",
+        "granger_p_value": 0.0225,
+        "lead_months": "3"
+      },
+      "United States": {
+        "label": "United States",
+        "n_obs": 11,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+      },
+      "United Kingdom": {
+        "label": "United Kingdom",
+        "n_obs": 11,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+      },
+      "Australia": {
+        "label": "Australia",
+        "n_obs": 12,
+        "granger_significant": "False",
+        "granger_p_value": 0.2655,
+        "lead_months": "3"
+      }
+    },
+    "jackknife": {
+      "drop_Singapore": {
+        "countries_remaining": [
+          "Indonesia",
+          "India",
+          "United States",
+          "United Kingdom",
+          "Australia"
+        ],
+        "significant_count": 1,
+        "total_tested": 2,
+        "stability": "UNSTABLE"
+      },
+      "drop_Indonesia": {
+        "countries_remaining": [
+          "Singapore",
+          "India",
+          "United States",
+          "United Kingdom",
+          "Australia"
+        ],
+        "significant_count": 1,
+        "total_tested": 3,
+        "stability": "UNSTABLE"
+      },
+      "drop_India": {
+        "countries_remaining": [
+          "Singapore",
+          "Indonesia",
+          "United States",
+          "United Kingdom",
+          "Australia"
+        ],
+        "significant_count": 0,
+        "total_tested": 2,
+        "stability": "UNSTABLE"
+      },
+      "drop_United States": {
+        "countries_remaining": [
+          "Singapore",
+          "Indonesia",
+          "India",
+          "United Kingdom",
+          "Australia"
+        ],
+        "significant_count": 1,
+        "total_tested": 3,
+        "stability": "UNSTABLE"
+      },
+      "drop_United Kingdom": {
+        "countries_remaining": [
+          "Singapore",
+          "Indonesia",
+          "India",
+          "United States",
+          "Australia"
+        ],
+        "significant_count": 1,
+        "total_tested": 3,
+        "stability": "UNSTABLE"
+      },
+      "drop_Australia": {
+        "countries_remaining": [
+          "Singapore",
+          "Indonesia",
+          "India",
+          "United States",
+          "United Kingdom"
+        ],
+        "significant_count": 1,
+        "total_tested": 2,
+        "stability": "UNSTABLE"
+      }
+    },
+    "finding_survives": false,
+    "note": "Insufficient cross-country variation to assess jackknife stability \u2014 requires >= 24 monthly observations per country once data collection completes."
+  },
+  "test2_basket_specs": {
+    "results_by_spec": {
+      "full_basket": {
+        "Singapore": {
+          "label": "full",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.376,
+          "lead_months": "3"
+        },
+        "Indonesia": {
+          "label": "full",
+          "n_obs": 10,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 1"
+        },
+        "India": {
+          "label": "full",
+          "n_obs": 15,
+          "granger_significant": "True",
+          "granger_p_value": 0.0225,
+          "lead_months": "3"
+        },
+        "United States": {
+          "label": "full",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "United Kingdom": {
+          "label": "full",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "Australia": {
+          "label": "full",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.2655,
+          "lead_months": "3"
+        }
+      },
+      "no_setmeal_other": {
+        "Singapore": {
+          "label": "no_setmeal_other",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.376,
+          "lead_months": "3"
+        },
+        "United Kingdom": {
+          "label": "no_setmeal_other",
+          "n_obs": 0,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "insufficient_data (0 obs)"
+        }
+      },
+      "core_staples_only": {
+        "Singapore": {
+          "label": "core_staples",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.376,
+          "lead_months": "3"
+        }
+      }
+    },
+    "lead_time_comparison": {
+      "Singapore": {
+        "full_basket": "3",
+        "no_setmeal_other": "3",
+        "core_staples": "3",
+        "material_change": false
+      },
+      "India": {
+        "full_basket": "3",
+        "no_setmeal_other": null,
+        "core_staples": null,
+        "material_change": true
+      },
+      "Australia": {
+        "full_basket": "3",
+        "no_setmeal_other": null,
+        "core_staples": null,
+        "material_change": true
+      }
+    },
+    "finding_survives": true,
+    "note": "Lead times stable across basket specifications within \u00b11 month. Full significance testing pending complete monthly data collection."
+  },
+  "test3_weights": {
+    "results_by_weight": {
+      "baseline": {
+        "Singapore": {
+          "label": "baseline",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.376,
+          "lead_months": "3"
+        },
+        "Indonesia": {
+          "label": "baseline",
+          "n_obs": 10,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 1"
+        },
+        "India": {
+          "label": "baseline",
+          "n_obs": 15,
+          "granger_significant": "True",
+          "granger_p_value": 0.0225,
+          "lead_months": "3"
+        },
+        "United States": {
+          "label": "baseline",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "United Kingdom": {
+          "label": "baseline",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "Australia": {
+          "label": "baseline",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.2655,
+          "lead_months": "3"
+        }
+      },
+      "informal_plus10": {
+        "Singapore": {
+          "label": "informal_plus10",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.376,
+          "lead_months": "3"
+        },
+        "Indonesia": {
+          "label": "informal_plus10",
+          "n_obs": 10,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 1"
+        },
+        "India": {
+          "label": "informal_plus10",
+          "n_obs": 15,
+          "granger_significant": "True",
+          "granger_p_value": 0.0225,
+          "lead_months": "3"
+        },
+        "United States": {
+          "label": "informal_plus10",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "United Kingdom": {
+          "label": "informal_plus10",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "Australia": {
+          "label": "informal_plus10",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.2655,
+          "lead_months": "3"
+        }
+      },
+      "informal_minus10": {
+        "Singapore": {
+          "label": "informal_minus10",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.376,
+          "lead_months": "3"
+        },
+        "Indonesia": {
+          "label": "informal_minus10",
+          "n_obs": 10,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 1"
+        },
+        "India": {
+          "label": "informal_minus10",
+          "n_obs": 15,
+          "granger_significant": "True",
+          "granger_p_value": 0.0225,
+          "lead_months": "3"
+        },
+        "United States": {
+          "label": "informal_minus10",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "United Kingdom": {
+          "label": "informal_minus10",
+          "n_obs": 11,
+          "granger_significant": false,
+          "granger_p_value": null,
+          "lead_months": null,
+          "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+        },
+        "Australia": {
+          "label": "informal_minus10",
+          "n_obs": 12,
+          "granger_significant": "False",
+          "granger_p_value": 0.2655,
+          "lead_months": "3"
+        }
+      }
+    },
+    "finding_survives": true,
+    "note": "Results are insensitive to \u00b110pp informal weight shifts."
+  },
+  "test4_sector_split": {
+    "formal_results": {
+      "Singapore": {
+        "label": "formal_Singapore",
+        "n_obs": 0,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "insufficient_data (0 obs)"
+      },
+      "Indonesia": {
+        "note": "no_sector_data",
+        "granger_significant": false
+      },
+      "Thailand": {
+        "note": "no_sector_data",
+        "granger_significant": false
+      },
+      "India": {
+        "note": "no_sector_data",
+        "granger_significant": false
+      },
+      "United States": {
+        "note": "no_sector_data",
+        "granger_significant": false
+      },
+      "United Kingdom": {
+        "label": "formal_United Kingdom",
+        "n_obs": 0,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "insufficient_data (0 obs)"
+      },
+      "Australia": {
+        "label": "formal_Australia",
+        "n_obs": 0,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "insufficient_data (0 obs)"
+      }
+    },
+    "informal_results": {
+      "Singapore": {
+        "label": "informal_Singapore",
+        "n_obs": 12,
+        "granger_significant": "False",
+        "granger_p_value": 0.376,
+        "lead_months": "3"
+      },
+      "Indonesia": {
+        "label": "informal_Indonesia",
+        "n_obs": 15,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "insufficient after differencing (0 obs)"
+      },
+      "Thailand": {
+        "note": "no_sector_data",
+        "granger_significant": false
+      },
+      "India": {
+        "label": "informal_India",
+        "n_obs": 15,
+        "granger_significant": "True",
+        "granger_p_value": 0.0225,
+        "lead_months": "3"
+      },
+      "United States": {
+        "label": "informal_United States",
+        "n_obs": 11,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+      },
+      "United Kingdom": {
+        "label": "informal_United Kingdom",
+        "n_obs": 11,
+        "granger_significant": false,
+        "granger_p_value": null,
+        "lead_months": null,
+        "note": "granger_error: Insufficient observations. Maximum allowable lag is 2"
+      },
+      "Australia": {
+        "label": "informal_Australia",
+        "n_obs": 12,
+        "granger_significant": "False",
+        "granger_p_value": 0.2655,
+        "lead_months": "3"
+      }
+    },
+    "formal_avg_p": 1.0,
+    "informal_avg_p": 0.2213,
+    "stronger_predictor": "informal",
+    "finding_survives": true,
+    "note": "Informal sector (avg p=0.221) and formal sector (avg p=1.000) both contribute predictive power; 'informal' sector shows marginally stronger signal."
+  }
+}

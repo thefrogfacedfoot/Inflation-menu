@@ -1,0 +1,256 @@
+country,sector,restaurant_name,n
+Australia,formal,Oporto,1
+Australia,informal,"Casa Nostra Ristorante",7
+Australia,informal,Yuzu&co,3
+Australia,informal,"Otto Ristorante Brisbane",3
+Australia,informal,"Jackpot Dining",3
+Australia,informal,"Creole Soul Kitchen",3
+Australia,informal,"Sushi Edo",2
+Australia,informal,"Royal Kebab",2
+Australia,informal,"Pineapple Hotel",2
+Australia,informal,"Norman Hotel",2
+Australia,informal,"Boss Hogg's",2
+Australia,informal,"remy's",1
+Australia,informal,"Zingara's Kitchen",1
+Australia,informal,"Whisk and Ladle",1
+Australia,informal,"Up Shot Expresso",1
+Australia,informal,"Two Teaspoons",1
+Australia,informal,"Turbans and Cowboys",1
+Australia,informal,"Tuk Chop",1
+Australia,informal,"Top Wok Chinese Restaurant",1
+Australia,informal,"The London Club - CLOSED",1
+Australia,informal,"Sunrise Boulevard Cafe",1
+Australia,informal,"Six Acres Restaurant",1
+Australia,informal,"Sichuan Bang Bang",1
+Australia,informal,"Shun Noodle Bar",1
+Australia,informal,"Sea Fuel",1
+Australia,informal,"Roti Place",1
+Australia,informal,"Rikyu Japanese Restaurant",1
+Australia,informal,Nine-T-Nine,1
+Australia,informal,"Nickel Kitchen & Bar - CLOSED",1
+Australia,informal,Merlo,1
+Australia,informal,"Mamaku Kitchen",1
+Australia,informal,"Madders Brothers Patisserie",1
+Australia,informal,"Lucky Egg",1
+Australia,informal,"Lokal + Co",1
+Australia,informal,"Khot Thai",1
+Australia,informal,"Hello Harry The Burger Joint (Portside)",1
+Australia,informal,"Greenbank Asian Kitchens",1
+Australia,informal,"Glasshouse Bar",1
+Australia,informal,"Fromage the Cow",1
+Australia,informal,"Fish's Seafood Market",1
+Australia,informal,"Finn McCool's",1
+Australia,informal,"Eiffel Restaurant",1
+Australia,informal,"Doughnut Time",1
+Australia,informal,"Corretto Cafe & Bar International",1
+Australia,informal,"Comuna Cantina",1
+Australia,informal,"Chu the Phat",1
+Australia,informal,"Chop Chop Sushi",1
+Australia,informal,"Cafe 63",1
+Australia,informal,"Blockhouse coffee + small bar",1
+Australia,informal,"Badminton Brew",1
+Australia,informal,"Aviation Pier Cafe & Bar",1
+Australia,informal,"Ambrosia & Co",1
+Australia,informal,"AJO'",1
+Australia,informal,"5 Boroughs",1
+India,informal,"Shiv Sagar",6
+India,informal,Badshah,5
+India,informal,"The Bohri Kitchen",3
+India,informal,Peshawri,3
+India,informal,"GVK Lounge",3
+India,informal,"Chai Pe Charcha",3
+India,informal,"Samrat Veg Restaurant",2
+India,informal,"Rivea, Taj Santacruz",2
+India,informal,"Mockingbird Cafe Bar",2
+India,informal,Mabruk,2
+India,informal,"White Rose Cafe",1
+India,informal,"Warehouse Kitchen",1
+India,informal,"True Tramm Trunk",1
+India,informal,"Tiffin Box Etc - Saki Naka",1
+India,informal,"Thyme Bistro",1
+India,informal,"The Village Restaurant",1
+India,informal,"The Fusion Kitchen",1
+India,informal,"The Beer Cafe",1
+India,informal,"The American Joint",1
+India,informal,"Tea & Conversations",1
+India,informal,Tatami,1
+India,informal,"TAP Resto Bar",1
+India,informal,Stadium,1
+India,informal,"Spice Cot",1
+India,informal,Shabri,1
+India,informal,"R'Adda",1
+India,informal,"Pride Restaurant & Bar",1
+India,informal,"Pop Tates",1
+India,informal,"Oye Kake",1
+India,informal,"Only Parathas",1
+India,informal,"Mumbai 90",1
+India,informal,"Ministry of salads",1
+India,informal,"Mi Favorito",1
+India,informal,"Janata Lunch Home Restaurant & Bar",1
+India,informal,Imbiss,1
+India,informal,"Glocal Junction",1
+India,informal,Gajalee,1
+India,informal,"Food Inn",1
+India,informal,"Farzi Cafe",1
+India,informal,"East Asian Spice Trail",1
+India,informal,"Dishkiyaoon Restaurant",1
+India,informal,"Delhi Highway",1
+India,informal,Deewaan-E-Khaas,1
+India,informal,Corleone,1
+India,informal,Chetana,1
+India,informal,"Capital Social",1
+India,informal,"Cafe Mezzuna",1
+India,informal,Bastian,1
+India,informal,Balaji,1
+India,informal,"Ark Vegetarian Fine Dine",1
+India,informal,Aaswad,1
+India,informal,"1441 Pizzeria Lokhandwala",1
+India,informal,"1441 Pizzeria",1
+Indonesia,informal,"Javanegra Gourmet Atelier",1
+Malaysia,formal,"Ichiban Boshi KL",126
+Malaysia,informal,"Restoran Yusoof Dan Zakhir",170
+Malaysia,informal,"Kluang Rail Coffee",102
+Malaysia,informal,"Tony Roma's",4
+Malaysia,informal,"Michelangelo's Restaurant, Deli and Bar",4
+Malaysia,informal,"Chili's, Bangsar Shopping Centre",4
+Malaysia,informal,"Halab KL",3
+Malaysia,informal,"Barat Restaurant",3
+Malaysia,informal,"Babe Restaurant",3
+Malaysia,informal,"Warisan Nasi Kukus Ayam Goreng Berempah",2
+Malaysia,informal,"The Bean Belt Coffee",2
+Malaysia,informal,"Llao Llao",2
+Malaysia,informal,Taka,1
+Malaysia,informal,Sopoong,1
+Malaysia,informal,"Restaurant Zai Kee",1
+Malaysia,informal,"Old Town White Coffee",1
+Malaysia,informal,"New Chapter by The Owls Cafe",1
+Malaysia,informal,"Michelangelo’s Restaurant @ Pavilion Kuala Lumpur",1
+Malaysia,informal,"LC Restaurant - CLOSED",1
+Malaysia,informal,"John King",1
+Malaysia,informal,"Indian Spices Village",1
+Malaysia,informal,"Grind 22 Cafe",1
+Malaysia,informal,"Fuel Shack",1
+Malaysia,informal,"Chinoz On The Park",1
+Malaysia,informal,"Charlie's Cafe",1
+Malaysia,informal,"Absolute Thai Garden",1
+Singapore,formal,"Paradise Dynasty",727
+Singapore,formal,"Sushi Tei",711
+Singapore,formal,"Ichiban Boshi",697
+Singapore,formal,Rubato,532
+Singapore,formal,"Crystal Jade La Mian Xiao Long Bao",461
+Singapore,formal,BreadTalk,440
+Singapore,formal,"Din Tai Fung",380
+Singapore,formal,"Toast Box",300
+Singapore,formal,"Tim Ho Wan",271
+Singapore,formal,"Crystal Jade Hong Kong Kitchen",246
+Singapore,formal,"Pepper Lunch",210
+Singapore,formal,"Ippudo Ramen",206
+Singapore,formal,"Jumbo Seafood",172
+Singapore,formal,Hokkaido-ya,132
+Singapore,formal,"Song Fa Bak Kut Teh",88
+Singapore,formal,"Old Chang Kee",78
+Singapore,formal,"Crystal Jade GO",64
+Singapore,formal,Putien,61
+Singapore,formal,"A Noodle Story",44
+Singapore,formal,"No Signboard Prawn Noodles and Carrot Cake",38
+Singapore,informal,"Janggut Laksa",200
+Singapore,informal,"328 Katong Laksa",154
+Singapore,informal,"Nam Kee Chicken Rice",89
+Singapore,informal,"Tai Wah Pork Noodles",69
+Singapore,informal,"Swee Choon Tim Sum",67
+Singapore,informal,"Crave Nasi Lemak",54
+Singapore,informal,Whitegrass,4
+Singapore,informal,"Horizon Bistronomy",3
+Singapore,informal,reDPan,2
+Singapore,informal,"Peach Blossoms (Marina Mandarin)",2
+Singapore,informal,"Captain K Seafood Tower",2
+Singapore,informal,"Tung Lok Teahouse",1
+Singapore,informal,"Ticm Gelato Cocktail Bar + Dining",1
+Singapore,informal,"The Soup Spoon Union",1
+Singapore,informal,"The Rosti Farm",1
+Singapore,informal,"The Manhattan Fish Market",1
+Singapore,informal,"The Coffee House",1
+Singapore,informal,"Tea Restaurant",1
+Singapore,informal,Suanthai,1
+Singapore,informal,"Ssikkek Korean Grill BBQ",1
+Singapore,informal,"Spageddies Italian Kitchen (Paragon) - CLOSED",1
+Singapore,informal,"Salad Stop",1
+Singapore,informal,"Rahim Satay Stall 3-4",1
+Singapore,informal,"Pin Cha Tea House",1
+Singapore,informal,"My Spice Affair",1
+Singapore,informal,"Kitchen by Food Rebel",1
+Singapore,informal,"Kenhiru Japanese Restaurant - CLOSED",1
+Singapore,informal,"Harry's",1
+Singapore,informal,"Buddy Hoagies",1
+Singapore,informal,"Breez Bistro.Bar",1
+Singapore,informal,"Banana Tree",1
+Singapore,informal,"Auntie Kim’s",1
+Singapore,informal,"Al Bismi",1
+Singapore,informal,"6oz Espresso Bar",1
+Thailand,formal,"On Lok Yun",4
+Thailand,formal,"Dosa King Punjabi South Indian Vegetarian",3
+Thailand,formal,"Wine Connection The Paseo Park Kanchanaphisek",2
+Thailand,formal,"Hong Bao Sukhumvit 39",2
+Thailand,formal,"About Eatery",2
+Thailand,formal,wongnai,1
+Thailand,formal,"Holey Artisan Bakery",1
+Thailand,formal,"Gianni Ristorante",1
+"United Kingdom",formal,Leon,2
+"United Kingdom",informal,"Bleecker Burger",20
+"United Kingdom",informal,"Dalloway Terrace",6
+"United Kingdom",informal,"Pret A Manger",3
+"United Kingdom",informal,"The Back Room",2
+"United Kingdom",informal,"Rumi Restaurant",2
+"United Kingdom",informal,"Ma's Kitchen",2
+"United Kingdom",informal,"Dragonfly Cafe",2
+"United Kingdom",informal,"Cafe Italia",2
+"United Kingdom",informal,"Burgers and Wine",2
+"United Kingdom",informal,"Black Roe",2
+"United Kingdom",informal,"Bisha Eritrean restaurant 2013",2
+"United Kingdom",informal,"Wasabi Sushi & Bento",1
+"United Kingdom",informal,"The Plough - CLOSED",1
+"United Kingdom",informal,"The Good Yard",1
+"United Kingdom",informal,"Soor Lebanese Restaurant",1
+"United Kingdom",informal,"Rockadollar Dogs",1
+"United Kingdom",informal,"Retro Joe",1
+"United Kingdom",informal,"Pret a Manger",1
+"United Kingdom",informal,"Peyton & Byrne Restaurant",1
+"United Kingdom",informal,"Patisserie Valerie - CLOSED",1
+"United Kingdom",informal,"Osteria Wine Food Cocktails",1
+"United Kingdom",informal,"Number 57",1
+"United Kingdom",informal,"McDonald's",1
+"United Kingdom",informal,"LEON - Cheapside",1
+"United Kingdom",informal,"Krispy Kreme Victoria",1
+"United Kingdom",informal,"Gusto Pizza",1
+"United Kingdom",informal,"Dunn's Bakery",1
+"United Kingdom",informal,Costa,1
+"United Kingdom",informal,Chilango,1
+"United Kingdom",informal,Barraka,1
+"United Kingdom",informal,"Balkan Bites",1
+"United Kingdom",informal,"Association Coffee",1
+"United States",informal,"Crave Fishbar Upper West",7
+"United States",informal,"An’nam",6
+"United States",informal,"Indian Accent",3
+"United States",informal,"Fluffy's Cafe & Pizzeria",3
+"United States",informal,Besfren,3
+"United States",informal,"The Pandering Pig",2
+"United States",informal,Shoreham,2
+"United States",informal,"San Carlo Osteria Piemonte",2
+"United States",informal,Nix,2
+"United States",informal,"Le Coq Rico NYC",2
+"United States",informal,"Foundry Kitchen & Bar",2
+"United States",informal,"Don Panchito Restaurante Mexicano",2
+"United States",informal,"Crave Fishbar Upper West Side",2
+"United States",informal,"B Squared",2
+"United States",informal,"Siblings NYC",1
+"United States",informal,"Shake Shack",1
+"United States",informal,Maroo,1
+"United States",informal,Kb50,1
+"United States",informal,"Garfunkel's Speakeasy",1
+"United States",informal,"Foundry Kitchen",1
+"United States",informal,"Effy's Kitchen",1
+"United States",informal,"Da Capo Aperitivo e Caffe",1
+"United States",informal,Cocoron,1
+"United States",informal,"Chef Eddie G's",1
+"United States",informal,"876 Market Deli",1
+"United States",informal,"57 Belle House",1

@@ -7,6 +7,7 @@ from sqlalchemy import select
 
 from app.config import Settings, get_settings
 from app.db import session_scope
+from app.metrics import finder_opportunities_scored_total
 from app.models import Opportunity
 from app.reddit_client import RedditClient, RedditPost
 from app.scorer import Scorer
@@ -95,9 +96,11 @@ def run_cycle(
         )
 
         if result.relevance_score < settings.min_score_to_store:
+            finder_opportunities_scored_total.labels(stored="false").inc()
             continue
         if settings.dry_run:
             log.info("[dry-run] would store %s (%d)", post.post_id, result.relevance_score)
+            finder_opportunities_scored_total.labels(stored="true").inc()
             stats.stored += 1
             continue
 
@@ -122,6 +125,7 @@ def run_cycle(
                 )
             )
             stats.stored += 1
+            finder_opportunities_scored_total.labels(stored="true").inc()
 
     log.info(
         "cycle done: fetched=%d hits=%d scored=%d stored=%d dup=%d",

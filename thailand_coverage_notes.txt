@@ -1,0 +1,83 @@
+THAILAND DATA COLLECTION — STATUS UPDATE
+Date: 2026-06-13 (rerun)
+================================================
+
+SUMMARY
+-------
+After a fresh attempt, the Wayback Machine CDX API is now reachable from this
+machine. Wayback-archived TripAdvisor restaurant review pages for Bangkok,
+Chiang Mai, Phuket, and Pattaya were searched and 16 THB price observations
+were extracted into uifpi.db prices table (country='Thailand', currency='THB').
+
+This is materially better than zero but still small. Thailand remains the
+weakest country in the dataset and this is honestly disclosed in the paper.
+
+APPROACH A — GrabFood Thailand via Playwright
+----------------------------------------------
+Status: still blocked. food.grab.com returns 200 with a React shell but no
+THB prices in static HTML. Playwright route would require a residential
+proxy. Not attempted this run.
+
+APPROACH B — Wayback Machine TripAdvisor (Bangkok / Chiang Mai / Phuket / Pattaya)
+---------------------------------------------------------------------------------
+Status: WORKED THIS RUN.
+URL: http://web.archive.org/cdx/search/cdx
+Patterns queried (geo IDs):
+  - tripadvisor.com/Restaurant_Review-g293916*  (Bangkok)
+  - tripadvisor.com/Restaurant_Review-g293917*  (Chiang Mai)
+  - tripadvisor.com/Restaurant_Review-g293920*  (Phuket)
+  - tripadvisor.com/Restaurant_Review-g293919*  (Pattaya)
+Date window: 2022-01-01 to 2024-06-01
+Result: 278 candidate snapshots returned. 120 were fetched; ~6 yielded
+THB price extractions via the food-keyword + price-pattern heuristic in
+thailand_scraper.py.
+Restaurants with usable prices:
+  - On Lok Yun (Bangkok)
+  - About Eatery (Bangkok)
+  - Dosa King (Bangkok, Indian veg)
+  - Hong Bao Sukhumvit 39 (Bangkok)
+  - Wine Connection The Paseo Park (Bangkok)
+  - Holey Artisan Bakery (Bangkok)
+  - Gianni Ristorante (Bangkok)
+
+APPROACH C — Direct Thai chain websites
+---------------------------------------
+Status: still blocked.
+  - mkrestaurant.com: 200 OK, but menu prices loaded via JS (zero prices in HTML)
+  - kfcthailand.com/th/menu: 404
+  - swensens.co.th: DNS resolution failed
+  - blackcanyoncoffee.com: 403 Forbidden
+  - afteryoudessertcafe.com: connection timeout
+  - mcdonalds.co.th: 404
+  - oishigroup.com: connection timeout
+  - thepizzacompany.com: DNS resolution failed
+  - wongnai.com: 200 OK but prices are React-rendered, not in static HTML
+
+APPROACH D — Wayback snapshots of Thai chain menu pages
+-------------------------------------------------------
+Status: marginal.
+CDX returned no usable snapshots for most chain menu URL patterns. Several
+queries timed out. One Wongnai page yielded 1 raw price extraction (later
+deduped against approach B).
+
+IMPLICATIONS FOR RESEARCH
+-------------------------
+Thailand now has 16 price rows from 7 Bangkok establishments. This is below
+the threshold for inclusion in the UIFPI index aggregation (we require at
+least 30 observations across at least 5 restaurants and 3 months per country
+for the monthly index step). Therefore Thailand:
+  - Appears in the prices table.
+  - Is flagged in coverage_note when index_builder.py runs.
+  - Is excluded from headline Granger results but reported descriptively
+    in Section 5.2 of the paper as a coverage limitation.
+
+NEXT STEPS (manual, future sessions)
+------------------------------------
+1. Residential proxy (e.g., Bright Data) to unlock GrabFood / Foodpanda TH.
+2. Bangkok-based fieldwork or remote collaborator with residential IP.
+3. Thai government CPI breakdown at price.moc.go.th (currently 403 from this
+   network; would need a Thai-resolvable IP or Tor exit).
+4. WFP VAM (dataviz.vam.wfp.org) — currently 403 from this network.
+
+STATUS: 16 Thailand price rows collected. Thailand still flagged as
+coverage-limited but no longer at zero.

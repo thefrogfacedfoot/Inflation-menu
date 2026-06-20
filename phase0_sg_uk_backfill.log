@@ -1,0 +1,38 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Phase 0 SG/UK backfill probe — 10 pairs
+[ 1/10] Singapore      deliveroo SG              deliveroo.com.sg/menu/*
+           17697 URLs,  5421 ≥2-cap,  30000 snaps, 20190916-20260213 (TRUNC)
+          sampling 20201125051831 https://deliveroo.com.sg/menu/singapore/boon-lay/meng-tai-ka
+          181KB, 0 SGD hits, LD=False ND=False
+[ 2/10] Singapore      deliveroo SG (slug)       deliveroo.com.sg/menu/singapore/*
+           17697 URLs,  5421 ≥2-cap,  30000 snaps, 20190916-20260213 (TRUNC)
+          sampling 20210413014411 https://deliveroo.com.sg/menu/singapore/bugis-arab-street/bu
+          378KB, 0 SGD hits, LD=False ND=False
+[ 3/10] Singapore      foodpanda SG menu         foodpanda.sg/menu/*
+          0 rows
+[ 4/10] Singapore      foodpanda SG rest         foodpanda.sg/restaurant/*
+            6548 URLs,  1819 ≥2-cap,   9111 snaps, 20180102-20260203
+          sampling 20190921170951 https://www.foodpanda.sg/restaurant/w6ug/kaki
+          401KB, 0 SGD hits, LD=True ND=False BLOCK=captcha
+[ 5/10] Singapore      hungrygowhere             hungrygowhere.com/*-restaurant-*
+          0 rows
+[ 6/10] United Kingdom deliveroo UK              deliveroo.co.uk/menu/*
+           21882 URLs,  3080 ≥2-cap,  30000 snaps, 20180903-20260511 (TRUNC)
+          sampling 20200929081834 https://deliveroo.co.uk/menu/birkenhead/higher-bebington/pap
+          391KB, 321 GBP hits, LD=False ND=False
+[ 7/10] United Kingdom deliveroo UK london       deliveroo.co.uk/menu/london/*
+           24275 URLs,  3716 ≥2-cap,  30000 snaps, 20180122-20260530 (TRUNC)
+          sampling 20250212135609 https://deliveroo.co.uk/menu/london/battersea/fresh-pizza-cl
+          363KB, 99 GBP hits, LD=False ND=True BLOCK=cloudflare-challenge
+[ 8/10] United Kingdom just-eat UK               just-eat.co.uk/restaurants-*/menu
+          0 rows
+[ 9/10] United Kingdom just-eat UK alt           just-eat.co.uk/restaurants/*
+           16291 URLs,  5303 ≥2-cap,  30000 snaps, 20180104-20260530 (TRUNC)
+          sampling 20251010181350 https://www.just-eat.co.uk/restaurants-avanti-chiswick-chisw
+          894KB, 18 GBP hits, LD=True ND=True BLOCK=cloudflare-challenge
+[10/10] United Kingdom foodhub UK                foodhub.co.uk/*-menu
+          0 rows
+
+CSV → /Users/erwenchen/Inflation-menu/coverage_report_sg_uk_backfill.csv
+MD  → /Users/erwenchen/Inflation-menu/coverage_report_sg_uk_backfill.md

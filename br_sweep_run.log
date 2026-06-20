@@ -1,0 +1,29 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Historical HTML scraper — 1 target(s)
+per_period=20, max_per_target=500
+
+
+======================================================================
+  Brazil:ubereats-br  (ubereats.com/br/*)
+======================================================================
+  Querying CDX (distributed, per_period=20, max=500) …
+  Found 446 candidate snapshots
+  [1/446] 20180413 https://www.ubereats.com/brussels/food-delivery/sushi-factory-schuman/ … 0 items
+  [2/446] 20200312 https://www.ubereats.com/br … 0 items
+  [3/446] 20200330 https://www.ubereats.com/br/location … 0 items
+  [4/446] 20200330 https://www.ubereats.com/br/near-me … 0 items
+  [5/446] 20200330 https://www.ubereats.com/br?mod=selectLanguage&ps=1 … 0 items
+  [6/446] 20200313 https://www.ubereats.com/brand/mcdonalds … 0 items
+  [7/446] 20200404 https://www.ubereats.com/br-en/sao-paulo/food-delivery/meats/q6qdDtydT … 0 items
+  [8/446] 20200404 https://www.ubereats.com/br-en/sao-paulo/food-delivery/thai-e-san/TTjk … 0 items
+  [9/446] 20200608 https://www.ubereats.com/br/brand/mcdonalds?utm_source=mcdonalds_br&ut … 0 items
+  [10/446] 20200521 https://www.ubereats.com/br/cuiaba/food-delivery/marido-na-cozinha-rot … 0 items
+  [11/446] 20200607 https://www.ubereats.com/br/curitiba/food-delivery/poke-to-wok-vila-ur … 0 items
+  [12/446] 20200428 https://www.ubereats.com/br/feed?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlIuJT … 0 items
+  [13/446] 20200422 https://www.ubereats.com/br/porto-alegre/food-delivery/cestas-basicas- … 0 items
+  [14/446] 20200428 https://www.ubereats.com/br/porto-alegre/food-delivery/cestas-basicas- … 0 items
+  [15/446] 20200428 https://www.ubereats.com/br/porto-alegre/food-delivery/cestas-basicas- … 0 items
+  [16/446] 20200608 https://www.ubereats.com/br/sao-jose-dos-campos/food-delivery/rainha-d … 0 items
+  [17/446] 20200404 https://www.ubereats.com/br/sao-paulo/food-delivery/hi-pokee/3JcWziGtT … 0 items
+  [18/446] 20200404 https://www.ubereats.com/br/sao-paulo/food-delivery/holy-burger/-CoaCY … 

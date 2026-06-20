@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-16T20:42:44.839131",
+  "count": 1,
+  "results": [
+    {
+      "name": "Applebee's",
+      "url": "https://www.applebees.com/en/menu",
+      "source": "direct",
+      "country": "United States",
+      "final_url": "https://www.applebees.com/en/menu",
+      "status": "OK_TITLE_ONLY",
+      "http_status": 200,
+      "title": "Applebee's Neighborhood Grill + Bar - Your Local Restaurant",
+      "body_head": "Skip to main content\nMENU\nOFFERS\nLOCATIONS\nCATERING\nGIFT CARDS\nCLUB APPLEBEE\u2019S\nCAREERS\nMOZZARELLA STICKS\n\n860 cals\n\nAPPLEBEE'S MENU\n Search Menu\nULTIMATE TRIO\nDIRTY FOUNTAIN SODAS\nSKILLETS\nAPPETIZERS\nIRRESIST-A-BOWLS\u00ae\nSTEAKS & RIBS\nHANDCRAFTED BURGERS\nCHICKEN\nPASTA\nSEAFOOD\nSANDWICHES & MORE\nSALADS\nDESSERTS\n2 FOR $2X\nKID'S MENU\nSIDES\nHUNGRY?\nTakeout\nOrder Delivery\nRestaurant List\nNutrition & Allergens\nABOUT APPLEBEE'S\nAbout Us\nContact Us\nNews\nCommercials\nFranchising\nCorporate\nClub Applebee's\nBusiness Responsibility\nJOIN OUR TEAM\nCareers\nApplicant & Employee Privacy Notice\nGET THE APP\nAccessibility Statement\nPrivacy Policy\nPrivacy Web Form\nTerms of Use\nUnsolicited Ideas Policy\nOther Terms\nSitemap\nYour Privacy Choices\n\n\u00a9 2026 Applebee's Restaurants LLC. The Applebee\u2019s logo is a registered trademark and copyrighted work of Applebee\u2019s Restaurants LLC.\n\nWe use cookies and other tracking technologies to enhance user experience, improve functionality, serve personalized ads or content, and support our marketing efforts. By clicking \u201cClose\u201d or continuing to browse, you agree to ourTERMS OF USE, including the individual arbitration provision, and you consent to our sharing of information abo",
+      "items_signal": 1,
+      "reason": "title matches restaurant name (items didn't render headless)"
+    }
+  ]
+}

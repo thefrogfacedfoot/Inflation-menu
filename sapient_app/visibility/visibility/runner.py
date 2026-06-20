@@ -3,6 +3,7 @@ detect mentions. Same-day double-runs no-op."""
 from __future__ import annotations
 
 import logging
+import time
 from datetime import datetime, timezone
 
 import anthropic
@@ -13,6 +14,11 @@ from sqlalchemy.orm import Session
 from visibility.config import get_settings
 from visibility.costs import CostCapReached, add as cost_add, alert_capped, decide as cost_decide
 from visibility.detect import SentimentClassifier, detect_mentions, load_entities
+from visibility.metrics import (
+    visibility_cost_cap_short_circuits_total,
+    visibility_runs_total,
+    visibility_source_latency_seconds,
+)
 from visibility.models import Entity, Mention, Query, Run
 from visibility.sources import SourceResult, get_source
 
@@ -74,6 +80,8 @@ async def run_query(
     decision = cost_decide(session, source)
     if not decision.allowed:
         alert_capped(source, decision.used_cents, decision.cap_cents)
+        visibility_cost_cap_short_circuits_total.labels(source=source).inc()
+        visibility_runs_total.labels(source=source, status="cost_capped").inc()
         raise CostCapReached(source, decision.used_cents, decision.cap_cents)
 
     # force=True: delete the existing same-day row (and its mentions, via
@@ -88,7 +96,20 @@ async def run_query(
             session.flush()
 
     source_fn = get_source(source)
-    result: SourceResult = await source_fn(q.text)
+    started = time.monotonic()
+    try:
+        result: SourceResult = await source_fn(q.text)
+    except Exception:
+        # Bucket the upstream call's wall time even on failure — the histogram
+        # is more useful when timeouts/errors show up alongside successes.
+        visibility_source_latency_seconds.labels(source=source).observe(
+            time.monotonic() - started
+        )
+        visibility_runs_total.labels(source=source, status="upstream_error").inc()
+        raise
+    visibility_source_latency_seconds.labels(source=source).observe(
+        time.monotonic() - started
+    )
 
     run = Run(
         query_id=q.id,
@@ -110,6 +131,7 @@ async def run_query(
     cost_add(session, source, decision.next_run_cents)
     await _detect_and_store(session, run, result, classifier)
     session.commit()
+    visibility_runs_total.labels(source=source, status="success").inc()
     return run
 
 

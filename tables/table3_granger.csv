@@ -1,0 +1,9 @@
+Country,N Obs,ADF Stat,F-Statistic,p-value,Lead (months),Significant,Note
+Singapore,8,—,—,—,—,No,"insufficient_data (have 8, need 24)"
+Malaysia,6,—,—,—,—,No,"insufficient_data (have 6, need 24)"
+Indonesia,20,—,—,—,—,No,"insufficient_data (have 20, need 24)"
+Thailand,0,—,—,—,—,No,no_overlap
+India,47,—,—,0.4742,1,No,
+United States,31,—,—,0.0210,1,Yes,
+United Kingdom,18,—,—,—,—,No,"insufficient_data (have 18, need 24)"
+Australia,23,—,—,—,—,No,"insufficient_data (have 23, need 24)"

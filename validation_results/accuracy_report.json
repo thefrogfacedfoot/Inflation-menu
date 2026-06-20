@@ -1,0 +1,93 @@
+{
+  "date": "2026-06-13",
+  "total_reviewed": 100,
+  "correct": 83,
+  "overall_accuracy": 0.83,
+  "threshold": 0.85,
+  "above_threshold": false,
+  "per_category": {
+    "GRILLED_PROTEIN": 0.75,
+    "NOODLE_DISH": 0.867,
+    "RICE_DISH": 1.0,
+    "SOUP_STEW": 0.5,
+    "DIM_SUM_DUMPLING": 0.5,
+    "BREAD_PASTRY": 1.0,
+    "BEVERAGE": 0.818,
+    "DESSERT": 1.0,
+    "FAST_FOOD": 0.909,
+    "SEAFOOD_DISH": 1.0,
+    "SALAD_VEGETABLE": 0.6,
+    "OTHER": 0.75
+  },
+  "per_language": {
+    "en": 0.87,
+    "zh": 0.632,
+    "ms": 1.0
+  },
+  "per_country": {
+    "Singapore": 0.708,
+    "Malaysia": 0.893,
+    "United Kingdom": 1.0,
+    "Australia": 1.0
+  },
+  "weak_categories": [
+    "GRILLED_PROTEIN",
+    "SOUP_STEW",
+    "DIM_SUM_DUMPLING",
+    "BEVERAGE",
+    "SALAD_VEGETABLE",
+    "OTHER"
+  ],
+  "confusion_matrix": {
+    "OTHER": {
+      "OTHER": 12,
+      "NOODLE_DISH": 1,
+      "GRILLED_PROTEIN": 3
+    },
+    "GRILLED_PROTEIN": {
+      "OTHER": 1,
+      "GRILLED_PROTEIN": 3
+    },
+    "BEVERAGE": {
+      "BEVERAGE": 18,
+      "DIM_SUM_DUMPLING": 3,
+      "SEAFOOD_DISH": 1
+    },
+    "SALAD_VEGETABLE": {
+      "OTHER": 2,
+      "SALAD_VEGETABLE": 3
+    },
+    "DIM_SUM_DUMPLING": {
+      "SOUP_STEW": 1,
+      "DIM_SUM_DUMPLING": 2,
+      "FAST_FOOD": 1
+    },
+    "SEAFOOD_DISH": {
+      "SEAFOOD_DISH": 10
+    },
+    "NOODLE_DISH": {
+      "NOODLE_DISH": 13,
+      "SEAFOOD_DISH": 1,
+      "DIM_SUM_DUMPLING": 1
+    },
+    "BREAD_PASTRY": {
+      "BREAD_PASTRY": 6
+    },
+    "RICE_DISH": {
+      "RICE_DISH": 4
+    },
+    "FAST_FOOD": {
+      "FAST_FOOD": 10,
+      "OTHER": 1
+    },
+    "SOUP_STEW": {
+      "SOUP_STEW": 1,
+      "OTHER": 1
+    },
+    "DESSERT": {
+      "DESSERT": 1
+    },
+    "SNACK_SIDE": {},
+    "SET_MEAL": {}
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "Australia": {
+    "month": "2026-06",
+    "uifpi": 136.44,
+    "formal": 136.44,
+    "informal": null,
+    "cpi": 136.04,
+    "yoy_change_pct": null,
+    "items_formal": 1864,
+    "items_informal": 9
+  },
+  "India": {
+    "month": "2026-05",
+    "uifpi": 800.0,
+    "formal": 800.0,
+    "informal": null,
+    "cpi": 164.27,
+    "yoy_change_pct": null,
+    "items_formal": 635,
+    "items_informal": 0
+  },
+  "Indonesia": {
+    "month": "2024-11",
+    "uifpi": 0.02,
+    "formal": null,
+    "informal": 0.02,
+    "cpi": 172.74,
+    "yoy_change_pct": null,
+    "items_formal": 29,
+    "items_informal": 5
+  },
+  "Malaysia": {
+    "month": "2026-06",
+    "uifpi": 219.6,
+    "formal": 369.82,
+    "informal": 35.99,
+    "cpi": 136.9,
+    "yoy_change_pct": null,
+    "items_formal": 9644,
+    "items_informal": 1883
+  },
+  "Singapore": {
+    "month": "2026-06",
+    "uifpi": 106.82,
+    "formal": 110.5,
+    "informal": 100.0,
+    "cpi": 133.16,
+    "yoy_change_pct": null,
+    "items_formal": 8975,
+    "items_informal": 1488
+  },
+  "Thailand": {
+    "month": "2026-06",
+    "uifpi": 100.0,
+    "formal": 100.0,
+    "informal": null,
+    "cpi": 123.0,
+    "yoy_change_pct": null,
+    "items_formal": 11,
+    "items_informal": 0
+  },
+  "United Arab Emirates": {
+    "month": "2026-04",
+    "uifpi": 12045.35,
+    "formal": 12045.35,
+    "informal": null,
+    "cpi": 122.21,
+    "yoy_change_pct": null,
+    "items_formal": 9243,
+    "items_informal": 0
+  },
+  "United Kingdom": {
+    "month": "2026-06",
+    "uifpi": 28.71,
+    "formal": 0.55,
+    "informal": 188.29,
+    "cpi": 142.1,
+    "yoy_change_pct": -79.3,
+    "items_formal": 17135,
+    "items_informal": 612
+  },
+  "United States": {
+    "month": "2026-06",
+    "uifpi": 33.34,
+    "formal": 33.34,
+    "informal": null,
+    "cpi": 129.47,
+    "yoy_change_pct": null,
+    "items_formal": 8286,
+    "items_informal": 34
+  },
+  "Vietnam": {
+    "month": "2025-10",
+    "uifpi": 213.02,
+    "formal": 213.02,
+    "informal": null,
+    "cpi": 189.7,
+    "yoy_change_pct": null,
+    "items_formal": 4309,
+    "items_informal": 0
+  }
+}

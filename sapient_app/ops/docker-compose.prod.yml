@@ -1,0 +1,33 @@
+# Production override: docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+#
+# Differences from the base file:
+#   - source-code bind mounts removed (image is the source of truth)
+#   - images pinned by tag instead of rebuilt from the local context
+#   - restart policy hardened
+#   - postgres data on a named volume (already true in base) AND port 5432
+#     unpublished — only the docker network can reach it
+services:
+  postgres:
+    # No ports: section here. `ports: !reset` is a v2.24+ feature; we override
+    # via `expose` to keep the legacy compose path working too.
+    ports: []
+    expose:
+      - "5432"
+    restart: unless-stopped
+
+  finder:
+    image: ${FINDER_IMAGE:-ghcr.io/sapient/finder:latest}
+    build: !reset null
+    volumes: []
+    restart: unless-stopped
+
+  visibility:
+    image: ${VISIBILITY_IMAGE:-ghcr.io/sapient/visibility:latest}
+    build: !reset null
+    volumes: []
+    restart: unless-stopped
+
+  dashboard:
+    image: ${DASHBOARD_IMAGE:-ghcr.io/sapient/dashboard:latest}
+    build: !reset null
+    restart: unless-stopped

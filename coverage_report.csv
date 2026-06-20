@@ -1,0 +1,28 @@
+country,sector,platform,pattern,currency,n_restaurants_ge2,n_snapshots,distinct_urls,earliest,latest,cdx_status,sample_url,sample_ts,sample_kb,sample_price_hits,sample_json_ld,sample_next_data,sample_status
+United States,formal,allmenus.com,allmenus.com/*,USD,7021,30000,16882,20180224,20260521,truncated,https://www.allmenus.com/c/1228-cafe-zupas/,20221208133124,14,0,Y,N,ok
+United States,formal,menupages.com,menupages.com/*,USD,2866,30000,3362,20180104,20260521,truncated,https://menupages.com/back-of-the-roads-sports-grill/15420-sw-136th-st-unit-4-miami,20220526220544,269,34,Y,N,ok
+United States,formal,yelp.com/biz NYC,yelp.com/biz/*new-york*,USD,0,0,0,,,empty,,,,,,,
+United States,formal,yelp.com/menu,yelp.com/menu/*,USD,0,0,0,,,error:HTTP 504,,,,,,,
+India,formal,zomato Mumbai,zomato.com/mumbai/*,INR,0,0,0,,,error:Expecting value: line 6146 column 1 (char 542305),,,,,,,
+India,formal,zomato NCR,zomato.com/ncr/*,INR,1355,12359,8098,20180104,20260519,ok,https://www.zomato.com/ncr/restaurants/dominos,20250818005157,283,43,Y,N,ok
+India,formal,swiggy Mumbai,swiggy.com/mumbai/*,INR,1,14,5,20180129,20211023,ok,https://www.swiggy.com/mumbai,20200426115518,154,51,N,N,ok
+India,formal,swiggy Bangalore,swiggy.com/bangalore/*,INR,3,44,6,20180125,20211023,ok,https://www.swiggy.com/bangalore/48-east-indiranagar-indiranagar,20180419053841,117,4,Y,N,ok
+India,formal,burrp Mumbai,burrp.com/mumbai/*,INR,456,10074,8114,20180101,20191016,ok,http://www.burrp.com/mumbai/listingData?uri=/mumbai/north-indian&q=north-indian&neighbourhood=,20180301044025,84,20,N,N,ok
+India,formal,dineout.co.in,dineout.co.in/*,INR,3758,30000,6971,20180103,20250402,truncated,https://www.dineout.co.in/ahmedabad/choice-snack-bar-sola-north-ahmedabad-42564,20210117070041,157,1,Y,N,ok
+Indonesia,formal,zomato Jakarta,zomato.com/jakarta/*,IDR,111,1011,853,20180103,20240808,ok,https://www.zomato.com/jakarta/restaurants/in/mall-kelapa-gading-kelapa-gading,20180109102016,331,40,N,N,ok
+Indonesia,formal,qraved Jakarta,qraved.com/jakarta/*,IDR,6727,30000,11995,20180104,20260316,truncated,https://www.qraved.com/jakarta/bakmi-isoku-bogor-utara-1,20210920102643,42,0,N,N,ok
+Indonesia,formal,pergikuliner,pergikuliner.com/restaurants/*,IDR,6582,30000,18333,20180122,20260521,truncated,https://pergikuliner.com/restaurants/bandung/kabobs-cihampelas,20220525200519,237,12,N,N,ok
+Thailand,formal,wongnai BKK,wongnai.com/bangkok/*,THB,2,9,2,20190822,20241113,ok,https://www.wongnai.com/bangkok?locale=en,20210124221540,1024,6,N,N,ok
+Thailand,formal,wongnai restaurants,wongnai.com/restaurants/*,THB,5545,30000,22271,20180306,20260521,truncated,https://www.wongnai.com/restaurants/1035252ty-%E0%B8%AA%E0%B9%89%E0%B8%A1%E0%B8%95%E0%B8%B3%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B8%AA%E0%B8%81%E0%B8%A5by%E0%B8%9B%E0%B9%89%E0%B8%B2%E0%B8%9C%E0%B9%88%E0%B8%AD%E0%B8%87,20251204211311,504,0,Y,N,ok
+Thailand,formal,eatigo BKK,eatigo.com/th/bangkok/*,THB,3410,17349,5276,20180809,20241114,ok,https://eatigo.com/th/bangkok/en/c/afternoon-tea-5002989,20230130185104,206,14,N,N,ok
+Australia,formal,zomato Sydney,zomato.com/sydney/*,AUD,280,3429,2216,20180101,20250331,ok,https://www.zomato.com/sydney/chat-thai-cbd,20180108015307,178,5,N,N,ok
+Australia,formal,zomato Melbourne,zomato.com/melbourne/*,AUD,147,2658,1759,20180101,20260107,ok,https://www.zomato.com/melbourne/restaurants?table_booking=1&page=2,20181206083319,435,32,N,N,ok
+Australia,formal,urbanspoon,urbanspoon.com/n/*,AUD,0,0,0,,,empty,,,,,,,
+Australia,formal,menulog,menulog.com.au/restaurants/*,AUD,6173,30000,14796,20180104,20251126,truncated,https://www.menulog.com.au/restaurants-barnacle-bill-morphett-vale/menu?utm_campaign=foodorder&utm_medium=organic&utm_source=google,20251120000912,879,12,Y,Y,ok
+Vietnam,formal,foody HCMC,foody.vn/ho-chi-minh/*,VND,5387,30000,21516,20180903,20260529,truncated,https://www.foody.vn/ho-chi-minh/cay-gon-pha-lau-xiu-mai/%7B%7Bitem.url?%20item.Url%20:%20%27javascript:void(0)%27%20%7D%7D,20210621045843,3,0,N,N,ok
+Philippines,formal,zomato Manila,zomato.com/manila/*,PHP,52,1362,1226,20180107,20250822,ok,https://www.zomato.com/manila/restaurants/coffee,20220316192328,218,37,Y,N,ok
+Malaysia,formal,zomato KL,zomato.com/kuala-lumpur/*,MYR,30,1290,348,20180101,20240613,ok,https://www.zomato.com/kuala-lumpur/chow-kit-restaurants,20220923152449,248,2,Y,N,ok
+Singapore,formal,hungrygowhere,hungrygowhere.com/dining-guide/restaurants/*,SGD,0,0,0,,,empty,,,,,,,
+Singapore,formal,foodpanda SG,foodpanda.sg/restaurant/*,SGD,1819,9111,6548,20180102,20260203,ok,https://www.foodpanda.sg/restaurant/x5gl/my-mum-s-meals-tampines,20191016070324,320,0,Y,N,ok
+Singapore,formal,food.grab SG,food.grab.com/sg/en/restaurant/*,SGD,2591,9970,6461,20191018,20260531,ok,https://food.grab.com/sg/en/restaurant/brewerkz-one-fullerton-delivery/4-C2T2KB5CATCAR6,20210620185600,259,12,Y,Y,ok
+Mexico,formal,tripadvisor MX,tripadvisor.com.mx/Restaurant_Review*,MXN,2873,30000,21936,20180101,20260211,truncated,https://www.tripadvisor.com.mx/Restaurant_Review-g1023675-d8818458-Reviews-Koyo-Kaminoyama_Yamagata_Prefecture_Tohoku.html,20220926144525,1167,9,Y,N,ok

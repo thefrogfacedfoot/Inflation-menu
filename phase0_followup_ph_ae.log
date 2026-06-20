@@ -1,0 +1,31 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+
+======================================================================
+(1) PH follow-up — Bonchon Porta Vaga, 2021-06-19
+======================================================================
+  Fetching https://web.archive.org/web/20210619104040id_/https://food.grab.com/ph/en/restaurant/bonchon-porta-vaga-delivery/2-CZD1A
+  HTTP 404, 142 KB
+  FETCH FAILED
+
+======================================================================
+(2) AE follow-up — Ladurée Abu Dhabi, 2021-04-19
+======================================================================
+  Fetching https://web.archive.org/web/20210419095753id_/https://deliveroo.ae/menu/abu-dhabi/al-zahiyah/laduree-abu-dhabi-mall
+  HTTP 200, 333 KB
+  raw '"raw_price"' substring hits: 193
+  extract_deliveroo_body_json → 92 pairs
+
+  --- First 10 (name, raw_price) pairs ---
+    name='Spanish Iced Latte'                                          raw_price=39.0  currency=None
+    name='French Fries'                                                raw_price=25.0  currency=None
+    name='Rigatoni Arrabbiata'                                         raw_price=69.0  currency=None
+    name='Club Laduree'                                                raw_price=85.0  currency=None
+    name='Hummus Avocado Toast'                                        raw_price=55.0  currency=None
+    name='Lentil Salad'                                                raw_price=75.0  currency=None
+    name='Rose Croissant'                                              raw_price=15.0  currency=None
+    name='Éclair Milk Chocolate'                                       raw_price=39.0  currency=None
+    name='Napoleon Box of 6 Macarons Green'                            raw_price=105.0  currency=None
+    name='Classic French Toast'                                        raw_price=59.0  currency=None
+
+  price stats: n=92, min=6.00, max=449.00, mean=75.95

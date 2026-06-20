@@ -9,9 +9,11 @@ from fastapi import Depends, FastAPI, HTTPException, Query as QueryParam
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from visibility._obs import CorrelationIdMiddleware, configure_structlog
 from visibility.config import SOURCES
 from visibility.costs import CostCapReached
 from visibility.db import get_session, init_db
+from visibility.metrics import start_sidecar
 from visibility.models import Entity, Mention, Query, Run, Task
 from visibility.runner import run_query
 from visibility.scheduler import build_scheduler
@@ -32,11 +34,13 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
 )
+configure_structlog("visibility")
 
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     init_db()
+    start_sidecar()
     scheduler = build_scheduler()
     scheduler.start()
     try:
@@ -46,6 +50,7 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(title="Visibility Tracker", lifespan=lifespan)
+app.add_middleware(CorrelationIdMiddleware)
 
 
 @app.get("/health")

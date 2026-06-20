@@ -9,8 +9,10 @@ from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app._obs import CorrelationIdMiddleware, configure_structlog, get_logger
 from app.config import get_settings
 from app.db import get_session, init_db
+from app.metrics import start_sidecar
 from app.models import Opportunity
 from app.poller import run_cycle
 from app.schemas import OpportunityOut, StatusUpdate
@@ -19,7 +21,8 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
 )
-log = logging.getLogger("opportunity-finder")
+configure_structlog("finder")
+log = get_logger("opportunity-finder")
 
 
 async def _poll_forever() -> None:
@@ -36,6 +39,7 @@ async def _poll_forever() -> None:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+    start_sidecar()
     task = asyncio.create_task(_poll_forever(), name="reddit-poller")
     try:
         yield
@@ -48,6 +52,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Reddit Opportunity Finder", lifespan=lifespan)
+app.add_middleware(CorrelationIdMiddleware)
 
 
 @app.get("/health")

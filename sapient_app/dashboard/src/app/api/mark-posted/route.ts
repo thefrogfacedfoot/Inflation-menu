@@ -10,7 +10,7 @@ import {
   assertWeeklyPromoCap,
   enforceRemovalRate,
 } from "@/lib/guardrails";
-import { dashboardPostsTotal } from "@/lib/metrics";
+import { dashboardClaimToPostedSeconds, dashboardPostsTotal } from "@/lib/metrics";
 import { log } from "@/lib/logging";
 
 const Body = z.object({
@@ -94,6 +94,11 @@ export async function POST(req: Request) {
     source: claim.source ?? "organic",
     mentioned_product: check.mentionsProduct ? "true" : "false",
   });
+  // claimedAt is set by the DB on insert, so it's non-null at this point.
+  const claimedAtMs = claim.claimedAt?.getTime();
+  if (claimedAtMs) {
+    dashboardClaimToPostedSeconds.observe((Date.now() - claimedAtMs) / 1000);
+  }
   log.info("post_recorded", {
     user_id: userId,
     claim_id: claim.id,
