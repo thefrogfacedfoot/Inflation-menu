@@ -29,6 +29,16 @@ OUT_DIR      = "dashboard_data"
 # new numbers without a manual copy.
 DASHBOARD_PUBLIC_DATA = os.path.join("dashboard", "public", "data")
 
+# Mirrors granger_analysis.COUNTRY_TO_CODE — the 10 active panel countries.
+# Kept here so the exporter doesn't have to import from granger_analysis
+# (which pulls statsmodels at import time).
+COUNTRY_TO_CODE = {
+    "Singapore": "SG", "Malaysia": "MY", "Indonesia": "ID",
+    "Thailand": "TH", "India": "IN", "United States": "US",
+    "United Kingdom": "GB", "Australia": "AU",
+    "Vietnam": "VN", "United Arab Emirates": "AE",
+}
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def safe_round(v, digits=2):
@@ -60,12 +70,61 @@ def load_granger(json_path: str) -> dict:
         return json.load(f)
 
 
+def load_monthly_cpi(db_path: str = DB_PATH) -> dict:
+    """Per-country dict of {year_month: cpi_value}, loaded directly from the
+    monthly_cpi table. Replicates granger_analysis.load_cpi_from_db so the
+    dashboard's CPI line matches the series the Granger test consumed.
+
+    Jan-only series (SG/TH/ID — World Bank annual) are reindexed to monthly
+    and linearly interpolated, matching the granger loader's behavior.
+    """
+    result: dict = {}
+    if not os.path.exists(db_path):
+        return result
+    conn = sqlite3.connect(db_path)
+    try:
+        cur = conn.execute(
+            "SELECT name FROM sqlite_master "
+            "WHERE type='table' AND name='monthly_cpi'"
+        )
+        if not cur.fetchone():
+            return result
+        for country, code in COUNTRY_TO_CODE.items():
+            df = pd.read_sql_query(
+                "SELECT year_month, cpi_value FROM monthly_cpi "
+                "WHERE country_code=? AND cpi_value IS NOT NULL "
+                "ORDER BY year_month",
+                conn, params=(code,),
+            )
+            if df.empty:
+                continue
+            s = pd.Series(
+                df["cpi_value"].values,
+                index=pd.PeriodIndex(df["year_month"], freq="M"),
+            ).sort_index()
+            if all(p.month == 1 for p in s.index):
+                full_range = pd.period_range(
+                    s.index.min(), s.index.max(), freq="M"
+                )
+                s = s.reindex(full_range).interpolate(method="index")
+            result[country] = {
+                str(p): float(v) for p, v in s.items() if pd.notna(v)
+            }
+    finally:
+        conn.close()
+    return result
+
+
 # ── Builder functions ─────────────────────────────────────────────────────────
 
-def build_index_series(index_df: pd.DataFrame, granger: dict) -> dict:
+def build_index_series(index_df: pd.DataFrame, cpi_lookup: dict) -> dict:
     """
-    Per-country monthly time series combining UIFPI values with CPI where
-    available from the Granger results.
+    Per-country monthly time series combining UIFPI values with CPI from
+    the monthly_cpi table. CPI months that fall outside the UIFPI date
+    range are appended so the chart can render the full CPI history even
+    when UIFPI coverage is shorter (or the other way around — e.g. US
+    UIFPI runs past the latest OECD HICP month, so the CPI line ends
+    cleanly while UIFPI continues).
 
     Schema:
     {
@@ -79,13 +138,16 @@ def build_index_series(index_df: pd.DataFrame, granger: dict) -> dict:
     """
     series: dict = {}
 
-    for country, group in index_df.groupby("country"):
-        # Pull CPI series from granger results if present
-        cpi_series: dict = {}
-        if country in granger:
-            for obs in granger[country].get("data", []):
-                if "month" in obs and "cpi" in obs:
-                    cpi_series[obs["month"]] = obs["cpi"]
+    all_countries = (
+        set(index_df["country"].unique()) | set(cpi_lookup.keys())
+    )
+
+    for country in sorted(all_countries):
+        group = index_df[index_df["country"] == country]
+        cpi_series = cpi_lookup.get(country, {})
+
+        uifpi_months = set(group["year_month"].astype(str))
+        cpi_only_months = sorted(set(cpi_series.keys()) - uifpi_months)
 
         rows = []
         for _, row in group.iterrows():
@@ -98,6 +160,16 @@ def build_index_series(index_df: pd.DataFrame, granger: dict) -> dict:
                 "cpi":        safe_round(cpi_series.get(ym)),
                 "item_count": int(row["item_count"]) if pd.notna(row.get("item_count")) else 0,
             })
+        for ym in cpi_only_months:
+            rows.append({
+                "month":      ym,
+                "uifpi":      None,
+                "formal":     None,
+                "informal":   None,
+                "cpi":        safe_round(cpi_series.get(ym)),
+                "item_count": 0,
+            })
+        rows.sort(key=lambda r: r["month"])
         series[country] = rows
 
     return series
@@ -173,6 +245,7 @@ def load_price_counts(db_path: str = DB_PATH) -> dict:
 
 
 def build_country_summary(granger: dict, index_df: pd.DataFrame,
+                           cpi_lookup: dict,
                            price_counts: Optional[dict] = None) -> dict:
     """
     Per-country summary of statistical findings.
@@ -214,12 +287,11 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame,
             if not with_uifpi.empty else None
         )
 
-        # Latest CPI value for this country, if granger data carries one.
+        # Latest CPI value for this country, taken from monthly_cpi.
         latest_cpi = None
-        for obs in reversed(g.get("data", []) or []):
-            if obs.get("cpi") is not None:
-                latest_cpi = safe_round(obs["cpi"])
-                break
+        cpi_series = cpi_lookup.get(country, {})
+        if cpi_series:
+            latest_cpi = safe_round(cpi_series[max(cpi_series.keys())])
 
         status = g.get("status", "no_granger_data")
         pc = price_counts.get(country, _empty_country_stats())
@@ -252,7 +324,7 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame,
     return summary
 
 
-def build_latest_values(index_df: pd.DataFrame, granger: dict,
+def build_latest_values(index_df: pd.DataFrame, cpi_lookup: dict,
                          price_counts: Optional[dict] = None) -> dict:
     """
     Most recent UIFPI and CPI per country, for a top-of-page summary card.
@@ -313,16 +385,11 @@ def build_latest_values(index_df: pd.DataFrame, granger: dict,
         except Exception:
             yoy_change = None
 
-        # Most recent CPI from granger data
+        # Most recent CPI from monthly_cpi.
         cpi_val = None
-        if country in granger:
-            data = granger[country].get("data", [])
-            if data:
-                # Take the last obs that has a cpi value
-                for obs in reversed(data):
-                    if obs.get("cpi") is not None:
-                        cpi_val = safe_round(obs["cpi"])
-                        break
+        cpi_series = cpi_lookup.get(country, {})
+        if cpi_series:
+            cpi_val = safe_round(cpi_series[max(cpi_series.keys())])
 
         pc = price_counts.get(country, {})
         latest[country] = {
@@ -375,19 +442,23 @@ def run(
     print(f"  {len(granger)} countries have Granger results\n")
 
     price_counts = load_price_counts()
+    cpi_lookup = load_monthly_cpi()
+    cpi_coverage = {c: len(s) for c, s in cpi_lookup.items()}
+    print(f"  CPI series loaded for {len(cpi_lookup)} countries "
+          f"({cpi_coverage})")
 
     print("Building index_series.json …")
-    index_series = build_index_series(index_df, granger)
+    index_series = build_index_series(index_df, cpi_lookup)
     write_json(index_series, os.path.join(out_dir, "index_series.json"))
     write_json(index_series, os.path.join(DASHBOARD_PUBLIC_DATA, "index_series.json"))
 
     print("Building country_summary.json …")
-    country_summary = build_country_summary(granger, index_df, price_counts)
+    country_summary = build_country_summary(granger, index_df, cpi_lookup, price_counts)
     write_json(country_summary, os.path.join(out_dir, "country_summary.json"))
     write_json(country_summary, os.path.join(DASHBOARD_PUBLIC_DATA, "country_summary.json"))
 
     print("Building latest_values.json …")
-    latest_values = build_latest_values(index_df, granger, price_counts)
+    latest_values = build_latest_values(index_df, cpi_lookup, price_counts)
     write_json(latest_values, os.path.join(out_dir, "latest_values.json"))
     write_json(latest_values, os.path.join(DASHBOARD_PUBLIC_DATA, "latest_values.json"))
 
