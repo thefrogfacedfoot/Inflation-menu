@@ -110,8 +110,9 @@ CREATE TABLE content_draft (
   created_at            timestamptz NOT NULL DEFAULT now(),
   updated_at            timestamptz NOT NULL DEFAULT now()
 );
-CREATE UNIQUE INDEX ux_content_draft_active_per_task
-  ON content_draft (visibility_task_id)
+-- Per-(task, user) — see content_draft Drizzle definition for rationale.
+CREATE UNIQUE INDEX ux_content_draft_active_per_task_user
+  ON content_draft (visibility_task_id, "userId")
   WHERE status <> 'archived';
 CREATE INDEX ix_content_draft_user ON content_draft ("userId");
 

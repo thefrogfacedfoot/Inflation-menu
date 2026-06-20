@@ -319,3 +319,85 @@ describe("archive", () => {
     expect(active2.map((d) => d.id)).toEqual([second.draftId]);
   });
 });
+
+/* -------- Per-(task, user) active-draft isolation -------- */
+
+describe("active-draft uniqueness is scoped per user", () => {
+  async function seedBlogTask(): Promise<number> {
+    return seedVisibilityTask(testDb, {
+      kind: "blog_post",
+      suggestedSubreddit: null,
+      relatedUrl: null,
+      recommendation: "Write a long post on widget alternatives",
+    });
+  }
+
+  it("User A and User B can both generate active drafts for the same task", async () => {
+    const userA = await seedUser(testDb);
+    const userB = await seedUser(testDb);
+    const taskId = await seedBlogTask();
+
+    const a = await lib.generateDraft(taskId, userA, { llm: stubLLM() });
+    const b = await lib.generateDraft(taskId, userB, { llm: stubLLM() });
+
+    expect(a.draftId).not.toBe(b.draftId);
+
+    const drafts = await testDb.select().from(contentDrafts);
+    expect(drafts).toHaveLength(2);
+    expect(new Set(drafts.map((d) => d.userId))).toEqual(
+      new Set([userA, userB]),
+    );
+  });
+
+  it("User A generating twice for the same task → ActiveDraftExistsError with A's existing draftId", async () => {
+    const userA = await seedUser(testDb);
+    const taskId = await seedBlogTask();
+
+    const first = await lib.generateDraft(taskId, userA, { llm: stubLLM() });
+    let err: unknown = null;
+    try {
+      await lib.generateDraft(taskId, userA, { llm: stubLLM() });
+    } catch (e) {
+      err = e;
+    }
+    expect(err).toBeInstanceOf(lib.ActiveDraftExistsError);
+    expect(
+      (err as InstanceType<typeof lib.ActiveDraftExistsError>).existingDraftId,
+    ).toBe(first.draftId);
+  });
+
+  it("User A archives, then generates again → new draft id; another user's draft was unaffected", async () => {
+    const userA = await seedUser(testDb);
+    const userB = await seedUser(testDb);
+    const taskId = await seedBlogTask();
+
+    const a1 = await lib.generateDraft(taskId, userA, { llm: stubLLM() });
+    const bDraft = await lib.generateDraft(taskId, userB, { llm: stubLLM() });
+    await lib.archive(a1.draftId, userA);
+
+    const a2 = await lib.generateDraft(taskId, userA, { llm: stubLLM() });
+    expect(a2.draftId).not.toBe(a1.draftId);
+    expect(a2.draftId).not.toBe(bDraft.draftId);
+
+    // B's draft is still the same, still active.
+    const bAfter = await testDb.query.contentDrafts.findFirst({
+      where: eq(contentDrafts.id, bDraft.draftId),
+    });
+    expect(bAfter?.status).toBe("draft");
+  });
+
+  it("listActiveDrafts is scoped per user — A sees only A's, B sees only B's", async () => {
+    const userA = await seedUser(testDb);
+    const userB = await seedUser(testDb);
+    const taskId = await seedBlogTask();
+
+    const a = await lib.generateDraft(taskId, userA, { llm: stubLLM() });
+    const b = await lib.generateDraft(taskId, userB, { llm: stubLLM() });
+
+    const aList = await lib.listActiveDrafts(userA);
+    const bList = await lib.listActiveDrafts(userB);
+
+    expect(aList.map((d) => d.id)).toEqual([a.draftId]);
+    expect(bList.map((d) => d.id)).toEqual([b.draftId]);
+  });
+});

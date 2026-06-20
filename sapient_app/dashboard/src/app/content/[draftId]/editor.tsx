@@ -12,6 +12,8 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { renderMarkdown } from "@/lib/markdown";
+import { useBeforeUnloadFlush } from "./use-beforeunload";
 
 type Status = "draft" | "edited" | "published" | "archived";
 type Warning = { code: "unresolved_verify_markers"; count: number } | null;
@@ -88,6 +90,19 @@ export default function Editor(props: {
       if (saveTimer.current) clearTimeout(saveTimer.current);
     };
   }, [title, body, status, flushSave]);
+
+  // The 1-second debounce drops the user's last edits on a tab-close inside
+  // its window. beforeunload fires the latest values directly under
+  // keepalive:true so the request survives unload. Silent (no preventDefault)
+  // — no "leave the page?" prompt.
+  useBeforeUnloadFlush({
+    draftId: props.draftId,
+    hasPendingChanges: () =>
+      status !== "published" &&
+      status !== "archived" &&
+      (title !== lastSavedTitle.current || body !== lastSavedBody.current),
+    getPayload: () => ({ title, body }),
+  });
 
   const onMarkEdited = async () => {
     // Flush any pending edit so the server sees the latest body before it
@@ -285,74 +300,6 @@ function PublishModal(props: {
       </div>
     </div>
   );
-}
-
-/* ---------- tiny markdown → HTML renderer ---------- */
-//
-// Covers what the editor needs: headings, paragraphs, lists, **bold**,
-// *italic*, `code`, fenced ``` blocks, and the [VERIFY: …] highlight that's
-// the whole point of this view. All inputs are escaped before any markdown
-// rewrites, so user-typed `<script>` shows up as literal text.
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-function renderMarkdown(src: string): string {
-  const escaped = escapeHtml(src);
-  let html = escaped;
-
-  // Fenced code blocks first so their contents aren't re-parsed.
-  html = html.replace(
-    /```([\s\S]*?)```/g,
-    (_, code: string) =>
-      `<pre style="background:#0d1117;padding:12px;border-radius:6px;overflow-x:auto"><code>${code.trim()}</code></pre>`,
-  );
-
-  // Headings (#, ##, ###).
-  html = html.replace(/^###\s+(.+)$/gm, "<h3>$1</h3>");
-  html = html.replace(/^##\s+(.+)$/gm, "<h2>$1</h2>");
-  html = html.replace(/^#\s+(.+)$/gm, "<h1>$1</h1>");
-
-  // Inline code.
-  html = html.replace(
-    /`([^`]+)`/g,
-    '<code style="background:#1d2129;padding:2px 4px;border-radius:3px">$1</code>',
-  );
-
-  // Bold then italic. Order matters — bold tokens contain the italic delim.
-  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-
-  // [VERIFY: ...] highlight. Run AFTER escape so the brackets are literal.
-  html = html.replace(
-    /\[VERIFY:([^\]]*)\]/g,
-    (_, body: string) =>
-      `<mark style="background:#3a2f1f;color:#ffcc88;padding:2px 6px;border-radius:4px;font-weight:600">[VERIFY:${body}]</mark>`,
-  );
-
-  // Lists (-, *).
-  html = html.replace(/^[-*]\s+(.+)$/gm, "<li>$1</li>");
-  html = html.replace(/(<li>[\s\S]+?<\/li>)/g, "<ul>$1</ul>");
-  // Collapse adjacent <ul></ul> from the previous step.
-  html = html.replace(/<\/ul>\s*<ul>/g, "");
-
-  // Paragraphs from runs of plain text. Anything not already wrapped in a
-  // block-level element gets a <p>. Naive but adequate for preview.
-  html = html
-    .split(/\n{2,}/)
-    .map((chunk) => {
-      const trimmed = chunk.trim();
-      if (!trimmed) return "";
-      if (/^<(h\d|ul|ol|pre|p|blockquote)/.test(trimmed)) return trimmed;
-      return `<p>${trimmed.replace(/\n/g, "<br/>")}</p>`;
-    })
-    .join("\n");
-
-  return html;
 }
 
 /* ---------- styles ---------- */

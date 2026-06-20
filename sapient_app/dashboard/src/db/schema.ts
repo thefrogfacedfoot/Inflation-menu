@@ -174,9 +174,14 @@ export const karmaSnapshots = pgTable(
 // publishes externally (their own CMS) — the dashboard only tracks state
 // and provides audit history. See src/lib/content-gap.ts.
 //
-// Active-draft uniqueness is enforced by the partial unique index below:
-// at most one draft per task in any non-archived status. An archived draft
-// frees the task for a fresh generation.
+// Active-draft uniqueness is enforced PER (task, user) — User A working a
+// blog_post task should not collide with User B starting their own draft
+// for the same gap. The partial unique index excludes archived rows, so
+// archiving frees the slot for that same user.
+//
+// If team-collab semantics ever land (one shared draft per task across
+// users), add an explicit share affordance — DON'T widen this index. The
+// safer default is isolation.
 export const contentDrafts = pgTable(
   "content_draft",
   {
@@ -199,8 +204,8 @@ export const contentDrafts = pgTable(
     updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => ({
-    uniqActivePerTask: uniqueIndex("ux_content_draft_active_per_task")
-      .on(t.visibilityTaskId)
+    uniqActivePerTaskUser: uniqueIndex("ux_content_draft_active_per_task_user")
+      .on(t.visibilityTaskId, t.userId)
       .where(__raw("status <> 'archived'")),
     byUser: index("ix_content_draft_user").on(t.userId),
   }),

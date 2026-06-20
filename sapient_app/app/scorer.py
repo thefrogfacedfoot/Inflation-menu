@@ -17,6 +17,17 @@ from app.schemas import ScoreResult
 
 log = logging.getLogger(__name__)
 
+
+# Typed scoring errors. The poller catches a broad Exception and classifies
+# (see classify_scoring_error) so the metrics counter has a bounded `reason`
+# label set even when an entirely new failure mode shows up.
+class JsonParseError(ValueError):
+    """Model response did not contain a parseable JSON object."""
+
+
+class SchemaInvalidError(ValueError):
+    """JSON parsed, but the fields we need are missing or the wrong type."""
+
 SYSTEM_PROMPT = """You are a marketing analyst who finds genuine product-fit moments
 in Reddit threads. You score how likely a Reddit post represents a real opportunity
 for the product described below to be helpfully mentioned.
@@ -54,15 +65,50 @@ _JSON_RE = re.compile(r"\{.*\}", re.DOTALL)
 def _parse(text: str) -> ScoreResult:
     match = _JSON_RE.search(text)
     if not match:
-        raise ValueError(f"no JSON object in model response: {text!r}")
-    data = json.loads(match.group(0))
-    score = int(data.get("relevance_score", 0))
+        raise JsonParseError(f"no JSON object in model response: {text!r}")
+    try:
+        data = json.loads(match.group(0))
+    except json.JSONDecodeError as e:
+        raise JsonParseError(f"could not decode JSON: {e}") from e
+    if not isinstance(data, dict):
+        raise SchemaInvalidError("top-level value is not an object")
+    if "relevance_score" not in data:
+        raise SchemaInvalidError("missing relevance_score field")
+    try:
+        score = int(data["relevance_score"])
+    except (TypeError, ValueError) as e:
+        raise SchemaInvalidError(
+            f"relevance_score not an int: {data.get('relevance_score')!r}"
+        ) from e
     score = max(0, min(100, score))
     return ScoreResult(
         relevance_score=score,
         reason=str(data.get("reason", "")).strip(),
         suggested_angle=str(data.get("suggested_angle", "")).strip(),
     )
+
+
+def classify_scoring_error(exc: BaseException) -> str:
+    """Map a scorer exception to one of the bounded `reason` labels on
+    finder_scoring_errors_total. Order matters: typed parse/schema errors
+    come from our own _parse; upstream API errors come from the Anthropic
+    SDK. Everything unrecognized is 'other' — we keep the catchall so the
+    counter is honest about unknown failure modes."""
+    if isinstance(exc, JsonParseError):
+        return "json_parse"
+    if isinstance(exc, SchemaInvalidError):
+        return "schema_invalid"
+    if isinstance(exc, anthropic.RateLimitError):
+        return "rate_limited"
+    if isinstance(exc, anthropic.APITimeoutError):
+        return "timeout"
+    if isinstance(exc, anthropic.InternalServerError):
+        return "upstream_5xx"
+    # Some other anthropic.APIStatusError with a 5xx code — bucket as upstream.
+    status = getattr(exc, "status_code", None)
+    if isinstance(status, int) and 500 <= status < 600:
+        return "upstream_5xx"
+    return "other"
 
 
 _RETRYABLE = (

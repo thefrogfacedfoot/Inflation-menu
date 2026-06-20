@@ -5,14 +5,15 @@ from contextlib import asynccontextmanager
 from datetime import date, datetime, timedelta, timezone
 from typing import Annotated
 
-from fastapi import Depends, FastAPI, HTTPException, Query as QueryParam
-from sqlalchemy import func, select
+from fastapi import Depends, FastAPI, HTTPException, Query as QueryParam, Response
+from fastapi.responses import JSONResponse
+from sqlalchemy import func, inspect, select
 from sqlalchemy.orm import Session
 
 from visibility._obs import CorrelationIdMiddleware, configure_structlog
 from visibility.config import SOURCES
 from visibility.costs import CostCapReached
-from visibility.db import get_session, init_db
+from visibility.db import SCHEMA, engine, get_session, init_db
 from visibility.metrics import start_sidecar
 from visibility.models import Entity, Mention, Query, Run, Task
 from visibility.runner import run_query
@@ -53,9 +54,31 @@ app = FastAPI(title="Visibility Tracker", lifespan=lifespan)
 app.add_middleware(CorrelationIdMiddleware)
 
 
+def _schema_check() -> tuple[bool, str | None]:
+    """Schema-level readiness probe. inspect() works for both Postgres
+    (the prod path, where SCHEMA='visibility') and SQLite (the test path,
+    where SCHEMA is None and tables live in the default namespace).
+
+    Tests monkeypatch this to exercise the 503 branch."""
+    try:
+        ins = inspect(engine)
+        if not ins.has_table("runs", schema=SCHEMA):
+            qualified = f"{SCHEMA}.runs" if SCHEMA else "runs"
+            return False, f"{qualified} missing"
+    except Exception as e:  # noqa: BLE001
+        return False, f"db_query_failed: {type(e).__name__}: {e}"
+    return True, None
+
+
 @app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+def health() -> JSONResponse:
+    ok, reason = _schema_check()
+    if not ok:
+        return JSONResponse(
+            {"status": "error", "service": "visibility", "check": reason},
+            status_code=503,
+        )
+    return JSONResponse({"status": "ok", "service": "visibility"})
 
 
 # ---------- entities ----------
@@ -90,13 +113,14 @@ def update_entity(
     return e
 
 
-@app.delete("/entities/{entity_id}", status_code=204)
-def delete_entity(entity_id: int, session: Annotated[Session, Depends(get_session)]) -> None:
+@app.delete("/entities/{entity_id}", status_code=204, response_class=Response)
+def delete_entity(entity_id: int, session: Annotated[Session, Depends(get_session)]):
     e = session.get(Entity, entity_id)
     if e is None:
         raise HTTPException(404, "not found")
     session.delete(e)
     session.commit()
+    return Response(status_code=204)
 
 
 # ---------- queries ----------
@@ -131,13 +155,14 @@ def update_query(
     return q
 
 
-@app.delete("/queries/{query_id}", status_code=204)
-def delete_query(query_id: int, session: Annotated[Session, Depends(get_session)]) -> None:
+@app.delete("/queries/{query_id}", status_code=204, response_class=Response)
+def delete_query(query_id: int, session: Annotated[Session, Depends(get_session)]):
     q = session.get(Query, query_id)
     if q is None:
         raise HTTPException(404, "not found")
     session.delete(q)
     session.commit()
+    return Response(status_code=204)
 
 
 # ---------- runs ----------

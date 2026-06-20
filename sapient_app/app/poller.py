@@ -7,10 +7,13 @@ from sqlalchemy import select
 
 from app.config import Settings, get_settings
 from app.db import session_scope
-from app.metrics import finder_opportunities_scored_total
+from app.metrics import (
+    finder_opportunities_scored_total,
+    finder_scoring_errors_total,
+)
 from app.models import Opportunity
 from app.reddit_client import RedditClient, RedditPost
-from app.scorer import Scorer
+from app.scorer import Scorer, classify_scoring_error
 
 log = logging.getLogger(__name__)
 
@@ -88,7 +91,19 @@ def run_cycle(
         try:
             result = scorer.score(post.title, post.body, post.subreddit)
         except Exception as e:  # noqa: BLE001
-            log.warning("scoring failed for %s: %s", post.post_id, e)
+            reason = classify_scoring_error(e)
+            finder_scoring_errors_total.labels(reason=reason).inc()
+            # 'other' is the catchall — log the exception class so ops can
+            # spot a new failure mode that warrants its own label.
+            if reason == "other":
+                log.warning(
+                    "scoring failed for %s: %s (%s)",
+                    post.post_id,
+                    e,
+                    type(e).__name__,
+                )
+            else:
+                log.warning("scoring failed for %s (%s): %s", post.post_id, reason, e)
             continue
         stats.scored += 1
         log.info(

@@ -69,7 +69,33 @@ Split by source to know which provider:
 sum by (source) (increase(visibility_cost_cap_short_circuits_total[1h])) > 0
 ```
 
-## 4. Cross-schema breakage — visibility can't see public.opportunities
+## 4. Scoring errors — finder's LLM call repeatedly failing
+
+```promql
+rate(finder_scoring_errors_total[5m]) > 0.1
+```
+
+Sustain for 5+ minutes before paging. Most likely cause: model outage,
+quota exhaustion, or a response-shape change that broke parsing.
+
+The `reason` label tells you which:
+
+```promql
+sum by (reason) (rate(finder_scoring_errors_total[5m]))
+```
+
+`rate_limited` → request a quota bump or throttle the poll cycle;
+`timeout` / `upstream_5xx` → Anthropic incident, wait it out;
+`json_parse` / `schema_invalid` → the model started returning something we
+don't expect — bump the model pin or tighten the prompt;
+`other` → unrecognized exception class, check logs for the
+`type(e).__name__` field the poller emits.
+
+Important: low-relevance posts (`scored-but-not-stored`) increment
+`finder_opportunities_scored_total{stored="false"}`, NOT this counter. A
+spike here means real failures, not just picky scoring.
+
+## 5. Cross-schema breakage — visibility can't see public.opportunities
 
 ```promql
 rate(visibility_cross_schema_link_failures_total[10m]) > 0

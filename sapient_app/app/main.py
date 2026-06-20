@@ -6,12 +6,13 @@ from contextlib import asynccontextmanager
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException, Query
-from sqlalchemy import select
+from fastapi.responses import JSONResponse
+from sqlalchemy import inspect, select
 from sqlalchemy.orm import Session
 
 from app._obs import CorrelationIdMiddleware, configure_structlog, get_logger
 from app.config import get_settings
-from app.db import get_session, init_db
+from app.db import engine, get_session, init_db
 from app.metrics import start_sidecar
 from app.models import Opportunity
 from app.poller import run_cycle
@@ -55,9 +56,33 @@ app = FastAPI(title="Reddit Opportunity Finder", lifespan=lifespan)
 app.add_middleware(CorrelationIdMiddleware)
 
 
+def _schema_check() -> tuple[bool, str | None]:
+    """Schema-level readiness probe: pg_isready (compose) only verifies the
+    protocol layer; this catches "DB up but migrations didn't land." The
+    inspect() API works against Postgres and SQLite identically, so tests
+    against in-memory SQLite still cover the routing — they just need to
+    materialize the table first.
+
+    Returns (ok, failure_reason). Tests monkeypatch this directly to
+    simulate the failure branch without yanking the DB."""
+    try:
+        ins = inspect(engine)
+        if not ins.has_table("opportunities"):
+            return False, "public.opportunities missing"
+    except Exception as e:  # noqa: BLE001
+        return False, f"db_query_failed: {type(e).__name__}: {e}"
+    return True, None
+
+
 @app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+def health() -> JSONResponse:
+    ok, reason = _schema_check()
+    if not ok:
+        return JSONResponse(
+            {"status": "error", "service": "finder", "check": reason},
+            status_code=503,
+        )
+    return JSONResponse({"status": "ok", "service": "finder"})
 
 
 @app.get("/opportunities", response_model=list[OpportunityOut])

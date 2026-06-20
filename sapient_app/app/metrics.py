@@ -13,6 +13,16 @@ finder_opportunities_scored_total = Counter(
     ["stored"],  # "true" | "false"
 )
 
+# Bounded label set — see app.scorer.classify_scoring_error. A scored-but-
+# rejected post (low relevance) ticks opportunities_scored_total{stored=false},
+# NOT this counter; the two are mutually exclusive by design so the rate of
+# this metric maps cleanly to "model/upstream unhealthy."
+finder_scoring_errors_total = Counter(
+    "finder_scoring_errors_total",
+    "Scoring attempts that raised, partitioned by classified reason",
+    ["reason"],  # rate_limited | timeout | upstream_5xx | json_parse | schema_invalid | other
+)
+
 
 _started = False
 _last_port = 0

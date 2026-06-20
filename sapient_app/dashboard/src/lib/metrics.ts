@@ -40,10 +40,18 @@ export const dashboardPostsTotal = new Counter({
   registers: [registry],
 });
 
+// Bucket boundaries: 1m / 5m / 15m / 1h / 4h / 1d. Tuned to the actual
+// distribution of "user claims an opportunity then comes back to post" —
+// most resolve in under an hour, a long tail stretches to a day, beyond
+// that the claim is effectively abandoned (Inf catches it). Don't expand
+// the high end without confirming the abandonment threshold first; extra
+// buckets cost cardinality.
+export const CLAIM_TO_POSTED_BUCKETS = [60, 300, 900, 3600, 14400, 86400] as const;
+
 export const dashboardClaimToPostedSeconds = new Histogram({
   name: "dashboard_claim_to_posted_seconds",
   help: "Wall time between claim and mark-posted for the same claim",
-  buckets: [60, 300, 900, 3600, 10800, 43200, 86400, 259200, 604800],
+  buckets: [...CLAIM_TO_POSTED_BUCKETS],
   registers: [registry],
 });
 

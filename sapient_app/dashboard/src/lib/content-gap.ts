@@ -190,10 +190,12 @@ export async function generateDraft(
   }
 
   // Active-draft check BEFORE we burn the quota — a duplicate generate
-  // shouldn't cost the user a slot.
+  // shouldn't cost the user a slot. Scoped to (task, this user): another
+  // user's draft for the same task is intentionally ignored.
   const existing = await db.query.contentDrafts.findFirst({
     where: and(
       eq(contentDrafts.visibilityTaskId, taskId),
+      eq(contentDrafts.userId, userId),
       sql`${contentDrafts.status} <> 'archived'`,
     ),
   });
@@ -267,13 +269,15 @@ export async function generateDraft(
     };
   } catch (e) {
     if (isUniqueViolation(e)) {
-      // Lost a race against another generate for the same task. Refund the
-      // quota slot and surface the existing draft id so the caller can
-      // route the user there.
+      // Lost a race against another generate for the same (task, user).
+      // Refund the quota slot and surface the existing draft id so the
+      // caller can route the user there. Scoped to this user because the
+      // unique index is per (visibility_task_id, "userId").
       await refundQuota(userId);
       const concurrent = await db.query.contentDrafts.findFirst({
         where: and(
           eq(contentDrafts.visibilityTaskId, taskId),
+          eq(contentDrafts.userId, userId),
           sql`${contentDrafts.status} <> 'archived'`,
         ),
       });
