@@ -1,0 +1,21 @@
+[
+  { "text": "I love ACME widgets",                "alias": "Acme",            "expected": true,  "note": "case-insensitive" },
+  { "text": "the macme protocol is unrelated",    "alias": "acme",            "expected": false, "note": "letter-prefix boundary" },
+  { "text": "AcmeWidget is a thing",              "alias": "Acme",            "expected": false, "note": "letter-suffix boundary" },
+  { "text": "Acme is great",                      "alias": "Acme",            "expected": true,  "note": "string start" },
+  { "text": "I tried Acme",                       "alias": "Acme",            "expected": true,  "note": "string end" },
+  { "text": "I write C++ daily",                  "alias": "C++",             "expected": true,  "note": "regex specials escaped" },
+  { "text": "I write CPlusPlus daily",            "alias": "C++",             "expected": false, "note": "C++ literal not in text" },
+  { "text": "Working in .NET today",              "alias": ".NET",            "expected": true,  "note": ".NET surrounded by spaces" },
+  { "text": "Working in ASP.NET today",           "alias": ".NET",            "expected": false, "note": "letter before . breaks boundary" },
+  { "text": "I drink café every morning",         "alias": "fe",              "expected": false, "note": "Unicode letter on lookahead side" },
+  { "text": "our brand is Café Acme",             "alias": "café",            "expected": true,  "note": "Unicode alias, case-insensitive" },
+  { "text": "Acme and acmewidget.com are both us","alias": "Acme",            "expected": true,  "note": "both aliases distinct" },
+  { "text": "Acme and acmewidget.com are both us","alias": "acmewidget.com",  "expected": true,  "note": "URL-like alias matches verbatim" },
+
+  { "text": "acme_dev",                            "alias": "acme",           "expected": true,  "note": "underscore is a boundary char" },
+  { "text": "acme_v2",                             "alias": "acme",           "expected": true,  "note": "underscore boundary, digits after" },
+  { "text": "_acme_",                              "alias": "acme",           "expected": true,  "note": "underscore on both sides" },
+  { "text": "acme123",                             "alias": "acme",           "expected": false, "note": "digit suffix breaks boundary" },
+  { "text": "123acme",                             "alias": "acme",           "expected": false, "note": "digit prefix breaks boundary" }
+]
