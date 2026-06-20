@@ -94,6 +94,44 @@ CREATE TABLE karma_snapshot (
   PRIMARY KEY ("userId", taken_at)
 );
 
+-- Content drafts: blog_post visibility tasks worked through the dashboard.
+-- See src/lib/content-gap.ts for the state machine.
+CREATE TABLE content_draft (
+  id                    serial PRIMARY KEY,
+  visibility_task_id    integer NOT NULL,
+  "userId"              text NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+  title                 text NOT NULL,
+  body                  text NOT NULL,
+  target_query          text NOT NULL,
+  status                text NOT NULL DEFAULT 'draft',
+  edit_markers_count    integer NOT NULL DEFAULT 0,
+  published_url         text,
+  published_at          timestamptz,
+  created_at            timestamptz NOT NULL DEFAULT now(),
+  updated_at            timestamptz NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX ux_content_draft_active_per_task
+  ON content_draft (visibility_task_id)
+  WHERE status <> 'archived';
+CREATE INDEX ix_content_draft_user ON content_draft ("userId");
+
+CREATE TABLE content_draft_event (
+  id            serial PRIMARY KEY,
+  draft_id      integer NOT NULL REFERENCES content_draft(id) ON DELETE CASCADE,
+  from_status   text,
+  to_status     text NOT NULL,
+  "userId"      text NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+  at            timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX ix_content_draft_event_draft ON content_draft_event (draft_id, at);
+
+CREATE TABLE content_draft_quota (
+  "userId"   text NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+  day        text NOT NULL,
+  count      integer NOT NULL DEFAULT 0,
+  PRIMARY KEY ("userId", day)
+);
+
 -- The visibility service owns this schema in prod. Mirrored here only so
 -- the dashboard's claim/mark-posted plumbing can read and (selectively)
 -- write the columns it needs to. Tests can drop the schema to simulate the
@@ -101,19 +139,20 @@ CREATE TABLE karma_snapshot (
 CREATE SCHEMA visibility;
 
 CREATE TABLE visibility.tasks (
-  id                     integer PRIMARY KEY,
-  kind                   text NOT NULL,
-  query_id               integer NOT NULL,
-  entity_id              integer,
-  related_url            text,
-  suggested_subreddit    text,
-  recommendation         text NOT NULL,
-  finder_opportunity_id  integer,
-  status                 text NOT NULL DEFAULT 'open',
-  claimed_by_user_id     text,
-  claimed_at             timestamptz,
-  dashboard_post_id      integer,
-  dismiss_reason         text,
-  created_at             timestamptz NOT NULL DEFAULT now()
+  id                            integer PRIMARY KEY,
+  kind                          text NOT NULL,
+  query_id                      integer NOT NULL,
+  entity_id                     integer,
+  related_url                   text,
+  suggested_subreddit           text,
+  recommendation                text NOT NULL,
+  finder_opportunity_id         integer,
+  status                        text NOT NULL DEFAULT 'open',
+  claimed_by_user_id            text,
+  claimed_at                    timestamptz,
+  dashboard_post_id             integer,
+  dashboard_content_draft_id    integer,
+  dismiss_reason                text,
+  created_at                    timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX ix_visibility_tasks_status_kind ON visibility.tasks (status, kind);

@@ -167,6 +167,75 @@ export const karmaSnapshots = pgTable(
   (t) => ({ pk: primaryKey({ columns: [t.userId, t.takenAt] }) }),
 );
 
+/* ---------- Content drafts (blog_post visibility tasks) ---------- */
+//
+// A content_draft is the dashboard's working copy of a blog post the user
+// is preparing in response to a content-gap visibility task. The user
+// publishes externally (their own CMS) — the dashboard only tracks state
+// and provides audit history. See src/lib/content-gap.ts.
+//
+// Active-draft uniqueness is enforced by the partial unique index below:
+// at most one draft per task in any non-archived status. An archived draft
+// frees the task for a fresh generation.
+export const contentDrafts = pgTable(
+  "content_draft",
+  {
+    id: serial("id").primaryKey(),
+    visibilityTaskId: integer("visibility_task_id").notNull(),
+    userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    body: text("body").notNull(),
+    // The visibility-query text that motivated this draft. Snapshot at
+    // generate time so editing the upstream Query later doesn't change
+    // what the user thought they were writing about.
+    targetQuery: text("target_query").notNull(),
+    // draft | edited | published | archived. State machine is enforced by
+    // src/lib/content-gap.ts — there are no other writers.
+    status: text("status").notNull().default("draft"),
+    editMarkersCount: integer("edit_markers_count").notNull().default(0),
+    publishedUrl: text("published_url"),
+    publishedAt: timestamp("published_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => ({
+    uniqActivePerTask: uniqueIndex("ux_content_draft_active_per_task")
+      .on(t.visibilityTaskId)
+      .where(__raw("status <> 'archived'")),
+    byUser: index("ix_content_draft_user").on(t.userId),
+  }),
+);
+
+// Append-only audit log of status transitions. Mirrors the per-user counter
+// shape used elsewhere: this is for ops, not for hot-path reads.
+export const contentDraftEvents = pgTable(
+  "content_draft_event",
+  {
+    id: serial("id").primaryKey(),
+    draftId: integer("draft_id").notNull().references(() => contentDrafts.id, { onDelete: "cascade" }),
+    fromStatus: text("from_status"),
+    toStatus: text("to_status").notNull(),
+    userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }),
+    at: timestamp("at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => ({
+    byDraft: index("ix_content_draft_event_draft").on(t.draftId, t.at),
+  }),
+);
+
+// Per-(user, day) counter for content-draft generations. Separate ceiling
+// from the weekly_promo_cap because generation isn't promotional posting —
+// it's just LLM cost protection.
+export const contentDraftQuota = pgTable(
+  "content_draft_quota",
+  {
+    userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }),
+    day: text("day").notNull(), // ISO date YYYY-MM-DD in UTC
+    count: integer("count").notNull().default(0),
+  },
+  (t) => ({ pk: primaryKey({ columns: [t.userId, t.day] }) }),
+);
+
 // The Python finder writes here. The dashboard only reads. Schema must match
 // app/models.py::Opportunity.
 export const opportunities = pgTable("opportunities", {
@@ -215,6 +284,10 @@ export const visibilityTasks = visibilitySchema.table("tasks", {
   claimedByUserId: text("claimed_by_user_id"),
   claimedAt: timestamp("claimed_at", { withTimezone: true }),
   dashboardPostId: integer("dashboard_post_id"),
+  // Set when a blog_post task is closed by publishing a content draft.
+  // Mutually exclusive with dashboardPostId at the application level —
+  // a task closes either by Reddit post OR by content draft, never both.
+  dashboardContentDraftId: integer("dashboard_content_draft_id"),
   dismissReason: text("dismiss_reason"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
 });

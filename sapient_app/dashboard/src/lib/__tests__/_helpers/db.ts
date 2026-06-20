@@ -44,25 +44,27 @@ export async function createTestDb(): Promise<TestDb> {
 const VISIBILITY_DDL = `
   CREATE SCHEMA IF NOT EXISTS visibility;
   CREATE TABLE IF NOT EXISTS visibility.tasks (
-    id                     integer PRIMARY KEY,
-    kind                   text NOT NULL,
-    query_id               integer NOT NULL,
-    entity_id              integer,
-    related_url            text,
-    suggested_subreddit    text,
-    recommendation         text NOT NULL,
-    finder_opportunity_id  integer,
-    status                 text NOT NULL DEFAULT 'open',
-    claimed_by_user_id     text,
-    claimed_at             timestamptz,
-    dashboard_post_id      integer,
-    dismiss_reason         text,
-    created_at             timestamptz NOT NULL DEFAULT now()
+    id                            integer PRIMARY KEY,
+    kind                          text NOT NULL,
+    query_id                      integer NOT NULL,
+    entity_id                     integer,
+    related_url                   text,
+    suggested_subreddit           text,
+    recommendation                text NOT NULL,
+    finder_opportunity_id         integer,
+    status                        text NOT NULL DEFAULT 'open',
+    claimed_by_user_id            text,
+    claimed_at                    timestamptz,
+    dashboard_post_id             integer,
+    dashboard_content_draft_id    integer,
+    dismiss_reason                text,
+    created_at                    timestamptz NOT NULL DEFAULT now()
   );
 `;
 
 const TRUNCATE_ALL = `
-  TRUNCATE TABLE visibility.tasks, post, claim, user_active_sub,
+  TRUNCATE TABLE visibility.tasks, content_draft_event, content_draft,
+    content_draft_quota, post, claim, user_active_sub,
     user_profile, opportunities, product_aliases, karma_snapshot, "user"
     RESTART IDENTITY CASCADE;
 `;

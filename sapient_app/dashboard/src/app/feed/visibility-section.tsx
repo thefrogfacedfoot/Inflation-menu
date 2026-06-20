@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 
 type RedditTask = {
   id: number;
@@ -30,6 +31,28 @@ export default function VisibilitySection({
   const [removed, setRemoved] = useState<Set<number>>(new Set());
   const [errors, setErrors] = useState<Record<number, string>>({});
   const [pending, start] = useTransition();
+  const router = useRouter();
+
+  const generateDraft = (taskId: number) =>
+    start(async () => {
+      const res = await fetch("/api/content-drafts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ taskId }),
+      });
+      const json = await res.json();
+      if (res.ok) {
+        router.push(`/content/${json.draftId}`);
+        return;
+      }
+      // 409: an active draft already exists for this task — route the user
+      // there rather than blocking them with an error.
+      if (res.status === 409 && typeof json.draftId === "number") {
+        router.push(`/content/${json.draftId}`);
+        return;
+      }
+      setErrors({ ...errors, [taskId]: json.error ?? "generation failed" });
+    });
 
   if (reddit.length === 0 && content.length === 0) return null;
 
@@ -145,12 +168,22 @@ export default function VisibilitySection({
               )}
               <div style={{ marginTop: 8 }}>
                 <button
+                  onClick={() => generateDraft(t.id)}
+                  disabled={pending || disabled}
+                  style={btn}
+                >
+                  Generate draft
+                </button>
+                <button
                   onClick={() => dismiss(t.id)}
                   disabled={pending}
                   style={{ ...btn, background: "#444" }}
                 >
                   Dismiss
                 </button>
+                {errors[t.id] && (
+                  <span style={{ color: "#ff8888", marginLeft: 12 }}>{errors[t.id]}</span>
+                )}
               </div>
             </article>
           ))

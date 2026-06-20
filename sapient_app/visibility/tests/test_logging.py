@@ -13,9 +13,7 @@ Specifically:
 """
 from __future__ import annotations
 
-import io
 import json
-import logging
 import re
 import uuid
 
@@ -46,7 +44,7 @@ def _app() -> FastAPI:
     app.add_middleware(CorrelationIdMiddleware)
 
     @app.get("/ping")
-    def ping() -> dict[str, str | None]:
+    def ping() -> dict:
         return {"cid": correlation_id_var.get()}
 
     return app
@@ -84,18 +82,15 @@ def test_middleware_does_not_leak_id_across_requests() -> None:
 # ----- structlog plumbing -----------------------------------------------------
 
 
-def _capture_log_line(service: str = "visibility") -> dict:
-    """Configure structlog to write JSON to a buffer, emit one line under a
-    correlation_id, and return the parsed dict."""
-    buf = io.StringIO()
-    # logging.basicConfig is idempotent enough for tests; install our buffer
-    # as the only handler.
-    root = logging.getLogger()
-    for h in list(root.handlers):
-        root.removeHandler(h)
-    root.addHandler(logging.StreamHandler(buf))
-    root.setLevel(logging.INFO)
+def _capture_log_line(capsys, service: str = "visibility") -> dict:
+    """Configure structlog with our processor chain, emit one line under a
+    correlation_id, then read it back via pytest's stdout capture.
 
+    structlog's JSONRenderer writes through PrintLogger (stdout). Routing
+    that into a StringIO would require swapping out the logger factory, which
+    drifts further from how the runtime actually behaves — capsys captures
+    the real path."""
+    capsys.readouterr()  # drain anything earlier in the test
     configure_structlog(service)
     token = correlation_id_var.set("test-cid-xyz")
     try:
@@ -103,12 +98,13 @@ def _capture_log_line(service: str = "visibility") -> dict:
     finally:
         correlation_id_var.reset(token)
 
-    line = buf.getvalue().strip().splitlines()[-1]
-    return json.loads(line)
+    captured = capsys.readouterr()
+    lines = [ln for ln in captured.out.strip().splitlines() if ln.startswith("{")]
+    return json.loads(lines[-1])
 
 
-def test_log_line_includes_required_fields() -> None:
-    record = _capture_log_line()
+def test_log_line_includes_required_fields(capsys) -> None:
+    record = _capture_log_line(capsys)
     assert record["correlation_id"] == "test-cid-xyz"
     assert record["service"] == "visibility"
     assert record["event"] == "unit_test_event"
