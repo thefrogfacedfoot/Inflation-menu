@@ -44,6 +44,7 @@ ROSTER = [
     ('Singapore',     'SG', 'SGP', 'SGD'),
     ('Mexico',        'MX', 'MEX', 'MXN'),
     ('Vietnam',       'VN', 'VNM', 'VND'),  # proxy-only
+    ('United Arab Emirates', 'AE', 'ARE', 'AED'),
 ]
 
 # Numbeo "items" we want (their item-id integers from the URL):

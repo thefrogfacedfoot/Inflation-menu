@@ -50,6 +50,7 @@ CODE_TO_COUNTRY = {
     "SG": "Singapore",    "MY": "Malaysia",       "ID": "Indonesia",
     "TH": "Thailand",     "IN": "India",          "US": "United States",
     "GB": "United Kingdom", "AU": "Australia",
+    "AE": "United Arab Emirates",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -527,6 +528,12 @@ def fetch_thailand() -> Tuple[List[Dict], str]:
     raise ValueError("BOT IAPI DNS failure; using fallback")
 
 
+def fetch_united_arab_emirates() -> Tuple[List[Dict], str]:
+    # No clean monthly primary identified for FCSC; fall through to World Bank.
+    print("  Primary: FCSC monthly CPI — no documented API; using fallback.")
+    raise ValueError("No FCSC API; using fallback")
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Fallbacks
 # ─────────────────────────────────────────────────────────────────────────────
@@ -572,6 +579,7 @@ COUNTRY_PRIMARY = {
     "US": fetch_united_states,
     "GB": fetch_united_kingdom,
     "AU": fetch_australia,
+    "AE": fetch_united_arab_emirates,
 }
 
 
@@ -650,7 +658,7 @@ def main():
 
     if args.country == "all":
         # OECD countries first (they share one 77MB download), then WB countries
-        target_codes = ["AU", "US", "IN", "GB", "SG", "MY", "TH", "ID"]
+        target_codes = ["AU", "US", "IN", "GB", "SG", "MY", "TH", "ID", "AE"]
     else:
         target_codes = [c.strip().upper() for c in args.country.split(",")]
 

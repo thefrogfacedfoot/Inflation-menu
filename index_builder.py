@@ -48,6 +48,8 @@ INFORMAL_WEIGHTS = {
     "United States": 0.20,
     "United Kingdom":0.15,
     "Australia":     0.20,
+    "Vietnam":            0.60,
+    "United Arab Emirates": 0.20,
 }
 
 # Hedonic adjustment factors
@@ -58,6 +60,7 @@ HEDGE_PORTION   = +0.08   # PORTION_REDUCTION → effective price 8% higher afte
 FALLBACK_RATES = {
     "SGD": 1.35, "MYR": 4.70, "IDR": 15_750.0, "THB": 36.0,
     "INR": 83.5,  "USD": 1.0,  "GBP": 0.79,    "AUD": 1.55,
+    "VND": 25_400.0, "AED": 3.67,
 }
 
 

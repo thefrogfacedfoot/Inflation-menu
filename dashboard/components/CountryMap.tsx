@@ -18,6 +18,8 @@ const POSITIONS: Record<string, [number, number]> = {
   Indonesia:        [76,  62],
   Thailand:         [72,  53],
   India:            [68,  47],
+  Vietnam:          [75,  53],
+  "United Arab Emirates": [60, 47],
   Australia:        [79,  73],
 };
 

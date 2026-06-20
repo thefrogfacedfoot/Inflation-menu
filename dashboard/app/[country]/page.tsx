@@ -10,6 +10,9 @@ import {
   COVERAGE_NOTES,
   DEVELOPMENT_STATUS,
   COUNTRIES,
+  CPI_CLASS,
+  CPI_CLASS_LABEL,
+  CPI_CLASS_TOOLTIP,
 } from "@/types";
 import type { Metadata } from "next";
 
@@ -93,6 +96,7 @@ export default async function CountryPage({ params }: PageProps) {
   const { summary, latest, series } = await getCountryData(countryName);
   const csvData = seriesToCsv(countryName, series);
   const devStatus = DEVELOPMENT_STATUS[countryName];
+  const cpiClass = CPI_CLASS[countryName];
   const totalItems = (summary?.items_formal ?? 0) + (summary?.items_informal ?? 0);
   const hasCpi = series.some((d) => d.cpi != null);
 
@@ -123,7 +127,7 @@ export default async function CountryPage({ params }: PageProps) {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               {countryName}
             </h1>
-            <div className="flex items-center gap-2 mt-1">
+            <div className="flex items-center gap-2 mt-1 flex-wrap">
               <span
                 className={`text-xs px-2 py-0.5 rounded font-medium ${
                   devStatus === "Developed"
@@ -133,6 +137,22 @@ export default async function CountryPage({ params }: PageProps) {
               >
                 {devStatus}
               </span>
+              {cpiClass && (
+                <span
+                  title={CPI_CLASS_TOOLTIP[cpiClass]}
+                  className={`font-mono text-xs px-2 py-0.5 rounded ${
+                    cpiClass === "real-monthly"
+                      ? "bg-emerald-50 text-emerald-700"
+                      : cpiClass === "quarterly-interp"
+                      ? "bg-blue-50 text-blue-700"
+                      : cpiClass === "annual-interp"
+                      ? "bg-amber-50 text-amber-700"
+                      : "bg-rose-50 text-rose-700"
+                  }`}
+                >
+                  CPI {CPI_CLASS_LABEL[cpiClass]}
+                </span>
+              )}
               {summary?.granger_significant ? (
                 <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-800 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500" />

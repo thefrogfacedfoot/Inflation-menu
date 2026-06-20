@@ -138,24 +138,43 @@ For pass-through, OLS of Δlog CPI on Δlog UIFPI per Cavallo–Rigobon, with 95
 - **Hedonic adjustment.** `apply_hedonic_adjustment` in the index builder shifts prices by ±15 % when the NLP-detected signals indicate portion or quality change.
 - **Tier-marker purge.** TripAdvisor `priceRange` `$` / `$$` / `$$$` / `$$$$` were initially stored as integer ordinals 1–4 in the `price` column. On 2026-06-17, 1,648 such rows were deleted from `prices` (TH 279, UK 293, US 277, IN 237, AU 221, MY 188, ID 118, SG 35); the scraper was updated to skip the tier path; the index builder's tier-mask filter was removed as redundant.
 
+### 4.7 CPI source resolution
+
+The benchmark series for the Granger test is country-level headline CPI, but the publication frequency and ingestion path differ sharply across the panel — and the difference matters because a Granger F-statistic on a CPI series whose within-year variance has been compressed or zeroed is mechanically biased toward the null. The CPI pipeline (`get_monthly_cpi_all.py`, `floor_datasets.py`) resolves each country into one of four classes:
+
+| Class | Countries | CPI ingestion |
+|---|---|---|
+| **Real monthly** | US, UK, India, Malaysia | OECD HICP (US, IN), ONS d7bt (UK), DOSM `cpi_headline` (MY) — published monthly by the national statistics office, ingested as-is |
+| **Quarterly-interpolated** | Australia | OECD/ABS quarterly, linearly interpolated to monthly (within-quarter variance compressed but nonzero) |
+| **Annual-interpolated (linear)** | Singapore, Thailand, Indonesia | World Bank `FP.CPI.TOTL` (10 January-only observations 2015–2024), linearly interpolated at load time → smooth monthly curve |
+| **Annual-interpolated (step)** | Vietnam, UAE | World Bank `FP.CPI.TOTL` replicated 12× per year → step function, ΔCPI = 0 within each calendar year |
+
+The two annual-interpolated sub-classes are not equivalent. Linear interpolation (SG, TH, ID) compresses within-year variance but preserves a nonzero monthly first difference, which a Granger VAR can in principle pick up. **Step replication (VN, AE) makes the first-differenced CPI series identically zero for 11 of every 12 months, leaving the Granger test on `ΔCPI ~ ΔUIFPI` structurally degenerate and uninformative — the test cannot resolve a lead–lag relationship regardless of what the underlying series actually do.** Any null result on a step-replicated series should be read as evidence that the test does not apply, not as evidence of no relationship.
+
+Reading the panel through this lens:
+
+**India's (n=47) and Malaysia's (n=30) nulls — both on real monthly CPI series — constitute genuine tests of the null hypothesis. The other emerging-market nulls (Indonesia, Thailand, Singapore, Vietnam, UAE) are inconclusive-due-to-power, owing to World Bank annual CPI interpolation that compresses or zeroes within-year variance.** The US positive (real monthly HICP), the UK accumulating result (real monthly ONS), and the Australia pending result (quarterly OECD/ABS, interpolated) are each interpretable on their own terms. The Vietnam (n=12 overlap, p=0.42) and UAE (n=47 overlap, F=0.016, p=0.90) Granger statistics in §6.3 are reported for completeness but should not be read as evidence of no relationship — they are evidence that the World Bank annual benchmark cannot resolve the question. Crossing this resolution barrier requires either monthly CPI from each country's national statistics office (FCSC for UAE, GSO for Vietnam — both potentially available via direct fetch but not yet wired into the loader) or accumulating enough live months to test the index against a tighter-resolution proxy.
+
+Every results table in this paper carries one of four markers indicating the CPI class for that country: `[real-monthly]`, `[quarterly-interp]`, `[annual-interp]`, `[annual-step]`. The dashboard country tiles and country pages carry the same markers.
+
 ---
 
 ## 5. Data
 
 ### 5.1 Per-country sources
 
-| Country | Item-level source | Method | Rows | Months |
-|---|---|---|---:|---:|
-| United States | MenuPages (Wayback, JSON-LD MenuItem) | item-level | 8,282 | 35 |
-| Singapore | GrabFood + foodpanda (live + Wayback NEXT_DATA) | item-level | 9,557 | 9 |
-| Malaysia | foodpanda + GrabFood (live + Wayback NEXT_DATA `priceInMinorUnit`) | item-level | 11,009 | 32 |
-| United Kingdom | Deliveroo (Wayback embedded-JSON) + live | item-level | 17,371 | 20 |
-| India | Zomato NCR cost-for-two (Wayback) | restaurant-aggregate | 635 | 49 |
-| Indonesia | Zomato Jakarta cost-for-two (Wayback) | restaurant-aggregate | 34 | 21 |
-| Australia | Menulog (Wayback DOM markers) + live direct chains | item-level | 1,831 | 24 |
-| Thailand | 2026-06-13 live snapshot (THB regex over Wayback) | item-level (sparse) | 11 | 1 |
+| Country | Item-level source | Method | Rows | Months | CPI series `[class]` |
+|---|---|---|---:|---:|---|
+| United States | MenuPages (Wayback, JSON-LD MenuItem) | item-level | 8,282 | 35 | OECD HICP monthly `[real-monthly]` |
+| Singapore | GrabFood + foodpanda (live + Wayback NEXT_DATA) | item-level | 9,557 | 9 | WB FP.CPI.TOTL `[annual-interp]` |
+| Malaysia | foodpanda + GrabFood (live + Wayback NEXT_DATA `priceInMinorUnit`) | item-level | 11,009 | 32 | DOSM `cpi_headline` `[real-monthly]` |
+| United Kingdom | Deliveroo (Wayback embedded-JSON) + live | item-level | 17,371 | 20 | ONS d7bt `[real-monthly]` |
+| India | Zomato NCR cost-for-two (Wayback) | restaurant-aggregate | 635 | 49 | OECD national monthly `[real-monthly]` |
+| Indonesia | Zomato Jakarta cost-for-two (Wayback) | restaurant-aggregate | 34 | 21 | WB FP.CPI.TOTL `[annual-interp]` |
+| Australia | Menulog (Wayback DOM markers) + live direct chains | item-level | 1,831 | 24 | OECD/ABS quarterly `[quarterly-interp]` |
+| Thailand | 2026-06-13 live snapshot (THB regex over Wayback) | item-level (sparse) | 11 | 1 | WB FP.CPI.TOTL `[annual-interp]` |
 
-Total: 41,263 price observations.
+Total: 41,263 price observations. CPI class definitions in §4.7. The Vietnam (4,309 rows, 19 months, `[annual-step]`) and UAE (9,243 rows, 57 months, `[annual-step]`) GrabFood/Deliveroo sweeps were added to the pipeline on 2026-06-19/20 and appear in the dashboard but not in the table above; their Granger statistics are summarised in §6.3 with the appropriate `[annual-step]` caveat.
 
 ### 5.2 Honest collection notes
 
@@ -187,6 +206,8 @@ Running `granger_analysis.py --min-obs 24` over the post-purge UIFPI / CPI joint
 | Pass-through p | 0.5399 |
 | Pass-through R² | 0.5566 |
 
+CPI source: OECD HICP monthly index (BLS-derived) — `[real-monthly]`. See §4.7.
+
 Multi-lag detail: lag-1 F(1, 26) = 6.0336, p = 0.021 is the minimum; lag-2 F(2, 23) = 2.6845, p = 0.0896; lag-3 F(3, 20) = 2.0613, p = 0.1376; lag-4 F(4, 17) = 1.967, p = 0.1455. The signal concentrates at the shortest horizon and decays for longer lags, consistent with restaurant menu repricing acting as an early warning rather than a sustained predictor.
 
 **The Granger test rejects independence at the 5 % level**. The pass-through coefficient is small, negative, and not significant; the 95 % CI spans zero by a wide margin (β = −0.0043, 95 % CI [−0.01938, +0.01073], p = 0.5399). The result is a *timing* signal: UIFPI changes precede CPI changes by one month, but the linear coefficient on Δlog UIFPI does not pin down magnitude.
@@ -207,6 +228,8 @@ Multi-lag detail: lag-1 F(1, 26) = 6.0336, p = 0.021 is the minimum; lag-2 F(2, 
 | Pass-through p | 0.6973 |
 | Pass-through R² | 0.4997 |
 
+CPI source: OECD national monthly index — `[real-monthly]`. See §4.7.
+
 Both series are stationary at levels; the VAR is well-identified; the Granger F-statistic is essentially zero. **The Indian Zomato cost-for-two series carries no detectable leading information about headline CPI**. Two interpretations are plausible:
 
 1. Indian CPI is dominated by food-staple and fuel components for which restaurant menu prices lag rather than lead.
@@ -218,13 +241,15 @@ Cross-country heterogeneity in CPI leadership is itself a research finding worth
 
 Malaysia has crossed the threshold via the 2026-06-19 Wayback `food.grab.com/my` sweep (n = 30 overlap, F = 0.111, p = 0.7419 at lag 1 — null result, reported alongside India in §6.2). The remaining countries are still accumulating:
 
-| Country | n overlap | Status | Expected crossover |
-|---|---:|---|---|
-| Australia | 23 | 1 month short — UIFPI has 24 distinct months but the 2026-06 live snapshot is outside the AU CPI window (which ends 2026-04) | Late July 2026, when ABS publishes Q2 CPI via OECD SDMX |
-| United Kingdom | 18 | Accumulating monthly; 15 of 20 UIFPI months are 2025+ (Deliveroo embeds menu JSON only post-SPA-migration) | Late 2026 via monthly accumulation |
-| Indonesia | 20 | Restaurant-aggregate Zomato cost-for-two; nearest to threshold | Late 2026 via monthly accumulation |
-| Singapore | 8 | Going-forward live started mid-2026 | ~2027 |
-| Thailand | 0 | Single 2026-06-13 live snapshot; no archival depth — every alternative Wayback source probed (Wongnai, LineMan, GrabFood TH) bailed at Phase 0 | Sustained monthly accumulation required |
+| Country | n overlap | CPI `[class]` | Status | Expected crossover |
+|---|---:|---|---|---|
+| Australia | 23 | `[quarterly-interp]` | 1 month short — UIFPI has 24 distinct months but the 2026-06 live snapshot is outside the AU CPI window (which ends 2026-04) | Late July 2026, when ABS publishes Q2 CPI via OECD SDMX |
+| United Kingdom | 18 | `[real-monthly]` | Accumulating monthly; 15 of 20 UIFPI months are 2025+ (Deliveroo embeds menu JSON only post-SPA-migration) | Late 2026 via monthly accumulation |
+| Indonesia | 20 | `[annual-interp]` | Restaurant-aggregate Zomato cost-for-two; nearest to threshold | Late 2026 — *but see §4.7: even at n ≥ 24 the test is inconclusive without monthly BPS CPI* |
+| Singapore | 8 | `[annual-interp]` | Going-forward live started mid-2026 | ~2027 — *see §4.7* |
+| Thailand | 0 | `[annual-interp]` | Single 2026-06-13 live snapshot; no archival depth — every alternative Wayback source probed (Wongnai, LineMan, GrabFood TH) bailed at Phase 0 | Sustained monthly accumulation required — *see §4.7* |
+| Vietnam | 12 | `[annual-step]` | 19 UIFPI months from 2026-06 GrabFood Wayback sweep; CPI Δ=0 within calendar year | Crossing n=24 does not lift the §4.7 ceiling — requires monthly GSO CPI |
+| UAE | 47 | `[annual-step]` | 57 UIFPI months from 2026-06 Deliveroo AE Wayback sweep; F=0.016, p=0.90 is the degenerate-test artefact described in §4.7 | Crossing the resolution barrier requires monthly FCSC CPI |
 
 The homepage Granger counter and country-page status pills read directly from `country_summary.json`, so any crossover triggered by the monthly cron will surface on Vercel within minutes of the commit.
 
@@ -256,6 +281,7 @@ The US result, if it survives replication across a longer window, has a specific
 4. **Modern delivery aggregators are mostly unreachable via Wayback**. iFood, Uber Eats, Lieferando, Wolt, GoFood, ShopeeFood, GrabFood TH, and JustEat UK all hydrate menus via XHR after page render; Wayback captures only the static shell. This is a structural limitation of the archive layer, not a parser problem, and it caps the historical depth recoverable for several countries.
 5. **Live-scraper IP constraint.** Foodpanda and GrabFood bot-block datacenter IPs. The live scraper must run from a residential IP (local launchd or self-hosted runner); the GitHub Actions cron defaults to `--skip-scrape` for this reason.
 6. **NLP classification is unaudited downstream.** The Claude-based category and quality-signal classification has not been independently validated against a human-labeled sample at scale; the existing `validation_results/` work covers only a small audit set.
+7. **CPI resolution heterogeneity (see §4.7).** Five of the panel's emerging-market series rely on World Bank annual CPI interpolated to monthly — linearly for SG/TH/ID and step-replicated for VN/AE — which compresses or zeroes within-year variance. The Granger test on step-replicated series (VN, AE) is structurally degenerate and uninformative; on linearly-interpolated series it is power-limited. Null results on these countries are inconclusive-due-to-power, not evidence of no relationship. The genuine cross-country tests in this panel are India (n=47) and Malaysia (n=30), both on real monthly CPI.
 
 ---
 

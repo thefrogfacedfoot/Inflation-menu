@@ -60,6 +60,7 @@ COUNTRY_TO_CODE = {
     "Singapore": "SG", "Malaysia": "MY", "Indonesia": "ID",
     "Thailand": "TH", "India": "IN", "United States": "US",
     "United Kingdom": "GB", "Australia": "AU",
+    "Vietnam": "VN", "United Arab Emirates": "AE",
 }
 
 

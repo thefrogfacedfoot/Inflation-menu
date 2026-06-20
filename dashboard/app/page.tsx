@@ -6,6 +6,11 @@ import {
   COUNTRY_FLAGS,
   COUNTRY_SLUGS,
   DEVELOPMENT_STATUS,
+  PRIMARY_COUNTRIES,
+  LIMITED_COVERAGE_COUNTRIES,
+  CPI_CLASS,
+  CPI_CLASS_LABEL,
+  CPI_CLASS_TOOLTIP,
 } from "@/types";
 import type { CountrySummaryMap, LatestValueMap } from "@/types";
 
@@ -41,6 +46,7 @@ function CountryCard({
   const lv = latest[country];
   const slug = COUNTRY_SLUGS[country];
   const devStatus = DEVELOPMENT_STATUS[country];
+  const cpiClass = CPI_CLASS[country];
   const totalItems = (s?.items_formal ?? 0) + (s?.items_informal ?? 0);
 
   return (
@@ -101,6 +107,24 @@ function CountryCard({
         </span>
         <span className="text-gray-400">{totalItems} items →</span>
       </div>
+      {cpiClass && (
+        <div className="mt-2 pt-2 border-t border-gray-100">
+          <span
+            title={CPI_CLASS_TOOLTIP[cpiClass]}
+            className={`font-mono text-[10px] ${
+              cpiClass === "real-monthly"
+                ? "text-emerald-700"
+                : cpiClass === "quarterly-interp"
+                ? "text-blue-700"
+                : cpiClass === "annual-interp"
+                ? "text-amber-700"
+                : "text-rose-700"
+            }`}
+          >
+            CPI {CPI_CLASS_LABEL[cpiClass]}
+          </span>
+        </div>
+      )}
     </Link>
   );
 }
@@ -147,7 +171,7 @@ export default async function HomePage() {
               <span className="text-white font-medium">
                 MIT Billion Prices Project
               </span>{" "}
-              to formal restaurants and informal hawker stalls across 8
+              to formal restaurants and informal hawker stalls across 10
               countries. Tests whether food service prices lead official CPI
               as an early inflation signal — and{" "}
               <span className="text-white font-medium">
@@ -187,13 +211,16 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { label: "Countries", value: "8" },
+              { label: "Countries", value: String(COUNTRIES.length) },
               {
                 label: "Price Observations",
                 value: totalItems.toLocaleString(),
               },
               { label: "Index-Months", value: totalMonths.toString() },
-              { label: "Granger Significant", value: `${sigCount} / 8` },
+              {
+                label: "Granger Significant",
+                value: `${sigCount} / ${COUNTRIES.length}`,
+              },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-2xl font-bold text-[#1a365d]">
@@ -217,7 +244,7 @@ export default async function HomePage() {
           </span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {COUNTRIES.map((country) => (
+          {PRIMARY_COUNTRIES.map((country) => (
             <CountryCard
               key={country}
               country={country}
@@ -226,6 +253,30 @@ export default async function HomePage() {
             />
           ))}
         </div>
+
+        {LIMITED_COVERAGE_COUNTRIES.length > 0 && (
+          <div className="mt-10">
+            <div className="flex items-baseline justify-between mb-3 border-t border-gray-200 pt-6">
+              <h3 className="text-sm font-semibold text-gray-700">
+                Limited Coverage — archival sources exhausted
+              </h3>
+              <span className="text-xs text-gray-400">
+                Routable for reference; excluded from headline counts of
+                Granger-eligible countries.
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 opacity-75">
+              {LIMITED_COVERAGE_COUNTRIES.map((country) => (
+                <CountryCard
+                  key={country}
+                  country={country}
+                  summaries={summaries}
+                  latest={latest}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Map */}
@@ -249,7 +300,7 @@ export default async function HomePage() {
               <p className="text-sm text-gray-600 leading-relaxed">
                 The Unified Informal-Formal Price Index tracks restaurant menu
                 prices across formal restaurants and informal hawker stalls /
-                street vendors in 8 countries, testing whether they lead
+                street vendors in 10 countries, testing whether they lead
                 official CPI readings.
               </p>
             </div>
