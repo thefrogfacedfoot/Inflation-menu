@@ -255,7 +255,7 @@ uifpi/
 
 Live dashboard (Vercel, auto-redeploys on push to `main`):
 
-  **https://inflation-menu.vercel.app**
+  **https://inflation-price-menu.vercel.app**
 
 The dashboard reads `dashboard_data/*.json`; regenerate those files via
 `python3 dashboard_data.py` before pushing.
