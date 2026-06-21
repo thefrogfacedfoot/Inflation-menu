@@ -760,9 +760,36 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
         // Strategy 3: MenuItem-class containers with bare numeric prices.
         // GrabFood SG/MY/ID/TH switched (2026) to rendering prices as plain
         // numbers like "17.44" inside divs with class containing "MenuItem".
+        // GrabFood VN uses thousands-grouped VND like "178.000" (= 178000 VND).
+        // The selector intentionally accepts both "MenuItem" and "menuItem"
+        // (case-sensitive CSS attribute match) since the SPA mixes both.
         if (results.length === 0) {
-            const bareRe = /^\\s*([\\d]{1,4}(?:[.,]\\d{2}))\\s*$/;
-            const containers = document.querySelectorAll('[class*="MenuItem"]');
+            // Returns parsed value or null. Handles:
+            //   "7.50" / "7,50"     → 7.50    (decimal, 2 dp)
+            //   "178.000" / "178,000" → 178000 (thousands, 3 dp)
+            //   "1.250.000"           → 1250000 (millions)
+            //   "33000"               → 33000  (bare integer ≥ 4 digits)
+            const parseLocalized = (raw) => {
+                const t = raw.trim();
+                let m;
+                if ((m = t.match(/^(\\d{1,3})[.,](\\d{3})[.,](\\d{3})$/))) {
+                    return parseInt(m[1] + m[2] + m[3], 10);
+                }
+                if ((m = t.match(/^(\\d{1,3})[.,](\\d{3})$/))) {
+                    return parseInt(m[1] + m[2], 10);
+                }
+                if ((m = t.match(/^(\\d{1,4})[.,](\\d{2})$/))) {
+                    return parseFloat(m[1] + '.' + m[2]);
+                }
+                if ((m = t.match(/^(\\d{4,7})$/))) {
+                    return parseInt(m[1], 10);
+                }
+                return null;
+            };
+            const looksLikePrice = (raw) => parseLocalized(raw) !== null;
+            const containers = document.querySelectorAll(
+                '[class*="MenuItem"], [class*="menuItem"]'
+            );
             for (const el of containers) {
                 const text = (el.innerText || '').trim();
                 if (!text || text.length > 800) continue;
@@ -770,10 +797,12 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
                 let price = 0;
                 for (const cand of el.querySelectorAll('span,p,div')) {
                     const t = (cand.innerText || '').trim();
-                    const m = t.match(bareRe);
-                    if (m) {
-                        const v = parseFloat(m[1].replace(',', '.'));
-                        if (v > 0 && v < 10000) { price = v; break; }
+                    const v = parseLocalized(t);
+                    // Wide range: VND can reach 5,000,000 (luxury combo);
+                    // SGD/MYR/etc. stay below 1000. Filter pathological values.
+                    if (v !== null && v > 0 && v < 10000000) {
+                        price = v;
+                        break;
                     }
                 }
                 if (!price) continue;
@@ -785,7 +814,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
                     name = text.split('\\n').map(s => s.trim()).filter(Boolean)[0] || '';
                 }
                 if (!name || name.length < 2 || name.length > 160) continue;
-                if (bareRe.test(name)) continue;
+                if (looksLikePrice(name)) continue;
                 const key = name + '|' + price;
                 if (!seen.has(key)) {
                     seen.add(key);
@@ -811,20 +840,38 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
                     .map(s => s.trim()).filter(Boolean);
                 const out = [];
                 const seen = new Set();
-                const priceRe = /^([\d]{1,4}[.,]\d{2})$/;
+                // Same parser as Strategy 3 — handles decimal and thousands
+                // grouping (VND prices use "178.000" = 178000).
+                const parseLocalized = (raw) => {
+                    const t = raw.trim();
+                    let m;
+                    if ((m = t.match(/^(\d{1,3})[.,](\d{3})[.,](\d{3})$/))) {
+                        return parseInt(m[1] + m[2] + m[3], 10);
+                    }
+                    if ((m = t.match(/^(\d{1,3})[.,](\d{3})$/))) {
+                        return parseInt(m[1] + m[2], 10);
+                    }
+                    if ((m = t.match(/^(\d{1,4})[.,](\d{2})$/))) {
+                        return parseFloat(m[1] + '.' + m[2]);
+                    }
+                    if ((m = t.match(/^(\d{4,7})$/))) {
+                        return parseInt(m[1], 10);
+                    }
+                    return null;
+                };
+                const looksLikePrice = (s) => parseLocalized(s) !== null;
                 const buf = [];
                 const looksLikeTitle = (s) => (
                     s.length >= 3 && s.length <= 90
-                    && !priceRe.test(s)
+                    && !looksLikePrice(s)
                     && /[A-Za-z　-鿿]/.test(s)
                     && !s.endsWith('.')
                     && !/^(For You|Opening Hours|Today|Home|Restaurant|Login|Help|Order Now)$/i.test(s)
                 );
                 for (const ln of lines) {
-                    const m = ln.match(priceRe);
-                    if (m) {
-                        const price = parseFloat(m[1].replace(',', '.'));
-                        if (price > 0 && price < 10000 && buf.length) {
+                    const price = parseLocalized(ln);
+                    if (price !== null && price > 0 && price < 10000000) {
+                        if (buf.length) {
                             // Walk the buffer oldest-first — for GrabFood layout
                             // the title precedes the description, so the first
                             // title-like line is the dish name.
@@ -2122,6 +2169,30 @@ TARGETS = [
     # Replace with verified URLs from foodpanda.my search if needed.
 
     # ==========================================================================
+    # VIETNAM  (GrabFood food.grab.com/vn/en)
+    # NOTE: Live coverage seeded 2026-06-21 via GrabFood VN HCMC location.
+    # Discovery probe (browsing the home page) surfaced 10 candidate
+    # restaurant URLs; 2 yielded items on a single attempt, the other 8
+    # bounced off the country landing-page redirect even with the location
+    # cookie seed in place (cookie/session is flakier than SG/MY). Common
+    # chain-slug guesses (/vn/en/chain/highlands-coffee-delivery, kfc,
+    # pizza-hut, starbucks, dominos, lotteria, texas-chicken, burger-king)
+    # all 404'd to the landing page — VN chain URL pattern likely differs
+    # from SG/MY. Both verified entries are independent vendors.
+    # Parser also extended to handle VND thousands-grouped prices like
+    # "178.000" (= 178000 VND) — same patch covers IDR/THB if those ever
+    # come online.
+    # ==========================================================================
+
+    ("XIANG BA LAO Chinese Food",
+     "https://food.grab.com/vn/en/restaurant/xiang-ba-lao-chinese-food-delivery/5-C7V2NFTTCKKTAT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("MAD ROOSTA Burgers & Grill",
+     "https://food.grab.com/vn/en/restaurant/mad-roosta-burgers-grill-delivery/5-C6NDJRMFPCKXRX",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    # ==========================================================================
     # INDONESIA  (GrabFood food.grab.com/id/en)
     # NOTE: All Foodpanda Indonesia URLs (foodpanda.id/*) were removed —
     # foodpanda.id does not resolve at the DNS level. Foodpanda exited the
@@ -2659,6 +2730,34 @@ TARGETS = [
     ("Pizza Pilgrims Camden (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/camden-town/pizza-pilgrims-camden",
      "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    # --- UK: 2026-06-21 round 4 + final batch probes (20 fresh) ---
+    # All 5 below verified on a single attempt. Of 20 fresh Deliveroo URLs
+    # tried, 5 yielded items, the rest hit Akamai ACCESS_DENIED (Pho, Pret,
+    # Itsu, Bao, Wagamama Soho/Shoreditch, Nando's Shoreditch, Padella, Five
+    # Guys) or 0-item generic Soho/Camden landing pages (Dishoom Carnaby,
+    # Honest Burgers, Wahaca Covent Garden). UK Deliveroo throttles aggressively
+    # — pattern is one or two URLs per chain location yield, more retries
+    # bounce off bot detection within the same browser session.
+    ("Dishoom King's Cross (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/kings-cross/dishoom-kings-cross",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Wagamama Camden (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/camden-town/wagamama-camden",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Burger & Lobster Soho (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/burger-and-lobster-soho",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Nando's King's Cross (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/kings-cross/nandos-kings-cross",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Yo Sushi London Bridge (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/london-bridge/yo-sushi-london-bridge",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Poppies Fish & Chips (Deliveroo)",
