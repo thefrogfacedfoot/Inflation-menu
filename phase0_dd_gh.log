@@ -1,0 +1,99 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Phase 0 structural probe — DoorDash + Grubhub (US)
+Window: 20180101 → 20260601
+3 snapshots per platform
+
+
+========================================================================
+DoorDash US — United States — doordash.com/store/*
+primary price keys: ['displayPrice', 'price', 'priceInCents', 'unitAmount', 'unitPrice']
+========================================================================
+  24568 distinct URLs, 3083 ≥2-cap, 30000 snapshots, 20190103-20260601
+
+  [1/3] 20250921055318  https://www.doordash.com/store/$10.79
+      kb=2146  gating=none  ld_blocks=5  next_data=False  init_state=False
+      @type histogram: MenuItem:182, Offer:182, Review:5, Person:5, Question:4, Answer:4, ListItem:4, Menu:2, Restaurant:1, PostalAddress:1
+      named_priced_typed=182  named_priced_generic=182
+      raw substr counts: {'price': 182, 'displayPrice': 0, 'unitAmount': 0, 'unitPrice': 0, 'priceInCents': 0}  bare-USD-regex=412
+      walker price-key hits: {'price': 182}
+      typed-node samples:
+          ('Offer', 'Chicken Kebab L', 18.5)
+          ('Offer', 'Chicken Wrap', 15.0)
+          ('Offer', 'Red Lentil Soup', 7.0)
+          ('Offer', 'Humus', 9.0)
+          ('Offer', 'Kofte L', 22.0)
+
+  [2/3] 20231210051022  https://www.doordash.com/store/1007405/
+      kb=887  gating=none  ld_blocks=5  next_data=True  init_state=False
+      @type histogram: MenuItem:70, Offer:70, Review:5, Question:5, Answer:5, ListItem:4, Menu:2, Restaurant:1, PostalAddress:1, GeoCoordinates:1
+      named_priced_typed=70  named_priced_generic=111
+      raw substr counts: {'price': 108, 'displayPrice': 38, 'unitAmount': 41, 'unitPrice': 0, 'priceInCents': 0}  bare-USD-regex=127
+      walker price-key hits: {'price': 108, 'displayPrice': 38, 'unitAmount': 41}
+      typed-node samples:
+          ('Offer', 'Cheese Curds', 5.27)
+          ('Offer', 'Corn Dog Nuggets (5 Pieces)', 3.95)
+          ('Offer', 'Beverage', 3.95)
+          ('Offer', 'Coney Cheese Dog', 4.19)
+          ('Offer', 'Chili Cheese Fries', 4.91)
+      generic-node samples (not MenuItem/Offer):
+          ('displayPrice', 'Corn Dog Nuggets (5 Pieces)', 3.95)
+          ('displayPrice', 'Cheese Curds', 5.27)
+          ('displayPrice', 'Beverage', 3.95)
+          ('unitAmount', 'Beverage', 3.95)
+          ('displayPrice', 'Cheese Curds', 5.27)
+
+  [3/3] 20230301203430  https://www.doordash.com/store/1037880/
+      kb=2699  gating=none  ld_blocks=4  next_data=True  init_state=False
+      @type histogram: MenuItem:182, Offer:182, Question:5, Answer:5, Menu:2, Restaurant:1, PostalAddress:1, GeoCoordinates:1, AggregateRating:1, Organization:1
+      named_priced_typed=182  named_priced_generic=781
+      raw substr counts: {'price': 630, 'displayPrice': 448, 'unitAmount': 450, 'unitPrice': 0, 'priceInCents': 0}  bare-USD-regex=1397
+      walker price-key hits: {'price': 630, 'displayPrice': 448, 'unitAmount': 450}
+      typed-node samples:
+          ('Offer', 'Shrimp', 12.0)
+          ('Offer', 'Combo 4', 18.0)
+          ('Offer', 'Fish and Shrimp Soup (Medium)', 13.2)
+          ('Offer', 'Seafood Soup (Large)', 20.4)
+          ('Offer', 'Chicharrones & Fries (2)', 10.49)
+      generic-node samples (not MenuItem/Offer):
+          ('displayPrice', 'Grilled Shrimp and Beef Fajita', 19.2)
+          ('displayPrice', 'Shrimp', 12.0)
+          ('displayPrice', 'Combo 4', 18.0)
+          ('displayPrice', 'Fish and Shrimp Soup (Medium)', 13.2)
+          ('displayPrice', 'Seafood Soup (Large)', 20.4)
+
+  → DoorDash US: typed-priced 3/3 → CONFIRM
+
+========================================================================
+Grubhub US — United States — grubhub.com/restaurant/*
+primary price keys: ['amount', 'price']
+========================================================================
+  21890 distinct URLs, 5131 ≥2-cap, 30000 snapshots, 20180102-20260530
+
+  [1/3] 20230923185104  https://www.grubhub.com/restaurant/absolutely-asia-864-main-st-waltham/137345?ut
+      kb=45  gating=none  ld_blocks=0  next_data=False  init_state=False
+      @type histogram: (empty)
+      named_priced_typed=0  named_priced_generic=0
+      raw substr counts: {'price': 0, 'amount': 0}  bare-USD-regex=0
+
+  [2/3] 20241108041026  https://www.grubhub.com/restaurant/2201585
+      kb=16  gating=none  ld_blocks=0  next_data=False  init_state=False
+      @type histogram: (empty)
+      named_priced_typed=0  named_priced_generic=0
+      raw substr counts: {'price': 0, 'amount': 0}  bare-USD-regex=0
+
+  [3/3] 20210615042254  https://www.grubhub.com/restaurant/agrusas-italian-restaurant-1240-west-imperial
+      kb=41  gating=none  ld_blocks=0  next_data=False  init_state=False
+      @type histogram: (empty)
+      named_priced_typed=0  named_priced_generic=0
+      raw substr counts: {'price': 0, 'amount': 0}  bare-USD-regex=0
+
+  → Grubhub US: typed-priced 0/3 → BAIL
+
+
+========================================================================
+YIELDS TABLE
+========================================================================
+  platform       verdict    detail                   CDX urls   ≥2-cap
+  DoorDash US    CONFIRM    typed-priced 3/3            24568     3083
+  Grubhub US     BAIL       typed-priced 0/3            21890     5131
