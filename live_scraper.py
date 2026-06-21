@@ -617,11 +617,28 @@ def scrape_foodpanda(page, url, restaurant_name, sector, currency,
         count += 1
 
     conn.commit()
-    log(f"  ✓ {restaurant_name}: {count} items")
+    if count:
+        log(f"  ✓ {restaurant_name}: {count} items")
+    else:
+        log(f"  ✗ {restaurant_name}: 0 items — page did not yield menu data")
     return count
 
 
 # ── GrabFood scraper ───────────────────────────────────────────────────────────
+
+_GRABFOOD_LANDING_TITLE_FRAGMENTS = ('food delivery', 'promos & menu')
+
+
+def _looks_like_grabfood_landing(page):
+    """True if the page is the country landing page rather than the
+    restaurant — happens when delivery location wasn't established before
+    navigation. Detected via the country-landing <title>."""
+    try:
+        title = (page.title() or '').lower()
+    except Exception:
+        return False
+    return all(frag in title for frag in _GRABFOOD_LANDING_TITLE_FRAGMENTS)
+
 
 def scrape_grabfood(page, url, restaurant_name, sector, currency,
                     conn, country, usd_rates):
@@ -631,15 +648,32 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     """
     log(f"  Loading {restaurant_name} (GrabFood)…")
     _warmup(page, 'grabfood', country)
-    try:
-        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
-    except Exception as e:
-        raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
-    page.wait_for_timeout(random.randint(3_000, 5_000))
-    _human_mouse_jitter(page)
 
-    if _looks_like_block(page):
-        raise RuntimeError("ACCESS_DENIED")
+    # GrabFood will silently 302 a chain/restaurant URL to the country
+    # landing page when no delivery location is set. Retry the navigation
+    # up to 3 times with re-warmup between, so the location cookie has
+    # time to propagate.
+    nav_attempts = 0
+    while True:
+        nav_attempts += 1
+        try:
+            page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+        except Exception as e:
+            raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
+        page.wait_for_timeout(random.randint(3_000, 5_000))
+        _human_mouse_jitter(page)
+
+        if _looks_like_block(page):
+            raise RuntimeError("ACCESS_DENIED")
+
+        if not _looks_like_grabfood_landing(page):
+            break
+        if nav_attempts >= 3:
+            log(f"    still on landing page after {nav_attempts} nav attempts; giving up")
+            break
+        log(f"    landing-page redirect on nav {nav_attempts}; re-warming + retry")
+        _warmup(page, 'grabfood', country)
+        page.wait_for_timeout(random.randint(2_000, 3_500))
 
     if '/chain/' in url:
         try:
@@ -844,7 +878,10 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
         except Exception as e:
             log(f"    GrabFood returned 0 items. title={title!r}. dump failed: {e}")
 
-    log(f"  ✓ {restaurant_name}: {len(items)} items")
+    if items:
+        log(f"  ✓ {restaurant_name}: {len(items)} items")
+    else:
+        log(f"  ✗ {restaurant_name}: 0 items — page did not yield menu data")
     return len(items)
 
 
@@ -945,7 +982,10 @@ def scrape_swiggy(page, url, restaurant_name, sector, currency,
                     currency, country, sector, 'swiggy', today, url, usd_rates)
         count += 1
     conn.commit()
-    log(f"  ✓ {restaurant_name}: {count} items")
+    if count:
+        log(f"  ✓ {restaurant_name}: {count} items")
+    else:
+        log(f"  ✗ {restaurant_name}: 0 items — page did not yield menu data")
     return count
 
 
@@ -1181,7 +1221,10 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
                     sector, 'direct', today, url, usd_rates)
         count += 1
     conn.commit()
-    log(f"  ✓ {restaurant_name}: {count} items")
+    if count:
+        log(f"  ✓ {restaurant_name}: {count} items")
+    else:
+        log(f"  ✗ {restaurant_name}: 0 items — page did not yield menu data")
     return count
 
 
@@ -1466,7 +1509,10 @@ def scrape_js(page, url, restaurant_name, sector, currency,
         except Exception as e:
             log(f"    js generic returned 0 items. title={title!r}. dump failed: {e}")
 
-    log(f"  ✓ {restaurant_name}: {count} items")
+    if count:
+        log(f"  ✓ {restaurant_name}: {count} items")
+    else:
+        log(f"  ✗ {restaurant_name}: 0 items — page did not yield menu data")
     return count
 
 
@@ -1573,14 +1619,79 @@ WARMUP_HOME = {
 }
 
 
+# GrabFood requires a delivery `location` cookie before chain/restaurant
+# URLs render the menu; without it, the URL silently 302s to the country
+# landing page. The home page sets this automatically via geo-IP within a
+# few seconds, but the cookie sometimes hasn't been written when we navigate
+# away, so we seed a known-good default per country at context level.
+GRABFOOD_LOCATION_SEED = {
+    # Marina Bay area, Singapore — generic CBD coordinates, isAccurate=false
+    'Singapore': (
+        '{"latitude":1.287953,"longitude":103.851784,'
+        '"address":"Singapore","countryCode":"SG","isAccurate":false,'
+        '"addressDetail":"","noteToDriver":""}'
+    ),
+    # Kuala Lumpur city centre, Malaysia — KLCC area
+    'Malaysia': (
+        '{"latitude":3.158246,"longitude":101.711739,'
+        '"address":"Kuala Lumpur","countryCode":"MY","isAccurate":false,'
+        '"addressDetail":"","noteToDriver":""}'
+    ),
+}
+
+
+def _seed_grabfood_location(page, country):
+    """Write the GrabFood location cookie + landing-country localStorage
+    so the very first restaurant navigation has a valid delivery location.
+    Without this, chain URLs redirect to the country landing page."""
+    seed = GRABFOOD_LOCATION_SEED.get(country)
+    if not seed:
+        return
+    try:
+        # URL-encode the JSON for cookie value (matches GrabFood's own format)
+        from urllib.parse import quote
+        cookie_value = quote(seed, safe='')
+        page.context.add_cookies([{
+            'name': 'location',
+            'value': cookie_value,
+            'domain': 'food.grab.com',
+            'path': '/',
+            'secure': True,
+            'sameSite': 'Lax',
+        }])
+    except Exception:
+        pass
+    # Also seed landing-country-selected localStorage so the SPA doesn't
+    # re-route to the country picker.
+    cc_path = '/sg/en/' if country == 'Singapore' else '/my/en/'
+    try:
+        page.evaluate(
+            f"() => localStorage.setItem('landing-country-selected', '{cc_path}')"
+        )
+    except Exception:
+        # localStorage may not be writable until after first navigation;
+        # ignore — the cookie alone is usually enough.
+        pass
+
+
 def _warmup(page, source, country):
     """Quick home-page hit before the real navigation so we have cookies."""
     home = WARMUP_HOME.get((source, country))
     if not home:
         return
     try:
+        if source == 'grabfood':
+            # Seed location BEFORE the first navigation so the home page
+            # itself loads as a location-aware session, then the chain URL
+            # navigation doesn't redirect.
+            _seed_grabfood_location(page, country)
         page.goto(home, wait_until='domcontentloaded', timeout=20_000)
         page.wait_for_timeout(random.randint(1_200, 2_500))
+        if source == 'grabfood':
+            # After home loads, re-write localStorage (now writable) and
+            # let GrabFood's own session JS settle (writes `location` if missing).
+            _seed_grabfood_location(page, country)
+            page.wait_for_timeout(1_500)
         _human_mouse_jitter(page)
     except Exception:
         # Warm-up failures aren't fatal — proceed to the real target
@@ -2376,6 +2487,19 @@ TARGETS = [
      "https://www.applebees.com/en/menu",
      "formal", "direct", "USD", "United States"),
 
+    # --- US chains: 2026-06-21 probe round (38 fresh candidates) ---
+    # Only Buffalo Wild Wings yielded items. Akamai/Cloudflare blocked
+    # Sonic, Olive Garden, IHOP, Outback, Wendy's, Cava, Captain D's,
+    # Zaxby's, White Castle, Boston Market, Mad Mex. React-SPA + 0-prices:
+    # Burger King, Popeyes, Arby's, Sweetgreen, MOD Pizza, Dairy Queen,
+    # Auntie Anne's, Hardee's, Carl's Jr, Krispy Kreme, Long John Silver's,
+    # Church's, Bojangles, TGI Fridays, Texas Roadhouse, Red Robin,
+    # BJ's, Pizza Hut, Papa John's, Domino's, Cracker Barrel, Red Lobster,
+    # Smashburger, Bonchon, Chopt. US ceiling is structural, not probing.
+    ("Buffalo Wild Wings",
+     "https://www.buffalowildwings.com/menu",
+     "formal", "direct", "USD", "United States"),
+
     # ==========================================================================
     # UNITED KINGDOM  (direct chain websites)
     # ==========================================================================
@@ -2503,6 +2627,26 @@ TARGETS = [
      "https://deliveroo.co.uk/menu/london/whitechapel/tayyabs",
      "informal", "deliveroo", "GBP", "United Kingdom"),
 
+    # --- UK: 2026-06-21 probe round (8 fresh Deliveroo candidates) ---
+    # All 4 below verified: scraper extracted 53 / 47 / 160 / 54 items
+    # respectively on a single attempt. Direct chain sites in UK probed
+    # this round (Greggs, Costa, Caffè Nero, Wahaca, Yo! Sushi) all 0 items.
+    ("Pizza Pilgrims Soho (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/pizza-pilgrims-dean-street",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Dishoom Shoreditch (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/shoreditch/dishoom-shoreditch",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Pho Soho (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/soho/pho-soho",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Pizza Pilgrims Camden (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/camden-town/pizza-pilgrims-camden",
+     "informal", "deliveroo", "GBP", "United Kingdom"),
+
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Poppies Fish & Chips (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/spitalfields/poppies-fish-chips-spitalfields",
@@ -2560,6 +2704,19 @@ TARGETS = [
     ("Oporto",
      "https://www.oporto.com.au/menu/",
      "formal", "direct", "AUD", "Australia"),
+
+    # --- AU: 2026-06-21 probe round (13 fresh candidates) ---
+    # 2 verified below. Akamai-blocked: Red Rooster, Carl's Jr AU, Salsa's,
+    # Boost Juice (timeout), Mad Mex. 0 items: Hungry Jack's, Crust Pizza,
+    # Pizza Hut AU, Sumo Salad, Subway AU, Guzman y Gomez AU, Grill'd,
+    # Zambrero, Roll'd. Both surviving AU adds are formal-sector chains.
+    ("Domino's AU",
+     "https://www.dominos.com.au/menu",
+     "formal", "direct", "AUD", "Australia"),
+
+    ("Schnitz",
+     "https://www.schnitz.com.au/menu/",
+     "informal", "direct", "AUD", "Australia"),
 
     # [verifier:NAV_ERROR] Page.goto: Timeout 30000ms exceeded. Call log: - navigating to "https://www.boostjuice.com.au/menu", waiting until "domcontentloaded"
     # ("Boost Juice",
