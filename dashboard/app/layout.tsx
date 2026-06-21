@@ -3,13 +3,13 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "UIFPI — Unified Informal-Formal Price Index",
+  title: "UICPI — Unified Independent-Chain Price Index",
   description:
-    "A real-time restaurant price index tracking formal and informal food vendors across 8 countries as a leading indicator of official CPI.",
+    "A real-time restaurant price index tracking chain and independent food vendors across 10 countries as a leading indicator of official CPI.",
   openGraph: {
-    title: "UIFPI — Unified Informal-Formal Price Index",
+    title: "UICPI — Unified Independent-Chain Price Index",
     description:
-      "Real-time restaurant price index across 8 countries. Extends MIT Billion Prices Project to informal sector.",
+      "Real-time restaurant price index across 10 countries. Extends MIT Billion Prices Project to independent vendors.",
     type: "website",
   },
 };
@@ -20,7 +20,7 @@ function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <Link href="/" className="font-bold text-lg tracking-tight hover:text-blue-200 transition-colors">
-            UIFPI
+            UICPI
           </Link>
           <div className="flex items-center gap-6 text-sm font-medium">
             <Link href="/" className="hover:text-blue-200 transition-colors hidden sm:block">

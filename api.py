@@ -110,7 +110,7 @@ def prices(country):
     Query params:
         page      (default 1)
         per_page  (default 100, max 1000)
-        sector    (optional: 'formal' | 'informal')
+        sector    (optional: 'chain' | 'independent')
         start     (optional: YYYY-MM-DD lower bound on collection_date)
         end       (optional: YYYY-MM-DD upper bound)
     """
@@ -126,7 +126,7 @@ def prices(country):
 
     where = ['LOWER(country) = LOWER(?)']
     params = [country]
-    if sector in ('formal', 'informal'):
+    if sector in ('chain', 'independent'):
         where.append('sector = ?')
         params.append(sector)
     if start:

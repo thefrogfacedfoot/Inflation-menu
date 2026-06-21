@@ -6,7 +6,7 @@
     "informal": null,
     "cpi": 136.04,
     "yoy_change_pct": null,
-    "items_formal": 1864,
+    "items_formal": 1948,
     "items_informal": 9
   },
   "India": {
@@ -36,8 +36,8 @@
     "informal": 35.99,
     "cpi": 136.9,
     "yoy_change_pct": null,
-    "items_formal": 9644,
-    "items_informal": 1883
+    "items_formal": 10308,
+    "items_informal": 2236
   },
   "Singapore": {
     "month": "2026-06",
@@ -46,8 +46,8 @@
     "informal": 100.0,
     "cpi": 133.16,
     "yoy_change_pct": null,
-    "items_formal": 8975,
-    "items_informal": 1488
+    "items_formal": 10426,
+    "items_informal": 1834
   },
   "Thailand": {
     "month": "2026-06",
@@ -76,8 +76,8 @@
     "informal": 188.29,
     "cpi": 142.1,
     "yoy_change_pct": -79.3,
-    "items_formal": 17135,
-    "items_informal": 612
+    "items_formal": 17635,
+    "items_informal": 840
   },
   "United States": {
     "month": "2026-06",
@@ -86,7 +86,7 @@
     "informal": null,
     "cpi": 129.47,
     "yoy_change_pct": null,
-    "items_formal": 8286,
+    "items_formal": 8288,
     "items_informal": 34
   },
   "Vietnam": {

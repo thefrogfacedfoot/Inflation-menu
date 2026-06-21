@@ -1863,8 +1863,8 @@ def run_batch(targets, conn, today, usd_rates):
 # ── Targets ────────────────────────────────────────────────────────────────────
 # Tuple format: (display_name, url, sector, source_key, currency, country)
 #
-# sector   : 'formal'   — multinational / corporate chain
-#            'informal' — hawker-origin, family-run, or local institution
+# sector   : 'chain'       — multinational / corporate chain
+#            'independent' — hawker-origin, family-run, or local institution
 #
 # source_key must match a key in SCRAPER_DISPATCH.
 #
@@ -1886,61 +1886,61 @@ TARGETS = [
     # --- Formal ---
     ("Rubato",
      "https://www.foodpanda.sg/chain/cg9st/rubato-italian",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Ichiban Boshi",
      "https://www.foodpanda.sg/chain/cf5xz/ichiban-boshi",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Din Tai Fung",
      "https://food.grab.com/sg/en/restaurant/din-tai-fung-plaza-singapura-delivery/4-C2DHGZLXE2DURJ",
-     "formal", "grabfood", "SGD", "Singapore"),
+     "chain", "grabfood", "SGD", "Singapore"),
 
     ("Sushi Tei",
      "https://food.grab.com/sg/en/restaurant/sushi-tei-vivocity-delivery/4-C2MFTGNUEPKGEN",
-     "formal", "grabfood", "SGD", "Singapore"),
+     "chain", "grabfood", "SGD", "Singapore"),
 
     ("Jumbo Seafood",
      "https://food.grab.com/sg/en/restaurant/jumbo-seafood-east-coast-delivery/SGDD01672",
-     "formal", "grabfood", "SGD", "Singapore"),
+     "chain", "grabfood", "SGD", "Singapore"),
 
     ("Crystal Jade La Mian Xiao Long Bao",
      "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("No Signboard Prawn Noodles and Carrot Cake",
      "https://www.foodpanda.sg/restaurant/v2xf/no-signboard-prawn-noodles-and-carrot-cake-301-ubi-food-house",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Putien",
      "https://www.foodpanda.sg/chain/cc7gt/putien",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Paradise Dynasty",
      "https://www.foodpanda.sg/chain/cf5cj/paradise-dynasty",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Tim Ho Wan",
      "https://food.grab.com/sg/en/restaurant/tim-ho-wan-plaza-singapura-delivery/SGDD11583",
-     "formal", "grabfood", "SGD", "Singapore"),
+     "chain", "grabfood", "SGD", "Singapore"),
 
     ("Crystal Jade Hong Kong Kitchen",
      "https://www.foodpanda.sg/chain/cs3bp/crystal-jade-hong-kong-kitchen",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Pepper Lunch",
      "https://www.foodpanda.sg/chain/cx6yd/pepper-lunch",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Ippudo Ramen",
      "https://food.grab.com/sg/en/restaurant/ippudo-mandarin-gallery-delivery/SGDD11131",
-     "formal", "grabfood", "SGD", "Singapore"),
+     "chain", "grabfood", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Seoul Garden HotPot",
      "https://food.grab.com/sg/en/restaurant/seoul-garden-hotpot-harbourfront-centre-delivery/SGDD09383",
-     "formal", "grabfood", "SGD", "Singapore"),
+     "chain", "grabfood", "SGD", "Singapore"),
 
     # Removed Hokkaido-ya: foodpanda.sg URL stuck behind Akamai IP block;
     # searched GrabFood SG for "Hokkaido-ya" and "Hokkaido Ya Ramen" — no match.
@@ -1948,67 +1948,67 @@ TARGETS = [
 
     ("BreadTalk",
      "https://food.grab.com/sg/en/restaurant/breadtalk-bedok-mall-b2-25-26-delivery/4-CZBGAY4AVA4GLE",
-     "formal", "grabfood", "SGD", "Singapore"),
+     "chain", "grabfood", "SGD", "Singapore"),
 
     ("Toast Box",
      "https://www.foodpanda.sg/chain/cv4kj/toast-box",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Old Chang Kee",
      "https://www.foodpanda.sg/chain/cl8xf/old-chang-kee",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Crystal Jade GO",
      "https://www.foodpanda.sg/chain/cx5on/crystal-jade-go",
-     "formal", "foodpanda", "SGD", "Singapore"),
+     "chain", "foodpanda", "SGD", "Singapore"),
 
     # --- Informal ---
     ("Song Fa Bak Kut Teh",
      "https://www.foodpanda.sg/chain/cw6zr/song-fa-bak-kut-teh",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Hawker Chan",
      "https://food.grab.com/sg/en/restaurant/hawker-chan-76-78-smith-street-delivery/4-CYVGGU3TVCLFAT",
-     "informal", "grabfood", "SGD", "Singapore"),
+     "independent", "grabfood", "SGD", "Singapore"),
 
     ("A Noodle Story",
      "https://www.foodpanda.sg/chain/ck9ew/a-noodle-story",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     ("328 Katong Laksa",
      "https://www.foodpanda.sg/chain/cj3zd/328-katong-laksa",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     ("Crave Nasi Lemak",
      "https://www.foodpanda.sg/chain/cq1ek/crave",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("28 Fried Kway Teow",
      "https://food.grab.com/sg/en/restaurant/28-fried-kway-teow-dunman-food-centre-stall-28-delivery/4-CYLCC4CHANVTBE",
-     "informal", "grabfood", "SGD", "Singapore"),
+     "independent", "grabfood", "SGD", "Singapore"),
 
     ("Tai Wah Pork Noodles",
      "https://www.foodpanda.sg/chain/ce0vj/tai-wah-pork-noodles",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     ("Janggut Laksa",
      "https://www.foodpanda.sg/chain/cv4xl/the-original-katong-laksa-since-1950",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     ("Nam Kee Chicken Rice",
      "https://www.foodpanda.sg/chain/ci9rk/nam-kee-chicken-rice",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Swee Choon Tim Sum",
      "https://food.grab.com/sg/en/restaurant/swee-choon-tim-sum-restaurant-jalan-besar-delivery/4-CY42SA2VETAKN6",
-     "informal", "grabfood", "SGD", "Singapore"),
+     "independent", "grabfood", "SGD", "Singapore"),
 
     ("Killiney Kopitiam",
      "https://www.foodpanda.sg/chain/ca6up/killiney-kopitiam-alexandra",
-     "informal", "foodpanda", "SGD", "Singapore"),
+     "independent", "foodpanda", "SGD", "Singapore"),
 
     # ==========================================================================
     # MALAYSIA
@@ -2018,7 +2018,7 @@ TARGETS = [
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Din Tai Fung KL",
      "https://food.grab.com/my/en/restaurant/din-tai-fung-the-gardens-mall-non-halal-delivery/1-CY2UGABXFCA2RE",
-     "formal", "grabfood", "MYR", "Malaysia"),
+     "chain", "grabfood", "MYR", "Malaysia"),
 
     # Removed Sushi Tei KL: foodpanda.my URL couldn't be verified (IP-blocked),
     # not findable on GrabFood Malaysia from KLCC delivery address.
@@ -2026,28 +2026,28 @@ TARGETS = [
 
     ("Ichiban Boshi KL",
      "https://www.foodpanda.my/chain/ct3ai/ichiban-boshi-japanese-restaurant",
-     "formal", "foodpanda", "MYR", "Malaysia"),
+     "chain", "foodpanda", "MYR", "Malaysia"),
 
     ("Pepper Lunch KL",
      "https://www.foodpanda.my/chain/cc7eh/pepper-lunch-nh-group",
-     "formal", "foodpanda", "MYR", "Malaysia"),
+     "chain", "foodpanda", "MYR", "Malaysia"),
 
     ("Ippudo KL",
      "https://food.grab.com/my/en/restaurant/ippudo-bsc-non-halal-delivery/1-CZC3AE5BRJXJJT",
-     "formal", "grabfood", "MYR", "Malaysia"),
+     "chain", "grabfood", "MYR", "Malaysia"),
 
     # [verifier:DEAD] status=500 title='500 Internal Server Error'
     # ("Secret Recipe",
      # "https://food.grab.com/my/en/chain/secret-recipe-delivery",
-     # "formal", "grabfood", "MYR", "Malaysia"),
+     # "chain", "grabfood", "MYR", "Malaysia"),
 
     ("OldTown White Coffee",
      "https://www.foodpanda.my/chain/ce9ti/oldtown",
-     "formal", "foodpanda", "MYR", "Malaysia"),
+     "chain", "foodpanda", "MYR", "Malaysia"),
 
     ("Nando's KL",
      "https://food.grab.com/my/en/chain/nandos-delivery",
-     "formal", "grabfood", "MYR", "Malaysia"),
+     "chain", "grabfood", "MYR", "Malaysia"),
 
     # Removed TGI Fridays KL: foodpanda.my URL couldn't be verified (IP-blocked),
     # not findable on GrabFood Malaysia from KLCC delivery address.
@@ -2064,43 +2064,43 @@ TARGETS = [
     # Find What You're Looking For". Needs a fresh GrabFood/foodpanda URL.
     # ("Village Park Nasi Lemak",
     #  "https://food.grab.com/my/en/restaurant/village-park-restaurant-delivery/MYDD05660",
-    #  "informal", "grabfood", "MYR", "Malaysia"),
+    #  "independent", "grabfood", "MYR", "Malaysia"),
 
     ("Restoran Yusoof Dan Zakhir",
      "https://www.foodpanda.my/restaurant/y9sn/restoran-yusoof-and-zakhir-sdn-bhd",
-     "informal", "foodpanda", "MYR", "Malaysia"),
+     "independent", "foodpanda", "MYR", "Malaysia"),
 
     ("Ah Weng Koh Hainan Tea",
      "https://food.grab.com/my/en/restaurant/ah-weng-koh-hainan-tea-icc-pudu-delivery/1-CZJKJY4ZA4EXT6",
-     "informal", "grabfood", "MYR", "Malaysia"),
+     "independent", "grabfood", "MYR", "Malaysia"),
 
     ("Dragon-i",
      "https://food.grab.com/my/en/restaurant/dragon-i-mid-valley-non-halal-delivery/MYDD12601",
-     "informal", "grabfood", "MYR", "Malaysia"),
+     "independent", "grabfood", "MYR", "Malaysia"),
 
     ("Kluang Rail Coffee",
      "https://www.foodpanda.my/chain/ct6tr/kluang-rail-coffee",
-     "informal", "foodpanda", "MYR", "Malaysia"),
+     "independent", "foodpanda", "MYR", "Malaysia"),
 
     ("Kim Lian Kee",
      "https://www.foodpanda.my/restaurant/ch0l/kim-lian-kee-ch0l",
-     "informal", "foodpanda", "MYR", "Malaysia"),
+     "independent", "foodpanda", "MYR", "Malaysia"),
 
     ("Hameed Pata Mee Sotong",
      "https://www.foodpanda.my/restaurant/pp2t/hameed-pata-mee",
-     "informal", "foodpanda", "MYR", "Malaysia"),
+     "independent", "foodpanda", "MYR", "Malaysia"),
 
     ("Nasi Kandar Pelita",
      "https://www.foodpanda.my/restaurant/o2ge/nasi-kandar-pelita-bangsar",
-     "informal", "foodpanda", "MYR", "Malaysia"),
+     "independent", "foodpanda", "MYR", "Malaysia"),
 
     ("Jerung Char Koay Teow",
      "https://www.foodpanda.my/chain/cd4du/jerung-char-koay-teow",
-     "informal", "foodpanda", "MYR", "Malaysia"),
+     "independent", "foodpanda", "MYR", "Malaysia"),
 
     ("Family Seafood",
      "https://www.foodpanda.my/chain/cr6of/family-seafood",
-     "informal", "foodpanda", "MYR", "Malaysia"),
+     "independent", "foodpanda", "MYR", "Malaysia"),
 
     # --- Extended Malaysia targets — REMOVED ---
     # The 8 Foodpanda.my URLs here used slug-only paths
@@ -2119,47 +2119,47 @@ TARGETS = [
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("Solaria (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/solaria",
-     # "formal", "gofood", "IDR", "Indonesia"),
+     # "chain", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("McDonald's Jakarta (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/mcdonalds-sarinah",
-     # "formal", "gofood", "IDR", "Indonesia"),
+     # "chain", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("KFC Jakarta (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/kfc-kemang",
-     # "formal", "gofood", "IDR", "Indonesia"),
+     # "chain", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("Pizza Hut Jakarta (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/pizza-hut-menteng",
-     # "formal", "gofood", "IDR", "Indonesia"),
+     # "chain", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("J.CO Donuts (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/jco-donuts-grand-indonesia",
-     # "formal", "gofood", "IDR", "Indonesia"),
+     # "chain", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("Warung Nasi Padang Sederhana (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/nasi-padang-sederhana",
-     # "informal", "gofood", "IDR", "Indonesia"),
+     # "independent", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("Bakso Solo Samrat (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/bakso-solo-samrat",
-     # "informal", "gofood", "IDR", "Indonesia"),
+     # "independent", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("Mie Ayam Tumini (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/mie-ayam-tumini",
-     # "informal", "gofood", "IDR", "Indonesia"),
+     # "independent", "gofood", "IDR", "Indonesia"),
 
     # [verifier:DEAD] status=403 title='WAF Block Page'
     # ("Soto Betawi H. Mamat (GoFood)",
      # "https://gofood.co.id/jakarta/restaurant/soto-betawi-h-mamat",
-     # "informal", "gofood", "IDR", "Indonesia"),
+     # "independent", "gofood", "IDR", "Indonesia"),
 
     # ==========================================================================
     # THAILAND  (GrabFood food.grab.com/th/en)
@@ -2174,47 +2174,47 @@ TARGETS = [
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("McDonald's Thailand (GrabFood)",
      # "https://food.grab.com/th/en/chain/mcdonalds-delivery",
-     # "formal", "grabfood", "THB", "Thailand"),
+     # "chain", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("KFC Thailand (GrabFood)",
      # "https://food.grab.com/th/en/chain/kfc-delivery",
-     # "formal", "grabfood", "THB", "Thailand"),
+     # "chain", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("MK Restaurant (GrabFood)",
      # "https://food.grab.com/th/en/chain/mk-restaurant-delivery",
-     # "formal", "grabfood", "THB", "Thailand"),
+     # "chain", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("The Pizza Company (GrabFood)",
      # "https://food.grab.com/th/en/chain/the-pizza-company-delivery",
-     # "formal", "grabfood", "THB", "Thailand"),
+     # "chain", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("Swensen's (GrabFood)",
      # "https://food.grab.com/th/en/chain/swensens-delivery",
-     # "formal", "grabfood", "THB", "Thailand"),
+     # "chain", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("Pad Thai Thip Samai (GrabFood)",
      # "https://food.grab.com/th/en/restaurant/thip-samai-pad-thai-delivery",
-     # "informal", "grabfood", "THB", "Thailand"),
+     # "independent", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("Som Tam Nua (GrabFood)",
      # "https://food.grab.com/th/en/restaurant/som-tam-nua-siam-delivery",
-     # "informal", "grabfood", "THB", "Thailand"),
+     # "independent", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("Khao Man Gai Go Ang (GrabFood)",
      # "https://food.grab.com/th/en/restaurant/go-ang-khao-man-gai-delivery",
-     # "informal", "grabfood", "THB", "Thailand"),
+     # "independent", "grabfood", "THB", "Thailand"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='สั่งอาหารเดลิเวอรี่ออนไลน์และบริการส่งอาหารตรงถึงบ้าน')
     # ("Boat Noodle Victory Monument (GrabFood)",
      # "https://food.grab.com/th/en/restaurant/boat-noodle-victory-monument-delivery",
-     # "informal", "grabfood", "THB", "Thailand"),
+     # "independent", "grabfood", "THB", "Thailand"),
 
     # ==========================================================================
     # INDIA  (Swiggy — swiggy.com)
@@ -2229,139 +2229,139 @@ TARGETS = [
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("McDonald's India (Swiggy)",
      # "https://www.swiggy.com/mumbai/mcdonalds-bandra-west-339966",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("KFC India (Swiggy)",
      # "https://www.swiggy.com/mumbai/kfc-bandra-west-348271",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Domino's Pizza India (Swiggy)",
      # "https://www.swiggy.com/mumbai/dominos-pizza-bandra-west-10093",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Pizza Hut India (Swiggy)",
      # "https://www.swiggy.com/mumbai/pizza-hut-bandra-west-52163",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Burger King India (Swiggy)",
      # "https://www.swiggy.com/mumbai/burger-king-bandra-west-368445",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Subway India (Swiggy)",
      # "https://www.swiggy.com/mumbai/subway-bandra-west-8795",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Wow! Momo (Swiggy)",
      # "https://www.swiggy.com/mumbai/wow-momo-bandra-west-461234",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Barbeque Nation (Swiggy)",
      # "https://www.swiggy.com/mumbai/barbeque-nation-andheri-west-34521",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Fasoos (Swiggy)",
      # "https://www.swiggy.com/mumbai/faasos-bandra-west-7892",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # --- Informal ---
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Saravana Bhavan Mumbai (Swiggy)",
      # "https://www.swiggy.com/mumbai/saravana-bhavan-matunga-12345",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Haldiram's (Swiggy)",
      # "https://www.swiggy.com/delhi/haldirams-chandni-chowk-56789",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Bikanervala (Swiggy)",
      # "https://www.swiggy.com/delhi/bikanervala-connaught-place-67890",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Karim's Delhi (Swiggy)",
      # "https://www.swiggy.com/delhi/karims-jama-masjid-78901",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Paradise Biryani (Swiggy)",
      # "https://www.swiggy.com/hyderabad/paradise-biryani-secunderabad-23456",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Mainland China (Swiggy)",
      # "https://www.swiggy.com/mumbai/mainland-china-bandra-west-34567",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Cream Centre (Swiggy)",
      # "https://www.swiggy.com/mumbai/cream-centre-breach-candy-45678",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Rajdhani Thali (Swiggy)",
      # "https://www.swiggy.com/mumbai/rajdhani-lower-parel-56780",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Natural Ice Cream (Swiggy)",
      # "https://www.swiggy.com/mumbai/natural-ice-cream-juhu-67891",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # --- Extended India targets (Swiggy Mumbai + Delhi) ---
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Subway Delhi (Swiggy)",
      # "https://www.swiggy.com/delhi/subway-connaught-place-23001",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Haldiram's Connaught Place (Swiggy)",
      # "https://www.swiggy.com/delhi/haldirams-connaught-place-30221",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Bikanervala Karol Bagh (Swiggy)",
      # "https://www.swiggy.com/delhi/bikanervala-karol-bagh-44778",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Domino's Andheri (Swiggy)",
      # "https://www.swiggy.com/mumbai/dominos-pizza-andheri-west-7401",
-     # "formal", "swiggy", "INR", "India"),
+     # "chain", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Thali House Mumbai (Swiggy)",
      # "https://www.swiggy.com/mumbai/thali-house-bandra-west-90121",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Biryani by Kilo Delhi (Swiggy)",
      # "https://www.swiggy.com/delhi/biryani-by-kilo-vasant-kunj-55621",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Dosa Plaza Mumbai (Swiggy)",
      # "https://www.swiggy.com/mumbai/dosa-plaza-vile-parle-22113",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Anand Stall Khar (Swiggy)",
      # "https://www.swiggy.com/mumbai/anand-stall-khar-west-66001",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # [verifier:DEAD] status=404 title="Order food online from India's best food delivery service. Order from restaurant"
     # ("Sardar Pav Bhaji (Swiggy)",
      # "https://www.swiggy.com/mumbai/sardar-pav-bhaji-tardeo-15578",
-     # "informal", "swiggy", "INR", "India"),
+     # "independent", "swiggy", "INR", "India"),
 
     # --- India direct chain sites (2026-06-16 probe round) ---
     # mcdelivery.co.in shows 34 ₹ hits in static HTML but scrape_direct
@@ -2370,13 +2370,13 @@ TARGETS = [
     # All commented; would need per-chain custom selectors to extract.
     # ("McDonald's India",
     #  "https://www.mcdelivery.co.in/",
-    #  "formal", "direct", "INR", "India"),
+    #  "chain", "direct", "INR", "India"),
     # ("Pizza Hut India",
     #  "https://www.pizzahut.co.in/menu/",
-    #  "formal", "js", "INR", "India"),
+    #  "chain", "js", "INR", "India"),
     # ("Starbucks India",
     #  "https://www.starbucks.in/menu",
-    #  "formal", "direct", "INR", "India"),
+    #  "chain", "direct", "INR", "India"),
 
     # ==========================================================================
     # UNITED STATES  (direct chain websites with structured menus)
@@ -2389,27 +2389,27 @@ TARGETS = [
     # [verifier:DEAD] status=404 title='Website Maintenance: Be Back Soon | McDonald’s'
     # ("McDonald's USA",
      # "https://www.mcdonalds.com/us/en-us/full_menu.html",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Chipotle",
      # "https://www.chipotle.com/menu",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # Removed Taco Bell: no JSON or DOM prices (React shell, requires location)
     # ("Taco Bell",
      # "https://www.tacobell.com/menu",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # Removed Subway USA: no priced JSON or DOM prices
     # ("Subway USA",
      # "https://www.subway.com/en-US/MenuNutrition/Menu",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # [verifier:DEAD] status=404 title='404 | Panera Bread'
     # ("Panera Bread",
      # "https://www.panerabread.com/en-us/menu/whole-menu.html",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # Removed Shake Shack: only firebase remote-config has "price" keys
     # (app configuration), no menu prices in JSON or DOM.
@@ -2417,60 +2417,60 @@ TARGETS = [
     # [verifier:DEAD] status=404 title='Page not found | Five Guys'
     # ("Five Guys",
      # "https://www.fiveguys.com/flavors/our-menu",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # Removed Chick-fil-A: no priced JSON or DOM prices
     # ("Chick-fil-A",
      # "https://www.chick-fil-a.com/menu",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # Removed Wingstop: 16 JSON responses, 0 with prices
     # ("Wingstop",
      # "https://www.wingstop.com/menu",
-     # "formal", "direct", "USD", "United States"),
+     # "chain", "direct", "USD", "United States"),
 
     # --- Informal ---
     # Removed In-N-Out Burger: 0 JSON, 0 DOM prices
     # ("In-N-Out Burger",
      # "https://www.in-n-out.com/menu",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # [verifier:DEAD] status=406 title='Service unavailable'
     # ("Whataburger",
      # "https://whataburger.com/menu",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # Removed Raising Cane's: 0 JSON, 0 DOM prices
     # ("Raising Cane's",
      # "https://www.raisingcanes.com/menu",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # Removed Jack in the Box: 22 JSON, 0 with prices
     # ("Jack in the Box",
      # "https://www.jackinthebox.com/menu",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # [verifier:DEAD] status=404 title='404 Not Found'
     # ("Del Taco",
      # "https://www.deltaco.com/menus",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # Removed Fatburger: 0 JSON, 0 DOM prices
     # ("Fatburger",
      # "https://fatburger.com/menu/",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # Removed Denny's: cloudflare blocked (HTTP 403 "Attention Required").
 
     # [verifier:DEAD] status=404 title='Page not found - Waffle House'
     # ("Waffle House",
      # "https://www.wafflehouse.com/menu/",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # Removed Steak 'n Shake: 9 JSON, 0 with prices
     # ("Steak 'n Shake",
      # "https://www.steaknshake.com/menu",
-     # "informal", "direct", "USD", "United States"),
+     # "independent", "direct", "USD", "United States"),
 
     # --- Extended US targets — REMOVED ---
     # All 11 DoorDash NYC URLs failed: Cloudflare "Just a moment..." challenge.
@@ -2485,7 +2485,7 @@ TARGETS = [
     # Yield is low but non-zero — keeping in until better US options surface.
     ("Applebee's",
      "https://www.applebees.com/en/menu",
-     "formal", "direct", "USD", "United States"),
+     "chain", "direct", "USD", "United States"),
 
     # --- US chains: 2026-06-21 probe round (38 fresh candidates) ---
     # Only Buffalo Wild Wings yielded items. Akamai/Cloudflare blocked
@@ -2498,7 +2498,7 @@ TARGETS = [
     # Smashburger, Bonchon, Chopt. US ceiling is structural, not probing.
     ("Buffalo Wild Wings",
      "https://www.buffalowildwings.com/menu",
-     "formal", "direct", "USD", "United States"),
+     "chain", "direct", "USD", "United States"),
 
     # ==========================================================================
     # UNITED KINGDOM  (direct chain websites)
@@ -2508,7 +2508,7 @@ TARGETS = [
     # [verifier:DEAD] status=404 title="404 Page Not Found | McDonald's UK"
     # ("McDonald's UK",
      # "https://www.mcdonalds.com/gb/en-gb/eat/fullmenu.html",
-     # "formal", "direct", "GBP", "United Kingdom"),
+     # "chain", "direct", "GBP", "United Kingdom"),
 
     # Removed Nando's UK: page-data JSON has 6434 "price" keys but ALL are null
     # (UK Nando's adds prices only after store selection).
@@ -2516,99 +2516,99 @@ TARGETS = [
     # Removed Pret A Manger: 0 JSON, 0 DOM prices
     # ("Pret A Manger",
      # "https://www.pret.co.uk/en-gb/menu",
-     # "formal", "direct", "GBP", "United Kingdom"),
+     # "chain", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title=''
     # ("Wagamama",
      # "https://www.wagamama.com/menus/main-menu",
-     # "formal", "direct", "GBP", "United Kingdom"),
+     # "chain", "direct", "GBP", "United Kingdom"),
 
     ("Leon",
      "https://leon.co/pages/menu",
-     "formal", "direct", "GBP", "United Kingdom"),
+     "chain", "direct", "GBP", "United Kingdom"),
 
     # Removed Itsu: 0 JSON, 0 DOM prices
     # ("Itsu",
      # "https://www.itsu.com/menu/",
-     # "formal", "direct", "GBP", "United Kingdom"),
+     # "chain", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page not found | Five Guys'
     # ("Five Guys UK",
      # "https://www.fiveguys.co.uk/flavors/our-menu",
-     # "formal", "direct", "GBP", "United Kingdom"),
+     # "chain", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Error - Page Not Found | Shake Shack'
     # ("Shake Shack UK",
      # "https://www.shakeshack.com/uk/food-drink/",
-     # "formal", "direct", "GBP", "United Kingdom"),
+     # "chain", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Error 404 - Page not found | PizzaExpress'
     # ("Pizza Express",
      # "https://www.pizzaexpress.com/menu",
-     # "formal", "direct", "GBP", "United Kingdom"),
+     # "chain", "direct", "GBP", "United Kingdom"),
 
     # --- Informal ---
     # [verifier:DEAD] status=404 title="Oops, that page can't be found"
     # ("Dishoom",
      # "https://www.dishoom.com/menu/",
-     # "informal", "direct", "GBP", "United Kingdom"),
+     # "independent", "direct", "GBP", "United Kingdom"),
 
     # [verifier:NAV_ERROR] Page.goto: net::ERR_ABORTED at https://www.flatironsteak.co.uk/menu/ Call log: - navigating to "https://www.flatironsteak.co.uk/menu/", waiting until "domconten
     # ("Flat Iron",
      # "https://www.flatironsteak.co.uk/menu/",
-     # "informal", "direct", "GBP", "United Kingdom"),
+     # "independent", "direct", "GBP", "United Kingdom"),
 
     # Removed Honest Burgers: 7 JSON, 0 with prices
     # ("Honest Burgers",
      # "https://www.honestburgers.co.uk/food/burgers/",
-     # "informal", "direct", "GBP", "United Kingdom"),
+     # "independent", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Not Found'
     # ("Patty & Bun",
      # "https://www.pattyandbun.co.uk/our-food/",
-     # "informal", "direct", "GBP", "United Kingdom"),
+     # "independent", "direct", "GBP", "United Kingdom"),
 
     # Removed Bao London: 8 JSON, 0 with prices
     # ("Bao London",
      # "https://baolondon.com/food/",
-     # "informal", "direct", "GBP", "United Kingdom"),
+     # "independent", "direct", "GBP", "United Kingdom"),
 
     ("Bleecker Burger",
      "https://bleecker.co.uk/menu/",
-     "informal", "direct", "GBP", "United Kingdom"),
+     "independent", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=403 title='403 - Forbidden'
     # ("Busaba Eathai",
      # "https://www.busaba.com/menu",
-     # "informal", "direct", "GBP", "United Kingdom"),
+     # "independent", "direct", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title="The page you were looking for doesn't exist (404)"
     # ("Shoryu Ramen",
      # "https://www.shoryuramen.com/menu/",
-     # "informal", "direct", "GBP", "United Kingdom"),
+     # "independent", "direct", "GBP", "United Kingdom"),
 
     ("Hoppers",
      "https://hopperslondon.com/menus/",
-     "informal", "direct", "GBP", "United Kingdom"),
+     "independent", "direct", "GBP", "United Kingdom"),
 
     # --- Extended UK targets (Deliveroo London) ---
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("McDonald's London (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/soho/mcdonalds-leicester-square",
-     # "formal", "deliveroo", "GBP", "United Kingdom"),
+     # "chain", "deliveroo", "GBP", "United Kingdom"),
 
     ("Nando's London (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/soho/nandos-soho",
-     "formal", "deliveroo", "GBP", "United Kingdom"),
+     "chain", "deliveroo", "GBP", "United Kingdom"),
 
     ("Wagamama London (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/soho/wagamama-great-marlborough-street",
-     "formal", "deliveroo", "GBP", "United Kingdom"),
+     "chain", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Pret A Manger London (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/soho/pret-a-manger-piccadilly",
-     # "formal", "deliveroo", "GBP", "United Kingdom"),
+     # "chain", "deliveroo", "GBP", "United Kingdom"),
 
     # Removed Pizza Express London (Deliveroo): URL redirects to the Soho
     # area listing page (title "Takeaway delivery in Soho - Order with
@@ -2616,16 +2616,16 @@ TARGETS = [
     # at this slug. Needs a fresh URL or alternative source.
     # ("Pizza Express London (Deliveroo)",
     #  "https://deliveroo.co.uk/menu/london/soho/pizza-express-dean-street",
-    #  "formal", "deliveroo", "GBP", "United Kingdom"),
+    #  "chain", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Itsu London (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/soho/itsu-piccadilly-circus",
-     # "formal", "deliveroo", "GBP", "United Kingdom"),
+     # "chain", "deliveroo", "GBP", "United Kingdom"),
 
     ("Tayyabs Whitechapel (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/whitechapel/tayyabs",
-     "informal", "deliveroo", "GBP", "United Kingdom"),
+     "independent", "deliveroo", "GBP", "United Kingdom"),
 
     # --- UK: 2026-06-21 probe round (8 fresh Deliveroo candidates) ---
     # All 4 below verified: scraper extracted 53 / 47 / 160 / 54 items
@@ -2633,39 +2633,39 @@ TARGETS = [
     # this round (Greggs, Costa, Caffè Nero, Wahaca, Yo! Sushi) all 0 items.
     ("Pizza Pilgrims Soho (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/soho/pizza-pilgrims-dean-street",
-     "informal", "deliveroo", "GBP", "United Kingdom"),
+     "independent", "deliveroo", "GBP", "United Kingdom"),
 
     ("Dishoom Shoreditch (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/shoreditch/dishoom-shoreditch",
-     "informal", "deliveroo", "GBP", "United Kingdom"),
+     "independent", "deliveroo", "GBP", "United Kingdom"),
 
     ("Pho Soho (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/soho/pho-soho",
-     "informal", "deliveroo", "GBP", "United Kingdom"),
+     "independent", "deliveroo", "GBP", "United Kingdom"),
 
     ("Pizza Pilgrims Camden (Deliveroo)",
      "https://deliveroo.co.uk/menu/london/camden-town/pizza-pilgrims-camden",
-     "informal", "deliveroo", "GBP", "United Kingdom"),
+     "independent", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Poppies Fish & Chips (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/spitalfields/poppies-fish-chips-spitalfields",
-     # "informal", "deliveroo", "GBP", "United Kingdom"),
+     # "independent", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Manze's Pie & Mash (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/peckham/manzes-pie-mash",
-     # "informal", "deliveroo", "GBP", "United Kingdom"),
+     # "independent", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("German Doner Kebab London (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/soho/german-doner-kebab-leicester-square",
-     # "informal", "deliveroo", "GBP", "United Kingdom"),
+     # "independent", "deliveroo", "GBP", "United Kingdom"),
 
     # [verifier:DEAD] status=404 title='Page Not Found'
     # ("Dishoom Covent Garden (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/covent-garden/dishoom-covent-garden",
-     # "informal", "deliveroo", "GBP", "United Kingdom"),
+     # "independent", "deliveroo", "GBP", "United Kingdom"),
 
     # ==========================================================================
     # AUSTRALIA  (direct chain websites)
@@ -2675,35 +2675,35 @@ TARGETS = [
     # Removed McDonald's Australia: no JSON or DOM prices
     # ("McDonald's Australia",
      # "https://mcdonalds.com.au/menu",
-     # "formal", "direct", "AUD", "Australia"),
+     # "chain", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='Page not found - GYG Mexican Kitchen USA'
     # ("Guzman y Gomez",
      # "https://www.guzmanygomez.com/menu/",
-     # "formal", "direct", "AUD", "Australia"),
+     # "chain", "direct", "AUD", "Australia"),
 
     # Removed Grill'd: 2 JSON, 0 with prices
     # ("Grill'd",
      # "https://www.grilld.com.au/menu",
-     # "formal", "direct", "AUD", "Australia"),
+     # "chain", "direct", "AUD", "Australia"),
 
     ("Nando's Australia",
      "https://www.nandos.com.au/menu",
-     "formal", "direct", "AUD", "Australia"),
+     "chain", "direct", "AUD", "Australia"),
 
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='Menu | View Our Fresh, Healthy Mexican Menu')
     # ("Zambrero",
      # "https://www.zambrero.com/menu",
-     # "formal", "direct", "AUD", "Australia"),
+     # "chain", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='Page not found - Mad Mex'
     # ("Mad Mex",
      # "https://www.madmex.com.au/menu",
-     # "formal", "direct", "AUD", "Australia"),
+     # "chain", "direct", "AUD", "Australia"),
 
     ("Oporto",
      "https://www.oporto.com.au/menu/",
-     "formal", "direct", "AUD", "Australia"),
+     "chain", "direct", "AUD", "Australia"),
 
     # --- AU: 2026-06-21 probe round (13 fresh candidates) ---
     # 2 verified below. Akamai-blocked: Red Rooster, Carl's Jr AU, Salsa's,
@@ -2712,67 +2712,67 @@ TARGETS = [
     # Zambrero, Roll'd. Both surviving AU adds are formal-sector chains.
     ("Domino's AU",
      "https://www.dominos.com.au/menu",
-     "formal", "direct", "AUD", "Australia"),
+     "chain", "direct", "AUD", "Australia"),
 
     ("Schnitz",
      "https://www.schnitz.com.au/menu/",
-     "informal", "direct", "AUD", "Australia"),
+     "independent", "direct", "AUD", "Australia"),
 
     # [verifier:NAV_ERROR] Page.goto: Timeout 30000ms exceeded. Call log: - navigating to "https://www.boostjuice.com.au/menu", waiting until "domcontentloaded"
     # ("Boost Juice",
      # "https://www.boostjuice.com.au/menu",
-     # "formal", "direct", "AUD", "Australia"),
+     # "chain", "direct", "AUD", "Australia"),
 
     # Removed Roll'd: 2 JSON, 0 with prices
     # ("Roll'd",
      # "https://rolld.com.au/menu/",
-     # "formal", "direct", "AUD", "Australia"),
+     # "chain", "direct", "AUD", "Australia"),
 
     # --- Informal ---
     # [verifier:WRONG_PAGE] loaded but no menu signal (items_signal=0, title='Food Menus')
     # ("Lune Croissanterie",
      # "https://www.lunecroissanterie.com/menu",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='Page not found – Chin Chin & GoGo'
     # ("Chin Chin Melbourne",
      # "https://chinchinrestaurant.com.au/menus/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='Page not found – Huxtaburger'
     # ("Huxtaburger",
      # "https://www.huxtaburger.com.au/menu/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # [verifier:NAV_ERROR] Page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at https://www.mary.com.au/our-menu/ Call log: - navigating to "https://www.mary.com.au/our-menu/", waiting until
     # ("Mary's Burgers",
      # "https://www.mary.com.au/our-menu/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='Page Not Found | The Grounds'
     # ("The Grounds of Alexandria",
      # "https://thegrounds.com.au/all-day-menu/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # [verifier:NAV_ERROR] Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.buttermelbourne.com.au/menu/ Call log: - navigating to "https://www.buttermelbourne.com.au/menu/", waiting 
     # ("Butter Restaurant",
      # "https://www.buttermelbourne.com.au/menu/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='Lankan Filling Station'
     # ("Lankan Filling Station",
      # "https://www.lankanfillingstation.com.au/menu/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # [verifier:DEAD] status=404 title='| Fonda'
     # ("Fonda Mexican",
      # "https://www.fondamexican.com.au/menus/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # Removed Harry's Café de Wheels: 0 JSON, 0 DOM prices
     # ("Harry's Café de Wheels",
      # "https://www.harryscafedewheels.com.au/menu/",
-     # "informal", "direct", "AUD", "Australia"),
+     # "independent", "direct", "AUD", "Australia"),
 
     # --- Extended Australia targets (Uber Eats Sydney) ---
     # Removed: all 11 Uber Eats Sydney URLs used placeholder store IDs

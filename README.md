@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-# Inflation-menu
-# Inflation-menu
-=======
-# UIFPI — Unified Informal-Formal Price Index
+# UICPI — Unified Independent-Chain Price Index
 
-**UIFPI** is the first price index to systematically incorporate both formal
-restaurant menus and informal street vendor / hawker stall pricing across
+**UICPI** is the first price index to systematically incorporate both chain
+restaurant menus and independent street vendor / hawker stall pricing across
 multiple economies. Extending the MIT Billion Prices Project to the food
-service sector, UIFPI tests whether algorithmically collected restaurant
+service sector, UICPI tests whether algorithmically collected restaurant
 prices lead official Consumer Price Index (CPI) readings, and whether
-informal-sector vendors exhibit lower cost pass-through than formal ones.
+independent vendors exhibit lower cost pass-through than chains.
 This is an open-source research project submitted for the Singapore Science
 and Engineering Fair (SSEF) and targeted at the SSRN economics preprint
 series.
@@ -26,7 +22,7 @@ series.
    pass-through rates than formal restaurants — absorbing input cost increases
    rather than transmitting them to consumers?
 
-3. **Tertiary:** Does a directional forecast model using UIFPI outperform a
+3. **Tertiary:** Does a directional forecast model using UICPI outperform a
    naive AR(1) baseline in predicting the direction of the next official CPI
    food release?
 
@@ -51,10 +47,10 @@ the Laspeyres chain-linking method. Formal and informal sub-indices are
 combined at configurable weights (default 50/50).
 
 ### Statistical Analysis
-- **Granger causality** (Cavallo & Rigobon 2016): test whether UIFPI
+- **Granger causality** (Cavallo & Rigobon 2016): test whether UICPI
   Granger-causes CPI after first-differencing; lag order selected by AIC.
-- **Pass-through regression:** OLS of ΔUIFPI on ΔCPI by sector.
-- **Directional accuracy benchmark:** UIFPI vs AR(1) naive baseline
+- **Pass-through regression:** OLS of ΔUICPI on ΔCPI by sector.
+- **Directional accuracy benchmark:** UICPI vs AR(1) naive baseline
   on a held-out test set.
 - **Robustness checks:** jackknife country subsampling, alternative basket
   specifications, alternative sector weights, formal/informal split.
@@ -65,7 +61,7 @@ combined at configurable weights (default 50/50).
 
 After URL audit and parallel-mode collection:
 
-| Country        | Price rows | Distinct restaurants | UIFPI index months |
+| Country        | Price rows | Distinct restaurants | UICPI index months |
 |----------------|-----------:|---------------------:|-------------------:|
 | Singapore      |      6,081 |                   58 |                 14 |
 | Malaysia       |      1,985 |                   39 |                 14 |
@@ -107,8 +103,8 @@ pending Anthropic API credits).
 10% level) and is preserved as the headline result. **No country has yet
 reached the p < 0.05 threshold or the 24-month overlap required for a clean
 Granger test** — this is structural: most countries currently sit at
-11-18 UIFPI months and the official CPI is annual-only for SG / MY / ID / TH /
-GB (World Bank fallback). Significance awaits ≥ 24 monthly UIFPI observations
+11-18 UICPI months and the official CPI is annual-only for SG / MY / ID / TH /
+GB (World Bank fallback). Significance awaits ≥ 24 monthly UICPI observations
 per country, which requires the recurring monthly collection cycle described
 below.
 
@@ -177,11 +173,11 @@ python3 nlp_pipeline.py           # rule-based dish classification
 python3 validate_nlp.py export    # generate a 100-item validation sample
 python3 validate_nlp.py evaluate  # accuracy report after manual labelling
 python3 get_monthly_cpi_all.py    # OECD / World Bank / IMF CPI fetch
-python3 align_series.py           # merge UIFPI ↔ CPI by year_month
+python3 align_series.py           # merge UICPI ↔ CPI by year_month
 python3 index_builder.py          # rebuild uifpi_index
 python3 granger_analysis.py       # Granger + OLS pass-through
 python3 robustness_checks.py      # jackknife / sensitivity
-python3 benchmark_comparison.py   # AR(1) vs UIFPI
+python3 benchmark_comparison.py   # AR(1) vs UICPI
 python3 dashboard_data.py         # regenerate dashboard JSON
 python3 diagnostic_report.py      # full diagnostic snapshot
 python3 generate_figures.py       # 5 paper figures
@@ -216,7 +212,7 @@ sends a summary email via Gmail SMTP listing the failed targets.
 uifpi/
 ├── uifpi.db                          # SQLite — prices, nlp_results, uifpi_index, monthly_cpi
 ├── uifpi_index.csv                   # CSV mirror of uifpi_index
-├── aligned_series.csv                # UIFPI ↔ CPI monthly join
+├── aligned_series.csv                # UICPI ↔ CPI monthly join
 ├── classification_rationale.txt      # Section 3.4 — formal/informal definitions
 ├── classification_inventory.csv      # per-restaurant sector audit
 ├── thailand_coverage_notes.txt       # Thailand data-collection log
@@ -239,8 +235,8 @@ uifpi/
 ├── validate_nlp.py                   # NLP accuracy harness
 ├── fill_manual_labels.py             # heuristic auto-labeller (validation aid)
 ├── get_monthly_cpi_all.py            # OECD + World Bank + IMF CPI
-├── align_series.py                   # UIFPI ↔ CPI merger
-├── index_builder.py                  # UIFPI construction
+├── align_series.py                   # UICPI ↔ CPI merger
+├── index_builder.py                  # UICPI construction
 ├── granger_analysis.py               # Granger + pass-through regression
 ├── robustness_checks.py              # robustness suite
 ├── benchmark_comparison.py           # AR(1) baseline
@@ -275,9 +271,9 @@ python3 api.py
 API available at `http://localhost:5000`. Endpoints:
 
 - `GET /api/countries` — list of 8 countries with summary stats
-- `GET /api/index/<country>` — UIFPI time series
+- `GET /api/index/<country>` — UICPI time series
 - `GET /api/prices/<country>` — raw price data (paginated)
-- `GET /api/latest` — latest UIFPI values for all countries
+- `GET /api/latest` — latest UICPI values for all countries
 - `GET /api/changes` — recent price changes detected by the scraper
 
 ---
@@ -285,7 +281,7 @@ API available at `http://localhost:5000`. Endpoints:
 ## Honest Status (2026-06-13)
 
 - **4,227** price observations across **8 countries** (Singapore dominates).
-- **83** UIFPI index rows across 7 countries (Indonesia and Thailand each at
+- **83** UICPI index rows across 7 countries (Indonesia and Thailand each at
   one month).
 - **Granger headline:** Singapore p = 0.092 (lag 2). Six other countries
   computed; none significant. Significance awaits ≥ 24 monthly observations.
@@ -302,7 +298,7 @@ API available at `http://localhost:5000`. Endpoints:
 If you use this project or dataset in your research, please cite:
 
 ```
-Chen, E. (2026). UIFPI: A Unified Informal-Formal Restaurant Price Index
+Chen, E. (2026). UICPI: A Unified Independent-Chain Restaurant Price Index
 as a Leading Indicator of Consumer Price Inflation. Singapore Science and
 Engineering Fair Research Paper. Available at: [SSRN preprint — forthcoming]
 ```
@@ -326,4 +322,3 @@ MIT License. See `LICENSE` for full terms.
 For questions or collaboration enquiries: open an issue on this repository.
 
 *Built with Claude Code.*
->>>>>>> 0b4f50aa503127a1e0adbfbf666589b882fcf109

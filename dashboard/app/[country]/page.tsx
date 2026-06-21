@@ -220,7 +220,7 @@ export default async function CountryPage({ params }: PageProps) {
           highlight={summary?.lead_months != null}
         />
         <StatCard
-          label="Formal Pass-Through"
+          label="Chain Pass-Through"
           value={
             summary?.pass_through_formal != null
               ? fmt(summary.pass_through_formal)
@@ -230,7 +230,7 @@ export default async function CountryPage({ params }: PageProps) {
           sub="Cost transmission rate"
         />
         <StatCard
-          label="Informal Pass-Through"
+          label="Independent Pass-Through"
           value={
             summary?.pass_through_informal != null
               ? fmt(summary.pass_through_informal)
@@ -242,7 +242,7 @@ export default async function CountryPage({ params }: PageProps) {
         <StatCard
           label="Price Observations"
           value={totalItems.toLocaleString()}
-          sub={`${summary?.items_formal ?? 0} formal / ${summary?.items_informal ?? 0} informal`}
+          sub={`${summary?.items_formal ?? 0} chain / ${summary?.items_informal ?? 0} independent`}
         />
         <StatCard
           label="Months Indexed"
@@ -254,7 +254,7 @@ export default async function CountryPage({ params }: PageProps) {
       {/* Coverage details */}
       <div className="grid sm:grid-cols-2 gap-6 mb-8">
         <div className="rounded-xl border border-gray-200 bg-white p-5">
-          <h3 className="font-semibold text-gray-900 mb-3">Formal Sector</h3>
+          <h3 className="font-semibold text-gray-900 mb-3">Chain</h3>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between">
               <dt className="text-gray-500">Restaurants</dt>
@@ -281,7 +281,7 @@ export default async function CountryPage({ params }: PageProps) {
 
         <div className="rounded-xl border border-gray-200 bg-white p-5">
           <h3 className="font-semibold text-gray-900 mb-3">
-            Informal Sector
+            Independent
           </h3>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between">

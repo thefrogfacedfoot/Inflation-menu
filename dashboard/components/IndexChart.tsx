@@ -123,7 +123,7 @@ export default function IndexChart({
             <Line
               type="monotone"
               dataKey="formal"
-              name="Formal Sector"
+              name="Chain"
               stroke="#3182ce"
               strokeWidth={1.5}
               strokeDasharray="6 3"
@@ -135,7 +135,7 @@ export default function IndexChart({
             <Line
               type="monotone"
               dataKey="informal"
-              name="Informal Sector"
+              name="Independent"
               stroke="#e53e3e"
               strokeWidth={1.5}
               strokeDasharray="4 4"

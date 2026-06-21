@@ -89,8 +89,8 @@ export default async function DataPage() {
             Per-Country Index Data
           </h2>
           <p className="text-sm text-gray-500 mt-0.5">
-            Monthly UIFPI, formal, informal sub-indices, and official CPI where
-            available
+            Monthly UICPI, chain, independent sub-indices, and official CPI
+            where available
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -99,8 +99,8 @@ export default async function DataPage() {
               <tr className="bg-gray-50 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">
                 <th className="px-4 py-3">Country</th>
                 <th className="px-4 py-3">Status</th>
-                <th className="px-4 py-3 text-right">Formal Items</th>
-                <th className="px-4 py-3 text-right">Informal Items</th>
+                <th className="px-4 py-3 text-right">Chain Items</th>
+                <th className="px-4 py-3 text-right">Independent Items</th>
                 <th className="px-4 py-3 text-right">Months</th>
                 <th className="px-4 py-3 text-right">From</th>
                 <th className="px-4 py-3"></th>
@@ -218,7 +218,10 @@ export default async function DataPage() {
       <div className="rounded-xl border border-gray-200 bg-white p-6 mb-8">
         <h2 className="font-semibold text-gray-900 mb-3">CSV Format</h2>
         <p className="text-sm text-gray-600 mb-3">
-          Each country CSV contains the following columns:
+          Each country CSV contains the following columns (CSV/JSON column
+          names retain the legacy <code className="font-mono">formal</code> /
+          <code className="font-mono"> informal</code> field identifiers; UI
+          labels them Chain / Independent):
         </p>
         <div className="bg-gray-50 rounded-lg p-3 font-mono text-xs text-gray-700 mb-3">
           month,uifpi,formal,informal,cpi,item_count
@@ -226,9 +229,9 @@ export default async function DataPage() {
         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
           {[
             ["month", "YYYY-MM period"],
-            ["uifpi", "Combined UIFPI index (base = 100)"],
-            ["formal", "Formal sector sub-index"],
-            ["informal", "Informal sector sub-index"],
+            ["uifpi", "Combined UICPI index (base = 100)"],
+            ["formal", "Chain sub-index"],
+            ["informal", "Independent sub-index"],
             ["cpi", "Official CPI index (where available)"],
             ["item_count", "Number of price items in that month"],
           ].map(([col, desc]) => (
@@ -246,7 +249,7 @@ export default async function DataPage() {
       <div className="rounded-xl border border-gray-200 bg-white p-6 mb-8">
         <h2 className="font-semibold text-gray-900 mb-3">How to Cite</h2>
         <div className="bg-gray-50 rounded-lg p-4 font-mono text-xs text-gray-700 leading-relaxed">
-          Chen, E. (2026). UIFPI: A Unified Informal-Formal Restaurant Price
+          Chen, E. (2026). UICPI: A Unified Independent-Chain Restaurant Price
           Index as a Leading Indicator of Consumer Price Inflation. Singapore
           Science and Engineering Fair Research Paper. Available at:
           github.com/thefrogfacedfoot/Inflation-menu

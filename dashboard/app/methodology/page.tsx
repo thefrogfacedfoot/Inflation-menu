@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Methodology — UIFPI",
+  title: "Methodology — UICPI",
   description:
-    "How the Unified Informal-Formal Price Index is constructed: data collection, index methodology, and statistical analysis.",
+    "How the Unified Independent-Chain Price Index is constructed: data collection, index methodology, and statistical analysis.",
 };
 
 function Section({
@@ -35,9 +35,9 @@ const COMPARISON_DATA = [
   },
   {
     feature: "Sector coverage",
-    bigMac: "Formal only (McDonald's)",
-    bpp: "Formal only (e-commerce)",
-    uifpi: "Formal + Informal",
+    bigMac: "Chain only (McDonald's)",
+    bpp: "Chain only (e-commerce)",
+    uifpi: "Chain + Independent",
   },
   {
     feature: "Service sector",
@@ -46,7 +46,7 @@ const COMPARISON_DATA = [
     uifpi: "Yes",
   },
   {
-    feature: "Informal economy",
+    feature: "Independent vendors",
     bigMac: "No",
     bpp: "No",
     uifpi: "Yes",
@@ -72,8 +72,8 @@ const COMPARISON_DATA = [
   {
     feature: "Lead indicator test",
     bigMac: "No",
-    bpp: "Yes (formal sector)",
-    uifpi: "Yes (formal + informal)",
+    bpp: "Yes (chain restaurants)",
+    uifpi: "Yes (chain + independent)",
   },
 ];
 
@@ -89,7 +89,7 @@ export default function MethodologyPage() {
         </nav>
         <h1 className="text-3xl font-bold text-gray-900">Methodology</h1>
         <p className="text-gray-600 mt-2">
-          How UIFPI collects data, constructs the index, and tests for Granger
+          How UICPI collects data, constructs the index, and tests for Granger
           causality against official CPI.
         </p>
       </div>
@@ -100,12 +100,12 @@ export default function MethodologyPage() {
         <ol className="space-y-1 text-gray-600 list-decimal list-inside">
           {[
             ["#data-collection", "Data Collection"],
-            ["#sector-definitions", "Formal vs Informal Sector"],
+            ["#sector-definitions", "Chain vs Independent"],
             ["#index-construction", "Index Construction"],
             ["#matched-model", "Matched-Model Approach"],
             ["#granger", "Granger Causality Testing"],
             ["#pass-through", "Pass-Through Regression"],
-            ["#comparison", "Comparison: UIFPI vs Big Mac vs BPP"],
+            ["#comparison", "Comparison: UICPI vs Big Mac vs BPP"],
           ].map(([href, label]) => (
             <li key={href}>
               <a href={href} className="hover:text-[#1a365d] hover:underline">
@@ -119,7 +119,7 @@ export default function MethodologyPage() {
       <div className="space-y-10">
         <Section id="data-collection" title="1. Data Collection">
           <p>
-            UIFPI collects restaurant menu prices from two sources: (1){" "}
+            UICPI collects restaurant menu prices from two sources: (1){" "}
             <strong>live scraping</strong> of food delivery and restaurant
             aggregator platforms (Zomato, GrabFood, GoFood, Deliveroo, JustEat,
             Uber Eats, Yelp) and (2){" "}
@@ -138,7 +138,12 @@ export default function MethodologyPage() {
           </p>
         </Section>
 
-        <Section id="sector-definitions" title="2. Formal vs Informal Sector">
+        <Section id="sector-definitions" title="2. Chain vs Independent">
+          <p className="text-sm text-gray-500 italic">
+            UICPI uses "chain" and "independent" as the human-facing labels for
+            the two sub-indices. The economic content below uses the legacy
+            "formal sector" / "informal sector" terminology under review.
+          </p>
           <p>
             <strong>Formal sector</strong> restaurants are defined as
             registered businesses listed on major food delivery platforms with
@@ -163,7 +168,7 @@ export default function MethodologyPage() {
 
         <Section id="index-construction" title="3. Index Construction">
           <p>
-            The UIFPI follows a Laspeyres-type chain-linked index. For each
+            The UICPI follows a Laspeyres-type chain-linked index. For each
             country and month:
           </p>
           <ol className="list-decimal list-inside space-y-2 ml-4">
@@ -177,10 +182,10 @@ export default function MethodologyPage() {
             </li>
             <li>
               Category relatives are aggregated to sector-level sub-indices
-              (formal, informal).
+              (chain, independent).
             </li>
             <li>
-              The combined UIFPI is a weighted average of formal and informal
+              The combined UICPI is a weighted average of chain and independent
               sub-indices (default weights: 50/50, robustness-tested at ±10pp).
             </li>
           </ol>
@@ -193,7 +198,7 @@ export default function MethodologyPage() {
 
         <Section id="matched-model" title="4. Matched-Model Approach">
           <p>
-            Following Cavallo &amp; Rigobon (2016), UIFPI attempts to track
+            Following Cavallo &amp; Rigobon (2016), UICPI attempts to track
             identical or closely matched items across time periods. A{" "}
             <em>matched pair</em> exists when the same restaurant and item name
             appears in both the current and base period.
@@ -215,13 +220,13 @@ export default function MethodologyPage() {
 
         <Section id="granger" title="5. Granger Causality Testing">
           <p>
-            To test whether UIFPI leads official CPI, we apply the{" "}
+            To test whether UICPI leads official CPI, we apply the{" "}
             <strong>Granger causality test</strong> following Cavallo &amp;
             Rigobon (2016, <em>Review of Economics and Statistics</em>):
           </p>
           <ol className="list-decimal list-inside space-y-2 ml-4">
             <li>
-              Both UIFPI and CPI series are first-differenced to achieve
+              Both UICPI and CPI series are first-differenced to achieve
               stationarity (verified by ADF test).
             </li>
             <li>
@@ -229,8 +234,8 @@ export default function MethodologyPage() {
               annual).
             </li>
             <li>
-              F-test of joint significance of lagged ΔUIFPI terms in the ΔCPI
-              equation. A significant result (p &lt; 0.10) indicates UIFPI
+              F-test of joint significance of lagged ΔUICPI terms in the ΔCPI
+              equation. A significant result (p &lt; 0.10) indicates UICPI
               Granger-causes CPI.
             </li>
             <li>
@@ -264,6 +269,8 @@ export default function MethodologyPage() {
         </Section>
 
         <Section id="comparison" title="7. Comparison vs Big Mac Index and BPP">
+          {/* NOTE: cells use the "uifpi" field key (JSON contract preserved
+              per project convention); the column header label says UICPI. */}
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
@@ -278,7 +285,7 @@ export default function MethodologyPage() {
                     MIT BPP
                   </th>
                   <th className="text-left p-3 font-semibold text-blue-200 rounded-tr-lg">
-                    UIFPI ★
+                    UICPI ★
                   </th>
                 </tr>
               </thead>
@@ -307,7 +314,7 @@ export default function MethodologyPage() {
           </div>
           <p className="text-xs text-gray-500 mt-2">
             BPP = MIT Billion Prices Project (Cavallo &amp; Rigobon 2016).
-            ★ UIFPI is the only index to cover the informal food economy.
+            ★ UICPI is the only index to cover the informal food economy.
           </p>
         </Section>
 

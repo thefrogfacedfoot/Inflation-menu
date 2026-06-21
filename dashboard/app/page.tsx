@@ -77,7 +77,7 @@ function CountryCard({
 
       <div className="grid grid-cols-2 gap-2 text-sm">
         <div className="bg-gray-50 rounded-lg p-2.5">
-          <p className="text-xs text-gray-500 mb-0.5">UIFPI Index</p>
+          <p className="text-xs text-gray-500 mb-0.5">UICPI Index</p>
           <p className="font-bold text-gray-900 text-xl">
             {fmt(lv?.uifpi ?? s?.latest_uifpi)}
           </p>
@@ -161,9 +161,9 @@ export default async function HomePage() {
               Open source research — SSEF 2026
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4 leading-tight">
-              UIFPI
+              UICPI
               <span className="block text-blue-300 text-2xl sm:text-3xl font-normal mt-1">
-                Unified Informal-Formal Price Index
+                Unified Independent-Chain Price Index
               </span>
             </h1>
             <p className="text-lg text-blue-100 leading-relaxed max-w-2xl">
@@ -171,7 +171,7 @@ export default async function HomePage() {
               <span className="text-white font-medium">
                 MIT Billion Prices Project
               </span>{" "}
-              to formal restaurants and informal hawker stalls across 10
+              to chain restaurants and independent hawker stalls across 10
               countries. Tests whether food service prices lead official CPI
               as an early inflation signal — and{" "}
               <span className="text-white font-medium">
@@ -295,11 +295,11 @@ export default async function HomePage() {
           <div className="grid sm:grid-cols-3 gap-8">
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">
-                What is UIFPI?
+                What is UICPI?
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                The Unified Informal-Formal Price Index tracks restaurant menu
-                prices across formal restaurants and informal hawker stalls /
+                The Unified Independent-Chain Price Index tracks restaurant menu
+                prices across chain restaurants and independent hawker stalls /
                 street vendors in 10 countries, testing whether they lead
                 official CPI readings.
               </p>

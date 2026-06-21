@@ -194,6 +194,13 @@ def _empty_country_stats() -> dict:
     }
 
 
+# DB-level sector value → output JSON field-name suffix. The taxonomy
+# was renamed from formal/informal to chain/independent (2026-06-21) but
+# the JSON schema keys (items_formal, items_informal, etc.) are kept for
+# backward compatibility with existing consumers of country_summary.json.
+DB_SECTOR_TO_FIELD = {"chain": "formal", "independent": "informal"}
+
+
 def load_price_counts(db_path: str = DB_PATH) -> dict:
     """Per-country, per-sector item count, distinct-restaurant count, and
     mean price_usd. Backfills null price_usd from `price` + `currency`
@@ -214,7 +221,7 @@ def load_price_counts(db_path: str = DB_PATH) -> dict:
             if not country:
                 continue
             sector_key = (sector or "").lower()
-            if sector_key not in ("formal", "informal"):
+            if sector_key not in DB_SECTOR_TO_FIELD:
                 continue
             usd = price_usd
             if usd is None or usd <= 0:
@@ -233,10 +240,11 @@ def load_price_counts(db_path: str = DB_PATH) -> dict:
         conn.close()
 
         for (country, sector_key), b in agg.items():
+            field = DB_SECTOR_TO_FIELD[sector_key]
             row = counts.setdefault(country, _empty_country_stats())
-            row[f"items_{sector_key}"]       = b["items"]
-            row[f"restaurants_{sector_key}"] = len(b["restaurants"])
-            row[f"avg_price_{sector_key}_usd"] = (
+            row[f"items_{field}"]       = b["items"]
+            row[f"restaurants_{field}"] = len(b["restaurants"])
+            row[f"avg_price_{field}_usd"] = (
                 round(b["usd_sum"] / b["usd_n"], 2) if b["usd_n"] else None
             )
     except Exception as e:

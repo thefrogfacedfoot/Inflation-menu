@@ -137,7 +137,7 @@ def build_prompt(stats: dict) -> str:
         Do not include any headers, bullets, or formatting — continuous prose only.
 
         STUDY TITLE:
-        UIFPI: A Unified Informal-Formal Restaurant Price Index as a Leading
+        UICPI: A Unified Independent-Chain Restaurant Price Index as a Leading
         Indicator of Consumer Price Inflation
 
         KEY FACTS TO INCLUDE (use these actual numbers):
@@ -277,9 +277,9 @@ def _fallback_abstract(stats: dict) -> str:
         f"systematically under-sampled, and the informal food economy — representing "
         f"40–65% of household food expenditure in emerging markets — is entirely "
         f"absent from all existing alternative price indices, including the MIT "
-        f"Billion Prices Project. This paper introduces the Unified Informal-Formal "
-        f"Price Index (UIFPI), the first price index to systematically incorporate "
-        f"both formal restaurant and informal street vendor pricing across multiple "
+        f"Billion Prices Project. This paper introduces the Unified Independent-Chain "
+        f"Price Index (UICPI), the first price index to systematically incorporate "
+        f"both chain restaurant and independent street vendor pricing across multiple "
         f"economies. "
         f"UIFPI is constructed using 7,233 price observations collected from formal "
         f"restaurant menus and informal hawker vendors across 8 countries — Singapore, "
@@ -321,7 +321,7 @@ def save_abstract(abstract: str, stats: dict):
     ssef_header = textwrap.dedent(f"""
         **SSEF Research Paper Abstract**
 
-        **Project Title:** UIFPI: A Unified Informal-Formal Restaurant Price Index
+        **Project Title:** UICPI: A Unified Independent-Chain Restaurant Price Index
         as a Leading Indicator of Consumer Price Inflation
 
         **Category:** Behavioral and Social Sciences / Economics

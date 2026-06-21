@@ -1,6 +1,6 @@
 **SSEF Research Paper Abstract**
 
-**Project Title:** UIFPI: A Unified Informal-Formal Restaurant Price Index
+**Project Title:** UICPI: A Unified Independent-Chain Restaurant Price Index
 as a Leading Indicator of Consumer Price Inflation
 
 **Category:** Behavioral and Social Sciences / Economics

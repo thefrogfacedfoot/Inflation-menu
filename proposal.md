@@ -1,4 +1,4 @@
-UIFPI: A Unified Informal-Formal Restaurant Price Index as a Leading Indicator of Consumer Price Inflation
+UICPI: A Unified Independent-Chain Restaurant Price Index as a Leading Indicator of Consumer Price Inflation
 
 Abstract
 [To be written after analysis — must describe: 

@@ -1,7 +1,7 @@
-# UIFPI Dashboard
+# UICPI Dashboard
 
-Public-facing Next.js dashboard for the **Unified Informal-Formal Price Index**
-research project. Displays UIFPI vs official CPI for 8 countries with charts,
+Public-facing Next.js dashboard for the **Unified Independent-Chain Price Index**
+research project. Displays UICPI vs official CPI for 8 countries with charts,
 methodology, and data downloads.
 
 ## Local Development
