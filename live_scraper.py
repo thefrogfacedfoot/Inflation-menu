@@ -446,6 +446,7 @@ COUNTRY_LOCALE = {
     'Indonesia':      ('en-ID', 'Asia/Jakarta'),
     'Thailand':       ('en-TH', 'Asia/Bangkok'),
     'India':          ('en-IN', 'Asia/Kolkata'),
+    'Vietnam':        ('en-VN', 'Asia/Ho_Chi_Minh'),
     'United States':  ('en-US', 'America/New_York'),
     'United Kingdom': ('en-GB', 'Europe/London'),
     'Australia':      ('en-AU', 'Australia/Sydney'),
@@ -1616,6 +1617,7 @@ WARMUP_HOME = {
     ('grabfood',  'Malaysia'):   'https://food.grab.com/my/en/',
     ('grabfood',  'Indonesia'):  'https://food.grab.com/id/en/',
     ('grabfood',  'Thailand'):   'https://food.grab.com/th/en/',
+    ('grabfood',  'Vietnam'):    'https://food.grab.com/vn/en/',
 }
 
 
@@ -1635,6 +1637,12 @@ GRABFOOD_LOCATION_SEED = {
     'Malaysia': (
         '{"latitude":3.158246,"longitude":101.711739,'
         '"address":"Kuala Lumpur","countryCode":"MY","isAccurate":false,'
+        '"addressDetail":"","noteToDriver":""}'
+    ),
+    # Ho Chi Minh City — District 1 / Ben Thanh area (food delivery hub)
+    'Vietnam': (
+        '{"latitude":10.776530,"longitude":106.700981,'
+        '"address":"Ho Chi Minh City","countryCode":"VN","isAccurate":false,'
         '"addressDetail":"","noteToDriver":""}'
     ),
 }
@@ -1663,7 +1671,12 @@ def _seed_grabfood_location(page, country):
         pass
     # Also seed landing-country-selected localStorage so the SPA doesn't
     # re-route to the country picker.
-    cc_path = '/sg/en/' if country == 'Singapore' else '/my/en/'
+    _GF_COUNTRY_PATH = {
+        'Singapore': '/sg/en/',
+        'Malaysia':  '/my/en/',
+        'Vietnam':   '/vn/en/',
+    }
+    cc_path = _GF_COUNTRY_PATH.get(country, '/sg/en/')
     try:
         page.evaluate(
             f"() => localStorage.setItem('landing-country-selected', '{cc_path}')"

@@ -1,0 +1,228 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+
+========== Vietnam (10 discovered + 10 chain guesses) (20) ==========
+2026-06-21 15:41:36,631 —   Loading XIANG BA LAO Chinese (GrabFood)…
+2026-06-21 15:41:55,035 —     GrabFood returned 0 items. title='XIANG BA LAO - Chinese Food ⭐ 4.4'. HTML 239643 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nHomeRestaurantXIANG BA LAO - Chinese Food\nXIANG BA LAO - Chinese Food\nChinese,Chicken Dish,Beef Dish,Rice\n4.4\n26 mins\xa0\xa0•\xa0\xa00.9 km\nOpening Hours\nToday\xa0\xa000:00-00:30 10:00-23:59\nFor You\nBraised dishes, stir-fried\nRice\nSET RICE BOX (A Set Of Main Dishes + 2 Types Of Vegetables + Rice)\nSOUP\nDRINK 饮料\nFor You\n\nBraised Pork Belly in Chinese'
+2026-06-21 15:41:55,035 —   ✗ XIANG BA LAO Chinese: 0 items — page did not yield menu data
+   [FAIL] XIANG BA LAO Chinese                       0 items  ( 20.7s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:41:57,454 —   Loading MAD ROOSTA Burgers (GrabFood)…
+2026-06-21 15:42:17,129 —     GrabFood returned 0 items. title='MAD ROOSTA | Burgers & Grill ⭐ 4.7'. HTML 303105 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nHomeRestaurantMAD ROOSTA | Burgers & Grill\nMAD ROOSTA | Burgers & Grill\nAmerican,Burger,Grilled Chicken,Crispy Fried Chicken\n4.7\n25 mins\xa0\xa0•\xa0\xa00.5 km\nOpening Hours\nToday\xa0\xa007:00-21:15\nFor You\nMAD Bakery\nSALAD\nCHICKEN BURGERS\nANGUS BEEF\nCHIPS\nSAUCE & EXTRA\nCHICKEN\nWRAPS\nMAIN SIDE\nSOFT DRINKS\nCRAFT BEER\nFor You\n\nBurger | Double cheesy\n\n2x 150 g flame-grilled AU'
+2026-06-21 15:42:17,129 —   ✗ MAD ROOSTA Burgers: 0 items — page did not yield menu data
+   [FAIL] MAD ROOSTA Burgers                         0 items  ( 22.0s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:42:19,413 —   Loading McDonald's Nguyen Hue (GrabFood)…
+2026-06-21 15:42:39,420 —     GrabFood returned 0 items. title="McDonald's - Nguyễn Huệ ⭐ 4.4". HTML 330081 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nHomeRestaurantMcDonald's - Nguyễn Huệ\nMcDonald's - Nguyễn Huệ\nAmerican,Burger,Fried Chicken,Fast Food\n4.4\n25 mins\xa0\xa0•\xa0\xa00.8 km\nOpening Hours\nToday\xa0\xa008:00-23:50\nFifa World Cup 2026\nMcdonald'S Khao\nSpaghetti\nBest Seller\nFamily Combo\nFried Chicken\nChicken And Fish Burger\nKids Meal\nBeef Burger\nA La Carte\nMccafé - Coffee And Chocolate\nMcc"
+2026-06-21 15:42:39,421 —   ✗ McDonald's Nguyen Hue: 0 items — page did not yield menu data
+   [FAIL] McDonald's Nguyen Hue                      0 items  ( 22.3s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:42:41,643 —   Loading Jollibee Pasteur (GrabFood)…
+2026-06-21 15:43:00,744 —     GrabFood returned 0 items. title='Jollibee - Pasteur ⭐ 4.4'. HTML 269040 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nHomeRestaurantJollibee - Pasteur\nJollibee - Pasteur\nFilipino,Fried Chicken,Burger\n4.4\n24 mins\xa0\xa0•\xa0\xa01.4 km\nOpening Hours\nToday\xa0\xa008:00-23:00\nToday's Offer\nFor You\nNew Dish\nMatching Couple\nCrispy Chicken\nSpicy Chicken\nSpaghetti\nBurgers & Hotdogs\nSides\nDrinks\nAdd Sauce\nToday's Offer\n\n3 Happy Crispy Chicken + 1 Jolly Spaghetti + 1 Medium"
+2026-06-21 15:43:00,744 —   ✗ Jollibee Pasteur: 0 items — page did not yield menu data
+   [FAIL] Jollibee Pasteur                           0 items  ( 21.3s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:43:02,839 —   Loading Robata AN Le Thanh Ton (GrabFood)…
+2026-06-21 15:43:12,421 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-21 15:43:25,649 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-21 15:43:38,645 —     still on landing page after 3 nav attempts; giving up
+2026-06-21 15:43:43,493 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169532 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:43:43,493 —   ✗ Robata AN Le Thanh Ton: 0 items — page did not yield menu data
+   [FAIL] Robata AN Le Thanh Ton                     0 items  ( 42.7s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:43:45,549 —   Loading Cơm Tấm 5 Sao (GrabFood)…
+2026-06-21 15:43:56,040 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-21 15:44:09,594 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-21 15:44:22,625 —     still on landing page after 3 nav attempts; giving up
+2026-06-21 15:44:27,471 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 166885 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:44:27,471 —   ✗ Cơm Tấm 5 Sao: 0 items — page did not yield menu data
+   [FAIL] Cơm Tấm 5 Sao                              0 items  ( 44.1s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:44:29,682 —   Loading Cơm Phần Winwin (GrabFood)…
+2026-06-21 15:44:39,883 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-21 15:44:51,900 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-21 15:45:04,229 —     still on landing page after 3 nav attempts; giving up
+2026-06-21 15:45:09,085 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169794 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:45:09,085 —   ✗ Cơm Phần Winwin: 0 items — page did not yield menu data
+   [FAIL] Cơm Phần Winwin                            0 items  ( 41.5s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:45:12,064 —   Loading Thế Giới Cơm Tấm (GrabFood)…
+2026-06-21 15:45:23,476 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-21 15:45:36,133 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-21 15:45:48,332 —     still on landing page after 3 nav attempts; giving up
+2026-06-21 15:45:53,190 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 167454 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:45:53,190 —   ✗ Thế Giới Cơm Tấm: 0 items — page did not yield menu data
+   [FAIL] Thế Giới Cơm Tấm                           0 items  ( 44.1s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:45:56,252 —   Loading Chóp Chép Bánh Tráng (GrabFood)…
+2026-06-21 15:46:07,524 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-21 15:46:19,763 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-21 15:46:32,152 —     still on landing page after 3 nav attempts; giving up
+2026-06-21 15:46:37,013 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 170200 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:46:37,013 —   ✗ Chóp Chép Bánh Tráng: 0 items — page did not yield menu data
+   [FAIL] Chóp Chép Bánh Tráng                       0 items  ( 44.0s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:46:40,013 —   Loading Cơm Canh Korean (GrabFood)…
+2026-06-21 15:46:50,938 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-21 15:47:02,393 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-21 15:47:15,943 —     still on landing page after 3 nav attempts; giving up
+2026-06-21 15:47:20,801 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 170480 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:47:20,801 —   ✗ Cơm Canh Korean: 0 items — page did not yield menu data
+   [FAIL] Cơm Canh Korean                            0 items  ( 43.7s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:47:23,662 —   Loading Highlands Coffee (chain) (GrabFood)…
+2026-06-21 15:47:32,831 —   Bot detected on attempt 1
+   [FAIL] Highlands Coffee (chain)                   0 items  ( 12.0s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:47:35,638 —   Loading The Coffee House (chain) (GrabFood)…
+2026-06-21 15:47:46,186 —   Bot detected on attempt 1
+   [FAIL] The Coffee House (chain)                   0 items  ( 13.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:47:48,910 —   Loading Phuc Long (chain) (GrabFood)…
+2026-06-21 15:47:58,434 —   Bot detected on attempt 1
+   [FAIL] Phuc Long (chain)                          0 items  ( 12.4s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:48:01,186 —   Loading Pizza Hut VN (chain) (GrabFood)…
+2026-06-21 15:48:19,210 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169721 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:48:19,210 —   ✗ Pizza Hut VN (chain): 0 items — page did not yield menu data
+   [FAIL] Pizza Hut VN (chain)                       0 items  ( 20.7s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:48:22,096 —   Loading KFC VN (chain) (GrabFood)…
+2026-06-21 15:48:40,554 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169806 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:48:40,554 —   ✗ KFC VN (chain): 0 items — page did not yield menu data
+   [FAIL] KFC VN (chain)                             0 items  ( 21.4s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:48:43,328 —   Loading Lotteria (chain) (GrabFood)…
+2026-06-21 15:48:53,678 —   Bot detected on attempt 1
+   [FAIL] Lotteria (chain)                           0 items  ( 13.1s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:48:56,354 —   Loading Starbucks VN (chain) (GrabFood)…
+2026-06-21 15:49:14,540 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169664 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:49:14,540 —   ✗ Starbucks VN (chain): 0 items — page did not yield menu data
+   [FAIL] Starbucks VN (chain)                       0 items  ( 21.0s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:49:17,778 —   Loading Domino's VN (chain) (GrabFood)…
+2026-06-21 15:49:35,145 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169711 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-21 15:49:35,145 —   ✗ Domino's VN (chain): 0 items — page did not yield menu data
+   [FAIL] Domino's VN (chain)                        0 items  ( 20.9s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:49:37,863 —   Loading Texas Chicken VN (chain) (GrabFood)…
+2026-06-21 15:49:47,909 —   Bot detected on attempt 1
+   [FAIL] Texas Chicken VN (chain)                   0 items  ( 12.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:49:50,181 —   Loading Burger King VN (chain) (GrabFood)…
+2026-06-21 15:50:00,682 —   Bot detected on attempt 1
+   [FAIL] Burger King VN (chain)                     0 items  ( 12.7s)   RuntimeError: ACCESS_DENIED
+
+========== UK Deliveroo expansion (10) ==========
+2026-06-21 15:50:02,840 —   Loading Dishoom King's Cross (Deliveroo) (js generic)…
+2026-06-21 15:50:13,254 —   ✓ Dishoom King's Cross (Deliveroo): 47 items
+   [OK  ] Dishoom King's Cross (Deliveroo)          47 items  ( 12.6s)   
+2026-06-21 15:50:15,259 —   Loading Dishoom Carnaby (Deliveroo) (js generic)…
+2026-06-21 15:50:29,623 —     js generic returned 0 items. title='Takeaway delivery in Soho - Order with Deliveroo'. HTML 2050768 chars saved to debug_page.html. Body head: "Skip to:ContentFooter\nDeliveroo\nDelivery · Now\nSoho\n\nLog in\n\nSign up\n\nNow\nSoho\nChange\nDelivery\nPickup\nFilters\n\nCouldn't load filters\n\nHomeRestaurantsGroceriesShoppingOffersPickupReservations\n\nSupermarket\n\nBreakfast\n\nCoffee\n\nBurgers\n\nFather's Day\n\nHalal\n\nBuy 1 get 1 free\n\nSandwiches\n\nAll offers\n\nHealthy\n\nAlcohol\n\nPizza\n\nChicken\n\nIndian\n\nDesserts\n\nSushi\n\nChinese\n\nFast delivery\n\nBubble tea\n\nPharmacy\n"
+2026-06-21 15:50:29,623 —   ✗ Dishoom Carnaby (Deliveroo): 0 items — page did not yield menu data
+   [FAIL] Dishoom Carnaby (Deliveroo)                0 items  ( 16.4s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:50:31,837 —   Loading Pho Battersea (Deliveroo) (js generic)…
+2026-06-21 15:50:40,106 —   Bot detected on attempt 1
+   [FAIL] Pho Battersea (Deliveroo)                  0 items  ( 10.5s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:50:42,264 —   Loading Pho Shoreditch (Deliveroo) (js generic)…
+2026-06-21 15:50:50,403 —   Bot detected on attempt 1
+   [FAIL] Pho Shoreditch (Deliveroo)                 0 items  ( 10.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:50:52,435 —   Loading Pizza Pilgrims West End (Deliveroo) (js generic)…
+2026-06-21 15:50:59,587 —   Bot detected on attempt 1
+   [FAIL] Pizza Pilgrims West End (Deliveroo)        0 items  (  9.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:51:01,753 —   Loading Wagamama Camden (Deliveroo) (js generic)…
+2026-06-21 15:51:12,620 —   ✓ Wagamama Camden (Deliveroo): 108 items
+   [OK  ] Wagamama Camden (Deliveroo)              108 items  ( 13.0s)   
+2026-06-21 15:51:14,673 —   Loading Nando's Shoreditch (Deliveroo) (js generic)…
+2026-06-21 15:51:22,909 —   Bot detected on attempt 1
+   [FAIL] Nando's Shoreditch (Deliveroo)             0 items  ( 10.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:51:25,035 —   Loading Pret Soho (Deliveroo) (js generic)…
+2026-06-21 15:51:33,844 —   Bot detected on attempt 1
+   [FAIL] Pret Soho (Deliveroo)                      0 items  ( 10.9s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:51:35,966 —   Loading Itsu Soho (Deliveroo) (js generic)…
+2026-06-21 15:51:42,825 —   Bot detected on attempt 1
+   [FAIL] Itsu Soho (Deliveroo)                      0 items  (  9.0s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:51:45,014 —   Loading Leon Soho (Deliveroo) (js generic)…
+2026-06-21 15:51:56,552 —   Bot detected on attempt 1
+   [FAIL] Leon Soho (Deliveroo)                      0 items  ( 13.7s)   RuntimeError: ACCESS_DENIED
+
+========== AU Menulog (11) ==========
+2026-06-21 15:51:58,624 —   Loading McDonald's AU (Menulog) (js generic)…
+2026-06-21 15:52:04,893 —   Bot detected on attempt 1
+   [FAIL] McDonald's AU (Menulog)                    0 items  (  8.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:52:07,030 —   Loading KFC Sydney CBD (Menulog) (js generic)…
+2026-06-21 15:52:12,534 —   Bot detected on attempt 1
+   [FAIL] KFC Sydney CBD (Menulog)                   0 items  (  7.7s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:52:14,619 —   Loading Hungry Jack's Sydney (Menulog) (js generic)…
+2026-06-21 15:52:19,002 —   Bot detected on attempt 1
+   [FAIL] Hungry Jack's Sydney (Menulog)             0 items  (  6.4s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:52:21,099 —   Loading Pizza Hut Sydney (Menulog) (js generic)…
+2026-06-21 15:52:26,518 —   Bot detected on attempt 1
+   [FAIL] Pizza Hut Sydney (Menulog)                 0 items  (  7.6s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:52:28,688 —   Loading Subway Sydney (Menulog) (js generic)…
+2026-06-21 15:52:34,130 —   Bot detected on attempt 1
+   [FAIL] Subway Sydney (Menulog)                    0 items  (  7.6s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:52:36,217 —   Loading Red Rooster Sydney (Menulog) (js generic)…
+2026-06-21 15:52:42,376 —   Bot detected on attempt 1
+   [FAIL] Red Rooster Sydney (Menulog)               0 items  (  8.2s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:52:44,613 —   Loading Domino's Sydney (Menulog) (js generic)…
+2026-06-21 15:52:50,537 —   Bot detected on attempt 1
+   [FAIL] Domino's Sydney (Menulog)                  0 items  (  8.2s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:52:52,680 —   Loading Guzman y Gomez Sydney (Menulog) (js generic)…
+2026-06-21 15:52:57,919 —   Bot detected on attempt 1
+   [FAIL] Guzman y Gomez Sydney (Menulog)            0 items  (  7.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:53:00,012 —   Loading Boost Juice Sydney (Menulog) (js generic)…
+2026-06-21 15:53:06,094 —   Bot detected on attempt 1
+   [FAIL] Boost Juice Sydney (Menulog)               0 items  (  8.2s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:53:08,280 —   Loading Krispy Kreme Sydney (Menulog) (js generic)…
+2026-06-21 15:53:12,330 —   Bot detected on attempt 1
+   [FAIL] Krispy Kreme Sydney (Menulog)              0 items  (  6.3s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:53:14,560 —   Loading Grill'd Sydney (Menulog) (js generic)…
+2026-06-21 15:53:20,277 —   Bot detected on attempt 1
+   [FAIL] Grill'd Sydney (Menulog)                   0 items  (  7.9s)   RuntimeError: ACCESS_DENIED
+
+========== US fresh (17) ==========
+2026-06-21 15:53:22,361 —   Loading Cheesecake Factory (direct)…
+2026-06-21 15:53:32,454 —     captured 4 XHR JSON responses
+2026-06-21 15:53:32,507 —   ✗ Cheesecake Factory: 0 items — page did not yield menu data
+   [FAIL] Cheesecake Factory                         0 items  ( 12.2s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:53:34,685 —   Loading Jersey Mike's (direct)…
+2026-06-21 15:53:46,881 —     captured 1 XHR JSON responses
+2026-06-21 15:53:46,922 —   ✗ Jersey Mike's: 0 items — page did not yield menu data
+   [FAIL] Jersey Mike's                              0 items  ( 14.4s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:53:48,983 —   Loading Firehouse Subs (direct)…
+2026-06-21 15:54:03,638 —     captured 4 XHR JSON responses
+2026-06-21 15:54:03,673 —   ✗ Firehouse Subs: 0 items — page did not yield menu data
+   [FAIL] Firehouse Subs                             0 items  ( 16.8s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:54:05,876 —   Loading Jimmy John's (direct)…
+2026-06-21 15:54:17,654 —     captured 4 XHR JSON responses
+2026-06-21 15:54:17,732 —   ✗ Jimmy John's: 0 items — page did not yield menu data
+   [FAIL] Jimmy John's                               0 items  ( 14.0s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:54:19,733 —   Loading Potbelly (direct)…
+2026-06-21 15:54:28,324 —   Bot detected on attempt 1
+   [FAIL] Potbelly                                   0 items  ( 10.5s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:54:30,395 —   Loading Panda Express (direct)…
+2026-06-21 15:54:39,850 —   ✗ Panda Express: 0 items — page did not yield menu data
+   [FAIL] Panda Express                              0 items  ( 11.6s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:54:41,947 —   Loading Longhorn Steakhouse (direct)…
+2026-06-21 15:54:50,429 —   Bot detected on attempt 1
+   [FAIL] Longhorn Steakhouse                        0 items  ( 10.6s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:54:52,459 —   Loading P.F. Chang's (direct)…
+2026-06-21 15:54:59,989 —   ✗ P.F. Chang's: 0 items — page did not yield menu data
+   [FAIL] P.F. Chang's                               0 items  (  9.6s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:55:01,992 —   Loading Carrabba's (direct)…
+2026-06-21 15:55:10,512 —   Bot detected on attempt 1
+   [FAIL] Carrabba's                                 0 items  ( 10.5s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:55:12,500 —   Loading Bonefish Grill (direct)…
+2026-06-21 15:55:21,020 —   Bot detected on attempt 1
+   [FAIL] Bonefish Grill                             0 items  ( 10.5s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:55:23,132 —   Loading Maggiano's (direct)…
+2026-06-21 15:55:33,823 —   ✗ Maggiano's: 0 items — page did not yield menu data
+   [FAIL] Maggiano's                                 0 items  ( 12.9s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:55:36,047 —   Loading Tropical Smoothie Cafe (direct)…
+2026-06-21 15:55:45,640 —   Bot detected on attempt 1
+   [FAIL] Tropical Smoothie Cafe                     0 items  ( 11.8s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:55:47,755 —   Loading McAlister's Deli (direct)…
+2026-06-21 15:55:57,494 —     captured 2 XHR JSON responses
+2026-06-21 15:55:57,506 —   ✗ McAlister's Deli: 0 items — page did not yield menu data
+   [FAIL] McAlister's Deli                           0 items  ( 11.9s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:55:59,630 —   Loading Schlotzsky's (direct)…
+2026-06-21 15:56:07,278 —     captured 3 XHR JSON responses
+2026-06-21 15:56:07,290 —   ✗ Schlotzsky's: 0 items — page did not yield menu data
+   [FAIL] Schlotzsky's                               0 items  (  9.8s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:56:09,481 —   Loading Yard House (direct)…
+2026-06-21 15:56:17,394 —   Bot detected on attempt 1
+   [FAIL] Yard House                                 0 items  ( 10.1s)   RuntimeError: ACCESS_DENIED
+2026-06-21 15:56:19,492 —   Loading Cracker Barrel breakfast (direct)…
+2026-06-21 15:56:28,719 —   ✗ Cracker Barrel breakfast: 0 items — page did not yield menu data
+   [FAIL] Cracker Barrel breakfast                   0 items  ( 11.3s)   RuntimeError: 0 items scraped — page may not have loaded
+2026-06-21 15:56:30,832 —   Loading Olive Garden lunch (direct)…
+2026-06-21 15:56:39,520 —   Bot detected on attempt 1
+   [FAIL] Olive Garden lunch                         0 items  ( 10.8s)   RuntimeError: ACCESS_DENIED
+
+
+=== FINAL — OK candidates only ===
+   Dishoom King's Cross (Deliveroo)          47 items   https://deliveroo.co.uk/menu/london/kings-cross/dishoom-kings-cross
+   Wagamama Camden (Deliveroo)              108 items   https://deliveroo.co.uk/menu/london/camden-town/wagamama-camden

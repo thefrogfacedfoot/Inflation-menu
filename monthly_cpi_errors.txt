@@ -35,3 +35,4 @@
 2026-06-13 [SG] Primary failed: SingStat API 404 on known table IDs; using fallback
 2026-06-13 [TH] Primary failed: BOT IAPI DNS failure; using fallback
 2026-06-13 [ID] Primary failed: name 'os' is not defined
+2026-06-20 [AE] Primary failed: No FCSC API; using fallback

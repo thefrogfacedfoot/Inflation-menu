@@ -374,11 +374,11 @@
         "timestamp": "20190913180207",
         "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10036235-Reviews-Juicyfy_Juice_Bar-Kuala_Lumpur_Wilayah_Persekutuan.html"
       },
-      {
-        "timestamp": "20190820092819",
+      { 
+        "timestamp": "20190820092819", 
         "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037852-Reviews-or10-Llao_Llao-Kuala_Lumpur_Wilayah_Persekutuan.html"
       },
-      {
+      { 
         "timestamp": "20190920163248",
         "url": "https://www.tripadvisor.com/Restaurant_Review-g298570-d10037852-Reviews-or20-Llao_Llao-Kuala_Lumpur_Wilayah_Persekutuan.html"
       },
@@ -9088,3 +9088,4 @@
     "status": "complete"
   }
 }
+
