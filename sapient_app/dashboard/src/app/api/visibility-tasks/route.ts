@@ -4,11 +4,23 @@ import {
   getEligibleVisibilityTasks,
   isOpsUser,
 } from "@/lib/visibility-tasks";
+import { requireSetupComplete, WizardIncompleteError } from "@/lib/wizard";
 
 export async function GET() {
   const session = await auth();
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+  try {
+    await requireSetupComplete();
+  } catch (e) {
+    if (e instanceof WizardIncompleteError) {
+      return NextResponse.json(
+        { error: "setup_required", setupStep: e.setupStep },
+        { status: 503 },
+      );
+    }
+    throw e;
   }
   const result = await getEligibleVisibilityTasks(session.user.id);
   if (result === null) {

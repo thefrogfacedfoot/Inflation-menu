@@ -41,6 +41,8 @@ beforeEach(async () => {
   await pg.exec(`
     DROP SCHEMA IF EXISTS visibility CASCADE;
     DROP TABLE IF EXISTS
+      account_health_check, account_health_state,
+      brand_config, disclosure_phrase_override, gdpr_request,
       content_draft_event, content_draft, content_draft_quota,
       post, claim, user_active_sub, user_profile, opportunities,
       product_aliases, karma_snapshot, "user", verificationToken,

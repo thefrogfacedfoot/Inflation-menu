@@ -4,6 +4,7 @@ import {
   doublePrecision,
   index,
   integer,
+  jsonb,
   pgSchema,
   pgTable,
   primaryKey,
@@ -241,6 +242,110 @@ export const contentDraftQuota = pgTable(
   (t) => ({ pk: primaryKey({ columns: [t.userId, t.day] }) }),
 );
 
+/* ---------- GDPR requests ----------
+ *
+ * One row per request. Survives erasure (userId nulled, erased=true) so the
+ * audit trail proves WHEN we deleted without retaining any PII tying the
+ * record to a person.
+ *
+ * receiptCorrelationId is the thread every log line uses across all services
+ * touched by the request; that's the recovery story if a delete partially
+ * lands across services.
+ */
+export const gdprRequests = pgTable(
+  "gdpr_request",
+  {
+    id: serial("id").primaryKey(),
+    // Nullable: gets NULLed when a delete completes. The row itself stays.
+    userId: text("userId").references(() => users.id, { onDelete: "set null" }),
+    kind: text("kind").notNull(), // export | delete
+    state: text("state").notNull().default("pending"),
+    requestedAt: timestamp("requested_at", { withTimezone: true }).defaultNow().notNull(),
+    // delete = requestedAt + 30d. export = requestedAt.
+    scheduledFor: timestamp("scheduled_for", { withTimezone: true }).defaultNow().notNull(),
+    completedAt: timestamp("completed_at", { withTimezone: true }),
+    receiptCorrelationId: text("receipt_correlation_id").notNull(),
+    downloadUrl: text("download_url"),
+    erased: boolean("erased").notNull().default(false),
+    errorDetails: jsonb("error_details"),
+  },
+  (t) => ({
+    byUser: index("ix_gdpr_request_user").on(t.userId),
+  }),
+);
+
+/* ---------- Brand config + onboarding wizard ----------
+ *
+ * brand_config is a singleton-style table — one row per deployment, never
+ * deleted. setup_step is the source of truth the UI routes on; closing the
+ * tab mid-wizard and reopening lands on the right step. setup_completed_at
+ * gates feed/opportunities/visibility-tasks routes via lib/wizard.ts.
+ *
+ * disclosure_phrase_override layers ops-added phrases on top of the
+ * compile-time defaults in lib/disclosure-phrases.ts. Read by
+ * getEffectiveDisclosurePhrases().
+ */
+
+export const brandConfig = pgTable("brand_config", {
+  id: serial("id").primaryKey(),
+  brandName: text("brand_name").notNull(),
+  description: text("description").notNull().default(""),
+  // 0 = not started; 7 = smoke test passed. The UI routes off this value.
+  setupStep: integer("setup_step").notNull().default(0),
+  setupCompletedAt: timestamp("setup_completed_at", { withTimezone: true }),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export const disclosurePhraseOverride = pgTable("disclosure_phrase_override", {
+  id: serial("id").primaryKey(),
+  phrase: text("phrase").notNull().unique(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  createdByUserId: text("created_by_user_id").references(() => users.id, {
+    onDelete: "set null",
+  }),
+});
+
+/* ---------- Account-health monitoring ----------
+ *
+ * The shadowban / karma / slow-burn checks log to account_health_check
+ * (append-only) and roll up to account_health_state (latest per user).
+ * The dashboard banner reads state; the ops page reads both.
+ */
+
+export const accountHealthCheck = pgTable(
+  "account_health_check",
+  {
+    id: serial("id").primaryKey(),
+    userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }),
+    // shadowban | karma_trend | slow_removal — keep low-cardinality so the
+    // prom counter labels don't explode.
+    checkType: text("check_type").notNull(),
+    checkedAt: timestamp("checked_at", { withTimezone: true }).defaultNow().notNull(),
+    // ok | warning | alert. alert means "tell the user now"; warning is a
+    // single-sample anomaly that needs corroboration on the next run.
+    status: text("status").notNull(),
+    details: jsonb("details").notNull().default({}),
+    correlationId: text("correlation_id"),
+  },
+  (t) => ({
+    byUserTypeAt: index("ix_account_health_check_user_type_at").on(
+      t.userId,
+      t.checkType,
+      t.checkedAt,
+    ),
+  }),
+);
+
+export const accountHealthState = pgTable("account_health_state", {
+  userId: text("userId").primaryKey().references(() => users.id, { onDelete: "cascade" }),
+  // First time a shadowban anomaly was logged. Stays set until cleared by
+  // an ok result (so ops can see "this user had a flag last week").
+  shadowbanSuspectedAt: timestamp("shadowban_suspected_at", { withTimezone: true }),
+  lastKarmaCheckAt: timestamp("last_karma_check_at", { withTimezone: true }),
+  karma7dDelta: integer("karma_7d_delta"),
+  lastCheckRunAt: timestamp("last_check_run_at", { withTimezone: true }),
+});
+
 // The Python finder writes here. The dashboard only reads. Schema must match
 // app/models.py::Opportunity.
 export const opportunities = pgTable("opportunities", {
@@ -275,6 +380,25 @@ function __raw(s: string): SQL {
  */
 
 const visibilitySchema = pgSchema("visibility");
+
+// Wizard writes these two; the visibility service owns the canonical schema
+// in production. Mirrored shape only — the dashboard never runs DDL against
+// the visibility schema.
+export const visibilityEntities = visibilitySchema.table("entities", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull().unique(),
+  type: text("type").notNull(), // brand | competitor
+  aliases: jsonb("aliases").notNull().default([]),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export const visibilityQueries = visibilitySchema.table("queries", {
+  id: serial("id").primaryKey(),
+  text: text("text").notNull(),
+  category: text("category").notNull().default("general"),
+  isActive: boolean("is_active").notNull().default(true),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
 
 export const visibilityTasks = visibilitySchema.table("tasks", {
   id: integer("id").primaryKey(),

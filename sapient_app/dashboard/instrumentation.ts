@@ -8,4 +8,14 @@ export async function register() {
   if (process.env.METRICS_DISABLED === "1") return;
   const { startMetricsServer } = await import("@/lib/metrics");
   startMetricsServer();
+  if (process.env.ACCOUNT_HEALTH_SCHEDULER_DISABLED !== "1") {
+    const { startAccountHealthScheduler } = await import(
+      "@/lib/account-health-scheduler"
+    );
+    startAccountHealthScheduler();
+  }
+  if (process.env.GDPR_SCHEDULER_DISABLED !== "1") {
+    const { startGdprScheduler } = await import("@/lib/gdpr-scheduler");
+    startGdprScheduler();
+  }
 }

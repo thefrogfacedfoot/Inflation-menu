@@ -3,6 +3,11 @@ import { auth } from "../../../auth";
 import { db } from "@/db/client";
 import { userProfiles } from "@/db/schema";
 import { getUserStats } from "@/lib/stats";
+import {
+  getAccountHealthSnapshot,
+  highestSeverity,
+} from "@/lib/account-health";
+import AccountHealthBanner from "./account-health-banner";
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -12,6 +17,8 @@ export default async function DashboardPage() {
     where: eq(userProfiles.userId, session.user.id),
   });
   const stats = await getUserStats(session.user.id);
+  const health = await getAccountHealthSnapshot(session.user.id);
+  const severity = highestSeverity(health);
 
   const karmaTrend = stats.karma.length >= 2
     ? stats.karma[stats.karma.length - 1].total - stats.karma[0].total
@@ -20,6 +27,9 @@ export default async function DashboardPage() {
   return (
     <div>
       <h1>Your stats</h1>
+      {severity && severity !== "ok" && (
+        <AccountHealthBanner severity={severity} snapshot={health} />
+      )}
       {profile?.isPaused && (
         <p style={{ color: "#ff8888" }}>Paused — {profile.pausedReason}</p>
       )}

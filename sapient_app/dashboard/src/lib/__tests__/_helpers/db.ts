@@ -43,6 +43,20 @@ export async function createTestDb(): Promise<TestDb> {
  *  protocol), not the prepared statement path. */
 const VISIBILITY_DDL = `
   CREATE SCHEMA IF NOT EXISTS visibility;
+  CREATE TABLE IF NOT EXISTS visibility.entities (
+    id          serial PRIMARY KEY,
+    name        text NOT NULL UNIQUE,
+    type        text NOT NULL,
+    aliases     jsonb NOT NULL DEFAULT '[]'::jsonb,
+    created_at  timestamptz NOT NULL DEFAULT now()
+  );
+  CREATE TABLE IF NOT EXISTS visibility.queries (
+    id          serial PRIMARY KEY,
+    text        text NOT NULL,
+    category    text NOT NULL DEFAULT 'general',
+    is_active   boolean NOT NULL DEFAULT true,
+    created_at  timestamptz NOT NULL DEFAULT now()
+  );
   CREATE TABLE IF NOT EXISTS visibility.tasks (
     id                            integer PRIMARY KEY,
     kind                          text NOT NULL,
@@ -63,8 +77,11 @@ const VISIBILITY_DDL = `
 `;
 
 const TRUNCATE_ALL = `
-  TRUNCATE TABLE visibility.tasks, content_draft_event, content_draft,
-    content_draft_quota, post, claim, user_active_sub,
+  TRUNCATE TABLE visibility.tasks, visibility.entities, visibility.queries,
+    content_draft_event, content_draft, content_draft_quota,
+    post, claim, user_active_sub,
+    account_health_check, account_health_state,
+    brand_config, disclosure_phrase_override, gdpr_request,
     user_profile, opportunities, product_aliases, karma_snapshot, "user"
     RESTART IDENTITY CASCADE;
 `;

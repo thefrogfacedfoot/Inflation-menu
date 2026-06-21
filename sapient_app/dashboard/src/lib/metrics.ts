@@ -55,6 +55,54 @@ export const dashboardClaimToPostedSeconds = new Histogram({
   registers: [registry],
 });
 
+/* ---------- account-health monitoring ----------
+ * Labels enumerate the three check_type values declared in
+ * src/lib/account-health.ts — never user-supplied strings.
+ */
+export const accountHealthWarningsTotal = new Counter({
+  name: "account_health_warnings_total",
+  help: "Account-health checks that landed at status=warning",
+  labelNames: ["check_type"] as const,
+  registers: [registry],
+});
+
+export const accountHealthAlertsTotal = new Counter({
+  name: "account_health_alerts_total",
+  help: "Account-health checks that landed at status=alert",
+  labelNames: ["check_type"] as const,
+  registers: [registry],
+});
+
+export const accountHealthCheckDurationSeconds = new Histogram({
+  name: "account_health_check_duration_seconds",
+  help: "Wall time for a single account-health check",
+  labelNames: ["check_type"] as const,
+  buckets: [0.05, 0.25, 1, 5, 15, 60],
+  registers: [registry],
+});
+
+/* ---------- GDPR requests ----------
+ * `terminal_state` is only emitted when the request reaches one of
+ * completed | failed | cancelled — so the counter shape stays clean for
+ * alerting (`rate(gdpr_requests_total{terminal_state="failed"}) > 0`).
+ */
+export const gdprRequestsTotal = new Counter({
+  name: "gdpr_requests_total",
+  help: "GDPR requests by kind and terminal state",
+  labelNames: ["kind", "terminal_state"] as const,
+  registers: [registry],
+});
+
+export const gdprRequestDurationSeconds = new Histogram({
+  name: "gdpr_request_duration_seconds",
+  help: "Wall time from request creation to terminal state",
+  labelNames: ["kind"] as const,
+  // Export should finish in seconds; delete sits 30d in pending then runs
+  // in seconds — the latter dominates and the bucket needs to reach a month.
+  buckets: [1, 60, 3600, 86400, 7 * 86400, 30 * 86400],
+  registers: [registry],
+});
+
 let _server: http.Server | null = null;
 
 export function startMetricsServer(port?: number): http.Server {

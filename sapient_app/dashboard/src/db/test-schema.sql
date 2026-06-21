@@ -94,6 +94,63 @@ CREATE TABLE karma_snapshot (
   PRIMARY KEY ("userId", taken_at)
 );
 
+-- GDPR export + erasure requests. See src/lib/gdpr.ts.
+CREATE TABLE gdpr_request (
+  id                       serial PRIMARY KEY,
+  "userId"                 text REFERENCES "user"(id) ON DELETE SET NULL,
+  kind                     text NOT NULL,
+  state                    text NOT NULL DEFAULT 'pending',
+  requested_at             timestamptz NOT NULL DEFAULT now(),
+  scheduled_for            timestamptz NOT NULL DEFAULT now(),
+  completed_at             timestamptz,
+  receipt_correlation_id   text NOT NULL,
+  download_url             text,
+  erased                   boolean NOT NULL DEFAULT false,
+  error_details            jsonb
+);
+CREATE INDEX ix_gdpr_request_user ON gdpr_request ("userId");
+CREATE INDEX ix_gdpr_request_due
+  ON gdpr_request (scheduled_for)
+  WHERE state = 'pending' AND kind = 'delete';
+
+-- Brand config + disclosure overrides (wizard). See src/lib/wizard.ts.
+CREATE TABLE brand_config (
+  id                    serial PRIMARY KEY,
+  brand_name            text NOT NULL,
+  description           text NOT NULL DEFAULT '',
+  setup_step            integer NOT NULL DEFAULT 0,
+  setup_completed_at    timestamptz,
+  updated_at            timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE disclosure_phrase_override (
+  id                  serial PRIMARY KEY,
+  phrase              text NOT NULL UNIQUE,
+  created_at          timestamptz NOT NULL DEFAULT now(),
+  created_by_user_id  text REFERENCES "user"(id) ON DELETE SET NULL
+);
+
+-- Account-health monitoring. See src/lib/account-health.ts.
+CREATE TABLE account_health_check (
+  id              serial PRIMARY KEY,
+  "userId"        text NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+  check_type      text NOT NULL,
+  checked_at      timestamptz NOT NULL DEFAULT now(),
+  status          text NOT NULL,
+  details         jsonb NOT NULL DEFAULT '{}'::jsonb,
+  correlation_id  text
+);
+CREATE INDEX ix_account_health_check_user_type_at
+  ON account_health_check ("userId", check_type, checked_at DESC);
+
+CREATE TABLE account_health_state (
+  "userId"                  text PRIMARY KEY REFERENCES "user"(id) ON DELETE CASCADE,
+  shadowban_suspected_at    timestamptz,
+  last_karma_check_at       timestamptz,
+  karma_7d_delta            integer,
+  last_check_run_at         timestamptz
+);
+
 -- Content drafts: blog_post visibility tasks worked through the dashboard.
 -- See src/lib/content-gap.ts for the state machine.
 CREATE TABLE content_draft (
@@ -138,6 +195,24 @@ CREATE TABLE content_draft_quota (
 -- write the columns it needs to. Tests can drop the schema to simulate the
 -- "visibility tracker unreachable" branch.
 CREATE SCHEMA visibility;
+
+-- The wizard writes here (entity rows for brand + competitors, query rows
+-- for the tracked queries). Mirrors visibility/visibility/models.py shape.
+CREATE TABLE visibility.entities (
+  id          serial PRIMARY KEY,
+  name        text NOT NULL UNIQUE,
+  type        text NOT NULL,          -- brand | competitor
+  aliases     jsonb NOT NULL DEFAULT '[]'::jsonb,
+  created_at  timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE visibility.queries (
+  id          serial PRIMARY KEY,
+  text        text NOT NULL,
+  category    text NOT NULL DEFAULT 'general',
+  is_active   boolean NOT NULL DEFAULT true,
+  created_at  timestamptz NOT NULL DEFAULT now()
+);
 
 CREATE TABLE visibility.tasks (
   id                            integer PRIMARY KEY,
