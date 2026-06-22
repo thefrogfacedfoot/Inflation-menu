@@ -32,6 +32,8 @@ import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
+from hashlib import md5
+from urllib.parse import unquote
 
 import requests
 from bs4 import BeautifulSoup
@@ -444,6 +446,25 @@ def parse_grabfood(html, currency):
     return _coerce(items, currency)
 
 
+def parse_doordash(html, currency):
+    """DoorDash US archived: JSON-LD MenuItem + Offer paired nodes carry
+    a typed `price` field (dollars). Structural probe 2026-06-21 confirmed
+    typed-priced 3/3 with 70-182 items/snapshot. Uses the existing JSON-LD
+    walker (handles offers.price → emits with the parent MenuItem `name`).
+    Falls back to NEXT_DATA, which carries the same `price` key on a
+    duplicate node shape; the walker dedups by (name, round(p,2), cur).
+
+    USD sanity guard 0 < p < 200: the generic walker only filters
+    0 < p < 100_000, which would let a stray `unitAmount` (cents, e.g.
+    1850) slip through if a future template variant emits it under a
+    named node. $200 is a reasonable ceiling for a single menu item;
+    catering trays above that are rare enough that excluding them is
+    a better trade than admitting cents-as-dollars noise."""
+    items = extract_jsonld(html) or extract_nextdata(html)
+    filtered = [(n, p, c) for n, p, c in items if 0 < p < 200]
+    return _coerce(filtered, currency)
+
+
 def parse_tripadvisor_mx(html, currency):
     """TripAdvisor MX restaurant pages: JSON-LD MenuItem when present.
     Most pages only have FoodEstablishment with priceRange (a tier
@@ -485,6 +506,15 @@ def _coerce(items, default_currency):
 TARGETS = [
     ('United States', 'formal', 'menupages',     'wayback-menupages',
      'menupages.com/*', 'USD', parse_menupages),
+    # Added 2026-06-22 after structural probe (phase0_structural_probe_
+    # doordash_grubhub.py): 24,568 distinct URLs, 3,083 ≥2-cap, 30,000
+    # snapshots, 2019-01 → 2026-06. JSON-LD MenuItem/Offer tree shape;
+    # walker price-key hits 70-630 per snapshot. Same JSON-LD path as
+    # MenuPages with an extra USD-bounded sanity guard inside the parser.
+    # (Grubhub US probed same day — BAILED: archived pages are SPA shells
+    # with no JSON-LD, NEXT_DATA, or embedded JSON on any of 3 samples.)
+    ('United States', 'chain',  'doordash-us',   'wayback-doordash',
+     'doordash.com/store/*', 'USD', parse_doordash),
     ('India',         'formal', 'zomato-ncr',    'wayback-zomato',
      'zomato.com/ncr/*', 'INR', parse_zomato),
     ('Indonesia',     'formal', 'zomato-jakarta','wayback-zomato',
@@ -787,6 +817,17 @@ def _restaurant_from_url(url, platform_label):
     single bucket in restaurant-median index construction. Skip
     trailing action segments; also strip the `restaurants-` /
     `restaurant-` prefix Menulog and Foodpanda use.
+
+    URL-decoding (added 2026-06-22): DoorDash Wayback URLs include
+    %22-encoded quotes from restaurant names that previously leaked
+    through unchanged. Apply unquote() so the slug reads cleanly.
+
+    Pure-price slugs (e.g. `/store/$0.99`, `/store/$0.10`) come from
+    DoorDash deal/filter pages that Wayback redirect-served to real
+    restaurant menus — the items + prices are real but restaurant
+    identity is unrecoverable. Bucket each such URL under a stable
+    hash so per-URL grouping survives the index's restaurant-median
+    step without polluting the namespace with $-strings.
     """
     u = url.split('?', 1)[0].split('#', 1)[0]
     parts = [p for p in u.rstrip('/').split('/') if p]
@@ -794,6 +835,9 @@ def _restaurant_from_url(url, platform_label):
     while parts and parts[-1].lower() in SKIP:
         parts.pop()
     slug = parts[-1] if parts else url
+    slug = unquote(slug)
+    if slug.startswith('$'):
+        slug = f'junkbucket-{md5(url.encode()).hexdigest()[:8]}'
     if slug.startswith('restaurants-'):
         slug = slug[len('restaurants-'):]
     elif slug.startswith('restaurant-'):

@@ -36,6 +36,20 @@ MAX_ROWS_PER_COUNTRY = 300
 # Fixed RNG seed so the sampled index is reproducible across runs.
 SAMPLE_SEED = 42
 
+# Sources excluded from index construction. Rows survive in the raw `prices`
+# table for downstream / diagnostic analysis but never enter the published
+# UICPI index.
+#
+# wayback-doordash: Delivery-platform pricing reflects platform dynamics
+# (surge pricing, promotions, delivery/service fees, marketplace markup)
+# that are not present in traditional menu scrapes. Source-stratified
+# Granger on US confirmed inclusion of DoorDash collapses the lag-1 menu→
+# CPI F-stat from 5.56 (p=0.026, n=31) to 0.006 (p=0.94, n=38). The
+# leading-indicator signal that holds in chain/independent menu data
+# dissolves when delivery prices are pooled in. See diagnostics/
+# diag_us_no_doordash.py for the reproducer.
+EXCLUDED_SOURCES = ("wayback-doordash",)
+
 # Approximate informal sector share of food expenditure by country.
 # Source: author estimates from World Bank household survey data.
 # Update these when real survey weights become available.
@@ -136,6 +150,7 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
             p.price_usd,
             p.country,
             p.sector,
+            p.source,
             p.collection_date,
             COALESCE(n.category, 'OTHER')        AS category,
             COALESCE(n.quality_signals, '[]')    AS quality_signals,
@@ -168,7 +183,24 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
     # cannot perturb the deterministic sampling of menu prices. Out-of-scope
     # rows survive in the raw `prices` table for downstream analysis but
     # never enter the index.
-    df = df[df["sector"].isin(("formal", "informal"))].copy()
+    # The 2026-06-21 taxonomy rename (commit 93c5e34) was partial — both old
+    # (formal/informal) and new (chain/independent) labels coexist in the DB.
+    # Accept both and remap new→legacy so downstream code (which still uses
+    # formal/informal variable names per the taxonomy decision) is unaffected.
+    df = df[df["sector"].isin(("formal", "informal",
+                               "chain",  "independent"))].copy()
+    df["sector"] = df["sector"].replace({"chain": "formal",
+                                         "independent": "informal"})
+
+    # Drop sources excluded from index construction (see EXCLUDED_SOURCES
+    # docstring at top of file for rationale).
+    if EXCLUDED_SOURCES:
+        before_excl = len(df)
+        df = df[~df["source"].isin(EXCLUDED_SOURCES)].copy()
+        dropped = before_excl - len(df)
+        if dropped > 0:
+            print(f"  Excluded {dropped:,} rows from sources "
+                  f"{list(EXCLUDED_SOURCES)} (kept in raw DB).")
 
     # Cap rows per (country, year_month) so dense months don't dominate the
     # cross-country index. Deterministic via SAMPLE_SEED.

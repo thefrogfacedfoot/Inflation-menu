@@ -455,6 +455,147 @@ def run(min_obs: int = DEFAULT_MIN_OBS, max_lags: int = DEFAULT_MAX_LAGS) -> Non
             writer.writerow({k: r.get(k, "") for k in fields})
     print(f"✓ Summary CSV → {csv_path}")
 
+    run_source_stratified(min_obs=min_obs, max_lags=max_lags)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Source-stratified Granger
+#
+# For each country with ≥2 distinct contributing sources, build an independent
+# UICPI series from each source's rows alone and run Granger against the
+# country's CPI. Surfaces the per-source contribution / dilution so decisions
+# like the wayback-doordash exclusion in index_builder.EXCLUDED_SOURCES can be
+# revisited or extended generically to other sources/countries in the future.
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _load_source_keyed_prices() -> Optional[pd.DataFrame]:
+    """Mirror of index_builder.load_price_data minus EXCLUDED_SOURCES and the
+    per-(country, month) sampling cap — both of which would defeat the purpose
+    of per-source isolation."""
+    if not os.path.exists(DB_PATH):
+        return None
+    from index_builder import FALLBACK_RATES
+    conn = sqlite3.connect(DB_PATH)
+    df = pd.read_sql_query("""
+        SELECT p.id, p.restaurant_name, p.item_name, p.price, p.currency,
+               p.price_usd, p.country, p.sector, p.source, p.collection_date,
+               COALESCE(n.category, 'OTHER')        AS category,
+               COALESCE(n.quality_signals, '[]')    AS quality_signals,
+               COALESCE(n.language_detected, 'en')  AS language_detected,
+               COALESCE(n.confidence, 0.0)          AS confidence
+        FROM prices p
+        LEFT JOIN nlp_results n ON p.item_name = n.item_name
+        WHERE p.price IS NOT NULL AND p.price > 0
+    """, conn)
+    conn.close()
+
+    null_mask = df["price_usd"].isna()
+    if null_mask.any():
+        rates = df.loc[null_mask, "currency"].map(FALLBACK_RATES).fillna(1.0)
+        df.loc[null_mask, "price_usd"] = df.loc[null_mask, "price"] / rates
+    df = df[df["price_usd"] > 0].copy()
+    df["collection_date"] = pd.to_datetime(df["collection_date"], errors="coerce")
+    df = df.dropna(subset=["collection_date"])
+    df["year_month"] = df["collection_date"].dt.to_period("M").astype(str)
+
+    # Same sector filter+remap as index_builder.load_price_data.
+    df = df[df["sector"].isin(("formal", "informal",
+                               "chain",  "independent"))].copy()
+    df["sector"] = df["sector"].replace({"chain": "formal",
+                                         "independent": "informal"})
+    return df
+
+
+def run_source_stratified(min_obs: int = DEFAULT_MIN_OBS,
+                          max_lags: int = DEFAULT_MAX_LAGS) -> dict:
+    """Per-(country, source) Granger; emits granger_by_source.json."""
+    from index_builder import build_restaurant_median_index
+
+    print(f"\n{'='*80}")
+    print("Source-Stratified Granger (per-country, per-source)")
+    print(f"{'='*80}")
+
+    df = _load_source_keyed_prices()
+    if df is None or df.empty:
+        print("  No price data available.")
+        return {}
+
+    def _to_python(v):
+        if isinstance(v, (np.integer,)):  return int(v)
+        if isinstance(v, (np.floating,)): return float(v)
+        if isinstance(v, (np.bool_,)):    return bool(v)
+        return v
+
+    results: dict = {}
+    for country in sorted(df["country"].unique()):
+        cdf = df[df["country"] == country]
+        sources = sorted(s for s in cdf["source"].dropna().unique() if s)
+        if len(sources) < 2:
+            continue
+        cpi_s = load_cpi(country)
+        if cpi_s is None or cpi_s.empty:
+            continue
+
+        print(f"\n[{country}]  contributing sources: {len(sources)}")
+        country_results: dict = {}
+        for src in sources:
+            sdf = cdf[cdf["source"] == src].copy()
+            n_months = sdf["year_month"].nunique()
+            if n_months < min_obs:
+                country_results[src] = {"n_obs": 0,
+                                        "granger_significant": False,
+                                        "note": f"only_{n_months}_source_months"}
+                print(f"  {src:<32} only {n_months} months — skipped")
+                continue
+            rows = build_restaurant_median_index(sdf, country)
+            if not rows:
+                country_results[src] = {"n_obs": 0,
+                                        "granger_significant": False,
+                                        "note": "no_index_rows"}
+                continue
+            udf = pd.DataFrame(rows).dropna(subset=["uifpi_combined"])
+            if udf.empty:
+                country_results[src] = {"n_obs": 0,
+                                        "granger_significant": False,
+                                        "note": "all_null_index"}
+                continue
+            udf["period"]  = pd.PeriodIndex(udf["year_month"], freq="M")
+            udf["country"] = country
+            uifpi_s, cpi_aligned = align_series(udf, country, cpi_s)
+            if len(uifpi_s) < min_obs:
+                country_results[src] = {"n_obs": int(len(uifpi_s)),
+                                        "granger_significant": False,
+                                        "note": f"overlap_{len(uifpi_s)}_lt_{min_obs}"}
+                print(f"  {src:<32} overlap={len(uifpi_s)} < {min_obs} — skipped")
+                continue
+            res = run_granger(country, uifpi_s, cpi_aligned, min_obs, max_lags)
+            country_results[src] = res
+            gp  = res.get("granger_p_value")
+            gf  = res.get("granger_f_statistic")
+            sig = "✓" if res.get("granger_significant") else "✗"
+            gp_s = f"{gp:.4f}" if gp is not None else "    —"
+            gf_s = f"{gf:>7.3f}" if gf is not None else "      —"
+            print(f"  {src:<32} n={res['n_obs']:>3}  F={gf_s}  p={gp_s}  {sig}")
+        if country_results:
+            results[country] = country_results
+
+    if not results:
+        print("\n  No country has ≥2 contributing sources — nothing to stratify.")
+        return {}
+
+    serializable = {
+        country: {
+            src: {k: _to_python(v) for k, v in r.items()}
+            for src, r in srcs.items()
+        }
+        for country, srcs in results.items()
+    }
+    out = os.path.join(RESULTS_DIR, "granger_by_source.json")
+    with open(out, "w") as f:
+        json.dump(serializable, f, indent=2)
+    print(f"\n✓ Source-stratified results → {out}")
+    return results
+
 
 def main():
     parser = argparse.ArgumentParser(description="UIFPI Granger causality analysis")

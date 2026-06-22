@@ -1,0 +1,317 @@
+{
+  "Australia": {
+    "direct": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "wayback": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_5_source_months"
+    },
+    "wayback-menulog": {
+      "country": "Australia",
+      "n_obs": 19,
+      "granger_significant": false,
+      "granger_p_value": 0.6804,
+      "lead_months": 1,
+      "aic_lag": 1,
+      "pass_through_formal": 0.0054,
+      "pass_through_se": 0.00545,
+      "pass_through_p_value": 0.3338,
+      "pass_through_ci_low": -0.00613,
+      "pass_through_ci_high": 0.017,
+      "pass_through_significant": false,
+      "r_squared": 0.0584,
+      "note": "",
+      "granger_f_statistic": 0.1764,
+      "granger_df_num": 1,
+      "granger_df_denom": 15,
+      "granger_per_lag": [
+        {
+          "lag": 1,
+          "F": 0.1764,
+          "p": 0.6804,
+          "df_num": 1,
+          "df_denom": 15
+        }
+      ]
+    }
+  },
+  "Indonesia": {
+    "wayback": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_2_source_months"
+    },
+    "wayback-zomato": {
+      "country": "Indonesia",
+      "n_obs": 19,
+      "granger_significant": false,
+      "granger_p_value": 0.7693,
+      "lead_months": 1,
+      "aic_lag": 1,
+      "pass_through_formal": 0.0016,
+      "pass_through_se": 0.00185,
+      "pass_through_p_value": 0.3912,
+      "pass_through_ci_low": -0.00229,
+      "pass_through_ci_high": 0.00554,
+      "pass_through_significant": false,
+      "r_squared": 0.0463,
+      "note": "",
+      "granger_f_statistic": 0.0895,
+      "granger_df_num": 1,
+      "granger_df_denom": 14,
+      "granger_per_lag": [
+        {
+          "lag": 1,
+          "F": 0.0895,
+          "p": 0.7693,
+          "df_num": 1,
+          "df_denom": 14
+        }
+      ]
+    }
+  },
+  "Malaysia": {
+    "foodpanda": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "grabfood": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "wayback": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_6_source_months"
+    },
+    "wayback-grabfood": {
+      "country": "Malaysia",
+      "n_obs": 27,
+      "granger_significant": false,
+      "granger_p_value": 0.6182,
+      "lead_months": 1,
+      "aic_lag": 1,
+      "pass_through_formal": 0.0041,
+      "pass_through_se": 0.00312,
+      "pass_through_p_value": 0.2122,
+      "pass_through_ci_low": -0.00273,
+      "pass_through_ci_high": 0.011,
+      "pass_through_significant": false,
+      "r_squared": 0.6327,
+      "note": "",
+      "granger_f_statistic": 0.2556,
+      "granger_df_num": 1,
+      "granger_df_denom": 22,
+      "granger_per_lag": [
+        {
+          "lag": 1,
+          "F": 0.2556,
+          "p": 0.6182,
+          "df_num": 1,
+          "df_denom": 22
+        }
+      ]
+    }
+  },
+  "Singapore": {
+    "foodpanda": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "grabfood": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "wayback-grabfood": {
+      "country": "Singapore",
+      "n_obs": 8,
+      "granger_significant": false,
+      "granger_p_value": null,
+      "lead_months": null,
+      "aic_lag": null,
+      "pass_through_formal": null,
+      "pass_through_se": null,
+      "pass_through_p_value": null,
+      "pass_through_ci_low": null,
+      "pass_through_ci_high": null,
+      "pass_through_significant": false,
+      "r_squared": null,
+      "note": "insufficient_data_after_differencing (7 obs)"
+    }
+  },
+  "Thailand": {
+    "Wayback/TripAdvisor": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "Wayback/wongnai": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    }
+  },
+  "United Kingdom": {
+    "direct": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "js": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "wayback": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_5_source_months"
+    },
+    "wayback-deliveroo": {
+      "country": "United Kingdom",
+      "n_obs": 14,
+      "granger_significant": false,
+      "granger_p_value": 0.4265,
+      "lead_months": 1,
+      "aic_lag": 1,
+      "pass_through_formal": -0.0033,
+      "pass_through_se": 0.02077,
+      "pass_through_p_value": 0.8767,
+      "pass_through_ci_low": -0.04901,
+      "pass_through_ci_high": 0.04242,
+      "pass_through_significant": false,
+      "r_squared": 0.0023,
+      "note": "",
+      "granger_f_statistic": 0.6935,
+      "granger_df_num": 1,
+      "granger_df_denom": 9,
+      "granger_per_lag": [
+        {
+          "lag": 1,
+          "F": 0.6935,
+          "p": 0.4265,
+          "df_num": 1,
+          "df_denom": 9
+        }
+      ]
+    }
+  },
+  "United States": {
+    "direct": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "wayback": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_6_source_months"
+    },
+    "wayback-doordash": {
+      "country": "United States",
+      "n_obs": 9,
+      "granger_significant": false,
+      "granger_p_value": 0.098,
+      "lead_months": 1,
+      "aic_lag": 1,
+      "pass_through_formal": -0.0043,
+      "pass_through_se": 0.00907,
+      "pass_through_p_value": 0.6489,
+      "pass_through_ci_low": -0.02653,
+      "pass_through_ci_high": 0.01784,
+      "pass_through_significant": false,
+      "r_squared": 0.0368,
+      "note": "",
+      "granger_f_statistic": 4.6221,
+      "granger_df_num": 1,
+      "granger_df_denom": 4,
+      "granger_per_lag": [
+        {
+          "lag": 1,
+          "F": 4.6221,
+          "p": 0.098,
+          "df_num": 1,
+          "df_denom": 4
+        }
+      ]
+    },
+    "wayback-menupages": {
+      "country": "United States",
+      "n_obs": 27,
+      "granger_significant": true,
+      "granger_p_value": 0.0206,
+      "lead_months": 1,
+      "aic_lag": 2,
+      "pass_through_formal": -0.0088,
+      "pass_through_se": 0.01242,
+      "pass_through_p_value": 0.4979,
+      "pass_through_ci_low": -0.03746,
+      "pass_through_ci_high": 0.01982,
+      "pass_through_significant": false,
+      "r_squared": 0.4386,
+      "note": "",
+      "granger_f_statistic": 6.2185,
+      "granger_df_num": 1,
+      "granger_df_denom": 22,
+      "granger_per_lag": [
+        {
+          "lag": 1,
+          "F": 6.2185,
+          "p": 0.0206,
+          "df_num": 1,
+          "df_denom": 22
+        },
+        {
+          "lag": 2,
+          "F": 2.9198,
+          "p": 0.0784,
+          "df_num": 2,
+          "df_denom": 19
+        }
+      ]
+    }
+  },
+  "Vietnam": {
+    "grabfood": {
+      "n_obs": 0,
+      "granger_significant": false,
+      "note": "only_1_source_months"
+    },
+    "wayback-grabfood": {
+      "country": "Vietnam",
+      "n_obs": 12,
+      "granger_significant": false,
+      "granger_p_value": 0.4249,
+      "lead_months": 1,
+      "aic_lag": 1,
+      "pass_through_formal": -0.0013,
+      "pass_through_se": 0.00387,
+      "pass_through_p_value": 0.7458,
+      "pass_through_ci_low": -0.01004,
+      "pass_through_ci_high": 0.00745,
+      "pass_through_significant": false,
+      "r_squared": 0.0123,
+      "note": "",
+      "granger_f_statistic": 0.7176,
+      "granger_df_num": 1,
+      "granger_df_denom": 7,
+      "granger_per_lag": [
+        {
+          "lag": 1,
+          "F": 0.7176,
+          "p": 0.4249,
+          "df_num": 1,
+          "df_denom": 7
+        }
+      ]
+    }
+  }
+}
