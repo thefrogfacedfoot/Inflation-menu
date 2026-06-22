@@ -12861,5 +12861,1612 @@
       "https://food.grab.com/vn/en/restaurant/%C4%83n-%C4%91%C3%AAm-online-delivery/5-CZJVRB21JLCTC6"
     ],
     "status": "complete"
+  },
+  "United States:doordash-us": {
+    "snapshots": [
+      {
+        "timestamp": "20180827111647",
+        "url": "https://www.doordash.com/store/3-sons-italian-restaurant-bar-arvada-35922/"
+      },
+      {
+        "timestamp": "20180817013030",
+        "url": "https://www.doordash.com/store/a-won-japanese-restaurant-los-angeles-243853/?utm_campaign=gpa"
+      },
+      {
+        "timestamp": "20180816140734",
+        "url": "https://www.doordash.com/store/alpine-bakery-and-trattoria-alpharetta-41844/"
+      },
+      {
+        "timestamp": "20180926145006",
+        "url": "https://www.doordash.com/store/amelia-s-taqueria-boston-31477/"
+      },
+      {
+        "timestamp": "20180928003542",
+        "url": "https://www.doordash.com/store/amelia-s-taqueria-boston-31477/?utm_campaign=31477&utm_medium=website&utm_source=partner-link"
+      },
+      {
+        "timestamp": "20180721003908",
+        "url": "https://www.doordash.com/store/apollo-burgers-salt-lake-city-129963/"
+      },
+      {
+        "timestamp": "20180902193304",
+        "url": "https://www.doordash.com/store/aria-mediterranean-restaurant-las-vegas-73300/?utm_campaign=gpa"
+      },
+      {
+        "timestamp": "20180822171119",
+        "url": "https://www.doordash.com/store/at-siam-thai-cuisine-orlando-102966/"
+      },
+      {
+        "timestamp": "20180827023656",
+        "url": "https://www.doordash.com/store/avila-s-mexican-restaurant-dallas-6476/"
+      },
+      {
+        "timestamp": "20180816173115",
+        "url": "https://www.doordash.com/store/baker-co-new-york-9395/"
+      },
+      {
+        "timestamp": "20180926221751",
+        "url": "https://www.doordash.com/store/balvanera-new-york-9064/"
+      },
+      {
+        "timestamp": "20180904032928",
+        "url": "https://www.doordash.com/store/barque-smokehouse-toronto-26444/"
+      },
+      {
+        "timestamp": "20180825050302",
+        "url": "https://www.doordash.com/store/beach-hut-deli-reno-306821/313917/"
+      },
+      {
+        "timestamp": "20180808073506",
+        "url": "https://www.doordash.com/store/beach-hut-deli-reno-306821/313917/?preview=1"
+      },
+      {
+        "timestamp": "20180815235636",
+        "url": "https://www.doordash.com/store/biff-buzby-s-burgers-live-oak-97061/"
+      },
+      {
+        "timestamp": "20180818162424",
+        "url": "https://www.doordash.com/store/big-catch-seafood-house-long-beach-20501/"
+      },
+      {
+        "timestamp": "20180928144039",
+        "url": "https://www.doordash.com/store/big-star-chicago-2038/3168/"
+      },
+      {
+        "timestamp": "20180823195438",
+        "url": "https://www.doordash.com/store/blue-door-san-jose-65236/?utm_campaign=2&utm_medium=website&utm_source=partner-link"
+      },
+      {
+        "timestamp": "20180924232106",
+        "url": "https://www.doordash.com/store/bonterra-trattoria-calgary-93968/"
+      },
+      {
+        "timestamp": "20180815195212",
+        "url": "https://www.doordash.com/store/bowls-by-39-degrees-artesia-77344/?utm_campaign=2&utm_medium=website&utm_source=partner-link"
+      },
+      {
+        "timestamp": "20200806111019",
+        "url": "https://www.doordash.com/store/%2079647/en-US/?utm_source=partner-link&utm_medium=website&utm_campaign=%2079647"
+      },
+      {
+        "timestamp": "20200925032758",
+        "url": "https://www.doordash.com/store/%2092010/?utm_source=partner-link&utm_medium=website&utm_campaign=%2092010&utm_content=red-medium"
+      },
+      {
+        "timestamp": "20200805083105",
+        "url": "https://www.doordash.com/store/%20988270/en-US/?utm_source=partner-link&utm_medium=website&utm_campaign=%20988270"
+      },
+      {
+        "timestamp": "20200920120916",
+        "url": "https://www.doordash.com/store/-Lette-Macarons-Vestavia-Hills-674330/en-US/?ignore_splash_experience=true&utm_source=Google&utm_medium=GPA_Ads&utm_campaign=CX_US_SE_GP_GO_ACQ_RSEXXX__+OLA_Southeast1&gclid=EAIaIQobChMI14WHmvfH6AIVCxgMCh3oaQ6yEBIYASAAEgI8g_D_BwE"
+      },
+      {
+        "timestamp": "20200705065455",
+        "url": "https://www.doordash.com/store/-mami-taqueria-atlanta-725171"
+      },
+      {
+        "timestamp": "20200812010537",
+        "url": "https://www.doordash.com/store/-new-due-south-washington-23288/27881/"
+      },
+      {
+        "timestamp": "20200925234813",
+        "url": "https://www.doordash.com/store/-ono-pok-bar-toronto-113689/en-US"
+      },
+      {
+        "timestamp": "20200807123102",
+        "url": "https://www.doordash.com/store/1-4-lb-giant-burger-hayward-719441/"
+      },
+      {
+        "timestamp": "20200803152728",
+        "url": "https://www.doordash.com/store/10-acres-victoria-944475/en-US"
+      },
+      {
+        "timestamp": "20200920151457",
+        "url": "https://www.doordash.com/store/10-below-restaurant-lounge-bend-911437/en-US/?utm_campaign=gpa"
+      },
+      {
+        "timestamp": "20200805083953",
+        "url": "https://www.doordash.com/store/10-rocks-tapas-bar-restaurant-pawtucket-605888/en-US"
+      },
+      {
+        "timestamp": "20200923005854",
+        "url": "https://www.doordash.com/store/1000-degrees-pizza-salad-wings-vero-beach-751452/en-US"
+      },
+      {
+        "timestamp": "20200813153046",
+        "url": "https://www.doordash.com/store/1000690/?utm_source=partner-link&utm_medium=website&utm_campaign=1000690"
+      },
+      {
+        "timestamp": "20200926104404",
+        "url": "https://www.doordash.com/store/1000878/?utm_source=partner-link&utm_medium=website&utm_campaign=1000878&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20200921041758",
+        "url": "https://www.doordash.com/store/1000879/?utm_source=partner-link&utm_medium=website&utm_campaign=1000879&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20200921042124",
+        "url": "https://www.doordash.com/store/1000880/?utm_source=partner-link&utm_medium=website&utm_campaign=1000880&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20200921033531",
+        "url": "https://www.doordash.com/store/1000881/?utm_source=partner-link&utm_medium=website&utm_campaign=1000881&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20200926131453",
+        "url": "https://www.doordash.com/store/1000883/?utm_source=partner-link&utm_medium=website&utm_campaign=1000883&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20200815122010",
+        "url": "https://www.doordash.com/store/1000888/?utm_source=partner-link&utm_medium=website&utm_campaign=1000888&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20200921040652",
+        "url": "https://www.doordash.com/store/1000890/?utm_source=partner-link&utm_medium=website&utm_campaign=1000890&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20201106200711",
+        "url": "https://www.doordash.com/store/-ecas-mexican-restaurant-katy-544348/"
+      },
+      {
+        "timestamp": "20201129221621",
+        "url": "https://www.doordash.com/store/-taiwan-porridge-kingdom-cupertino-925218/?utm_source=Editorial&utm_medium=Owned_Content&utm_campaign=CX_US_DR_WD_DD_ACQ_CUSXXX__&utm_content=south-bay-restaurants-now-on-doordash+"
+      },
+      {
+        "timestamp": "20201219103232",
+        "url": "https://www.doordash.com/store/-the-guilt-trip-redmond-18238/"
+      },
+      {
+        "timestamp": "20201126071939",
+        "url": "https://www.doordash.com/store/1-degree-up-queens-789593/en-US"
+      },
+      {
+        "timestamp": "20201129064448",
+        "url": "https://www.doordash.com/store/1-for-1-pizza-ottawa-298128/"
+      },
+      {
+        "timestamp": "20201025231150",
+        "url": "https://www.doordash.com/store/1-spicy-mama-ajax-1018854/?utm_medium=website&utm_source=partner-link"
+      },
+      {
+        "timestamp": "20201023063714",
+        "url": "https://www.doordash.com/store/10-east-kitchen-taphouse-turlock-540299/?utm_medium=website&utm_source=partner-link"
+      },
+      {
+        "timestamp": "20201028061231",
+        "url": "https://www.doordash.com/store/100-ocean-long-branch-1016088/en-US"
+      },
+      {
+        "timestamp": "20201028065109",
+        "url": "https://www.doordash.com/store/100-x-35-cocina-con-raices-miami-beach-1057783/en-US"
+      },
+      {
+        "timestamp": "20201203014959",
+        "url": "https://www.doordash.com/store/1000-degrees-neapolitan-pizzeria-sioux-city-712925/en-US"
+      },
+      {
+        "timestamp": "20201029023601",
+        "url": "https://www.doordash.com/store/100047"
+      },
+      {
+        "timestamp": "20201029023602",
+        "url": "https://www.doordash.com/store/100047/en-US"
+      },
+      {
+        "timestamp": "20201023053100",
+        "url": "https://www.doordash.com/store/1000894/?utm_source=partner-link&utm_medium=website&utm_campaign=1000894&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20201127121756",
+        "url": "https://www.doordash.com/store/1000903/?utm_source=partner-link&utm_medium=website&utm_campaign=1000903&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20201209115957",
+        "url": "https://www.doordash.com/store/100117"
+      },
+      {
+        "timestamp": "20201209115927",
+        "url": "https://www.doordash.com/store/100117/en-US"
+      },
+      {
+        "timestamp": "20201031192937",
+        "url": "https://www.doordash.com/store/1001325/?utm_source=partner-link&utm_medium=website&utm_campaign=1001325"
+      },
+      {
+        "timestamp": "20201209142945",
+        "url": "https://www.doordash.com/store/100162/"
+      },
+      {
+        "timestamp": "20201209142924",
+        "url": "https://www.doordash.com/store/100162/en-US/"
+      },
+      {
+        "timestamp": "20201024123609",
+        "url": "https://www.doordash.com/store/1002204/?utm_source=partner-link&utm_medium=website&utm_campaign=1002204&utm_content=red-medium"
+      },
+      {
+        "timestamp": "20210422165458",
+        "url": "https://www.doordash.com/store/%201594439/?utm_source=partner-link&utm_medium=website&utm_campaign=%201594439&utm_content=white-medium"
+      },
+      {
+        "timestamp": "20210414050932",
+        "url": "https://www.doordash.com/store/%20988270?utm_campaign=%20988270&utm_medium=website&utm_source=partner-link"
+      },
+      {
+        "timestamp": "20210423235243",
+        "url": "https://www.doordash.com/store/-/"
+      },
+      {
+        "timestamp": "20210621043111",
+        "url": "https://www.doordash.com/store/-39-pizzeria-toorak-678453"
+      },
+      {
+        "timestamp": "20210514004309",
+        "url": "https://www.doordash.com/store/-chefcharleshouse-baton-rouge-935629/1366651"
+      },
+      {
+        "timestamp": "20210414144255",
+        "url": "https://www.doordash.com/store/-ono-pok-bar-toronto-113689"
+      },
+      {
+        "timestamp": "20210612181803",
+        "url": "https://www.doordash.com/store/007-chinese-food-buffalo-295311"
+      },
+      {
+        "timestamp": "20210418203309",
+        "url": "https://www.doordash.com/store/1-degree-up-queens-789593"
+      },
+      {
+        "timestamp": "20210612183040",
+        "url": "https://www.doordash.com/store/10-below-restaurant-lounge-bend-911437?utm_campaign=gpa"
+      },
+      {
+        "timestamp": "20210419070303",
+        "url": "https://www.doordash.com/store/10-rocks-tapas-bar-restaurant-pawtucket-605888"
+      },
+      {
+        "timestamp": "20210414050353",
+        "url": "https://www.doordash.com/store/100-ocean-long-branch-1016088"
+      },
+      {
+        "timestamp": "20210511201220",
+        "url": "https://www.doordash.com/store/1000-degrees-neapolitan-pizzeria-sioux-city-712925"
+      },
+      {
+        "timestamp": "20210416015211",
+        "url": "https://www.doordash.com/store/100122/?utm_source=partner-link&utm_medium=website&utm_campaign=100122"
+      },
+      {
+        "timestamp": "20210414054311",
+        "url": "https://www.doordash.com/store/10012/?utm_source=partner-link&utm_medium=website&utm_campaign=10012"
+      },
+      {
+        "timestamp": "20210516082741",
+        "url": "https://www.doordash.com/store/1002190/?utm_source=partner-link&utm_medium=website&utm_campaign=1002190"
+      },
+      {
+        "timestamp": "20210623014620",
+        "url": "https://www.doordash.com/store/1003053?utm_source=Arbys&utm_medium=Weblinks&utm_campaign=CX_US_MR_WL_WL_ACQ_CUSXXX__+website_button"
+      },
+      {
+        "timestamp": "20210513072226",
+        "url": "https://www.doordash.com/store/100620?utm_source=Arbys&utm_medium=Weblinks&utm_campaign=CX_US_MR_WL_WL_ACQ_CUSXXX__+website_button"
+      },
+      {
+        "timestamp": "20210420004829",
+        "url": "https://www.doordash.com/store/1007248/?utm_source=partner-link&utm_medium=website&utm_campaign=1007248"
+      },
+      {
+        "timestamp": "20210420004243",
+        "url": "https://www.doordash.com/store/1007255/?utm_source=partner-link&utm_medium=website&utm_campaign=1007255"
+      },
+      {
+        "timestamp": "20210420015651",
+        "url": "https://www.doordash.com/store/1007256/?utm_source=partner-link&utm_medium=website&utm_campaign=1007256"
+      },
+      {
+        "timestamp": "20210916050322",
+        "url": "https://www.doordash.com/store/%E3%81%BB%E3%82%84%E3%81%BB%E3%82%84%E5%B1%8B-%E5%A1%A9%E9%87%9C%E6%9C%AC%E5%BA%97-shiogama-2018239/"
+      },
+      {
+        "timestamp": "20210916050210",
+        "url": "https://www.doordash.com/store/%E3%81%BB%E3%82%84%E3%81%BB%E3%82%84%E5%B1%8B-%E5%A1%A9%E9%87%9C%E6%9C%AC%E5%BA%97-shiogama-2018239/?pickup=false"
+      },
+      {
+        "timestamp": "20210901090235",
+        "url": "https://www.doordash.com/store/%E4%B8%BB%E5%BD%B9%E3%81%AF%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B9-sendai-1789262/"
+      },
+      {
+        "timestamp": "20210924003025",
+        "url": "https://www.doordash.com/store/'lette-macarons-vestavia-hills-674330/"
+      },
+      {
+        "timestamp": "20210923005336",
+        "url": "https://www.doordash.com/store/-6-indian-dishes-ringwood-1996883/"
+      },
+      {
+        "timestamp": "20210926225900",
+        "url": "https://www.doordash.com/store/-che-saint-jean-sur-richelieu-1314058/"
+      },
+      {
+        "timestamp": "20210923005251",
+        "url": "https://www.doordash.com/store/-lette-macarons-vestavia-hills-674330/"
+      },
+      {
+        "timestamp": "20210923010229",
+        "url": "https://www.doordash.com/store/-nufs-superfood-snacks-pantry-toronto-973713/"
+      },
+      {
+        "timestamp": "20210918204034",
+        "url": "https://www.doordash.com/store/-pizza-arlington-220240/en-US"
+      },
+      {
+        "timestamp": "20210927121124",
+        "url": "https://www.doordash.com/store/-pizza-richmond-879460/"
+      },
+      {
+        "timestamp": "20210919001608",
+        "url": "https://www.doordash.com/store/-pizza-seven-corners-803387/"
+      },
+      {
+        "timestamp": "20210727210539",
+        "url": "https://www.doordash.com/store/-pizza-sterling-1805941/"
+      },
+      {
+        "timestamp": "20210928025022",
+        "url": "https://www.doordash.com/store/-sendai-1779235/"
+      },
+      {
+        "timestamp": "20210928024616",
+        "url": "https://www.doordash.com/store/-sendai-1784685/"
+      },
+      {
+        "timestamp": "20210925074328",
+        "url": "https://www.doordash.com/store/-sendai-1867364/"
+      },
+      {
+        "timestamp": "20210928024806",
+        "url": "https://www.doordash.com/store/-sendai-1891637/"
+      },
+      {
+        "timestamp": "20210928024108",
+        "url": "https://www.doordash.com/store/-sendai-1892456/"
+      },
+      {
+        "timestamp": "20210925075033",
+        "url": "https://www.doordash.com/store/-sendai-1945131/"
+      },
+      {
+        "timestamp": "20210925183029",
+        "url": "https://www.doordash.com/store/-your-pizza-shop-new-philadelphia-1958420/"
+      },
+      {
+        "timestamp": "20210930023953",
+        "url": "https://www.doordash.com/store/0-60-energy-cafe-winchester-531244/"
+      },
+      {
+        "timestamp": "20220120152240",
+        "url": "https://www.doordash.com/store/"
+      },
+      {
+        "timestamp": "20220125072657",
+        "url": "https://www.doordash.com/store/%22mami%22-taqueria-atlanta-725171/"
+      },
+      {
+        "timestamp": "20220124063236",
+        "url": "https://www.doordash.com/store/%231-chinese-restaurant-baltimore-1663437/"
+      },
+      {
+        "timestamp": "20220120111326",
+        "url": "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-koshigaya-2421399/?pickup=false&openInBrowser=true"
+      },
+      {
+        "timestamp": "20220125234020",
+        "url": "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-natori-1794456/"
+      },
+      {
+        "timestamp": "20220326125530",
+        "url": "https://www.doordash.com/store/%E3%82%AA%E3%83%83%E3%83%91%E3%83%81%E3%82%AD%E3%83%B3%EF%BC%86%E3%83%81%E3%83%BC%E3%82%BA%E3%83%9C%E3%83%BC%E3%83%AB-saitama-2189717/"
+      },
+      {
+        "timestamp": "20220129035341",
+        "url": "https://www.doordash.com/store/%E3%82%AC%E3%82%B9%E3%83%88-sendai-1797723/"
+      },
+      {
+        "timestamp": "20220125223730",
+        "url": "https://www.doordash.com/store/%E3%82%B5%E3%82%A4%E3%82%BC%E3%83%AA%E3%83%A4-sendai-1865000/"
+      },
+      {
+        "timestamp": "20220125234602",
+        "url": "https://www.doordash.com/store/%E3%83%94%E3%82%B6%E3%83%8F%E3%83%83%E3%83%88-sendai-1795830/"
+      },
+      {
+        "timestamp": "20220125234631",
+        "url": "https://www.doordash.com/store/%E3%83%96%E3%83%AC%E3%82%A2%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3-sendai-2154936/"
+      },
+      {
+        "timestamp": "20220327115512",
+        "url": "https://www.doordash.com/store/%E5%8F%B0%E6%B9%BE%E9%BB%92%E7%86%8A%E3%82%B8%E3%83%BC%E3%83%91%E3%82%A4-%E5%B7%9D%E5%8F%A3%E5%B8%82-2492069/"
+      },
+      {
+        "timestamp": "20220128022314",
+        "url": "https://www.doordash.com/store/%E5%90%89%E9%87%8E%E5%AE%B6-natori-1797837/"
+      },
+      {
+        "timestamp": "20220121200436",
+        "url": "https://www.doordash.com/store/%E8%A6%93%E9%A3%9F-myst-asian-fusion-burnaby-2555650/"
+      },
+      {
+        "timestamp": "20220117101330",
+        "url": "https://www.doordash.com/store/%26pizza-baltimore-158363/"
+      },
+      {
+        "timestamp": "20220118170316",
+        "url": "https://www.doordash.com/store/%26pizza-cambridge-540212/"
+      },
+      {
+        "timestamp": "20220126183442",
+        "url": "https://www.doordash.com/store/%26pizza-tysons-476287/"
+      },
+      {
+        "timestamp": "20220121082516",
+        "url": "https://www.doordash.com/store/%26pizza-woodbridge-1540516/"
+      },
+      {
+        "timestamp": "20220121014823",
+        "url": "https://www.doordash.com/store/'ono-pok%C3%A9-bar-toronto-982436/"
+      },
+      {
+        "timestamp": "20220124133524",
+        "url": "https://www.doordash.com/store/-1-deli-brooklyn-749072/"
+      },
+      {
+        "timestamp": "20220125233804",
+        "url": "https://www.doordash.com/store/-12-sendai-2527305/"
+      },
+      {
+        "timestamp": "20220625071840",
+        "url": "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-kurashiki-2421608/"
+      },
+      {
+        "timestamp": "20220516121901",
+        "url": "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-kurashiki-2421608/?pickup=false&openInBrowser=true"
+      },
+      {
+        "timestamp": "20220630102124",
+        "url": "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-saitama-2234536/"
+      },
+      {
+        "timestamp": "20220521195109",
+        "url": "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-saitama-2234536/?pickup=false&openInBrowser=true"
+      },
+      {
+        "timestamp": "20220520043415",
+        "url": "https://www.doordash.com/store/%E3%83%94%E3%82%AB%E3%83%B3%E3%83%86%E3%82%A3%E6%9C%AD%E5%B9%8C%E9%A7%85%E5%89%8D%E5%BA%97-sapporo-2553094/"
+      },
+      {
+        "timestamp": "20220630044244",
+        "url": "https://www.doordash.com/store/%E5%90%89%E9%87%8E%E5%AE%B6-sendai-1795663/?pickup=false"
+      },
+      {
+        "timestamp": "20220510110920",
+        "url": "https://www.doordash.com/store/%E5%A4%A7%E6%88%B8%E5%B1%8B%E3%81%94%E3%81%AF%E3%82%93%E5%87%A6-sendai-1793221/"
+      },
+      {
+        "timestamp": "20220616072302",
+        "url": "https://www.doordash.com/store/%E5%B0%8F%E5%8A%89%E6%B8%85%E7%B2%A5-taiwan-porridge-kingdom-cupertino-925218/"
+      },
+      {
+        "timestamp": "20220525094145",
+        "url": "https://www.doordash.com/store/%E8%A6%93%E9%A3%9F-myst-asian-fusion-burnaby-131176/"
+      },
+      {
+        "timestamp": "20220627091724",
+        "url": "https://www.doordash.com/store/%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD-urawa-bio-%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD-2609067/?pickup=false"
+      },
+      {
+        "timestamp": "20220527022324",
+        "url": "https://www.doordash.com/store/&pizza-baltimore-158363/"
+      },
+      {
+        "timestamp": "20220414005051",
+        "url": "https://www.doordash.com/store/--che-saint-jean-sur-richelieu-1314058/1871860/fr-CA/?preview=1"
+      },
+      {
+        "timestamp": "20220525102235",
+        "url": "https://www.doordash.com/store/-hunan-style-restaurant-toronto-1279912/"
+      },
+      {
+        "timestamp": "20220528081454",
+        "url": "https://www.doordash.com/store/-indian-restaurant-bar-ananda-tokorozawa-2434235/"
+      },
+      {
+        "timestamp": "20220523190811",
+        "url": "https://www.doordash.com/store/-ono-pok-bar-toronto-2814252/"
+      },
+      {
+        "timestamp": "20220516164206",
+        "url": "https://www.doordash.com/store/-pizza-arlington-220240/"
+      },
+      {
+        "timestamp": "20220516132325",
+        "url": "https://www.doordash.com/store/-pizza-arlington-2381409/"
+      },
+      {
+        "timestamp": "20220517220817",
+        "url": "https://www.doordash.com/store/-pizza-baltimore-852256/"
+      },
+      {
+        "timestamp": "20220522035943",
+        "url": "https://www.doordash.com/store/-pizza-gaithersburg-256189/"
+      },
+      {
+        "timestamp": "20220521162806",
+        "url": "https://www.doordash.com/store/1-800-burgers!-boston-2530471/"
+      },
+      {
+        "timestamp": "20230204224918",
+        "url": "https://www.doordash.com/store/%22fat-tuesday-%22%22a-taste-of-new-orleans%22%22%22-los-angeles-924395/"
+      },
+      {
+        "timestamp": "20230328111156",
+        "url": "https://www.doordash.com/store/%22jino's-pars---persian-restaurant%22-los-angeles-2707130/"
+      },
+      {
+        "timestamp": "20230330112952",
+        "url": "https://www.doordash.com/store/%C2%BFqu%C3%A9-pasta%21-san-juan-752123/"
+      },
+      {
+        "timestamp": "20230322103128",
+        "url": "https://www.doordash.com/store/-pizza-arlington-220240"
+      },
+      {
+        "timestamp": "20230324091546",
+        "url": "https://www.doordash.com/store/007-chinese-food-hamburg-295311/"
+      },
+      {
+        "timestamp": "20230204215651",
+        "url": "https://www.doordash.com/store/10-rocks-tapas-bar-&-restaurant-pawtucket-605888/"
+      },
+      {
+        "timestamp": "20230308132934",
+        "url": "https://www.doordash.com/store/100-montaditos-miami-lakes-322480/"
+      },
+      {
+        "timestamp": "20230317233930",
+        "url": "https://www.doordash.com/store/100001/"
+      },
+      {
+        "timestamp": "20230317233930",
+        "url": "https://www.doordash.com/store/100007/"
+      },
+      {
+        "timestamp": "20230206222615",
+        "url": "https://www.doordash.com/store/1000399/"
+      },
+      {
+        "timestamp": "20230202153651",
+        "url": "https://www.doordash.com/store/1000914/"
+      },
+      {
+        "timestamp": "20230224222850",
+        "url": "https://www.doordash.com/store/10010/"
+      },
+      {
+        "timestamp": "20230220140059",
+        "url": "https://www.doordash.com/store/1001284/"
+      },
+      {
+        "timestamp": "20230128074839",
+        "url": "https://www.doordash.com/store/1002030/"
+      },
+      {
+        "timestamp": "20230320132159",
+        "url": "https://www.doordash.com/store/100218/"
+      },
+      {
+        "timestamp": "20230224191640",
+        "url": "https://www.doordash.com/store/1002190/format=auto"
+      },
+      {
+        "timestamp": "20230224191639",
+        "url": "https://www.doordash.com/store/1002190/height=100"
+      },
+      {
+        "timestamp": "20230224191648",
+        "url": "https://www.doordash.com/store/1002190/height=150"
+      },
+      {
+        "timestamp": "20230224191643",
+        "url": "https://www.doordash.com/store/1002190/height=200"
+      },
+      {
+        "timestamp": "20230224191709",
+        "url": "https://www.doordash.com/store/1002190/quality=72/media/store/header/080707b1-642c-4f1d-a7d2-22998a10e757.jpg"
+      },
+      {
+        "timestamp": "20230924050634",
+        "url": "https://www.doordash.com/store/1-foxy-lady-cafe-jacksonville-1539147/"
+      },
+      {
+        "timestamp": "20230926212246",
+        "url": "https://www.doordash.com/store/100-bowls-of-soup-herndon-492534/"
+      },
+      {
+        "timestamp": "20230927051628",
+        "url": "https://www.doordash.com/store/1001905/"
+      },
+      {
+        "timestamp": "20230930163929",
+        "url": "https://www.doordash.com/store/1002173/?utm_source=partner-link&utm_medium=website&utm_campaign=1002173&utm_content=red-m"
+      },
+      {
+        "timestamp": "20230924075518",
+        "url": "https://www.doordash.com/store/1005717/"
+      },
+      {
+        "timestamp": "20230922213959",
+        "url": "https://www.doordash.com/store/1007382/"
+      },
+      {
+        "timestamp": "20230930164458",
+        "url": "https://www.doordash.com/store/1007388/"
+      },
+      {
+        "timestamp": "20230922054708",
+        "url": "https://www.doordash.com/store/1007395/"
+      },
+      {
+        "timestamp": "20230928173720",
+        "url": "https://www.doordash.com/store/1007407/"
+      },
+      {
+        "timestamp": "20230923141631",
+        "url": "https://www.doordash.com/store/1007412/"
+      },
+      {
+        "timestamp": "20230925124335",
+        "url": "https://www.doordash.com/store/1007417/"
+      },
+      {
+        "timestamp": "20230923150837",
+        "url": "https://www.doordash.com/store/1007472/"
+      },
+      {
+        "timestamp": "20230924004703",
+        "url": "https://www.doordash.com/store/1007813/"
+      },
+      {
+        "timestamp": "20230831233131",
+        "url": "https://www.doordash.com/store/1009194?event_type=autocomplete&pickup=false"
+      },
+      {
+        "timestamp": "20230913173443",
+        "url": "https://www.doordash.com/store/100933?cursor=eyJzdG9yZV92ZXJ0aWNhbF9pZCI6bnVsbCwic2VhcmNoX2l0ZW1fY2Fyb3VzZWxfY3Vyc29yIjp7InF1ZXJ5IjoiIiwiaXRlbV9pZHMiOltdLCJzZWFyY2hfdGVybSI6IiIsInZlcnRpY2FsX2lkIjpudWxsLCJ2ZXJ0aWNhbF9uYW1lIjoiIn0sInN0b3JlX3ByaW1hcnlfdmVydGljYWxfaWRzIjpbMV0sImlzX3NpYmxpbmciOmZhbHNlLCJmb3JjZV9zdG9yZV9hdmFpbGFiaWxpdHlfdjIiOmZhbHNlLCJidW5kbGVfZ2xvYmFsX3NlYXJjaF9jb250ZXh0IjpudWxsfQ==&pickup=false"
+      },
+      {
+        "timestamp": "20230805082240",
+        "url": "https://www.doordash.com/store/1009385/"
+      },
+      {
+        "timestamp": "20230924093055",
+        "url": "https://www.doordash.com/store/1012107/"
+      },
+      {
+        "timestamp": "20230923052803",
+        "url": "https://www.doordash.com/store/1012823/"
+      },
+      {
+        "timestamp": "20230805082239",
+        "url": "https://www.doordash.com/store/1013438/"
+      },
+      {
+        "timestamp": "20230926221158",
+        "url": "https://www.doordash.com/store/1014204/"
+      },
+      {
+        "timestamp": "20231031012027",
+        "url": "https://www.doordash.com/store/-n-fryz-north-logan-23075637/?utm_campaign=gpa"
+      },
+      {
+        "timestamp": "20231004053106",
+        "url": "https://www.doordash.com/store/100%25-de-agave-denver-29175/"
+      },
+      {
+        "timestamp": "20231208005154",
+        "url": "https://www.doordash.com/store/100%25-salvadore%C3%B1o-restaurante-toronto-542622/"
+      },
+      {
+        "timestamp": "20231211192639",
+        "url": "https://www.doordash.com/store/100-montaditos-miami-2815647/"
+      },
+      {
+        "timestamp": "20231204043544",
+        "url": "https://www.doordash.com/store/100124/"
+      },
+      {
+        "timestamp": "20231209183346",
+        "url": "https://www.doordash.com/store/1003/"
+      },
+      {
+        "timestamp": "20231220221624",
+        "url": "https://www.doordash.com/store/100420/"
+      },
+      {
+        "timestamp": "20231209144538",
+        "url": "https://www.doordash.com/store/10049/"
+      },
+      {
+        "timestamp": "20231218023618",
+        "url": "https://www.doordash.com/store/1005043/"
+      },
+      {
+        "timestamp": "20231221042117",
+        "url": "https://www.doordash.com/store/1005070/"
+      },
+      {
+        "timestamp": "20231201155429",
+        "url": "https://www.doordash.com/store/10051/"
+      },
+      {
+        "timestamp": "20231209114827",
+        "url": "https://www.doordash.com/store/1005394/"
+      },
+      {
+        "timestamp": "20231208053451",
+        "url": "https://www.doordash.com/store/1005396/"
+      },
+      {
+        "timestamp": "20231211192241",
+        "url": "https://www.doordash.com/store/1005568/"
+      },
+      {
+        "timestamp": "20231220221625",
+        "url": "https://www.doordash.com/store/100661/"
+      },
+      {
+        "timestamp": "20231220221624",
+        "url": "https://www.doordash.com/store/100688/"
+      },
+      {
+        "timestamp": "20231220221625",
+        "url": "https://www.doordash.com/store/100705/"
+      },
+      {
+        "timestamp": "20231206105120",
+        "url": "https://www.doordash.com/store/1007202/"
+      },
+      {
+        "timestamp": "20231205220346",
+        "url": "https://www.doordash.com/store/1007222/"
+      },
+      {
+        "timestamp": "20231202013734",
+        "url": "https://www.doordash.com/store/1007270/"
+      },
+      {
+        "timestamp": "20240311091805",
+        "url": "https://www.doordash.com/store-next/ace-king-bbq-newark-858191"
+      },
+      {
+        "timestamp": "20240304203901",
+        "url": "https://www.doordash.com/store/$9-meal-boxes-by-local-chefs-mountain-view-25569866/?cursor=eyJzZWFyY2hfaXRlbV9jYXJvdXNlbF9jdXJzb3IiOnsicXVlcnkiOiJIZWFsdGh5IiwiaXRlbV9pZHMiOltdLCJzZWFyY2hfdGVybSI6ImhlYWx0aHkiLCJ2ZXJ0aWNhbF9pZCI6bnVsbCwidmVydGljYWxfbmFtZSI6IiJ9LCJzdG9yZV9wcmltYXJ5X3ZlcnRpY2FsX2lkcyI6WzEsMjc4LDE4Nl19&pickup=false"
+      },
+      {
+        "timestamp": "20240222051640",
+        "url": "https://www.doordash.com/store/%C3%94-chef--boulangerie-p%C3%A2tisserie-saint-jean-sur-richelieu-1314058/"
+      },
+      {
+        "timestamp": "20240302025132",
+        "url": "https://www.doordash.com/store/%C3%B4'charbon-restaurant-saint-hyacinthe-26200822/"
+      },
+      {
+        "timestamp": "20240229051656",
+        "url": "https://www.doordash.com/store/%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B7%E3%83%BC%E3%82%AB%E3%83%AC%E3%83%BC%E3%83%8F%E3%83%A9%E3%83%AB%E3%83%8F%E3%83%96-sendai-1648247/2354967/?preview=1"
+      },
+      {
+        "timestamp": "20240229024938",
+        "url": "https://www.doordash.com/store/%E6%B9%98%E6%9D%91%E5%8F%91%E7%8E%B0-hunan-style-restaurant-toronto-1279912/"
+      },
+      {
+        "timestamp": "20240222144545",
+        "url": "https://www.doordash.com/store/100121/"
+      },
+      {
+        "timestamp": "20240226100308",
+        "url": "https://www.doordash.com/store/100180/"
+      },
+      {
+        "timestamp": "20240330164856",
+        "url": "https://www.doordash.com/store/100248/?cursor=eyJzdG9yZV9wcmltYXJ5X3ZlcnRpY2FsX2lkcyI6WzFdfQ==&pickup=false"
+      },
+      {
+        "timestamp": "20240226121146",
+        "url": "https://www.doordash.com/store/100286/"
+      },
+      {
+        "timestamp": "20240307155413",
+        "url": "https://www.doordash.com/store/10048/"
+      },
+      {
+        "timestamp": "20240229172043",
+        "url": "https://www.doordash.com/store/1005819/"
+      },
+      {
+        "timestamp": "20240221015321",
+        "url": "https://www.doordash.com/store/1005914/"
+      },
+      {
+        "timestamp": "20240305121129",
+        "url": "https://www.doordash.com/store/1007390/"
+      },
+      {
+        "timestamp": "20240305005815",
+        "url": "https://www.doordash.com/store/1007392/"
+      },
+      {
+        "timestamp": "20240225184844",
+        "url": "https://www.doordash.com/store/1007400/"
+      },
+      {
+        "timestamp": "20240302035450",
+        "url": "https://www.doordash.com/store/1007420/"
+      },
+      {
+        "timestamp": "20240228035125",
+        "url": "https://www.doordash.com/store/1007482/"
+      },
+      {
+        "timestamp": "20240304041226",
+        "url": "https://www.doordash.com/store/1008008/"
+      },
+      {
+        "timestamp": "20240225195117",
+        "url": "https://www.doordash.com/store/1008237/"
+      },
+      {
+        "timestamp": "20250126084940",
+        "url": "https://www.doordash.com/store/%C4%93st-restaurant-toronto-26147599/?pickup=true&utm_campaign=gpa"
+      },
+      {
+        "timestamp": "20250327211039",
+        "url": "https://www.doordash.com/store/%E2%80%9Cyour%E2%80%9D-pizza-shop-1958420/"
+      },
+      {
+        "timestamp": "20250329204847",
+        "url": "https://www.doordash.com/store/%E8%8C%B6%E5%A6%8D%E8%A7%80%E8%89%B2-by-me-boba-tea-san-francisco-1154711/?pickup=false&cursor=eyJzZWFyY2hfaXRlbV9jYXJvdXNlbF9jdXJzb3IiOnsicXVlcnkiOiJzdWdhci1jb29raWUtbmVhci1tZSIsIml0ZW1faWRzIjpbXSwic2VhcmNoX3Rlcm0iOiJzdWdhciBjb29raWUgbmVhciBpIiwidmVydGljYWxfaWQiOi05OTksInZlcnRpY2FsX25hbWUiOiJhbGwifSwic3RvcmVfcHJpbWFyeV92ZXJ0aWNhbF9pZHMiOlsxLDQsMTAwMzMyLDE3NSwxNzYsMTc3LDE3OSwxOTMsMTk1XX0%3D"
+      },
+      {
+        "timestamp": "20250321145920",
+        "url": "https://www.doordash.com/store/&-cheese-atl-atlanta-1598245/?pickup=true&utm_campaign=gpa"
+      },
+      {
+        "timestamp": "20250324022716",
+        "url": "https://www.doordash.com/store/&-tea-23181160/"
+      },
+      {
+        "timestamp": "20250115051737",
+        "url": "https://www.doordash.com/store/0"
+      },
+      {
+        "timestamp": "20250323164945",
+        "url": "https://www.doordash.com/store/100108/"
+      },
+      {
+        "timestamp": "20250122012147",
+        "url": "https://www.doordash.com/store/1001507/"
+      },
+      {
+        "timestamp": "20250208135916",
+        "url": "https://www.doordash.com/store/1002754/"
+      },
+      {
+        "timestamp": "20250326161204",
+        "url": "https://www.doordash.com/store/100312/"
+      },
+      {
+        "timestamp": "20250327004445",
+        "url": "https://www.doordash.com/store/1003190/"
+      },
+      {
+        "timestamp": "20250317123115",
+        "url": "https://www.doordash.com/store/1007280/?utm_source=partner-link&utm_medium=website&utm_campaign=1007280"
+      },
+      {
+        "timestamp": "20250324123932",
+        "url": "https://www.doordash.com/store/1007374/"
+      },
+      {
+        "timestamp": "20250319141418",
+        "url": "https://www.doordash.com/store/1008261/"
+      },
+      {
+        "timestamp": "20250214115718",
+        "url": "https://www.doordash.com/store/1008950/"
+      },
+      {
+        "timestamp": "20250216110542",
+        "url": "https://www.doordash.com/store/1008976/"
+      },
+      {
+        "timestamp": "20250325212320",
+        "url": "https://www.doordash.com/store/1009199/"
+      },
+      {
+        "timestamp": "20250119174946",
+        "url": "https://www.doordash.com/store/1009270/"
+      },
+      {
+        "timestamp": "20250324011704",
+        "url": "https://www.doordash.com/store/1009315/"
+      },
+      {
+        "timestamp": "20250324002023",
+        "url": "https://www.doordash.com/store/100933/"
+      },
+      {
+        "timestamp": "20250623135514",
+        "url": "https://www.doordash.com/store/$0.15"
+      },
+      {
+        "timestamp": "20250425111440",
+        "url": "https://www.doordash.com/store/$0.25"
+      },
+      {
+        "timestamp": "20250516085940",
+        "url": "https://www.doordash.com/store/$0.29"
+      },
+      {
+        "timestamp": "20250516085940",
+        "url": "https://www.doordash.com/store/$0.30"
+      },
+      {
+        "timestamp": "20250527091049",
+        "url": "https://www.doordash.com/store/$0.31"
+      },
+      {
+        "timestamp": "20250426173351",
+        "url": "https://www.doordash.com/store/$0.34"
+      },
+      {
+        "timestamp": "20250425111439",
+        "url": "https://www.doordash.com/store/$0.39"
+      },
+      {
+        "timestamp": "20250508145112",
+        "url": "https://www.doordash.com/store/$0.40"
+      },
+      {
+        "timestamp": "20250425111441",
+        "url": "https://www.doordash.com/store/$0.44"
+      },
+      {
+        "timestamp": "20250527091048",
+        "url": "https://www.doordash.com/store/$0.49"
+      },
+      {
+        "timestamp": "20250524102911",
+        "url": "https://www.doordash.com/store/$0.50"
+      },
+      {
+        "timestamp": "20250613190835",
+        "url": "https://www.doordash.com/store/$0.55"
+      },
+      {
+        "timestamp": "20250605161658",
+        "url": "https://www.doordash.com/store/$0.80"
+      },
+      {
+        "timestamp": "20250430054834",
+        "url": "https://www.doordash.com/store/$0.89"
+      },
+      {
+        "timestamp": "20250629134728",
+        "url": "https://www.doordash.com/store/$0.95"
+      },
+      {
+        "timestamp": "20250605161641",
+        "url": "https://www.doordash.com/store/$0.99"
+      },
+      {
+        "timestamp": "20250511001554",
+        "url": "https://www.doordash.com/store/$1.00"
+      },
+      {
+        "timestamp": "20250426173345",
+        "url": "https://www.doordash.com/store/$1.07"
+      },
+      {
+        "timestamp": "20250613190836",
+        "url": "https://www.doordash.com/store/$1.10"
+      },
+      {
+        "timestamp": "20250426173343",
+        "url": "https://www.doordash.com/store/$1.19"
+      },
+      {
+        "timestamp": "20250813230325",
+        "url": "https://www.doordash.com/store/%22don-taco%22-mexican-taqueria-&-birria-house-26001398/"
+      },
+      {
+        "timestamp": "20250917153012",
+        "url": "https://www.doordash.com/store/%22soi%22-southeast-asian-eatz-charlotte-34203405/"
+      },
+      {
+        "timestamp": "20250721181956",
+        "url": "https://www.doordash.com/store/$0.01"
+      },
+      {
+        "timestamp": "20250721182112",
+        "url": "https://www.doordash.com/store/$0.10"
+      },
+      {
+        "timestamp": "20250721181955",
+        "url": "https://www.doordash.com/store/$0.35"
+      },
+      {
+        "timestamp": "20250721181955",
+        "url": "https://www.doordash.com/store/$0.60"
+      },
+      {
+        "timestamp": "20250721181904",
+        "url": "https://www.doordash.com/store/$0.92"
+      },
+      {
+        "timestamp": "20250914002214",
+        "url": "https://www.doordash.com/store/$1.15"
+      },
+      {
+        "timestamp": "20250721182111",
+        "url": "https://www.doordash.com/store/$1.55"
+      },
+      {
+        "timestamp": "20250914002444",
+        "url": "https://www.doordash.com/store/$1.72"
+      },
+      {
+        "timestamp": "20250721182113",
+        "url": "https://www.doordash.com/store/$1.90"
+      },
+      {
+        "timestamp": "20250921055331",
+        "url": "https://www.doordash.com/store/$1.91"
+      },
+      {
+        "timestamp": "20250721182101",
+        "url": "https://www.doordash.com/store/$10.10"
+      },
+      {
+        "timestamp": "20250721182111",
+        "url": "https://www.doordash.com/store/$10.15"
+      },
+      {
+        "timestamp": "20250921055314",
+        "url": "https://www.doordash.com/store/$10.19"
+      },
+      {
+        "timestamp": "20250721181955",
+        "url": "https://www.doordash.com/store/$10.41"
+      },
+      {
+        "timestamp": "20250721181901",
+        "url": "https://www.doordash.com/store/$10.45"
+      },
+      {
+        "timestamp": "20250721182131",
+        "url": "https://www.doordash.com/store/$10.47"
+      },
+      {
+        "timestamp": "20250721182134",
+        "url": "https://www.doordash.com/store/$10.60"
+      },
+      {
+        "timestamp": "20250908122044",
+        "url": "https://www.doordash.com/store/$10.65"
+      },
+      {
+        "timestamp": "20251008185957",
+        "url": "https://www.doordash.com/store/$1.60"
+      },
+      {
+        "timestamp": "20251006232056",
+        "url": "https://www.doordash.com/store/$10.26"
+      },
+      {
+        "timestamp": "20251009154048",
+        "url": "https://www.doordash.com/store/$10.70"
+      },
+      {
+        "timestamp": "20251009154151",
+        "url": "https://www.doordash.com/store/$10.71"
+      },
+      {
+        "timestamp": "20251009155621",
+        "url": "https://www.doordash.com/store/$10.80"
+      },
+      {
+        "timestamp": "20251007194051",
+        "url": "https://www.doordash.com/store/$10.92"
+      },
+      {
+        "timestamp": "20251009154048",
+        "url": "https://www.doordash.com/store/$10.96"
+      },
+      {
+        "timestamp": "20251009154151",
+        "url": "https://www.doordash.com/store/$11.01"
+      },
+      {
+        "timestamp": "20251006232056",
+        "url": "https://www.doordash.com/store/$11.04"
+      },
+      {
+        "timestamp": "20251009154150",
+        "url": "https://www.doordash.com/store/$11.31"
+      },
+      {
+        "timestamp": "20251009154641",
+        "url": "https://www.doordash.com/store/$11.85"
+      },
+      {
+        "timestamp": "20251010103500",
+        "url": "https://www.doordash.com/store/$11.99"
+      },
+      {
+        "timestamp": "20251007194051",
+        "url": "https://www.doordash.com/store/$114.75"
+      },
+      {
+        "timestamp": "20251009164814",
+        "url": "https://www.doordash.com/store/$115.00"
+      },
+      {
+        "timestamp": "20251009155524",
+        "url": "https://www.doordash.com/store/$12.00"
+      },
+      {
+        "timestamp": "20251006232056",
+        "url": "https://www.doordash.com/store/$12.21"
+      },
+      {
+        "timestamp": "20251010103834",
+        "url": "https://www.doordash.com/store/$12.49"
+      },
+      {
+        "timestamp": "20251006232144",
+        "url": "https://www.doordash.com/store/$12.87"
+      },
+      {
+        "timestamp": "20251010103447",
+        "url": "https://www.doordash.com/store/$12.99"
+      },
+      {
+        "timestamp": "20251009164814",
+        "url": "https://www.doordash.com/store/$120.00"
+      },
+      {
+        "timestamp": "20260222083309",
+        "url": "https://www.doordash.com/store/%22the-original%22-jj-twigs-pizza-palatine-162127/"
+      },
+      {
+        "timestamp": "20260218070500",
+        "url": "https://www.doordash.com/store/$150-fresh-pizza-new-york-1214701/"
+      },
+      {
+        "timestamp": "20260312023020",
+        "url": "https://www.doordash.com/store/$150-fresh-pizza-new-york-1227820/"
+      },
+      {
+        "timestamp": "20260208005706",
+        "url": "https://www.doordash.com/store/$42/lb.%20Gloria&apos;s%20Blue%20Lake%20Green%20Beans,%20Weiser%20Farms%20Heirloom%20Potatoes%20&amp;%20Drawn%20Butter"
+      },
+      {
+        "timestamp": "20260208005706",
+        "url": "https://www.doordash.com/store/$44/lb.%20Fresh%20Herbs,%20Lemon%20&amp;%20Drawn%20Garlic%20Butter"
+      },
+      {
+        "timestamp": "20260211144625",
+        "url": "https://www.doordash.com/store/%23desi-toronto-29848138/"
+      },
+      {
+        "timestamp": "20260210010607",
+        "url": "https://www.doordash.com/store/%25--arabica-north-york-35850905/"
+      },
+      {
+        "timestamp": "20260226172935",
+        "url": "https://www.doordash.com/store/%C3%8Dos-agora-&amp;-bakery-ancaster-34416073/"
+      },
+      {
+        "timestamp": "20260218023708",
+        "url": "https://www.doordash.com/store/%C3%93rale-tacos-express-savannah-1459380/"
+      },
+      {
+        "timestamp": "20260215100449",
+        "url": "https://www.doordash.com/store/%C4%92st-restaurant-toronto-26147599/"
+      },
+      {
+        "timestamp": "20260209233738",
+        "url": "https://www.doordash.com/store/%C4%B0brahims-doner-shawarma-gyro---2611-eglinton-ave-w-toronto-36218269/"
+      },
+      {
+        "timestamp": "20260211102443",
+        "url": "https://www.doordash.com/store/%C5%9Ei%C5%9F-kabob-grill-san-francisco-33110207/"
+      },
+      {
+        "timestamp": "20260225002826",
+        "url": "https://www.doordash.com/store/%E4%B8%8D%E4%BA%8C%E5%8C%85-betterbite-richmond-32649541/"
+      },
+      {
+        "timestamp": "20260219234010",
+        "url": "https://www.doordash.com/store/%E5%9B%9B%E5%A7%90-special-noodle-las-vegas-33479429/"
+      },
+      {
+        "timestamp": "20260128120434",
+        "url": "https://www.doordash.com/store/%E9%BB%92%E6%AF%9B%E5%92%8C%E7%89%9B%E7%AD%8B%E3%82%AB%E3%83%AC%E3%83%BC%E6%9C%AC%E8%88%97-%E6%9D%BE%E5%B1%B1%E8%A5%BF%E5%BA%97-matsuyama-2602375/2577223/"
+      },
+      {
+        "timestamp": "20260312065742",
+        "url": "https://www.doordash.com/store/%E9%BB%92%E6%AF%9B%E5%92%8C%E7%89%9B%E7%AD%8B%E3%82%AB%E3%83%AC%E3%83%BC%E6%9C%AC%E8%88%97-%E6%9D%BE%E5%B1%B1%E8%A5%BF%E5%BA%97-matsuyama-2602375/2577223/&quot;"
+      },
+      {
+        "timestamp": "20260116075843",
+        "url": "https://www.doordash.com/store/%F0%9F%87%B2%F0%9F%87%BD--a-taste-of-mexico-%F0%9F%87%B2%F0%9F%87%BD-indianapolis-24482624/"
+      },
+      {
+        "timestamp": "20260217145607",
+        "url": "https://www.doordash.com/store/&amp;-waffles-los-angeles-619526/"
+      },
+      {
+        "timestamp": "20260217040144",
+        "url": "https://www.doordash.com/store/&amp;pizza-alexandria-1533147/"
+      },
+      {
+        "timestamp": "20260109032609",
+        "url": "https://www.doordash.com/store/&amp;pizza-baltimore-852256/"
+      }
+    ],
+    "done_urls": [
+      "https://www.doordash.com/store/1007202/",
+      "https://www.doordash.com/store/100-montaditos-miami-lakes-322480/",
+      "https://www.doordash.com/store/$12.49",
+      "https://www.doordash.com/store/100933?cursor=eyJzdG9yZV92ZXJ0aWNhbF9pZCI6bnVsbCwic2VhcmNoX2l0ZW1fY2Fyb3VzZWxfY3Vyc29yIjp7InF1ZXJ5IjoiIiwiaXRlbV9pZHMiOltdLCJzZWFyY2hfdGVybSI6IiIsInZlcnRpY2FsX2lkIjpudWxsLCJ2ZXJ0aWNhbF9uYW1lIjoiIn0sInN0b3JlX3ByaW1hcnlfdmVydGljYWxfaWRzIjpbMV0sImlzX3NpYmxpbmciOmZhbHNlLCJmb3JjZV9zdG9yZV9hdmFpbGFiaWxpdHlfdjIiOmZhbHNlLCJidW5kbGVfZ2xvYmFsX3NlYXJjaF9jb250ZXh0IjpudWxsfQ==&pickup=false",
+      "https://www.doordash.com/store/007-chinese-food-hamburg-295311/",
+      "https://www.doordash.com/store/1012823/",
+      "https://www.doordash.com/store/bonterra-trattoria-calgary-93968/",
+      "https://www.doordash.com/store/100-montaditos-miami-2815647/",
+      "https://www.doordash.com/store/$10.15",
+      "https://www.doordash.com/store/$0.01",
+      "https://www.doordash.com/store/1-degree-up-queens-789593",
+      "https://www.doordash.com/store/1-spicy-mama-ajax-1018854/?utm_medium=website&utm_source=partner-link",
+      "https://www.doordash.com/store/1000399/",
+      "https://www.doordash.com/store/-Lette-Macarons-Vestavia-Hills-674330/en-US/?ignore_splash_experience=true&utm_source=Google&utm_medium=GPA_Ads&utm_campaign=CX_US_SE_GP_GO_ACQ_RSEXXX__+OLA_Southeast1&gclid=EAIaIQobChMI14WHmvfH6AIVCxgMCh3oaQ6yEBIYASAAEgI8g_D_BwE",
+      "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-koshigaya-2421399/?pickup=false&openInBrowser=true",
+      "https://www.doordash.com/store/%E4%B8%8D%E4%BA%8C%E5%8C%85-betterbite-richmond-32649541/",
+      "https://www.doordash.com/store/-n-fryz-north-logan-23075637/?utm_campaign=gpa",
+      "https://www.doordash.com/store/%22fat-tuesday-%22%22a-taste-of-new-orleans%22%22%22-los-angeles-924395/",
+      "https://www.doordash.com/store/%26pizza-woodbridge-1540516/",
+      "https://www.doordash.com/store/$10.26",
+      "https://www.doordash.com/store/1-for-1-pizza-ottawa-298128/",
+      "https://www.doordash.com/store/1000-degrees-neapolitan-pizzeria-sioux-city-712925",
+      "https://www.doordash.com/store/%20988270/en-US/?utm_source=partner-link&utm_medium=website&utm_campaign=%20988270",
+      "https://www.doordash.com/store/1002190/?utm_source=partner-link&utm_medium=website&utm_campaign=1002190",
+      "https://www.doordash.com/store/1012107/",
+      "https://www.doordash.com/store/$12.21",
+      "https://www.doordash.com/store/100688/",
+      "https://www.doordash.com/store/3-sons-italian-restaurant-bar-arvada-35922/",
+      "https://www.doordash.com/store/1007420/",
+      "https://www.doordash.com/store/1000883/?utm_source=partner-link&utm_medium=website&utm_campaign=1000883&utm_content=white-medium",
+      "https://www.doordash.com/store/-che-saint-jean-sur-richelieu-1314058/",
+      "https://www.doordash.com/store/10-rocks-tapas-bar-restaurant-pawtucket-605888",
+      "https://www.doordash.com/store/1013438/",
+      "https://www.doordash.com/store/$10.92",
+      "https://www.doordash.com/store/$1.15",
+      "https://www.doordash.com/store/%231-chinese-restaurant-baltimore-1663437/",
+      "https://www.doordash.com/store/$42/lb.%20Gloria&apos;s%20Blue%20Lake%20Green%20Beans,%20Weiser%20Farms%20Heirloom%20Potatoes%20&amp;%20Drawn%20Butter",
+      "https://www.doordash.com/store/100124/",
+      "https://www.doordash.com/store/a-won-japanese-restaurant-los-angeles-243853/?utm_campaign=gpa",
+      "https://www.doordash.com/store/1007248/?utm_source=partner-link&utm_medium=website&utm_campaign=1007248",
+      "https://www.doordash.com/store/1002190/height=100",
+      "https://www.doordash.com/store/-pizza-arlington-2381409/",
+      "https://www.doordash.com/store/100933/",
+      "https://www.doordash.com/store/$0.10",
+      "https://www.doordash.com/store/$0.30",
+      "https://www.doordash.com/store/1007482/",
+      "https://www.doordash.com/store/%E5%90%89%E9%87%8E%E5%AE%B6-sendai-1795663/?pickup=false",
+      "https://www.doordash.com/store/1-800-burgers!-boston-2530471/",
+      "https://www.doordash.com/store/avila-s-mexican-restaurant-dallas-6476/",
+      "https://www.doordash.com/store/1000880/?utm_source=partner-link&utm_medium=website&utm_campaign=1000880&utm_content=white-medium",
+      "https://www.doordash.com/store/%E3%81%BB%E3%82%84%E3%81%BB%E3%82%84%E5%B1%8B-%E5%A1%A9%E9%87%9C%E6%9C%AC%E5%BA%97-shiogama-2018239/?pickup=false",
+      "https://www.doordash.com/store/100180/",
+      "https://www.doordash.com/store/beach-hut-deli-reno-306821/313917/",
+      "https://www.doordash.com/store/big-star-chicago-2038/3168/",
+      "https://www.doordash.com/store/100312/",
+      "https://www.doordash.com/store/%C3%8Dos-agora-&amp;-bakery-ancaster-34416073/",
+      "https://www.doordash.com/store/%E3%82%AA%E3%83%83%E3%83%91%E3%83%81%E3%82%AD%E3%83%B3%EF%BC%86%E3%83%81%E3%83%BC%E3%82%BA%E3%83%9C%E3%83%BC%E3%83%AB-saitama-2189717/",
+      "https://www.doordash.com/store/1001325/?utm_source=partner-link&utm_medium=website&utm_campaign=1001325",
+      "https://www.doordash.com/store/1000-degrees-pizza-salad-wings-vero-beach-751452/en-US",
+      "https://www.doordash.com/store/$0.39",
+      "https://www.doordash.com/store/1003053?utm_source=Arbys&utm_medium=Weblinks&utm_campaign=CX_US_MR_WL_WL_ACQ_CUSXXX__+website_button",
+      "https://www.doordash.com/store/-1-deli-brooklyn-749072/",
+      "https://www.doordash.com/store/$11.99",
+      "https://www.doordash.com/store/$1.55",
+      "https://www.doordash.com/store/$1.90",
+      "https://www.doordash.com/store/&amp;pizza-baltimore-852256/",
+      "https://www.doordash.com/store/100001/",
+      "https://www.doordash.com/store/$1.91",
+      "https://www.doordash.com/store/$11.04",
+      "https://www.doordash.com/store/-your-pizza-shop-new-philadelphia-1958420/",
+      "https://www.doordash.com/store/at-siam-thai-cuisine-orlando-102966/",
+      "https://www.doordash.com/store/1002754/",
+      "https://www.doordash.com/store/100620?utm_source=Arbys&utm_medium=Weblinks&utm_campaign=CX_US_MR_WL_WL_ACQ_CUSXXX__+website_button",
+      "https://www.doordash.com/store/100117",
+      "https://www.doordash.com/store/-pizza-baltimore-852256/",
+      "https://www.doordash.com/store/%C2%BFqu%C3%A9-pasta%21-san-juan-752123/",
+      "https://www.doordash.com/store/$0.25",
+      "https://www.doordash.com/store/baker-co-new-york-9395/",
+      "https://www.doordash.com/store/100122/?utm_source=partner-link&utm_medium=website&utm_campaign=100122",
+      "https://www.doordash.com/store/big-catch-seafood-house-long-beach-20501/",
+      "https://www.doordash.com/store/$0.60",
+      "https://www.doordash.com/store/$1.07",
+      "https://www.doordash.com/store/10010/",
+      "https://www.doordash.com/store/%E3%83%94%E3%82%B6%E3%83%8F%E3%83%83%E3%83%88-sendai-1795830/",
+      "https://www.doordash.com/store/&amp;-waffles-los-angeles-619526/",
+      "https://www.doordash.com/store/%2092010/?utm_source=partner-link&utm_medium=website&utm_campaign=%2092010&utm_content=red-medium",
+      "https://www.doordash.com/store/-new-due-south-washington-23288/27881/",
+      "https://www.doordash.com/store/$150-fresh-pizza-new-york-1227820/",
+      "https://www.doordash.com/store/-sendai-1867364/",
+      "https://www.doordash.com/store/1002030/",
+      "https://www.doordash.com/store/$12.99",
+      "https://www.doordash.com/store/1009194?event_type=autocomplete&pickup=false",
+      "https://www.doordash.com/store/-sendai-1891637/",
+      "https://www.doordash.com/store/1008976/",
+      "https://www.doordash.com/store/$1.10",
+      "https://www.doordash.com/store/&amp;pizza-alexandria-1533147/",
+      "https://www.doordash.com/store/1000914/",
+      "https://www.doordash.com/store/100162/en-US/",
+      "https://www.doordash.com/store/blue-door-san-jose-65236/?utm_campaign=2&utm_medium=website&utm_source=partner-link",
+      "https://www.doordash.com/store/100-bowls-of-soup-herndon-492534/",
+      "https://www.doordash.com/store/1009199/",
+      "https://www.doordash.com/store/-sendai-1779235/",
+      "https://www.doordash.com/store/100-x-35-cocina-con-raices-miami-beach-1057783/en-US",
+      "https://www.doordash.com/store/$0.31",
+      "https://www.doordash.com/store/$10.47",
+      "https://www.doordash.com/store/1003/",
+      "https://www.doordash.com/store/$1.19",
+      "https://www.doordash.com/store/%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD-urawa-bio-%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD-2609067/?pickup=false",
+      "https://www.doordash.com/store/1007472/",
+      "https://www.doordash.com/store/-taiwan-porridge-kingdom-cupertino-925218/?utm_source=Editorial&utm_medium=Owned_Content&utm_campaign=CX_US_DR_WD_DD_ACQ_CUSXXX__&utm_content=south-bay-restaurants-now-on-doordash+",
+      "https://www.doordash.com/store/%E5%8F%B0%E6%B9%BE%E9%BB%92%E7%86%8A%E3%82%B8%E3%83%BC%E3%83%91%E3%82%A4-%E5%B7%9D%E5%8F%A3%E5%B8%82-2492069/",
+      "https://www.doordash.com/store/$0.35",
+      "https://www.doordash.com/store/1005394/",
+      "https://www.doordash.com/store/%E9%BB%92%E6%AF%9B%E5%92%8C%E7%89%9B%E7%AD%8B%E3%82%AB%E3%83%AC%E3%83%BC%E6%9C%AC%E8%88%97-%E6%9D%BE%E5%B1%B1%E8%A5%BF%E5%BA%97-matsuyama-2602375/2577223/&quot;",
+      "https://www.doordash.com/store/1000690/?utm_source=partner-link&utm_medium=website&utm_campaign=1000690",
+      "https://www.doordash.com/store/1005070/",
+      "https://www.doordash.com/store/1000879/?utm_source=partner-link&utm_medium=website&utm_campaign=1000879&utm_content=white-medium",
+      "https://www.doordash.com/store/$10.45",
+      "https://www.doordash.com/store/100047/en-US",
+      "https://www.doordash.com/store/%E5%A4%A7%E6%88%B8%E5%B1%8B%E3%81%94%E3%81%AF%E3%82%93%E5%87%A6-sendai-1793221/",
+      "https://www.doordash.com/store/1007412/",
+      "https://www.doordash.com/store/%2079647/en-US/?utm_source=partner-link&utm_medium=website&utm_campaign=%2079647",
+      "https://www.doordash.com/store/100047",
+      "https://www.doordash.com/store/%E9%BB%92%E6%AF%9B%E5%92%8C%E7%89%9B%E7%AD%8B%E3%82%AB%E3%83%AC%E3%83%BC%E6%9C%AC%E8%88%97-%E6%9D%BE%E5%B1%B1%E8%A5%BF%E5%BA%97-matsuyama-2602375/2577223/",
+      "https://www.doordash.com/store/1009270/",
+      "https://www.doordash.com/store/1007374/",
+      "https://www.doordash.com/store/$0.44",
+      "https://www.doordash.com/store/1000894/?utm_source=partner-link&utm_medium=website&utm_campaign=1000894&utm_content=white-medium",
+      "https://www.doordash.com/store/10-rocks-tapas-bar-&-restaurant-pawtucket-605888/",
+      "https://www.doordash.com/store/$10.65",
+      "https://www.doordash.com/store/-indian-restaurant-bar-ananda-tokorozawa-2434235/",
+      "https://www.doordash.com/store/%E2%80%9Cyour%E2%80%9D-pizza-shop-1958420/",
+      "https://www.doordash.com/store/1002190/format=auto",
+      "https://www.doordash.com/store/$1.72",
+      "https://www.doordash.com/store/1000890/?utm_source=partner-link&utm_medium=website&utm_campaign=1000890&utm_content=white-medium",
+      "https://www.doordash.com/store/-sendai-1945131/",
+      "https://www.doordash.com/store/-ono-pok-bar-toronto-113689/en-US",
+      "https://www.doordash.com/store/100%25-de-agave-denver-29175/",
+      "https://www.doordash.com/store/-pizza-sterling-1805941/",
+      "https://www.doordash.com/store/$10.71",
+      "https://www.doordash.com/store/1007382/",
+      "https://www.doordash.com/store/1007390/",
+      "https://www.doordash.com/store/$10.41",
+      "https://www.doordash.com/store/10-acres-victoria-944475/en-US",
+      "https://www.doordash.com/store/%E3%83%96%E3%83%AC%E3%82%A2%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3-sendai-2154936/",
+      "https://www.doordash.com/store/100661/",
+      "https://www.doordash.com/store/$10.60",
+      "https://www.doordash.com/store/-12-sendai-2527305/",
+      "https://www.doordash.com/store/1008261/",
+      "https://www.doordash.com/store/$10.80",
+      "https://www.doordash.com/store/%C4%92st-restaurant-toronto-26147599/",
+      "https://www.doordash.com/store/%E3%81%BB%E3%82%84%E3%81%BB%E3%82%84%E5%B1%8B-%E5%A1%A9%E9%87%9C%E6%9C%AC%E5%BA%97-shiogama-2018239/",
+      "https://www.doordash.com/store/-pizza-gaithersburg-256189/",
+      "https://www.doordash.com/store/1007256/?utm_source=partner-link&utm_medium=website&utm_campaign=1007256",
+      "https://www.doordash.com/store/$1.60",
+      "https://www.doordash.com/store/100248/?cursor=eyJzdG9yZV9wcmltYXJ5X3ZlcnRpY2FsX2lkcyI6WzFdfQ==&pickup=false",
+      "https://www.doordash.com/store/-/",
+      "https://www.doordash.com/store/%C3%93rale-tacos-express-savannah-1459380/",
+      "https://www.doordash.com/store/%C3%94-chef--boulangerie-p%C3%A2tisserie-saint-jean-sur-richelieu-1314058/",
+      "https://www.doordash.com/store/$0.89",
+      "https://www.doordash.com/store/%22jino's-pars---persian-restaurant%22-los-angeles-2707130/",
+      "https://www.doordash.com/store/10049/",
+      "https://www.doordash.com/store/1003190/",
+      "https://www.doordash.com/store/%C4%93st-restaurant-toronto-26147599/?pickup=true&utm_campaign=gpa",
+      "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-saitama-2234536/?pickup=false&openInBrowser=true",
+      "https://www.doordash.com/store/100705/",
+      "https://www.doordash.com/store/1007392/",
+      "https://www.doordash.com/store/100-ocean-long-branch-1016088",
+      "https://www.doordash.com/store/%E5%B0%8F%E5%8A%89%E6%B8%85%E7%B2%A5-taiwan-porridge-kingdom-cupertino-925218/",
+      "https://www.doordash.com/store/10-rocks-tapas-bar-restaurant-pawtucket-605888/en-US",
+      "https://www.doordash.com/store/%E3%83%94%E3%82%AB%E3%83%B3%E3%83%86%E3%82%A3%E6%9C%AD%E5%B9%8C%E9%A7%85%E5%89%8D%E5%BA%97-sapporo-2553094/",
+      "https://www.doordash.com/store/%23desi-toronto-29848138/",
+      "https://www.doordash.com/store/1007400/",
+      "https://www.doordash.com/store/-sendai-1784685/",
+      "https://www.doordash.com/store/1005568/",
+      "https://www.doordash.com/store/$120.00",
+      "https://www.doordash.com/store/$115.00",
+      "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-kurashiki-2421608/?pickup=false&openInBrowser=true",
+      "https://www.doordash.com/store/1007407/",
+      "https://www.doordash.com/store/&pizza-baltimore-158363/",
+      "https://www.doordash.com/store/%26pizza-tysons-476287/",
+      "https://www.doordash.com/store/100%25-salvadore%C3%B1o-restaurante-toronto-542622/",
+      "https://www.doordash.com/store/1007255/?utm_source=partner-link&utm_medium=website&utm_campaign=1007255",
+      "https://www.doordash.com/store/1007813/",
+      "https://www.doordash.com/store/$9-meal-boxes-by-local-chefs-mountain-view-25569866/?cursor=eyJzZWFyY2hfaXRlbV9jYXJvdXNlbF9jdXJzb3IiOnsicXVlcnkiOiJIZWFsdGh5IiwiaXRlbV9pZHMiOltdLCJzZWFyY2hfdGVybSI6ImhlYWx0aHkiLCJ2ZXJ0aWNhbF9pZCI6bnVsbCwidmVydGljYWxfbmFtZSI6IiJ9LCJzdG9yZV9wcmltYXJ5X3ZlcnRpY2FsX2lkcyI6WzEsMjc4LDE4Nl19&pickup=false",
+      "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-saitama-2234536/",
+      "https://www.doordash.com/store/100007/",
+      "https://www.doordash.com/store/1007280/?utm_source=partner-link&utm_medium=website&utm_campaign=1007280",
+      "https://www.doordash.com/store/%26pizza-cambridge-540212/",
+      "https://www.doordash.com/store/%E4%B8%BB%E5%BD%B9%E3%81%AF%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B9-sendai-1789262/",
+      "https://www.doordash.com/store/-hunan-style-restaurant-toronto-1279912/",
+      "https://www.doordash.com/store/$10.19",
+      "https://www.doordash.com/store/&-tea-23181160/",
+      "https://www.doordash.com/store/%25--arabica-north-york-35850905/",
+      "https://www.doordash.com/store/1001507/",
+      "https://www.doordash.com/store/1002190/quality=72/media/store/header/080707b1-642c-4f1d-a7d2-22998a10e757.jpg",
+      "https://www.doordash.com/store/$150-fresh-pizza-new-york-1214701/",
+      "https://www.doordash.com/store/1005819/",
+      "https://www.doordash.com/store/1002190/height=200",
+      "https://www.doordash.com/store/%22soi%22-southeast-asian-eatz-charlotte-34203405/",
+      "https://www.doordash.com/store/1000-degrees-neapolitan-pizzeria-sioux-city-712925/en-US",
+      "https://www.doordash.com/store/$44/lb.%20Fresh%20Herbs,%20Lemon%20&amp;%20Drawn%20Garlic%20Butter",
+      "https://www.doordash.com/store/-pizza-arlington-220240",
+      "https://www.doordash.com/store/$11.31",
+      "https://www.doordash.com/store/$0.99",
+      "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-kurashiki-2421608/",
+      "https://www.doordash.com/store/amelia-s-taqueria-boston-31477/",
+      "https://www.doordash.com/store/1008950/",
+      "https://www.doordash.com/store/10-below-restaurant-lounge-bend-911437/en-US/?utm_campaign=gpa",
+      "https://www.doordash.com/store/100420/",
+      "https://www.doordash.com/store/%E3%82%AC%E3%82%B9%E3%83%88-sendai-1797723/",
+      "https://www.doordash.com/store/10-east-kitchen-taphouse-turlock-540299/?utm_medium=website&utm_source=partner-link",
+      "https://www.doordash.com/store/1005914/",
+      "https://www.doordash.com/store/10048/",
+      "https://www.doordash.com/store/$0.29",
+      "https://www.doordash.com/store/%201594439/?utm_source=partner-link&utm_medium=website&utm_campaign=%201594439&utm_content=white-medium",
+      "https://www.doordash.com/store/%C3%B4'charbon-restaurant-saint-hyacinthe-26200822/",
+      "https://www.doordash.com/store/amelia-s-taqueria-boston-31477/?utm_campaign=31477&utm_medium=website&utm_source=partner-link",
+      "https://www.doordash.com/store/100117/en-US",
+      "https://www.doordash.com/store/1007388/",
+      "https://www.doordash.com/store/%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B7%E3%83%BC%E3%82%AB%E3%83%AC%E3%83%BC%E3%83%8F%E3%83%A9%E3%83%AB%E3%83%8F%E3%83%96-sendai-1648247/2354967/?preview=1",
+      "https://www.doordash.com/store/-pizza-arlington-220240/",
+      "https://www.doordash.com/store/--che-saint-jean-sur-richelieu-1314058/1871860/fr-CA/?preview=1",
+      "https://www.doordash.com/store/$10.96",
+      "https://www.doordash.com/store/$12.87",
+      "https://www.doordash.com/store/100286/",
+      "https://www.doordash.com/store/beach-hut-deli-reno-306821/313917/?preview=1",
+      "https://www.doordash.com/store/-ono-pok-bar-toronto-113689",
+      "https://www.doordash.com/store/%E8%A6%93%E9%A3%9F-myst-asian-fusion-burnaby-131176/",
+      "https://www.doordash.com/store/1009315/",
+      "https://www.doordash.com/store/1000881/?utm_source=partner-link&utm_medium=website&utm_campaign=1000881&utm_content=white-medium",
+      "https://www.doordash.com/store/1007395/",
+      "https://www.doordash.com/store/$10.70",
+      "https://www.doordash.com/store/%E5%9B%9B%E5%A7%90-special-noodle-las-vegas-33479429/",
+      "https://www.doordash.com/store/007-chinese-food-buffalo-295311",
+      "https://www.doordash.com/store/%E5%90%89%E9%87%8E%E5%AE%B6-natori-1797837/",
+      "https://www.doordash.com/store/aria-mediterranean-restaurant-las-vegas-73300/?utm_campaign=gpa",
+      "https://www.doordash.com/store/-the-guilt-trip-redmond-18238/",
+      "https://www.doordash.com/store/1007417/",
+      "https://www.doordash.com/store/1001284/",
+      "https://www.doordash.com/store/$1.00",
+      "https://www.doordash.com/store/1000878/?utm_source=partner-link&utm_medium=website&utm_campaign=1000878&utm_content=white-medium",
+      "https://www.doordash.com/store/$0.80",
+      "https://www.doordash.com/store/%C5%9Ei%C5%9F-kabob-grill-san-francisco-33110207/",
+      "https://www.doordash.com/store/100108/",
+      "https://www.doordash.com/store/1-4-lb-giant-burger-hayward-719441/",
+      "https://www.doordash.com/store/1000903/?utm_source=partner-link&utm_medium=website&utm_campaign=1000903&utm_content=white-medium",
+      "https://www.doordash.com/store/1000888/?utm_source=partner-link&utm_medium=website&utm_campaign=1000888&utm_content=white-medium",
+      "https://www.doordash.com/store/%20988270?utm_campaign=%20988270&utm_medium=website&utm_source=partner-link",
+      "https://www.doordash.com/store/1002173/?utm_source=partner-link&utm_medium=website&utm_campaign=1002173&utm_content=red-m",
+      "https://www.doordash.com/store/-pizza-richmond-879460/",
+      "https://www.doordash.com/store/-chefcharleshouse-baton-rouge-935629/1366651",
+      "https://www.doordash.com/store/1005043/",
+      "https://www.doordash.com/store/$0.15",
+      "https://www.doordash.com/store/10051/",
+      "https://www.doordash.com/store/1-degree-up-queens-789593/en-US",
+      "https://www.doordash.com/store/100-ocean-long-branch-1016088/en-US",
+      "https://www.doordash.com/store/$0.49",
+      "https://www.doordash.com/store/$0.95",
+      "https://www.doordash.com/store/$0.40",
+      "https://www.doordash.com/store/bowls-by-39-degrees-artesia-77344/?utm_campaign=2&utm_medium=website&utm_source=partner-link",
+      "https://www.doordash.com/store/&-cheese-atl-atlanta-1598245/?pickup=true&utm_campaign=gpa",
+      "https://www.doordash.com/store/0-60-energy-cafe-winchester-531244/",
+      "https://www.doordash.com/store/%E6%B9%98%E6%9D%91%E5%8F%91%E7%8E%B0-hunan-style-restaurant-toronto-1279912/",
+      "https://www.doordash.com/store/10-below-restaurant-lounge-bend-911437?utm_campaign=gpa",
+      "https://www.doordash.com/store/$11.85",
+      "https://www.doordash.com/store/-6-indian-dishes-ringwood-1996883/",
+      "https://www.doordash.com/store/1001905/",
+      "https://www.doordash.com/store/-mami-taqueria-atlanta-725171",
+      "https://www.doordash.com/store/0",
+      "https://www.doordash.com/store/$0.50",
+      "https://www.doordash.com/store/1005717/",
+      "https://www.doordash.com/store/1008237/",
+      "https://www.doordash.com/store-next/ace-king-bbq-newark-858191",
+      "https://www.doordash.com/store/%22the-original%22-jj-twigs-pizza-palatine-162127/",
+      "https://www.doordash.com/store/%22don-taco%22-mexican-taqueria-&-birria-house-26001398/",
+      "https://www.doordash.com/store/1002204/?utm_source=partner-link&utm_medium=website&utm_campaign=1002204&utm_content=red-medium",
+      "https://www.doordash.com/store/-lette-macarons-vestavia-hills-674330/",
+      "https://www.doordash.com/store/-ecas-mexican-restaurant-katy-544348/",
+      "https://www.doordash.com/store/$0.34",
+      "https://www.doordash.com/store/100121/",
+      "https://www.doordash.com/store/apollo-burgers-salt-lake-city-129963/",
+      "https://www.doordash.com/store/-ono-pok-bar-toronto-2814252/",
+      "https://www.doordash.com/store/1007222/",
+      "https://www.doordash.com/store/$11.01",
+      "https://www.doordash.com/store/-sendai-1892456/",
+      "https://www.doordash.com/store/%E8%A6%93%E9%A3%9F-myst-asian-fusion-burnaby-2555650/",
+      "https://www.doordash.com/store/%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8-natori-1794456/",
+      "https://www.doordash.com/store/1014204/",
+      "https://www.doordash.com/store/-nufs-superfood-snacks-pantry-toronto-973713/",
+      "https://www.doordash.com/store/-39-pizzeria-toorak-678453",
+      "https://www.doordash.com/store/1002190/height=150",
+      "https://www.doordash.com/store/alpine-bakery-and-trattoria-alpharetta-41844/",
+      "https://www.doordash.com/store/1005396/",
+      "https://www.doordash.com/store/balvanera-new-york-9064/",
+      "https://www.doordash.com/store/$0.55",
+      "https://www.doordash.com/store/%F0%9F%87%B2%F0%9F%87%BD--a-taste-of-mexico-%F0%9F%87%B2%F0%9F%87%BD-indianapolis-24482624/",
+      "https://www.doordash.com/store/1-foxy-lady-cafe-jacksonville-1539147/",
+      "https://www.doordash.com/store/$10.10",
+      "https://www.doordash.com/store/$114.75",
+      "https://www.doordash.com/store/100218/",
+      "https://www.doordash.com/store/'ono-pok%C3%A9-bar-toronto-982436/",
+      "https://www.doordash.com/store/'lette-macarons-vestavia-hills-674330/",
+      "https://www.doordash.com/store/$0.92",
+      "https://www.doordash.com/store/-pizza-seven-corners-803387/",
+      "https://www.doordash.com/store/biff-buzby-s-burgers-live-oak-97061/",
+      "https://www.doordash.com/store/-pizza-arlington-220240/en-US",
+      "https://www.doordash.com/store/%26pizza-baltimore-158363/",
+      "https://www.doordash.com/store/%E3%82%B5%E3%82%A4%E3%82%BC%E3%83%AA%E3%83%A4-sendai-1865000/",
+      "https://www.doordash.com/store/100162/",
+      "https://www.doordash.com/store/1009385/",
+      "https://www.doordash.com/store/10012/?utm_source=partner-link&utm_medium=website&utm_campaign=10012",
+      "https://www.doordash.com/store/$12.00",
+      "https://www.doordash.com/store/%22mami%22-taqueria-atlanta-725171/",
+      "https://www.doordash.com/store/%E8%8C%B6%E5%A6%8D%E8%A7%80%E8%89%B2-by-me-boba-tea-san-francisco-1154711/?pickup=false&cursor=eyJzZWFyY2hfaXRlbV9jYXJvdXNlbF9jdXJzb3IiOnsicXVlcnkiOiJzdWdhci1jb29raWUtbmVhci1tZSIsIml0ZW1faWRzIjpbXSwic2VhcmNoX3Rlcm0iOiJzdWdhciBjb29raWUgbmVhciBpIiwidmVydGljYWxfaWQiOi05OTksInZlcnRpY2FsX25hbWUiOiJhbGwifSwic3RvcmVfcHJpbWFyeV92ZXJ0aWNhbF9pZHMiOlsxLDQsMTAwMzMyLDE3NSwxNzYsMTc3LDE3OSwxOTMsMTk1XX0%3D",
+      "https://www.doordash.com/store/1007270/",
+      "https://www.doordash.com/store/1008008/",
+      "https://www.doordash.com/store/%C4%B0brahims-doner-shawarma-gyro---2611-eglinton-ave-w-toronto-36218269/",
+      "https://www.doordash.com/store/",
+      "https://www.doordash.com/store/barque-smokehouse-toronto-26444/"
+    ],
+    "status": "complete"
   }
 }
