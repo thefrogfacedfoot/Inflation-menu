@@ -1829,9 +1829,11 @@ def _scrape_one(target, conn, today, usd_rates):
 
 
 # Number of parallel scraping workers. Each worker holds its own Playwright
-# browser and SQLite connection. Default 3 (three concurrent tabs).
-# Override with UIFPI_CONCURRENCY.
-SCRAPE_CONCURRENCY = int(os.environ.get('UIFPI_CONCURRENCY', '3'))
+# browser and SQLite connection. Default 1 (sequential). Parallel runs at
+# workers=3/4 produce ~95-99% Foodpanda block rate due to per-IP Akamai
+# burnout; sequential keeps GrabFood at ~0% block and modestly improves
+# Foodpanda. Override with UIFPI_CONCURRENCY for short low-risk batches.
+SCRAPE_CONCURRENCY = int(os.environ.get('UIFPI_CONCURRENCY', '1'))
 # Per-worker inter-target sleep range (seconds). Akamai/Cloudflare block
 # by IP, not by request cadence, so long human-looking sleeps don't help.
 INTER_TARGET_DELAY = (5.0, 10.0)
