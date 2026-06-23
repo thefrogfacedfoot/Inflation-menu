@@ -1,0 +1,70 @@
+/Users/erwenchen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+
+────── Loading PASS_McDonalds ──────
+URL: https://food.grab.com/sg/en/restaurant/mcdonald-s-people-s-park-delivery/SGDD04919
+
+────── Loading FAIL_Saizeriya ──────
+URL: https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT
+
+────── Loading FAIL_Saizeriya_retry ──────
+URL: https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT
+
+══════════════ COMPARISON ══════════════
+
+── after_seed_before_warmup ──
+  url: about:blank
+  title: 
+  http_status: -
+  cookies (1): ['location']
+    location cookie: %7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%…
+    landing-country-selected: <MISSING>
+
+── after_warmup ──
+  url: https://food.grab.com/sg/en/
+  title: Food Delivery Singapore: Promos & Menu | GrabFood SG
+  http_status: -
+  cookies (20): ['location', 'gfc_country', 'gfc_session_guid', 'next-i18next', '_gcl_au', '_hjSessionUser_1532049', '_hjSession_1532049', '_dd_s', '_gssid', '_gsvid', '_gid', '_gat_UA-73060858-24', '_ga', '_ga_RPEHNJMMEM', '_fbp', 'test_cookie', 'hwuuid', 'hwuuidtime', 'passenger_authn_token_jti', 'passenger_authn_token']
+    location cookie: %7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%…
+    landing-country-selected: /sg/en/
+
+── after_PASS_McDonalds ──
+  url: https://food.grab.com/sg/en/restaurant/mcdonald-s-people-s-park-delivery/SGDD04919
+  title: McDonald's - People's Park ⭐ 4.1
+  http_status: 200
+  cookies (21): ['location', 'gfc_country', 'gfc_session_guid', 'next-i18next', '_gcl_au', '_hjSession_1532049', '_gssid', '_gsvid', '_gid', '_gat_UA-73060858-24', '_fbp', 'hwuuid', 'hwuuidtime', 'passenger_authn_token_jti', 'passenger_authn_token', '_dd_s', '_hjSessionUser_1532049', '_ga', '_ga_RPEHNJMMEM', 'IDE', 'aws-waf-token']
+    location cookie: %7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%…
+    landing-country-selected: /sg/en/
+  redirects: 6
+    302 → https://6254042.fls.doubleclick.net/activityi;dc_pre=CMitw42HnZUDFRqJZgIdMv0cRA;
+    302 → https://6254042.fls.doubleclick.net/activityi;dc_pre=CP3_xo2HnZUDFXyJZgIdDMcrFQ;
+    302 → https://ad.doubleclick.net/activity;dc_pre=CPziv42HnZUDFYujZgIdE74L5A;src=625404
+    302 → https://ad.doubleclick.net/activity;dc_pre=CI64w42HnZUDFaIB_wgdLB0Okg;src=625404
+
+── after_FAIL_Saizeriya ──
+  url: https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT
+  title: Saizeriya - Chinatown Point ⭐ 4.6
+  http_status: 200
+  cookies (21): ['location', 'gfc_country', 'gfc_session_guid', 'next-i18next', '_gcl_au', '_hjSession_1532049', '_gssid', '_gsvid', '_gid', '_gat_UA-73060858-24', '_fbp', 'hwuuid', 'hwuuidtime', 'passenger_authn_token_jti', 'passenger_authn_token', '_hjSessionUser_1532049', 'IDE', '_dd_s', '_ga', '_ga_RPEHNJMMEM', 'aws-waf-token']
+    location cookie: %7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%…
+    landing-country-selected: /sg/en/
+  redirects: 6
+    302 → https://6254042.fls.doubleclick.net/activityi;dc_pre=CL3XzJKHnZUDFYakZgIdiq0ajg;
+    302 → https://6254042.fls.doubleclick.net/activityi;dc_pre=CKTO5pKHnZUDFTEL_wgdIlQeHA;
+    302 → https://ad.doubleclick.net/activity;dc_pre=CLqsypKHnZUDFXebZgId08EB2g;src=625404
+    302 → https://www.google.com/gmp/conversion/_dc_unique_id=8147949884008667079;_dc_ptd=
+
+── after_FAIL_Saizeriya_retry ──
+  url: https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT
+  title: Saizeriya - Chinatown Point ⭐ 4.6
+  http_status: 200
+  cookies (21): ['location', 'gfc_country', 'gfc_session_guid', 'next-i18next', '_gcl_au', '_hjSession_1532049', '_gssid', '_gsvid', '_gid', '_gat_UA-73060858-24', '_fbp', 'hwuuid', 'hwuuidtime', 'passenger_authn_token_jti', 'passenger_authn_token', '_hjSessionUser_1532049', 'IDE', '_dd_s', '_ga', '_ga_RPEHNJMMEM', 'aws-waf-token']
+    location cookie: %7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%…
+    landing-country-selected: /sg/en/
+  redirects: 6
+    302 → https://6254042.fls.doubleclick.net/activityi;dc_pre=CMOPxZiHnZUDFWylZgIdvS8p5w;
+    302 → https://6254042.fls.doubleclick.net/activityi;dc_pre=CKKPx5iHnZUDFXSbZgIdYLMYJg;
+    302 → https://ad.doubleclick.net/activity;dc_pre=CJLEwpiHnZUDFZ6AZgIdl6kb2w;src=625404
+    302 → https://www.google.com/gmp/conversion/_dc_unique_id=6090793669124766627;_dc_ptd=
+
+Full JSON → diag_grabfood_gate_result.json
