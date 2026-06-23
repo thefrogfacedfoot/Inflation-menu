@@ -1,0 +1,154 @@
+[
+  {
+    "name": "Marrybrown MY",
+    "url": "https://food.grab.com/my/en/restaurant/marrybrown-kwc-delivery/1-CY61KETKMCLDLJ",
+    "country": "Malaysia",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 101.1
+  },
+  {
+    "name": "Chatime MY",
+    "url": "https://food.grab.com/my/en/restaurant/chatime-kl-sentral-delivery/MYDD05103",
+    "country": "Malaysia",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 112.2
+  },
+  {
+    "name": "The Chicken Rice Shop MY",
+    "url": "https://food.grab.com/my/en/restaurant/the-chicken-rice-shop-nu-sentral-delivery/MYDD09861",
+    "country": "Malaysia",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 133.5
+  },
+  {
+    "name": "Secret Recipe MY",
+    "url": "https://food.grab.com/my/en/restaurant/secret-recipe-suria-klcc-delivery/MYDD08963",
+    "country": "Malaysia",
+    "status": "OK",
+    "detail": "123 items",
+    "elapsed_s": 110.7
+  },
+  {
+    "name": "McDonald's MY",
+    "url": "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-mont-kiara-139-delivery/MYDD06054",
+    "country": "Malaysia",
+    "status": "OK",
+    "detail": "174 items",
+    "elapsed_s": 20.9
+  },
+  {
+    "name": "KFC MY",
+    "url": "https://food.grab.com/my/en/restaurant/kfc-meru-raya-dt-delivery/1-C2AEAXJALGLCCJ",
+    "country": "Malaysia",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 139.3
+  },
+  {
+    "name": "Pizza Hut MY",
+    "url": "https://food.grab.com/my/en/restaurant/pizza-hut-kota-bharu-delivery/1-C2AALPTYKFXDUA",
+    "country": "Malaysia",
+    "status": "OK",
+    "detail": "143 items",
+    "elapsed_s": 137.8
+  },
+  {
+    "name": "Domino's Pizza MY",
+    "url": "https://food.grab.com/my/en/restaurant/domino-s-pizza-gongbadak-delivery/1-CZDJG7NTL7MGEA",
+    "country": "Malaysia",
+    "status": "OK",
+    "detail": "100 items",
+    "elapsed_s": 32.9
+  },
+  {
+    "name": "Tealive MY",
+    "url": "https://food.grab.com/my/en/restaurant/tealive-penang-sentral-delivery/1-CY4DFGEJLUN3SA",
+    "country": "Malaysia",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 130.7
+  },
+  {
+    "name": "Highlands Coffee VN A",
+    "url": "https://food.grab.com/vn/en/restaurant/highlands-coffee-nguy%E1%BB%85n-v%C4%83n-qu%C3%A1-delivery/5-CZCYNYKXNEJUVT",
+    "country": "Vietnam",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 133.9
+  },
+  {
+    "name": "Highlands Coffee VN B",
+    "url": "https://food.grab.com/vn/en/restaurant/highlands-coffee-flora-th%E1%BB%A7-%C4%91%E1%BB%A9c-delivery/5-C2LVTF23R36AAN",
+    "country": "Vietnam",
+    "status": "OK",
+    "detail": "57 items",
+    "elapsed_s": 20.3
+  },
+  {
+    "name": "The Coffee House VN A",
+    "url": "https://food.grab.com/vn/en/restaurant/the-coffee-house-trung-h%C3%B2a-delivery/5-C3DGGU41E7KXEN",
+    "country": "Vietnam",
+    "status": "OK",
+    "detail": "57 items",
+    "elapsed_s": 19.3
+  },
+  {
+    "name": "The Coffee House VN B",
+    "url": "https://food.grab.com/vn/en/restaurant/the-coffee-house-hai-b%C3%A0-tr%C6%B0ng-delivery/5-C3DGGU41FGK3TJ",
+    "country": "Vietnam",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 131.0
+  },
+  {
+    "name": "Phuc Long VN A",
+    "url": "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-coffee-tea-house-ph%E1%BB%95-quang-delivery/5-CY5AGYMCV2XCBE",
+    "country": "Vietnam",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 131.7
+  },
+  {
+    "name": "Phuc Long VN B",
+    "url": "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-82-h%C3%A0ng-%C4%91i%E1%BA%BFu-delivery/5-CYLTGZMUGPB1SA",
+    "country": "Vietnam",
+    "status": "OK",
+    "detail": "72 items",
+    "elapsed_s": 19.0
+  },
+  {
+    "name": "Lotteria VN A",
+    "url": "https://food.grab.com/vn/en/restaurant/lotteria-ph%C3%BA-m%E1%BB%B9-h%C6%B0ng-delivery/VNGFVN00000458",
+    "country": "Vietnam",
+    "status": "OK",
+    "detail": "67 items",
+    "elapsed_s": 21.0
+  },
+  {
+    "name": "Lotteria VN B",
+    "url": "https://food.grab.com/vn/en/restaurant/lotteria-tttm-royal-city-delivery/5-CYXGE6AAGXCXNT",
+    "country": "Vietnam",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 134.9
+  },
+  {
+    "name": "Burger King VN",
+    "url": "https://food.grab.com/vn/en/restaurant/burger-king-trung-h%C3%B2a-delivery/5-CZNDJ4MDC4MDCE",
+    "country": "Vietnam",
+    "status": "WRONG_PAGE",
+    "detail": "0 items scraped \u2014 page may not have loaded",
+    "elapsed_s": 129.1
+  },
+  {
+    "name": "KFC VN",
+    "url": "https://food.grab.com/vn/en/restaurant/kfc-tttm-go-c%E1%BB%A7-chi-delivery/5-C7WHGXT3CPAFL6",
+    "country": "Vietnam",
+    "status": "OK",
+    "detail": "89 items",
+    "elapsed_s": 117.4
+  }
+]

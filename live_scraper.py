@@ -2024,6 +2024,46 @@ TARGETS = [
      "https://www.foodpanda.sg/chain/cx5on/crystal-jade-go",
      "chain", "foodpanda", "SGD", "Singapore"),
 
+    # Round-2 GrabFood SG additions (probed 2026-06-23 with WAF priming).
+    # GrabFood added an aws-waf-token gate; new URLs redirect to landing
+    # unless a "WAF-priming" restaurant URL has been visited first in the
+    # same browser session. McDonald's People's Park is the priming target
+    # used by the live scraper for SG. Probe yielded 7/11 SG candidates
+    # pass; the 4 that still failed (Crystal Jade HK Kitchen, Crystal Jade
+    # Go United Square, Pizza Hut Plaza Singapura, Yoshinoya Wisteria Mall)
+    # may be delisted or have URL changes — not retried.
+    ("McDonald's",
+     "https://food.grab.com/sg/en/restaurant/mcdonald-s-people-s-park-delivery/SGDD04919",
+     "chain", "grabfood", "SGD", "Singapore"),
+
+    ("Han's",
+     "https://food.grab.com/sg/en/restaurant/han-s-jalan-bukit-merah-delivery/4-CZDJJPJFFEVXHE",
+     "chain", "grabfood", "SGD", "Singapore"),
+
+    ("Saizeriya",
+     "https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT",
+     "chain", "grabfood", "SGD", "Singapore"),
+
+    ("Subway",
+     "https://food.grab.com/sg/en/restaurant/subway-the-central-delivery/4-CYTDLPUTG242KA",
+     "chain", "grabfood", "SGD", "Singapore"),
+
+    ("Burger King",
+     "https://food.grab.com/sg/en/restaurant/burger-king-ang-mo-kio-hub-delivery/4-CY3TEBNKN742R2",
+     "chain", "grabfood", "SGD", "Singapore"),
+
+    # Disambiguated from foodpanda "Old Chang Kee" (chain URL) above —
+    # this is the IMM Building branch on GrabFood.
+    ("Old Chang Kee IMM",
+     "https://food.grab.com/sg/en/restaurant/old-chang-kee-imm-building-delivery/4-CYN2GYVDGNEXVN",
+     "chain", "grabfood", "SGD", "Singapore"),
+
+    # Disambiguated from foodpanda "Toast Box" (chain URL) above —
+    # this is the VivoCity branch on GrabFood.
+    ("Toast Box VivoCity",
+     "https://food.grab.com/sg/en/restaurant/toast-box-vivocity-delivery/SGDD11187",
+     "chain", "grabfood", "SGD", "Singapore"),
+
     # --- Informal ---
     ("Song Fa Bak Kut Teh",
      "https://www.foodpanda.sg/chain/cw6zr/song-fa-bak-kut-teh",
@@ -2118,6 +2158,26 @@ TARGETS = [
     # Removed Madam Kwan's: foodpanda.my URL couldn't be verified (IP-blocked),
     # not findable on GrabFood Malaysia from KLCC delivery address.
 
+    # Round-3 GrabFood MY additions (probed 2026-06-23, fresh-browser-per-target).
+    # The earlier shared-browser primed probe (v2) returned 0/9 for MY because
+    # the priming URL itself was landing-redirected in a shared context; v3
+    # using _scrape_one's fresh-browser-per-target pattern yielded 4/9.
+    # Replaces dead chain URL stub for Secret Recipe (was /my/en/chain/secret-recipe-delivery 500).
+    ("Secret Recipe",
+     "https://food.grab.com/my/en/restaurant/secret-recipe-suria-klcc-delivery/MYDD08963",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("McDonald's MY",
+     "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-mont-kiara-139-delivery/MYDD06054",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Pizza Hut MY",
+     "https://food.grab.com/my/en/restaurant/pizza-hut-kota-bharu-delivery/1-C2AALPTYKFXDUA",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Domino's Pizza MY",
+     "https://food.grab.com/my/en/restaurant/domino-s-pizza-gongbadak-delivery/1-CZDJG7NTL7MGEA",
+     "chain", "grabfood", "MYR", "Malaysia"),
 
     # --- Informal ---
     # Removed Village Park Nasi Lemak: GrabFood listing is soft-disabled
@@ -2193,6 +2253,33 @@ TARGETS = [
     ("MAD ROOSTA Burgers & Grill",
      "https://food.grab.com/vn/en/restaurant/mad-roosta-burgers-grill-delivery/5-C6NDJRMFPCKXRX",
      "independent", "grabfood", "VND", "Vietnam"),
+
+    # Round-3 GrabFood VN additions (probed 2026-06-23, fresh-browser-per-target).
+    # The 2026-06-21 note above said VN chain URL pattern likely differs from
+    # SG/MY — turns out web-search-discoverable chain URLs do exist, but only
+    # surface via _scrape_one's fresh-browser-per-target pattern (default
+    # SCRAPE_MAX_ATTEMPTS=2). v3 yielded 5/10 candidates. Brand names kept
+    # bare (no country suffix) since these are VN-only brands; "KFC VN"
+    # suffixed since KFC is global.
+    ("Highlands Coffee",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-flora-th%E1%BB%A7-%C4%91%E1%BB%A9c-delivery/5-C2LVTF23R36AAN",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("The Coffee House",
+     "https://food.grab.com/vn/en/restaurant/the-coffee-house-trung-h%C3%B2a-delivery/5-C3DGGU41E7KXEN",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phuc Long",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-82-h%C3%A0ng-%C4%91i%E1%BA%BFu-delivery/5-CYLTGZMUGPB1SA",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria",
+     "https://food.grab.com/vn/en/restaurant/lotteria-ph%C3%BA-m%E1%BB%B9-h%C6%B0ng-delivery/VNGFVN00000458",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("KFC VN",
+     "https://food.grab.com/vn/en/restaurant/kfc-tttm-go-c%E1%BB%A7-chi-delivery/5-C7WHGXT3CPAFL6",
+     "chain", "grabfood", "VND", "Vietnam"),
 
     # ==========================================================================
     # INDONESIA  (GrabFood food.grab.com/id/en)
@@ -2934,18 +3021,21 @@ if __name__ == '__main__':
         log(f"Already scraped today: {skipped} — skipping")
     log(f"To scrape: {len(remaining)}\n")
 
-    # Pass 1 sweeps every target. Failures are immediately re-queued for
-    # pass 2 and 3. The tiny 10s cooldown lets browsers fully close and gives
-    # any transient block a brief breather without burning real time.
+    # Persist on failing targets — up to 100 passes with exponential backoff
+    # between passes (cap 10 min), so flaky targets have many chances to
+    # recover. No progress kill switch: trust that retries eventually pay off.
+    MAX_ATTEMPTS = 100
+    attempt = 0
     inter_pass_wait = 10
-    for attempt in range(1, 4):
+    while remaining and attempt < MAX_ATTEMPTS:
+        attempt += 1
+        log(f"--- Attempt {attempt}/{MAX_ATTEMPTS} ({len(remaining)} targets) ---\n")
+        remaining = run_batch(remaining, conn, today, usd_rates)
         if not remaining:
             break
-        log(f"--- Attempt {attempt} ({len(remaining)} targets) ---\n")
-        remaining = run_batch(remaining, conn, today, usd_rates)
-        if remaining and attempt < 3:
-            log(f"\n{len(remaining)} failed — retrying immediately (after {inter_pass_wait}s breather)…")
-            time.sleep(inter_pass_wait)
+        log(f"\n{len(remaining)} failed — retrying after {inter_pass_wait}s breather…")
+        time.sleep(inter_pass_wait)
+        inter_pass_wait = min(inter_pass_wait * 2, 600)
 
     # Diff against previous collection and surface meaningful changes
     try:
@@ -2965,7 +3055,7 @@ if __name__ == '__main__':
     conn.close()
 
     if remaining:
-        log("\n⚠  Still failed after 3 attempts:")
+        log(f"\n⚠  Still failed after {attempt} attempts:")
         for r in remaining:
             log(f"   - {r[0]}")
     else:

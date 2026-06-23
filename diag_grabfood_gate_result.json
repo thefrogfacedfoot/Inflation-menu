@@ -1,0 +1,272 @@
+[
+  {
+    "label": "after_seed_before_warmup",
+    "url": "about:blank",
+    "title": "",
+    "cookies": {
+      "location": "%7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%2C%22address%22%3A%2"
+    },
+    "localStorage": {
+      "err": "Page.evaluate: SecurityError: Failed to read the 'localStorage' property from 'W"
+    }
+  },
+  {
+    "label": "after_warmup",
+    "url": "https://food.grab.com/sg/en/",
+    "title": "Food Delivery Singapore: Promos & Menu | GrabFood SG",
+    "cookies": {
+      "location": "%7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%2C%22address%22%3A%2",
+      "gfc_country": "SG",
+      "gfc_session_guid": "f9f47b35-b834-4e94-92ab-3a3579059bbd",
+      "next-i18next": "en",
+      "_gcl_au": "1.1.309518932.1782207166",
+      "_hjSessionUser_1532049": "eyJpZCI6IjkzNGE5OWZlLTdkNzAtNTIwNi1iZDgzLTE3NzE2YzY0ZTBjNSIsImNyZWF0ZWQiOjE3ODIy",
+      "_hjSession_1532049": "eyJpZCI6Ijk2YTU1NTk0LTM4ZmYtNGYxMC04ZmVkLTVmZTAxODcxMTMzNyIsImMiOjE3ODIyMDcxNjY3",
+      "_dd_s": "aid=d9948250-6557-4c3a-872d-9f286b6a8cb0&rum=0&expire=1782208067960",
+      "_gssid": "2605230932-qjmxlpuk6r",
+      "_gsvid": "39b40261-27e3-4b63-8df4-1a6a41675c75",
+      "_gid": "GA1.2.534706028.1782207169",
+      "_gat_UA-73060858-24": "1",
+      "_ga": "GA1.1.1798507969.1782207169",
+      "_ga_RPEHNJMMEM": "GS2.1.s1782207169$o1$g0$t1782207170$j59$l0$h1097586150",
+      "_fbp": "fb.1.1782207170321.378707011179741344",
+      "test_cookie": "CheckForPermission",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "hwuuidtime": "1782207172",
+      "passenger_authn_token_jti": "837c49a7-2650-4c22-af2a-30e6d0545694",
+      "passenger_authn_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Il9kZWZhdWx0IiwidHlwIjoiSldUIn0.eyJhbXIiOiJXRUJMT0dJ"
+    },
+    "localStorage": {
+      "basket": "{\"key\":\"SG\",\"cart\":null,\"quote\":null,\"updatedAt\":1782207168803}",
+      "lastExternalReferrerTime": "1782207170229",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "altcha_payload": "{\"payload\":\"eyJhbGdvcml0aG0iOiJTSEEtMjU2IiwiY2hhbGxlbmdlIjoiODgyOGYzZTRmNWQwOWM1ODY2Y2EzYzRjNDhjNzI0…",
+      "lastExternalReferrer": "empty",
+      "_gcl_ls": "{\"schema\":\"gcl\",\"version\":1,\"gsid_dc\":{\"value\":{\"joinId\":\"_BgrGqzS-PIG6bAIRJ9PaJkdintVx2Wg6A\",\"lastJ…",
+      "hwuuidtime": "1782207172",
+      "landing-country-selected": "/sg/en/"
+    }
+  },
+  {
+    "label": "after_PASS_McDonalds",
+    "url": "https://food.grab.com/sg/en/restaurant/mcdonald-s-people-s-park-delivery/SGDD04919",
+    "title": "McDonald's - People's Park ⭐ 4.1",
+    "cookies": {
+      "location": "%7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%2C%22address%22%3A%2",
+      "gfc_country": "SG",
+      "gfc_session_guid": "f9f47b35-b834-4e94-92ab-3a3579059bbd",
+      "next-i18next": "en",
+      "_gcl_au": "1.1.309518932.1782207166",
+      "_hjSession_1532049": "eyJpZCI6Ijk2YTU1NTk0LTM4ZmYtNGYxMC04ZmVkLTVmZTAxODcxMTMzNyIsImMiOjE3ODIyMDcxNjY3",
+      "_gssid": "2605230932-qjmxlpuk6r",
+      "_gsvid": "39b40261-27e3-4b63-8df4-1a6a41675c75",
+      "_gid": "GA1.2.534706028.1782207169",
+      "_gat_UA-73060858-24": "1",
+      "_fbp": "fb.1.1782207170321.378707011179741344",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "hwuuidtime": "1782207172",
+      "passenger_authn_token_jti": "837c49a7-2650-4c22-af2a-30e6d0545694",
+      "passenger_authn_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Il9kZWZhdWx0IiwidHlwIjoiSldUIn0.eyJhbXIiOiJXRUJMT0dJ",
+      "_dd_s": "aid=d9948250-6557-4c3a-872d-9f286b6a8cb0&rum=0&expire=1782208076136",
+      "_hjSessionUser_1532049": "eyJpZCI6IjkzNGE5OWZlLTdkNzAtNTIwNi1iZDgzLTE3NzE2YzY0ZTBjNSIsImNyZWF0ZWQiOjE3ODIy",
+      "_ga": "GA1.1.1798507969.1782207169",
+      "_ga_RPEHNJMMEM": "GS2.1.s1782207169$o1$g1$t1782207176$j53$l0$h1097586150",
+      "IDE": "AHWqTUnS94kwx5upiqYsOAh_QRVKunRPwOv4xEaHQ7LaW7TwgvJBVRM4cwrLFw2CAgQ",
+      "aws-waf-token": "d3eb0b28-da41-4362-b8d2-e93aac715965:BgoAayVCCjo4AAAA:i4yvxyVptUMEGiHQUm0rtCgbMN"
+    },
+    "localStorage": {
+      "basket": "{\"key\":\"SG\",\"cart\":null,\"quote\":null,\"updatedAt\":1782207180750}",
+      "lastExternalReferrerTime": "1782207180799",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "altcha_payload": "{\"payload\":\"eyJhbGdvcml0aG0iOiJTSEEtMjU2IiwiY2hhbGxlbmdlIjoiODgyOGYzZTRmNWQwOWM1ODY2Y2EzYzRjNDhjNzI0…",
+      "awswaf_token_refresh_timestamp": "1782207176368",
+      "lastExternalReferrer": "empty",
+      "_gcl_ls": "{\"schema\":\"gcl\",\"version\":1,\"gsid_dc\":{\"value\":{\"joinId\":\"_BgrGqzS-PIG6bAIRJ9PaJkdintVx2Wg6A\",\"lastJ…",
+      "hwuuidtime": "1782207172",
+      "awswaf_session_storage": "d3eb0b28-da41-4362-b8d2-e93aac715965:BgoAayVCCjs4AAAA:ujy5J5SmOOzID332+aXIUo491PhIVdK5xnygCfqH29ju8u…",
+      "landing-country-selected": "/sg/en/"
+    },
+    "http_status": 200,
+    "redirect_chain": [
+      {
+        "status": 302,
+        "url": "https://6254042.fls.doubleclick.net/activityi;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=17;ord=6221058250609;npa=0;auiddc",
+        "location": "https://6254042.fls.doubleclick.net/activityi;dc_pre=CMitw42HnZUDFRqJZgIdMv0cRA;src=6254042;type=gfwoid;cat=gfwoidmc;rcb"
+      },
+      {
+        "status": 302,
+        "url": "https://6254042.fls.doubleclick.net/activityi;src=6254042;type=gfwoid;cat=gfwoid;rcb=17;ord=1996577421040;npa=0;auiddc=3",
+        "location": "https://6254042.fls.doubleclick.net/activityi;dc_pre=CP3_xo2HnZUDFXyJZgIdDMcrFQ;src=6254042;type=gfwoid;cat=gfwoid;rcb=1"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=17;ord=6221058250609;npa=0;auiddc=309518932",
+        "location": "https://ad.doubleclick.net/activity;dc_pre=CPziv42HnZUDFYujZgIdE74L5A;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=17;ord=62"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;src=6254042;type=gfwoid;cat=gfwoid;rcb=17;ord=1996577421040;npa=0;auiddc=309518932.1",
+        "location": "https://ad.doubleclick.net/activity;dc_pre=CI64w42HnZUDFaIB_wgdLB0Okg;src=6254042;type=gfwoid;cat=gfwoid;rcb=17;ord=1996"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;dc_pre=CI64w42HnZUDFaIB_wgdLB0Okg;src=6254042;type=gfwoid;cat=gfwoid;rcb=17;ord=1996",
+        "location": "https://www.google.com/gmp/conversion/_dc_unique_id=5988773653473032505;_dc_ptd=ChEI8N3o0QYQ19mt0vjpiZCvARIfAPSHxSBwaDLA"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;dc_pre=CPziv42HnZUDFYujZgIdE74L5A;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=17;ord=62",
+        "location": "https://www.google.com/gmp/conversion/_dc_unique_id=8978660694962983293;_dc_ptd=ChEI8N3o0QYQ19mt0vjpiZCvARIfAPSHxSBcHzVb"
+      }
+    ],
+    "response_set_cookies": []
+  },
+  {
+    "label": "after_FAIL_Saizeriya",
+    "url": "https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT",
+    "title": "Saizeriya - Chinatown Point ⭐ 4.6",
+    "cookies": {
+      "location": "%7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%2C%22address%22%3A%2",
+      "gfc_country": "SG",
+      "gfc_session_guid": "f9f47b35-b834-4e94-92ab-3a3579059bbd",
+      "next-i18next": "en",
+      "_gcl_au": "1.1.309518932.1782207166",
+      "_hjSession_1532049": "eyJpZCI6Ijk2YTU1NTk0LTM4ZmYtNGYxMC04ZmVkLTVmZTAxODcxMTMzNyIsImMiOjE3ODIyMDcxNjY3",
+      "_gssid": "2605230932-qjmxlpuk6r",
+      "_gsvid": "39b40261-27e3-4b63-8df4-1a6a41675c75",
+      "_gid": "GA1.2.534706028.1782207169",
+      "_gat_UA-73060858-24": "1",
+      "_fbp": "fb.1.1782207170321.378707011179741344",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "hwuuidtime": "1782207172",
+      "passenger_authn_token_jti": "837c49a7-2650-4c22-af2a-30e6d0545694",
+      "passenger_authn_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Il9kZWZhdWx0IiwidHlwIjoiSldUIn0.eyJhbXIiOiJXRUJMT0dJ",
+      "_hjSessionUser_1532049": "eyJpZCI6IjkzNGE5OWZlLTdkNzAtNTIwNi1iZDgzLTE3NzE2YzY0ZTBjNSIsImNyZWF0ZWQiOjE3ODIy",
+      "IDE": "AHWqTUnS94kwx5upiqYsOAh_QRVKunRPwOv4xEaHQ7LaW7TwgvJBVRM4cwrLFw2CAgQ",
+      "_dd_s": "aid=d9948250-6557-4c3a-872d-9f286b6a8cb0&rum=0&expire=1782208086833",
+      "_ga": "GA1.1.1798507969.1782207169",
+      "_ga_RPEHNJMMEM": "GS2.1.s1782207169$o1$g1$t1782207187$j42$l0$h1097586150",
+      "aws-waf-token": "d3eb0b28-da41-4362-b8d2-e93aac715965:BgoAsuNCAvU9AAAA:yvCTgstwhlxbDEg0apfHhlrzbO"
+    },
+    "localStorage": {
+      "basket": "{\"key\":\"SG\",\"cart\":null,\"quote\":null,\"updatedAt\":1782207189024}",
+      "lastExternalReferrerTime": "1782207187497",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "altcha_payload": "{\"payload\":\"eyJhbGdvcml0aG0iOiJTSEEtMjU2IiwiY2hhbGxlbmdlIjoiODgyOGYzZTRmNWQwOWM1ODY2Y2EzYzRjNDhjNzI0…",
+      "awswaf_token_refresh_timestamp": "1782207176368",
+      "lastExternalReferrer": "empty",
+      "_gcl_ls": "{\"schema\":\"gcl\",\"version\":1,\"gsid_dc\":{\"value\":{\"joinId\":\"_BgrGqzS-PIG6bAIRJ9PaJkdintVx2Wg6A\",\"lastJ…",
+      "hwuuidtime": "1782207172",
+      "awswaf_session_storage": "d3eb0b28-da41-4362-b8d2-e93aac715965:BgoAsuNCAvY9AAAA:si6MrLe/9BGbEyA0Bds09YPaSBN3dmo4Jz3LMAFvQM0gMg…",
+      "landing-country-selected": "/sg/en/"
+    },
+    "http_status": 200,
+    "redirect_chain": [
+      {
+        "status": 302,
+        "url": "https://6254042.fls.doubleclick.net/activityi;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=1650461390362;npa=0;auiddc",
+        "location": "https://6254042.fls.doubleclick.net/activityi;dc_pre=CL3XzJKHnZUDFYakZgIdiq0ajg;src=6254042;type=gfwoid;cat=gfwoidmc;rcb"
+      },
+      {
+        "status": 302,
+        "url": "https://6254042.fls.doubleclick.net/activityi;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=4146136096938;npa=0;auiddc=3",
+        "location": "https://6254042.fls.doubleclick.net/activityi;dc_pre=CKTO5pKHnZUDFTEL_wgdIlQeHA;src=6254042;type=gfwoid;cat=gfwoid;rcb=1"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=1650461390362;npa=0;auiddc=309518932",
+        "location": "https://ad.doubleclick.net/activity;dc_pre=CLqsypKHnZUDFXebZgId08EB2g;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=16"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;dc_pre=CLqsypKHnZUDFXebZgId08EB2g;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=16",
+        "location": "https://www.google.com/gmp/conversion/_dc_unique_id=8147949884008667079;_dc_ptd=ChEI8N3o0QYQ19mt0vjpiZCvARIfAPSHxSDHhanb"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=4146136096938;npa=0;auiddc=309518932.1",
+        "location": "https://ad.doubleclick.net/activity;dc_pre=CKLXzJKHnZUDFWAB_wgdlcAJvQ;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=4146"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;dc_pre=CKLXzJKHnZUDFWAB_wgdlcAJvQ;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=4146",
+        "location": "https://www.google.com/gmp/conversion/_dc_unique_id=6604437157471433415;_dc_ptd=ChEI8N3o0QYQ19mt0vjpiZCvARIfAPSHxSDmst76"
+      }
+    ],
+    "response_set_cookies": []
+  },
+  {
+    "label": "after_FAIL_Saizeriya_retry",
+    "url": "https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT",
+    "title": "Saizeriya - Chinatown Point ⭐ 4.6",
+    "cookies": {
+      "location": "%7B%22latitude%22%3A1.287953%2C%22longitude%22%3A103.851784%2C%22address%22%3A%2",
+      "gfc_country": "SG",
+      "gfc_session_guid": "f9f47b35-b834-4e94-92ab-3a3579059bbd",
+      "next-i18next": "en",
+      "_gcl_au": "1.1.309518932.1782207166",
+      "_hjSession_1532049": "eyJpZCI6Ijk2YTU1NTk0LTM4ZmYtNGYxMC04ZmVkLTVmZTAxODcxMTMzNyIsImMiOjE3ODIyMDcxNjY3",
+      "_gssid": "2605230932-qjmxlpuk6r",
+      "_gsvid": "39b40261-27e3-4b63-8df4-1a6a41675c75",
+      "_gid": "GA1.2.534706028.1782207169",
+      "_gat_UA-73060858-24": "1",
+      "_fbp": "fb.1.1782207170321.378707011179741344",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "hwuuidtime": "1782207172",
+      "passenger_authn_token_jti": "837c49a7-2650-4c22-af2a-30e6d0545694",
+      "passenger_authn_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Il9kZWZhdWx0IiwidHlwIjoiSldUIn0.eyJhbXIiOiJXRUJMT0dJ",
+      "_hjSessionUser_1532049": "eyJpZCI6IjkzNGE5OWZlLTdkNzAtNTIwNi1iZDgzLTE3NzE2YzY0ZTBjNSIsImNyZWF0ZWQiOjE3ODIy",
+      "IDE": "AHWqTUnS94kwx5upiqYsOAh_QRVKunRPwOv4xEaHQ7LaW7TwgvJBVRM4cwrLFw2CAgQ",
+      "_dd_s": "aid=d9948250-6557-4c3a-872d-9f286b6a8cb0&rum=0&expire=1782208098490",
+      "_ga": "GA1.1.1798507969.1782207169",
+      "_ga_RPEHNJMMEM": "GS2.1.s1782207169$o1$g1$t1782207199$j30$l0$h1097586150",
+      "aws-waf-token": "d3eb0b28-da41-4362-b8d2-e93aac715965:BgoAsuNCAi0/AAAA:+x4BqokySFJicd20lyKSCuejNO"
+    },
+    "localStorage": {
+      "basket": "{\"key\":\"SG\",\"cart\":null,\"quote\":null,\"updatedAt\":1782207200107}",
+      "lastExternalReferrerTime": "1782207199845",
+      "hwuuid": "e73e5a4a-a305-4f89-aa7a-2658ea72191a",
+      "altcha_payload": "{\"payload\":\"eyJhbGdvcml0aG0iOiJTSEEtMjU2IiwiY2hhbGxlbmdlIjoiODgyOGYzZTRmNWQwOWM1ODY2Y2EzYzRjNDhjNzI0…",
+      "awswaf_token_refresh_timestamp": "1782207176368",
+      "lastExternalReferrer": "empty",
+      "_gcl_ls": "{\"schema\":\"gcl\",\"version\":1,\"gsid_dc\":{\"value\":{\"joinId\":\"_BgrGqzS-PIG6bAIRJ9PaJkdintVx2Wg6A\",\"lastJ…",
+      "hwuuidtime": "1782207172",
+      "awswaf_session_storage": "d3eb0b28-da41-4362-b8d2-e93aac715965:BgoAsuNCAi4/AAAA:TpU7/tOjUg7MxbcEqIbio/qP9j6HoZN6oyEhjECQxAMz+C…",
+      "landing-country-selected": "/sg/en/"
+    },
+    "http_status": 200,
+    "redirect_chain": [
+      {
+        "status": 302,
+        "url": "https://6254042.fls.doubleclick.net/activityi;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=893639479396;npa=0;auiddc=",
+        "location": "https://6254042.fls.doubleclick.net/activityi;dc_pre=CMOPxZiHnZUDFWylZgIdvS8p5w;src=6254042;type=gfwoid;cat=gfwoidmc;rcb"
+      },
+      {
+        "status": 302,
+        "url": "https://6254042.fls.doubleclick.net/activityi;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=1509010813909;npa=0;auiddc=3",
+        "location": "https://6254042.fls.doubleclick.net/activityi;dc_pre=CKKPx5iHnZUDFXSbZgIdYLMYJg;src=6254042;type=gfwoid;cat=gfwoid;rcb=1"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=893639479396;npa=0;auiddc=309518932.",
+        "location": "https://ad.doubleclick.net/activity;dc_pre=CJLEwpiHnZUDFZ6AZgIdl6kb2w;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=89"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;dc_pre=CJLEwpiHnZUDFZ6AZgIdl6kb2w;src=6254042;type=gfwoid;cat=gfwoidmc;rcb=19;ord=89",
+        "location": "https://www.google.com/gmp/conversion/_dc_unique_id=6090793669124766627;_dc_ptd=ChEI8N3o0QYQ19mt0vjpiZCvARIfAPSHxSDflKuk"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=1509010813909;npa=0;auiddc=309518932.1",
+        "location": "https://ad.doubleclick.net/activity;dc_pre=CPSJxZiHnZUDFbiBZgId7EEoYQ;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=1509"
+      },
+      {
+        "status": 302,
+        "url": "https://ad.doubleclick.net/activity;dc_pre=CPSJxZiHnZUDFbiBZgId7EEoYQ;src=6254042;type=gfwoid;cat=gfwoid;rcb=19;ord=1509",
+        "location": "https://www.google.com/gmp/conversion/_dc_unique_id=6763592975019432452;_dc_ptd=ChEI8N3o0QYQ19mt0vjpiZCvARIfAPSHxSCRrazd"
+      }
+    ],
+    "response_set_cookies": []
+  }
+]

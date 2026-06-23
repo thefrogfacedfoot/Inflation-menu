@@ -14990,3 +14990,907 @@ Top 5 price decreases:
 2026-06-23 14:08:20,204 —    - Family Seafood
 2026-06-23 14:08:20,204 — 
 Done. Results in uifpi.db
+2026-06-23 16:47:21,075 — 
+UIFPI Daily Collection — 2026-06-23
+2026-06-23 16:47:21,076 — Fetching USD exchange rates …
+2026-06-23 16:47:21,076 —   ✓ Using cached USD rates (3.5h old)
+2026-06-23 16:47:21,077 —   Rates loaded: SGD=1.29, MYR=4.15, IDR=17863.85, THB=32.94
+2026-06-23 16:47:21,077 — 
+Total targets: 67
+2026-06-23 16:47:21,123 — Already scraped today: 38 — skipping
+2026-06-23 16:47:21,123 — To scrape: 29
+
+2026-06-23 16:47:21,124 — --- Attempt 1 (29 targets) ---
+
+2026-06-23 16:47:24,653 —   Loading Rubato (foodpanda)…
+2026-06-23 16:47:34,890 —   Bot detected on attempt 1
+2026-06-23 16:47:35,272 —   ✗  Rubato: ACCESS_DENIED
+2026-06-23 16:47:35,273 —   sleeping 6.2s before next target
+2026-06-23 16:47:43,702 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-23 16:47:49,771 —   Bot detected on attempt 1
+2026-06-23 16:47:50,208 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-23 16:47:50,208 —   sleeping 7.6s before next target
+2026-06-23 16:48:00,636 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-23 16:48:08,113 —   Bot detected on attempt 1
+2026-06-23 16:48:08,883 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-23 16:48:08,884 —   sleeping 9.1s before next target
+2026-06-23 16:48:20,889 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-23 16:48:26,705 —   Bot detected on attempt 1
+2026-06-23 16:48:27,123 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-23 16:48:27,123 —   sleeping 6.8s before next target
+2026-06-23 16:48:37,126 —   Loading Putien (foodpanda)…
+2026-06-23 16:48:43,589 —   Bot detected on attempt 1
+2026-06-23 16:48:44,102 —   ✗  Putien: ACCESS_DENIED
+2026-06-23 16:48:44,103 —   sleeping 5.8s before next target
+2026-06-23 16:48:52,247 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-23 16:48:59,216 —   Bot detected on attempt 1
+2026-06-23 16:49:00,802 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-23 16:49:00,803 —   sleeping 8.2s before next target
+2026-06-23 16:49:11,801 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-23 16:49:18,252 —   Bot detected on attempt 1
+2026-06-23 16:49:18,583 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-23 16:49:18,583 —   sleeping 6.7s before next target
+2026-06-23 16:49:27,230 —   Loading Pepper Lunch (foodpanda)…
+2026-06-23 16:49:33,539 —   Bot detected on attempt 1
+2026-06-23 16:49:34,284 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-23 16:49:34,285 —   sleeping 7.5s before next target
+2026-06-23 16:49:43,855 —   Loading Toast Box (foodpanda)…
+2026-06-23 16:49:52,580 —   Bot detected on attempt 1
+2026-06-23 16:49:52,995 —   ✗  Toast Box: ACCESS_DENIED
+2026-06-23 16:49:52,995 —   sleeping 8.0s before next target
+2026-06-23 16:50:02,906 —   Loading Old Chang Kee (foodpanda)…
+2026-06-23 16:50:11,231 —   Bot detected on attempt 1
+2026-06-23 16:50:11,588 —   ✗  Old Chang Kee: ACCESS_DENIED
+2026-06-23 16:50:11,588 —   sleeping 8.7s before next target
+2026-06-23 16:50:22,156 —   Loading Crystal Jade GO (foodpanda)…
+2026-06-23 16:50:28,165 —   Bot detected on attempt 1
+2026-06-23 16:50:28,428 —   ✗  Crystal Jade GO: ACCESS_DENIED
+2026-06-23 16:50:28,429 —   sleeping 5.1s before next target
+2026-06-23 16:50:35,418 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+2026-06-23 16:50:45,233 —   Bot detected on attempt 1
+2026-06-23 16:50:45,755 —   ✗  Song Fa Bak Kut Teh: ACCESS_DENIED
+2026-06-23 16:50:45,755 —   sleeping 8.0s before next target
+2026-06-23 16:50:55,577 —   Loading A Noodle Story (foodpanda)…
+2026-06-23 16:51:01,326 —   Bot detected on attempt 1
+2026-06-23 16:51:01,649 —   ✗  A Noodle Story: ACCESS_DENIED
+2026-06-23 16:51:01,650 —   sleeping 5.6s before next target
+2026-06-23 16:51:09,756 —   Loading 328 Katong Laksa (foodpanda)…
+2026-06-23 16:51:20,762 —   Bot detected on attempt 1
+2026-06-23 16:51:21,156 —   ✗  328 Katong Laksa: ACCESS_DENIED
+2026-06-23 16:51:21,156 —   sleeping 5.5s before next target
+2026-06-23 16:51:29,300 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-23 16:51:39,690 —   Bot detected on attempt 1
+2026-06-23 16:51:39,988 —   ✗  Crave Nasi Lemak: ACCESS_DENIED
+2026-06-23 16:51:39,989 —   sleeping 5.2s before next target
+2026-06-23 16:51:47,932 —   Loading Tai Wah Pork Noodles (foodpanda)…
+2026-06-23 16:51:54,290 —   Bot detected on attempt 1
+2026-06-23 16:51:54,560 —   ✗  Tai Wah Pork Noodles: ACCESS_DENIED
+2026-06-23 16:51:54,560 —   sleeping 8.2s before next target
+2026-06-23 16:52:05,077 —   Loading Janggut Laksa (foodpanda)…
+2026-06-23 16:52:06,720 —   ✓ Using cached USD rates (3.6h old)
+2026-06-23 16:52:10,593 —   Loading McDonald's SG (GrabFood)…
+2026-06-23 16:52:12,201 —   Bot detected on attempt 1
+2026-06-23 16:52:13,229 —   ✗  Janggut Laksa: ACCESS_DENIED
+2026-06-23 16:52:13,230 —   sleeping 9.6s before next target
+2026-06-23 16:52:27,310 —   Loading Nam Kee Chicken Rice (foodpanda)…
+2026-06-23 16:52:36,087 —   Bot detected on attempt 1
+2026-06-23 16:52:36,395 —   ✗  Nam Kee Chicken Rice: ACCESS_DENIED
+2026-06-23 16:52:36,395 —   sleeping 6.1s before next target
+2026-06-23 16:52:39,104 —   ✓ McDonald's SG: 141 items
+2026-06-23 16:52:44,352 —   Loading Killiney Kopitiam (foodpanda)…
+2026-06-23 16:52:52,581 —   Bot detected on attempt 1
+2026-06-23 16:52:52,932 —   Loading Crystal Jade Hong Kong Kitchen SG (GrabFood)…
+2026-06-23 16:52:53,348 —   ✗  Killiney Kopitiam: ACCESS_DENIED
+2026-06-23 16:52:53,348 —   sleeping 6.8s before next target
+2026-06-23 16:53:03,167 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-23 16:53:09,580 —   Bot detected on attempt 1
+2026-06-23 16:53:09,921 —   ✗  Ichiban Boshi KL: ACCESS_DENIED
+2026-06-23 16:53:09,922 —   sleeping 7.0s before next target
+2026-06-23 16:53:19,260 —     GrabFood returned 0 items. title='[CLOSED] Crystal Jade Hong Kong Kitchen - Tampines Mall #...'. HTML 180899 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-23 16:53:19,261 —   ✗ Crystal Jade Hong Kong Kitchen SG: 0 items — page did not yield menu data
+2026-06-23 16:53:19,522 —   Loading Pepper Lunch KL (foodpanda)…
+2026-06-23 16:53:26,684 —   Bot detected on attempt 1
+2026-06-23 16:53:27,007 —   ✗  Pepper Lunch KL: ACCESS_DENIED
+2026-06-23 16:53:27,007 —   sleeping 6.8s before next target
+2026-06-23 16:53:31,049 —   Loading Crystal Jade Go United Square (GrabFood)…
+2026-06-23 16:53:36,189 —   Loading OldTown White Coffee (foodpanda)…
+2026-06-23 16:53:43,387 —   Bot detected on attempt 1
+2026-06-23 16:53:44,112 —   ✗  OldTown White Coffee: ACCESS_DENIED
+2026-06-23 16:53:44,113 —   sleeping 6.8s before next target
+2026-06-23 16:53:53,076 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+2026-06-23 16:54:00,665 —     GrabFood returned 0 items. title='[CLOSED] Crystal Jade Go - United Square #01-02/03'. HTML 155051 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-23 16:54:00,665 —   ✗ Crystal Jade Go United Square: 0 items — page did not yield menu data
+2026-06-23 16:54:01,879 —   Bot detected on attempt 1
+2026-06-23 16:54:02,314 —   ✗  Restoran Yusoof Dan Zakhir: ACCESS_DENIED
+2026-06-23 16:54:02,314 —   sleeping 8.4s before next target
+2026-06-23 16:54:12,524 —   Loading Kluang Rail Coffee (foodpanda)…
+2026-06-23 16:54:17,390 —   Loading Saizeriya SG (GrabFood)…
+2026-06-23 16:54:18,763 —   Bot detected on attempt 1
+2026-06-23 16:54:19,006 —   ✗  Kluang Rail Coffee: ACCESS_DENIED
+2026-06-23 16:54:19,007 —   sleeping 5.4s before next target
+2026-06-23 16:54:26,300 —   Loading Kim Lian Kee (foodpanda)…
+2026-06-23 16:54:27,033 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 16:54:32,976 —   Bot detected on attempt 1
+2026-06-23 16:54:33,228 —   ✗  Kim Lian Kee: ACCESS_DENIED
+2026-06-23 16:54:33,228 —   sleeping 7.1s before next target
+2026-06-23 16:54:39,530 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 16:54:42,010 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+2026-06-23 16:54:48,503 —   Bot detected on attempt 1
+2026-06-23 16:54:48,843 —   ✗  Hameed Pata Mee Sotong: ACCESS_DENIED
+2026-06-23 16:54:48,843 —   sleeping 8.7s before next target
+2026-06-23 16:54:51,789 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 16:54:56,637 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 174343 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 16:54:56,638 —   ✗ Saizeriya SG: 0 items — page did not yield menu data
+2026-06-23 16:54:59,461 —   Loading Nasi Kandar Pelita (foodpanda)…
+2026-06-23 16:55:05,458 —   Bot detected on attempt 1
+2026-06-23 16:55:05,827 —   ✗  Nasi Kandar Pelita: ACCESS_DENIED
+2026-06-23 16:55:05,828 —   sleeping 9.5s before next target
+2026-06-23 16:55:07,749 —   Loading Pizza Hut SG (GrabFood)…
+2026-06-23 16:55:16,840 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 16:55:17,338 —   Loading Jerung Char Koay Teow (foodpanda)…
+2026-06-23 16:55:22,667 —   Bot detected on attempt 1
+2026-06-23 16:55:22,932 —   ✗  Jerung Char Koay Teow: ACCESS_DENIED
+2026-06-23 16:55:22,932 —   sleeping 5.6s before next target
+2026-06-23 16:55:29,831 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 16:55:30,455 —   Loading Family Seafood (foodpanda)…
+2026-06-23 16:55:37,598 —   Bot detected on attempt 1
+2026-06-23 16:55:37,928 —   ✗  Family Seafood: ACCESS_DENIED
+2026-06-23 16:55:37,928 —   sleeping 7.2s before next target
+2026-06-23 16:55:42,022 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 16:55:45,154 — 
+29 failed — retrying immediately (after 10s breather)…
+2026-06-23 16:55:46,874 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 174343 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 16:55:46,875 —   ✗ Pizza Hut SG: 0 items — page did not yield menu data
+2026-06-23 16:55:55,155 — --- Attempt 2 (29 targets) ---
+
+2026-06-23 16:55:56,915 —   Loading Rubato (foodpanda)…
+2026-06-23 16:56:00,099 —   Loading Subway SG (GrabFood)…
+2026-06-23 16:56:05,887 —   Bot detected on attempt 1
+2026-06-23 16:56:06,223 —   ✗  Rubato: ACCESS_DENIED
+2026-06-23 16:56:06,223 —   sleeping 7.5s before next target
+2026-06-23 16:56:11,762 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 16:56:15,621 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-23 16:56:22,186 —   Bot detected on attempt 1
+2026-06-23 16:56:22,499 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-23 16:56:22,499 —   sleeping 5.2s before next target
+2026-06-23 16:56:24,979 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 16:56:29,577 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-23 16:56:35,833 —   Bot detected on attempt 1
+2026-06-23 16:56:36,148 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-23 16:56:36,148 —   sleeping 9.4s before next target
+2026-06-23 16:56:36,645 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 16:56:41,493 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 174322 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 16:56:41,493 —   ✗ Subway SG: 0 items — page did not yield menu data
+2026-06-23 16:56:47,365 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-23 16:56:56,460 —   Bot detected on attempt 1
+2026-06-23 16:56:57,245 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-23 16:56:57,245 —   sleeping 7.5s before next target
+2026-06-23 16:56:57,288 —   Loading Yoshinoya SG (GrabFood)…
+2026-06-23 16:57:06,594 —   Loading Putien (foodpanda)…
+2026-06-23 16:57:06,639 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 16:57:13,107 —   Bot detected on attempt 1
+2026-06-23 16:57:13,421 —   ✗  Putien: ACCESS_DENIED
+2026-06-23 16:57:13,421 —   sleeping 7.4s before next target
+2026-06-23 16:57:19,138 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 16:57:22,676 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-23 16:57:30,153 —   Bot detected on attempt 1
+2026-06-23 16:57:30,473 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-23 16:57:30,474 —   sleeping 6.7s before next target
+2026-06-23 16:57:30,928 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 16:57:35,775 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 174363 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 16:57:35,775 —   ✗ Yoshinoya SG: 0 items — page did not yield menu data
+2026-06-23 16:57:39,004 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-23 16:57:45,211 —   Bot detected on attempt 1
+2026-06-23 16:57:45,764 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-23 16:57:45,764 —   sleeping 9.5s before next target
+2026-06-23 16:57:51,523 —   Loading Old Chang Kee SG (GrabFood) (GrabFood)…
+2026-06-23 16:57:57,301 —   Loading Pepper Lunch (foodpanda)…
+2026-06-23 16:58:02,995 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 16:58:04,500 —   Bot detected on attempt 1
+2026-06-23 16:58:04,763 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-23 16:58:04,763 —   sleeping 7.1s before next target
+2026-06-23 16:58:13,587 —   Loading Toast Box (foodpanda)…
+2026-06-23 16:58:14,764 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 16:58:18,947 —   Bot detected on attempt 1
+2026-06-23 16:58:19,242 —   ✗  Toast Box: ACCESS_DENIED
+2026-06-23 16:58:19,242 —   sleeping 9.2s before next target
+2026-06-23 16:58:26,210 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 16:58:30,095 —   Loading Old Chang Kee (foodpanda)…
+2026-06-23 16:58:31,081 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 175740 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nMcdonalds Del'
+2026-06-23 16:58:31,081 —   ✗ Old Chang Kee SG (GrabFood): 0 items — page did not yield menu data
+2026-06-23 16:58:37,463 —   Bot detected on attempt 1
+2026-06-23 16:58:37,776 —   ✗  Old Chang Kee: ACCESS_DENIED
+2026-06-23 16:58:37,776 —   sleeping 5.6s before next target
+2026-06-23 16:58:42,976 —   Loading Burger King SG (GrabFood)…
+2026-06-23 16:58:45,513 —   Loading Crystal Jade GO (foodpanda)…
+2026-06-23 16:58:51,114 —   Bot detected on attempt 1
+2026-06-23 16:58:51,479 —   ✗  Crystal Jade GO: ACCESS_DENIED
+2026-06-23 16:58:51,479 —   sleeping 9.5s before next target
+2026-06-23 16:58:55,078 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 16:59:03,031 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+2026-06-23 16:59:08,687 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 16:59:09,277 —   Bot detected on attempt 1
+2026-06-23 16:59:09,606 —   ✗  Song Fa Bak Kut Teh: ACCESS_DENIED
+2026-06-23 16:59:09,606 —   sleeping 8.3s before next target
+2026-06-23 16:59:19,736 —   Loading A Noodle Story (foodpanda)…
+2026-06-23 16:59:20,814 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 16:59:25,717 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 174350 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 16:59:25,717 —   ✗ Burger King SG: 0 items — page did not yield menu data
+2026-06-23 16:59:28,132 —   Bot detected on attempt 1
+2026-06-23 16:59:28,373 —   ✗  A Noodle Story: ACCESS_DENIED
+2026-06-23 16:59:28,373 —   sleeping 9.8s before next target
+2026-06-23 16:59:40,048 —   Loading 328 Katong Laksa (foodpanda)…
+2026-06-23 16:59:42,115 —   Loading Han's SG (GrabFood)…
+2026-06-23 16:59:46,930 —   Bot detected on attempt 1
+2026-06-23 16:59:47,528 —   ✗  328 Katong Laksa: ACCESS_DENIED
+2026-06-23 16:59:47,528 —   sleeping 7.8s before next target
+2026-06-23 16:59:58,021 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-23 16:59:59,901 —   ✓ Han's SG: 126 items
+2026-06-23 17:00:05,581 —   Bot detected on attempt 1
+2026-06-23 17:00:05,866 —   ✗  Crave Nasi Lemak: ACCESS_DENIED
+2026-06-23 17:00:05,867 —   sleeping 8.7s before next target
+2026-06-23 17:00:12,525 —   Loading Toast Box SG (GrabFood) (GrabFood)…
+2026-06-23 17:00:16,393 —   Loading Tai Wah Pork Noodles (foodpanda)…
+2026-06-23 17:00:25,422 —   Bot detected on attempt 1
+2026-06-23 17:00:25,634 —   ✗  Tai Wah Pork Noodles: ACCESS_DENIED
+2026-06-23 17:00:25,635 —   sleeping 5.8s before next target
+2026-06-23 17:00:29,375 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:00:33,216 —   Loading Janggut Laksa (foodpanda)…
+2026-06-23 17:00:40,422 —   Bot detected on attempt 1
+2026-06-23 17:00:40,713 —   ✗  Janggut Laksa: ACCESS_DENIED
+2026-06-23 17:00:40,713 —   sleeping 5.4s before next target
+2026-06-23 17:00:44,672 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:00:47,906 —   Loading Nam Kee Chicken Rice (foodpanda)…
+2026-06-23 17:00:54,513 —   Bot detected on attempt 1
+2026-06-23 17:00:54,796 —   ✗  Nam Kee Chicken Rice: ACCESS_DENIED
+2026-06-23 17:00:54,796 —   sleeping 7.9s before next target
+2026-06-23 17:00:58,045 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:01:02,907 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 174252 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:01:02,907 —   ✗ Toast Box SG (GrabFood): 0 items — page did not yield menu data
+2026-06-23 17:01:04,678 —   Loading Killiney Kopitiam (foodpanda)…
+2026-06-23 17:01:12,387 —   Bot detected on attempt 1
+2026-06-23 17:01:12,645 —   ✗  Killiney Kopitiam: ACCESS_DENIED
+2026-06-23 17:01:12,645 —   sleeping 8.9s before next target
+2026-06-23 17:01:16,276 —   Loading Marrybrown MY (GrabFood)…
+2026-06-23 17:01:23,657 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-23 17:01:26,539 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:01:29,162 —   Bot detected on attempt 1
+2026-06-23 17:01:29,484 —   ✗  Ichiban Boshi KL: ACCESS_DENIED
+2026-06-23 17:01:29,484 —   sleeping 6.2s before next target
+2026-06-23 17:01:37,643 —   Loading Pepper Lunch KL (foodpanda)…
+2026-06-23 17:01:38,899 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:01:44,270 —   Bot detected on attempt 1
+2026-06-23 17:01:44,725 —   ✗  Pepper Lunch KL: ACCESS_DENIED
+2026-06-23 17:01:44,725 —   sleeping 8.4s before next target
+2026-06-23 17:01:52,176 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:01:54,908 —   Loading OldTown White Coffee (foodpanda)…
+2026-06-23 17:01:57,029 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175185 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:01:57,030 —   ✗ Marrybrown MY: 0 items — page did not yield menu data
+2026-06-23 17:02:03,337 —   Bot detected on attempt 1
+2026-06-23 17:02:03,660 —   ✗  OldTown White Coffee: ACCESS_DENIED
+2026-06-23 17:02:03,660 —   sleeping 9.8s before next target
+2026-06-23 17:02:07,425 —   Loading Chatime MY (GrabFood)…
+2026-06-23 17:02:15,539 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+2026-06-23 17:02:18,338 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:02:23,763 —   Bot detected on attempt 1
+2026-06-23 17:02:24,092 —   ✗  Restoran Yusoof Dan Zakhir: ACCESS_DENIED
+2026-06-23 17:02:24,093 —   sleeping 6.4s before next target
+2026-06-23 17:02:31,630 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:02:32,629 —   Loading Kluang Rail Coffee (foodpanda)…
+2026-06-23 17:02:40,479 —   Bot detected on attempt 1
+2026-06-23 17:02:40,764 —   ✗  Kluang Rail Coffee: ACCESS_DENIED
+2026-06-23 17:02:40,764 —   sleeping 8.2s before next target
+2026-06-23 17:02:44,834 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:02:49,694 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175143 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:02:49,694 —   ✗ Chatime MY: 0 items — page did not yield menu data
+2026-06-23 17:02:51,095 —   Loading Kim Lian Kee (foodpanda)…
+2026-06-23 17:02:57,630 —   Bot detected on attempt 1
+2026-06-23 17:02:57,994 —   ✗  Kim Lian Kee: ACCESS_DENIED
+2026-06-23 17:02:57,995 —   sleeping 9.3s before next target
+2026-06-23 17:03:01,251 —   Loading The Chicken Rice Shop MY (GrabFood)…
+2026-06-23 17:03:09,250 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+2026-06-23 17:03:10,917 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:03:14,634 —   Bot detected on attempt 1
+2026-06-23 17:03:14,912 —   ✗  Hameed Pata Mee Sotong: ACCESS_DENIED
+2026-06-23 17:03:14,913 —   sleeping 7.6s before next target
+2026-06-23 17:03:22,696 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:03:24,654 —   Loading Nasi Kandar Pelita (foodpanda)…
+2026-06-23 17:03:30,655 —   Bot detected on attempt 1
+2026-06-23 17:03:30,969 —   ✗  Nasi Kandar Pelita: ACCESS_DENIED
+2026-06-23 17:03:30,969 —   sleeping 5.8s before next target
+2026-06-23 17:03:36,496 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:03:38,569 —   Loading Jerung Char Koay Teow (foodpanda)…
+2026-06-23 17:03:41,368 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175241 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:03:41,368 —   ✗ The Chicken Rice Shop MY: 0 items — page did not yield menu data
+2026-06-23 17:03:48,028 —   Bot detected on attempt 1
+2026-06-23 17:03:48,346 —   ✗  Jerung Char Koay Teow: ACCESS_DENIED
+2026-06-23 17:03:48,347 —   sleeping 6.6s before next target
+2026-06-23 17:03:57,074 —   Loading Secret Recipe MY (GrabFood)…
+2026-06-23 17:03:58,156 —   Loading Family Seafood (foodpanda)…
+2026-06-23 17:04:04,503 —   Bot detected on attempt 1
+2026-06-23 17:04:04,801 —   ✗  Family Seafood: ACCESS_DENIED
+2026-06-23 17:04:04,801 —   sleeping 8.0s before next target
+2026-06-23 17:04:08,201 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:04:12,825 — 
+29 failed — retrying immediately (after 10s breather)…
+2026-06-23 17:04:20,136 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:04:22,829 — --- Attempt 3 (29 targets) ---
+
+2026-06-23 17:04:24,673 —   Loading Rubato (foodpanda)…
+2026-06-23 17:04:32,455 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:04:33,753 —   Bot detected on attempt 1
+2026-06-23 17:04:34,102 —   ✗  Rubato: ACCESS_DENIED
+2026-06-23 17:04:34,103 —   sleeping 9.5s before next target
+2026-06-23 17:04:37,303 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175190 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:04:37,303 —   ✗ Secret Recipe MY: 0 items — page did not yield menu data
+2026-06-23 17:04:45,459 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-23 17:04:51,475 —   Loading McDonald's MY (GrabFood)…
+2026-06-23 17:04:51,816 —   Bot detected on attempt 1
+2026-06-23 17:04:52,146 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-23 17:04:52,146 —   sleeping 5.3s before next target
+2026-06-23 17:04:59,502 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+2026-06-23 17:05:02,664 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:05:05,003 —   Bot detected on attempt 1
+2026-06-23 17:05:05,296 —   ✗  Crystal Jade La Mian Xiao Long Bao: ACCESS_DENIED
+2026-06-23 17:05:05,296 —   sleeping 6.3s before next target
+2026-06-23 17:05:13,402 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+2026-06-23 17:05:15,485 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:05:20,353 —   Bot detected on attempt 1
+2026-06-23 17:05:20,613 —   ✗  No Signboard Prawn Noodles and Carrot Cake: ACCESS_DENIED
+2026-06-23 17:05:20,614 —   sleeping 5.7s before next target
+2026-06-23 17:05:28,127 —   Loading Putien (foodpanda)…
+2026-06-23 17:05:28,801 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:05:33,687 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175229 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:05:33,687 —   ✗ McDonald's MY: 0 items — page did not yield menu data
+2026-06-23 17:05:35,734 —   Bot detected on attempt 1
+2026-06-23 17:05:36,003 —   ✗  Putien: ACCESS_DENIED
+2026-06-23 17:05:36,004 —   sleeping 7.2s before next target
+2026-06-23 17:05:44,945 —   Loading Paradise Dynasty (foodpanda)…
+2026-06-23 17:05:49,218 —   Loading KFC MY (GrabFood)…
+2026-06-23 17:05:54,332 —   Bot detected on attempt 1
+2026-06-23 17:05:54,949 —   ✗  Paradise Dynasty: ACCESS_DENIED
+2026-06-23 17:05:54,950 —   sleeping 8.1s before next target
+2026-06-23 17:06:00,742 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:06:05,104 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+2026-06-23 17:06:13,076 —   Bot detected on attempt 1
+2026-06-23 17:06:13,664 —   ✗  Crystal Jade Hong Kong Kitchen: ACCESS_DENIED
+2026-06-23 17:06:13,665 —   sleeping 7.2s before next target
+2026-06-23 17:06:22,826 —   Loading Pepper Lunch (foodpanda)…
+2026-06-23 17:06:28,333 —   Bot detected on attempt 1
+2026-06-23 17:06:28,696 —   ✗  Pepper Lunch: ACCESS_DENIED
+2026-06-23 17:06:28,696 —   sleeping 7.1s before next target
+2026-06-23 17:06:30,652 —     GrabFood returned 0 items. title='KFC - Meru Raya DT ⭐ 4'. HTML 183980 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\n\nloading...\n\nloading...\n\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee '
+2026-06-23 17:06:30,652 —   ✗ KFC MY: 0 items — page did not yield menu data
+2026-06-23 17:06:37,527 —   Loading Toast Box (foodpanda)…
+2026-06-23 17:06:42,446 —   Loading Pizza Hut MY (GrabFood)…
+2026-06-23 17:06:44,133 —   Bot detected on attempt 1
+2026-06-23 17:06:44,387 —   ✗  Toast Box: ACCESS_DENIED
+2026-06-23 17:06:44,387 —   sleeping 5.9s before next target
+2026-06-23 17:06:52,070 —   Loading Old Chang Kee (foodpanda)…
+2026-06-23 17:06:52,889 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:06:58,826 —   Bot detected on attempt 1
+2026-06-23 17:06:59,094 —   ✗  Old Chang Kee: ACCESS_DENIED
+2026-06-23 17:06:59,095 —   sleeping 5.7s before next target
+2026-06-23 17:07:05,191 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:07:06,718 —   Loading Crystal Jade GO (foodpanda)…
+2026-06-23 17:07:14,700 —   Bot detected on attempt 1
+2026-06-23 17:07:15,055 —   ✗  Crystal Jade GO: ACCESS_DENIED
+2026-06-23 17:07:15,056 —   sleeping 6.9s before next target
+2026-06-23 17:07:18,851 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:07:23,798 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 177553 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee Bean Menu\nPopular Cuisine'
+2026-06-23 17:07:23,798 —   ✗ Pizza Hut MY: 0 items — page did not yield menu data
+2026-06-23 17:07:23,897 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+2026-06-23 17:07:29,784 —   Bot detected on attempt 1
+2026-06-23 17:07:30,091 —   ✗  Song Fa Bak Kut Teh: ACCESS_DENIED
+2026-06-23 17:07:30,092 —   sleeping 5.5s before next target
+2026-06-23 17:07:35,842 —   Loading Domino's Pizza MY (GrabFood)…
+2026-06-23 17:07:38,160 —   Loading A Noodle Story (foodpanda)…
+2026-06-23 17:07:44,919 —   Bot detected on attempt 1
+2026-06-23 17:07:45,287 —   ✗  A Noodle Story: ACCESS_DENIED
+2026-06-23 17:07:45,288 —   sleeping 8.5s before next target
+2026-06-23 17:07:45,403 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:07:55,589 —   Loading 328 Katong Laksa (foodpanda)…
+2026-06-23 17:07:57,069 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:08:04,795 —   Bot detected on attempt 1
+2026-06-23 17:08:05,296 —   ✗  328 Katong Laksa: ACCESS_DENIED
+2026-06-23 17:08:05,296 —   sleeping 8.5s before next target
+2026-06-23 17:08:10,126 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:08:14,982 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175260 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:08:14,982 —   ✗ Domino's Pizza MY: 0 items — page did not yield menu data
+2026-06-23 17:08:15,677 —   Loading Crave Nasi Lemak (foodpanda)…
+2026-06-23 17:08:22,785 —   Bot detected on attempt 1
+2026-06-23 17:08:23,089 —   ✗  Crave Nasi Lemak: ACCESS_DENIED
+2026-06-23 17:08:23,090 —   sleeping 6.3s before next target
+2026-06-23 17:08:28,265 —   Loading Tealive MY (GrabFood)…
+2026-06-23 17:08:31,244 —   Loading Tai Wah Pork Noodles (foodpanda)…
+2026-06-23 17:08:37,393 —   Bot detected on attempt 1
+2026-06-23 17:08:37,658 —   ✗  Tai Wah Pork Noodles: ACCESS_DENIED
+2026-06-23 17:08:37,659 —   sleeping 5.2s before next target
+2026-06-23 17:08:39,672 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:08:44,795 —   Loading Janggut Laksa (foodpanda)…
+2026-06-23 17:08:51,415 —   Bot detected on attempt 1
+2026-06-23 17:08:51,696 —   ✗  Janggut Laksa: ACCESS_DENIED
+2026-06-23 17:08:51,696 —   sleeping 6.2s before next target
+2026-06-23 17:08:53,294 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:08:59,774 —   Loading Nam Kee Chicken Rice (foodpanda)…
+2026-06-23 17:09:07,225 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:09:08,042 —   Bot detected on attempt 1
+2026-06-23 17:09:08,347 —   ✗  Nam Kee Chicken Rice: ACCESS_DENIED
+2026-06-23 17:09:08,348 —   sleeping 6.2s before next target
+2026-06-23 17:09:12,082 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175213 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:09:12,083 —   ✗ Tealive MY: 0 items — page did not yield menu data
+2026-06-23 17:09:16,361 —   Loading Killiney Kopitiam (foodpanda)…
+2026-06-23 17:09:22,094 —   Bot detected on attempt 1
+2026-06-23 17:09:22,374 —   ✗  Killiney Kopitiam: ACCESS_DENIED
+2026-06-23 17:09:22,375 —   sleeping 7.4s before next target
+2026-06-23 17:09:24,535 —   Loading Highlands Coffee VN A (GrabFood)…
+2026-06-23 17:09:32,041 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-23 17:09:34,969 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:09:46,058 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:09:58,643 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:10:00,880 —     Saved first 5000 chars of HTML to debug_page.html
+2026-06-23 17:10:01,258 —   waiting 45s before retry 2/2 …
+2026-06-23 17:10:03,499 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171728 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:10:03,499 —   ✗ Highlands Coffee VN A: 0 items — page did not yield menu data
+2026-06-23 17:10:15,131 —   Loading Highlands Coffee VN B (GrabFood)…
+2026-06-23 17:10:25,315 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:10:37,849 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:10:48,117 —   Loading Ichiban Boshi KL (foodpanda)…
+2026-06-23 17:10:50,694 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:10:54,180 —   Bot detected on attempt 2
+2026-06-23 17:10:54,467 —   ✗  Ichiban Boshi KL: ACCESS_DENIED
+2026-06-23 17:10:54,467 —   sleeping 7.9s before next target
+2026-06-23 17:10:55,556 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171733 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:10:55,556 —   ✗ Highlands Coffee VN B: 0 items — page did not yield menu data
+2026-06-23 17:11:04,170 —   Loading Pepper Lunch KL (foodpanda)…
+2026-06-23 17:11:08,935 —   Loading The Coffee House VN A (GrabFood)…
+2026-06-23 17:11:12,903 —   Bot detected on attempt 1
+2026-06-23 17:11:13,136 —   ✗  Pepper Lunch KL: ACCESS_DENIED
+2026-06-23 17:11:13,136 —   sleeping 8.2s before next target
+2026-06-23 17:11:20,605 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:11:23,152 —   Loading OldTown White Coffee (foodpanda)…
+2026-06-23 17:11:32,487 —   Bot detected on attempt 1
+2026-06-23 17:11:32,787 —   ✗  OldTown White Coffee: ACCESS_DENIED
+2026-06-23 17:11:32,788 —   sleeping 7.4s before next target
+2026-06-23 17:11:33,149 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:11:41,964 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+2026-06-23 17:11:43,703 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:11:48,185 —   Bot detected on attempt 1
+2026-06-23 17:11:48,422 —   ✗  Restoran Yusoof Dan Zakhir: ACCESS_DENIED
+2026-06-23 17:11:48,423 —   sleeping 7.0s before next target
+2026-06-23 17:11:48,564 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171605 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:11:48,565 —   ✗ The Coffee House VN A: 0 items — page did not yield menu data
+2026-06-23 17:11:57,291 —   Loading Kluang Rail Coffee (foodpanda)…
+2026-06-23 17:12:03,918 —   Loading The Coffee House VN B (GrabFood)…
+2026-06-23 17:12:05,961 —   Bot detected on attempt 1
+2026-06-23 17:12:06,235 —   ✗  Kluang Rail Coffee: ACCESS_DENIED
+2026-06-23 17:12:06,235 —   sleeping 7.9s before next target
+2026-06-23 17:12:15,825 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:12:16,589 —   Loading Kim Lian Kee (foodpanda)…
+2026-06-23 17:12:24,147 —   Bot detected on attempt 1
+2026-06-23 17:12:24,682 —   ✗  Kim Lian Kee: ACCESS_DENIED
+2026-06-23 17:12:24,682 —   sleeping 8.5s before next target
+2026-06-23 17:12:35,170 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+2026-06-23 17:12:40,840 —     GrabFood returned 0 items. title='The Coffee House - Hai Bà Trưng ⭐ 4.6'. HTML 171583 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\n\nloading...\n\nloading...\n\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:12:40,840 —   ✗ The Coffee House VN B: 0 items — page did not yield menu data
+2026-06-23 17:12:44,495 —   Bot detected on attempt 1
+2026-06-23 17:12:44,799 —   ✗  Hameed Pata Mee Sotong: ACCESS_DENIED
+2026-06-23 17:12:44,799 —   sleeping 8.7s before next target
+2026-06-23 17:12:53,849 —   Loading Phuc Long VN A (GrabFood)…
+2026-06-23 17:12:56,199 —   Loading Nasi Kandar Pelita (foodpanda)…
+2026-06-23 17:13:02,642 —   Bot detected on attempt 1
+2026-06-23 17:13:02,917 —   ✗  Nasi Kandar Pelita: ACCESS_DENIED
+2026-06-23 17:13:02,917 —   sleeping 6.8s before next target
+2026-06-23 17:13:04,289 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:13:11,785 —   Loading Jerung Char Koay Teow (foodpanda)…
+2026-06-23 17:13:17,020 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:13:18,210 —   Bot detected on attempt 1
+2026-06-23 17:13:18,466 —   ✗  Jerung Char Koay Teow: ACCESS_DENIED
+2026-06-23 17:13:18,466 —   sleeping 8.5s before next target
+2026-06-23 17:13:28,647 —   Loading Family Seafood (foodpanda)…
+2026-06-23 17:13:30,924 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:13:35,625 —   Bot detected on attempt 1
+2026-06-23 17:13:35,775 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171738 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:13:35,775 —   ✗ Phuc Long VN A: 0 items — page did not yield menu data
+2026-06-23 17:13:36,004 —   ✗  Family Seafood: ACCESS_DENIED
+2026-06-23 17:13:36,005 —   sleeping 7.4s before next target
+2026-06-23 17:13:44,382 — 
+Price changes detected: 10 items across 4 restaurants
+2026-06-23 17:13:44,382 — 
+Top 5 price increases:
+2026-06-23 17:13:44,382 —   ↑ Nando's London (Deliveroo)     3 Chicken Wings                          7.00 → 7.95  (+13.57%)
+2026-06-23 17:13:44,383 —   ↑ Nando's King's Cross (Deliveroo) 3 Chicken Wings                          7.00 → 7.95  (+13.57%)
+2026-06-23 17:13:44,383 — 
+Top 5 price decreases:
+2026-06-23 17:13:44,383 —   ↓ Swee Choon Tim Sum             Happiness Dim Sum Set G                  18.20 → 10.92  (-40.00%)
+2026-06-23 17:13:44,383 —   ↓ Swee Choon Tim Sum             Trio Feast for 1 G                       16.90 → 11.83  (-30.00%)
+2026-06-23 17:13:44,383 —   ↓ Swee Choon Tim Sum             Congee Comfort + G                       16.30 → 11.41  (-30.00%)
+2026-06-23 17:13:44,384 —   ↓ Swee Choon Tim Sum             Rice Roll Lunch G                        16.10 → 11.27  (-30.00%)
+2026-06-23 17:13:44,384 —   ↓ BreadTalk                      Yotsuba Hokkaido Milk Strawberry         3.60 → 3.20  (-11.11%)
+2026-06-23 17:13:44,384 —   ✓ Failure rate 43.3% below 50% — no alert
+2026-06-23 17:13:44,393 — 
+⚠  Still failed after 3 attempts:
+2026-06-23 17:13:44,394 —    - Rubato
+2026-06-23 17:13:44,394 —    - Ichiban Boshi
+2026-06-23 17:13:44,394 —    - Crystal Jade La Mian Xiao Long Bao
+2026-06-23 17:13:44,394 —    - No Signboard Prawn Noodles and Carrot Cake
+2026-06-23 17:13:44,394 —    - Putien
+2026-06-23 17:13:44,394 —    - Paradise Dynasty
+2026-06-23 17:13:44,394 —    - Crystal Jade Hong Kong Kitchen
+2026-06-23 17:13:44,395 —    - Pepper Lunch
+2026-06-23 17:13:44,395 —    - Toast Box
+2026-06-23 17:13:44,395 —    - Old Chang Kee
+2026-06-23 17:13:44,395 —    - Crystal Jade GO
+2026-06-23 17:13:44,395 —    - Song Fa Bak Kut Teh
+2026-06-23 17:13:44,395 —    - A Noodle Story
+2026-06-23 17:13:44,395 —    - 328 Katong Laksa
+2026-06-23 17:13:44,395 —    - Crave Nasi Lemak
+2026-06-23 17:13:44,396 —    - Tai Wah Pork Noodles
+2026-06-23 17:13:44,396 —    - Janggut Laksa
+2026-06-23 17:13:44,396 —    - Nam Kee Chicken Rice
+2026-06-23 17:13:44,396 —    - Killiney Kopitiam
+2026-06-23 17:13:44,396 —    - Ichiban Boshi KL
+2026-06-23 17:13:44,396 —    - Pepper Lunch KL
+2026-06-23 17:13:44,396 —    - OldTown White Coffee
+2026-06-23 17:13:44,397 —    - Restoran Yusoof Dan Zakhir
+2026-06-23 17:13:44,397 —    - Kluang Rail Coffee
+2026-06-23 17:13:44,397 —    - Kim Lian Kee
+2026-06-23 17:13:44,397 —    - Hameed Pata Mee Sotong
+2026-06-23 17:13:44,397 —    - Nasi Kandar Pelita
+2026-06-23 17:13:44,397 —    - Jerung Char Koay Teow
+2026-06-23 17:13:44,397 —    - Family Seafood
+2026-06-23 17:13:44,397 — 
+Done. Results in uifpi.db
+2026-06-23 17:13:46,849 —   Loading Phuc Long VN B (GrabFood)…
+2026-06-23 17:13:56,603 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:14:07,769 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:14:20,202 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:14:25,062 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171653 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:14:25,062 —   ✗ Phuc Long VN B: 0 items — page did not yield menu data
+2026-06-23 17:14:37,745 —   Loading Lotteria VN A (GrabFood)…
+2026-06-23 17:14:47,217 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:14:59,841 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:15:11,191 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:15:16,037 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171613 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:15:16,037 —   ✗ Lotteria VN A: 0 items — page did not yield menu data
+2026-06-23 17:15:28,906 —   Loading Lotteria VN B (GrabFood)…
+2026-06-23 17:15:39,586 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:15:52,224 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:16:05,477 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:16:10,326 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171564 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:16:10,327 —   ✗ Lotteria VN B: 0 items — page did not yield menu data
+2026-06-23 17:16:21,028 —   Loading Burger King VN (GrabFood)…
+2026-06-23 17:16:31,648 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:16:45,203 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:16:56,117 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:17:00,968 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171565 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:17:00,968 —   ✗ Burger King VN: 0 items — page did not yield menu data
+2026-06-23 17:17:14,833 —   Loading KFC VN (GrabFood)…
+2026-06-23 17:17:25,101 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:17:37,891 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:17:49,300 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:17:54,148 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 168937 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:17:54,148 —   ✗ KFC VN: 0 items — page did not yield menu data
+2026-06-23 17:38:46,761 —   ✓ Using cached USD rates (4.4h old)
+2026-06-23 17:39:03,912 —   Loading Crystal Jade Hong Kong Kitchen SG (GrabFood)…
+2026-06-23 17:39:21,006 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:39:49,479 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:40:04,867 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:40:09,824 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 144841 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:40:09,825 —   ✗ Crystal Jade Hong Kong Kitchen SG: 0 items — page did not yield menu data
+2026-06-23 17:40:19,254 —   Loading Crystal Jade Go United Square (GrabFood)…
+2026-06-23 17:40:46,095 —     GrabFood returned 0 items. title='[CLOSED] Crystal Jade Go - United Square #01-02/03'. HTML 155077 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-23 17:40:46,095 —   ✗ Crystal Jade Go United Square: 0 items — page did not yield menu data
+2026-06-23 17:40:54,125 —   Loading Saizeriya SG (GrabFood)…
+2026-06-23 17:41:09,690 —   ✓ Saizeriya SG: 70 items
+2026-06-23 17:41:17,743 —   Loading Pizza Hut SG (GrabFood)…
+2026-06-23 17:41:39,890 —     GrabFood returned 0 items. title='[CLOSED] Pizza Hut - Plaza Singapura'. HTML 202214 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesia\nPhilippines\nThailand\nVietnam\nSingapore\nMalaysia\nMyanmar\nCambodia\n© Grab 2026\nTerms of Service\n•\nPrivacy Policy"
+2026-06-23 17:41:39,890 —   ✗ Pizza Hut SG: 0 items — page did not yield menu data
+2026-06-23 17:41:46,512 —   Loading Subway SG (GrabFood)…
+2026-06-23 17:42:00,298 —   ✓ Subway SG: 73 items
+2026-06-23 17:42:07,151 —   Loading Yoshinoya SG (GrabFood)…
+2026-06-23 17:42:26,901 —     GrabFood returned 0 items. title='[CLOSED] Yoshinoya - Wisteria Mall'. HTML 153995 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesia\nPhilippines\nThailand\nVietnam\nSingapore\nMalaysia\nMyanmar\nCambodia\n© Grab 2026\nTerms of Service\n•\nPrivacy Policy"
+2026-06-23 17:42:26,901 —   ✗ Yoshinoya SG: 0 items — page did not yield menu data
+2026-06-23 17:42:35,029 —   Loading Old Chang Kee SG (GrabFood) (GrabFood)…
+2026-06-23 17:42:49,465 —   ✓ Old Chang Kee SG (GrabFood): 31 items
+2026-06-23 17:42:57,994 —   Loading Burger King SG (GrabFood)…
+2026-06-23 17:43:13,579 —   ✓ Burger King SG: 41 items
+2026-06-23 17:43:20,850 —   Loading Toast Box SG (GrabFood) (GrabFood)…
+2026-06-23 17:43:35,863 —   ✓ Toast Box SG (GrabFood): 107 items
+2026-06-23 17:43:49,237 —   Loading Marrybrown MY (GrabFood)…
+2026-06-23 17:43:59,672 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:44:12,801 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:44:25,131 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:44:29,979 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175190 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:44:29,979 —   ✗ Marrybrown MY: 0 items — page did not yield menu data
+2026-06-23 17:44:37,699 —   Loading Chatime MY (GrabFood)…
+2026-06-23 17:44:46,923 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:45:01,409 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:45:14,005 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:45:18,849 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175148 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:45:18,849 —   ✗ Chatime MY: 0 items — page did not yield menu data
+2026-06-23 17:45:27,035 —   Loading The Chicken Rice Shop MY (GrabFood)…
+2026-06-23 17:45:37,006 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:45:49,176 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:46:02,017 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:46:06,859 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175246 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:46:06,859 —   ✗ The Chicken Rice Shop MY: 0 items — page did not yield menu data
+2026-06-23 17:46:15,667 —   Loading Secret Recipe MY (GrabFood)…
+2026-06-23 17:46:25,802 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:46:38,689 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:46:50,603 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:46:55,446 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175190 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:46:55,447 —   ✗ Secret Recipe MY: 0 items — page did not yield menu data
+2026-06-23 17:47:04,806 —   Loading McDonald's MY (GrabFood)…
+2026-06-23 17:47:16,551 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:47:29,678 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:47:43,160 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:47:48,002 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175229 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:47:48,002 —   ✗ McDonald's MY: 0 items — page did not yield menu data
+2026-06-23 17:47:54,806 —   Loading KFC MY (GrabFood)…
+2026-06-23 17:48:04,223 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:48:17,330 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:48:28,814 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:48:33,668 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175204 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:48:33,668 —   ✗ KFC MY: 0 items — page did not yield menu data
+2026-06-23 17:48:40,982 —   Loading Pizza Hut MY (GrabFood)…
+2026-06-23 17:48:50,434 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:49:02,904 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:49:16,081 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:49:20,922 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175232 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:49:20,923 —   ✗ Pizza Hut MY: 0 items — page did not yield menu data
+2026-06-23 17:49:28,381 —   Loading Domino's Pizza MY (GrabFood)…
+2026-06-23 17:49:37,245 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:49:50,639 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:50:02,453 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:50:07,296 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175260 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:50:07,296 —   ✗ Domino's Pizza MY: 0 items — page did not yield menu data
+2026-06-23 17:50:15,435 —   Loading Tealive MY (GrabFood)…
+2026-06-23 17:50:25,491 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:50:37,825 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:50:50,101 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:50:54,945 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175246 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 17:50:54,945 —   ✗ Tealive MY: 0 items — page did not yield menu data
+2026-06-23 17:51:06,888 —   Loading Highlands Coffee VN A (GrabFood)…
+2026-06-23 17:51:17,345 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:51:29,772 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:51:41,512 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:51:46,361 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171723 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:51:46,361 —   ✗ Highlands Coffee VN A: 0 items — page did not yield menu data
+2026-06-23 17:51:55,643 —   Loading Highlands Coffee VN B (GrabFood)…
+2026-06-23 17:52:07,430 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:52:18,290 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:52:31,158 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:52:36,002 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171733 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:52:36,002 —   ✗ Highlands Coffee VN B: 0 items — page did not yield menu data
+2026-06-23 17:52:42,013 —   Loading The Coffee House VN A (GrabFood)…
+2026-06-23 17:52:52,165 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:53:05,187 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:53:16,533 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:53:21,384 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171605 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:53:21,384 —   ✗ The Coffee House VN A: 0 items — page did not yield menu data
+2026-06-23 17:53:28,449 —   Loading The Coffee House VN B (GrabFood)…
+2026-06-23 17:53:37,909 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:53:50,805 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:54:03,519 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:54:08,365 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171659 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:54:08,365 —   ✗ The Coffee House VN B: 0 items — page did not yield menu data
+2026-06-23 17:54:15,926 —   Loading Phuc Long VN A (GrabFood)…
+2026-06-23 17:54:25,298 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:54:37,696 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:54:51,110 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:54:55,953 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171733 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:54:55,954 —   ✗ Phuc Long VN A: 0 items — page did not yield menu data
+2026-06-23 17:55:04,263 —   Loading Phuc Long VN B (GrabFood)…
+2026-06-23 17:55:13,225 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:55:26,377 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:55:39,461 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:55:44,306 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171681 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:55:44,306 —   ✗ Phuc Long VN B: 0 items — page did not yield menu data
+2026-06-23 17:55:53,723 —   Loading Lotteria VN A (GrabFood)…
+2026-06-23 17:56:04,482 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:56:17,288 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:56:30,547 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:56:35,395 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171613 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:56:35,395 —   ✗ Lotteria VN A: 0 items — page did not yield menu data
+2026-06-23 17:56:43,350 —   Loading Lotteria VN B (GrabFood)…
+2026-06-23 17:56:52,880 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:57:05,629 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:57:17,899 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:57:22,742 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171559 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:57:22,743 —   ✗ Lotteria VN B: 0 items — page did not yield menu data
+2026-06-23 17:57:29,207 —   Loading Burger King VN (GrabFood)…
+2026-06-23 17:57:39,133 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:57:53,133 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:58:05,421 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:58:10,263 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171565 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:58:10,263 —   ✗ Burger King VN: 0 items — page did not yield menu data
+2026-06-23 17:58:19,607 —   Loading KFC VN (GrabFood)…
+2026-06-23 17:58:29,587 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 17:58:42,961 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 17:58:56,534 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 17:59:01,381 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171559 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 17:59:01,381 —   ✗ KFC VN: 0 items — page did not yield menu data
+2026-06-23 18:12:16,997 —   ✓ Using cached USD rates (4.9h old)
+2026-06-23 18:12:18,996 —   Loading Marrybrown MY (GrabFood)…
+2026-06-23 18:12:45,382 —     GrabFood returned 0 items. title='[INACTV: COCO] Marrybrown - KWC'. HTML 167622 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-23 18:12:45,382 —   ✗ Marrybrown MY: 0 items — page did not yield menu data
+2026-06-23 18:12:45,843 —   waiting 45s before retry 2/2 …
+2026-06-23 18:13:32,675 —   Loading Marrybrown MY (GrabFood)…
+2026-06-23 18:13:57,651 —     GrabFood returned 0 items. title='[INACTV: COCO] Marrybrown - KWC'. HTML 167622 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-23 18:13:57,652 —   ✗ Marrybrown MY: 0 items — page did not yield menu data
+2026-06-23 18:14:10,529 —   Loading Chatime MY (GrabFood)…
+2026-06-23 18:14:33,749 —     GrabFood returned 0 items. title='[INACTV: PH25] Chatime - KL Sentral'. HTML 160589 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy"
+2026-06-23 18:14:33,749 —   ✗ Chatime MY: 0 items — page did not yield menu data
+2026-06-23 18:14:34,136 —   waiting 45s before retry 2/2 …
+2026-06-23 18:15:20,977 —   Loading Chatime MY (GrabFood)…
+2026-06-23 18:15:29,934 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:15:43,734 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:15:55,707 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:16:00,554 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175143 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 18:16:00,554 —   ✗ Chatime MY: 0 items — page did not yield menu data
+2026-06-23 18:16:14,716 —   Loading The Chicken Rice Shop MY (GrabFood)…
+2026-06-23 18:16:25,020 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:16:38,431 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:16:52,444 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:16:57,302 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175246 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 18:16:57,302 —   ✗ The Chicken Rice Shop MY: 0 items — page did not yield menu data
+2026-06-23 18:16:57,561 —   waiting 45s before retry 2/2 …
+2026-06-23 18:17:44,356 —   Loading The Chicken Rice Shop MY (GrabFood)…
+2026-06-23 18:17:53,576 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:18:07,241 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:18:21,223 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:18:26,076 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 177561 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee Bean Menu\nPopular Cuisine'
+2026-06-23 18:18:26,076 —   ✗ The Chicken Rice Shop MY: 0 items — page did not yield menu data
+2026-06-23 18:18:39,871 —   Loading Secret Recipe MY (GrabFood)…
+2026-06-23 18:18:50,651 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:19:04,391 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:19:15,878 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:19:20,742 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 177505 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee Bean Menu\nPopular Cuisine'
+2026-06-23 18:19:20,742 —   ✗ Secret Recipe MY: 0 items — page did not yield menu data
+2026-06-23 18:19:21,109 —   waiting 45s before retry 2/2 …
+2026-06-23 18:20:07,928 —   Loading Secret Recipe MY (GrabFood)…
+2026-06-23 18:20:28,329 —   ✓ Secret Recipe MY: 123 items
+2026-06-23 18:20:39,398 —   Loading McDonald's MY (GrabFood)…
+2026-06-23 18:20:58,147 —   ✓ McDonald's MY: 174 items
+2026-06-23 18:21:14,118 —   Loading KFC MY (GrabFood)…
+2026-06-23 18:21:26,092 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:21:38,954 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:21:53,026 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:21:57,882 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175199 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 18:21:57,883 —   ✗ KFC MY: 0 items — page did not yield menu data
+2026-06-23 18:21:58,273 —   waiting 45s before retry 2/2 …
+2026-06-23 18:22:45,127 —   Loading KFC MY (GrabFood)…
+2026-06-23 18:22:58,321 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:23:11,890 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:23:26,225 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:23:31,070 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175199 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 18:23:31,070 —   ✗ KFC MY: 0 items — page did not yield menu data
+2026-06-23 18:23:44,597 —   Loading Pizza Hut MY (GrabFood)…
+2026-06-23 18:23:54,933 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:24:07,615 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:24:22,132 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:24:26,982 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 175225 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaPhilippinesThailandVietnamSingaporeMalaysiaMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-06-23 18:24:26,982 —   ✗ Pizza Hut MY: 0 items — page did not yield menu data
+2026-06-23 18:24:27,247 —   waiting 45s before retry 2/2 …
+2026-06-23 18:25:14,203 —   Loading Pizza Hut MY (GrabFood)…
+2026-06-23 18:25:25,764 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:25:40,149 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:26:00,286 —   ✓ Pizza Hut MY: 143 items
+2026-06-23 18:26:16,118 —   Loading Domino's Pizza MY (GrabFood)…
+2026-06-23 18:26:27,912 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:26:46,872 —   ✓ Domino's Pizza MY: 100 items
+2026-06-23 18:26:58,286 —   Loading Tealive MY (GrabFood)…
+2026-06-23 18:27:08,635 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:27:21,954 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:27:32,927 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:27:37,780 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 177561 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee Bean Menu\nPopular Cuisine'
+2026-06-23 18:27:37,780 —   ✗ Tealive MY: 0 items — page did not yield menu data
+2026-06-23 18:27:38,113 —   waiting 45s before retry 2/2 …
+2026-06-23 18:28:24,924 —   Loading Tealive MY (GrabFood)…
+2026-06-23 18:28:35,129 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:28:49,388 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:29:02,009 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:29:06,863 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 177561 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee Bean Menu\nPopular Cuisine'
+2026-06-23 18:29:06,863 —   ✗ Tealive MY: 0 items — page did not yield menu data
+2026-06-23 18:29:18,087 —   Loading Highlands Coffee VN A (GrabFood)…
+2026-06-23 18:29:28,590 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:29:43,359 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:29:56,169 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:30:01,022 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171720 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:30:01,022 —   ✗ Highlands Coffee VN A: 0 items — page did not yield menu data
+2026-06-23 18:30:01,313 —   waiting 45s before retry 2/2 …
+2026-06-23 18:30:48,208 —   Loading Highlands Coffee VN A (GrabFood)…
+2026-06-23 18:30:58,374 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:31:12,462 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:31:24,960 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:31:29,812 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169101 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:31:29,812 —   ✗ Highlands Coffee VN A: 0 items — page did not yield menu data
+2026-06-23 18:31:41,825 —   Loading Highlands Coffee VN B (GrabFood)…
+2026-06-23 18:31:59,813 —   ✓ Highlands Coffee VN B: 57 items
+2026-06-23 18:32:10,609 —   Loading The Coffee House VN A (GrabFood)…
+2026-06-23 18:32:27,702 —   ✓ The Coffee House VN A: 57 items
+2026-06-23 18:32:43,175 —   Loading The Coffee House VN B (GrabFood)…
+2026-06-23 18:32:53,796 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:33:05,591 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:33:18,513 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:33:23,360 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 169036 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:33:23,360 —   ✗ The Coffee House VN B: 0 items — page did not yield menu data
+2026-06-23 18:33:23,623 —   waiting 45s before retry 2/2 …
+2026-06-23 18:34:10,534 —   Loading The Coffee House VN B (GrabFood)…
+2026-06-23 18:34:21,193 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:34:35,058 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:34:47,230 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:34:52,079 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171631 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:34:52,079 —   ✗ The Coffee House VN B: 0 items — page did not yield menu data
+2026-06-23 18:35:03,939 —   Loading Phuc Long VN A (GrabFood)…
+2026-06-23 18:35:14,034 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:35:26,258 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:35:40,656 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:35:45,503 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171725 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:35:45,503 —   ✗ Phuc Long VN A: 0 items — page did not yield menu data
+2026-06-23 18:35:45,809 —   waiting 45s before retry 2/2 …
+2026-06-23 18:36:32,707 —   Loading Phuc Long VN A (GrabFood)…
+2026-06-23 18:36:43,495 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:36:56,030 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:37:08,654 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:37:13,503 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171733 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:37:13,503 —   ✗ Phuc Long VN A: 0 items — page did not yield menu data
+2026-06-23 18:37:24,180 —   Loading Phuc Long VN B (GrabFood)…
+2026-06-23 18:37:41,070 —   ✓ Phuc Long VN B: 72 items
+2026-06-23 18:37:56,971 —   Loading Lotteria VN A (GrabFood)…
+2026-06-23 18:38:15,582 —   ✓ Lotteria VN A: 67 items
+2026-06-23 18:38:27,482 —   Loading Lotteria VN B (GrabFood)…
+2026-06-23 18:38:38,130 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:38:50,863 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:39:03,816 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:39:08,665 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171531 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:39:08,665 —   ✗ Lotteria VN B: 0 items — page did not yield menu data
+2026-06-23 18:39:09,033 —   waiting 45s before retry 2/2 …
+2026-06-23 18:39:55,909 —   Loading Lotteria VN B (GrabFood)…
+2026-06-23 18:40:08,090 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:40:21,933 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:40:35,395 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:40:40,256 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 168943 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:40:40,256 —   ✗ Lotteria VN B: 0 items — page did not yield menu data
+2026-06-23 18:40:56,196 —   Loading Burger King VN (GrabFood)…
+2026-06-23 18:41:07,533 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:41:20,889 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:41:33,072 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:41:37,917 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 171565 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:41:37,918 —   ✗ Burger King VN: 0 items — page did not yield menu data
+2026-06-23 18:41:38,197 —   waiting 45s before retry 2/2 …
+2026-06-23 18:42:25,250 —   Loading Burger King VN (GrabFood)…
+2026-06-23 18:42:36,425 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:43:03,141 —     GrabFood returned 0 items. title='Burger King - Trung Hòa - INACTIVE ⭐ 4.3'. HTML 155068 chars saved to debug_page.html. Body head: "Login to search location\nLogin/Sign Up\nEN\nLogin to search location\nUh Oh... We Couldn't Find What You're Looking For\nLet's try a different dish or restaurant.\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy"
+2026-06-23 18:43:03,141 —   ✗ Burger King VN: 0 items — page did not yield menu data
+2026-06-23 18:43:14,980 —   Loading KFC VN (GrabFood)…
+2026-06-23 18:43:24,713 —     landing-page redirect on nav 1; re-warming + retry
+2026-06-23 18:43:37,403 —     landing-page redirect on nav 2; re-warming + retry
+2026-06-23 18:43:49,677 —     still on landing page after 3 nav attempts; giving up
+2026-06-23 18:43:54,531 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 168937 chars saved to debug_page.html. Body head: 'Login to search location\nLogin/Sign Up\nEN\nAbout GrabFood\nAbout Grab\nBlog\nBe a GrabFood Merchant\nDrive With Grab\nHelp\nFAQs\n© 2026 Grab\nTerms of Service•Privacy Policy'
+2026-06-23 18:43:54,531 —   ✗ KFC VN: 0 items — page did not yield menu data
+2026-06-23 18:43:54,781 —   waiting 45s before retry 2/2 …
+2026-06-23 18:44:46,258 —   Loading KFC VN (GrabFood)…
+2026-06-23 18:45:09,880 —   ✓ KFC VN: 89 items
+2026-06-23 18:52:04,227 — 
+UIFPI Daily Collection — 2026-06-23
+2026-06-23 18:52:04,228 — Fetching USD exchange rates …
+2026-06-23 18:52:04,232 —   ✓ Using cached USD rates (5.6h old)
+2026-06-23 18:52:04,233 —   Rates loaded: SGD=1.29, MYR=4.15, IDR=17863.85, THB=32.94
+2026-06-23 18:52:04,234 — 
+Total targets: 74
+2026-06-23 18:52:04,349 — Already scraped today: 38 — skipping
+2026-06-23 18:52:04,350 — To scrape: 36
+
+2026-06-23 18:52:04,350 — --- Attempt 1 (36 targets) ---
+
+2026-06-23 18:52:09,460 —   Loading Rubato (foodpanda)…
+2026-06-23 18:52:17,671 —   Bot detected on attempt 1
+2026-06-23 18:52:18,236 —   ✗  Rubato: ACCESS_DENIED
+2026-06-23 18:52:18,237 —   sleeping 6.0s before next target
+2026-06-23 18:52:29,047 —   Loading Ichiban Boshi (foodpanda)…
+2026-06-23 18:52:36,448 —   Bot detected on attempt 1
+2026-06-23 18:52:36,762 —   ✗  Ichiban Boshi: ACCESS_DENIED
+2026-06-23 18:52:36,763 —   sleeping 6.1s before next target
+2026-06-23 18:52:46,339 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
