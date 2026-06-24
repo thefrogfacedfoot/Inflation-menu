@@ -3021,10 +3021,9 @@ if __name__ == '__main__':
         log(f"Already scraped today: {skipped} — skipping")
     log(f"To scrape: {len(remaining)}\n")
 
-    # Persist on failing targets — up to 100 passes with exponential backoff
-    # between passes (cap 10 min), so flaky targets have many chances to
-    # recover. No progress kill switch: trust that retries eventually pay off.
-    MAX_ATTEMPTS = 100
+    # Persist on failing targets — up to 3 passes with exponential backoff
+    # between passes (cap 10 min).
+    MAX_ATTEMPTS = 3
     attempt = 0
     inter_pass_wait = 10
     while remaining and attempt < MAX_ATTEMPTS:
