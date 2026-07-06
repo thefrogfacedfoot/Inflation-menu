@@ -1,0 +1,62 @@
+{
+  "country": "United States",
+  "seed": 42,
+  "n_permutations": 1000,
+  "block_length": 5,
+  "framing": "HEADLINE: calendar_true \u2014 the US menu index Granger-leads CPI at an exact 1-month lag (F=4.20, analytic p=0.0499, n=31), using only observed menu months and true 1-month CPI changes. ROBUSTNESS: interp_ffill shows the result strengthens (not weakens) when single-month menu gaps are filled causally with past information only; interp_1mo (midpoint) agrees but carries a look-ahead caveat. FOOTNOTE: strict_pairs is directionally consistent but uninformative at n=10. The original spec is deprecated: its p=0.021 was partly an artifact of gap-mixed CPI changes.",
+  "specs": {
+    "original": {
+      "role": "deprecated",
+      "n": 31,
+      "F": 6.0336,
+      "p_analytic": 0.021,
+      "note": "previous-obs lag, gap-mixed CPI changes (former headline pipeline). Superseded by calendar_true: intersecting CPI to menu months before differencing mislabeled the lag and mixed 1-9 month CPI changes. Do not cite as headline."
+    },
+    "calendar_true": {
+      "role": "headline",
+      "n": 31,
+      "F": 4.2012,
+      "p_analytic": 0.0499,
+      "note": "exact 1-month lags, full-calendar CPI changes, all menu obs used, no imputation",
+      "p_permutation": {
+        "shuffle": 0.0519,
+        "block": 0.0689
+      },
+      "figure": "analysis_results/gap_robustness_calendar_true.png"
+    },
+    "strict_pairs": {
+      "role": "footnote",
+      "n": 10,
+      "F": 2.3162,
+      "p_analytic": 0.1718,
+      "note": "exact 1-month lags, rows where menu(t) AND menu(t-1) both observed; stricter than the equation requires and underpowered at n=10 \u2014 directionally consistent, uninformative",
+      "p_permutation": {
+        "shuffle": 0.1938,
+        "block": 0.1898
+      }
+    },
+    "interp_1mo": {
+      "role": "robustness_secondary",
+      "n": 38,
+      "F": 8.0434,
+      "p_analytic": 0.0075,
+      "note": "single-month menu gaps midpoint-interpolated, then exact 1-month lags; CAVEAT: filled months embed half-weight look-ahead \u2014 prefer interp_ffill",
+      "p_permutation": {
+        "shuffle": 0.018,
+        "block": 0.012
+      }
+    },
+    "interp_ffill": {
+      "role": "robustness",
+      "n": 38,
+      "F": 9.0542,
+      "p_analytic": 0.0048,
+      "note": "single-month menu gaps forward-filled (causal, past info only), then exact 1-month lags",
+      "p_permutation": {
+        "shuffle": 0.017,
+        "block": 0.013
+      },
+      "figure": "analysis_results/gap_robustness_ffill.png"
+    }
+  }
+}

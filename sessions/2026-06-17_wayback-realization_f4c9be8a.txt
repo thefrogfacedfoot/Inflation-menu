@@ -1,0 +1,3500 @@
+==============================================================================
+Claude Code session transcript
+Source: /Users/erwenchen/.claude/projects/-Users-erwenchen-Inflation-menu/f4c9be8a-2d9f-4a66-bd7f-61f81e5b9d75.jsonl
+Session ID: f4c9be8a-2d9f-4a66-bd7f-61f81e5b9d75
+Total events: 240
+Start: 2026-06-17T12:26:41.397Z
+End:   2026-06-17T12:42:47.025Z
+==============================================================================
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:41.397Z] USER
+------------------------------------------------------------------------------
+I'm working on the UIFPI project (Unified Informal-Formal Price Index)
+in this repo. Look at the current data coverage on the site and in
+/data — there are two problems I want to fix:
+
+PROBLEM 1: Sparse data in 3 existing countries
+- Indonesia: 152 items across 21 months (~7/month, too thin)
+- Thailand: 290 items across 1 month (basically no time series)
+- Australia: 373 items across 13 months (~29/month)
+
+For each of these, I want to roughly 5–10x the item count and extend
+the monthly coverage. Please:
+1. Audit the current scrapers / data sources used for these three
+   countries in the repo. Identify why volume is low (limited source
+   list, broken scraper, narrow city coverage, etc).
+2. Propose a concrete plan to expand coverage: more cities (Jakarta +
+   Surabaya + Bandung for Indonesia; Bangkok + Chiang Mai + Phuket for
+   Thailand; Sydney + Melbourne + Brisbane + Perth for Australia),
+   more vendor sources (GoFood/GrabFood for Indonesia/Thailand,
+   Uber Eats/Menulog for Australia, plus formal restaurant chain
+   menus), and a backfill strategy for historical months using
+   archive.org / Wayback where possible.
+3. Implement the scraper changes, run them, and commit the expanded
+   datasets. Update the country pages so the index actually renders
+   (right now Thailand and Indonesia show "—" or 100.0 with no chart).
+
+PROBLEM 2: Geographic concentration in Asia
+Currently 5 of 8 countries are Asian (SG, MY, ID, TH, IN). For an
+index claiming global relevance and informal-sector focus, this is
+unbalanced. Add 3–4 new countries prioritizing:
+- Latin America: Mexico (huge street food culture, strong formal +
+  informal split) and Brazil (São Paulo + Rio)
+- Continental Europe: Germany or Spain (formal restaurants + casual
+  food halls; useful Western contrast to UK/US)
+- Africa or wider Asia: South Africa (Cape Town + Johannesburg) or
+  Vietnam (street food capital — would strengthen the informal
+  thesis but does add another Asian country, so prefer ZA if the
+  goal is geographic spread)
+
+For each new country, follow the same methodology already documented
+on /methodology and match the data schema used by existing countries.
+Aim for at least 500 items and 6+ months of data per new country
+before considering it "live."
+
+Deliverables:
+- Updated scrapers in the appropriate folder
+- Expanded CSVs/JSON in /data
+- New country pages following the existing template
+- Updated homepage tiles + counts
+- A short CHANGES.md summarizing what was added, sources used, and
+  any data-quality caveats
+
+Before you write code, show me your investigation of the current
+state and your expansion plan so I can sign off.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:45.203Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:45.819Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "ls -la /Users/erwenchen/Inflation-menu/",
+  "description": "List top-level repo structure"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:47.187Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+total 22400
+drwxr-xr-x  103 erwenchen  staff     3296 Jun 17 15:51 .
+drwxr-x---+  56 erwenchen  staff     1792 Jun 17 20:22 ..
+drwxr-xr-x    3 erwenchen  staff       96 Jun 17 15:34 .claude
+-rw-r--r--    1 erwenchen  staff      139 Jun 13 19:56 .env
+drwxr-xr-x   16 erwenchen  staff      512 Jun 17 16:39 .git
+-rw-r--r--    1 erwenchen  staff       71 Jun 16 12:36 .gitignore
+-rw-r--r--    1 erwenchen  staff    12546 Jun 15 22:38 CHANGELOG.md
+-rw-r--r--    1 erwenchen  staff     1522 Jun  9 22:03 CLEANUP_FILES.md
+-rw-r--r--    1 erwenchen  staff     2280 Jun  9 22:03 MAC_SETUP.md
+-rw-r--r--    1 erwenchen  staff    13586 Jun 15 22:26 README.md
+-rw-r--r--    1 erwenchen  staff    15590 Jun 13 09:49 abstract_generator.py
+-rw-r--r--    1 erwenchen  staff    11463 Jun 13 10:55 align_series.py
+-rw-r--r--    1 erwenchen  staff     4884 Jun 13 21:59 aligned_series.csv
+drwxr-xr-x    7 erwenchen  staff      224 Jun 13 11:25 analysis_results
+-rw-r--r--    1 erwenchen  staff     7785 Jun 14 18:40 api.py
+-rw-r--r--    1 erwenchen  staff     4289 Jun 15 16:33 apply_verifier_fixes.py
+-rw-r--r--    1 erwenchen  staff      967 Jun 13 09:12 balance_check.py
+-rw-r--r--    1 erwenchen  staff     9554 Jun 13 09:48 benchmark_comparison.py
+-rw-r--r--    1 erwenchen  staff     7442 Jun 15 17:09 candidate_grabfood_urls.json
+-rw-r--r--    1 erwenchen  staff      636 Jun 15 17:13 candidate_grabfood_urls_r2.json
+-rw-r--r--    1 erwenchen  staff     7081 Jun 15 22:00 candidate_grabfood_urls_r3.json
+-rw-r--r--    1 erwenchen  staff     6109 Jun 12 18:01 check_db.py
+-rw-r--r--    1 erwenchen  staff    10294 Jun 13 21:12 classification_inventory.csv
+-rw-r--r--    1 erwenchen  staff     6152 Jun 13 21:12 classification_rationale.txt
+-rw-r--r--    1 erwenchen  staff     3817 Jun  9 22:03 coverage_check.py
+-rw-r--r--    1 erwenchen  staff     5118 Jun 16 21:45 coverage_report.csv
+-rw-r--r--    1 erwenchen  staff     6596 Jun 16 22:14 coverage_report.md
+-rw-r--r--    1 erwenchen  staff     1737 Jun 11 14:26 coverage_retry.py
+drwxr-xr-x   18 erwenchen  staff      576 Jun 12 23:08 cpi_data
+drwxr-xr-x   22 erwenchen  staff      704 Jun 17 15:34 dashboard
+drwxr-xr-x    5 erwenchen  staff      160 Jun 13 00:00 dashboard_data
+-rw-r--r--    1 erwenchen  staff    15655 Jun 17 15:33 dashboard_data.py
+-rw-r--r--    1 erwenchen  staff     8922 Jun 17 13:44 data_gaps.md
+-rw-r--r--@   1 erwenchen  staff     5000 Jun 17 15:59 debug_page.html
+-rw-r--r--    1 erwenchen  staff     8916 Jun 13 20:17 diagnostic_report.py
+-rw-r--r--    1 erwenchen  staff    12938 Jun 13 09:24 diagnostic_report_v2.txt
+-rw-r--r--    1 erwenchen  staff     5340 Jun 13 21:15 diagnostic_report_v3.txt
+-rw-r--r--    1 erwenchen  staff     5468 Jun 13 21:15 diagnostic_report_v4.txt
+drwxr-xr-x    3 erwenchen  staff       96 Jun 16 20:26 docs
+-rw-r--r--    1 erwenchen  staff     3075 Jun 17 10:38 exchange_rates.json
+drwxr-xr-x    7 erwenchen  staff      224 Jun 13 09:48 figures
+-rw-r--r--    1 erwenchen  staff     5020 Jun 13 21:14 fill_manual_labels.py
+-rw-r--r--    1 erwenchen  staff     5442 Jun 17 13:43 final_roster.md
+-rw-r--r--    1 erwenchen  staff     5703 Jun 15 17:06 find_grabfood_urls.py
+-rw-r--r--    1 erwenchen  staff     1408 Jun 15 21:57 find_grabfood_urls_r3.py
+-rw-r--r--    1 erwenchen  staff     1470 Jun 15 17:10 find_grabfood_urls_round2.py
+-rw-r--r--    1 erwenchen  staff    11768 Jun 16 22:30 floor_datasets.py
+-rw-r--r--    1 erwenchen  staff    18155 Jun 13 09:44 generate_figures.py
+-rw-r--r--    1 erwenchen  staff     2591 Jun 11 14:36 get_cpi.py
+-rw-r--r--    1 erwenchen  staff    10494 Jun 12 18:01 get_monthly_cpi.py
+-rw-r--r--    1 erwenchen  staff    28732 Jun 13 22:14 get_monthly_cpi_all.py
+-rw-r--r--    1 erwenchen  staff    18924 Jun 13 11:30 granger_analysis.py
+-rw-r--r--    1 erwenchen  staff   211858 Jun 17 13:41 historical_html_progress.json
+-rw-r--r--    1 erwenchen  staff    20395 Jun 17 08:10 historical_html_scraper.py
+-rw-r--r--    1 erwenchen  staff   575435 Jun 16 18:54 historical_progress.json
+-rw-r--r--    1 erwenchen  staff    22176 Jun 16 13:09 historical_scraper.py
+-rw-r--r--    1 erwenchen  staff    17250 Jun 13 10:47 image_processor.py
+-rw-r--r--    1 erwenchen  staff    31317 Jun 17 15:51 index_builder.py
+-rw-r--r--    1 erwenchen  staff    18564 Jun 13 10:46 informal_scraper.py
+-rw-r--r--    1 erwenchen  staff    18789 Jun 12 10:46 live_scaperv2.py
+-rw-r--r--    1 erwenchen  staff   111151 Jun 16 20:50 live_scraper.py
+-rw-r--r--    1 erwenchen  staff    11789 Jun 13 10:48 merge_informal.py
+-rw-r--r--    1 erwenchen  staff     2824 Jun 13 09:12 migrate_db.py
+-rw-r--r--    1 erwenchen  staff     6033 Jun 13 22:14 monthly_cpi_errors.txt
+-rw-r--r--    1 erwenchen  staff    13423 Jun 14 18:42 monthly_report.py
+-rw-r--r--    1 erwenchen  staff    19656 Jun 13 09:19 nlp_pipeline.py
+-rw-r--r--    1 erwenchen  staff     1377 Jun 15 22:42 nlp_pipeline_output.txt
+-rw-r--r--    1 erwenchen  staff    12894 Jun 13 09:44 paper_data_tables.py
+drwxr-xr-x    4 erwenchen  staff      128 Jun 13 09:51 paper_draft
+-rw-r--r--    1 erwenchen  staff      872 Jun 17 10:38 parse_validation.md
+-rw-r--r--    1 erwenchen  staff    14585 Jun 16 21:14 phase0_coverage_probe.py
+-rw-r--r--    1 erwenchen  staff     8967 Jun 16 22:07 phase0_reprobe.py
+-rw-r--r--    1 erwenchen  staff     3643 Jun 16 22:35 phase1c_parser_validation.py
+-rw-r--r--    1 erwenchen  staff     8444 Jun 11 13:57 proposal.md
+drwxr-xr-x    4 erwenchen  staff      128 Jun 14 18:43 reports
+-rw-r--r--    1 erwenchen  staff      499 Jun 14 18:40 requirements.txt
+-rw-r--r--    1 erwenchen  staff     2925 Jun 11 13:57 research skeleton
+-rw-r--r--    1 erwenchen  staff    18621 Jun 13 09:48 robustness_checks.py
+-rw-r--r--    1 erwenchen  staff     6427 Jun 12 20:01 run_all.py
+-rwxr-xr-x    1 erwenchen  staff      854 Jun 14 19:37 run_scraper_background.sh
+drwxr-xr-x    4 erwenchen  staff      128 Jun 16 12:37 scheduled
+-rw-r--r--@   1 erwenchen  staff   366394 Jun 17 16:00 scraper_log.txt
+-rw-r--r--    1 erwenchen  staff     2436 Jun 15 22:38 scraper_output.txt
+-rw-r--r--    1 erwenchen  staff     2071 Jun 15 16:40 scraper_status.py
+-rw-r--r--    1 erwenchen  staff     8849 Jun 13 09:41 ssef_checklist.py
+-rw-r--r--    1 erwenchen  staff     1444 Jun 13 09:51 ssef_submission_checklist.txt
+drwxr-xr-x   10 erwenchen  staff      320 Jun 13 09:48 tables
+-rw-r--r--    1 erwenchen  staff     1210 Jun  9 13:42 test.py
+-rw-r--r--    1 erwenchen  staff     1436 Jun  9 23:46 test_aria.py
+-rw-r--r--    1 erwenchen  staff     3773 Jun 13 21:06 thailand_coverage_notes.txt
+-rw-r--r--    1 erwenchen  staff      142 Jun 13 21:06 thailand_run.json
+-rw-r--r--    1 erwenchen  staff     9525 Jun 13 21:01 thailand_scraper.py
+-rw-r--r--@   1 erwenchen  staff  8265728 Jun 17 16:00 uifpi.db
+-rw-r--r--@   1 erwenchen  staff    32768 Jun 17 15:46 uifpi.db-shm
+-rw-r--r--@   1 erwenchen  staff        0 Jun 17 16:00 uifpi.db-wal
+-rw-r--r--    1 erwenchen  staff    12393 Jun 17 15:51 uifpi_index.csv
+-rw-r--r--    1 erwenchen  staff    14565 Jun 13 10:48 validate_informal.py
+-rw-r--r--    1 erwenchen  staff    10016 Jun 12 19:55 validate_nlp.py
+drwxr-xr-x    3 erwenchen  staff       96 Jun 13 21:14 validation_results
+-rw-r--r--    1 erwenchen  staff     8540 Jun 13 21:14 validation_sample.csv
+-rw-r--r--    1 erwenchen  staff     1115 Jun  9 22:03 verify_scrape.py
+-rw-r--r--    1 erwenchen  staff    16274 Jun 16 12:37 verify_targets.py
+-rw-r--r--    1 erwenchen  staff     1848 Jun 17 10:38 verify_targets_report.json
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:53.010Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "ls /Users/erwenchen/Inflation-menu/dashboard/ /Users/erwenchen/Inflation-menu/dashboard_data/ 2>&1 | head -100",
+  "description": "List dashboard contents"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:53.131Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu/dashboard/:
+AGENTS.md
+CLAUDE.md
+README.md
+app
+components
+lib
+next-env.d.ts
+next.config.ts
+node_modules
+package-lock.json
+package.json
+postcss.config.mjs
+public
+tsconfig.json
+tsconfig.tsbuildinfo
+types
+uifpi.db
+
+/Users/erwenchen/Inflation-menu/dashboard_data/:
+country_summary.json
+index_series.json
+latest_values.json
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:54.216Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "find /Users/erwenchen/Inflation-menu -maxdepth 2 -type d -name \"data*\" -o -name \"scraper*\" 2>&1",
+  "description": "Find data-related folders"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:54.332Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu/scraper_output.txt
+/Users/erwenchen/Inflation-menu/scraper_log.txt
+/Users/erwenchen/Inflation-menu/scraper_status.py
+
+------------------------------------------------------------------------------
+[2026-06-17T12:26:58.514Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:00.060Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "ls /Users/erwenchen/Inflation-menu/dashboard/app /Users/erwenchen/Inflation-menu/dashboard/components /Users/erwenchen/Inflation-menu/dashboard/lib 2>&1",
+  "description": "Inspect dashboard app structure"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:00.157Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu/dashboard/app:
+[country]
+data
+favicon.ico
+globals.css
+layout.tsx
+methodology
+page.tsx
+
+/Users/erwenchen/Inflation-menu/dashboard/components:
+CountryMap.tsx
+IndexChart.tsx
+StatCard.tsx
+
+/Users/erwenchen/Inflation-menu/dashboard/lib:
+data.ts
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:00.972Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "find /Users/erwenchen/Inflation-menu -maxdepth 3 -type d 2>&1 | grep -v node_modules | grep -v .git | head -50",
+  "description": "Map directory structure (no node_modules)"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:01.161Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu
+/Users/erwenchen/Inflation-menu/tables
+/Users/erwenchen/Inflation-menu/cpi_data
+/Users/erwenchen/Inflation-menu/validation_results
+/Users/erwenchen/Inflation-menu/paper_draft
+/Users/erwenchen/Inflation-menu/.claude
+/Users/erwenchen/Inflation-menu/docs
+/Users/erwenchen/Inflation-menu/dashboard
+/Users/erwenchen/Inflation-menu/analysis_results
+/Users/erwenchen/Inflation-menu/figures
+/Users/erwenchen/Inflation-menu/dashboard_data
+/Users/erwenchen/Inflation-menu/scheduled
+/Users/erwenchen/Inflation-menu/reports
+/Users/erwenchen/Inflation-menu/dashboard/.vercel
+/Users/erwenchen/Inflation-menu/dashboard/types
+/Users/erwenchen/Inflation-menu/dashboard/app
+/Users/erwenchen/Inflation-menu/dashboard/.next
+/Users/erwenchen/Inflation-menu/dashboard/components
+/Users/erwenchen/Inflation-menu/dashboard/public
+/Users/erwenchen/Inflation-menu/dashboard/lib
+/Users/erwenchen/Inflation-menu/dashboard/app/methodology
+/Users/erwenchen/Inflation-menu/dashboard/app/data
+/Users/erwenchen/Inflation-menu/dashboard/app/[country]
+/Users/erwenchen/Inflation-menu/dashboard/.next/types
+/Users/erwenchen/Inflation-menu/dashboard/.next/cache
+/Users/erwenchen/Inflation-menu/dashboard/.next/server
+/Users/erwenchen/Inflation-menu/dashboard/.next/static
+/Users/erwenchen/Inflation-menu/dashboard/.next/diagnostics
+/Users/erwenchen/Inflation-menu/dashboard/.next/dev
+/Users/erwenchen/Inflation-menu/dashboard/.next/build
+/Users/erwenchen/Inflation-menu/dashboard/public/data
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:04.864Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "ls /Users/erwenchen/Inflation-menu/dashboard/public/data /Users/erwenchen/Inflation-menu/dashboard/app/methodology /Users/erwenchen/Inflation-menu/dashboard/app/data /Users/erwenchen/Inflation-menu/dashboard/app/\\[country\\] /Users/erwenchen/Inflation-menu/cpi_data 2>&1",
+  "description": "Inspect public data and country page folder"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:04.970Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu/cpi_data:
+cpi_au.json
+cpi_gb.json
+cpi_id.json
+cpi_in.json
+cpi_my.json
+cpi_ph.json
+cpi_sg.json
+cpi_th.json
+cpi_us.json
+monthly_cpi_au.json
+monthly_cpi_gb.json
+monthly_cpi_id.json
+monthly_cpi_in.json
+monthly_cpi_sg.json
+monthly_cpi_th.json
+monthly_cpi_us.json
+
+/Users/erwenchen/Inflation-menu/dashboard/app/[country]:
+page.tsx
+
+/Users/erwenchen/Inflation-menu/dashboard/app/data:
+page.tsx
+
+/Users/erwenchen/Inflation-menu/dashboard/app/methodology:
+page.tsx
+
+/Users/erwenchen/Inflation-menu/dashboard/public/data:
+country_summary.json
+index_series.json
+latest_values.json
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:07.796Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 uifpi.db \".tables\"",
+  "description": "List tables in uifpi.db"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:07.897Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+bigmac_index        nlp_results         prices            
+category_relatives  numbeo_index        prices_new        
+monthly_cpi         price_history       uifpi_index
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:13.784Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \".schema prices_new\"; echo ---; sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \".schema prices\"; echo ---; sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \".schema price_history\"",
+  "description": "Show prices and price_history schemas"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:13.918Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+CREATE TABLE prices_new (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    restaurant_name TEXT,
+    item_name TEXT,
+    price REAL,
+    currency TEXT,
+    country TEXT,
+    sector TEXT,
+    source TEXT,
+    collection_date TEXT,
+    url TEXT
+);
+---
+CREATE TABLE prices (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            restaurant_name TEXT,
+            item_name TEXT,
+            price REAL,
+            country TEXT DEFAULT 'Singapore',
+            sector TEXT,
+            source TEXT,
+            collection_date TEXT,
+            url TEXT
+        , currency TEXT, price_usd REAL);
+CREATE INDEX idx_prices_item_date ON prices(restaurant_name, item_name, collection_date);
+CREATE INDEX idx_prices_date ON prices(collection_date);
+---
+CREATE TABLE price_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            restaurant_name TEXT,
+            item_name TEXT,
+            old_price REAL,
+            new_price REAL,
+            price_change_pct REAL,
+            country TEXT,
+            sector TEXT,
+            change_detected_date TEXT
+        );
+CREATE INDEX idx_price_history_date ON price_history(change_detected_date);
+CREATE INDEX idx_price_history_country ON price_history(country);
+CREATE UNIQUE INDEX idx_price_history_unique
+    ON price_history(restaurant_name, item_name, change_detected_date);
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:21.251Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, COUNT(*) AS rows, COUNT(DISTINCT item_name||'|'||restaurant_name) AS items, MIN(collection_date) AS first_date, MAX(collection_date) AS last_date, COUNT(DISTINCT substr(collection_date,1,7)) AS months FROM prices GROUP BY country ORDER BY rows DESC;\"",
+  "description": "Per-country price coverage summary"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:21.473Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Singapore|8709|3353|2019-06-19|2026-06-17|19
+United States|8595|7904|2018-01-23|2026-06-17|76
+Malaysia|3179|1664|2018-06-08|2026-06-17|71
+United Kingdom|1443|627|2018-01-18|2026-06-17|78
+India|872|653|2018-01-11|2026-05-17|79
+Australia|373|230|2018-01-23|2026-06-17|59
+Thailand|290|236|2018-01-03|2026-06-13|79
+Indonesia|152|130|2018-02-04|2025-12-30|57
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:28.005Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:29.506Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, substr(collection_date,1,7) AS month, COUNT(*) AS items FROM prices WHERE country IN ('Thailand','Indonesia','Australia') GROUP BY country, month ORDER BY country, month;\" | head -120",
+  "description": "Monthly item counts for ID/TH/AU"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:29.631Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Australia|2018-01|9
+Australia|2018-07|8
+Australia|2018-08|1
+Australia|2018-10|1
+Australia|2018-12|6
+Australia|2019-02|3
+Australia|2019-06|10
+Australia|2019-07|7
+Australia|2019-08|4
+Australia|2019-09|20
+Australia|2019-10|24
+Australia|2019-11|7
+Australia|2020-02|6
+Australia|2020-06|4
+Australia|2020-08|1
+Australia|2020-09|1
+Australia|2020-10|1
+Australia|2020-11|2
+Australia|2020-12|5
+Australia|2021-01|2
+Australia|2021-03|3
+Australia|2021-04|3
+Australia|2021-05|1
+Australia|2021-06|1
+Australia|2021-07|1
+Australia|2021-08|3
+Australia|2021-09|1
+Australia|2021-10|2
+Australia|2021-11|2
+Australia|2021-12|4
+Australia|2022-01|11
+Australia|2022-03|4
+Australia|2022-04|1
+Australia|2022-05|5
+Australia|2022-06|6
+Australia|2022-07|8
+Australia|2022-08|1
+Australia|2022-10|3
+Australia|2022-11|6
+Australia|2023-02|1
+Australia|2023-03|1
+Australia|2023-05|9
+Australia|2023-08|2
+Australia|2024-02|3
+Australia|2024-03|6
+Australia|2024-04|1
+Australia|2024-07|1
+Australia|2024-08|1
+Australia|2024-10|1
+Australia|2024-11|3
+Australia|2024-12|1
+Australia|2025-03|2
+Australia|2025-06|10
+Australia|2025-08|4
+Australia|2025-09|6
+Australia|2025-10|1
+Australia|2025-11|3
+Australia|2025-12|1
+Australia|2026-06|128
+Indonesia|2018-02|1
+Indonesia|2018-03|1
+Indonesia|2018-08|4
+Indonesia|2018-10|1
+Indonesia|2018-11|4
+Indonesia|2018-12|1
+Indonesia|2019-02|1
+Indonesia|2019-03|7
+Indonesia|2019-04|1
+Indonesia|2019-05|1
+Indonesia|2019-06|3
+Indonesia|2019-09|1
+Indonesia|2020-03|1
+Indonesia|2020-07|1
+Indonesia|2020-10|4
+Indonesia|2020-11|2
+Indonesia|2020-12|1
+Indonesia|2021-02|2
+Indonesia|2021-03|9
+Indonesia|2021-04|3
+Indonesia|2021-05|5
+Indonesia|2021-06|3
+Indonesia|2021-09|1
+Indonesia|2021-10|4
+Indonesia|2021-11|4
+Indonesia|2021-12|1
+Indonesia|2022-01|1
+Indonesia|2022-02|2
+Indonesia|2022-03|5
+Indonesia|2022-05|2
+Indonesia|2022-07|4
+Indonesia|2022-08|1
+Indonesia|2022-09|1
+Indonesia|2022-10|5
+Indonesia|2022-11|4
+Indonesia|2023-01|1
+Indonesia|2023-08|4
+Indonesia|2023-09|1
+Indonesia|2023-10|1
+Indonesia|2023-11|1
+Indonesia|2023-12|1
+Indonesia|2024-01|2
+Indonesia|2024-02|2
+Indonesia|2024-03|3
+Indonesia|2024-04|6
+Indonesia|2024-05|2
+Indonesia|2024-07|2
+Indonesia|2024-08|1
+Indonesia|2024-09|3
+Indonesia|2024-10|2
+Indonesia|2024-11|8
+Indonesia|2024-12|2
+Indonesia|2025-04|7
+Indonesia|2025-08|3
+Indonesia|2025-10|1
+Indonesia|2025-11|3
+Indonesia|2025-12|4
+Thailand|2018-01|6
+Thailand|2018-02|3
+Thailand|2018-03|1
+Thailand|2018-08|4
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:42.854Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:43.980Z] ASSISTANT
+------------------------------------------------------------------------------
+I'll continue investigating before any code changes — the user wants sign-off on the plan first, so no tasks to create yet. Let me read the memory notes on scraping constraints and continue the audit.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:45.574Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/.claude/projects/-Users-erwenchen-Inflation-menu/memory/scraping_notes.md"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:45.621Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+<system-reminder>This memory is 4 days old. Memories are point-in-time observations, not live state — claims about code behavior or file:line citations may be outdated. Verify against current code before asserting as fact.</system-reminder>
+1	---
+2	name: scraping-notes
+3	description: Which data sources work vs fail per country; network constraints on this macOS Python 3.9 env
+4	metadata: 
+5	  node_type: memory
+6	  type: project
+7	  originSessionId: c35ac65f-3352-4922-b63a-67e4cf108afb
+8	---
+9	
+10	## Working sources (confirmed)
+11	- **Singapore**: foodpanda.sg + food.grab.com/sg — Playwright scraper works. live_scaperv2.py collected 6491 rows on 2026-06-12.
+12	- **Malaysia**: foodpanda.my + food.grab.com/my — works. 398 rows collected 2026-06-11.
+13	- **OECD PRICES_CPI**: Returns 77MB full dataset; cache with `_OECD_CACHE` global. AU quarterly (key 41:2:0:0:3:0:0:3), US HICP monthly (18:0:1:0:3:0:0:3), IN national (47:0:0:0:3:0:0:3).
+14	- **World Bank FP.CPI.TOTL**: Annual CPI, works for all 8 countries, used as fallback.
+15	- **Wayback Machine CDX API**: Works for querying snapshots. Actual page fetches intermittently fail with "Connection refused" (rate-limiting?).
+16	
+17	## Blocked/failing sources
+18	- **Thailand foodpanda.co.th**: Returns HTTP 403 to curl. Playwright might work but unconfirmed.
+19	- **SingStat M212882**: All known table IDs return 404 (API restructured).
+20	- **ONS CPIH01/L55O**: All endpoints return 404 (decommissioned).
+21	- **FRED STLOUISFED**: Connection timeouts (network block).
+22	- **IMF IFS dataservices.imf.org**: DNS resolution failure.
+23	- **BOT IAPI iapi.bot.or.th**: DNS failure.
+24	- **DOSM open.dosm.gov.my**: HTTP 404 (API restructured).
+25	- **Swiggy (India)**: Likely geo-blocked; not yet confirmed working.
+26	
+27	## Historical TripAdvisor (Wayback Machine)
+28	- Pattern must use `Restaurant_Review-g{geo_id}*` (individual reviews), NOT `Restaurants-g*` (listing pages).
+29	- Thailand pattern was wrong (`Restaurants-g293916*`) — fixed to `Restaurant_Review-g293916*` in historical_scraper.py.
+30	- Already-completed countries: Singapore, Malaysia, US, UK (50 snapshots each).
+31	- In-progress: Indonesia (64/80 done).
+32	- Pending: Thailand (with new fixed pattern), India, Australia.
+33	
+34	## Key geo IDs for TripAdvisor CDX
+35	g294265=Singapore, g298570=KL Malaysia, g294229=Jakarta, g293916=Bangkok, g304554=Mumbai, g60763=New York, g186338=London, g255068=Melbourne
+36
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:46.029Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/.claude/projects/-Users-erwenchen-Inflation-menu/memory/project_context.md"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:46.043Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+<system-reminder>This memory is 4 days old. Memories are point-in-time observations, not live state — claims about code behavior or file:line citations may be outdated. Verify against current code before asserting as fact.</system-reminder>
+1	---
+2	name: project-context
+3	description: "UIFPI research project overview, pipeline steps, current data state"
+4	metadata: 
+5	  node_type: memory
+6	  type: project
+7	  originSessionId: c35ac65f-3352-4922-b63a-67e4cf108afb
+8	---
+9	
+10	## What is UIFPI
+11	Unified Informal-Formal Price Index — a monthly food price index across 8 countries (Singapore, Malaysia, Indonesia, Thailand, India, United States, United Kingdom, Australia) that combines formal restaurant prices (delivery platforms) and informal prices (street food, hawker centres, images via Gemini Vision).
+12	
+13	## Pipeline order
+14	1. `migrate_db.py` — set up uifpi.db schema
+15	2. `live_scaperv2.py` or `live_scraper.py` — scrape prices from foodpanda/grabfood/swiggy/direct websites
+16	3. `historical_scraper.py` — Wayback Machine TripAdvisor scraping for historical data
+17	4. `nlp_pipeline.py` — classify items into food categories (RICE_DISH, NOODLE_DISH, etc.)
+18	5. `index_builder.py` — compute monthly UIFPI index (geometric mean, hedonic adjustment)
+19	6. `get_monthly_cpi_all.py` — fetch CPI data from OECD + World Bank
+20	7. `align_series.py` — merge UIFPI + CPI series
+21	8. `granger_analysis.py` — Granger causality tests
+22	9. `dashboard_data.py` — regenerate dashboard JSON files
+23	10. `npx vercel --prod` — deploy dashboard to Vercel
+24	
+25	## Current data state (as of 2026-06-13)
+26	- prices: 7233 rows (SG: 6527 formal+informal, MY: 439, AU: 47, IN: 47, ID: 53, UK: 68, US: 52, TH: 0)
+27	- uifpi_index: 88 rows — 7 countries (TH missing), 8–14 months per country
+28	- monthly_cpi: 440 rows (AU/IN/US monthly from OECD; others annual from World Bank)
+29	- Granger: 0 significant results; need 24+ months overlap (currently 8–15)
+30	
+31	## Dashboard
+32	- Next.js 16 App Router, deployed at Vercel
+33	- JSON data files in `dashboard/public/data/` regenerated by `dashboard_data.py`
+34	- Connected to GitHub `thefrogfacedfoot/Inflation-menu` at root dir `dashboard/`
+35	
+36	## Key file paths
+37	- DB: `uifpi.db`
+38	- Dashboard: `dashboard/app/`
+39	- Dashboard data: `dashboard/public/data/`
+40	- Analysis results: `analysis_results/`
+41
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:46.642Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/.claude/projects/-Users-erwenchen-Inflation-menu/memory/technical_setup.md"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:46.666Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+<system-reminder>This memory is 4 days old. Memories are point-in-time observations, not live state — claims about code behavior or file:line citations may be outdated. Verify against current code before asserting as fact.</system-reminder>
+1	---
+2	name: technical-setup
+3	description: "Python 3.9, SQLite, key library constraints for this macOS env"
+4	metadata: 
+5	  node_type: memory
+6	  type: project
+7	  originSessionId: c35ac65f-3352-4922-b63a-67e4cf108afb
+8	---
+9	
+10	## Environment
+11	- Python 3.9 on macOS (Darwin 22.6.0)
+12	- LibreSSL 2.8.3 (not OpenSSL) — causes `NotOpenSSLWarning` from urllib3
+13	- SQLite with WAL mode enabled (`PRAGMA journal_mode=WAL`)
+14	- Playwright installed with Chromium (`ms-playwright/chromium_headless_shell-1223`)
+15	- Node.js via nvm at `~/.nvm/versions/node/v20.20.2/bin/`
+16	- Vercel CLI: `npx vercel` (not global `vercel`)
+17	
+18	## Python 3.9 compatibility rules
+19	- Use `Optional[X]` not `X | None`
+20	- Use `Set[str]`, `List[str]` from `typing` not `set[str]`, `list[str]`
+21	- No walrus operator in class-level code
+22	
+23	## Gemini Vision API
+24	- REST API only (no SDK — avoids LibreSSL/cryptography build failure)
+25	- Endpoint: `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GOOGLE_API_KEY}`
+26	- Base64 `inline_data` for images
+27	- Key from `.env` file (NEVER hardcoded)
+28	
+29	## Security
+30	- `.env` must NOT be committed to git (was removed via git-filter-repo)
+31	- `GOOGLE_API_KEY` only loaded from `.env`
+32	- Anthropic API key was rotated after accidental exposure — always check before committing
+33	
+34	## numpy JSON serialization
+35	Use `_to_python()` converter before `json.dump()`:
+36	```python
+37	def _to_python(v):
+38	    if isinstance(v, (np.integer,)): return int(v)
+39	    if isinstance(v, (np.floating,)): return float(v)
+40	    if isinstance(v, (np.bool_,)): return bool(v)
+41	    return v
+42	```
+43
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:54.427Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, sector, COUNT(*) FROM prices WHERE country IN ('Thailand','Indonesia','Australia') GROUP BY country, sector;\"; echo ---; sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, source, COUNT(*) FROM prices WHERE country IN ('Thailand','Indonesia','Australia') GROUP BY country, source ORDER BY country, COUNT(*) DESC;\"",
+  "description": "Sector + source breakdown for ID/TH/AU"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:54.616Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Australia|formal|143
+Australia|informal|230
+Indonesia|formal|29
+Indonesia|informal|123
+Thailand|formal|11
+Thailand|informal|279
+---
+Australia|wayback|230
+Australia|direct|128
+Australia|wayback-menulog|15
+Indonesia|wayback|123
+Indonesia|wayback-zomato|29
+Thailand|wayback|279
+Thailand|Wayback/TripAdvisor|10
+Thailand|Wayback/wongnai|1
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:55.861Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, COUNT(*), MIN(date) AS first_date, MAX(date) AS last_date, COUNT(DISTINCT substr(date,1,7)) AS months FROM uifpi_index GROUP BY country;\"",
+  "description": "UIFPI index coverage by country"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:27:55.933Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Exit code 1
+Error: in prepare, no such column: date
+  SELECT country, COUNT(*), MIN(date) AS first_date, MAX(date) AS last_date, COU
+                  error here ---^
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:04.668Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \".schema uifpi_index\"; echo ---; sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT * FROM uifpi_index LIMIT 3\"",
+  "description": "UIFPI index schema"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:04.813Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+CREATE TABLE uifpi_index (
+            id               INTEGER PRIMARY KEY AUTOINCREMENT,
+            country          TEXT NOT NULL,
+            year_month       TEXT NOT NULL,
+            formal_index     REAL,
+            informal_index   REAL,
+            uifpi_combined   REAL,
+            item_count       INTEGER,
+            coverage_note    TEXT,
+            UNIQUE(country, year_month)
+        );
+---
+3399|Australia|2019-07||100.0|100.0|2|restaurant-median index (1 restaurants this month)
+3400|Australia|2019-09||57.1429|57.1429|1|restaurant-median index (1 restaurants this month)
+3401|Australia|2019-10||63.5032|63.5032|3|restaurant-median index (2 restaurants this month)
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:13.063Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, COUNT(*), MIN(year_month), MAX(year_month) FROM uifpi_index GROUP BY country;\"",
+  "description": "UIFPI index per country"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:13.156Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Australia|13|2019-07|2026-06
+India|49|2018-01|2026-05
+Indonesia|21|2018-02|2024-11
+Malaysia|7|2019-07|2026-06
+Singapore|9|2022-07|2026-06
+Thailand|1|2026-06|2026-06
+United Kingdom|6|2019-09|2026-06
+United States|35|2018-04|2026-06
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:13.758Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "cat /Users/erwenchen/Inflation-menu/dashboard_data/country_summary.json | head -120",
+  "description": "Inspect country summary used by dashboard"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:13.854Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+{
+  "Australia": {
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "n_obs": 5,
+    "months_of_data": 13,
+    "base_month": "2019-07",
+    "latest_uifpi": 218.75,
+    "latest_cpi": null,
+    "items_formal": 143,
+    "items_informal": 230,
+    "restaurants_formal": 3,
+    "restaurants_informal": 177,
+    "avg_price_formal_usd": 5.57,
+    "avg_price_informal_usd": 1.78,
+    "status": "no_granger_data"
+  },
+  "India": {
+    "granger_significant": null,
+    "granger_p_value": null,
+    "lead_months": null,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": null,
+    "r_squared": null,
+    "n_obs": null,
+    "months_of_data": 49,
+    "base_month": "2018-01",
+    "latest_uifpi": 800.0,
+    "latest_cpi": null,
+    "items_formal": 635,
+    "items_informal": 237,
+    "restaurants_formal": 57,
+    "restaurants_informal": 180,
+    "avg_price_formal_usd": 4.81,
+    "avg_price_informal_usd": 0.03,
+    "status": "no_granger_data"
+  },
+  "Indonesia": {
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "n_obs": 1,
+    "months_of_data": 21,
+    "base_month": "2018-02",
+    "latest_uifpi": 0.02,
+    "latest_cpi": null,
+    "items_formal": 29,
+    "items_informal": 123,
+    "restaurants_formal": 24,
+    "restaurants_informal": 106,
+    "avg_price_formal_usd": 13.51,
+    "avg_price_informal_usd": 0.13,
+    "status": "no_granger_data"
+  },
+  "Malaysia": {
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "n_obs": 6,
+    "months_of_data": 7,
+    "base_month": "2019-07",
+    "latest_uifpi": 68.49,
+    "latest_cpi": null,
+    "items_formal": 1468,
+    "items_informal": 1711,
+    "restaurants_formal": 6,
+    "restaurants_informal": 157,
+    "avg_price_formal_usd": 7.08,
+    "avg_price_informal_usd": 3.08,
+    "status": "no_granger_data"
+  },
+  "Singapore": {
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": null,
+    "r_squared": null,
+    "n_obs": 0,
+    "months_of_data": 9,
+    "base_month": "2022-07",
+    "latest_uifpi": 106.13,
+    "latest_cpi": null,
+    "items_formal": 7515,
+    "items_informal": 1194,
+    "restaurants_formal": 33,
+    "restaurants_informal": 39,
+    "avg_price_formal_usd": 15.07,
+    "avg_price_informal_usd": 6.64,
+    "status": "no_granger_data"
+  },
+  "Thailand": {
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "pass_through_formal": null,
+    "pass_through_informal": null,
+    "pass_through_significant": null,
+    "r_squared": null,
+    "n_obs": 0,
+    "months_of_data": 1,
+    "base_month": "2026-06",
+    "latest_uifpi": 100.0,
+    "latest_cpi": null,
+    "items_formal": 11,
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:25.963Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:29.243Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, substr(collection_date,1,7) AS month, COUNT(*) AS items, COUNT(DISTINCT restaurant_name) AS rests FROM prices WHERE country='Thailand' GROUP BY month ORDER BY month DESC LIMIT 30;\"",
+  "description": "TH monthly granularity (restaurants too)"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:29.375Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Thailand|2026-06|11|8
+Thailand|2025-12|4|2
+Thailand|2025-11|3|3
+Thailand|2025-10|3|3
+Thailand|2025-09|6|6
+Thailand|2025-08|3|3
+Thailand|2025-07|1|1
+Thailand|2025-06|4|4
+Thailand|2025-05|3|3
+Thailand|2025-04|1|1
+Thailand|2025-03|5|5
+Thailand|2025-02|2|2
+Thailand|2025-01|2|2
+Thailand|2024-12|5|5
+Thailand|2024-11|3|2
+Thailand|2024-09|4|4
+Thailand|2024-08|4|4
+Thailand|2024-06|4|4
+Thailand|2024-05|1|1
+Thailand|2024-04|3|3
+Thailand|2024-03|3|3
+Thailand|2024-02|1|1
+Thailand|2024-01|5|5
+Thailand|2023-12|4|2
+Thailand|2023-10|5|3
+Thailand|2023-08|9|5
+Thailand|2023-05|7|7
+Thailand|2023-03|9|9
+Thailand|2023-02|1|1
+Thailand|2022-12|1|1
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:30.469Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nE \"restaurant-median|restaurants this month|MIN_RESTAURANTS|MIN_ITEMS|min_restaurants|min_items|threshold\" /Users/erwenchen/Inflation-menu/index_builder.py | head -40",
+  "description": "Find item/restaurant thresholds in index_builder"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:30.572Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+443:            "coverage_note":  f"restaurant-median index "
+444:                              f"({rm[rm['year_month'] == ym]['restaurant_name'].nunique()} restaurants this month)",
+665:        method: str = "restaurant-median") -> None:
+669:      - "restaurant-median" (default): geometric mean of per-restaurant
+709:        if method == "restaurant-median":
+710:            # Skip matched-model entirely — restaurant-median is the index.
+714:                print(f"  {country}: {len(rmrows)} monthly observations (restaurant-median)")
+766:    ap.add_argument("--method", default="restaurant-median",
+767:                    choices=("stable-basket", "restaurant-median"),
+768:                    help="Index aggregation method (default: restaurant-median).")
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:41.936Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:43.866Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nE \"Indonesia|Thailand|Australia|gofood|grabfood|ubereats|menulog|jakarta|bangkok|sydney|melbourne\" /Users/erwenchen/Inflation-menu/live_scraper.py | head -60",
+  "description": "Find country-specific live_scraper entries"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:43.935Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+8:  Indonesia, Thailand   — Foodpanda / GrabFood (SE Asia)
+12:  Australia             — Direct chain websites
+446:    'Indonesia':      ('en-ID', 'Asia/Jakarta'),
+447:    'Thailand':       ('en-TH', 'Asia/Bangkok'),
+451:    'Australia':      ('en-AU', 'Australia/Sydney'),
+626:def scrape_grabfood(page, url, restaurant_name, sector, currency,
+633:    _warmup(page, 'grabfood', country)
+822:                    currency, country, sector, 'grabfood', today, url, usd_rates)
+1477:    'grabfood':  scrape_grabfood,
+1483:    'ubereats':  scrape_js,
+1484:    'gofood':    scrape_js,
+1497:# Headless Chromium is reliably bot-detected by foodpanda / grabfood.
+1553:    # This typically cuts foodpanda / grabfood page load 40-60%.
+1567:    ('foodpanda', 'Indonesia'):  'https://www.foodpanda.id/',
+1568:    ('foodpanda', 'Thailand'):   'https://www.foodpanda.co.th/',
+1569:    ('grabfood',  'Singapore'):  'https://food.grab.com/sg/en/',
+1570:    ('grabfood',  'Malaysia'):   'https://food.grab.com/my/en/',
+1571:    ('grabfood',  'Indonesia'):  'https://food.grab.com/id/en/',
+1572:    ('grabfood',  'Thailand'):   'https://food.grab.com/th/en/',
+1786:     "formal", "grabfood", "SGD", "Singapore"),
+1790:     "formal", "grabfood", "SGD", "Singapore"),
+1794:     "formal", "grabfood", "SGD", "Singapore"),
+1815:     "formal", "grabfood", "SGD", "Singapore"),
+1827:     "formal", "grabfood", "SGD", "Singapore"),
+1832:     "formal", "grabfood", "SGD", "Singapore"),
+1840:     "formal", "grabfood", "SGD", "Singapore"),
+1862:     "informal", "grabfood", "SGD", "Singapore"),
+1879:     "informal", "grabfood", "SGD", "Singapore"),
+1896:     "informal", "grabfood", "SGD", "Singapore"),
+1910:     "formal", "grabfood", "MYR", "Malaysia"),
+1926:     "formal", "grabfood", "MYR", "Malaysia"),
+1931:     # "formal", "grabfood", "MYR", "Malaysia"),
+1939:     "formal", "grabfood", "MYR", "Malaysia"),
+1956:    #  "informal", "grabfood", "MYR", "Malaysia"),
+1964:     "informal", "grabfood", "MYR", "Malaysia"),
+1968:     "informal", "grabfood", "MYR", "Malaysia"),
+2002:    # NOTE: All Foodpanda Indonesia URLs (foodpanda.id/*) were removed —
+2004:    # Indonesia market. Only GrabFood remains for Indonesia.
+2007:    # --- Extended Indonesia targets (GoFood) ---
+2010:     # "https://gofood.co.id/jakarta/restaurant/solaria",
+2011:     # "formal", "gofood", "IDR", "Indonesia"),
+2015:     # "https://gofood.co.id/jakarta/restaurant/mcdonalds-sarinah",
+2016:     # "formal", "gofood", "IDR", "Indonesia"),
+2020:     # "https://gofood.co.id/jakarta/restaurant/kfc-kemang",
+2021:     # "formal", "gofood", "IDR", "Indonesia"),
+2025:     # "https://gofood.co.id/jakarta/restaurant/pizza-hut-menteng",
+2026:     # "formal", "gofood", "IDR", "Indonesia"),
+2030:     # "https://gofood.co.id/jakarta/restaurant/jco-donuts-grand-indonesia",
+2031:     # "formal", "gofood", "IDR", "Indonesia"),
+2035:     # "https://gofood.co.id/jakarta/restaurant/nasi-padang-sederhana",
+2036:     # "informal", "gofood", "IDR", "Indonesia"),
+2040:     # "https://gofood.co.id/jakarta/restaurant/bakso-solo-samrat",
+2041:     # "informal", "gofood", "IDR", "Indonesia"),
+2045:     # "https://gofood.co.id/jakarta/restaurant/mie-ayam-tumini",
+2046:     # "informal", "gofood", "IDR", "Indonesia"),
+2050:     # "https://gofood.co.id/jakarta/restaurant/soto-betawi-h-mamat",
+2051:     # "informal", "gofood", "IDR", "Indonesia"),
+2055:    # NOTE: All 18 Foodpanda Thailand URLs (foodpanda.co.th/*) were removed —
+2058:    # were generated, not copied from real Foodpanda Thailand pages. Replace
+2062:    # --- Extended Thailand targets (GrabFood Thailand) ---
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:44.189Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/coverage_report.md"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:44.217Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+1	# Phase 0 — Wayback CDX coverage matrix
+2	
+3	Generated: 2026-06-16T21:45:02.495539
+4	  
+5	Window: 20180101 → 20260601
+6	  
+7	CDX limit per query: 30,000 (rows ≥ limit = truncated).
+8	
+9	Each row probes one (country, platform) pair: counts distinct
+10	archived URLs and snapshots in-window, then fetches one sample
+11	archived page (id_ raw, no Wayback toolbar) and counts currency-
+12	shaped price tokens in the static HTML — i.e., the data we'd
+13	actually be able to extract without re-running JavaScript.
+14	
+15	## Matrix
+16	
+17	| Country | Platform | URL pattern | ≥2-cap restaurants | Snapshots | Range | Sample KB | Sample $-hits | LD | ND | Notes |
+18	|---|---|---|---:|---:|---|---:|---:|:---:|:---:|---|
+19	| United States | allmenus.com | `allmenus.com/*` | 7,021 | 30,000 | 20180224–20260521 | 14 | 0 | Y | N | truncated |
+20	| United States | menupages.com | `menupages.com/*` | 2,866 | 30,000 | 20180104–20260521 | 269 | 34 | Y | N | truncated |
+21	| United States | yelp.com/biz NYC | `yelp.com/biz/*new-york*` | 0 | 0 | — |  |  |  |  | empty |
+22	| United States | yelp.com/menu | `yelp.com/menu/*` | 0 | 0 | — |  |  |  |  | error:HTTP 504 |
+23	| India | zomato Mumbai | `zomato.com/mumbai/*` | 0 | 0 | — |  |  |  |  | error:Expecting value: line 6146 column 1 (char 542305) |
+24	| India | zomato NCR | `zomato.com/ncr/*` | 1,355 | 12,359 | 20180104–20260519 | 283 | 43 | Y | N | ok |
+25	| India | swiggy Mumbai | `swiggy.com/mumbai/*` | 1 | 14 | 20180129–20211023 | 154 | 51 | N | N | ok |
+26	| India | swiggy Bangalore | `swiggy.com/bangalore/*` | 3 | 44 | 20180125–20211023 | 117 | 4 | Y | N | ok |
+27	| India | burrp Mumbai | `burrp.com/mumbai/*` | 456 | 10,074 | 20180101–20191016 | 84 | 20 | N | N | ok |
+28	| India | dineout.co.in | `dineout.co.in/*` | 3,758 | 30,000 | 20180103–20250402 | 157 | 1 | Y | N | truncated |
+29	| Indonesia | zomato Jakarta | `zomato.com/jakarta/*` | 111 | 1,011 | 20180103–20240808 | 331 | 40 | N | N | ok |
+30	| Indonesia | qraved Jakarta | `qraved.com/jakarta/*` | 6,727 | 30,000 | 20180104–20260316 | 42 | 0 | N | N | truncated |
+31	| Indonesia | pergikuliner | `pergikuliner.com/restaurants/*` | 6,582 | 30,000 | 20180122–20260521 | 237 | 12 | N | N | truncated |
+32	| Thailand | wongnai BKK | `wongnai.com/bangkok/*` | 2 | 9 | 20190822–20241113 | 1024 | 6 | N | N | ok |
+33	| Thailand | wongnai restaurants | `wongnai.com/restaurants/*` | 5,545 | 30,000 | 20180306–20260521 | 504 | 0 | Y | N | truncated |
+34	| Thailand | eatigo BKK | `eatigo.com/th/bangkok/*` | 3,410 | 17,349 | 20180809–20241114 | 206 | 14 | N | N | ok |
+35	| Australia | zomato Sydney | `zomato.com/sydney/*` | 280 | 3,429 | 20180101–20250331 | 178 | 5 | N | N | ok |
+36	| Australia | zomato Melbourne | `zomato.com/melbourne/*` | 147 | 2,658 | 20180101–20260107 | 435 | 32 | N | N | ok |
+37	| Australia | urbanspoon | `urbanspoon.com/n/*` | 0 | 0 | — |  |  |  |  | empty |
+38	| Australia | menulog | `menulog.com.au/restaurants/*` | 6,173 | 30,000 | 20180104–20251126 | 879 | 12 | Y | Y | truncated |
+39	| Vietnam | foody HCMC | `foody.vn/ho-chi-minh/*` | 5,387 | 30,000 | 20180903–20260529 | 3 | 0 | N | N | truncated |
+40	| Philippines | zomato Manila | `zomato.com/manila/*` | 52 | 1,362 | 20180107–20250822 | 218 | 37 | Y | N | ok |
+41	| Malaysia | zomato KL | `zomato.com/kuala-lumpur/*` | 30 | 1,290 | 20180101–20240613 | 248 | 2 | Y | N | ok |
+42	| Singapore | hungrygowhere | `hungrygowhere.com/dining-guide/restaurants/*` | 0 | 0 | — |  |  |  |  | empty |
+43	| Singapore | foodpanda SG | `foodpanda.sg/restaurant/*` | 1,819 | 9,111 | 20180102–20260203 | 320 | 0 | Y | N | ok |
+44	| Singapore | food.grab SG | `food.grab.com/sg/en/restaurant/*` | 2,591 | 9,970 | 20191018–20260531 | 259 | 12 | Y | Y | ok |
+45	| Mexico | tripadvisor MX | `tripadvisor.com.mx/Restaurant_Review*` | 2,873 | 30,000 | 20180101–20260211 | 1167 | 9 | Y | N | truncated |
+46	
+47	## Country roll-up (best platform per country)
+48	
+49	| Country | Best platform | ≥2-cap restaurants | Sample $-hits | Clears formal threshold (≥15 + prices visible)? |
+50	|---|---|---:|---:|---|
+51	| Australia | menulog | 6,173 | 12 | ✓ |
+52	| India | dineout.co.in | 3,758 | 1 | ✗ |
+53	| Indonesia | qraved Jakarta | 6,727 | 0 | ✗ |
+54	| Malaysia | zomato KL | 30 | 2 | ✗ |
+55	| Mexico | tripadvisor MX | 2,873 | 9 | ✓ |
+56	| Philippines | zomato Manila | 52 | 37 | ✓ |
+57	| Singapore | food.grab SG | 2,591 | 12 | ✓ |
+58	| Thailand | wongnai restaurants | 5,545 | 0 | ✗ |
+59	| United States | allmenus.com | 7,021 | 0 | ✗ |
+60	| Vietnam | foody HCMC | 5,387 | 0 | ✗ |
+61	
+62	## Reading the matrix
+63	
+64	- `≥2-cap restaurants` = distinct archived URLs with two or more captures inside the window. This is the gating metric for the formal-sector roster (≥15 required).
+65	- `Sample $-hits` = currency-token count in ONE randomly-chosen archived page. Low or zero hits mean even though Wayback has captures, the captured HTML doesn't contain prices — usually because the site is/was a JS shell that loaded prices via API.
+66	- `LD` / `ND` = whether the sample HTML has JSON-LD or `__NEXT_DATA__`; presence of either gives a clean structured data path that's usually more reliable than DOM regex.
+67	- A country clears the formal threshold only when BOTH ≥2-cap ≥ 15 **and** sample $-hits ≥ 5.
+68	- Common Crawl was not probed in this pass. It is a secondary archive available for Phase 1 if Wayback gaps are narrow.
+69	
+70	## Phase 0 re-probe — 2026-06-16 22:07
+71	### (1) Vietnam alternative URL patterns
+72	| Pattern | ≥2-cap restaurants | Snapshots | Sample $-hits | Sample bytes | Notes |
+73	|---|---:|---:|---:|---:|---|
+74	| `foody.vn/*-restaurant*` | 0 | 0 |  |  |  |
+75	| `foody.vn/*/` | 0 | 0 |  |  |  |
+76	| `foody.vn/restaurant/*` | 33 | 77 | 0 | 0 | tiny sample (redirect/stub) |
+77	| `foody.vn/ho-chi-minh/*/restaurant` | 0 | 0 |  |  |  |
+78	| `tripadvisor.com/Restaurant_Review-g293925*` | 732 | 5,133 | 0 | 1291 |  |
+79	| `tripadvisor.com/Restaurant_Review-g293924*` | 484 | 3,450 | 0 | 581 |  |
+80	
+81	### (2) JSON-LD deep-parse re-probes (5 samples each)
+82	| Platform | Pattern | ≥2-cap restaurants | Samples with LD prices | Mean LD prices/sample | Example item, price |
+83	|---|---|---:|---:|---:|---|
+84	| allmenus restaurant page | `allmenus.com/*/restaurant*` | 0 | — | — | empty |
+85	| allmenus city slug | `allmenus.com/il/chicago/*` | 2,291 | 0/5 | 0.0 |  |
+86	| wongnai restaurants | `wongnai.com/restaurants/*` | 5,545 | 1/5 | 0.2 | `ข้าวหมูแดงนายเคี้ยงคันคลอง หัวหิน` @ 55.0 |
+87	| dineout restaurants | `dineout.co.in/*-restaurants` | 0 | — | — | empty |
+88	| qraved jakarta restaurants | `qraved.com/jakarta/*-restaurant*` | 0 | — | — | empty |
+89
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:48.088Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/data_gaps.md"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:28:48.101Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+1	# UIFPI — Data limitations (paper-ready section)
+2	
+3	This document is written to be lifted into the limitations section of the ISEF paper. Each gap is stated with the reason it exists, what was attempted, and what proxy is in place when item-level data is unavailable.
+4	
+5	## Roster overview
+6	
+7	The Universal Informal–Formal Price Index covers nine countries: eight with item-level or restaurant-aggregate price data (US, SG, MY, UK, IN, AU, TH, ID) and one with macroeconomic proxy only (VN). This split reflects two empirical realities documented during data collection (Phase 0 coverage probe and Phase 1c parser validation):
+8	
+9	1. **Wayback Machine archives are not uniformly useful across platforms.** Even when a platform has thousands of archived snapshots, those archives are only useful if the prices are present in the static HTML that Wayback captures. JavaScript-rendered prices loaded after page render are not archived.
+10	2. **Per-country platform availability is unequal.** Several markets (Vietnam, Philippines, Thailand) have no surviving archival source that exposes either item-level menu prices or a clean restaurant-level price proxy in static HTML.
+11	
+12	## Country-by-country gaps
+13	
+14	### Vietnam
+15	- **No item-level or restaurant-aggregate price source.** Foody.vn archived URLs return 0-byte Wayback playbacks (the snapshots exist in CDX but the replay layer fails). TripAdvisor Ho Chi Minh City and Hanoi pages return 0 Vietnamese-đồng (`₫`) tokens in static HTML; they expose only TripAdvisor's `priceRange` `$$/$$$/$$$$` tier markers, which are categorical, not currency.
+16	- **Proxy used**: Numbeo Restaurants Price Index (annual snapshots 2018→2025), Big Mac Index (2014→2026), World Bank CPI (annual 2015→2025). All three live in the `numbeo_index`, `bigmac_index`, and `monthly_cpi` tables and form the cross-country comparison for VN.
+17	- **Limitation**: VN is excluded from the formal-vs-informal pass-through regression (no informal vendor data, no item-level formal data). It is included only in the cross-country price-level comparison plot.
+18	
+19	### Philippines
+20	- **Zomato Manila returned 0 cost-for-two extractions across 67 sampled snapshots.** The cost-for-two phrasing differs from India/Indonesia or the PHP currency token (`₱`) is missing from the static HTML. Investigation deferred.
+21	- **Proxy used**: same triple (Numbeo + Big Mac + World Bank).
+22	- **Limitation**: same as VN — proxy-only in the cross-country comparison; not in the pass-through regression.
+23	
+24	### Thailand
+25	- **Eatigo Bangkok archived URLs returned 0 baht-token extractions across 69 sampled snapshots.** Eatigo's URL pattern at the CDX prefix level catches `/about-us`, `/privacy-policy`, and category index pages (`/c/{cuisine}-{id}`) rather than individual restaurant pages; even when restaurant pages were sampled, they contained no THB tokens in static HTML.
+26	- **Limited fallback**: TripAdvisor Bangkok pages give `priceRange` tier markers ($, $$, $$$, $$$$) for 290 restaurant-page snapshots over 79 months. These are categorical levels, not currency amounts, and are deliberately excluded from index construction (see `index_builder.py` tier-marker exclusion).
+27	- **Proxy used**: Numbeo + Big Mac + World Bank.
+28	- **Limitation**: TH formal-sector index is computed from a one-day 2026-06-13 live snapshot only. Going-forward live scraping will accumulate Thai data; archival depth is not available.
+29	
+30	### Mexico
+31	- **TripAdvisor Mexico is the only confirmed-large source (2,873 ≥2-cap restaurants).** Pages contain only restaurant-level `FoodEstablishment` metadata with `priceRange` tier markers — the JSON-LD walker correctly skips these to avoid tier-as-price contamination. 0 menu items extracted.
+32	- **Proxy used**: Numbeo + Big Mac + World Bank.
+33	- **Limitation**: MX is proxy-only; same status as VN, PH, TH.
+34	
+35	### India
+36	- **Zomato India archives lack item-level prices but expose restaurant-level "cost for two".** This is a restaurant-aggregate signal: one INR data point per restaurant per archived date, representing the typical price of a meal for two people at that restaurant. It is methodologically valid as an inflation series (restaurant-level mean meal price tracked over time) but is at lower granularity than the US item-level data from MenuPages.
+37	- 635 cost-for-two data points across 57 distinct Zomato NCR restaurants spanning 79 months.
+38	- **Implication for analysis**: the matched-model index method in `index_builder.py` requires (restaurant, item, month) triples for cross-month item matching. With India's restaurant-aggregate data, we use `item_name = 'cost_for_two'` as a synthetic item; the matched-model thus matches *restaurants* across months rather than individual menu items. This is a deliberate methodological choice forced by source granularity, not a bug.
+39	
+40	### Indonesia
+41	- Same data shape as India (Zomato cost-for-two, restaurant-aggregate). 29 data points across Jakarta. Smaller because Wayback's per-quarter snapshot density on `zomato.com/jakarta/*` is lower than NCR.
+42	
+43	### Australia
+44	- **Menulog NEXT_DATA contains menu structure but mostly restaurant-level metadata, not item prices.** Validation showed 10/104 fetches yielded items; the 15 rows extracted came from a small number of restaurants whose archived NEXT_DATA happened to include offer pricing.
+45	- AU also has 158 historical TripAdvisor rows (mix of tier markers and review-quoted prices) and 2 live direct chain restaurants (Oporto, Nando's Australia) collected via the going-forward live pipeline.
+46	
+47	### Singapore
+48	- Strong item-level coverage from both **archived GrabFood** (842 rows / 12 restaurants / 8 months from Wayback NEXT_DATA) and the existing **live foodpanda + GrabFood pipeline** (~6,000 rows / 29 active restaurants). Item-level data is plentiful but the *number of distinct months* (19) is lower than IN/TH/UK/MY because the live pipeline only started in mid-2026 and Wayback's GrabFood SG coverage clusters in late 2019.
+49	
+50	### United Kingdom
+51	- Covered by the live Deliveroo pipeline + a handful of direct chain sites. 247 distinct restaurants across 78 months — adequate for the panel.
+52	
+53	### United States
+54	- Strongest single-platform yield: **MenuPages on Wayback**, with full Schema.org Menu / MenuSection / MenuItem markup pre-2019. 8,282 rows / 55 archived restaurants / 29 months at item granularity. US is the reference case for what archival item-level data can look like when a platform was server-rendered.
+55	
+56	## Floor datasets (cross-country common denominator)
+57	
+58	Three datasets are loaded for *every* roster country regardless of per-country archival coverage:
+59	
+60	- **Numbeo Restaurants Price Index** — `numbeo_index` table; 4 indicator × 8 year × 9 country grid = 288 rows. Indicators: Inexpensive Restaurant Meal, Mid-range Meal for Two, McMeal at McDonald's, Domestic Beer.
+61	- **Big Mac Index** — `bigmac_index` table; 352 obs back to 2000–2026 for all 9 countries.
+62	- **World Bank `FP.CPI.TOTL`** — `monthly_cpi` table; 1,052 monthly obs across 9 countries 2015–2026.
+63	
+64	These give the cross-country comparison its skeleton when item-level coverage is thin.
+65	
+66	## Known unresolved issues
+67	
+68	1. **Singapore tier-marker contamination** (already mitigated). The existing TripAdvisor historical pipeline stored `priceRange` tier markers as raw prices in `prices` rows with item_name beginning `'Price tier'`. The index builder filters these out in `load_price_data()` so they never contaminate the index, but they remain in raw `prices` for transparency.
+69	2. **Australian Menulog `restaurant_name` collapse**: 10 yielding fetches collapsed to 1 distinct `restaurant_name` because the `_restaurant_from_url()` helper extracts the URL's last path segment, which for Menulog is often `restaurants` rather than the slug. A targeted fix would re-extract from the URL's structured slug. Not blocking the panel.
+70	3. **Indonesia historical `prices` rows**: only 1 row dated 2019-09. The 152 ID total in the per-country roll-up combines that 1 row + the 29 Zomato Jakarta wayback rows + 121 from earlier TripAdvisor historical scraping (mostly tier markers, excluded from the index).
+71	4. **Vietnam exclusion from item-level analysis**: stated in roster.md; reiterated here so the limitations section captures it.
+72	
+73	## What I would do with more time
+74	
+75	- Re-probe Foody.vn with `id_` raw-replay against specific timestamps to diagnose why playbacks return 0 bytes — may unlock VN item-level.
+76	- Targeted Playwright fetches of dynamically-rendered chain pages (DoorDash, Swiggy, modern Zomato) to capture API responses Wayback misses.
+77	- Common Crawl WARC reads as an independent archive — Phase 0 deferred this; CC may have static-rendered snapshots of pages where Wayback only captured JS shells.
+78	- Manual hand-curation of ~10 high-signal historical PDF menus per country (independent restaurants, hotel restaurants, government inflation surveys with itemised price tables) — slow but high-quality.
+79
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:07.334Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:08.390Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/dashboard/app/[country]/page.tsx"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:08.428Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+1	import Link from "next/link";
+2	import { notFound, permanentRedirect } from "next/navigation";
+3	import { getCountryData, getIndexSeries, seriesToCsv } from "@/lib/data";
+4	import IndexChart from "@/components/IndexChart";
+5	import StatCard from "@/components/StatCard";
+6	import {
+7	  SLUG_TO_COUNTRY,
+8	  COUNTRY_FLAGS,
+9	  COUNTRY_SLUGS,
+10	  DEVELOPMENT_STATUS,
+11	  COUNTRIES,
+12	} from "@/types";
+13	import type { Metadata } from "next";
+14	
+15	interface PageProps {
+16	  params: Promise<{ country: string }>;
+17	}
+18	
+19	export async function generateStaticParams() {
+20	  return Object.values(COUNTRY_SLUGS).map((slug) => ({ country: slug }));
+21	}
+22	
+23	/**
+24	 * Resolve a raw URL segment to a canonical lowercase slug + country name.
+25	 * Accepts: "singapore", "Singapore", "SINGAPORE", "Singapore%20", "united_states",
+26	 * "United%20States", "united-states", etc.
+27	 * Returns null if the segment cannot be matched.
+28	 */
+29	function resolveSlug(raw: string): { slug: string; country: string } | null {
+30	  const decoded = (() => {
+31	    try {
+32	      return decodeURIComponent(raw);
+33	    } catch {
+34	      return raw;
+35	    }
+36	  })();
+37	  const normalized = decoded
+38	    .toLowerCase()
+39	    .trim()
+40	    .replace(/[_\s]+/g, "-");
+41	  const country = SLUG_TO_COUNTRY[normalized];
+42	  if (!country) return null;
+43	  return { slug: normalized, country };
+44	}
+45	
+46	export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+47	  const { country: raw } = await params;
+48	  const resolved = resolveSlug(raw);
+49	  if (!resolved) return { title: "Country not found" };
+50	  return {
+51	    title: `${resolved.country} — UIFPI`,
+52	    description: `UIFPI price index and CPI comparison for ${resolved.country}.`,
+53	  };
+54	}
+55	
+56	function fmt(v: number | null | undefined, decimals = 2): string {
+57	  if (v == null) return "—";
+58	  return v.toFixed(decimals);
+59	}
+60	
+61	function DownloadButton({ country, csvData }: { country: string; csvData: string }) {
+62	  const blob = `data:text/csv;charset=utf-8,${encodeURIComponent(csvData)}`;
+63	  const filename = `uifpi_${country.toLowerCase().replace(/\s+/g, "_")}.csv`;
+64	  return (
+65	    <a
+66	      href={blob}
+67	      download={filename}
+68	      className="inline-flex items-center gap-2 bg-[#1a365d] text-white font-medium px-4 py-2 rounded-lg hover:bg-[#2a4a7f] transition-colors text-sm"
+69	    >
+70	      ↓ Download CSV
+71	    </a>
+72	  );
+73	}
+74	
+75	export default async function CountryPage({ params }: PageProps) {
+76	  const { country: raw } = await params;
+77	  const resolved = resolveSlug(raw);
+78	
+79	  if (!resolved) {
+80	    notFound();
+81	  }
+82	
+83	  // Canonicalise: if the URL segment differs from the canonical lowercase
+84	  // slug (e.g. "Singapore", "United%20States"), 308-redirect so search
+85	  // engines and shared links converge on one URL per country.
+86	  if (raw !== resolved.slug) {
+87	    permanentRedirect(`/${resolved.slug}`);
+88	  }
+89	
+90	  const countryName = resolved.country;
+91	
+92	  const { summary, latest, series } = await getCountryData(countryName);
+93	  const csvData = seriesToCsv(countryName, series);
+94	  const devStatus = DEVELOPMENT_STATUS[countryName];
+95	  const totalItems = (summary?.items_formal ?? 0) + (summary?.items_informal ?? 0);
+96	  const hasCpi = series.some((d) => d.cpi != null);
+97	
+98	  const prevCountryIdx =
+99	    (COUNTRIES.indexOf(countryName as (typeof COUNTRIES)[number]) - 1 + COUNTRIES.length) %
+100	    COUNTRIES.length;
+101	  const nextCountryIdx =
+102	    (COUNTRIES.indexOf(countryName as (typeof COUNTRIES)[number]) + 1) % COUNTRIES.length;
+103	  const prevCountry = COUNTRIES[prevCountryIdx];
+104	  const nextCountry = COUNTRIES[nextCountryIdx];
+105	
+106	  return (
+107	    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+108	      {/* Breadcrumb */}
+109	      <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
+110	        <Link href="/" className="hover:text-gray-700 transition-colors">
+111	          Dashboard
+112	        </Link>
+113	        <span>/</span>
+114	        <span className="text-gray-900 font-medium">{countryName}</span>
+115	      </nav>
+116	
+117	      {/* Header */}
+118	      <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
+119	        <div className="flex items-center gap-3">
+120	          <span className="text-4xl">{COUNTRY_FLAGS[countryName]}</span>
+121	          <div>
+122	            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+123	              {countryName}
+124	            </h1>
+125	            <div className="flex items-center gap-2 mt-1">
+126	              <span
+127	                className={`text-xs px-2 py-0.5 rounded font-medium ${
+128	                  devStatus === "Developed"
+129	                    ? "bg-blue-50 text-blue-700"
+130	                    : "bg-amber-50 text-amber-700"
+131	                }`}
+132	              >
+133	                {devStatus}
+134	              </span>
+135	              {summary?.granger_significant ? (
+136	                <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-800 font-medium">
+137	                  <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+138	                  Granger Significant
+139	                </span>
+140	              ) : (
+141	                <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 font-medium">
+142	                  <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+143	                  Data Collection Ongoing
+144	                </span>
+145	              )}
+146	            </div>
+147	          </div>
+148	        </div>
+149	        <DownloadButton country={countryName} csvData={csvData} />
+150	      </div>
+151	
+152	      {/* Chart */}
+153	      <div className="rounded-xl border border-gray-200 bg-white p-6 mb-6">
+154	        <div className="flex items-center justify-between mb-4">
+155	          <h2 className="font-semibold text-gray-900">
+156	            UIFPI vs Official CPI — {countryName}
+157	          </h2>
+158	          {!hasCpi && (
+159	            <span className="text-xs text-gray-400 bg-gray-50 px-2 py-1 rounded">
+160	              Official CPI data not yet available for this country
+161	            </span>
+162	          )}
+163	        </div>
+164	        <IndexChart
+165	          data={series}
+166	          country={countryName}
+167	          showFormal
+168	          showInformal
+169	          showCpi={hasCpi}
+170	          height={380}
+171	        />
+172	        {series.length === 0 && (
+173	          <p className="text-sm text-gray-500 mt-3 text-center">
+174	            Index data not yet available — price collection is ongoing.
+175	          </p>
+176	        )}
+177	      </div>
+178	
+179	      {/* Stats */}
+180	      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+181	        <StatCard
+182	          label="Lead Time"
+183	          value={summary?.lead_months != null ? summary.lead_months : null}
+184	          unit={summary?.lead_months != null ? "months" : undefined}
+185	          sub="Ahead of official CPI"
+186	          highlight={summary?.lead_months != null}
+187	        />
+188	        <StatCard
+189	          label="Formal Pass-Through"
+190	          value={
+191	            summary?.pass_through_formal != null
+192	              ? fmt(summary.pass_through_formal)
+193	              : null
+194	          }
+195	          unit={summary?.pass_through_formal != null ? "β" : undefined}
+196	          sub="Cost transmission rate"
+197	        />
+198	        <StatCard
+199	          label="Informal Pass-Through"
+200	          value={
+201	            summary?.pass_through_informal != null
+202	              ? fmt(summary.pass_through_informal)
+203	              : null
+204	          }
+205	          unit={summary?.pass_through_informal != null ? "β" : undefined}
+206	          sub="Cost transmission rate"
+207	        />
+208	        <StatCard
+209	          label="Price Observations"
+210	          value={totalItems.toLocaleString()}
+211	          sub={`${summary?.items_formal ?? 0} formal / ${summary?.items_informal ?? 0} informal`}
+212	        />
+213	        <StatCard
+214	          label="Months Indexed"
+215	          value={summary?.months_of_data ?? 0}
+216	          sub={`Since ${summary?.base_month ?? "2018"}`}
+217	        />
+218	      </div>
+219	
+220	      {/* Coverage details */}
+221	      <div className="grid sm:grid-cols-2 gap-6 mb-8">
+222	        <div className="rounded-xl border border-gray-200 bg-white p-5">
+223	          <h3 className="font-semibold text-gray-900 mb-3">Formal Sector</h3>
+224	          <dl className="space-y-2 text-sm">
+225	            <div className="flex justify-between">
+226	              <dt className="text-gray-500">Restaurants</dt>
+227	              <dd className="font-medium text-gray-900">
+228	                {summary?.restaurants_formal ?? "—"}
+229	              </dd>
+230	            </div>
+231	            <div className="flex justify-between">
+232	              <dt className="text-gray-500">Price items</dt>
+233	              <dd className="font-medium text-gray-900">
+234	                {summary?.items_formal ?? "—"}
+235	              </dd>
+236	            </div>
+237	            <div className="flex justify-between">
+238	              <dt className="text-gray-500">Avg. price (USD)</dt>
+239	              <dd className="font-medium text-gray-900">
+240	                {summary?.avg_price_formal_usd != null
+241	                  ? `$${summary.avg_price_formal_usd.toFixed(2)}`
+242	                  : "—"}
+243	              </dd>
+244	            </div>
+245	          </dl>
+246	        </div>
+247	
+248	        <div className="rounded-xl border border-gray-200 bg-white p-5">
+249	          <h3 className="font-semibold text-gray-900 mb-3">
+250	            Informal Sector
+251	          </h3>
+252	          <dl className="space-y-2 text-sm">
+253	            <div className="flex justify-between">
+254	              <dt className="text-gray-500">Hawker stalls / vendors</dt>
+255	              <dd className="font-medium text-gray-900">
+256	                {summary?.restaurants_informal ?? "—"}
+257	              </dd>
+258	            </div>
+259	            <div className="flex justify-between">
+260	              <dt className="text-gray-500">Price items</dt>
+261	              <dd className="font-medium text-gray-900">
+262	                {summary?.items_informal ?? "—"}
+263	              </dd>
+264	            </div>
+265	            <div className="flex justify-between">
+266	              <dt className="text-gray-500">Avg. price (USD)</dt>
+267	              <dd className="font-medium text-gray-900">
+268	                {summary?.avg_price_informal_usd != null
+269	                  ? `$${summary.avg_price_informal_usd.toFixed(2)}`
+270	                  : "—"}
+271	              </dd>
+272	            </div>
+273	          </dl>
+274	        </div>
+275	      </div>
+276	
+277	      {/* Data status notice */}
+278	      {!summary?.granger_significant && (
+279	        <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 mb-8 text-sm text-amber-800">
+280	          <strong>Data Collection Ongoing:</strong> Full Granger causality
+281	          testing requires ≥24 monthly observations. Current dataset has{" "}
+282	          {summary?.months_of_data ?? 0} months. Results will update
+283	          automatically as more data is collected.
+284	        </div>
+285	      )}
+286	
+287	      {/* Navigation */}
+288	      <div className="flex justify-between pt-4 border-t border-gray-200">
+289	        <Link
+290	          href={`/${COUNTRY_SLUGS[prevCountry]}`}
+291	          className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[#1a365d] transition-colors"
+292	        >
+293	          ← {COUNTRY_FLAGS[prevCountry]} {prevCountry}
+294	        </Link>
+295	        <Link
+296	          href="/"
+297	          className="text-sm font-medium text-gray-500 hover:text-[#1a365d] transition-colors"
+298	        >
+299	          All Countries
+300	        </Link>
+301	        <Link
+302	          href={`/${COUNTRY_SLUGS[nextCountry]}`}
+303	          className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[#1a365d] transition-colors"
+304	        >
+305	          {COUNTRY_FLAGS[nextCountry]} {nextCountry} →
+306	        </Link>
+307	      </div>
+308	    </div>
+309	  );
+310	}
+311
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:12.248Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "cat /Users/erwenchen/Inflation-menu/dashboard/types/index.ts 2>/dev/null || ls /Users/erwenchen/Inflation-menu/dashboard/types/",
+  "description": "Find types file"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:12.360Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+export interface IndexPoint {
+  month: string;
+  uifpi: number | null;
+  formal: number | null;
+  informal: number | null;
+  cpi: number | null;
+  item_count: number;
+}
+
+export interface CountrySummary {
+  granger_significant: boolean | null;
+  granger_p_value: number | null;
+  lead_months: number | null;
+  pass_through_formal: number | null;
+  pass_through_informal: number | null;
+  pass_through_significant: boolean | null;
+  r_squared: number | null;
+  n_obs: number | null;
+  months_of_data: number;
+  base_month: string | null;
+  latest_uifpi: number | null;
+  latest_cpi: number | null;
+  status: string;
+  items_formal: number;
+  items_informal: number;
+  restaurants_formal: number;
+  restaurants_informal: number;
+  avg_price_formal_usd: number | null;
+  avg_price_informal_usd: number | null;
+}
+
+export interface LatestValue {
+  month: string;
+  uifpi: number | null;
+  formal: number | null;
+  informal: number | null;
+  cpi: number | null;
+  yoy_change_pct: number | null;
+  items_formal: number;
+  items_informal: number;
+}
+
+export type CountrySummaryMap = Record<string, CountrySummary>;
+export type LatestValueMap = Record<string, LatestValue>;
+export type IndexSeriesMap = Record<string, IndexPoint[]>;
+
+export const COUNTRIES = [
+  "Singapore",
+  "Malaysia",
+  "Indonesia",
+  "Thailand",
+  "India",
+  "United States",
+  "United Kingdom",
+  "Australia",
+] as const;
+
+export type Country = (typeof COUNTRIES)[number];
+
+export const COUNTRY_FLAGS: Record<string, string> = {
+  Singapore: "🇸🇬",
+  Malaysia: "🇲🇾",
+  Indonesia: "🇮🇩",
+  Thailand: "🇹🇭",
+  India: "🇮🇳",
+  "United States": "🇺🇸",
+  "United Kingdom": "🇬🇧",
+  Australia: "🇦🇺",
+};
+
+export const COUNTRY_SLUGS: Record<string, string> = {
+  Singapore: "singapore",
+  Malaysia: "malaysia",
+  Indonesia: "indonesia",
+  Thailand: "thailand",
+  India: "india",
+  "United States": "united-states",
+  "United Kingdom": "united-kingdom",
+  Australia: "australia",
+};
+
+export const SLUG_TO_COUNTRY: Record<string, string> = Object.fromEntries(
+  Object.entries(COUNTRY_SLUGS).map(([k, v]) => [v, k])
+);
+
+export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
+  Singapore: "Developed",
+  Malaysia: "Emerging",
+  Indonesia: "Emerging",
+  Thailand: "Emerging",
+  India: "Emerging",
+  "United States": "Developed",
+  "United Kingdom": "Developed",
+  Australia: "Developed",
+};
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:13.477Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nE \"Indonesia|Thailand|Australia|Mexico|Brazil|Vietnam|South Africa|Spain|Germany|COUNTRIES|COUNTRY_SLUGS\" /Users/erwenchen/Inflation-menu/dashboard/types/*.ts 2>&1 | head -60",
+  "description": "Types listing"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:13.586Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+47:export const COUNTRIES = [
+50:  "Indonesia",
+51:  "Thailand",
+55:  "Australia",
+58:export type Country = (typeof COUNTRIES)[number];
+63:  Indonesia: "🇮🇩",
+64:  Thailand: "🇹🇭",
+68:  Australia: "🇦🇺",
+71:export const COUNTRY_SLUGS: Record<string, string> = {
+74:  Indonesia: "indonesia",
+75:  Thailand: "thailand",
+79:  Australia: "australia",
+83:  Object.entries(COUNTRY_SLUGS).map(([k, v]) => [v, k])
+89:  Indonesia: "Emerging",
+90:  Thailand: "Emerging",
+94:  Australia: "Developed",
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:17.573Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/final_roster.md"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:17.592Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+1	# UIFPI — Final country roster (Phase 1 deliverable)
+2	
+3	**Generated**: 2026-06-17
+4	
+5	## Roster decision per country
+6	
+7	The thesis target was an 8-country panel for formal-vs-informal price pass-through. Every country listed below clears the formal-sector threshold (≥15 archived restaurants with ≥2 captures inside the 2018-01 → 2026-06 window). Vietnam is included as a floor-only proxy per the agreed methodology.
+8	
+9	| Country | Formal source | Item-level? | Rows | Restaurants | Months | Floor (Numbeo + Big Mac + WB CPI) | Verdict |
+10	|---|---|---|---:|---:|---:|:---:|:---:|
+11	| United States | MenuPages (Wayback) + TripAdvisor | item-level | 8,594 | 265 | 76 | ✓ | ✓ keep |
+12	| Singapore | GrabFood (live + Wayback) + TripAdvisor | item-level | 7,807 | 70 | 19 | ✓ | ✓ keep |
+13	| Malaysia | foodpanda/GrabFood (live) + TripAdvisor | item-level | 2,660 | 163 | 71 | ✓ | ✓ keep |
+14	| United Kingdom | Deliveroo (live) + TripAdvisor + direct chain | item-level | 1,067 | 247 | 78 | ✓ | ✓ keep |
+15	| India | Zomato cost-for-two (Wayback) + TripAdvisor | restaurant-aggregate | 872 | 237 | 79 | ✓ | ✓ keep |
+16	| Australia | direct chains (live) + Menulog (Wayback) + TripAdvisor | item-level (sparse) | 331 | 180 | 59 | ✓ | ✓ keep |
+17	| Thailand | TripAdvisor priceRange tiers + live (one-day) | tier-only | 290 | 226 | 79 | ✓ | ✓ keep (formal weak, floor strong) |
+18	| Indonesia | Zomato cost-for-two (Wayback) + TripAdvisor | restaurant-aggregate | 152 | 130 | 57 | ✓ | ✓ keep |
+19	| Vietnam | — (no extractable archival source) | — | 0 | — | — | ✓ | ✓ keep as **proxy-only** |
+20	
+21	**Final 8-country formal roster**: US, SG, MY, UK, IN, AU, TH, ID.
+22	**9th country (proxy-only)**: Vietnam — Numbeo / Big Mac / World Bank CPI panels only, flagged in `data_gaps.md`.
+23	
+24	## Why each country qualifies
+25	
+26	Each country is judged against three filters:
+27	1. **Formal restaurants ≥ 15** with ≥2 in-window captures — Phase 0 coverage matrix.
+28	2. **Extractable prices** in the archived HTML — Phase 1c parser validation.
+29	3. **Always-on floor datasets** (Numbeo restaurant rankings, Big Mac index, World Bank CPI) loaded so cross-country comparison is still possible when archival sources are thin.
+30	
+31	- **US**: MenuPages has 2,866 Wayback restaurants with full Schema.org Menu / MenuSection / MenuItem markup pre-2019. The collection sampled 77 distinct restaurants and extracted 8,282 item-level prices spanning 29 months. Strongest item-level coverage in the panel.
+32	- **SG**: archived GrabFood pages serve NEXT_DATA with menu items; 842 item-level rows from 12 archived restaurants supplement the 6,965 live foodpanda + GrabFood rows already in DB.
+33	- **MY**: covered entirely by the existing live foodpanda + GrabFood pipeline; 2,499 rows pre-Phase 1, no Wayback addition needed.
+34	- **UK**: covered by Deliveroo (live) + 3 direct chains + 45 TripAdvisor wayback rows. Adequate breadth.
+35	- **IN**: Zomato pre-2020 archived pages don't expose item-level prices but do expose "cost for two" as a restaurant-level average meal price. Extracted 635 restaurant-level data points spanning 79 months across NCR — methodologically a restaurant-aggregate inflation signal, not item-level.
+36	- **AU**: covered by live direct chains (Oporto, Nando's) + 158 historical TripAdvisor rows + 15 from Menulog NEXT_DATA. Menulog yield was marginal (10/104 fetches) but counts.
+37	- **TH**: TripAdvisor wayback gives priceRange tier markers (1–4 ordinals); Eatigo archival sources had no extractable prices. Formal sector is weak — paper uses TH primarily via floor datasets + the one-day 2026-06-13 live snapshot.
+38	- **ID**: Zomato Jakarta cost-for-two extracted 29 restaurant-level data points; floor datasets fill the panel.
+39	- **VN**: no extractable archival source confirmed. foody.vn URLs returned 0-byte Wayback playbacks; TripAdvisor HCMC/Hanoi pages have 0 VND tokens in static HTML. Vietnam is kept as a **proxy-only** country: cross-country comparison via Numbeo Restaurants Price Index + Big Mac Index + World Bank CPI, with no item-level UIFPI computed.
+40	
+41	## What changed from the Phase 0 matrix
+42	
+43	Phase 0 winners that delivered as expected:
+44	- ✓ MenuPages (US) — JSON-LD Menu pipeline cleanest in the panel.
+45	- ✓ GrabFood SG — NEXT_DATA archived works.
+46	- ✓ Zomato NCR + Jakarta — yielded cost_for_two via dedicated extractor (not the item-level JSON-LD I had originally guessed).
+47	
+48	Phase 0 winners that under-delivered after parser validation:
+49	- ⚠ Menulog AU — NEXT_DATA mostly restaurant-level metadata, not item prices. 15 rows / 1 restaurant.
+50	- ✗ Eatigo TH — JSON-LD didn't carry prices; URLs at the pattern level are mostly categories. 0 rows.
+51	- ✗ Zomato Manila PH — same regex but PHP-marker variant didn't match the pages' actual cost-for-two phrasing. 0 rows.
+52	- ✗ TripAdvisor MX — exposes only priceRange tier markers, which the parser correctly skips. 0 rows.
+53	
+54	Outcome: 4 of 8 platforms gave high-quality item or restaurant-aggregate prices; 4 yielded little or nothing. Coverage gaps are documented in `data_gaps.md`.
+55	
+56	## Cron / forward collection
+57	
+58	The existing live scraper (`live_scraper.py`) continues running:
+59	- Daily at 21:00 (`0 21 * * *`)
+60	- Monthly on the 1st at 10:00 (`0 10 1 * *`)
+61	
+62	That will keep adding rows for SG, MY, UK, AU each day, providing the going-forward monthly series for the index and Granger analysis. The Wayback pipeline is the historical backfill; live is the going-forward.
+63
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:45.637Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:47.351Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nE '\"https?://[^\"]+\"' /Users/erwenchen/Inflation-menu/live_scraper.py | grep -iE \"Indonesia|Thailand|Australia\" | head -40",
+  "description": "List active (uncommented) ID/TH/AU URL targets"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:47.466Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+2030:     # "https://gofood.co.id/jakarta/restaurant/jco-donuts-grand-indonesia",
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:47.681Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/verify_targets_report.json"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:47.707Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+1	{
+2	  "generated_at": "2026-06-16T20:42:44.839131",
+3	  "count": 1,
+4	  "results": [
+5	    {
+6	      "name": "Applebee's",
+7	      "url": "https://www.applebees.com/en/menu",
+8	      "source": "direct",
+9	      "country": "United States",
+10	      "final_url": "https://www.applebees.com/en/menu",
+11	      "status": "OK_TITLE_ONLY",
+12	      "http_status": 200,
+13	      "title": "Applebee's Neighborhood Grill + Bar - Your Local Restaurant",
+14	      "body_head": "Skip to main content\nMENU\nOFFERS\nLOCATIONS\nCATERING\nGIFT CARDS\nCLUB APPLEBEE\u2019S\nCAREERS\nMOZZARELLA STICKS\n\n860 cals\n\nAPPLEBEE'S MENU\n Search Menu\nULTIMATE TRIO\nDIRTY FOUNTAIN SODAS\nSKILLETS\nAPPETIZERS\nIRRESIST-A-BOWLS\u00ae\nSTEAKS & RIBS\nHANDCRAFTED BURGERS\nCHICKEN\nPASTA\nSEAFOOD\nSANDWICHES & MORE\nSALADS\nDESSERTS\n2 FOR $2X\nKID'S MENU\nSIDES\nHUNGRY?\nTakeout\nOrder Delivery\nRestaurant List\nNutrition & Allergens\nABOUT APPLEBEE'S\nAbout Us\nContact Us\nNews\nCommercials\nFranchising\nCorporate\nClub Applebee's\nBusiness Responsibility\nJOIN OUR TEAM\nCareers\nApplicant & Employee Privacy Notice\nGET THE APP\nAccessibility Statement\nPrivacy Policy\nPrivacy Web Form\nTerms of Use\nUnsolicited Ideas Policy\nOther Terms\nSitemap\nYour Privacy Choices\n\n\u00a9 2026 Applebee's Restaurants LLC. The Applebee\u2019s logo is a registered trademark and copyrighted work of Applebee\u2019s Restaurants LLC.\n\nWe use cookies and other tracking technologies to enhance user experience, improve functionality, serve personalized ads or content, and support our marketing efforts. By clicking \u201cClose\u201d or continuing to browse, you agree to ourTERMS OF USE, including the individual arbitration provision, and you consent to our sharing of information abo",
+15	      "items_signal": 1,
+16	      "reason": "title matches restaurant name (items didn't render headless)"
+17	    }
+18	  ]
+19	}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:29:53.773Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nB1 -A4 'country == \"Indonesia\"\\|country == \"Thailand\"\\|country == \"Australia\"\\|\"Indonesia\"\\|\"Thailand\"\\|\"Australia\"' /Users/erwenchen/Inflation-menu/live_scraper.py | grep -E 'http|country=|^[0-9]+:\\s*(\"\\w|#)' | grep -v '^--$' | head -80",
+  "description": "Country-tagged URL lines in live_scraper"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:30:50.107Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+2010-     # "https://gofood.co.id/jakarta/restaurant/solaria",
+2011:     # "formal", "gofood", "IDR", "Indonesia"),
+2015-     # "https://gofood.co.id/jakarta/restaurant/mcdonalds-sarinah",
+2016:     # "formal", "gofood", "IDR", "Indonesia"),
+2020-     # "https://gofood.co.id/jakarta/restaurant/kfc-kemang",
+2021:     # "formal", "gofood", "IDR", "Indonesia"),
+2025-     # "https://gofood.co.id/jakarta/restaurant/pizza-hut-menteng",
+2026:     # "formal", "gofood", "IDR", "Indonesia"),
+2030-     # "https://gofood.co.id/jakarta/restaurant/jco-donuts-grand-indonesia",
+2031:     # "formal", "gofood", "IDR", "Indonesia"),
+2035-     # "https://gofood.co.id/jakarta/restaurant/nasi-padang-sederhana",
+2036:     # "informal", "gofood", "IDR", "Indonesia"),
+2040-     # "https://gofood.co.id/jakarta/restaurant/bakso-solo-samrat",
+2041:     # "informal", "gofood", "IDR", "Indonesia"),
+2045-     # "https://gofood.co.id/jakarta/restaurant/mie-ayam-tumini",
+2046:     # "informal", "gofood", "IDR", "Indonesia"),
+2050-     # "https://gofood.co.id/jakarta/restaurant/soto-betawi-h-mamat",
+2051:     # "informal", "gofood", "IDR", "Indonesia"),
+2065-     # "https://food.grab.com/th/en/chain/mcdonalds-delivery",
+2066:     # "formal", "grabfood", "THB", "Thailand"),
+2070-     # "https://food.grab.com/th/en/chain/kfc-delivery",
+2071:     # "formal", "grabfood", "THB", "Thailand"),
+2075-     # "https://food.grab.com/th/en/chain/mk-restaurant-delivery",
+2076:     # "formal", "grabfood", "THB", "Thailand"),
+2080-     # "https://food.grab.com/th/en/chain/the-pizza-company-delivery",
+2081:     # "formal", "grabfood", "THB", "Thailand"),
+2085-     # "https://food.grab.com/th/en/chain/swensens-delivery",
+2086:     # "formal", "grabfood", "THB", "Thailand"),
+2090-     # "https://food.grab.com/th/en/restaurant/thip-samai-pad-thai-delivery",
+2091:     # "informal", "grabfood", "THB", "Thailand"),
+2095-     # "https://food.grab.com/th/en/restaurant/som-tam-nua-siam-delivery",
+2096:     # "informal", "grabfood", "THB", "Thailand"),
+2100-     # "https://food.grab.com/th/en/restaurant/go-ang-khao-man-gai-delivery",
+2101:     # "informal", "grabfood", "THB", "Thailand"),
+2105-     # "https://food.grab.com/th/en/restaurant/boat-noodle-victory-monument-delivery",
+2106:     # "informal", "grabfood", "THB", "Thailand"),
+2533-     # "https://mcdonalds.com.au/menu",
+2534:     # "formal", "direct", "AUD", "Australia"),
+2538-     # "https://www.guzmanygomez.com/menu/",
+2539:     # "formal", "direct", "AUD", "Australia"),
+2543-     # "https://www.grilld.com.au/menu",
+2544:     # "formal", "direct", "AUD", "Australia"),
+2547-     "https://www.nandos.com.au/menu",
+2548:     "formal", "direct", "AUD", "Australia"),
+2552-     # "https://www.zambrero.com/menu",
+2553:     # "formal", "direct", "AUD", "Australia"),
+2557-     # "https://www.madmex.com.au/menu",
+2558:     # "formal", "direct", "AUD", "Australia"),
+2561-     "https://www.oporto.com.au/menu/",
+2562:     "formal", "direct", "AUD", "Australia"),
+2564-    # [verifier:NAV_ERROR] Page.goto: Timeout 30000ms exceeded. Call log: - navigating to "https://www.boostjuice.com.au/menu", waiting until "domcontentloaded"
+2566-     # "https://www.boostjuice.com.au/menu",
+2567:     # "formal", "direct", "AUD", "Australia"),
+2571-     # "https://rolld.com.au/menu/",
+2572:     # "formal", "direct", "AUD", "Australia"),
+2577-     # "https://www.lunecroissanterie.com/menu",
+2578:     # "informal", "direct", "AUD", "Australia"),
+2582-     # "https://chinchinrestaurant.com.au/menus/",
+2583:     # "informal", "direct", "AUD", "Australia"),
+2587-     # "https://www.huxtaburger.com.au/menu/",
+2588:     # "informal", "direct", "AUD", "Australia"),
+2590-    # [verifier:NAV_ERROR] Page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at https://www.mary.com.au/our-menu/ Call log: - navigating to "https://www.mary.com.au/our-menu/", waiting until
+2592-     # "https://www.mary.com.au/our-menu/",
+2593:     # "informal", "direct", "AUD", "Australia"),
+2597-     # "https://thegrounds.com.au/all-day-menu/",
+2598:     # "informal", "direct", "AUD", "Australia"),
+2600-    # [verifier:NAV_ERROR] Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.buttermelbourne.com.au/menu/ Call log: - navigating to "https://www.buttermelbourne.com.au/menu/", waiting 
+2602-     # "https://www.buttermelbourne.com.au/menu/",
+2603:     # "informal", "direct", "AUD", "Australia"),
+2607-     # "https://www.lankanfillingstation.com.au/menu/",
+2608:     # "informal", "direct", "AUD", "Australia"),
+2612-     # "https://www.fondamexican.com.au/menus/",
+2613:     # "informal", "direct", "AUD", "Australia"),
+2617-     # "https://www.harryscafedewheels.com.au/menu/",
+2618:     # "informal", "direct", "AUD", "Australia"),
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:01.817Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:02.757Z] ASSISTANT
+------------------------------------------------------------------------------
+I have enough now to present the audit. The system reminder about tasks doesn't apply — we're in the pre-sign-off investigation phase the user explicitly requested.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:04.885Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nA10 \"Thailand\\|Indonesia\\|Australia\" /Users/erwenchen/Inflation-menu/dashboard/app/page.tsx | head -60",
+  "description": "Check homepage country tiles"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:06.118Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nE \"tier|priceRange|exclude|skip\" /Users/erwenchen/Inflation-menu/index_builder.py | head -20",
+  "description": "Find tier-marker exclusion in index_builder"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:13.601Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+(Bash completed with no output)
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:13.714Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+156:    # Exclude TripAdvisor price-tier markers: historical_scraper stores
+157:    # priceRange ($, $$, $$$, $$$$) as the literal integers 1-4 in `price`,
+158:    # with item_name "Price tier (TripAdvisor: …)". They're categorical
+160:    # tier ordinals with real menu prices and produces wild ratios (e.g.,
+162:    tier_mask = df["item_name"].str.startswith("Price tier", na=False)
+163:    if tier_mask.any():
+164:        print(f"  Excluded {tier_mask.sum():,} TripAdvisor price-tier rows "
+166:        df = df[~tier_mask].copy()
+457:    Drop logic: items absent for > 3 consecutive months are excluded.
+716:                print(f"  {country}: insufficient data — skipped")
+735:                print(f"  {country}: insufficient data — skipped")
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:19.433Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, COUNT(*) AS tier_rows FROM prices WHERE item_name LIKE 'Price tier%' GROUP BY country;\"",
+  "description": "Count of tier-marker rows per country"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:19.523Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Australia|221
+India|237
+Indonesia|118
+Malaysia|188
+Singapore|35
+Thailand|279
+United Kingdom|293
+United States|277
+
+------------------------------------------------------------------------------
+[2026-06-17T12:31:38.684Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:32:22.686Z] ASSISTANT
+------------------------------------------------------------------------------
+I've completed the investigation without writing any code. Here's the audit and a proposed plan — I want sign-off before implementation, and I'm flagging some honesty issues with the "5–10x" framing up front.
+
+## Audit: where the thin data actually comes from
+
+The user-facing item/month counts mix raw `prices` rows with the indexed series, and that's hiding the real bottleneck. Here's the actual decomposition for the three countries:
+
+| Country | Raw `prices` rows | Of which: TripAdvisor tier markers (excluded from index) | Real price-bearing rows | `uifpi_index` months |
+|---|---:|---:|---:|---:|
+| Thailand | 290 | 279 | 11 (all 2026-06 live) | 1 |
+| Indonesia | 152 | 118 | 34 (29 Zomato cost-for-two + 5 misc) | 21 |
+| Australia | 373 | 221 | 152 (128 direct chains 2026-06, 15 Menulog, 9 misc) | 13 |
+
+`index_builder.py:162` correctly drops `Price tier (TripAdvisor: …)` rows because they're categorical ordinals (1–4), not currency. So Thailand's "79 months in raw" is misleading — 279 of 290 rows are non-price tiers; only one month has actual baht prices.
+
+**Why the live scrapers don't fill the gap:**
+- `live_scraper.py:2007–2106` has the full GoFood Jakarta and GrabFood Thailand target lists *commented out*. Per the comments, the foodpanda.id/foodpanda.co.th URLs "were never confirmed working" and were removed; GoFood/GrabFood TH/ID targets were never validated against real pages.
+- `live_scraper.py:2533–2618` shows Australia direct-chain attempts: ~12 URLs commented out with `[verifier:NAV_ERROR]` notes (timeouts, `ERR_NAME_NOT_RESOLVED`, `ERR_HTTP_RESPONSE_CODE_FAILURE`). Only Nando's AU and Oporto are active.
+- foodpanda.co.th returns 403 to curl per `scraping_notes.md`; Playwright path is unverified.
+
+**Why the historical scrapers don't fill the gap:**
+- `coverage_report.md` is the Phase 0 probe from 2026-06-16. It enumerates 30 (country, platform) pairs and counts price tokens in the static HTML Wayback returns. For ID/TH the picture is grim:
+  - TH: Wongnai (5,545 restaurants, 0 $-hits in sample), Eatigo (3,410 restaurants, JSON-LD has no prices), TripAdvisor (tier-only).
+  - ID: Qraved (6,727, 0 $-hits), PergiKuliner (6,582, 12 $-hits), Zomato Jakarta (111, 40 $-hits — already extracted, 29 rows).
+- `data_gaps.md` (the paper's limitations section) already documents these as **archival ceilings**, not scraper bugs.
+
+So: this isn't a "broken scraper" problem. It's a "the source HTML doesn't contain prices" problem for the historical years, and a "JS-rendered live sites weren't unblocked yet" problem for the present.
+
+## Honest constraint on "5–10x and extend monthly coverage"
+
+To be straight: **I can't reliably 5–10x these counts** with what the documented coverage probe shows. Specifically, I can't manufacture historical monthly observations for sources whose archived HTML has no prices, and I won't generate synthetic data into the index (it's a research project). What I *can* do:
+
+- **5–10x the present-month item count** by getting GoFood/GrabFood/foodpanda/UberEats/Menulog live-scrapers working under Playwright with anti-bot evasion. That gives one fat month per restaurant going forward, not backfill.
+- **Add 3–10 more months of indexable history** via Common Crawl WARC reads and `id_` raw-replay on Wayback for specific high-yield URL patterns we haven't tried (Zomato Surabaya/Bandung, Wongnai's per-restaurant `/page/` route, Menulog city slugs). This is the path data_gaps.md calls "what I would do with more time."
+- **Cleanly render the existing data** by changing the index method or threshold for TH/ID — e.g., compute and chart the cost-for-two restaurant-aggregate series for ID without forcing it through the tier-exclusion-after-merge path; for TH publish the 2026-06 live snapshot and a "going-forward only" disclosure.
+
+For new countries:
+- MX was already Phase 0 probed → TripAdvisor tier-only. Live GoFood-equivalent in MX is iFood/Rappi, which need their own Playwright work.
+- BR, DE/ES, ZA, VN haven't been Phase 0 probed. I'd run the same probe pattern and report yields before promising 500-items × 6-months.
+
+## Proposed plan (3 tracks)
+
+**Track A — fix what's already there (~0.5 day)**
+1. Update country page so TH renders the 2026-06 live snapshot as a single point with a clear "going-forward only" annotation, instead of "—".
+2. Update ID rendering to chart the Zomato cost-for-two series (already 21 months) without the misleading tier-collapsed view.
+3. Audit `dashboard_data.py` so item-counts on the homepage tiles match what's actually in the index.
+
+**Track B — present-month volume via live scrapers (~1–2 days, depends on bot-detection)**
+1. Uncomment and validate Indonesia GoFood targets (Jakarta + Surabaya + Bandung) under Playwright with stealth flags.
+2. Add GrabFood Thailand (Bangkok + Chiang Mai) and foodpanda.co.th targets under Playwright.
+3. Add Uber Eats AU + Menulog live (Sydney + Melbourne + Brisbane + Perth) — Menulog NEXT_DATA is the same pipeline that's already in `live_scraper.py`.
+4. Run scraper once, log per-URL yields. Realistic target: **300–800 fresh present-month items per country**, all dated 2026-06/2026-07.
+
+**Track C — new countries (Phase 0 probe first, ~0.5 day; full collection ~1–2 days each that pass)**
+1. Run the same Phase 0 probe script (`phase0_coverage_probe.py`) for BR (iFood/TripAdvisor BR), DE (Lieferando/TripAdvisor DE), ES (Glovo/TripAdvisor ES), ZA (Mr D Food/Uber Eats ZA), VN (Foody re-probe).
+2. Bring back a yields table; only countries that clear ≥15 restaurants × ≥5 $-hits per sample become live targets.
+3. For the ones that pass: add to `types/index.ts`, build live + Wayback collectors, run, ship country page.
+4. For the ones that don't: ship as floor-only countries (Numbeo + Big Mac + World Bank CPI) the way Vietnam already is — *if you want them visible at all*.
+
+## What I want you to sign off on
+
+1. Is the "5–10x" target negotiable down to "as much as the source coverage allows, with honest annotations on the page"? Anything else risks fabricating data for a research project.
+2. Track A — always-yes? It's a 30-line page change + a method tweak.
+3. Track B priority order: ID GoFood, TH GrabFood, AU Menulog/UberEats — which first? Each has its own anti-bot risk.
+4. Track C — start with Phase 0 probes for BR + DE + ZA before committing scope, or do you want me to skip the probe and just hand-build a Mexico page from TripAdvisor floor data (proxy-only, like Vietnam) so the LatAm tile lights up?
+
+I won't touch code until you respond.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:00.369Z] USER
+------------------------------------------------------------------------------
+Thanks for the honest decomposition. Sign-offs:
+
+1. "5–10x" — fully negotiable. Replace the target with
+   "as much as source coverage honestly allows, with clear
+   annotations." This is for SSEF 2026; data integrity > volume.
+   No synthetic fill, no padding.
+
+2. Track A — yes, do it. Specifically:
+   - TH: render the 2026-06 snapshot as a single point with a
+     "live collection going forward only" annotation
+   - ID: switch the chart to the Zomato cost-for-two series
+     (the 21 real months), drop the tier-collapsed view
+   - Fix dashboard_data.py so the homepage tile counts reflect
+     real price-bearing rows, not raw rows. Right now Thailand
+     showing "290 items" when only 11 are actual prices is
+     misleading to anyone reading the site.
+
+3. Track B priority: AU first (Menulog NEXT_DATA pipeline already
+   exists — lowest risk, fastest validation), then ID GoFood,
+   then TH GrabFood. Log per-URL yields after each so we can
+   bail early on sources that get bot-blocked.
+
+4. Track C: run Phase 0 probes for BR + DE + ZA before
+   committing scrape work — same yields-table format as
+   coverage_report.md. In parallel, go ahead and ship a Mexico
+   floor-only page (Numbeo + Big Mac + World Bank CPI, same as
+   Vietnam) so the LatAm tile lights up immediately with honest
+   "proxy data only" labeling.
+
+EXTRA TASK — TripAdvisor "$" tier cleanup:
+The TripAdvisor "Price tier" rows ($, $$, $$$, $$$$) are useless
+for this research — they're categorical ordinals, not currency,
+and they're inflating raw counts on the dashboard while
+contributing nothing to the index. Please:
+
+a. Stop ingesting them at the scraper level — don't write
+   TripAdvisor tier markers into the raw prices table at all
+   going forward. Add a filter in the TripAdvisor collector
+   that drops any row whose price field is a $-tier string.
+b. Purge existing tier-marker rows from the raw prices table
+   (the 279 TH + 118 ID + 221 AU + any others). Back up first,
+   then delete. Log how many rows per country were removed.
+c. Remove the corresponding exclusion logic in
+   index_builder.py:162 once the data is gone — no need to
+   filter what isn't there. Leave a one-line comment in case
+   anyone wonders later.
+d. Re-run dashboard_data.py and confirm homepage counts drop
+   to honest numbers.
+e. Audit the rest of the codebase (grep for "tier", "TripAdvisor",
+   "$") for any remaining references and clean them up.
+
+Note in CHANGES.md that the homepage item counts dropped because
+tier markers were removed, not because data was lost — so anyone
+comparing before/after numbers understands.
+
+Go ahead and start with Track A + the TripAdvisor cleanup, since
+both are low-risk and immediately improve the site's honesty.
+Show me the per-country removal counts before purging.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:11.166Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:12.084Z] ASSISTANT
+------------------------------------------------------------------------------
+I'll start by showing the per-country tier-marker counts before purging anything, as you asked. Let me also load the task tracking schema so I can structure the work.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:12.102Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: ToolSearch]
+{
+  "query": "select:TaskCreate,TaskUpdate",
+  "max_results": 2
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:12.112Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+{"type": "tool_reference", "tool_name": "TaskCreate"}
+{"type": "tool_reference", "tool_name": "TaskUpdate"}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:16.883Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:20.482Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, COUNT(*) AS tier_rows, COUNT(DISTINCT restaurant_name) AS rests, COUNT(DISTINCT substr(collection_date,1,7)) AS months, MIN(collection_date), MAX(collection_date) FROM prices WHERE item_name LIKE 'Price tier%' GROUP BY country ORDER BY tier_rows DESC;\"; echo ---TOTAL---; sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT COUNT(*) FROM prices WHERE item_name LIKE 'Price tier%';\"",
+  "description": "Full tier-marker removal audit"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:20.702Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+United Kingdom|293|234|77|2018-01-18|2025-12-26
+Thailand|279|223|78|2018-01-03|2025-12-12
+United States|277|202|70|2018-01-23|2025-06-26
+India|237|180|55|2018-01-15|2025-12-31
+Australia|221|171|57|2018-01-23|2025-12-30
+Malaysia|188|143|69|2018-06-08|2025-12-30
+Indonesia|118|104|45|2018-10-02|2025-12-30
+Singapore|35|28|12|2019-06-19|2023-05-17
+---TOTAL---
+1648
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:21.998Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, source, COUNT(*) FROM prices WHERE item_name LIKE 'Price tier%' GROUP BY country, source ORDER BY country;\"",
+  "description": "Verify tier rows all come from TripAdvisor sources"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:22.112Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Australia|wayback|221
+India|wayback|237
+Indonesia|wayback|118
+Malaysia|wayback|188
+Singapore|wayback|35
+Thailand|wayback|279
+United Kingdom|wayback|293
+United States|wayback|277
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:23.243Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db \"SELECT country, item_name, price, source FROM prices WHERE item_name LIKE 'Price tier%' GROUP BY country, item_name LIMIT 20;\"",
+  "description": "Sample tier-marker rows by country"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:23.351Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Australia|Price tier (TripAdvisor: $$ - $$$)|2.0|wayback
+Australia|Price tier (TripAdvisor: $$$$(Average Price Range Based on Appetizer, Entree &amp; Dessert - Beverages Not Included))|4.0|wayback
+Australia|Price tier (TripAdvisor: $$$$)|4.0|wayback
+Australia|Price tier (TripAdvisor: $(Average Price Range Based on Appetizer, Entree &amp; Dessert - Beverages Not Included))|1.0|wayback
+Australia|Price tier (TripAdvisor: $)|1.0|wayback
+India|Price tier (TripAdvisor: $$ - $$$)|2.0|wayback
+India|Price tier (TripAdvisor: $$$$)|4.0|wayback
+India|Price tier (TripAdvisor: $)|1.0|wayback
+Indonesia|Price tier (TripAdvisor: $$ - $$$)|2.0|wayback
+Indonesia|Price tier (TripAdvisor: $$$$)|4.0|wayback
+Indonesia|Price tier (TripAdvisor: $)|1.0|wayback
+Malaysia|Price tier (TripAdvisor: $$ - $$$)|2.0|wayback
+Malaysia|Price tier (TripAdvisor: $$$$)|4.0|wayback
+Malaysia|Price tier (TripAdvisor: $(Average Price Range Based on Appetizer, Entree &amp; Dessert - Beverages Not Included))|1.0|wayback
+Malaysia|Price tier (TripAdvisor: $)|1.0|wayback
+Singapore|Price tier (TripAdvisor: $$ - $$$)|2.0|wayback
+Singapore|Price tier (TripAdvisor: $$$$)|4.0|wayback
+Singapore|Price tier (TripAdvisor: $)|1.0|wayback
+Thailand|Price tier (TripAdvisor: $$ - $$$)|2.0|wayback
+Thailand|Price tier (TripAdvisor: $$$$)|4.0|wayback
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:27.787Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Locate TripAdvisor collector and add tier-marker filter",
+  "description": "Find where \"Price tier (TripAdvisor: \u2026)\" rows are written and add a hard filter so future runs never write tier markers into the raw prices table.",
+  "activeForm": "Locating TripAdvisor collector"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:27.808Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #1 created successfully: Locate TripAdvisor collector and add tier-marker filter
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:32.259Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Backup uifpi.db then purge tier-marker rows",
+  "description": "After user signs off on per-country counts, copy uifpi.db to a timestamped backup, DELETE FROM prices WHERE item_name LIKE 'Price tier%', log per-country counts before/after.",
+  "activeForm": "Purging tier-marker rows"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:32.264Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Remove tier-exclusion logic in index_builder.py",
+  "description": "Delete the str.startswith('Price tier') mask block in index_builder.py around line 162; leave a one-line comment.",
+  "activeForm": "Removing tier-exclusion logic"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:32.281Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #2 created successfully: Backup uifpi.db then purge tier-marker rows
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:32.311Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #3 created successfully: Remove tier-exclusion logic in index_builder.py
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:33.535Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Codebase grep audit for 'tier' / TripAdvisor refs",
+  "description": "Grep for 'Price tier', 'tier_mask', 'priceRange', and TripAdvisor-related dead branches; clean up.",
+  "activeForm": "Auditing tier/TripAdvisor references"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:33.551Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #4 created successfully: Codebase grep audit for 'tier' / TripAdvisor refs
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:35.361Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Track A: Thailand single-point + annotation",
+  "description": "Update country page (and underlying data export) so Thailand shows the 2026-06 live snapshot as a single annotated point with 'live collection going forward only' label.",
+  "activeForm": "Updating Thailand page rendering"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:35.383Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #5 created successfully: Track A: Thailand single-point + annotation
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:36.877Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Track A: Indonesia cost-for-two series",
+  "description": "Switch Indonesia chart to render the Zomato cost-for-two restaurant-aggregate series across its 21 real months; drop tier-collapsed view.",
+  "activeForm": "Updating Indonesia chart"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:36.911Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #6 created successfully: Track A: Indonesia cost-for-two series
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:38.889Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Fix dashboard_data.py honest counts",
+  "description": "Make homepage tile item counts reflect real price-bearing rows actually used by the index, not raw row count including dead/excluded data.",
+  "activeForm": "Fixing dashboard_data.py counts"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:38.936Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #7 created successfully: Fix dashboard_data.py honest counts
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:40.547Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Regenerate dashboard JSON + verify counts",
+  "description": "Run dashboard_data.py post-purge and post-fix; confirm Singapore/Thailand/Indonesia/Australia counts drop to honest numbers.",
+  "activeForm": "Regenerating dashboard data"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:40.607Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #8 created successfully: Regenerate dashboard JSON + verify counts
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:42.155Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskCreate]
+{
+  "subject": "Create CHANGES.md with purge note",
+  "description": "Add CHANGES.md explaining homepage count drop = tier markers removed (not data loss); list per-country removal counts and methodology rationale.",
+  "activeForm": "Writing CHANGES.md"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:42.169Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Task #9 created successfully: Create CHANGES.md with purge note
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:52.949Z] ASSISTANT
+------------------------------------------------------------------------------
+Here are the per-country tier-marker counts. **All 1,648 rows are wayback-source TripAdvisor tier markers** — no false positives in the `Price tier%` LIKE pattern; every row has price ∈ {1.0, 2.0, 4.0} corresponding to `$`, `$$ - $$$`, `$$$$`.
+
+| Country | Tier rows | Distinct restaurants | Months spanned | Date range |
+|---|---:|---:|---:|---|
+| United Kingdom | 293 | 234 | 77 | 2018-01-18 → 2025-12-26 |
+| Thailand | 279 | 223 | 78 | 2018-01-03 → 2025-12-12 |
+| United States | 277 | 202 | 70 | 2018-01-23 → 2025-06-26 |
+| India | 237 | 180 | 55 | 2018-01-15 → 2025-12-31 |
+| Australia | 221 | 171 | 57 | 2018-01-23 → 2025-12-30 |
+| Malaysia | 188 | 143 | 69 | 2018-06-08 → 2025-12-30 |
+| Indonesia | 118 | 104 | 45 | 2018-10-02 → 2025-12-30 |
+| Singapore | 35 | 28 | 12 | 2019-06-19 → 2023-05-17 |
+| **Total** | **1,648** | | | |
+
+Note your message listed TH/ID/AU but this affects **all 8 countries** (UK/US/IN/MY/SG also have tier rows). I'll purge everything that matches `item_name LIKE 'Price tier%'` AND `source='wayback'` — confirm before I run the DELETE?
+
+While you decide, I'll locate the TripAdvisor collector and add the ingestion-side filter (Task #1), since that's independent of the purge.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:54.773Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -rnE \"Price tier|priceRange\" /Users/erwenchen/Inflation-menu/*.py 2>/dev/null | grep -v \"uifpi.db\\|.next\"",
+  "description": "Find scrapers that write tier markers"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:54.898Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu/historical_scraper.py:346:    Convert a TripAdvisor priceRange string to a numeric tier (1–4).
+/Users/erwenchen/Inflation-menu/historical_scraper.py:364:    Strategy 1 — FoodEstablishment JSON-LD priceRange
+/Users/erwenchen/Inflation-menu/historical_scraper.py:366:        with a 'priceRange' field like '$', '$$', '$$-$$$' etc.
+/Users/erwenchen/Inflation-menu/historical_scraper.py:392:            # Strategy 1: FoodEstablishment priceRange
+/Users/erwenchen/Inflation-menu/historical_scraper.py:395:                price_range = o.get('priceRange', '')
+/Users/erwenchen/Inflation-menu/historical_scraper.py:400:                        f'Price tier (TripAdvisor: {price_range})',
+/Users/erwenchen/Inflation-menu/historical_html_scraper.py:95:        # entities). TripAdvisor encodes FoodEstablishment with a priceRange
+/Users/erwenchen/Inflation-menu/historical_html_scraper.py:242:    Most pages only have FoodEstablishment with priceRange (a tier
+/Users/erwenchen/Inflation-menu/index_builder.py:157:    # priceRange ($, $$, $$$, $$$$) as the literal integers 1-4 in `price`,
+/Users/erwenchen/Inflation-menu/index_builder.py:158:    # with item_name "Price tier (TripAdvisor: …)". They're categorical
+/Users/erwenchen/Inflation-menu/index_builder.py:162:    tier_mask = df["item_name"].str.startswith("Price tier", na=False)
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:57.862Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/historical_scraper.py",
+  "offset": 340,
+  "limit": 90
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:35:57.914Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+340	    '$$$ - $$$$':3, '$$$-$$$$':       3,
+341	}
+342	
+343	
+344	def price_range_to_tier(raw):
+345	    """
+346	    Convert a TripAdvisor priceRange string to a numeric tier (1–4).
+347	    Returns None if unrecognised.
+348	    """
+349	    raw = (raw or '').strip()
+350	    for key, tier in PRICE_RANGE_TIERS.items():
+351	        if key.lower() == raw.lower():
+352	            return tier
+353	    # Count dollar signs as a fallback
+354	    count = raw.count('$')
+355	    if 1 <= count <= 4:
+356	        return count
+357	    return None
+358	
+359	
+360	def extract_prices(html, country, config):
+361	    """
+362	    Extract (item_name, price) pairs from archived TripAdvisor HTML.
+363	
+364	    Strategy 1 — FoodEstablishment JSON-LD priceRange
+365	        TripAdvisor embeds a FoodEstablishment schema on every restaurant page
+366	        with a 'priceRange' field like '$', '$$', '$$-$$$' etc.
+367	        We convert this to a numeric tier (1–4) which gives a consistent
+368	        historical price-level signal even when item prices are unavailable.
+369	
+370	    Strategy 2 — Explicit MenuItem JSON-LD
+371	        A small fraction of restaurants have full menu markup. Captured when
+372	        present (rare on TripAdvisor but worth keeping).
+373	
+374	    Strategy 3 — Currency regex on page text
+375	        Catches prices quoted in user reviews (e.g. "paid S$25 per dish").
+376	        Coarser signal, kept as secondary.
+377	    """
+378	    soup = BeautifulSoup(html, 'html.parser')
+379	    items = []
+380	    restaurant_name_ld = None
+381	
+382	    for script in soup.find_all('script', type='application/ld+json'):
+383	        try:
+384	            obj = json.loads(script.string or '')
+385	        except (json.JSONDecodeError, TypeError):
+386	            continue
+387	
+388	        objs = obj if isinstance(obj, list) else [obj]
+389	        for o in objs:
+390	            t = o.get('@type', '')
+391	
+392	            # Strategy 1: FoodEstablishment priceRange
+393	            if t == 'FoodEstablishment':
+394	                name = o.get('name', '')
+395	                price_range = o.get('priceRange', '')
+396	                tier = price_range_to_tier(price_range)
+397	                if tier and name:
+398	                    restaurant_name_ld = name
+399	                    items.append((
+400	                        f'Price tier (TripAdvisor: {price_range})',
+401	                        float(tier),
+402	                    ))
+403	
+404	            # Strategy 2: MenuItem
+405	            items.extend(extract_ld_menu_items(o))
+406	
+407	    if items:
+408	        return soup, items[:30], restaurant_name_ld
+409	
+410	    # Strategy 3: Currency regex on visible text
+411	    text = soup.get_text(separator=' ')
+412	    pattern = config['price_re']
+413	    matches = re.findall(pattern, text)
+414	
+415	    seen = set()
+416	    for raw in matches:
+417	        if country == 'Indonesia':
+418	            price = parse_idr_price(raw)
+419	        else:
+420	            try:
+421	                price = float(raw.replace(',', ''))
+422	            except ValueError:
+423	                continue
+424	        if price is None or price <= 0 or price >= 500_000:
+425	            continue
+426	        if price in seen:
+427	            continue
+428	        seen.add(price)
+429	        items.append(('Review-quoted price (historical)', price))
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:03.082Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:04.463Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/historical_html_scraper.py",
+  "offset": 85,
+  "limit": 170
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:04.496Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+85	            elif isinstance(offers, list) and offers:
+86	                if isinstance(offers[0], dict):
+87	                    price_node = offers[0].get('price')
+88	                    cur_node = cur_node or offers[0].get('priceCurrency')
+89	        if price_node is None:
+90	            ps = node.get('priceSpecification')
+91	            if isinstance(ps, dict):
+92	                price_node = ps.get('price')
+93	                cur_node = cur_node or ps.get('priceCurrency')
+94	        # Skip non-menu @types (addresses, coordinates, restaurant-level
+95	        # entities). TripAdvisor encodes FoodEstablishment with a priceRange
+96	        # tier; restaurants have averagePrice fields that are restaurant-
+97	        # level not item-level. Only emit prices from menu-shaped nodes.
+98	        bad_types = {'PostalAddress', 'GeoCoordinates', 'Restaurant',
+99	                     'FoodEstablishment', 'Place', 'LocalBusiness',
+100	                     'BreadcrumbList', 'AggregateRating', 'Review'}
+101	        if nm and price_node is not None and node.get('@type') not in bad_types:
+102	            try:
+103	                p = float(re.sub(r'[^\d.]', '', str(price_node)))
+104	            except Exception:
+105	                p = None
+106	            if p and 0 < p < 100_000:
+107	                items.append((str(nm)[:120], p, cur_node))
+108	        for v in node.values():
+109	            _walk_ld(v, items, nm)
+110	    elif isinstance(node, list):
+111	        for v in node:
+112	            _walk_ld(v, items, name_ctx)
+113	
+114	
+115	def extract_jsonld(html):
+116	    """Return list of (name, price, currency_or_None) from all JSON-LD blocks."""
+117	    if not html:
+118	        return []
+119	    out = []
+120	    for m in re.finditer(
+121	        r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+122	        html, re.S | re.I,
+123	    ):
+124	        try:
+125	            obj = json.loads(m.group(1))
+126	        except Exception:
+127	            continue
+128	        _walk_ld(obj, out)
+129	    # Dedup
+130	    seen = set(); uniq = []
+131	    for n, p, c in out:
+132	        k = (n, round(p, 2), c)
+133	        if k in seen:
+134	            continue
+135	        seen.add(k); uniq.append((n, p, c))
+136	    return uniq
+137	
+138	
+139	def extract_nextdata(html):
+140	    """Pull __NEXT_DATA__ JSON blob and walk for prices the same way."""
+141	    if not html or '__NEXT_DATA__' not in html:
+142	        return []
+143	    m = re.search(
+144	        r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(.*?)</script>',
+145	        html, re.S | re.I,
+146	    )
+147	    if not m:
+148	        return []
+149	    try:
+150	        obj = json.loads(m.group(1))
+151	    except Exception:
+152	        return []
+153	    out = []
+154	    _walk_ld(obj, out)
+155	    seen = set(); uniq = []
+156	    for n, p, c in out:
+157	        k = (n, round(p, 2), c)
+158	        if k in seen:
+159	            continue
+160	        seen.add(k); uniq.append((n, p, c))
+161	    return uniq
+162	
+163	
+164	def extract_zomato_costfortwo(html, currency):
+165	    """Zomato pre-2020 restaurant pages publish 'cost for two people'
+166	    as a restaurant-level average meal price rather than item-level prices.
+167	    Extract that single signal per page.
+168	
+169	    Returns [('cost_for_two', price, currency)] or [].
+170	    """
+171	    if not html:
+172	        return []
+173	    text = re.sub(r'<[^>]+>', ' ', html)
+174	    text = re.sub(r'&[a-zA-Z]+;', ' ', text)
+175	    text = re.sub(r'\s+', ' ', text)
+176	    # Patterns like "₹1,600 for two people" or "Rs. 1600 for two"
+177	    patterns = [
+178	        r'(?:₹|Rs\.?\s)\s?([\d,]+)\s*for\s*two',
+179	        r'Rp\.?\s?([\d.,]+)\s*for\s*two',
+180	        r'₱\s?([\d,]+)\s*for\s*two',
+181	    ]
+182	    for pat in patterns:
+183	        m = re.search(pat, text, re.I)
+184	        if m:
+185	            raw = m.group(1)
+186	            # IDR uses dots as thousand separators with no decimals
+187	            if currency == 'IDR':
+188	                raw = raw.replace('.', '').replace(',', '')
+189	            else:
+190	                raw = raw.replace(',', '')
+191	            try:
+192	                p = float(raw)
+193	            except ValueError:
+194	                continue
+195	            if p > 0:
+196	                return [('cost_for_two', p, currency)]
+197	    return []
+198	
+199	
+200	# ── Per-platform parsers ─────────────────────────────────────────────────────
+201	
+202	def parse_zomato(html, currency):
+203	    """Zomato pre-2020 archived pages don't expose item-level prices in DOM
+204	    or JSON-LD — they show 'cost for two people' as a restaurant-level
+205	    average meal price. Extract that single signal per page; treat it as
+206	    item_name='cost_for_two' so the index can roll it up per restaurant.
+207	    """
+208	    items = extract_jsonld(html)
+209	    if items:
+210	        return _coerce(items, currency)
+211	    return _coerce(extract_zomato_costfortwo(html, currency), currency)
+212	
+213	
+214	def parse_menupages(html, currency):
+215	    """MenuPages: Schema.org Menu → MenuSection → MenuItem. The JSON-LD
+216	    walker hits these cleanly (200+ items/page in validation). No DOM
+217	    fallback — better an empty parse than junk."""
+218	    return _coerce(extract_jsonld(html), currency)
+219	
+220	
+221	def parse_eatigo(html, currency):
+222	    """Eatigo BKK: validation found 0 LD prices and the sampled pages were
+223	    mostly category/listing URLs. Returns empty; Thailand will need a
+224	    different source or fall back to the Numbeo proxy."""
+225	    return _coerce(extract_jsonld(html), currency)
+226	
+227	
+228	def parse_menulog(html, currency):
+229	    """Menulog: NEXT_DATA has the menu structure, JSON-LD as backup."""
+230	    items = extract_nextdata(html) or extract_jsonld(html)
+231	    return _coerce(items, currency)
+232	
+233	
+234	def parse_grabfood(html, currency):
+235	    """GrabFood SG archived: NEXT_DATA + JSON-LD."""
+236	    items = extract_nextdata(html) or extract_jsonld(html)
+237	    return _coerce(items, currency)
+238	
+239	
+240	def parse_tripadvisor_mx(html, currency):
+241	    """TripAdvisor MX restaurant pages: JSON-LD MenuItem when present.
+242	    Most pages only have FoodEstablishment with priceRange (a tier
+243	    marker) — we explicitly skip those via the _walk_ld @type guard."""
+244	    return _coerce(extract_jsonld(html), currency)
+245	
+246	
+247	def _coerce(items, default_currency):
+248	    """Normalise (name, price, currency_or_None) → standard tuples."""
+249	    out = []
+250	    for n, p, c in items:
+251	        cur = c or default_currency
+252	        out.append((n, p, cur))
+253	    return out
+254
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:10.456Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:11.696Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/historical_scraper.py",
+  "offset": 300,
+  "limit": 110
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:11.717Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+300	    if obj.get('@type') == 'MenuItem':
+301	        name = obj.get('name', '')
+302	        offers = obj.get('offers', {})
+303	        price = None
+304	        if isinstance(offers, dict):
+305	            price = offers.get('price')
+306	        elif isinstance(offers, list) and offers:
+307	            price = offers[0].get('price')
+308	        if name and price is not None:
+309	            try:
+310	                items.append((str(name)[:200], float(price)))
+311	            except (ValueError, TypeError):
+312	                pass
+313	    for key in ('hasMenuSection', 'hasMenuItem', 'itemListElement', 'menu'):
+314	        child = obj.get(key)
+315	        if isinstance(child, list):
+316	            for c in child:
+317	                items.extend(extract_ld_menu_items(c, depth + 1))
+318	        elif isinstance(child, dict):
+319	            items.extend(extract_ld_menu_items(child, depth + 1))
+320	    return items
+321	
+322	
+323	def parse_idr_price(raw):
+324	    """Parse IDR price string: '25.000' or '25,000' → 25000.0"""
+325	    # IDR uses dots as thousand separators
+326	    cleaned = raw.replace('.', '').replace(',', '')
+327	    try:
+328	        return float(cleaned)
+329	    except ValueError:
+330	        return None
+331	
+332	
+333	PRICE_RANGE_TIERS = {
+334	    '$':        1,  'Inexpensive':    1,
+335	    '$$':       2,  'Moderate':       2,
+336	    '$$$':      3,  'Fine Dining':    3,
+337	    '$$$$':     4,  'Ultra Fine':     4,
+338	    '$$ - $$$': 2,  '$$-$$$':         2,
+339	    '$ - $$':   1,  '$-$$':           1,
+340	    '$$$ - $$$$':3, '$$$-$$$$':       3,
+341	}
+342	
+343	
+344	def price_range_to_tier(raw):
+345	    """
+346	    Convert a TripAdvisor priceRange string to a numeric tier (1–4).
+347	    Returns None if unrecognised.
+348	    """
+349	    raw = (raw or '').strip()
+350	    for key, tier in PRICE_RANGE_TIERS.items():
+351	        if key.lower() == raw.lower():
+352	            return tier
+353	    # Count dollar signs as a fallback
+354	    count = raw.count('$')
+355	    if 1 <= count <= 4:
+356	        return count
+357	    return None
+358	
+359	
+360	def extract_prices(html, country, config):
+361	    """
+362	    Extract (item_name, price) pairs from archived TripAdvisor HTML.
+363	
+364	    Strategy 1 — FoodEstablishment JSON-LD priceRange
+365	        TripAdvisor embeds a FoodEstablishment schema on every restaurant page
+366	        with a 'priceRange' field like '$', '$$', '$$-$$$' etc.
+367	        We convert this to a numeric tier (1–4) which gives a consistent
+368	        historical price-level signal even when item prices are unavailable.
+369	
+370	    Strategy 2 — Explicit MenuItem JSON-LD
+371	        A small fraction of restaurants have full menu markup. Captured when
+372	        present (rare on TripAdvisor but worth keeping).
+373	
+374	    Strategy 3 — Currency regex on page text
+375	        Catches prices quoted in user reviews (e.g. "paid S$25 per dish").
+376	        Coarser signal, kept as secondary.
+377	    """
+378	    soup = BeautifulSoup(html, 'html.parser')
+379	    items = []
+380	    restaurant_name_ld = None
+381	
+382	    for script in soup.find_all('script', type='application/ld+json'):
+383	        try:
+384	            obj = json.loads(script.string or '')
+385	        except (json.JSONDecodeError, TypeError):
+386	            continue
+387	
+388	        objs = obj if isinstance(obj, list) else [obj]
+389	        for o in objs:
+390	            t = o.get('@type', '')
+391	
+392	            # Strategy 1: FoodEstablishment priceRange
+393	            if t == 'FoodEstablishment':
+394	                name = o.get('name', '')
+395	                price_range = o.get('priceRange', '')
+396	                tier = price_range_to_tier(price_range)
+397	                if tier and name:
+398	                    restaurant_name_ld = name
+399	                    items.append((
+400	                        f'Price tier (TripAdvisor: {price_range})',
+401	                        float(tier),
+402	                    ))
+403	
+404	            # Strategy 2: MenuItem
+405	            items.extend(extract_ld_menu_items(o))
+406	
+407	    if items:
+408	        return soup, items[:30], restaurant_name_ld
+409
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:20.489Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:21.924Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nE \"extract_prices|restaurant_name_ld\" /Users/erwenchen/Inflation-menu/historical_scraper.py | head -20",
+  "description": "Trace restaurant_name_ld callers"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:22.042Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+360:def extract_prices(html, country, config):
+380:    restaurant_name_ld = None
+398:                    restaurant_name_ld = name
+408:        return soup, items[:30], restaurant_name_ld
+511:            soup, items, name_from_ld = extract_prices(html, country, cfg)
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:28.476Z] ASSISTANT
+------------------------------------------------------------------------------
+Now I'll make the source-side fix: keep the FoodEstablishment branch only to harvest `restaurant_name_ld`, drop the tier emission, and rip out `PRICE_RANGE_TIERS` + `price_range_to_tier`.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:29.091Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskUpdate]
+{
+  "taskId": "1",
+  "status": "in_progress"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:29.114Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Updated task #1 status
+
+------------------------------------------------------------------------------
+[2026-06-17T12:36:45.066Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Edit]
+{
+  "replace_all": false,
+  "file_path": "/Users/erwenchen/Inflation-menu/historical_scraper.py",
+  "old_string": "PRICE_RANGE_TIERS = {\n    '$':        1,  'Inexpensive':    1,\n    '$$':       2,  'Moderate':       2,\n    '$$$':      3,  'Fine Dining':    3,\n    '$$$$':     4,  'Ultra Fine':     4,\n    '$$ - $$$': 2,  '$$-$$$':         2,\n    '$ - $$':   1,  '$-$$':           1,\n    '$$$ - $$$$':3, '$$$-$$$$':       3,\n}\n\n\ndef price_range_to_tier(raw):\n    \"\"\"\n    Convert a TripAdvisor priceRange string to a numeric tier (1\u20134).\n    Returns None if unrecognised.\n    \"\"\"\n    raw = (raw or '').strip()\n    for key, tier in PRICE_RANGE_TIERS.items():\n        if key.lower() == raw.lower():\n            return tier\n    # Count dollar signs as a fallback\n    count = raw.count('$')\n    if 1 <= count <= 4:\n        return count\n    return None\n\n\ndef extract_prices(html, country, config):\n    \"\"\"\n    Extract (item_name, price) pairs from archived TripAdvisor HTML.\n\n    Strategy 1 \u2014 FoodEstablishment JSON-LD priceRange\n        TripAdvisor embeds a FoodEstablishment schema on every restaurant page\n        with a 'priceRange' field like '$', '$$', '$$-$$$' etc.\n        We convert this to a numeric tier (1\u20134) which gives a consistent\n        historical price-level signal even when item prices are unavailable.\n\n    Strategy 2 \u2014 Explicit MenuItem JSON-LD\n        A small fraction of restaurants have full menu markup. Captured when\n        present (rare on TripAdvisor but worth keeping).\n\n    Strategy 3 \u2014 Currency regex on page text\n        Catches prices quoted in user reviews (e.g. \"paid S$25 per dish\").\n        Coarser signal, kept as secondary.\n    \"\"\"\n    soup = BeautifulSoup(html, 'html.parser')\n    items = []\n    restaurant_name_ld = None\n\n    for script in soup.find_all('script', type='application/ld+json'):\n        try:\n            obj = json.loads(script.string or '')\n        except (json.JSONDecodeError, TypeError):\n            continue\n\n        objs = obj if isinstance(obj, list) else [obj]\n        for o in objs:\n            t = o.get('@type', '')\n\n            # Strategy 1: FoodEstablishment priceRange\n            if t == 'FoodEstablishment':\n                name = o.get('name', '')\n                price_range = o.get('priceRange', '')\n                tier = price_range_to_tier(price_range)\n                if tier and name:\n                    restaurant_name_ld = name\n                    items.append((\n                        f'Price tier (TripAdvisor: {price_range})',\n                        float(tier),\n                    ))\n\n            # Strategy 2: MenuItem\n            items.extend(extract_ld_menu_items(o))",
+  "new_string": "def extract_prices(html, country, config):\n    \"\"\"\n    Extract (item_name, price) pairs from archived TripAdvisor HTML.\n\n    Strategy 1 \u2014 Explicit MenuItem JSON-LD\n        A small fraction of restaurants have full menu markup. Captured when\n        present (rare on TripAdvisor but worth keeping).\n\n    Strategy 2 \u2014 Currency regex on page text\n        Catches prices quoted in user reviews (e.g. \"paid S$25 per dish\").\n        Coarser signal, kept as secondary.\n\n    FoodEstablishment priceRange tiers ($, $$, $$$, $$$$) are deliberately\n    NOT emitted \u2014 they are categorical ordinals, not currency, and contaminate\n    the index when treated as prices. The FoodEstablishment node is still\n    visited to harvest the restaurant name as fallback context.\n    \"\"\"\n    soup = BeautifulSoup(html, 'html.parser')\n    items = []\n    restaurant_name_ld = None\n\n    for script in soup.find_all('script', type='application/ld+json'):\n        try:\n            obj = json.loads(script.string or '')\n        except (json.JSONDecodeError, TypeError):\n            continue\n\n        objs = obj if isinstance(obj, list) else [obj]\n        for o in objs:\n            t = o.get('@type', '')\n\n            # FoodEstablishment: harvest restaurant name only; priceRange\n            # tier markers are intentionally skipped (see docstring).\n            if t == 'FoodEstablishment':\n                name = o.get('name', '')\n                if name and not restaurant_name_ld:\n                    restaurant_name_ld = name\n\n            # MenuItem JSON-LD\n            items.extend(extract_ld_menu_items(o))"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:12.003Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+The file /Users/erwenchen/Inflation-menu/historical_scraper.py has been updated successfully. (file state is current in your context — no need to Read it back)
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:16.195Z] ASSISTANT
+------------------------------------------------------------------------------
+Filter live. Now an extra belt-and-suspenders safeguard at the DB-insert site too, in case any other code path tries to write a `Price tier` row.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:17.428Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -nE \"INSERT INTO prices|INSERT OR IGNORE INTO prices|prices\\(.*restaurant_name\" /Users/erwenchen/Inflation-menu/historical_scraper.py | head",
+  "description": "Locate insertion site"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:17.546Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+495:                    '''INSERT INTO prices
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:20.703Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/historical_scraper.py",
+  "offset": 470,
+  "limit": 60
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:20.717Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+470	            time.sleep(FETCH_DELAY)
+471	
+472	            html = fetch_snapshot(ts, orig_url)
+473	            if not html:
+474	                print("skipped (empty/failed)")
+475	                done_urls.add(orig_url)
+476	                continue
+477	
+478	            soup, items, name_from_ld = extract_prices(html, country, cfg)
+479	            if not items:
+480	                print("0 prices found")
+481	                done_urls.add(orig_url)
+482	                continue
+483	
+484	            # Prefer name extracted from JSON-LD (more reliable than H1)
+485	            restaurant_name = name_from_ld or extract_restaurant_name(soup)
+486	            # Convert timestamp YYYYMMDDHHMMSS → YYYY-MM-DD
+487	            try:
+488	                collection_date = datetime.strptime(ts[:8], '%Y%m%d').strftime('%Y-%m-%d')
+489	            except ValueError:
+490	                collection_date = ts[:10]
+491	
+492	            c = conn.cursor()
+493	            for item_name, price in items:
+494	                c.execute(
+495	                    '''INSERT INTO prices
+496	                       (restaurant_name, item_name, price, currency, country,
+497	                        sector, source, collection_date, url)
+498	                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+499	                    (restaurant_name, item_name, price, cfg['currency'], country,
+500	                     'informal', 'wayback', collection_date, wayback_url)
+501	                )
+502	            conn.commit()
+503	            print(f"{len(items)} items → {restaurant_name[:40]}")
+504	            country_inserted += len(items)
+505	            total_inserted += len(items)
+506	
+507	            done_urls.add(orig_url)
+508	
+509	            # Save progress after each successful fetch
+510	            progress[country]['done_urls'] = list(done_urls)
+511	            if len(done_urls) >= len(snapshots):
+512	                progress[country]['status'] = 'complete'
+513	            save_progress(progress)
+514	
+515	        print(f"\n  {country}: {country_inserted} items inserted this run")
+516	
+517	    conn.close()
+518	    print(f"\n{'='*55}")
+519	    print(f"Historical scraper done. Total inserted: {total_inserted}")
+520	    print(f"Progress saved to {PROGRESS_FILE}")
+521	    print(f"Run again to continue from where it left off.")
+522	
+523	
+524	if __name__ == '__main__':
+525	    import argparse
+526	    ap = argparse.ArgumentParser(
+527	        description='Wayback historical price scraper. Default mode pulls '
+528	                    'up to 80 snapshots per country; --distributed spreads '
+529	                    'queries across time windows so Granger has monthly '
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:29.652Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Edit]
+{
+  "replace_all": false,
+  "file_path": "/Users/erwenchen/Inflation-menu/historical_scraper.py",
+  "old_string": "            c = conn.cursor()\n            for item_name, price in items:\n                c.execute(\n                    '''INSERT INTO prices\n                       (restaurant_name, item_name, price, currency, country,\n                        sector, source, collection_date, url)\n                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',\n                    (restaurant_name, item_name, price, cfg['currency'], country,\n                     'informal', 'wayback', collection_date, wayback_url)\n                )\n            conn.commit()\n            print(f\"{len(items)} items \u2192 {restaurant_name[:40]}\")\n            country_inserted += len(items)\n            total_inserted += len(items)",
+  "new_string": "            c = conn.cursor()\n            inserted_this_url = 0\n            for item_name, price in items:\n                # Defensive: never write TripAdvisor priceRange tier markers\n                # ('$', '$$', '$$$', '$$$$') as if they were prices.\n                if str(item_name).startswith('Price tier'):\n                    continue\n                c.execute(\n                    '''INSERT INTO prices\n                       (restaurant_name, item_name, price, currency, country,\n                        sector, source, collection_date, url)\n                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',\n                    (restaurant_name, item_name, price, cfg['currency'], country,\n                     'informal', 'wayback', collection_date, wayback_url)\n                )\n                inserted_this_url += 1\n            conn.commit()\n            print(f\"{inserted_this_url} items \u2192 {restaurant_name[:40]}\")\n            country_inserted += inserted_this_url\n            total_inserted += inserted_this_url"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:29.687Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+The file /Users/erwenchen/Inflation-menu/historical_scraper.py has been updated successfully. (file state is current in your context — no need to Read it back)
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:34.835Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskUpdate]
+{
+  "taskId": "1",
+  "status": "completed"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:34.858Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Updated task #1 status
+
+------------------------------------------------------------------------------
+[2026-06-17T12:37:44.050Z] ASSISTANT
+------------------------------------------------------------------------------
+Track #1 done: TripAdvisor collector no longer emits tier markers, and a defensive `Price tier` filter sits at the insertion site too.
+
+**Holding on Task #2 (the actual DELETE) until you confirm.** The counts above show 1,648 rows total across all 8 countries — your message named TH/ID/AU but I'd like to clean all 8 in one purge for consistency (otherwise the index_builder filter has to stay just for SG/MY/UK/US/IN). Confirm with one of:
+
+- **"purge all 8"** → I run the backup + DELETE for all 1,648 rows, then strip the `index_builder.py` filter.
+- **"only TH/ID/AU"** → I purge 618 rows (279+118+221), keep the `index_builder.py` filter alive for the other 5.
+- **"hold"** → I move on to Track A (TH/ID page rendering + dashboard_data.py counts) and revisit the purge later.
+
+Default if I had to pick: **purge all 8** — research-integrity logic doesn't change by country, and leaving 1,030 tier rows in SG/MY/UK/US/IN as inflators contradicts the same honesty principle.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:39:32.847Z] USER
+------------------------------------------------------------------------------
+purge all 8
+
+------------------------------------------------------------------------------
+[2026-06-17T12:39:38.532Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:39:38.944Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskUpdate]
+{
+  "taskId": "2",
+  "status": "in_progress"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:39:38.966Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Updated task #2 status
+
+------------------------------------------------------------------------------
+[2026-06-17T12:39:40.376Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "ls -la uifpi.db*; pgrep -fl \"live_scraper\\|historical_scraper\\|scraper\" 2>/dev/null | grep -v grep | head",
+  "description": "Check DB state + any running scrapers"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:39:40.536Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+-rw-r--r--@ 1 erwenchen  staff  8265728 Jun 17 16:00 uifpi.db
+-rw-r--r--@ 1 erwenchen  staff    32768 Jun 17 20:35 uifpi.db-shm
+-rw-r--r--@ 1 erwenchen  staff        0 Jun 17 16:00 uifpi.db-wal
+
+------------------------------------------------------------------------------
+[2026-06-17T12:39:45.087Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "TS=$(date +%Y%m%d_%H%M%S); cp /Users/erwenchen/Inflation-menu/uifpi.db /Users/erwenchen/Inflation-menu/uifpi.db.backup_pre_tier_purge_${TS}; ls -la /Users/erwenchen/Inflation-menu/uifpi.db.backup_pre_tier_purge_*",
+  "description": "Timestamped backup of uifpi.db"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:40:40.375Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+-rw-r--r--@ 1 erwenchen  staff  8265728 Jun 17 20:40 /Users/erwenchen/Inflation-menu/uifpi.db.backup_pre_tier_purge_20260617_204040
+
+------------------------------------------------------------------------------
+[2026-06-17T12:40:47.117Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db <<'SQL'\n.headers on\n.mode column\nSELECT 'BEFORE' AS stage, country, COUNT(*) AS tier_rows\nFROM prices\nWHERE item_name LIKE 'Price tier%'\nGROUP BY country\nORDER BY tier_rows DESC;\n\nSELECT 'BEFORE_TOTAL_PRICES' AS stage, COUNT(*) AS rows FROM prices;\nSELECT 'BEFORE_TOTAL_TIER' AS stage, COUNT(*) AS rows FROM prices WHERE item_name LIKE 'Price tier%';\nSQL",
+  "description": "Pre-purge counts"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:40:47.211Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+stage   country         tier_rows
+------  --------------  ---------
+BEFORE  United Kingdom  293      
+BEFORE  Thailand        279      
+BEFORE  United States   277      
+BEFORE  India           237      
+BEFORE  Australia       221      
+BEFORE  Malaysia        188      
+BEFORE  Indonesia       118      
+BEFORE  Singapore       35       
+stage                rows 
+-------------------  -----
+BEFORE_TOTAL_PRICES  23613
+stage              rows
+-----------------  ----
+BEFORE_TOTAL_TIER  1648
+
+------------------------------------------------------------------------------
+[2026-06-17T12:40:51.323Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db <<'SQL'\nBEGIN;\nDELETE FROM prices WHERE item_name LIKE 'Price tier%';\nSELECT changes() AS rows_deleted;\nCOMMIT;\nSQL",
+  "description": "Execute purge in transaction"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:40:51.439Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+1648
+
+------------------------------------------------------------------------------
+[2026-06-17T12:40:57.621Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "sqlite3 /Users/erwenchen/Inflation-menu/uifpi.db <<'SQL'\n.headers on\n.mode column\nSELECT 'AFTER_TOTAL_PRICES' AS stage, COUNT(*) AS rows FROM prices;\nSELECT 'AFTER_TIER_RESIDUAL' AS stage, COUNT(*) AS rows FROM prices WHERE item_name LIKE 'Price tier%';\n\nSELECT country,\n       COUNT(*) AS rows_now,\n       COUNT(DISTINCT substr(collection_date,1,7)) AS months_now,\n       MIN(collection_date) AS first_date,\n       MAX(collection_date) AS last_date\nFROM prices\nGROUP BY country\nORDER BY rows_now DESC;\nSQL",
+  "description": "Post-purge verification"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:40:57.767Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+stage               rows 
+------------------  -----
+AFTER_TOTAL_PRICES  21965
+stage                rows
+-------------------  ----
+AFTER_TIER_RESIDUAL  0   
+country         rows_now  months_now  first_date  last_date 
+--------------  --------  ----------  ----------  ----------
+Singapore       8674      9           2022-07-26  2026-06-17
+United States   8318      35          2018-04-25  2026-06-17
+Malaysia        2991      7           2019-07-17  2026-06-17
+United Kingdom  1150      6           2019-09-10  2026-06-17
+India           635       49          2018-01-11  2026-05-17
+Australia       152       13          2019-07-23  2026-06-17
+Indonesia       34        21          2018-02-04  2024-11-12
+Thailand        11        1           2026-06-13  2026-06-13
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:06.187Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:09.659Z] ASSISTANT
+------------------------------------------------------------------------------
+Purge done: 1,648 rows deleted, 0 residual. Backup at `uifpi.db.backup_pre_tier_purge_20260617_204040`. Per-country deltas:
+
+| Country | Before | After | Δ tier |
+|---|---:|---:|---:|
+| Singapore | 8,709 | 8,674 | −35 |
+| United States | 8,595 | 8,318 | −277 |
+| Malaysia | 3,179 | 2,991 | −188 |
+| United Kingdom | 1,443 | 1,150 | −293 |
+| India | 872 | 635 | −237 |
+| Australia | 373 | 152 | −221 |
+| Thailand | 290 | 11 | −279 |
+| Indonesia | 152 | 34 | −118 |
+
+Honest impact on months_now: TH 79→1, AU 59→13, ID 57→21. Those were the months supported solely by tier markers — now the chart length matches the index length.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:10.285Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskUpdate]
+{
+  "taskId": "2",
+  "status": "completed"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:10.307Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Updated task #2 status
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:11.309Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskUpdate]
+{
+  "taskId": "3",
+  "status": "in_progress"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:11.333Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Updated task #3 status
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:11.944Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Read]
+{
+  "file_path": "/Users/erwenchen/Inflation-menu/index_builder.py",
+  "offset": 145,
+  "limit": 35
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:11.971Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+145	
+146	    # Backfill price_usd
+147	    null_mask = df["price_usd"].isna()
+148	    if null_mask.any():
+149	        rates = df.loc[null_mask, "currency"].map(FALLBACK_RATES).fillna(1.0)
+150	        df.loc[null_mask, "price_usd"] = df.loc[null_mask, "price"] / rates
+151	        backfilled = null_mask.sum()
+152	        print(f"  Backfilled price_usd for {backfilled:,} rows using fallback exchange rates.")
+153	
+154	    df = df[df["price_usd"] > 0].copy()
+155	
+156	    # Exclude TripAdvisor price-tier markers: historical_scraper stores
+157	    # priceRange ($, $$, $$$, $$$$) as the literal integers 1-4 in `price`,
+158	    # with item_name "Price tier (TripAdvisor: …)". They're categorical
+159	    # levels, not currency amounts. Including them in a price index mixes
+160	    # tier ordinals with real menu prices and produces wild ratios (e.g.,
+161	    # Indonesia's prior 26M index value). Raw rows stay in uifpi.db.
+162	    tier_mask = df["item_name"].str.startswith("Price tier", na=False)
+163	    if tier_mask.any():
+164	        print(f"  Excluded {tier_mask.sum():,} TripAdvisor price-tier rows "
+165	              f"(stored as 1-4 ordinals, not currency).")
+166	        df = df[~tier_mask].copy()
+167	
+168	    df["collection_date"] = pd.to_datetime(df["collection_date"], errors="coerce")
+169	    df = df.dropna(subset=["collection_date"])
+170	    df["year_month"] = df["collection_date"].dt.to_period("M").astype(str)
+171	
+172	    # Cap rows per (country, year_month) so dense months don't dominate the
+173	    # cross-country index. Deterministic via SAMPLE_SEED.
+174	    before_rows = len(df)
+175	    df = (df.groupby(["country", "year_month"], group_keys=False)
+176	            .apply(lambda g: g.sample(n=min(len(g), MAX_ROWS_PER_COUNTRY),
+177	                                      random_state=SAMPLE_SEED)))
+178	    capped = before_rows - len(df)
+179	    if capped > 0:
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:21.786Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Edit]
+{
+  "replace_all": false,
+  "file_path": "/Users/erwenchen/Inflation-menu/index_builder.py",
+  "old_string": "    # Exclude TripAdvisor price-tier markers: historical_scraper stores\n    # priceRange ($, $$, $$$, $$$$) as the literal integers 1-4 in `price`,\n    # with item_name \"Price tier (TripAdvisor: \u2026)\". They're categorical\n    # levels, not currency amounts. Including them in a price index mixes\n    # tier ordinals with real menu prices and produces wild ratios (e.g.,\n    # Indonesia's prior 26M index value). Raw rows stay in uifpi.db.\n    tier_mask = df[\"item_name\"].str.startswith(\"Price tier\", na=False)\n    if tier_mask.any():\n        print(f\"  Excluded {tier_mask.sum():,} TripAdvisor price-tier rows \"\n              f\"(stored as 1-4 ordinals, not currency).\")\n        df = df[~tier_mask].copy()",
+  "new_string": "    # TripAdvisor priceRange tier markers ($/$$/$$$/$$$$) were purged from\n    # the raw `prices` table on 2026-06-17 and are no longer ingested."
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:21.868Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+The file /Users/erwenchen/Inflation-menu/index_builder.py has been updated successfully. (file state is current in your context — no need to Read it back)
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:28.756Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskUpdate]
+{
+  "taskId": "3",
+  "status": "completed"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:28.789Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Updated task #3 status
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:29.229Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: TaskUpdate]
+{
+  "taskId": "4",
+  "status": "in_progress"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:29.257Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+Updated task #4 status
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:31.584Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -rnE \"Price tier|tier_mask|price_range_to_tier|PRICE_RANGE_TIERS\" /Users/erwenchen/Inflation-menu --include=\"*.py\" --include=\"*.md\" --include=\"*.tsx\" --include=\"*.ts\" 2>/dev/null | grep -v \"node_modules\\|.next\\|.git\\|.backup_pre_tier_purge\"",
+  "description": "Grep for remaining tier-marker refs"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:32.303Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu/CHANGELOG.md:194:  - 6 noise rows (`Price tier …`, `NEW!`, TripAdvisor metadata) normalised
+/Users/erwenchen/Inflation-menu/data_gaps.md:68:1. **Singapore tier-marker contamination** (already mitigated). The existing TripAdvisor historical pipeline stored `priceRange` tier markers as raw prices in `prices` rows with item_name beginning `'Price tier'`. The index builder filters these out in `load_price_data()` so they never contaminate the index, but they remain in raw `prices` for transparency.
+/Users/erwenchen/Inflation-menu/historical_scraper.py:497:                if str(item_name).startswith('Price tier'):
+/Users/erwenchen/Inflation-menu/docs/archival_data_findings_2026-06-16.md:15:**Verdict**: data exists but is mostly unusable for index purposes. **92% of the new rows are TripAdvisor `priceRange` tier markers (`$`, `$$`, `$$$`, `$$$$`) stored as the literal integers 1–4 in the `price` column**, with `item_name = "Price tier (TripAdvisor: $$$$)"`. Only 5–34 real menu prices per country are present.
+/Users/erwenchen/Inflation-menu/docs/archival_data_findings_2026-06-16.md:19:Fix landed: `index_builder.py` now filters `item_name LIKE "Price tier%"` rows out of index construction. Raw rows remain in `uifpi.db` for transparency.
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:40.199Z] ASSISTANT
+------------------------------------------------------------------------------
+[THINKING]
+
+------------------------------------------------------------------------------
+[2026-06-17T12:41:41.905Z] ASSISTANT
+------------------------------------------------------------------------------
+[TOOL CALL: Bash]
+{
+  "command": "grep -rnE \"priceRange|FoodEstablishment.*price|\\\\\\$\\\\\\$\\\\\\$\" /Users/erwenchen/Inflation-menu --include=\"*.py\" --include=\"*.tsx\" --include=\"*.ts\" 2>/dev/null | grep -v \"node_modules\\|.next\\|.git\\|.backup_pre_tier_purge\" | head -30",
+  "description": "Grep priceRange / FoodEstablishment in code"
+}
+
+------------------------------------------------------------------------------
+[2026-06-17T12:42:47.025Z] USER
+------------------------------------------------------------------------------
+[TOOL RESULT]
+/Users/erwenchen/Inflation-menu/historical_html_scraper.py:95:        # entities). TripAdvisor encodes FoodEstablishment with a priceRange
+/Users/erwenchen/Inflation-menu/historical_html_scraper.py:242:    Most pages only have FoodEstablishment with priceRange (a tier
+/Users/erwenchen/Inflation-menu/historical_scraper.py:345:    FoodEstablishment priceRange tiers ($, $$, $$$, $$$$) are deliberately
+/Users/erwenchen/Inflation-menu/historical_scraper.py:364:            # FoodEstablishment: harvest restaurant name only; priceRange
+/Users/erwenchen/Inflation-menu/historical_scraper.py:495:                # Defensive: never write TripAdvisor priceRange tier markers
+/Users/erwenchen/Inflation-menu/historical_scraper.py:496:                # ('$', '$$', '$$$', '$$$$') as if they were prices.
+/Users/erwenchen/Inflation-menu/index_builder.py:156:    # TripAdvisor priceRange tier markers ($/$$/$$$/$$$$) were purged from
+

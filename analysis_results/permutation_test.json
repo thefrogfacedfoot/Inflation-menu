@@ -1,0 +1,53 @@
+{
+  "country": "United States",
+  "F_observed": 6.0336,
+  "F_manual_check": 6.0336,
+  "F_reversed_direction": 0.9023,
+  "n_regression_rows": 29,
+  "sample_pairs": [
+    {
+      "cpi_month": "2018-11",
+      "cpi_value": -0.36,
+      "menu_month": "2018-07",
+      "menu_value": 100.0
+    },
+    {
+      "cpi_month": "2021-03",
+      "cpi_value": 2.27,
+      "menu_month": "2020-11",
+      "menu_value": 165.8743
+    },
+    {
+      "cpi_month": "2024-10",
+      "cpi_value": 0.82,
+      "menu_month": "2024-08",
+      "menu_value": 53.5714
+    }
+  ],
+  "n_permutations": 1000,
+  "block_length": 5,
+  "seed": 42,
+  "schemes": {
+    "shuffle": {
+      "n_draws": 1000,
+      "p_empirical": 0.018,
+      "null_median": 0.3835,
+      "null_q95": 3.7094,
+      "null_max": 13.1509
+    },
+    "block": {
+      "n_draws": 1000,
+      "p_empirical": 0.019,
+      "null_median": 0.478,
+      "null_q95": 4.3614,
+      "null_max": 11.7464
+    },
+    "rotate": {
+      "n_draws": 29,
+      "p_empirical": 0.0667,
+      "null_median": 0.2578,
+      "null_q95": 2.4049,
+      "null_max": 8.6694
+    }
+  }
+}

@@ -468,7 +468,7 @@ def _human_mouse_jitter(page):
         for _ in range(2):
             page.mouse.move(random.randint(100, 800),
                             random.randint(100, 600))
-            page.wait_for_timeout(random.randint(150, 400))
+            page.wait_for_timeout(random.randint(750, 1000))
     except Exception:
         pass
 
@@ -674,7 +674,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
             break
         log(f"    landing-page redirect on nav {nav_attempts}; re-warming + retry")
         _warmup(page, 'grabfood', country)
-        page.wait_for_timeout(random.randint(2_000, 3_500))
+        page.wait_for_timeout(random.randint(5_000, 7_500))
 
     if '/chain/' in url:
         try:
@@ -682,7 +682,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
             outlet = page.query_selector('a[href*="/restaurant/"]')
             if outlet:
                 outlet.click()
-                page.wait_for_timeout(2_500)
+                page.wait_for_timeout(7_500)
         except Exception as e:
             log(f"    Chain nav failed: {e}")
 
@@ -2158,26 +2158,6 @@ TARGETS = [
     # Removed Madam Kwan's: foodpanda.my URL couldn't be verified (IP-blocked),
     # not findable on GrabFood Malaysia from KLCC delivery address.
 
-    # Round-3 GrabFood MY additions (probed 2026-06-23, fresh-browser-per-target).
-    # The earlier shared-browser primed probe (v2) returned 0/9 for MY because
-    # the priming URL itself was landing-redirected in a shared context; v3
-    # using _scrape_one's fresh-browser-per-target pattern yielded 4/9.
-    # Replaces dead chain URL stub for Secret Recipe (was /my/en/chain/secret-recipe-delivery 500).
-    ("Secret Recipe",
-     "https://food.grab.com/my/en/restaurant/secret-recipe-suria-klcc-delivery/MYDD08963",
-     "chain", "grabfood", "MYR", "Malaysia"),
-
-    ("McDonald's MY",
-     "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-mont-kiara-139-delivery/MYDD06054",
-     "chain", "grabfood", "MYR", "Malaysia"),
-
-    ("Pizza Hut MY",
-     "https://food.grab.com/my/en/restaurant/pizza-hut-kota-bharu-delivery/1-C2AALPTYKFXDUA",
-     "chain", "grabfood", "MYR", "Malaysia"),
-
-    ("Domino's Pizza MY",
-     "https://food.grab.com/my/en/restaurant/domino-s-pizza-gongbadak-delivery/1-CZDJG7NTL7MGEA",
-     "chain", "grabfood", "MYR", "Malaysia"),
 
     # --- Informal ---
     # Removed Village Park Nasi Lemak: GrabFood listing is soft-disabled
@@ -2253,33 +2233,6 @@ TARGETS = [
     ("MAD ROOSTA Burgers & Grill",
      "https://food.grab.com/vn/en/restaurant/mad-roosta-burgers-grill-delivery/5-C6NDJRMFPCKXRX",
      "independent", "grabfood", "VND", "Vietnam"),
-
-    # Round-3 GrabFood VN additions (probed 2026-06-23, fresh-browser-per-target).
-    # The 2026-06-21 note above said VN chain URL pattern likely differs from
-    # SG/MY — turns out web-search-discoverable chain URLs do exist, but only
-    # surface via _scrape_one's fresh-browser-per-target pattern (default
-    # SCRAPE_MAX_ATTEMPTS=2). v3 yielded 5/10 candidates. Brand names kept
-    # bare (no country suffix) since these are VN-only brands; "KFC VN"
-    # suffixed since KFC is global.
-    ("Highlands Coffee",
-     "https://food.grab.com/vn/en/restaurant/highlands-coffee-flora-th%E1%BB%A7-%C4%91%E1%BB%A9c-delivery/5-C2LVTF23R36AAN",
-     "chain", "grabfood", "VND", "Vietnam"),
-
-    ("The Coffee House",
-     "https://food.grab.com/vn/en/restaurant/the-coffee-house-trung-h%C3%B2a-delivery/5-C3DGGU41E7KXEN",
-     "chain", "grabfood", "VND", "Vietnam"),
-
-    ("Phuc Long",
-     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-82-h%C3%A0ng-%C4%91i%E1%BA%BFu-delivery/5-CYLTGZMUGPB1SA",
-     "chain", "grabfood", "VND", "Vietnam"),
-
-    ("Lotteria",
-     "https://food.grab.com/vn/en/restaurant/lotteria-ph%C3%BA-m%E1%BB%B9-h%C6%B0ng-delivery/VNGFVN00000458",
-     "chain", "grabfood", "VND", "Vietnam"),
-
-    ("KFC VN",
-     "https://food.grab.com/vn/en/restaurant/kfc-tttm-go-c%E1%BB%A7-chi-delivery/5-C7WHGXT3CPAFL6",
-     "chain", "grabfood", "VND", "Vietnam"),
 
     # ==========================================================================
     # INDONESIA  (GrabFood food.grab.com/id/en)
@@ -2673,6 +2626,57 @@ TARGETS = [
      "https://www.buffalowildwings.com/menu",
      "chain", "direct", "USD", "United States"),
 
+    # --- US chains: residential-IP retry batch (2026-07-06) ---
+    # These failed from the SG IP with Akamai/Cloudflare 403/406 blocks
+    # (IP-reputation, not structural). Re-enabled for the US-residential-IP
+    # run via `--country "United States"`. Original probe URLs were not
+    # preserved; these are the canonical menu paths — expect some to need
+    # URL fixes after the first US run. Boston Market dropped (chain has
+    # closed nearly all locations).
+    ("Sonic Drive-In",
+     "https://www.sonicdrivein.com/menu",
+     "chain", "direct", "USD", "United States"),
+
+    ("Olive Garden",
+     "https://www.olivegarden.com/menus",
+     "chain", "direct", "USD", "United States"),
+
+    ("IHOP",
+     "https://www.ihop.com/en/menu",
+     "chain", "direct", "USD", "United States"),
+
+    ("Outback Steakhouse",
+     "https://www.outback.com/menu",
+     "chain", "direct", "USD", "United States"),
+
+    ("Wendy's",
+     "https://www.wendys.com/food",
+     "chain", "direct", "USD", "United States"),
+
+    ("Cava",
+     "https://cava.com/menu",
+     "chain", "direct", "USD", "United States"),
+
+    ("Captain D's",
+     "https://www.captainds.com/menu",
+     "chain", "direct", "USD", "United States"),
+
+    ("Zaxby's",
+     "https://www.zaxbys.com/menu",
+     "chain", "direct", "USD", "United States"),
+
+    ("White Castle",
+     "https://www.whitecastle.com/menu",
+     "chain", "direct", "USD", "United States"),
+
+    ("Denny's",
+     "https://www.dennys.com/food",
+     "chain", "direct", "USD", "United States"),
+
+    ("Whataburger",
+     "https://whataburger.com/menu",
+     "independent", "direct", "USD", "United States"),
+
     # ==========================================================================
     # UNITED KINGDOM  (direct chain websites)
     # ==========================================================================
@@ -2995,6 +2999,14 @@ if __name__ == '__main__':
         if i + 1 < len(sys.argv):
             only_filter = sys.argv[i + 1].lower()
 
+    # Optional CLI filter: run only targets for one country
+    # e.g.  python3 live_scraper.py --country "United States"
+    country_filter = None
+    if '--country' in sys.argv:
+        i = sys.argv.index('--country')
+        if i + 1 < len(sys.argv):
+            country_filter = sys.argv[i + 1].lower()
+
     conn = init_db()
     today = date.today().isoformat()
 
@@ -3013,6 +3025,11 @@ if __name__ == '__main__':
         active_targets = [t for t in TARGETS if t[0].lower() == only_filter]
         log(f"\n--only filter '{only_filter}' → {len(active_targets)} target(s)")
 
+    if country_filter:
+        active_targets = [t for t in active_targets
+                          if t[5].lower() == country_filter]
+        log(f"\n--country filter '{country_filter}' → {len(active_targets)} target(s)")
+
     log(f"\nTotal targets: {len(active_targets)}")
 
     remaining = [t for t in active_targets if not already_scraped(conn, t[0], today)]
@@ -3021,20 +3038,18 @@ if __name__ == '__main__':
         log(f"Already scraped today: {skipped} — skipping")
     log(f"To scrape: {len(remaining)}\n")
 
-    # Persist on failing targets — up to 3 passes with exponential backoff
-    # between passes (cap 10 min).
-    MAX_ATTEMPTS = 3
-    attempt = 0
+    # Pass 1 sweeps every target. Failures are immediately re-queued for
+    # pass 2 and 3. The tiny 10s cooldown lets browsers fully close and gives
+    # any transient block a brief breather without burning real time.
     inter_pass_wait = 10
-    while remaining and attempt < MAX_ATTEMPTS:
-        attempt += 1
-        log(f"--- Attempt {attempt}/{MAX_ATTEMPTS} ({len(remaining)} targets) ---\n")
-        remaining = run_batch(remaining, conn, today, usd_rates)
+    for attempt in range(1, 4):
         if not remaining:
             break
-        log(f"\n{len(remaining)} failed — retrying after {inter_pass_wait}s breather…")
-        time.sleep(inter_pass_wait)
-        inter_pass_wait = min(inter_pass_wait * 2, 600)
+        log(f"--- Attempt {attempt} ({len(remaining)} targets) ---\n")
+        remaining = run_batch(remaining, conn, today, usd_rates)
+        if remaining and attempt < 3:
+            log(f"\n{len(remaining)} failed — retrying immediately (after {inter_pass_wait}s breather)…")
+            time.sleep(inter_pass_wait)
 
     # Diff against previous collection and surface meaningful changes
     try:
@@ -3054,7 +3069,7 @@ if __name__ == '__main__':
     conn.close()
 
     if remaining:
-        log(f"\n⚠  Still failed after {attempt} attempts:")
+        log("\n⚠  Still failed after 3 attempts:")
         for r in remaining:
             log(f"   - {r[0]}")
     else:
