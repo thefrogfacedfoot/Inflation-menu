@@ -1,6 +1,6 @@
 {
   "Australia": {
-    "n_obs": 17,
+    "n_obs": 23,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
@@ -12,32 +12,32 @@
     "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 17, need 24)"
+    "note": "insufficient_data (have 23, need 24)"
   },
   "India": {
-    "n_obs": 33,
+    "n_obs": 47,
     "granger_significant": false,
-    "granger_p_value": 0.6188,
+    "granger_p_value": 0.4742,
     "lead_months": 1,
     "aic_lag": 1,
-    "pass_through_formal": 0.0024,
-    "pass_through_se": 0.00177,
-    "pass_through_p_value": 0.1933,
-    "pass_through_ci_low": -0.00133,
-    "pass_through_ci_high": 0.00612,
+    "pass_through_formal": 0.0007,
+    "pass_through_se": 0.0019,
+    "pass_through_p_value": 0.6973,
+    "pass_through_ci_low": -0.00313,
+    "pass_through_ci_high": 0.00462,
     "pass_through_significant": false,
-    "r_squared": 0.432,
+    "r_squared": 0.4997,
     "note": "",
-    "granger_f_statistic": 0.2532,
+    "granger_f_statistic": 0.5213,
     "granger_df_num": 1,
-    "granger_df_denom": 28,
+    "granger_df_denom": 43,
     "granger_per_lag": [
       {
         "lag": 1,
-        "F": 0.2532,
-        "p": 0.6188,
+        "F": 0.5213,
+        "p": 0.4742,
         "df_num": 1,
-        "df_denom": 28
+        "df_denom": 43
       }
     ]
   },
@@ -57,9 +57,31 @@
     "note": "insufficient_data (have 20, need 24)"
   },
   "Malaysia": {
-    "n_obs": 0,
-    "note": "no_cpi_data",
-    "granger_significant": false
+    "n_obs": 30,
+    "granger_significant": false,
+    "granger_p_value": 0.7419,
+    "lead_months": 1,
+    "aic_lag": 1,
+    "pass_through_formal": 0.0034,
+    "pass_through_se": 0.00267,
+    "pass_through_p_value": 0.2206,
+    "pass_through_ci_low": -0.0023,
+    "pass_through_ci_high": 0.00915,
+    "pass_through_significant": false,
+    "r_squared": 0.5892,
+    "note": "",
+    "granger_f_statistic": 0.1109,
+    "granger_df_num": 1,
+    "granger_df_denom": 25,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 0.1109,
+        "p": 0.7419,
+        "df_num": 1,
+        "df_denom": 25
+      }
+    ]
   },
   "Singapore": {
     "n_obs": 8,
@@ -82,12 +104,34 @@
     "granger_significant": false
   },
   "United Arab Emirates": {
-    "n_obs": 0,
-    "note": "no_cpi_data",
-    "granger_significant": false
+    "n_obs": 47,
+    "granger_significant": false,
+    "granger_p_value": 0.9005,
+    "lead_months": 1,
+    "aic_lag": 1,
+    "pass_through_formal": 0.007,
+    "pass_through_se": 0.0011,
+    "pass_through_p_value": 0.0,
+    "pass_through_ci_low": 0.00478,
+    "pass_through_ci_high": 0.00929,
+    "pass_through_significant": true,
+    "r_squared": 0.6342,
+    "note": "",
+    "granger_f_statistic": 0.0158,
+    "granger_df_num": 1,
+    "granger_df_denom": 42,
+    "granger_per_lag": [
+      {
+        "lag": 1,
+        "F": 0.0158,
+        "p": 0.9005,
+        "df_num": 1,
+        "df_denom": 42
+      }
+    ]
   },
   "United Kingdom": {
-    "n_obs": 5,
+    "n_obs": 18,
     "granger_significant": false,
     "granger_p_value": null,
     "lead_months": null,
@@ -99,59 +143,69 @@
     "pass_through_ci_high": null,
     "pass_through_significant": false,
     "r_squared": null,
-    "note": "insufficient_data (have 5, need 24)"
+    "note": "insufficient_data (have 18, need 24)"
   },
   "United States": {
-    "n_obs": 27,
-    "granger_significant": false,
-    "granger_p_value": 0.4546,
-    "lead_months": 3,
+    "n_obs": 31,
+    "granger_significant": true,
+    "granger_p_value": 0.021,
+    "lead_months": 1,
     "aic_lag": 4,
-    "pass_through_formal": -0.0007,
-    "pass_through_se": 0.00681,
-    "pass_through_p_value": 0.9182,
-    "pass_through_ci_low": -0.01683,
-    "pass_through_ci_high": 0.01538,
+    "pass_through_formal": -0.0043,
+    "pass_through_se": 0.00684,
+    "pass_through_p_value": 0.5399,
+    "pass_through_ci_low": -0.01938,
+    "pass_through_ci_high": 0.01073,
     "pass_through_significant": false,
-    "r_squared": 0.593,
+    "r_squared": 0.5566,
     "note": "",
-    "granger_f_statistic": 0.9177,
-    "granger_df_num": 3,
-    "granger_df_denom": 16,
+    "granger_f_statistic": 6.0336,
+    "granger_df_num": 1,
+    "granger_df_denom": 26,
     "granger_per_lag": [
       {
         "lag": 1,
-        "F": 0.2774,
-        "p": 0.6037,
+        "F": 6.0336,
+        "p": 0.021,
         "df_num": 1,
-        "df_denom": 22
+        "df_denom": 26
       },
       {
         "lag": 2,
-        "F": 0.1865,
-        "p": 0.8314,
+        "F": 2.6845,
+        "p": 0.0896,
         "df_num": 2,
-        "df_denom": 19
+        "df_denom": 23
       },
       {
         "lag": 3,
-        "F": 0.9177,
-        "p": 0.4546,
+        "F": 2.0613,
+        "p": 0.1376,
         "df_num": 3,
-        "df_denom": 16
+        "df_denom": 20
       },
       {
         "lag": 4,
-        "F": 0.8727,
-        "p": 0.5063,
+        "F": 1.967,
+        "p": 0.1455,
         "df_num": 4,
-        "df_denom": 13
+        "df_denom": 17
       }
     ]
   },
   "Vietnam": {
-    "n_obs": 0,
-    "note": "no_cpi_data",
-    "granger_significant": false
+    "n_obs": 12,
+    "granger_significant": false,
+    "granger_p_value": null,
+    "lead_months": null,
+    "aic_lag": null,
+    "pass_through_formal": null,
+    "pass_through_se": null,
+    "pass_through_p_value": null,
+    "pass_through_ci_low": null,
+    "pass_through_ci_high": null,
+    "pass_through_significant": false,
+    "r_squared": null,
+    "note": "insufficient_data (have 12, need 24)"
   }
 }

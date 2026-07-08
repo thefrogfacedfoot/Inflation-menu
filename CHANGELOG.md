@@ -2,6 +2,16 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-07-08 — Repair 2026-07 ingest artifacts; guard against empty-DB runs
+
+The 2026-07-01 GitHub Actions ingest ran on a runner with no uifpi.db
+(the file is gitignored) and committed zeroed dashboard/analysis exports
+(aa0fbb7), later merged in d2bd832. Repaired by rebuilding index/Granger/
+dashboard exports locally from the intact 156k-row database.
+monthly_ingest.py now aborts (exit 2) when the prices table has fewer
+than 50,000 rows unless --allow-empty-db is passed; the workflow no
+longer stages the gitignored uifpi.db.
+
 ## 2026-06-18 — First valid Granger result (US); 8-country panel finalised
 
 ### Headline: US Granger-significant at p = 0.021
