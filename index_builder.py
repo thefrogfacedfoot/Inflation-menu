@@ -23,6 +23,8 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
+from data_quality import QUARANTINED_SLICES
+
 DB_PATH = "uifpi.db"
 CSV_OUT = "uifpi_index.csv"
 
@@ -201,6 +203,16 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
         if dropped > 0:
             print(f"  Excluded {dropped:,} rows from sources "
                   f"{list(EXCLUDED_SOURCES)} (kept in raw DB).")
+
+    # Drop quarantined (country, source) slices with corrupted prices — see
+    # data_quality.py / docs/data_quality_2026-07.md.
+    for q_country, q_source in QUARANTINED_SLICES:
+        before_q = len(df)
+        df = df[~((df["country"] == q_country) & (df["source"] == q_source))].copy()
+        dropped_q = before_q - len(df)
+        if dropped_q > 0:
+            print(f"  Quarantined {dropped_q:,} rows: {q_country}/{q_source} "
+                  f"(kept in raw DB)")
 
     # Cap rows per (country, year_month) so dense months don't dominate the
     # cross-country index. Deterministic via SAMPLE_SEED.

@@ -2,6 +2,29 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-07-09 — Quarantine corrupted UAE/VN wayback price slices
+
+Two (country, source) slices carried systematically corrupted prices:
+**United Arab Emirates / wayback-deliveroo** (9,243 rows — from 2022-01 the
+Deliveroo template stores price as a `{code, fractional, formatted}` object
+and the generic JSON walker digit-fuses it, turning AED 9 into 90,009) and
+**Vietnam / wayback-grabfood** (4,309 rows — the `priceInMinorUnit` handler
+divides by 100 unconditionally, but GrabFood VN's field carries raw VND, so
+every price is ~100× too small). Both had entered the index via
+`load_price_data`'s FALLBACK_RATES backfill; the AE index ran at
+5,775–156,099 from 2022 on, and VN 2026-06 printed 25,455.82 at the
+corrupt-wayback → healthy-live crossover.
+
+New `data_quality.QUARANTINED_SLICES` excludes the two slices in
+`index_builder.load_price_data` and `dashboard_data.load_price_counts`
+(same pattern as EXCLUDED_SOURCES; raw rows stay in `prices`). Impact:
+AE index series empty (no other AE source), VN loses 19 wayback months and
+restarts at 2026-06 = 100. All other countries — including the entire
+8-country panel and the US Granger headline inputs — byte-identical.
+Root-cause evidence and quantification in `docs/data_quality_2026-07.md`.
+Parsers in historical_html_scraper.py intentionally not fixed here (dead
+code for these slices until a re-scrape).
+
 ## 2026-07-09 — Sector-label cleanup: stale `formal` rows relabelled, dashboard source-exclusion added
 
 7,571 wayback-doordash rows still carried the pre-2026-06-21 `formal` label

@@ -59,16 +59,6 @@
     "items_formal": 11,
     "items_informal": 0
   },
-  "United Arab Emirates": {
-    "month": "2026-04",
-    "uifpi": 12045.35,
-    "formal": 12045.35,
-    "informal": null,
-    "cpi": 122.21,
-    "yoy_change_pct": null,
-    "items_formal": 9243,
-    "items_informal": 0
-  },
   "United Kingdom": {
     "month": "2026-07",
     "uifpi": 31.19,
@@ -95,8 +85,8 @@
     "formal": null,
     "informal": 98.88,
     "cpi": 189.7,
-    "yoy_change_pct": -58.33,
-    "items_formal": 5525,
+    "yoy_change_pct": null,
+    "items_formal": 1216,
     "items_informal": 980
   }
 }
