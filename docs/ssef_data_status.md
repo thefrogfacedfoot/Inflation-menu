@@ -4,15 +4,25 @@
 **Scope**: 8-country panel (no Mexico, no Vietnam, no Brazil / Germany / South Africa — those expansions were attempted in mid-June 2026, found infeasible on Wayback archives, and reverted).
 **Data collection**: closed. Going-forward signal will arrive via the monthly ingest cron rather than further historical sweeps.
 
-## Headline finding
+## Headline finding (respecified 2026-07-06)
 
-**United States — UIFPI Granger-causes CPI at 1-month lead.** F(26, 1) = 6.034, p = 0.0210, n = 31 overlapping months (2018-04 → 2024-10). Both series stationary at levels (UIFPI ADF p ≈ 0, CPI ADF p = 0.018). VAR-AIC selected lag 4 but lag 1 carries the signal (p at lags 2–4: 0.090, 0.138, 0.146). Pass-through β = −0.00248 with 95 % CI [−0.00531, +0.00034] — small, of indeterminate sign, **not significant** at 5 %; the result is a *timing* signal, not a *level* one.
+**United States — the UIFPI menu index Granger-leads CPI at an exact 1-month
+lag.** Calendar-true specification: F = 4.20, analytic p = 0.0499, n = 31
+(permutation p: 0.052 shuffle / 0.069 block). Robustness: forward-filling
+single-month menu gaps with past information only strengthens the result
+(n = 38, F = 9.05, p = 0.0048; permutation ≤ 0.017). The strict
+adjacent-pairs cut (n = 10) is directionally consistent but uninformative.
+
+**Deprecated:** the original F = 6.034, p = 0.021 spec intersected CPI down to
+menu-observation months *before* differencing, so its "lag 1" mixed 1–9-month
+CPI changes. Do not cite it. Authoritative numbers:
+`analysis_results/gap_robustness.json` (script: `gap_robustness.py`).
 
 ## Per-country roll-up
 
 | Country | n overlap | Granger p | β | 95 % CI on β | Verdict |
 |---|---:|---:|---:|---|---|
-| **United States** | **31** | **0.021** ✓ | −0.00248 | [−0.00531, +0.00034] | **Significant**; lead = 1 month |
+| **United States** | **31** | **0.0499** ✓ (calendar-true respec) | −0.00248 | [−0.00531, +0.00034] | **Significant**; lead = 1 month |
 | India | 47 | 0.474 | −0.00076 | [−0.00220, +0.00068] | Null result |
 | **Australia** | **23** | — | — | — | **Pending one CPI publication** — ABS Q2 2026 expected late July via OECD SDMX. AU UIFPI sits at 24 distinct months; CPI overlap is 23. The next monthly ingest after the publication will tip AU over the n = 24 threshold automatically. |
 | **United Kingdom** | **18** | — | — | — | **Accumulating monthly**. 17,371 items / 20 months in UIFPI; CPI overlap 18. Bridging 18 → 24 requires either pre-2021 Wayback archives (the JS-shell era for Deliveroo — uncertain hit rate) or 6 monthly ticks of going-forward collection. SSEF write-up should treat UK as a "pending" panel member. |

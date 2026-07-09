@@ -114,7 +114,9 @@ of which 9,243 were AE/AED and 4,309 VN/VND (100% of both slices).
   byte-identical between the two builds (196 rows, including all 36 US rows).
   The United States entries of `analysis_results/granger_results.json` and
   `country_summary.json` are unchanged from the committed state (n=31,
-  F=6.0336, p=0.021 as recorded there), as are all other panel countries.
+  F=6.0336, p=0.021 as recorded there — the deprecated in-script spec; the
+  current headline is the calendar-true respec in
+  `analysis_results/gap_robustness.json`), as are all other panel countries.
 
 ## Fix shipped
 
