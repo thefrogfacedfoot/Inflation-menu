@@ -20,6 +20,8 @@ from typing import Optional, Union
 
 import pandas as pd
 
+from data_quality import QUARANTINED_SLICES
+
 INDEX_CSV    = "uifpi_index.csv"
 GRANGER_JSON = "analysis_results/granger_results.json"
 DB_PATH      = "uifpi.db"
@@ -218,15 +220,20 @@ def load_price_counts(db_path: str = DB_PATH) -> dict:
         conn = sqlite3.connect(db_path)
         placeholders = ",".join("?" for _ in EXCLUDED_SOURCES)
         cur = conn.execute(
-            "SELECT country, sector, restaurant_name, price, currency, price_usd "
+            "SELECT country, sector, restaurant_name, price, currency, "
+            "price_usd, source "
             "FROM prices "
             "WHERE price IS NOT NULL AND price > 0 "
             f"AND source NOT IN ({placeholders})",
             EXCLUDED_SOURCES,
         )
         agg: dict = {}
-        for country, sector, restaurant, price, currency, price_usd in cur.fetchall():
+        quarantined_dropped = 0
+        for country, sector, restaurant, price, currency, price_usd, source in cur.fetchall():
             if not country:
+                continue
+            if (country, source) in QUARANTINED_SLICES:
+                quarantined_dropped += 1
                 continue
             sector_key = (sector or "").lower()
             if sector_key not in DB_SECTOR_TO_FIELD:
@@ -246,6 +253,9 @@ def load_price_counts(db_path: str = DB_PATH) -> dict:
                 bucket["usd_sum"] += usd
                 bucket["usd_n"]   += 1
         conn.close()
+        if quarantined_dropped > 0:
+            print(f"  Quarantined {quarantined_dropped:,} rows: "
+                  f"{list(QUARANTINED_SLICES)} (kept in raw DB)")
 
         for (country, sector_key), b in agg.items():
             field = DB_SECTOR_TO_FIELD[sector_key]

@@ -103,33 +103,6 @@
     "note": "no_overlap",
     "granger_significant": false
   },
-  "United Arab Emirates": {
-    "n_obs": 47,
-    "granger_significant": false,
-    "granger_p_value": 0.9005,
-    "lead_months": 1,
-    "aic_lag": 1,
-    "pass_through_formal": 0.007,
-    "pass_through_se": 0.0011,
-    "pass_through_p_value": 0.0,
-    "pass_through_ci_low": 0.00478,
-    "pass_through_ci_high": 0.00929,
-    "pass_through_significant": true,
-    "r_squared": 0.6342,
-    "note": "",
-    "granger_f_statistic": 0.0158,
-    "granger_df_num": 1,
-    "granger_df_denom": 42,
-    "granger_per_lag": [
-      {
-        "lag": 1,
-        "F": 0.0158,
-        "p": 0.9005,
-        "df_num": 1,
-        "df_denom": 42
-      }
-    ]
-  },
   "United Kingdom": {
     "n_obs": 18,
     "granger_significant": false,
@@ -194,18 +167,8 @@
     ]
   },
   "Vietnam": {
-    "n_obs": 12,
-    "granger_significant": false,
-    "granger_p_value": null,
-    "lead_months": null,
-    "aic_lag": null,
-    "pass_through_formal": null,
-    "pass_through_se": null,
-    "pass_through_p_value": null,
-    "pass_through_ci_low": null,
-    "pass_through_ci_high": null,
-    "pass_through_significant": false,
-    "r_squared": null,
-    "note": "insufficient_data (have 12, need 24)"
+    "n_obs": 0,
+    "note": "no_overlap",
+    "granger_significant": false
   }
 }
