@@ -2,6 +2,16 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-07-09 — Sector-label cleanup: stale `formal` rows relabelled, dashboard source-exclusion added
+
+7,571 wayback-doordash rows still carried the pre-2026-06-21 `formal` label
+(historical_html_scraper.py TARGETS were never updated after the rename).
+Relabelled to `chain` (backup: uifpi.db.backup_pre_formal_relabel_*), TARGETS
+now emit `chain`/`independent`. dashboard_data.load_price_counts previously
+had no source-exclusion filter and only skipped DoorDash by the accident of
+the stale label; it now excludes EXCLUDED_SOURCES explicitly, so dashboard
+counts are unchanged and DoorDash stays out of all aggregates.
+
 ## 2026-07-08 — Repair 2026-07 ingest artifacts; guard against empty-DB runs
 
 The 2026-07-01 GitHub Actions ingest ran on a runner with no uifpi.db
