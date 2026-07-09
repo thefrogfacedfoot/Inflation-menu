@@ -155,6 +155,8 @@ def main() -> int:
                     help='Skip the OECD/WB CPI refresh.')
     ap.add_argument('--min-obs', type=int, default=24,
                     help='Granger min observations (default 24).')
+    ap.add_argument('--allow-empty-db', action='store_true',
+                    help='Bypass the minimum-row sanity guard (fresh-start scenarios only).')
     args = ap.parse_args()
 
     stamp = datetime.now().strftime('%Y-%m-%d %H:%M')
@@ -171,6 +173,16 @@ def main() -> int:
     granger_before = _granger_snap(DB)
     total_before = sum(r[0] for r in before.values())
     print(f'\nBefore: {total_before:,} total price rows across {len(COUNTRIES)} countries')
+
+    MIN_EXPECTED_ROWS = 50_000  # local DB had ~156k rows on 2026-07-07; a near-empty
+                                # table means uifpi.db is missing from this checkout
+    if total_before < MIN_EXPECTED_ROWS and not args.allow_empty_db:
+        print(f'\n  ✗ ABORT: prices table has {total_before:,} rows '
+              f'(< {MIN_EXPECTED_ROWS:,}). uifpi.db is missing or empty in this '
+              f'checkout — running the pipeline would produce and commit garbage '
+              f'(this happened on 2026-07-01). No stages were run, nothing was '
+              f'written. Pass --allow-empty-db to override.')
+        return 2
 
     # 1. live_scraper
     if not args.skip_scrape:

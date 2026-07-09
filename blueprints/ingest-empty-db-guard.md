@@ -29,6 +29,7 @@ Evidence you can re-verify: `dashboard/public/data/country_summary.json` → `Un
 4. Acceptance checks (all must pass; if one fails, stop and report the failure — do not improvise):
    - `dashboard/public/data/country_summary.json`: `United States.items_formal > 0`, `Singapore.items_formal > 0`.
    - `analysis_results/granger_results.json`: `Malaysia.note != "no_cpi_data"` and `Malaysia.n_obs > 0`; `India.n_obs >= 30`.
+   - **Verified checkpoints (2026-07-08, DB at 159,908 rows — a dry run of this phase exited 0 at every stage):** `United States.items_formal` = 8,341, `Singapore.items_formal` = 25,786, `Malaysia.n_obs` = 30 (note cleared), `India.n_obs` = 47. The DB grows nightly, so your values should be **≥ these** (small upward drift is fine); zeros or missing keys are failure.
    - **Expected and correct:** the US entry will be non-significant (p ≈ 0.4–0.5). The default `granger_analysis.py` spec is deprecated as the headline; the real headline (F=4.20, p=0.0499) lives in `analysis_results/gap_robustness.json` and is produced by `gap_robustness.py`. Do NOT try to "fix" granger_analysis.py to make the US significant.
 
 ## Phase B — annotate the garbage ingest-log sections
@@ -111,4 +112,6 @@ The guard intentionally fires in `--dry-run` too: the workflow runs a dry-run fi
    No Co-Authored-By trailer.
 3. Push the branch and open a PR against `main` with `gh pr create`. PR body: summarize the incident and fix in 4–6 sentences (reuse the CHANGELOG text), and end with:
    `🤖 Generated with [Claude Code](https://claude.com/claude-code)`
-4. In your final report, state the before/after values of `United States.items_formal` and the Malaysia granger note, and paste the tail of each pipeline script's output.
+4. **MERGE-ORDER GATE (binding):** state prominently in the PR body: "Merge this PR and verify the resulting Vercel dashboard deploy is live BEFORE starting `blueprints/sector-label-cleanup.md` — its branch must fork from the updated main." Blueprint 3 (sector cleanup) must not begin until both have happened.
+5. Also stage `blueprints/ingest-empty-db-guard.md` in your commit (it carries uncommitted amendments). Do NOT stage `scraper_log.txt`, `exchange_rates.json`, or `sapient-split/`.
+6. In your final report, state the before/after values of `United States.items_formal` and the Malaysia granger note, and paste the tail of each pipeline script's output.

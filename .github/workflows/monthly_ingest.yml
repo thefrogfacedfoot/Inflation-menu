@@ -11,6 +11,12 @@ name: Monthly ingest
 #
 # Manual runs accept `run_scrape: true` via workflow_dispatch — useful if
 # you've configured a self-hosted runner with residential IP.
+#
+# NOTE (2026-07-08): uifpi.db is gitignored and never present on GitHub-hosted
+# runners, so scheduled runs will fail red at monthly_ingest.py's row-count
+# guard. That is intentional: it beats committing zeroed exports (see the
+# 2026-07-01 incident in CHANGELOG.md). To make cloud ingest work, attach a
+# self-hosted runner that has the real uifpi.db.
 
 on:
   schedule:
@@ -88,7 +94,6 @@ jobs:
           # scrapers or analysis source. Avoids accidentally committing
           # local-dev cruft if a developer's tree is dirty.
           git add \
-            uifpi.db \
             uifpi_index.csv \
             analysis_results/granger_results.json \
             analysis_results/summary.csv \

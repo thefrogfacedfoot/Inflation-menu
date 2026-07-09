@@ -20,6 +20,7 @@ events, and skipped stages are recorded for the SSEF paper.
 | Australia | 1831 | 1831 | 0 | 24 | 24 |
 
 ## 2026-07-01 06:16
+**INVALID RUN** — the GitHub Actions runner had no `uifpi.db` (the file is gitignored and never present on runners); the all-zero rows and the "United States dropped below Granger threshold" event below are artifacts of running against an empty database. See CHANGELOG 2026-07-08.
 **Mode**: DRY-RUN — no stages were executed.
 **Skipped stages**: live_scraper
 
@@ -35,6 +36,7 @@ events, and skipped stages are recorded for the SSEF paper.
 | Australia | 0 | 0 | 0 | 0 | 0 |
 
 ## 2026-07-01 06:16
+**INVALID RUN** — the GitHub Actions runner had no `uifpi.db` (the file is gitignored and never present on runners); the all-zero rows and the "United States dropped below Granger threshold" event below are artifacts of running against an empty database. See CHANGELOG 2026-07-08.
 **Skipped stages**: live_scraper
 
 | Country | Items before | Items after | Δ | Months before | Months after |
@@ -50,3 +52,18 @@ events, and skipped stages are recorded for the SSEF paper.
 
 **Granger crossover events**:
   - **United States** dropped below Granger threshold
+
+## 2026-07-08 22:53
+**Mode**: DRY-RUN — no stages were executed.
+**Skipped stages**: live_scraper
+
+| Country | Items before | Items after | Δ | Months before | Months after |
+|---|---:|---:|---:|---:|---:|
+| Singapore | 29366 | 29366 | 0 | 10 | 10 |
+| Malaysia | 19508 | 19508 | 0 | 33 | 33 |
+| Indonesia | 34 | 34 | 0 | 21 | 21 |
+| Thailand | 11 | 11 | 0 | 1 | 1 |
+| India | 635 | 635 | 0 | 49 | 49 |
+| United States | 54162 | 54162 | 0 | 559 | 559 |
+| United Kingdom | 37744 | 37744 | 0 | 21 | 21 |
+| Australia | 2700 | 2700 | 0 | 25 | 25 |

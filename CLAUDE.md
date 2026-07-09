@@ -3,7 +3,7 @@ UICPI (branded UIFPI in code/DB) — a research project that scrapes restaurant 
 
 # Stack
 - Python 3.9 (system python3), pandas/numpy/statsmodels, Playwright, Flask
-- SQLite in WAL mode: uifpi.db (committed to git — restore with `git checkout HEAD -- uifpi.db`)
+- SQLite in WAL mode: uifpi.db (NOT tracked in git — 112 MB, gitignored; restore from the newest `uifpi.db.backup_*` copy in the repo root)
 - Claude API for NLP item classification; Gemini Vision for menu-photo extraction; keys in .env
 - dashboard/ is Next.js + TypeScript (npm) and has its own CLAUDE.md/AGENTS.md
 
