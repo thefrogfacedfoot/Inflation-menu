@@ -64,11 +64,8 @@ log = logging.info
 
 # ── Exchange rates ─────────────────────────────────────────────────────────────
 
-# Hardcoded fallbacks used when the API call fails
-FALLBACK_RATES = {
-    'SGD': 1.35, 'MYR': 4.70, 'IDR': 15_750.0, 'THB': 36.0,
-    'INR': 83.5,  'USD': 1.0,  'GBP': 0.79,     'AUD': 1.55,
-}
+# Hardcoded fallbacks used when the API call fails (single source of truth)
+from fx_rates import FALLBACK_RATES
 
 
 EXCHANGE_RATE_CACHE_PATH = os.path.join(BASE_DIR, 'exchange_rates.json')

@@ -86,10 +86,12 @@ The `rate = FALLBACK_RATES.get(currency, 1.0)` default of 1.0 stays correct unde
 
 ```bash
 python3 -c "from fx_rates import FALLBACK_RATES; assert len(FALLBACK_RATES) == 11"
-python3 -c "import image_processor; print(image_processor.to_usd(10.0, 'sg', 'S\$'))"   # expect ≈ 7.407 (10/1.35)
+python3 -c "import image_processor; print(image_processor.to_usd(10.0, 'sg', None))"    # expect ≈ 7.4074 (10/1.35)
 python3 -c "import dashboard_data, index_builder"                                        # both import clean
 grep -rn "FALLBACK_RATES = {" live_scraper.py index_builder.py dashboard_data.py image_processor.py   # must return NOTHING
 ```
+Note: the original symbol-form check `to_usd(10.0, 'sg', 'S$')` trips a pre-existing symbol-matcher bug ("S$" → "SUSD" substring-matches "USD" before "SGD" is considered, returning rate 1.0) that predates this refactor and returns the same wrong 10.0 before and after it — behavior preserved, bug out of scope.
+
 Then run the two pipeline consumers end-to-end and confirm they behave identically to before (same currencies, same values for the 8 shared codes):
 ```bash
 python3 index_builder.py
@@ -102,4 +104,9 @@ Note: `python3 -c "import live_scraper"` is NOT a required check (importing it c
 
 ### 5. Ship
 
-Branch `refactor/fx-rates-module`; commit message `Deduplicate FALLBACK_RATES into fx_rates.py; fix image_processor inverted convention` (no Co-Authored-By trailer); push; `gh pr create` to main, PR body ending `🤖 Generated with [Claude Code](https://claude.com/claude-code)`. Also update the CLAUDE.md gotcha line `- FALLBACK_RATES dicts are duplicated across ...` to read `- FALLBACK_RATES lives in fx_rates.py (single source of truth since 2026-07); the four consumer scripts import it — update rates there only.`
+Branch `refactor/fx-rates-module`. Make TWO commits, in this order (no Co-Authored-By trailer on either):
+
+1. `Add fx_rates.py; point live_scraper/index_builder/dashboard_data at it` — steps 1–2 only (zero behavior change), plus the CLAUDE.md gotcha-line update below and `blueprints/fx-rates-module.md` (it carries uncommitted amendments).
+2. `image_processor: use shared FALLBACK_RATES; fix inverted USD conversion (multiply to divide)` — ALL of step 3 in this single commit. The import swap and the multiply→divide flip must land together — either one alone is broken. This isolates the only behavior-changing edit so it is bisectable.
+
+Do NOT stage `scraper_log.txt`, `exchange_rates.json`, or `sapient-split/`. Push; `gh pr create` to main, PR body ending `🤖 Generated with [Claude Code](https://claude.com/claude-code)`. Update the CLAUDE.md gotcha line `- FALLBACK_RATES dicts are duplicated across ...` to read `- FALLBACK_RATES lives in fx_rates.py (single source of truth since 2026-07); the four consumer scripts import it — update rates there only.`
