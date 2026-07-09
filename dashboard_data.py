@@ -198,6 +198,11 @@ def _empty_country_stats() -> dict:
 # was renamed from formal/informal to chain/independent (2026-06-21) but
 # the JSON schema keys (items_formal, items_informal, etc.) are kept for
 # backward compatibility with existing consumers of country_summary.json.
+# Sources excluded from ALL dashboard aggregates — keep in sync with
+# index_builder.EXCLUDED_SOURCES (DoorDash dilutes the US Granger signal;
+# raw rows stay in `prices`). See CLAUDE.md.
+EXCLUDED_SOURCES = ("wayback-doordash",)
+
 DB_SECTOR_TO_FIELD = {"chain": "formal", "independent": "informal"}
 
 
@@ -211,10 +216,13 @@ def load_price_counts(db_path: str = DB_PATH) -> dict:
         return counts
     try:
         conn = sqlite3.connect(db_path)
+        placeholders = ",".join("?" for _ in EXCLUDED_SOURCES)
         cur = conn.execute(
             "SELECT country, sector, restaurant_name, price, currency, price_usd "
             "FROM prices "
-            "WHERE price IS NOT NULL AND price > 0"
+            "WHERE price IS NOT NULL AND price > 0 "
+            f"AND source NOT IN ({placeholders})",
+            EXCLUDED_SOURCES,
         )
         agg: dict = {}
         for country, sector, restaurant, price, currency, price_usd in cur.fetchall():

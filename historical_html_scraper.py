@@ -504,7 +504,7 @@ def _coerce(items, default_currency):
 # (country, sector, platform_label, source_key, url_pattern, currency, parser_fn)
 
 TARGETS = [
-    ('United States', 'formal', 'menupages',     'wayback-menupages',
+    ('United States', 'chain', 'menupages',     'wayback-menupages',
      'menupages.com/*', 'USD', parse_menupages),
     # Added 2026-06-22 after structural probe (phase0_structural_probe_
     # doordash_grubhub.py): 24,568 distinct URLs, 3,083 ≥2-cap, 30,000
@@ -515,22 +515,22 @@ TARGETS = [
     # with no JSON-LD, NEXT_DATA, or embedded JSON on any of 3 samples.)
     ('United States', 'chain',  'doordash-us',   'wayback-doordash',
      'doordash.com/store/*', 'USD', parse_doordash),
-    ('India',         'formal', 'zomato-ncr',    'wayback-zomato',
+    ('India',         'chain', 'zomato-ncr',    'wayback-zomato',
      'zomato.com/ncr/*', 'INR', parse_zomato),
-    ('Indonesia',     'formal', 'zomato-jakarta','wayback-zomato',
+    ('Indonesia',     'chain', 'zomato-jakarta','wayback-zomato',
      'zomato.com/jakarta/*', 'IDR', parse_zomato),
-    ('Thailand',      'formal', 'eatigo-bkk',    'wayback-eatigo',
+    ('Thailand',      'chain', 'eatigo-bkk',    'wayback-eatigo',
      'eatigo.com/th/bangkok/*', 'THB', parse_eatigo),
-    ('Australia',     'formal', 'menulog',       'wayback-menulog',
+    ('Australia',     'chain', 'menulog',       'wayback-menulog',
      'menulog.com.au/restaurants/*', 'AUD', parse_menulog),
-    ('Philippines',   'formal', 'zomato-manila', 'wayback-zomato',
+    ('Philippines',   'chain', 'zomato-manila', 'wayback-zomato',
      'zomato.com/manila/*', 'PHP', parse_zomato),
-    ('Singapore',     'formal', 'grabfood-sg',   'wayback-grabfood',
+    ('Singapore',     'chain', 'grabfood-sg',   'wayback-grabfood',
      'food.grab.com/sg/en/restaurant/*', 'SGD', parse_grabfood),
     # Added 2026-06-18 after MY Phase 0 probe: 303 ≥40KB CDX URLs over
     # 2020-2026, NEXT_DATA populated, RM prices in static HTML (probe
     # samples yielded 7-188 prices/page). Same extractor as GrabFood SG.
-    ('Malaysia',      'formal', 'grabfood-my',   'wayback-grabfood',
+    ('Malaysia',      'chain', 'grabfood-my',   'wayback-grabfood',
      'food.grab.com/my/en/restaurant/*', 'MYR', parse_grabfood),
     # Added 2026-06-19 after structural probe (phase0_structural_probe_grab_
     # deliveroo.py): 10,818 distinct URLs, 1,811 ≥2-cap, 13,136 snapshots,
@@ -539,14 +539,14 @@ TARGETS = [
     # 'Chả bò Đà Nẵng (500g)' = 150,000 VND). Same parser as SG/MY.
     # (PH GrabFood probed same day — BAILED: Offer.price="" empty-string
     # on every node, schema tree decorative only. Not adding.)
-    ('Vietnam',       'formal', 'grabfood-vn',   'wayback-grabfood',
+    ('Vietnam',       'chain', 'grabfood-vn',   'wayback-grabfood',
      'food.grab.com/vn/en/restaurant/*', 'VND', parse_grabfood),
-    ('Mexico',        'formal', 'tripadvisor-mx','wayback-tripadvisor',
+    ('Mexico',        'chain', 'tripadvisor-mx','wayback-tripadvisor',
      'tripadvisor.com.mx/Restaurant_Review*', 'MXN', parse_tripadvisor_mx),
     # Added 2026-06-18 after the SG/UK Phase 0 probe: Deliveroo UK
     # carries 245 items/page in an embedded body-HTML JSON blob
     # (different shape than Menulog's DOM markers, but tractable).
-    ('United Kingdom','formal', 'deliveroo-uk',  'wayback-deliveroo',
+    ('United Kingdom','chain', 'deliveroo-uk',  'wayback-deliveroo',
      'deliveroo.co.uk/menu/*', 'GBP', parse_deliveroo_uk),
     # Added 2026-06-19 after structural probe + body-JSON spot-check
     # (phase0_followup_ph_ae.py): 17,134 distinct URLs, 5,704 ≥2-cap,
@@ -559,7 +559,7 @@ TARGETS = [
     # (HK Deliveroo probed same day — BAILED: CDX returned zero rows for
     # deliveroo.com.hk/menu/* over the full window. Wayback never
     # indexed the menu paths; Deliveroo exited HK 2025-04. Not adding.)
-    ('United Arab Emirates','formal','deliveroo-ae','wayback-deliveroo',
+    ('United Arab Emirates','chain','deliveroo-ae','wayback-deliveroo',
      'deliveroo.ae/menu/*', 'AED', parse_deliveroo_uk),
     # Added 2026-06-19 (Track C re-resurrect; original tuples lived in
     # 7a4d34f^ before the country-expansion revert). BOTH BAILED — leave
@@ -581,9 +581,9 @@ TARGETS = [
     #   ≥2-cap samples). All 3 showed Restaurant + OpeningHours +
     #   OrderAction + Review JSON-LD with ZERO MenuItem/Offer nodes;
     #   same Restaurant-only pattern. Not adding it as a TARGETS entry.
-    ('Germany',       'formal', 'lieferando',    'wayback-lieferando',
+    ('Germany',       'chain', 'lieferando',    'wayback-lieferando',
      'lieferando.de/speisekarte/*', 'EUR', parse_lieferando),
-    ('Brazil',        'formal', 'ubereats-br',   'wayback-ubereats',
+    ('Brazil',        'chain', 'ubereats-br',   'wayback-ubereats',
      'ubereats.com/br/*', 'BRL', parse_ubereats),
 ]
 

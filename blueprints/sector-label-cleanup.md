@@ -15,7 +15,9 @@ Current state of `SELECT sector, COUNT(*) FROM prices GROUP BY 1` (2026-07-07):
 | chain | 94,069 | correct |
 | independent | 15,996 | correct |
 | grocery | 38,216 | all `source='official_price_series_bls_apu'` (US BLS grocery series) — intentional third label, excluded from the index by `index_builder.py`'s sector filter. DO NOT touch. |
-| **formal** | **7,571** | **stale** — all `source='wayback-doordash'`, ingested after the rename because `historical_html_scraper.py`'s TARGETS tuples still say `'formal'` |
+| **formal** | **7,571** | **stale** — all `source='wayback-doordash'`, ingested after the rename because `historical_html_scraper.py`'s TARGETS tuples still say `'formal'`. **Precondition — verify before doing anything:** `sqlite3 uifpi.db "SELECT source, COUNT(*) FROM prices WHERE sector='formal' GROUP BY 1;"` must return exactly one row: `wayback-doordash\|7571`. If not, stop and report. |
+
+Note: the `chain`/`independent` counts above are as of 2026-07-07 and grow nightly via live_scraper — never compare against them as absolutes.
 
 **The cancelling-bugs trap.** `wayback-doordash` is excluded from index construction via `index_builder.py` line 51 `EXCLUDED_SOURCES = ("wayback-doordash",)` (it dilutes the US Granger signal — repo rule: never let excluded sources back into the index or dashboard aggregates). But `dashboard_data.py::load_price_counts` (lines ~204–247) has **no source-exclusion filter at all**; the only reason DoorDash rows don't inflate the US dashboard counts today is that their stale `formal` label isn't in `DB_SECTOR_TO_FIELD = {"chain": "formal", "independent": "informal"}` (line 201), so they're accidentally skipped. **If you relabel the rows without first adding the source exclusion, 7,571 excluded rows enter the dashboard counts.** Therefore do step 2 before step 3.
 
@@ -25,7 +27,10 @@ Current state of `SELECT sector, COUNT(*) FROM prices GROUP BY 1` (2026-07-07):
 
 ### 1. Record the "before" dashboard counts and back up
 
+**GATE (binding):** do not start this blueprint until the `fix/ingest-empty-db-guard` PR (Blueprint 1) has been merged to main AND its Vercel dashboard deploy is verified live. Branch from the updated main. If either has not happened, stop and report.
+
 ```bash
+git checkout main && git pull
 git checkout -b fix/sector-label-cleanup
 cp uifpi.db "uifpi.db.backup_pre_formal_relabel_$(date +%Y%m%d_%H%M%S)"
 python3 dashboard_data.py
@@ -73,14 +78,19 @@ with
 
 ### 3. Relabel the stale rows
 
-```bash
-sqlite3 uifpi.db "UPDATE prices SET sector='chain' WHERE sector='formal' AND source='wayback-doordash'; SELECT changes();"
-```
-Must print `7571`. Then verify the label space is clean:
+Record the per-sector counts BEFORE the update:
 ```bash
 sqlite3 uifpi.db "SELECT sector, COUNT(*) FROM prices GROUP BY 1;"
 ```
-Must show exactly three labels: `chain 101640`, `grocery 38216`, `independent 15996`. If any `formal`/`informal` rows remain, stop and report — do not delete anything.
+Then run the update:
+```bash
+sqlite3 uifpi.db "UPDATE prices SET sector='chain' WHERE sector='formal' AND source='wayback-doordash'; SELECT changes();"
+```
+Must print `7571` — if it prints anything else, stop and report; do not proceed. Then verify the label space is clean:
+```bash
+sqlite3 uifpi.db "SELECT sector, COUNT(*) FROM prices GROUP BY 1;"
+```
+Acceptance (relative — `chain`/`independent` grow nightly via live_scraper, so do NOT compare against absolute totals): exactly three labels remain — `chain`, `grocery`, `independent` — with zero `formal`/`informal` rows; `chain` equals its pre-update count + 7,571; `grocery` and `independent` are unchanged from their pre-update counts. If any `formal`/`informal` rows remain, stop and report — do not delete anything.
 
 ### 4. Fix the emitter — `historical_html_scraper.py`
 
@@ -118,4 +128,4 @@ the stale label; it now excludes EXCLUDED_SOURCES explicitly, so dashboard
 counts are unchanged and DoorDash stays out of all aggregates.
 ```
 
-Commit message: `Relabel stale formal sector rows; exclude EXCLUDED_SOURCES from dashboard counts` (no Co-Authored-By trailer). Push branch `fix/sector-label-cleanup`, open PR to main with `gh pr create`, PR body ending `🤖 Generated with [Claude Code](https://claude.com/claude-code)`. Commit the regenerated `dashboard_data/*.json` and `dashboard/public/data/*.json` too. Report the BEFORE/AFTER count comparison in your final message.
+Make ONE atomic commit (deliberate: no commit in history may contain the relabel's effects without the exclusion filter). Message: `Relabel stale formal sector rows; exclude EXCLUDED_SOURCES from dashboard counts` (no Co-Authored-By trailer). Stage: the code changes, CHANGELOG.md, the regenerated `dashboard_data/*.json` and `dashboard/public/data/*.json`, and `blueprints/sector-label-cleanup.md` (it carries uncommitted amendments). Do NOT stage `scraper_log.txt`, `exchange_rates.json`, or `sapient-split/`. Push branch `fix/sector-label-cleanup`, open PR to main with `gh pr create`, PR body ending `🤖 Generated with [Claude Code](https://claude.com/claude-code)`. Report the BEFORE/AFTER count comparison in your final message.
