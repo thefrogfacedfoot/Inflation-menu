@@ -43,12 +43,8 @@ GEMINI_URL   = (
     f"{GEMINI_MODEL}:generateContent"
 )
 
-# USD exchange rates (mid-2024 approximations, same as migrate_db.py)
-FALLBACK_RATES: Dict[str, float] = {
-    "SGD": 0.74, "MYR": 0.21, "IDR": 0.000064, "THB": 0.028,
-    "INR": 0.012, "USD": 1.0, "GBP": 1.27, "AUD": 0.66,
-    "EUR": 1.08,
-}
+# 1 USD = rate units of local currency — divide to convert to USD.
+from fx_rates import FALLBACK_RATES
 
 COUNTRY_CURRENCY: Dict[str, str] = {
     "sg": "SGD", "my": "MYR", "id": "IDR", "th": "THB",
@@ -217,11 +213,11 @@ def to_usd(price_local: Optional[float], country_code: str,
         sym = currency_symbol.upper().replace("$", "USD")
         for code, rate in FALLBACK_RATES.items():
             if code in sym:
-                return round(price_local * rate, 4)
+                return round(price_local / rate, 4)
     # Fallback to country code
     currency = COUNTRY_CURRENCY.get(country_code, "USD")
     rate = FALLBACK_RATES.get(currency, 1.0)
-    return round(price_local * rate, 4)
+    return round(price_local / rate, 4)
 
 
 # ─────────────────────────────────────────────────────────────────────────────

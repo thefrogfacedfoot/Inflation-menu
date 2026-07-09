@@ -72,12 +72,8 @@ INFORMAL_WEIGHTS = {
 HEDGE_PREMIUM   = -0.05   # PREMIUM_UPGRADE → effective price 5% lower after adjustment
 HEDGE_PORTION   = +0.08   # PORTION_REDUCTION → effective price 8% higher after adjustment
 
-# Approximate USD exchange rates used when price_usd is NULL (matches live_scraper fallback)
-FALLBACK_RATES = {
-    "SGD": 1.35, "MYR": 4.70, "IDR": 15_750.0, "THB": 36.0,
-    "INR": 83.5,  "USD": 1.0,  "GBP": 0.79,    "AUD": 1.55,
-    "VND": 25_400.0, "AED": 3.67,
-}
+# Approximate USD exchange rates used when price_usd is NULL (single source of truth)
+from fx_rates import FALLBACK_RATES
 
 
 # ── Database helpers ──────────────────────────────────────────────────────────

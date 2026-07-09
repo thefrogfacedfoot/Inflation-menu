@@ -178,11 +178,8 @@ def build_index_series(index_df: pd.DataFrame, cpi_lookup: dict) -> dict:
 
 
 # Same fallback rates index_builder.py uses to backfill price_usd when it's
-# null. Kept in sync so the dashboard averages reflect what the index uses.
-FALLBACK_RATES = {
-    "SGD": 1.35, "MYR": 4.70, "IDR": 15_750.0, "THB": 36.0,
-    "INR": 83.5, "USD": 1.0, "GBP": 0.79, "AUD": 1.55,
-}
+# null. Single source of truth in fx_rates.py.
+from fx_rates import FALLBACK_RATES
 
 
 def _empty_country_stats() -> dict:
