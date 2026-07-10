@@ -385,7 +385,7 @@ function USGrangerCallout() {
         Calendar-true specification: exact 1-month lags on full-calendar CPI
         changes, no imputation (permutation p = 0.052 shuffle / 0.069 block).
         Forward-filling single-month menu gaps with past information only
-        strengthens the result (n = 38, F = 9.05, p = 0.0048). The result is a
+        strengthens the result (n = 38, F = 9.05, p = 0.0048). The result is a{" "}
         <span className="font-semibold">timing signal</span>, not a level
         coincidence.
       </p>
