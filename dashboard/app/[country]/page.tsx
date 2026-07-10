@@ -352,7 +352,7 @@ export default async function CountryPage({ params }: PageProps) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const FULL_RESULTS_URL =
-  "https://github.com/thefrogfacedfoot/Inflation-menu/blob/main/docs/granger_results_2026-06-18.md";
+  "https://github.com/thefrogfacedfoot/Inflation-menu/blob/main/docs/ssef_data_status.md";
 
 function USGrangerCallout() {
   return (
@@ -366,11 +366,11 @@ function USGrangerCallout() {
       <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm mb-3">
         <div>
           <dt className="text-xs text-green-700 uppercase tracking-wide">F</dt>
-          <dd className="font-mono font-semibold text-green-900">6.034</dd>
+          <dd className="font-mono font-semibold text-green-900">4.201</dd>
         </div>
         <div>
           <dt className="text-xs text-green-700 uppercase tracking-wide">p</dt>
-          <dd className="font-mono font-semibold text-green-900">0.021</dd>
+          <dd className="font-mono font-semibold text-green-900">0.0499</dd>
         </div>
         <div>
           <dt className="text-xs text-green-700 uppercase tracking-wide">n</dt>
@@ -382,11 +382,12 @@ function USGrangerCallout() {
         </div>
       </dl>
       <p className="text-sm text-green-900 leading-relaxed">
-        AIC selected lag = 4, but lag = 1 dominates (p-values rise to 0.090
-        / 0.138 / 0.146 at lags 2 / 3 / 4). Pass-through β is negative and
-        only marginally significant (p = 0.083, 95% CI includes zero) — the
-        result is a <span className="font-semibold">timing signal</span>,
-        not a level coincidence.
+        Calendar-true specification: exact 1-month lags on full-calendar CPI
+        changes, no imputation (permutation p = 0.052 shuffle / 0.069 block).
+        Forward-filling single-month menu gaps with past information only
+        strengthens the result (n = 38, F = 9.05, p = 0.0048). The result is a
+        <span className="font-semibold">timing signal</span>, not a level
+        coincidence.
       </p>
       <a
         href={FULL_RESULTS_URL}

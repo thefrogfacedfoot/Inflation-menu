@@ -175,7 +175,7 @@ export default async function HomePage() {
               countries. Tests whether food service prices lead official CPI
               as an early inflation signal — and{" "}
               <span className="text-white font-medium">
-                finds they do in the US, with a 1-month lead (p = 0.021)
+                finds they do in the US, with a 1-month lead (p = 0.0499)
               </span>
               .
             </p>
