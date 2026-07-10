@@ -24,6 +24,7 @@ from data_quality import QUARANTINED_SLICES
 
 INDEX_CSV    = "uifpi_index.csv"
 GRANGER_JSON = "analysis_results/granger_results.json"
+GAP_ROBUSTNESS_JSON = "analysis_results/gap_robustness.json"
 DB_PATH      = "uifpi.db"
 OUT_DIR      = "dashboard_data"
 # Next.js dashboard reads JSON from this path at build time (see
@@ -70,6 +71,29 @@ def load_granger(json_path: str) -> dict:
         return {}
     with open(json_path) as f:
         return json.load(f)
+
+
+def apply_headline_respec(granger: dict,
+                          path: str = GAP_ROBUSTNESS_JSON) -> dict:
+    """Override the deprecated gap-mixing Granger spec with the calendar-true
+    respec for the country covered by gap_robustness.json (US).
+
+    granger_analysis.py still emits the deprecated spec (F=6.0336, p=0.021 —
+    a gap-mixing artifact, respecified 2026-07-06); repo rule: those numbers
+    must never reach the dashboard. Fails loud if the respec file is missing
+    (it is git-tracked) — silently falling back would republish deprecated
+    numbers.
+    """
+    with open(path) as f:          # let FileNotFoundError propagate
+        respec = json.load(f)
+    country = respec["country"]
+    spec = respec["specs"]["calendar_true"]
+    if country in granger:
+        granger[country]["granger_p_value"] = spec["p_analytic"]
+        granger[country]["granger_f_statistic"] = spec["F"]
+        granger[country]["granger_significant"] = spec["p_analytic"] < 0.05
+        granger[country]["granger_spec"] = "calendar_true (gap_robustness respec 2026-07-06)"
+    return granger
 
 
 def load_monthly_cpi(db_path: str = DB_PATH) -> dict:
@@ -453,6 +477,7 @@ def run(
 
     print("Loading Granger results …")
     granger = load_granger(granger_json)
+    granger = apply_headline_respec(granger)
 
     if index_df.empty and not granger:
         print("  ⚠  No data available — nothing to export.")
