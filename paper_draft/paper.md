@@ -1,3 +1,11 @@
+<!-- ⚠ STALE NUMBERS (2026-07-09): this draft still cites the DEPRECATED US
+     Granger spec F(1,26)=6.0336, p=0.021 (gap-mixing artifact — see
+     analysis_results/gap_robustness.json "framing"). The headline is now the
+     calendar-true spec: F=4.20, p=0.0499, n=31; ffill robustness F=9.05,
+     p=0.0048, n=38. The Results rewrite is being done BY THE AUTHOR — do not
+     mechanically re-number this file. Stale citations as of 2026-07-09 are
+     near lines 45, 201, 212, 265, 279, 292. -->
+
 # UIFPI — A Method for Collecting Restaurant and Informal-Vendor Prices at Scale, with Evidence from the United States
 
 **Author**: [name]

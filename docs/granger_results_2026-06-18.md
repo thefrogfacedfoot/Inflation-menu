@@ -1,3 +1,10 @@
+> **DEPRECATED (2026-07-06).** The results below use the original spec, which
+> intersected CPI to menu-observation months before differencing and therefore
+> mixed 1–9-month CPI changes. Do not cite F=6.034 / p=0.021. The current
+> headline is the calendar-true respec (F=4.20, p=0.0499, n=31) in
+> `analysis_results/gap_robustness.json`. This file is kept as a historical
+> record of the 2026-06-18 run.
+
 # First valid Granger results — India, Malaysia and United States
 
 **Date**: 2026-06-18 (Malaysia added 2026-06-19 after wayback-grabfood sweep)

@@ -1,3 +1,10 @@
+> **DEPRECATED (2026-07-06).** The results below use the original spec, which
+> intersected CPI to menu-observation months before differencing and therefore
+> mixed 1–9-month CPI changes. Do not cite F=6.034 / p=0.021. The current
+> headline is the calendar-true respec (F=4.20, p=0.0499, n=31) in
+> `analysis_results/gap_robustness.json`. This file is kept as a historical
+> record of the 2026-06-18 run.
+
 # Paper v0.2 consistency check vs canonical JSON (2026-06-18)
 
 Source of truth: `analysis_results/granger_results.json`, `dashboard_data/country_summary.json`, `uifpi.db` (post-Round-2 ingest).

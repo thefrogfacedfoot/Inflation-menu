@@ -24,6 +24,6 @@ UICPI (branded UIFPI in code/DB) — a research project that scrapes restaurant 
 
 # Gotchas
 - Currency parsing: VND and IDR are dot-grouped thousands with no decimals ("45.000" = 45000); GrabFood VN's `priceInMinorUnit` carries raw VND, not centimes. EUR uses comma decimals.
-- FALLBACK_RATES lives in fx_rates.py (single source of truth since 2026-07); the four consumer scripts import it — update rates there only.
+- FALLBACK_RATES lives in fx_rates.py (single source of truth for active pipeline scripts since 2026-07); the four consumer scripts import it — update rates there only. migrate_db.py, a dormant one-off migration tool, retains its own copy — no production impact.
 - Wayback fetches must use the `id_` raw-bytes path or you get rewritten markup and wrong timestamps.
 - The repo root is littered with one-off `phase0_*` / `probe_*` scripts and `*.log` files — historical artifacts of the probe-first workflow. The active core is live_scraper.py, historical_html_scraper.py, index_builder.py, granger_analysis.py, dashboard_data.py, get_monthly_cpi_all.py.
