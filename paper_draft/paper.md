@@ -1,10 +1,5 @@
 <!-- ⚠ STALE NUMBERS (2026-07-09): this draft still cites the DEPRECATED US
-     Granger spec F(1,26)=6.0336, p=0.021 (gap-mixing artifact — see
-     analysis_results/gap_robustness.json "framing"). The headline is now the
-     calendar-true spec: F=4.20, p=0.0499, n=31; ffill robustness F=9.05,
-     p=0.0048, n=38. The Results rewrite is being done BY THE AUTHOR — do not
-     mechanically re-number this file. Stale citations as of 2026-07-09 are
-     near lines 45, 201, 212, 265, 279, 292. -->
+     Granger spec F(1,26)=6.0336, p=0.021 ... -->
 
 # UIFPI — A Method for Collecting Restaurant and Informal-Vendor Prices at Scale, with Evidence from the United States
 
@@ -262,7 +257,7 @@ The homepage Granger counter and country-page status pills read directly from `c
 
 ## 7. Discussion
 
-The eight-country panel yields one Granger-significant result (United States) and two informative nulls (India, Malaysia). Three implications are worth pulling apart.
+The eight-country panel yields one marginally significant Granger result (United States) and two informative nulls (India, Malaysia). Three implications are worth pulling apart.
 
 ### 7.1 Timing, not level — the pass-through caveat
 
@@ -280,8 +275,8 @@ The US result, if it survives replication across a longer window, has a specific
 
 ## 8. Limitations
 
-1. **Single, marginal result.** One country, n = 31, p = 0.021 — the result is significant but not robust across the panel. Replication in AU and UK over the next 12 months will tell us whether the US case is generic or country-
-2. **No magnitude (pass through) claim in this draft** The 95 % CI on β includes zero. The paper's headline claim is a *timing* result, not a level result.
+1. **Single, marginal result.** One country, n = 31, analytic p = 0.0499 — marginal, just outside significance on nonparametric checks (permutation p = 0.052 shuffle, 0.069 block). Replication in AU and UK over the next 12 months will tell us whether the US case is generic or country-specific, and whether it survives at anything more than marginal strength.
+2. **No magnitude (pass-through) claim in this draft.** The Cavallo–Rigobon pass-through regression has not been re-estimated on the calendar-true CPI construction; the prior estimate (computed under the now-deprecated gap-mixed CPI) is not carried forward. The paper's claim is limited to *timing* — order of events — not magnitude.
 3. **Restaurant-aggregate data for IN and ID**. Zomato's pre-2020 archives don't expose item-level prices, only the "cost for two" restaurant-aggregate. This is methodologically distinct from item-level data and may smooth high-frequency variation.
 4. **Modern delivery aggregators are mostly unreachable via Wayback**. iFood, Uber Eats, Lieferando, Wolt, GoFood, ShopeeFood, GrabFood TH, and JustEat UK all hydrate menus via XHR after page render; Wayback captures only the static shell. This is a structural limitation of the archive layer, not a parser problem, and it caps the historical depth recoverable for several countries.
 5. **Live-scraper IP constraint.** Foodpanda and GrabFood bot-block datacenter IPs. The live scraper must run from a residential IP (local launchd or self-hosted runner); the GitHub Actions cron defaults to `--skip-scrape` for this reason.
@@ -293,7 +288,7 @@ The US result, if it survives replication across a longer window, has a specific
 
 ## 9. Conclusion and Future Work
 
-UIFPI demonstrates that food-service menu prices Granger-lead official CPI in the United States at an exact one-month calendar lag, marginally so (F(1, 28) = 4.20, analytic p = 0.0499; permutation p = 0.052 shuffle / 0.069 block), extending the Billion Prices Project methodology to the restaurant sector. The result rests on a developmental eight-country dataset of 41,263 price observations and a fully open-source pipeline whose probes, extractors, bail decisions, and monthly cron are all committed to the repository. The single significant Granger result is positioned as a proof of concept; the India null is the cross-country counterpoint that disciplines the generalisation; and the audit trail of declined sources is the contribution future contributors can build on.
+UIFPI demonstrates that food-service menu prices Granger-lead official CPI in the United States at an exact one-month calendar lag, marginally so (F(1, 28) = 4.20, analytic p = 0.0499; permutation p = 0.052 shuffle / 0.069 block), extending the Billion Prices Project methodology to the restaurant sector. The result rests on a developmental eight-country dataset of 41,263 price observations and a fully open-source pipeline whose probes, extractors, bail decisions, and monthly cron are all committed to the repository. The single, marginally-significant Granger result is positioned as a proof of concept; the India null is the cross-country counterpoint that disciplines the generalisation; and the audit trail of declined sources is the contribution future contributors can build on.
 
 Future work falls in three directions. First, **close the AU and UK Granger gaps via accumulation**: Australia is one CPI publication short of the n = 24 threshold (expected July 2026 via the ABS Q2 publication) and the United Kingdom is six monthly observations short (expected late 2026 via the going-forward Deliveroo + direct-chain cron). Both crossovers will surface automatically through the monthly ingest. Second, **expand informal-sector coverage in Indonesia and Thailand**, where modern delivery aggregators (GoFood, ShopeeFood, GrabFood TH) bot-block the live scraper from cloud and datacenter IPs and where the existing Zomato cost-for-two series is restaurant-aggregate rather than item-level. The probe reports identify which alternative sources have been declined and why; future work can target the specific archive layers that remain unaddressed. Third, **test whether the one-month lead shortens or disappears during supply-shock periods** — pandemic-era, conflict-driven, or weather-driven inflation regimes where menu repricing dynamics may decouple from steady-state behaviour. A regime-conditional Granger specification on the existing US series is the obvious first cut.
 
@@ -301,7 +296,7 @@ Future work falls in three directions. First, **close the AU and UK Granger gaps
 
 ## 10. Acknowledgments
 
-The UIFPI codebase, pipeline, audit trail, ingestion scripts, and dashboard (https://github.com/thefrogfacedfoot/Inflation-menu) are released open source under the repository's existing licence so that the probe decisions, parser specifics, and bail trail can be independently audited and the index reproduced or extended for other economies. This work depends entirely on open data infrastructure: the Internet Archive's Wayback Machine and CDX index, the UK Office for National Statistics' consumer price quotes (Crown Copyright, Open Government Licence v3.0), the Malaysia KPDN PriceCatcher dataset (data.gov.my, Terbuka 1.0), the OECD SDMX endpoint for harmonised CPI series, the Australian Bureau of Statistics CPI publications, the US Bureau of Labor Statistics' Average Price Data (APU) bulk files, and the Schema.org Working Group's `Menu` type specification. The author has researched the statistical specification and the framing of the cross-country heterogeneity result, and the maintainers of `statsmodels`, `pandas`, `playwright`, and `requests` for the libraries on which the pipeline is built. Any errors are the author's own.
+The UIFPI codebase, pipeline, audit trail, ingestion scripts, and dashboard (https://github.com/thefrogfacedfoot/Inflation-menu) are released open source under the repository's existing licence so that the probe decisions, parser specifics, and bail trail can be independently audited and the index reproduced or extended for other economies. This work depends entirely on open data infrastructure: the Internet Archive's Wayback Machine and CDX index, the UK Office for National Statistics' consumer price quotes (Crown Copyright, Open Government Licence v3.0), the Malaysia KPDN PriceCatcher dataset (data.gov.my, Terbuka 1.0), the OECD SDMX endpoint for harmonised CPI series, the Australian Bureau of Statistics CPI publications, the US Bureau of Labor Statistics' Average Price Data (APU) bulk files, and the Schema.org Working Group's `Menu` type specification. The author thanks the maintainers of `statsmodels`, `pandas`, `playwright`, and `requests` for the libraries on which the pipeline is built. Any errors are the author's own.
 
 ---
 
