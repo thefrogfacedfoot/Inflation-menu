@@ -32,8 +32,8 @@ case "${1:-}" in
       dollars="$reported"
     else
       case "$model" in
-        claude-fable-5)    in_rate=10; out_rate=50 ;;
-        claude-haiku-4-5*) in_rate=1;  out_rate=5  ;;
+        claude-fable-5)   in_rate=10; out_rate=50 ;;
+        *claude-haiku*)   in_rate=1;  out_rate=5  ;;   # matches CLI id and llm-plugin id forms
         *)
           dollars="$PESSIMISTIC_DOLLARS"
           note="anomaly-unknown-model-pessimistic-estimate"

@@ -1,0 +1,6 @@
+predicate: cd sapient_app && python3 -m pytest -q
+born: 2026-07-13
+status: satisfied
+last-pass: 2026-07-13
+on-violation: wake me. Do not auto-fix.
+retire-when: the sapient_app test suite is deliberately removed or replaced. Retirement is a human decision.
