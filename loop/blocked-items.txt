@@ -1,0 +1,2 @@
+# One item id per line. Items land here automatically after two verify fails.
+# Only a human removes a line. The conductor must skip anything listed below.
