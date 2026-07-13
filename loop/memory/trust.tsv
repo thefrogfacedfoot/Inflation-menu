@@ -1,0 +1,5 @@
+# skill	runs	passes	human_approvals
+fix-lint-debt	0	0	0
+fix-flaky-test	0	0	0
+bump-deps-patch	0	0	0
+triage-issues	0	0	0
