@@ -33,10 +33,14 @@ else
   done <<< "$recent_logs"
   echo ""
   echo "## Pass/fail per skill (last 7 days)"
-  grep -h '^skill=\|^outcome=' $recent_logs 2>/dev/null | paste - - 2>/dev/null | \
-    awk -F'\t' '{ gsub(/skill=|outcome=/, ""); counts[$1"\t"$2]++ }
-      END { for (k in counts) { split(k, a, "\t"); printf "%-20s %-10s %d\n", a[1], a[2], counts[k] } }' \
-    || echo "no per-skill data"
+  {
+    while IFS= read -r log; do
+      s="$(grep -m1 '^skill=' "$log" | cut -d= -f2- || true)"
+      o="$(grep -m1 '^outcome=' "$log" | cut -d= -f2- || true)"
+      [ -n "$s" ] && [ -n "$o" ] && printf '%s\t%s\n' "$s" "$o"
+    done <<< "$recent_logs"
+  } | sort | uniq -c | awk '{ printf "%-20s %-22s %d\n", $2, $3, $1 }' | grep . \
+    || echo "no per-skill data (no run reached the worker stage yet)"
   echo ""
   echo "## Anomalies (refusals, reroutes, truncations, injection-attempts, oversize)"
   grep -h '^anomaly=' $recent_logs 2>/dev/null | sort | uniq -c || echo "none"
