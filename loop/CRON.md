@@ -22,7 +22,11 @@
 ## Cron entries (NOT installed — copy into `crontab -e` yourself)
 
 ```
-MAILTO=seanerwenhan@gmail.com
+# MAILTO verified 2026-07-13: local delivery to /var/mail/erwenchen works
+# (read it with `mail` in Terminal). Delivery to an external address like
+# gmail is NOT verified — if you switch MAILTO to one, re-run the test below
+# and confirm it arrives before trusting alerts.
+MAILTO=erwenchen
 PATH=/Users/erwenchen/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # work loop, daily, morning
@@ -44,17 +48,23 @@ system whose alerts go nowhere is worse than none, because you trust it.
 Verify BEFORE trusting any of the above:
 
 ```
-echo "agentic-os mail test $(date)" | mail -s "agentic-os mail test" seanerwenhan@gmail.com
+echo "agentic-os mail test $(date)" | mail -s "agentic-os mail test" erwenchen
+mail   # then look for the subject in the local mailbox
 ```
 
-Then check the inbox (and spam). macOS postfix is installed but usually cannot
-deliver to the public internet without a relay (ISPs block port 25). If the test
-never arrives, either configure a relayhost in /etc/postfix/main.cf (e.g. an
-authenticated smtp relay) or change MAILTO to a local mailbox you actually read
-(`mail` in Terminal reads local mail). Until the test arrives somewhere you look,
-treat email alerting as NOT working and check loop/PAUSED + loop/logs/ by hand.
+Local delivery was verified working on 2026-07-13 (message confirmed present in
+/var/mail/erwenchen). macOS postfix usually cannot deliver to the public
+internet without a relay (ISPs block port 25) — to alert an external address,
+configure a relayhost in /etc/postfix/main.cf and re-verify end to end. Until a
+test arrives somewhere you actually look, treat that address as NOT working and
+check loop/PAUSED + loop/logs/ by hand.
 
 ## Notes
+
+- ⚠ /Users/erwenchen (the home directory) is itself a git repo: any `git add -A`
+  run from the home directory — by a human or by any agent — risks committing
+  personal files. Always confirm `git rev-parse --show-toplevel` is
+  /Users/erwenchen/agentic_OS before staging anything.
 
 - All scripts respect loop/PAUSED (the kill switch) and exit without API calls.
 - loop.sh sources the repo .env at runtime for API keys; no key is ever logged.

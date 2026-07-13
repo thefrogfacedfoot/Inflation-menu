@@ -11,4 +11,6 @@
 - Mail transport binaries exist (/usr/bin/mail, postfix, sendmail); actual delivery NOT verified — see CRON.md.
 - python3 is system 3.9.6; pip --user scripts land in ~/Library/Python/3.9/bin (llm, pytest symlinked into ~/.local/bin for cron PATH).
 
+- ⚠ /Users/erwenchen is itself a git repo (stale Inflation-menu checkout, 35 behind origin, 0 ahead as of 2026-07-13): any `git add -A` from the home directory risks committing personal files — verify `git rev-parse --show-toplevel` is this repo before staging.
+
 ## recent
