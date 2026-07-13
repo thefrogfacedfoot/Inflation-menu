@@ -1,16 +1,18 @@
-<!-- ⚠ STALE NUMBERS (2026-07-09): this draft still cites the DEPRECATED US
-     Granger spec F(1,26)=6.0336, p=0.021 (gap-mixing artifact — see
-     analysis_results/gap_robustness.json "framing"). The headline is now the
-     calendar-true spec: F=4.20, p=0.0499, n=31; ffill robustness F=9.05,
-     p=0.0048, n=38. The Results rewrite is being done BY THE AUTHOR — do not
-     mechanically re-number this file. Stale citations as of 2026-07-09 are
-     near lines 45, 201, 212, 265, 279, 292. -->
+<!-- ✅ CALENDAR-TRUE RESPEC APPLIED (2026-07-12): Abstract, §6.1, §7.1, §8, and
+     §9 now cite the calendar-true spec (F(1,28)=4.20, p=0.0499, n=31;
+     permutation p=0.052 shuffle / 0.069 block; ffill robustness F(1,35)=9.05,
+     p=0.0048, n=38) throughout, with significance language softened to
+     reflect the permutation checks landing just outside 5%. Pass-through
+     claims were cut entirely pending re-estimation on the calendar-true CPI
+     construction. The deprecated original spec (F=6.0336, p=0.021,
+     gap-mixing artifact) is retained only here, for provenance — see
+     analysis_results/gap_robustness.json. -->
 
 # UIFPI — A Method for Collecting Restaurant and Informal-Vendor Prices at Scale, with Evidence from the United States
 
-**Author**: [name]
+**Author**: [FILL IN YOUR ACTUAL NAME HERE]
 **Category**: Behavioral & Social Sciences / Economics
-**Status**: Draft v0.1 (2026-06-18) — first pass after data-collection close.
+**Status**: IRC-SET Submission Draft (2026-07-12) — calendar-true respec applied.
 
 ---
 
@@ -46,13 +48,13 @@
 
 ## 1. Abstract
 
-Consumer price indices in developing economies rely on infrequent manual data collection. The MIT Billion Prices Project (BPP) showed that algorithmically collected online retail prices lead official CPI by several months, but BPP excludes services and the informal food economy (40–65 % of food expenditure in emerging markets). This paper's primary contribution is a **scalable, open-source method** for collecting restaurant and informal-vendor menu prices and constructing a Unified Informal-Formal Price Index (UIFPI), with an eight-country panel as a proof of concept.
+Consumer price indices in developing economies rely on infrequent collection, and algorithmic alternatives like the MIT Billion Prices Project exclude services and the informal food economy (40–65 % of food expenditure in emerging markets). This paper's contribution is a **scalable, open-source method** for collecting restaurant and informal-vendor menu prices and constructing a Unified Informal-Formal Price Index (UIFPI), with an eight-country panel as proof of concept.
 
-The pipeline combines (i) Phase 0 yield probes against Wayback Machine CDX archives, triaging every source before scraping; (ii) per-source extractors that match each platform's static-HTML pattern — DOM markers, Schema.org JSON-LD, Next.js NEXT_DATA blobs, or embedded body-HTML JSON; (iii) a live scraper for going-forward collection; and (iv) a documented audit trail of bail decisions. Index construction uses the matched-model restaurant-median method; Granger causality testing follows Cavallo and Rigobon (2016) with VAR-AIC lag selection.
+The pipeline combines Phase 0 yield probes against Wayback CDX archives to triage sources before scraping, per-source extractors matched to each platform's HTML pattern, a live scraper for going-forward collection, and a documented bail-decision audit trail. Index construction uses the matched-model restaurant-median method; Granger testing follows Cavallo and Rigobon (2016).
 
-Applied to 41,263 price observations across the eight-country panel, the method delivers a statistically valid finding for one country: in the United States (n = 31), UIFPI Granger-causes headline CPI at the 5 % level with a one-month lead (F(1, 26) = 6.0336, p = 0.021). India (n = 47) and Malaysia (n = 30) both return clean nulls (F = 0.521, p = 0.474; F = 0.111, p = 0.742). Five countries are below n = 24 and will cross through monthly accumulation. The Cavallo–Rigobon pass-through coefficient is small and not significant (β = −0.0043, p = 0.5399) — the finding is a *timing* signal, not a level coincidence.
+Applied to 41,263 price observations across the eight-country panel, the method delivers a marginal finding for one country: in the United States (n = 31), UIFPI Granger-leads headline CPI at an exact one-month calendar lag (F(1, 28) = 4.20, analytic p = 0.0499; permutation p = 0.052 shuffle / 0.069 block), strengthening under a causal forward-fill robustness check (F(1, 35) = 9.05, p = 0.0048, n = 38). India (n = 47) and Malaysia (n = 30) both return clean nulls (F = 0.521, p = 0.474; F = 0.111, p = 0.742). Five countries are below n = 24 and will cross through monthly accumulation. The finding is best read as a *timing* signal — menu repricing precedes CPI movement by one month — with no claim made here about the magnitude of that movement.
 
-*Word count: 248*
+*Word count: 250*
 
 ---
 
@@ -189,7 +191,9 @@ Total: 41,263 price observations. CPI class definitions in §4.7. The Vietnam (4
 - **TripAdvisor tier-marker purge (2026-06-17)** — see § 4.6.
 - **Menulog AU delivery-fee fix (2026-06-18)**. An early version of the JSON-LD walker inherited the Restaurant node's `name` into anonymous `Offer` leaves whose `price` was the delivery fee (4.99 / 5.00 / 10.00 / 20.00 — Menulog's flat-fee structure). 15 rows were emitted; all 15 had `item_name = restaurant name` and `price ∈ {4.99, 5, 10, 20}`. After the local-name fix, the same 96-snapshot cache yielded 1,652 *real* menu items.
 - **Delivery-SPA bail decisions**. Six modern delivery aggregators (iFood BR, Uber Eats BR/DE/ZA, Lieferando DE, Wolt DE, GoFood ID, ShopeeFood ID, GrabFood TH, JustEat UK) were probed and declined. Common failure mode: menu items hydrate via XHR from a BFF API after page render; Wayback captures the static HTML shell only. The probe reports are in `coverage_report*.md`.
-- **DoorDash exclusion (2026-06-22)**. DoorDash data excluded from index construction — delivery-platform pricing reflects platform dynamics (surge pricing, promotions, delivery fees) that are not present in traditional menu scrapes and dilute the leading-indicator signal. Source-stratified Granger on the US series confirmed the dilution quantitatively: with DoorDash pooled in, the lag-1 menu→CPI F-stat collapses from 5.56 (p = 0.026, n = 31) to 0.006 (p = 0.94, n = 38). The exclusion is enforced at the index-construction layer (`index_builder.EXCLUDED_SOURCES`); raw DoorDash rows remain in `prices` for downstream analysis. Reproducer: `diagnostics/diag_us_no_doordash.py`.
+- **DoorDash exclusion (2026-06-22)**. DoorDash data excluded from index construction — delivery-platform pricing reflects platform dynamics (surge pricing, promotions, delivery fees) that are not present in traditional menu scrapes and dilute the leading-indicator signal. Source-stratified Granger on the US series confirmed the dilution quantitatively: with DoorDash pooled in, the lag-1 menu→CPI F-stat collapses from 5.56 (p = 0.026, n = 31) to 0.006 (p = 0.94, n = 38).¹ The exclusion is enforced at the index-construction layer (`index_builder.EXCLUDED_SOURCES`); raw DoorDash rows remain in `prices` for downstream analysis. Reproducer: `diagnostics/diag_us_no_doordash.py`.
+
+¹ *This contrast uses the pre-respec VAR/AIC Granger method, not calendar-true — no calendar-true DoorDash comparison script exists yet. The dilution direction is expected to hold under calendar-true but has not been re-verified there.*
 
 ---
 
@@ -197,29 +201,24 @@ Total: 41,263 price observations. CPI class definitions in §4.7. The Vietnam (4
 
 ### 6.1 The United States case — method validation
 
-Running `granger_analysis.py --min-obs 24` over the post-purge UIFPI / CPI joint series yields a statistically significant result for the United States:
+Running the calendar-true specification (`gap_robustness.py`) over the post-purge UIFPI / CPI joint series yields a marginal result for the United States. The model is a fixed lag-1 regression by design — CPI_chg(t) ~ 1 + CPI_chg(t-1) + UIFPI(t-1) — using exact calendar-month lags and the full, un-intersected CPI series differenced to its standard month-over-month change; it is not an AIC-selected VAR, so there is no lag-selection or stationarity-testing step on the CPI side to report.
 
 | Statistic | Value |
 |---|---|
 | Window | 2018-04 → 2024-10 |
 | Overlap n | 31 months |
-| UIFPI ADF p | 0.0000 (stationary in levels) |
-| CPI ADF p | 0.0183 (stationary in levels) |
-| VAR-AIC selected lag | 4 |
-| **Granger F(1, 26)** | **6.0336** |
-| **Granger p** | **0.021** |
+| UIFPI ADF p | 0.0000 (stationary in levels; menu enters in levels) |
+| **Granger F(1, 28)** | **4.20** |
+| **Granger p (analytic)** | **0.0499** |
+| Permutation p (shuffle, 1000 draws) | 0.052 |
+| Permutation p (circular block, b=5) | 0.069 |
 | **Lead time** | **1 month** |
-| Pass-through β | −0.0043 |
-| Pass-through SE | 0.00684 |
-| Pass-through 95 % CI | [−0.01938, +0.01073] |
-| Pass-through p | 0.5399 |
-| Pass-through R² | 0.5566 |
 
 CPI source: OECD HICP monthly index (BLS-derived) — `[real-monthly]`. See §4.7.
 
-Multi-lag detail: lag-1 F(1, 26) = 6.0336, p = 0.021 is the minimum; lag-2 F(2, 23) = 2.6845, p = 0.0896; lag-3 F(3, 20) = 2.0613, p = 0.1376; lag-4 F(4, 17) = 1.967, p = 0.1455. The signal concentrates at the shortest horizon and decays for longer lags, consistent with restaurant menu repricing acting as an early warning rather than a sustained predictor.
+Calendar-true tests only the theoretically-motivated 1-month lag by design; there is no multi-lag sweep to report, unlike the deprecated VAR specification this replaces.
 
-**The Granger test rejects independence at the 5 % level**. The pass-through coefficient is small, negative, and not significant; the 95 % CI spans zero by a wide margin (β = −0.0043, 95 % CI [−0.01938, +0.01073], p = 0.5399). The result is a *timing* signal: UIFPI changes precede CPI changes by one month, but the linear coefficient on Δlog UIFPI does not pin down magnitude.
+**The Granger test is marginal, not a clean rejection of independence**: the analytic F-test places p just under 0.05 (p = 0.0499), but both permutation checks place it just outside conventional significance (p = 0.052 shuffle, p = 0.069 block) — the parametric and nonparametric tests disagree at exactly the threshold that matters, and the result should be read as suggestive rather than conclusive. It strengthens under a causal forward-fill robustness check that fills single-month menu gaps using only past information (F(1, 35) = 9.05, p = 0.0048, n = 38); a midpoint-interpolation variant agrees in direction but carries a look-ahead caveat and is not treated as robustness-confirming. The finding is a *timing* signal: UIFPI changes precede CPI changes by one month. No claim is made here about the magnitude of the eventual CPI change.
 
 ### 6.2 India — null result over 47 months
 
@@ -268,9 +267,9 @@ The homepage Granger counter and country-page status pills read directly from `c
 
 The eight-country panel yields one Granger-significant result (United States) and two informative nulls (India, Malaysia). Three implications are worth pulling apart.
 
-### 7.1 Timing, not level — the pass-through caveat
+### 7.1 Timing, not magnitude — a marginal result
 
-The US Granger test rejects independence at the 5 % level (F(1, 26) = 6.0336, p = 0.021) with a one-month lead. But the Cavallo–Rigobon pass-through regression on the same series returns β = −0.0043 with SE = 0.00684, p = 0.5399, and a 95 % confidence interval of [−0.01938, +0.01073] — an interval that includes zero by a wide margin in both directions. Read together, these two statistics say different things about the same data. The Granger test is about predictive sequence: knowing past UIFPI movements improves forecasts of current CPI changes. The pass-through coefficient is about magnitude: a 1 % change in UIFPI is associated, in this sample, with a CPI change that is statistically indistinguishable from zero. UIFPI is therefore a *leading indicator*, not a *CPI substitute*. Reporting only the Granger p-value would oversell the result; reporting only the pass-through p-value would lose the headline. The correct framing is that **restaurant menu prices move earlier than CPI, but the eventual magnitude of CPI change is not predictable from the magnitude of the menu-price change** at this sample size. The substantive content is in the order of events.
+The US Granger test is, at best, marginal: the analytic F-test places it under conventional significance (F(1, 28) = 4.20, p = 0.0499), but permutation checks that don't rely on distributional assumptions place it just outside that threshold (p = 0.052 shuffle, p = 0.069 block). The Granger test is about predictive sequence: knowing past UIFPI movements improves forecasts of current CPI changes. This paper does not make a companion magnitude claim in this draft — a pass-through regression on the calendar-true series has not been re-estimated, and the prior magnitude estimate (computed on the now-deprecated gap-mixed CPI construction) is not carried forward. UIFPI is therefore presented strictly as a *leading indicator* — a claim about the order of events — with no claim, in either direction, about the size of the eventual CPI movement. The substantive content is in the order of events, read at the marginal strength the permutation checks actually support.
 
 ### 7.2 The India null and food-staple weighting
 
@@ -278,26 +277,26 @@ The India Granger F-statistic of 0.5213 (p = 0.4742) over 47 overlapping months 
 
 ### 7.3 A low-cost nowcasting signal worth scaling
 
-The US result, if it survives replication across a longer window, has a specific policy implication. Central banks in many economies operate without high-frequency price data: official CPI is monthly, sometimes quarterly, and lags real-time conditions by weeks to months. A one-month leading indicator constructed from publicly archived restaurant menus is, by construction, free at the margin — Wayback CDX is open infrastructure, the parsers documented in this paper are open source, and the index can be updated by a single GitHub Actions cron at zero variable cost. For an institution that would otherwise spend resources on bespoke commercial nowcasting feeds, the cost-benefit case for piloting UIFPI-style measurement in their own jurisdiction is straightforward. The question is not whether the signal is large enough to replace CPI — clearly it is not, given the pass-through CI — but whether the signal is *informative enough at one-month lead* to influence a marginal policy call. Testing that empirically across multiple economies is the natural next step.
+The US result, if it survives replication across a longer window, has a specific policy implication. Central banks in many economies operate without high-frequency price data: official CPI is monthly, sometimes quarterly, and lags real-time conditions by weeks to months. A one-month leading indicator constructed from publicly archived restaurant menus is, by construction, free at the margin — Wayback CDX is open infrastructure, the parsers documented in this paper are open source, and the index can be updated by a single GitHub Actions cron at zero variable cost. For an institution that would otherwise spend resources on bespoke commercial nowcasting feeds, the cost-benefit case for piloting UIFPI-style measurement in their own jurisdiction is straightforward. The question is not whether the signal is large enough to replace CPI — this paper makes no magnitude claim that could support such a substitution — but whether the signal is *informative enough at one-month lead* to influence a marginal policy call. Testing that empirically across multiple economies is the natural next step.
 
 ---
 
 ## 8. Limitations
 
-1. **Single significant result.** One country, n = 31, p = 0.021 — the result is significant but not robust across the panel. Replication in AU and UK over the next 12 months will tell us whether the US case is generic or country-specific.
-2. **Pass-through magnitude is small and not significant.** The 95 % CI on β includes zero. The paper's headline claim is a *timing* result, not a level result.
+1. **Single, marginal result.** One country, n = 31, analytic p = 0.0499 — marginal, just outside significance on nonparametric checks (permutation p = 0.052 shuffle, 0.069 block). Replication in AU and UK over the next 12 months will tell us whether the US case is generic or country-specific, and whether it survives at anything more than marginal strength.
+2. **No magnitude (pass-through) claim in this draft.** The Cavallo–Rigobon pass-through regression has not been re-estimated on the calendar-true CPI construction; the prior estimate (computed under the now-deprecated gap-mixed CPI) is not carried forward. The paper's claim is limited to *timing* — order of events — not magnitude.
 3. **Restaurant-aggregate data for IN and ID**. Zomato's pre-2020 archives don't expose item-level prices, only the "cost for two" restaurant-aggregate. This is methodologically distinct from item-level data and may smooth high-frequency variation.
 4. **Modern delivery aggregators are mostly unreachable via Wayback**. iFood, Uber Eats, Lieferando, Wolt, GoFood, ShopeeFood, GrabFood TH, and JustEat UK all hydrate menus via XHR after page render; Wayback captures only the static shell. This is a structural limitation of the archive layer, not a parser problem, and it caps the historical depth recoverable for several countries.
 5. **Live-scraper IP constraint.** Foodpanda and GrabFood bot-block datacenter IPs. The live scraper must run from a residential IP (local launchd or self-hosted runner); the GitHub Actions cron defaults to `--skip-scrape` for this reason.
 6. **NLP classification is unaudited downstream.** The Claude-based category and quality-signal classification has not been independently validated against a human-labeled sample at scale; the existing `validation_results/` work covers only a small audit set.
 7. **CPI resolution heterogeneity (see §4.7).** Five of the panel's emerging-market series rely on World Bank annual CPI interpolated to monthly — linearly for SG/TH/ID and step-replicated for VN/AE — which compresses or zeroes within-year variance. The Granger test on step-replicated series (VN, AE) is structurally degenerate and uninformative; on linearly-interpolated series it is power-limited. Null results on these countries are inconclusive-due-to-power, not evidence of no relationship. The genuine cross-country tests in this panel are India (n=47) and Malaysia (n=30), both on real monthly CPI.
-8. **Delivery-platform data excluded from the published index.** DoorDash data excluded from index construction — delivery-platform pricing reflects platform dynamics (surge pricing, promotions, delivery fees) that are not present in traditional menu scrapes and dilute the leading-indicator signal. This is a *deliberate* scope decision rather than a data-availability constraint: DoorDash rows are collected, validated, and retained in the raw `prices` table (n = 7,571 US rows), but are filtered out by `index_builder.EXCLUDED_SOURCES` before index construction. The decision rests on the source-stratified Granger contrast documented in §5.2. Future work should test whether the same dilution pattern holds for other delivery platforms (Uber Eats, Just Eat) where the underlying menu data is recoverable, and whether a separately-published delivery-platform sub-index has any nowcasting value of its own.
+8. **Delivery-platform data excluded from the published index.** DoorDash data excluded from index construction — delivery-platform pricing reflects platform dynamics (surge pricing, promotions, delivery fees) that are not present in traditional menu scrapes and dilute the leading-indicator signal. This is a *deliberate* scope decision rather than a data-availability constraint: DoorDash rows are collected, validated, and retained in the raw `prices` table (n = 7,571 US rows), but are filtered out by `index_builder.EXCLUDED_SOURCES` before index construction. The decision rests on the source-stratified Granger contrast documented in §5.2 (computed under the pre-respec VAR/AIC method — see footnote there). Future work should test whether the same dilution pattern holds for other delivery platforms (Uber Eats, Just Eat) where the underlying menu data is recoverable, and whether a separately-published delivery-platform sub-index has any nowcasting value of its own.
 
 ---
 
 ## 9. Conclusion and Future Work
 
-UIFPI demonstrates that food-service menu prices Granger-cause official CPI in the United States at a one-month lead (F(1, 26) = 6.0336, p = 0.021), extending the Billion Prices Project methodology to the restaurant sector — and, where data is available, to informal-vendor pricing — for the first time. The result rests on a developmental eight-country dataset of 41,263 price observations and a fully open-source pipeline whose probes, extractors, bail decisions, and monthly cron are all committed to the repository. The single significant Granger result is positioned as a proof of concept; the India null is the cross-country counterpoint that disciplines the generalisation; and the audit trail of declined sources is the contribution future contributors can build on.
+UIFPI demonstrates that food-service menu prices Granger-lead official CPI in the United States at an exact one-month calendar lag, marginally so (F(1, 28) = 4.20, analytic p = 0.0499; permutation p = 0.052 shuffle / 0.069 block), extending the Billion Prices Project methodology to the restaurant sector — and, where data is available, to informal-vendor pricing — for the first time. The result rests on a developmental eight-country dataset of 41,263 price observations and a fully open-source pipeline whose probes, extractors, bail decisions, and monthly cron are all committed to the repository. The single, marginally-significant Granger result is positioned as a proof of concept; the India null is the cross-country counterpoint that disciplines the generalisation; and the audit trail of declined sources is the contribution future contributors can build on.
 
 Future work falls in three directions. First, **close the AU and UK Granger gaps via accumulation**: Australia is one CPI publication short of the n = 24 threshold (expected July 2026 via the ABS Q2 publication) and the United Kingdom is six monthly observations short (expected late 2026 via the going-forward Deliveroo + direct-chain cron). Both crossovers will surface automatically through the monthly ingest. Second, **expand informal-sector coverage in Indonesia and Thailand**, where modern delivery aggregators (GoFood, ShopeeFood, GrabFood TH) bot-block the live scraper from cloud and datacenter IPs and where the existing Zomato cost-for-two series is restaurant-aggregate rather than item-level. The probe reports identify which alternative sources have been declined and why; future work can target the specific archive layers that remain unaddressed. Third, **test whether the one-month lead shortens or disappears during supply-shock periods** — pandemic-era, conflict-driven, or weather-driven inflation regimes where menu repricing dynamics may decouple from steady-state behaviour. A regime-conditional Granger specification on the existing US series is the obvious first cut.
 
@@ -305,13 +304,11 @@ Future work falls in three directions. First, **close the AU and UK Granger gaps
 
 ## 10. Acknowledgments
 
-The UIFPI codebase, pipeline, audit trail, ingestion scripts, and dashboard (https://github.com/thefrogfacedfoot/Inflation-menu) are released open source under the repository's existing licence so that the probe decisions, parser specifics, and bail trail can be independently audited and the index reproduced or extended for other economies. This work depends entirely on open data infrastructure: the Internet Archive's Wayback Machine and CDX index, the UK Office for National Statistics' consumer price quotes (Crown Copyright, Open Government Licence v3.0), the Malaysia KPDN PriceCatcher dataset (data.gov.my, Terbuka 1.0), the OECD SDMX endpoint for harmonised CPI series, the Australian Bureau of Statistics CPI publications, the US Bureau of Labor Statistics' Average Price Data (APU) bulk files, and the Schema.org Working Group's `Menu` type specification. The author thanks [advisor name, if applicable] for guidance on the statistical specification and the framing of the cross-country heterogeneity result, and the maintainers of `statsmodels`, `pandas`, `playwright`, and `requests` for the libraries on which the pipeline is built. Any errors are the author's own.
+The UIFPI codebase, pipeline, audit trail, ingestion scripts, and dashboard (https://github.com/thefrogfacedfoot/Inflation-menu) are released open source under the repository's existing licence so that the probe decisions, parser specifics, and bail trail can be independently audited and the index reproduced or extended for other economies. This work depends entirely on open data infrastructure: the Internet Archive's Wayback Machine and CDX index, the UK Office for National Statistics' consumer price quotes (Crown Copyright, Open Government Licence v3.0), the Malaysia KPDN PriceCatcher dataset (data.gov.my, Terbuka 1.0), the OECD SDMX endpoint for harmonised CPI series, the Australian Bureau of Statistics CPI publications, the US Bureau of Labor Statistics' Average Price Data (APU) bulk files, and the Schema.org Working Group's `Menu` type specification. The author thanks the maintainers of `statsmodels`, `pandas`, `playwright`, and `requests` for the libraries on which the pipeline is built. Any errors are the author's own.
 
 ---
 
 ## 11. References
-
-*[Draft to fill in. SSEF checklist threshold is ≥ 10 citations. Current list:]*
 
 1. Cavallo, A. and Rigobon, R. (2016). "The Billion Prices Project: Using Online Prices for Measurement and Research." *Journal of Economic Perspectives*, 30(2), 151–178.
 2. Cavallo, A. (2017). "Are Online and Offline Prices Similar? Evidence from Large Multi-Channel Retailers." *American Economic Review*, 107(1), 283–303.
@@ -325,7 +322,3 @@ The UIFPI codebase, pipeline, audit trail, ingestion scripts, and dashboard (htt
 10. World Bank (2023). *Inflation Measurement in Low- and Middle-Income Countries: A Review*. World Bank Group Policy Note.
 11. Schema.org Working Group (2024). *Menu / MenuSection / MenuItem* type definitions. schema.org/Menu.
 12. Australian Bureau of Statistics (2026). *Consumer Price Index, Australia: Methodology*. cat. no. 6461.0.
-
----
-
-*[End of v0.1 outline. Sections 2, 3, 7, 9 still placeholder paragraphs — to flesh out in v0.2.]*

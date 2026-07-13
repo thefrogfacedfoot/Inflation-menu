@@ -1,3 +1,9 @@
+<!-- SUPERSEDED (2026-07-12): this abstract predates the calendar-true respec and cites a
+     different observation count (7,233 vs. 41,263) and a pass-through hypothesis not in the
+     current draft. The authoritative abstract is paper_draft/paper.md §1. Do not regenerate
+     this file via abstract_generator.py before checking it reads granger_results.json
+     (deprecated) rather than the calendar-true numbers. -->
+
 **SSEF Research Paper Abstract**
 
 **Project Title:** UICPI: A Unified Independent-Chain Restaurant Price Index
