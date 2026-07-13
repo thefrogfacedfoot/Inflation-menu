@@ -1,3 +1,11 @@
+<!-- SUPERSEDED (2026-07-13): this abstract predates both the calendar-true Granger respec
+     and the UIFPI→UICPI rename/reframe (formal-informal sector framing → chain-vs-independent
+     vendor pricing). It cites a different observation count (7,233 vs. the current 102,499),
+     8 countries instead of 10, and a formal/informal pass-through hypothesis not in the current
+     draft. The authoritative abstract is paper_draft/paper.md §1. Do not regenerate this file
+     via abstract_generator.py before checking it reads granger_results.json (a pre-respec,
+     pre-rename snapshot) rather than the current numbers. -->
+
 **SSEF Research Paper Abstract**
 
 **Project Title:** UICPI: A Unified Independent-Chain Restaurant Price Index
