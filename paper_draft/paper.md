@@ -10,7 +10,7 @@
 
 # UIFPI — A Method for Collecting Restaurant and Informal-Vendor Prices at Scale, with Evidence from the United States
 
-**Author**: [FILL IN YOUR ACTUAL NAME HERE]
+**Author**: Wen Chen Er
 **Category**: Behavioral & Social Sciences / Economics
 **Status**: IRC-SET Submission Draft (2026-07-12) — calendar-true respec applied.
 
