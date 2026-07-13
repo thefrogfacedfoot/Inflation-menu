@@ -1,0 +1,4 @@
+run_id=20260713-152105-98864
+ts=2026-07-13T15:21:05
+alert=⛔ PAUSED created: circuit breaker: three consecutive runs ended in failure
+outcome=paused-circuit-breaker

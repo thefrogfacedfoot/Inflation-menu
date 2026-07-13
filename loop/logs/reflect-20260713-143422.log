@@ -1,0 +1,6 @@
+reflect_id=20260713-143422
+proposals=1
+containment=KNOWLEDGE line rejected by instruction-pattern filter: The llm CLI requires the cheap model id 'anthropic/claude-haiku-4-5-20251001' (p
+alert=CONTAINMENT: KNOWLEDGE line rejected by instruction-pattern filter: The llm CLI requires the cheap model id 'anthropic/claude-haiku-4-5-20251001' (p
+protected_observations=4
+outcome=success

@@ -1,0 +1,7 @@
+timestamp=20260713-140611
+tier=1
+target=loop/memory/KNOWLEDGE.md
+rationale=real fact from build
+evidence=["20260713-133013-92703"]
+--- applied lines ---
+sapient_app tests on python 3.9 need eval_type_backport installed (evidence run-20260713-133013-92703, 2026-07-13)

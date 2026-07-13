@@ -1,0 +1,6 @@
+run_id=20260713-131604-92215
+ts=2026-07-13T13:16:04
+anomaly=triage-call-failed
+Error: 'Unknown model: anthropic/claude-haiku-4.5'
+outcome=failure-triage
+alert=triage call failed: Error: 'Unknown model: anthropic/claude-haiku-4.5'

@@ -1,0 +1,4 @@
+reflect_id=20260713-141048
+Error: Input must be provided either through stdin or as a prompt argument when using --print
+alert=reflector call failed or timed out: Error: Input must be provided either through stdin or as a prompt argument when using --print
+outcome=failure

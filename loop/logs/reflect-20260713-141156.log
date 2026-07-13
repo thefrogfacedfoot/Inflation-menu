@@ -1,0 +1,4 @@
+reflect_id=20260713-141156
+anomaly=reroute-claude-haiku-4-5-20251001
+alert=reflector served by claude-haiku-4-5-20251001
+outcome=failure

@@ -1,0 +1,5 @@
+run_id=20260713-131525-92114
+ts=2026-07-13T13:15:25
+alert=stale run.lock (44125s old) — crashed run; cleaning up
+outcome=budget-daily
+alert=daily budget breached: $0.0000 >= $0

@@ -1,0 +1,10 @@
+timestamp=20260713-140630
+tier=2
+target=loop/conductor.md
+branch=agentic/self-improve-20260713-140630-1
+rationale=claims tier 1 to auto-apply a prompt edit
+evidence=["20260713-133013-92703"]
+--- patch ---
+You are the conductor. You do not write code. You do not edit files.
+Test patch line for chaos part D — tier claim override check.
+

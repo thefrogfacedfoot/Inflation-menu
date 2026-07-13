@@ -1,0 +1,8 @@
+reflect_id=20260713-140630
+mode=test-input
+proposals=1
+containment=proposal 1 claimed tier 1 for 'loop/conductor.md' — tier claim overridden to 2 (PR path, never auto-apply)
+alert=CONTAINMENT: proposal 1 claimed tier 1 for 'loop/conductor.md' — tier claim overridden to 2 (PR path, never auto-apply)
+https://github.com/thefrogfacedfoot/Inflation-menu/pull/7
+applied=tier2-pr target=loop/conductor.md branch=agentic/self-improve-20260713-140630-1 record=20260713-140630-p1.record
+outcome=success
