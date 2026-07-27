@@ -2144,9 +2144,11 @@ TARGETS = [
      "https://www.foodpanda.my/chain/ce9ti/oldtown",
      "chain", "foodpanda", "MYR", "Malaysia"),
 
-    ("Nando's KL",
-     "https://food.grab.com/my/en/chain/nandos-delivery",
-     "chain", "grabfood", "MYR", "Malaysia"),
+    # [verifier:DEAD] status=500 title='500 Internal Server Error' — confirmed
+    # 2026-07-26: all GrabFood /chain/ URLs (SG, MY) now 500 server-side.
+    # ("Nando's KL",
+     # "https://food.grab.com/my/en/chain/nandos-delivery",
+     # "chain", "grabfood", "MYR", "Malaysia"),
 
     # Removed TGI Fridays KL: foodpanda.my URL couldn't be verified (IP-blocked),
     # not findable on GrabFood Malaysia from KLCC delivery address.
