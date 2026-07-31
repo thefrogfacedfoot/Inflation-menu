@@ -22,6 +22,7 @@ Usage:
   python3 historical_html_scraper.py --max-per-target 200
 """
 import argparse
+import fcntl
 import json
 import os
 import random
@@ -695,15 +696,42 @@ def insert_items(conn, country, sector, source_key, url, ts, items):
 # ── Runner ───────────────────────────────────────────────────────────────────
 
 def load_progress():
-    if os.path.exists(PROGRESS_FILE):
-        with open(PROGRESS_FILE) as fh:
+    if not os.path.exists(PROGRESS_FILE):
+        return {}
+    with open(PROGRESS_FILE) as fh:
+        fcntl.flock(fh, fcntl.LOCK_SH)
+        try:
             return json.load(fh)
-    return {}
+        finally:
+            fcntl.flock(fh, fcntl.LOCK_UN)
 
 
-def save_progress(p):
-    with open(PROGRESS_FILE, 'w') as fh:
-        json.dump(p, fh, indent=2)
+def save_progress(key, info):
+    """Merge-and-save a single target's progress under an exclusive lock.
+
+    Each concurrent sweep only ever owns one `key`. The old version wrote
+    the whole in-memory `progress` dict on every checkpoint; with several
+    sweeps running in parallel (each holding its own stale copy of every
+    *other* sweep's key), the last one to save on a given night silently
+    clobbered the others' concurrently-advancing progress (confirmed
+    2026-07-26: a doordash-us run's checkpoints were overwritten by a
+    grabfood-my run's final save, which still held doordash-us's state
+    from when it had loaded the file hours earlier). Locking + read-merge-
+    write on just this key removes the lost-update race regardless of how
+    many sweeps run at once.
+    """
+    fd = os.open(PROGRESS_FILE, os.O_RDWR | os.O_CREAT, 0o644)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        raw = os.read(fd, os.fstat(fd).st_size)
+        progress = json.loads(raw) if raw.strip() else {}
+        progress[key] = info
+        os.lseek(fd, 0, os.SEEK_SET)
+        os.ftruncate(fd, 0)
+        os.write(fd, json.dumps(progress, indent=2).encode())
+    finally:
+        fcntl.flock(fd, fcntl.LOCK_UN)
+        os.close(fd)
 
 
 def run_target(target, per_period, max_per_target):
@@ -721,7 +749,7 @@ def run_target(target, per_period, max_per_target):
         print(f"  Found {len(snaps)} candidate snapshots")
         progress[key] = {'snapshots': snaps, 'done_urls': list(done),
                          'status': 'in_progress'}
-        save_progress(progress)
+        save_progress(key, progress[key])
 
     conn = sqlite3.connect(DB, timeout=30)
     conn.execute('PRAGMA journal_mode=WAL')
@@ -745,7 +773,7 @@ def run_target(target, per_period, max_per_target):
             print("fetch fail")
             done.add(url)
             progress[key]['done_urls'] = list(done)
-            save_progress(progress)
+            save_progress(key, progress[key])
             continue
         parse_attempts += 1
         try:
@@ -754,7 +782,7 @@ def run_target(target, per_period, max_per_target):
             print(f"parse err {str(e)[:30]}")
             done.add(url)
             progress[key]['done_urls'] = list(done)
-            save_progress(progress)
+            save_progress(key, progress[key])
             continue
         # Use the URL slug as a stable restaurant_name proxy when parser
         # doesn't return useful names — but here items already carry name.
@@ -788,11 +816,11 @@ def run_target(target, per_period, max_per_target):
         done.add(url)
         if (i + 1) % 10 == 0:
             progress[key]['done_urls'] = list(done)
-            save_progress(progress)
+            save_progress(key, progress[key])
 
     progress[key]['done_urls'] = list(done)
     progress[key]['status']    = 'complete'
-    save_progress(progress)
+    save_progress(key, progress[key])
     conn.close()
     print(f"\n  {key}: {parse_attempts} attempts, {parse_hits} with items, "
           f"{rows_inserted} rows inserted")
