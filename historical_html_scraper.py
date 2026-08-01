@@ -23,6 +23,7 @@ Usage:
 """
 import argparse
 import fcntl
+import html as html_lib
 import json
 import os
 import random
@@ -447,6 +448,40 @@ def parse_grabfood(html, currency):
     return _coerce(items, currency)
 
 
+def extract_grabfood_restaurant_name(html):
+    """Pull the human-readable restaurant name out of GrabFood's NEXT_DATA
+    payload, at props.initialReduxState.pageRestaurantDetail.entities.
+    That dict holds exactly one entry on a restaurant-detail page, keyed
+    by the store ID (matches the URL's last path segment, e.g. 'MYDD03581'
+    or '1-CZE2N8B3R8MTV6') — {'name': '1977 New Ipoh Chicken Rice - ...'}.
+
+    Confirmed against live samples 2026-08-01: this is the same store-ID
+    keyed entity the live scraper's target list names were sourced from.
+    Do NOT fall back to a generic "name" key search — the page also embeds
+    an unrelated `cgbOrder.catalog.merchant.name` (stale cached-session
+    merchant, e.g. a Starbucks outlet) that has nothing to do with the
+    restaurant being viewed.
+
+    Returns None (caller keeps the URL-slug proxy) if the shape is absent.
+    """
+    if not html or '__NEXT_DATA__' not in html:
+        return None
+    block = _extract_script_content(html, _NEXTDATA_OPENING)
+    if not block:
+        return None
+    try:
+        obj = json.loads(block)
+        entities = (obj['props']['initialReduxState']
+                       ['pageRestaurantDetail']['entities'])
+        if not entities:
+            return None
+        name = next(iter(entities.values())).get('name')
+        name = str(name).strip() if name else None
+        return name[:100] if name else None
+    except Exception:
+        return None
+
+
 def parse_doordash(html, currency):
     """DoorDash US archived: JSON-LD MenuItem + Offer paired nodes carry
     a typed `price` field (dollars). Structural probe 2026-06-21 confirmed
@@ -464,6 +499,43 @@ def parse_doordash(html, currency):
     items = extract_jsonld(html) or extract_nextdata(html)
     filtered = [(n, p, c) for n, p, c in items if 0 < p < 200]
     return _coerce(filtered, currency)
+
+
+def extract_doordash_restaurant_name(html):
+    """Pull the restaurant name from DoorDash's root-level JSON-LD
+    Restaurant node. Needed because a large share of Wayback captures use
+    a bare `/store/<numeric-id>/` URL (no SEO slug) or a `/store/$X.XX`
+    price-filter URL (no store identity at all in the URL) — confirmed
+    2026-08-01 that both still carry a real store's page, and that page's
+    JSON-LD root object is `{"@type": "Restaurant", "name": "...", ...}`,
+    distinct from the nested Person/Review/Question names elsewhere on
+    the page. Only match the ROOT node's own @type — do not walk into
+    the tree looking for any Restaurant-typed node, to avoid picking up
+    a nested "similar restaurants" recommendation instead of the page's
+    actual subject.
+    """
+    if not html:
+        return None
+    for m in _LD_OPENING.finditer(html):
+        after = html[m.end():]
+        close = re.match(r'(.*?)</script>', after, re.S | re.I)
+        block = close.group(1) if close else (
+            re.match(r'([^<]+)', after, re.S).group(1)
+            if re.match(r'([^<]+)', after, re.S) else None
+        )
+        if not block:
+            continue
+        try:
+            obj = json.loads(block)
+        except Exception:
+            continue
+        if isinstance(obj, dict) and obj.get('@type') == 'Restaurant' and obj.get('name'):
+            # DoorDash's JSON-LD carries literal HTML entities in the name
+            # string (e.g. "Shiva&apos;s") rather than a plain apostrophe —
+            # confirmed 2026-08-01 sample. Unescape before truncating.
+            name = html_lib.unescape(str(obj['name'])).strip()
+            return name[:100] if name else None
+    return None
 
 
 def parse_tripadvisor_mx(html, currency):
@@ -788,6 +860,19 @@ def run_target(target, per_period, max_per_target):
         # doesn't return useful names — but here items already carry name.
         # Strip restaurant name from the URL for the row's restaurant_name col.
         rest_name = _restaurant_from_url(url, label)
+        # GrabFood's URL slug is the store ID (last path segment), not a
+        # readable name — pull the real name from NEXT_DATA when present.
+        if src_key == 'wayback-grabfood':
+            gf_name = extract_grabfood_restaurant_name(html)
+            if gf_name:
+                rest_name = f'{gf_name} ({label})'[:100]
+        # DoorDash's URL slug is often absent entirely (bare numeric-ID or
+        # $-price-filter capture URLs) — pull the real name from the page's
+        # root JSON-LD Restaurant node when present.
+        elif src_key == 'wayback-doordash':
+            dd_name = extract_doordash_restaurant_name(html)
+            if dd_name:
+                rest_name = f'{dd_name} ({label})'[:100]
         # Override item name's "restaurant_name" with the slug, keep item name
         n = 0
         if items:

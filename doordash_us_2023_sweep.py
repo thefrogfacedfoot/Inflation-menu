@@ -148,6 +148,9 @@ def process(candidates, conn, fetch_delay):
             continue
 
         rest_name = h._restaurant_from_url(url, LABEL)
+        dd_name = h.extract_doordash_restaurant_name(html)
+        if dd_name:
+            rest_name = f'{dd_name} ({LABEL})'[:100]
         try:
             collection_date = datetime.strptime(
                 ts[:8], '%Y%m%d').strftime('%Y-%m-%d')
