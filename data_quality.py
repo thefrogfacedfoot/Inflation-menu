@@ -44,3 +44,24 @@ QUARANTINED_SLICES = (
     ("United Arab Emirates", "wayback-deliveroo"),
     ("Vietnam", "wayback-grabfood"),
 )
+
+# Grocery/convenience/general-retail chains that show up in wayback
+# delivery-platform sweeps (Deliveroo UK in particular carries supermarket
+# "dark stores" under the same /menu/ URL shape as restaurants). These are
+# SKU-catalog dumps (thousands of items each — Sainsbury's/Morrisons/Co-op
+# pages ran 4,000-17,000+ "items" in the 2026-08-02 UK sweep, dwarfing every
+# real restaurant) with no place in a restaurant menu-price panel. Match
+# against a lowercased restaurant name substring. Any script that builds a
+# candidate list from a wayback delivery-platform pool (any country/source,
+# not just UK Deliveroo) should filter through this before ranking/probing.
+GROCERY_RETAIL_NAME_MARKERS = (
+    'sainsbury', 'morrison', 'tesco', 'asda', 'co-op', 'co op', 'waitrose',
+    'wilko', 'iceland', 'aldi', 'lidl', 'spar', 'marks and spencer', 'm&s',
+    'boots', 'superdrug', 'gopuff', 'poundland', 'wh smith', 'costcutter',
+    'nisa', 'budgens', 'londis',
+)
+
+
+def is_grocery_or_retail(name):
+    n = name.lower()
+    return any(m in n for m in GROCERY_RETAIL_NAME_MARKERS)

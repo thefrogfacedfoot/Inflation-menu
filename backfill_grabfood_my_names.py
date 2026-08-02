@@ -18,6 +18,7 @@ Usage:
   python3 backfill_grabfood_my_names.py --apply --limit 10     # writes DB, first 10 only
 """
 import argparse
+import re
 import shutil
 import sqlite3
 import time
@@ -33,6 +34,13 @@ from historical_html_scraper import (
 SOURCE  = 'wayback-grabfood'
 COUNTRY = 'Malaysia'
 LABEL   = 'grabfood-my'
+
+# Still-unresolved raw store-ID names (the 2026-08-01 run's fetch_snapshot
+# had a UTF-8-decoded-as-ISO-8859-1 bug, fixed since, plus never got to
+# retry the URLs it couldn't resolve the first time). Matches the
+# DoorDash backfill's UNREADABLE convention.
+BROKEN = re.compile(r'^[A-Z]{2,6}[0-9]+ \(grabfood-my\)$')
+MOJIBAKE_MARKERS = ('Â', 'Ã')
 
 
 def get_snapshot_for_url(url):
@@ -62,7 +70,7 @@ def get_snapshot_for_url(url):
     return None
 
 
-def backfill(limit, apply_writes):
+def backfill(limit, apply_writes, only_broken=False):
     conn = sqlite3.connect(DB, timeout=30)
     conn.execute('PRAGMA journal_mode=WAL')
     rows = conn.execute(
@@ -70,6 +78,9 @@ def backfill(limit, apply_writes):
         "WHERE source = ? AND country = ? ORDER BY url",
         (SOURCE, COUNTRY),
     ).fetchall()
+    if only_broken:
+        rows = [(u, n) for u, n in rows
+                if BROKEN.match(n) or any(m in n for m in MOJIBAKE_MARKERS)]
     if limit:
         rows = rows[:limit]
 
@@ -124,6 +135,9 @@ def main():
                      help='With --apply, only process the first N distinct URLs.')
     ap.add_argument('--apply', action='store_true',
                      help='Actually write updates to the DB (default is dry run).')
+    ap.add_argument('--only-broken', action='store_true',
+                     help='Only re-process rows still showing a raw store-ID '
+                          'name or mojibake, instead of every distinct URL.')
     args = ap.parse_args()
 
     if args.sample is not None and args.apply:
@@ -138,7 +152,7 @@ def main():
         shutil.copy2(DB, backup)
         print(f"DB backed up to {backup}")
 
-    backfill(limit, apply_writes)
+    backfill(limit, apply_writes, only_broken=args.only_broken)
 
 
 if __name__ == '__main__':

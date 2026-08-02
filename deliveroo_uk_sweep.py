@@ -23,6 +23,7 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import historical_html_scraper as h
+from data_quality import is_grocery_or_retail
 
 BASE = Path(__file__).resolve().parent
 DB = BASE / 'uifpi.db'
@@ -169,6 +170,14 @@ def main() -> int:
             b = base_url(url)
             if b in have_base:
                 continue
+            rest = restaurant_name_from_url(url)
+            if is_grocery_or_retail(rest):
+                # Supermarket/convenience "dark stores" ride the same
+                # /menu/ URL shape as restaurants but are SKU-catalog
+                # dumps (thousands of items) -- not restaurant menu data.
+                # Skip before spending a fetch. See data_quality.py.
+                have.add(url); have_base.add(b)
+                continue
             try:
                 collection_date = datetime.strptime(
                     ts[:8], '%Y%m%d').strftime('%Y-%m-%d')
@@ -181,7 +190,6 @@ def main() -> int:
                 print(f"  [{total_fetches:>3}] {ts[:8]} fetch fail  {url[-60:]}")
                 continue
             items = h.parse_deliveroo_uk(html, 'GBP')
-            rest = restaurant_name_from_url(url)
             if not items:
                 print(f"  [{total_fetches:>3}] {ts[:8]} 0 items     {url[-60:]}")
                 continue

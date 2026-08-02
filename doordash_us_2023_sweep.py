@@ -47,8 +47,11 @@ FROM_YEAR = 2023
 TO_YEAR   = 2026
 
 TEST_LIMIT = 50
-FULL_PER_PERIOD = 60
-FULL_MAX = 1200
+# 2023-01 .. 2026-06 = 16 quarterly windows. per_period=60/max=1200 caps
+# the realistic ceiling at 960 candidates (16*60) -- short of the ~2,501
+# target pool. Bumped 2026-08-02 to actually reach that range.
+FULL_PER_PERIOD = 160
+FULL_MAX = 2560
 
 # CDN image-transform paths that ride under doordash.com/store/* but are
 # never menu pages -- confirmed 2026-07-31: 35 of 50 raw 2023-Q1 CDX

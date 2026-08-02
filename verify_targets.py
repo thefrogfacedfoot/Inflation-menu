@@ -55,7 +55,8 @@ def _looks_blocked(title, body_head):
     b = (body_head or '').lower()
     for needle in ('access denied', 'access to this page has been denied',
                    'pardon our interruption', 'are you a robot',
-                   'cloudflare', 'unusual traffic', 'attention required'):
+                   'cloudflare', 'unusual traffic', 'attention required',
+                   'forbidden', '403'):
         if needle in t or needle in b:
             return True
     return False

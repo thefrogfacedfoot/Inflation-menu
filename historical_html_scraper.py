@@ -501,6 +501,26 @@ def parse_doordash(html, currency):
     return _coerce(filtered, currency)
 
 
+# DoorDash's own internal test/dead-store labels — confirmed 2026-08-02
+# these appear verbatim in the root JSON-LD Restaurant node's "name" field
+# for stores DoorDash itself has flagged as bad/decommissioned. The menu
+# items on these pages can be real, but the "restaurant" identity is not —
+# treat as unresolved (same as no name found) rather than accept it.
+_DOORDASH_INTERNAL_NAME_MARKERS = (
+    'store dump',
+    'out of business',
+    'used for bad stores',
+    'holding group',
+)
+_DOORDASH_INTERNAL_NAME_EXACT = frozenset({'graveyard'})
+
+
+def _is_doordash_internal_placeholder(name):
+    n = name.lower()
+    return n in _DOORDASH_INTERNAL_NAME_EXACT or any(
+        marker in n for marker in _DOORDASH_INTERNAL_NAME_MARKERS)
+
+
 def extract_doordash_restaurant_name(html):
     """Pull the restaurant name from DoorDash's root-level JSON-LD
     Restaurant node. Needed because a large share of Wayback captures use
@@ -513,6 +533,9 @@ def extract_doordash_restaurant_name(html):
     the tree looking for any Restaurant-typed node, to avoid picking up
     a nested "similar restaurants" recommendation instead of the page's
     actual subject.
+
+    Returns None (unresolved) for DoorDash's own internal test/dead-store
+    labels — see _is_doordash_internal_placeholder.
     """
     if not html:
         return None
@@ -534,7 +557,11 @@ def extract_doordash_restaurant_name(html):
             # string (e.g. "Shiva&apos;s") rather than a plain apostrophe —
             # confirmed 2026-08-01 sample. Unescape before truncating.
             name = html_lib.unescape(str(obj['name'])).strip()
-            return name[:100] if name else None
+            if not name:
+                return None
+            if _is_doordash_internal_placeholder(name):
+                return None
+            return name[:100]
     return None
 
 
@@ -728,6 +755,12 @@ def fetch_snapshot(ts, url):
                     time.sleep(FETCH_BACKOFF)
                     continue
                 return None
+            # requests defaults r.encoding to ISO-8859-1 when the captured
+            # response has no charset in Content-Type (common on Wayback's
+            # id_ passthrough) — every source scraped here is actually
+            # UTF-8, so the ISO-8859-1 default mangles multi-byte chars
+            # (e.g. "°" -> "Â°"). Force UTF-8 before decoding.
+            r.encoding = 'utf-8'
             return r.text
         except Exception:
             if attempt < FETCH_RETRIES:
