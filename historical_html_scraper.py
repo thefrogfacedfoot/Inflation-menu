@@ -22,6 +22,8 @@ Usage:
   python3 historical_html_scraper.py --max-per-target 200
 """
 import argparse
+import fcntl
+import html as html_lib
 import json
 import os
 import random
@@ -446,6 +448,40 @@ def parse_grabfood(html, currency):
     return _coerce(items, currency)
 
 
+def extract_grabfood_restaurant_name(html):
+    """Pull the human-readable restaurant name out of GrabFood's NEXT_DATA
+    payload, at props.initialReduxState.pageRestaurantDetail.entities.
+    That dict holds exactly one entry on a restaurant-detail page, keyed
+    by the store ID (matches the URL's last path segment, e.g. 'MYDD03581'
+    or '1-CZE2N8B3R8MTV6') — {'name': '1977 New Ipoh Chicken Rice - ...'}.
+
+    Confirmed against live samples 2026-08-01: this is the same store-ID
+    keyed entity the live scraper's target list names were sourced from.
+    Do NOT fall back to a generic "name" key search — the page also embeds
+    an unrelated `cgbOrder.catalog.merchant.name` (stale cached-session
+    merchant, e.g. a Starbucks outlet) that has nothing to do with the
+    restaurant being viewed.
+
+    Returns None (caller keeps the URL-slug proxy) if the shape is absent.
+    """
+    if not html or '__NEXT_DATA__' not in html:
+        return None
+    block = _extract_script_content(html, _NEXTDATA_OPENING)
+    if not block:
+        return None
+    try:
+        obj = json.loads(block)
+        entities = (obj['props']['initialReduxState']
+                       ['pageRestaurantDetail']['entities'])
+        if not entities:
+            return None
+        name = next(iter(entities.values())).get('name')
+        name = str(name).strip() if name else None
+        return name[:100] if name else None
+    except Exception:
+        return None
+
+
 def parse_doordash(html, currency):
     """DoorDash US archived: JSON-LD MenuItem + Offer paired nodes carry
     a typed `price` field (dollars). Structural probe 2026-06-21 confirmed
@@ -463,6 +499,70 @@ def parse_doordash(html, currency):
     items = extract_jsonld(html) or extract_nextdata(html)
     filtered = [(n, p, c) for n, p, c in items if 0 < p < 200]
     return _coerce(filtered, currency)
+
+
+# DoorDash's own internal test/dead-store labels — confirmed 2026-08-02
+# these appear verbatim in the root JSON-LD Restaurant node's "name" field
+# for stores DoorDash itself has flagged as bad/decommissioned. The menu
+# items on these pages can be real, but the "restaurant" identity is not —
+# treat as unresolved (same as no name found) rather than accept it.
+_DOORDASH_INTERNAL_NAME_MARKERS = (
+    'store dump',
+    'out of business',
+    'used for bad stores',
+    'holding group',
+)
+_DOORDASH_INTERNAL_NAME_EXACT = frozenset({'graveyard'})
+
+
+def _is_doordash_internal_placeholder(name):
+    n = name.lower()
+    return n in _DOORDASH_INTERNAL_NAME_EXACT or any(
+        marker in n for marker in _DOORDASH_INTERNAL_NAME_MARKERS)
+
+
+def extract_doordash_restaurant_name(html):
+    """Pull the restaurant name from DoorDash's root-level JSON-LD
+    Restaurant node. Needed because a large share of Wayback captures use
+    a bare `/store/<numeric-id>/` URL (no SEO slug) or a `/store/$X.XX`
+    price-filter URL (no store identity at all in the URL) — confirmed
+    2026-08-01 that both still carry a real store's page, and that page's
+    JSON-LD root object is `{"@type": "Restaurant", "name": "...", ...}`,
+    distinct from the nested Person/Review/Question names elsewhere on
+    the page. Only match the ROOT node's own @type — do not walk into
+    the tree looking for any Restaurant-typed node, to avoid picking up
+    a nested "similar restaurants" recommendation instead of the page's
+    actual subject.
+
+    Returns None (unresolved) for DoorDash's own internal test/dead-store
+    labels — see _is_doordash_internal_placeholder.
+    """
+    if not html:
+        return None
+    for m in _LD_OPENING.finditer(html):
+        after = html[m.end():]
+        close = re.match(r'(.*?)</script>', after, re.S | re.I)
+        block = close.group(1) if close else (
+            re.match(r'([^<]+)', after, re.S).group(1)
+            if re.match(r'([^<]+)', after, re.S) else None
+        )
+        if not block:
+            continue
+        try:
+            obj = json.loads(block)
+        except Exception:
+            continue
+        if isinstance(obj, dict) and obj.get('@type') == 'Restaurant' and obj.get('name'):
+            # DoorDash's JSON-LD carries literal HTML entities in the name
+            # string (e.g. "Shiva&apos;s") rather than a plain apostrophe —
+            # confirmed 2026-08-01 sample. Unescape before truncating.
+            name = html_lib.unescape(str(obj['name'])).strip()
+            if not name:
+                return None
+            if _is_doordash_internal_placeholder(name):
+                return None
+            return name[:100]
+    return None
 
 
 def parse_tripadvisor_mx(html, currency):
@@ -655,6 +755,12 @@ def fetch_snapshot(ts, url):
                     time.sleep(FETCH_BACKOFF)
                     continue
                 return None
+            # requests defaults r.encoding to ISO-8859-1 when the captured
+            # response has no charset in Content-Type (common on Wayback's
+            # id_ passthrough) — every source scraped here is actually
+            # UTF-8, so the ISO-8859-1 default mangles multi-byte chars
+            # (e.g. "°" -> "Â°"). Force UTF-8 before decoding.
+            r.encoding = 'utf-8'
             return r.text
         except Exception:
             if attempt < FETCH_RETRIES:
@@ -695,15 +801,42 @@ def insert_items(conn, country, sector, source_key, url, ts, items):
 # ── Runner ───────────────────────────────────────────────────────────────────
 
 def load_progress():
-    if os.path.exists(PROGRESS_FILE):
-        with open(PROGRESS_FILE) as fh:
+    if not os.path.exists(PROGRESS_FILE):
+        return {}
+    with open(PROGRESS_FILE) as fh:
+        fcntl.flock(fh, fcntl.LOCK_SH)
+        try:
             return json.load(fh)
-    return {}
+        finally:
+            fcntl.flock(fh, fcntl.LOCK_UN)
 
 
-def save_progress(p):
-    with open(PROGRESS_FILE, 'w') as fh:
-        json.dump(p, fh, indent=2)
+def save_progress(key, info):
+    """Merge-and-save a single target's progress under an exclusive lock.
+
+    Each concurrent sweep only ever owns one `key`. The old version wrote
+    the whole in-memory `progress` dict on every checkpoint; with several
+    sweeps running in parallel (each holding its own stale copy of every
+    *other* sweep's key), the last one to save on a given night silently
+    clobbered the others' concurrently-advancing progress (confirmed
+    2026-07-26: a doordash-us run's checkpoints were overwritten by a
+    grabfood-my run's final save, which still held doordash-us's state
+    from when it had loaded the file hours earlier). Locking + read-merge-
+    write on just this key removes the lost-update race regardless of how
+    many sweeps run at once.
+    """
+    fd = os.open(PROGRESS_FILE, os.O_RDWR | os.O_CREAT, 0o644)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        raw = os.read(fd, os.fstat(fd).st_size)
+        progress = json.loads(raw) if raw.strip() else {}
+        progress[key] = info
+        os.lseek(fd, 0, os.SEEK_SET)
+        os.ftruncate(fd, 0)
+        os.write(fd, json.dumps(progress, indent=2).encode())
+    finally:
+        fcntl.flock(fd, fcntl.LOCK_UN)
+        os.close(fd)
 
 
 def run_target(target, per_period, max_per_target):
@@ -721,7 +854,7 @@ def run_target(target, per_period, max_per_target):
         print(f"  Found {len(snaps)} candidate snapshots")
         progress[key] = {'snapshots': snaps, 'done_urls': list(done),
                          'status': 'in_progress'}
-        save_progress(progress)
+        save_progress(key, progress[key])
 
     conn = sqlite3.connect(DB, timeout=30)
     conn.execute('PRAGMA journal_mode=WAL')
@@ -745,7 +878,7 @@ def run_target(target, per_period, max_per_target):
             print("fetch fail")
             done.add(url)
             progress[key]['done_urls'] = list(done)
-            save_progress(progress)
+            save_progress(key, progress[key])
             continue
         parse_attempts += 1
         try:
@@ -754,12 +887,25 @@ def run_target(target, per_period, max_per_target):
             print(f"parse err {str(e)[:30]}")
             done.add(url)
             progress[key]['done_urls'] = list(done)
-            save_progress(progress)
+            save_progress(key, progress[key])
             continue
         # Use the URL slug as a stable restaurant_name proxy when parser
         # doesn't return useful names — but here items already carry name.
         # Strip restaurant name from the URL for the row's restaurant_name col.
         rest_name = _restaurant_from_url(url, label)
+        # GrabFood's URL slug is the store ID (last path segment), not a
+        # readable name — pull the real name from NEXT_DATA when present.
+        if src_key == 'wayback-grabfood':
+            gf_name = extract_grabfood_restaurant_name(html)
+            if gf_name:
+                rest_name = f'{gf_name} ({label})'[:100]
+        # DoorDash's URL slug is often absent entirely (bare numeric-ID or
+        # $-price-filter capture URLs) — pull the real name from the page's
+        # root JSON-LD Restaurant node when present.
+        elif src_key == 'wayback-doordash':
+            dd_name = extract_doordash_restaurant_name(html)
+            if dd_name:
+                rest_name = f'{dd_name} ({label})'[:100]
         # Override item name's "restaurant_name" with the slug, keep item name
         n = 0
         if items:
@@ -788,11 +934,11 @@ def run_target(target, per_period, max_per_target):
         done.add(url)
         if (i + 1) % 10 == 0:
             progress[key]['done_urls'] = list(done)
-            save_progress(progress)
+            save_progress(key, progress[key])
 
     progress[key]['done_urls'] = list(done)
     progress[key]['status']    = 'complete'
-    save_progress(progress)
+    save_progress(key, progress[key])
     conn.close()
     print(f"\n  {key}: {parse_attempts} attempts, {parse_hits} with items, "
           f"{rows_inserted} rows inserted")

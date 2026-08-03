@@ -1,0 +1,214 @@
+{
+  "generated_at": "2026-08-02T13:44:24.244627",
+  "rechecked_at": "2026-08-02T13:53:20.754040",
+  "method": "build_uk_deliveroo_candidates.py (build/dedupe/grocery-filter/probe) then reverify_uk_deliveroo_candidates.py (strict recheck: final-URL redirect check + real parse_deliveroo_uk item count)",
+  "confirmed_live_count": 19,
+  "dead_on_recheck_count": 18,
+  "confirmed_live": [
+    {
+      "name": "china de cusine (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/china-de-cusine",
+      "real_item_count": 183
+    },
+    {
+      "name": "selekt chicken chiswick (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/selekt-chicken-chiswick",
+      "real_item_count": 180
+    },
+    {
+      "name": "chinese express addlestone (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addlestone/chinese-express-addlestone",
+      "real_item_count": 176
+    },
+    {
+      "name": "papa johns addlestone wey (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addlestone/papa-johns-addlestone-wey",
+      "real_item_count": 160
+    },
+    {
+      "name": "abbey cafe (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/abbey-wood-central/abbey-cafe",
+      "real_item_count": 157
+    },
+    {
+      "name": "the grill horn lane (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/the-grill-horn-lane",
+      "real_item_count": 134
+    },
+    {
+      "name": "bayleaf indian cuisine (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/abbey-wood-central/bayleaf-indian-cuisine",
+      "real_item_count": 130
+    },
+    {
+      "name": "massachusetts fried chicken (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/massachusetts-fried-chicken",
+      "real_item_count": 123
+    },
+    {
+      "name": "mooboo addlestone (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addlestone/mooboo-addlestone",
+      "real_item_count": 97
+    },
+    {
+      "name": "sophies cafe (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addlestone/sophies-cafe",
+      "real_item_count": 95
+    },
+    {
+      "name": "hadrians italian cuisine acton (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/hadrians-italian-cuisine-acton",
+      "real_item_count": 78
+    },
+    {
+      "name": "top stream anerley (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/anerley/top-stream-anerley",
+      "real_item_count": 67
+    },
+    {
+      "name": "el kervan grill house (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addington/el-kervan-grill-house",
+      "real_item_count": 63
+    },
+    {
+      "name": "dominic pizza station rd (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addlestone/dominic-pizza-station-rd",
+      "real_item_count": 57
+    },
+    {
+      "name": "grain kitchen harrow place (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/grain-kitchen-harrow-place",
+      "real_item_count": 56
+    },
+    {
+      "name": "lailaty ec m (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/lailaty-ec-m",
+      "real_item_count": 49
+    },
+    {
+      "name": "mr wingzzz (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/mr-wingzzz",
+      "real_item_count": 47
+    },
+    {
+      "name": "xian biang biang noodles (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/xian-biang-biang-noodles",
+      "real_item_count": 39
+    },
+    {
+      "name": "ghost pizza (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/alperton/ghost-pizza",
+      "real_item_count": 8
+    }
+  ],
+  "dead_on_recheck": [
+    {
+      "name": "a burgers by taster kentish town (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/angel/a-burgers-by-taster-kentish-town",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/angel"
+    },
+    {
+      "name": "burger link (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addiscombe/burger-link",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/addiscombe"
+    },
+    {
+      "name": "chicken cottage acton (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/chicken-cottage-acton",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/acton"
+    },
+    {
+      "name": "coughlans bakery cro (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addiscombe/coughlans-bakery-cro",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/addiscombe"
+    },
+    {
+      "name": "hawkyns restaurant by atul kochhar (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/amersham/hawkyns-restaurant-by-atul-kochhar",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/amersham"
+    },
+    {
+      "name": "jangos (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addlestone/jangos",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/addlestone"
+    },
+    {
+      "name": "pizza hut delivery acton 7535 (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/pizza-hut-delivery-acton-7535",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/acton"
+    },
+    {
+      "name": "pizza town high street (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/pizza-town-high-street",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/acton"
+    },
+    {
+      "name": "smash patties (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/alperton/smash-patties",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/alperton"
+    },
+    {
+      "name": "sushi lane brick lanes (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/sushi-lane-brick-lanes",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/aldgate"
+    },
+    {
+      "name": "tai kitchen at the bell (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/tai-kitchen-at-the-bell",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/aldgate"
+    },
+    {
+      "name": "terra brazil brazilian pizza (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/London/addlestone/terra-brazil-brazilian-pizza",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/London/addlestone"
+    },
+    {
+      "name": "thai yum yum (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/addlestone/thai-yum-yum",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/addlestone"
+    },
+    {
+      "name": "tifin box (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/tifin-box",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/aldgate"
+    },
+    {
+      "name": "ting tong thai (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/acton/ting-tong-thai",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/acton"
+    },
+    {
+      "name": "tossed leadenhall street (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/tossed-leadenhall-street",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/aldgate"
+    },
+    {
+      "name": "walid kitchen lebanese cuisine aldgate (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/walid-kitchen-lebanese-cuisine-aldgate",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/aldgate"
+    },
+    {
+      "name": "xpress curry ltd (deliveroo-uk)",
+      "url": "https://deliveroo.co.uk/menu/london/aldgate/xpress-curry-ltd",
+      "verdict": "DEAD_REDIRECTED",
+      "final_url": "https://deliveroo.co.uk/restaurants/london/aldgate"
+    }
+  ]
+}

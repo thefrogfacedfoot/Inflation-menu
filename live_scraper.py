@@ -470,13 +470,24 @@ def _human_mouse_jitter(page):
         pass
 
 
-def _looks_like_block(page):
+def _looks_like_block(page, http_status=None):
     """Detect Foodpanda / GrabFood / Akamai bot-block pages and dead pages.
 
-    Returns True for bot-blocks AND for confirmed-dead pages (404, 500),
+    Returns True for bot-blocks AND for confirmed-dead pages (403, 404, 500),
     so the retry loop fails fast instead of repeatedly hitting a non-existent
     URL. The caller treats this as ACCESS_DENIED.
+
+    http_status (2026-08-02): title/body keyword matching alone missed a
+    plain HTTP 403 (Wendy's own "403 FORBIDDEN — Unlike a bag fry..." error
+    page carries none of the keywords below) -- confirmed via
+    audit_targets_dead_redirect.py logging it as a clean "0 items" instead
+    of ACCESS_DENIED. Checking the numeric status is the robust fix (covers
+    401/403/429/503 etc. without needing to enumerate every WAF's wording);
+    keyword checks stay as a fallback for soft-blocks that return 200 with
+    an HTML interstitial.
     """
+    if http_status is not None and http_status >= 400:
+        return True
     try:
         title = (page.title() or '').lower()
     except Exception:
@@ -484,6 +495,8 @@ def _looks_like_block(page):
     if 'access denied' in title or 'denied' in title:
         return True
     if 'are you a robot' in title or 'attention required' in title:
+        return True
+    if 'forbidden' in title or '403' in title:
         return True
     # Foodpanda's 404 page: <title>404 Ooops!</title>
     if '404' in title or 'page not found' in title or '500' in title:
@@ -499,7 +512,7 @@ def _looks_like_block(page):
         body = ''
     for needle in ('access denied', 'access to this page has been denied',
                    'pardon our interruption', 'are you a robot',
-                   'cloudflare', 'unusual traffic',
+                   'cloudflare', 'unusual traffic', 'forbidden',
                    'page does not exist', 'looks like this restaurant'):
         if needle in body:
             return True
@@ -561,14 +574,14 @@ def scrape_foodpanda(page, url, restaurant_name, sector, currency,
     # opens long-poll WebSocket connections that prevent networkidle from
     # ever firing on slow connections.
     try:
-        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+        resp = page.goto(url, wait_until='domcontentloaded', timeout=45_000)
     except Exception as e:
         # Treat hard nav failures as access blocks — same retry semantics
         raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
     page.wait_for_timeout(random.randint(2_000, 3_500))
     _human_mouse_jitter(page)
 
-    if _looks_like_block(page):
+    if _looks_like_block(page, resp.status if resp else None):
         raise RuntimeError("ACCESS_DENIED")
 
     # Try each selector with a short individual timeout. The first matching
@@ -655,13 +668,13 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     while True:
         nav_attempts += 1
         try:
-            page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+            resp = page.goto(url, wait_until='domcontentloaded', timeout=45_000)
         except Exception as e:
             raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
         page.wait_for_timeout(random.randint(3_000, 5_000))
         _human_mouse_jitter(page)
 
-        if _looks_like_block(page):
+        if _looks_like_block(page, resp.status if resp else None):
             raise RuntimeError("ACCESS_DENIED")
 
         if not _looks_like_grabfood_landing(page):
@@ -966,13 +979,13 @@ def scrape_swiggy(page, url, restaurant_name, sector, currency,
     """
     log(f"  Loading {restaurant_name} (Swiggy)…")
     try:
-        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+        resp = page.goto(url, wait_until='domcontentloaded', timeout=45_000)
     except Exception as e:
         raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
     page.wait_for_timeout(random.randint(3_000, 5_000))
     _human_mouse_jitter(page)
 
-    if _looks_like_block(page):
+    if _looks_like_block(page, resp.status if resp else None):
         raise RuntimeError("ACCESS_DENIED")
 
     today = date.today().isoformat()
@@ -1146,13 +1159,13 @@ def scrape_direct(page, url, restaurant_name, sector, currency,
     # networkidle never fires on pages with polling/long-poll — use
     # domcontentloaded + a fixed wait for menu XHR to settle.
     try:
-        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+        resp = page.goto(url, wait_until='domcontentloaded', timeout=45_000)
     except Exception as e:
         raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
     page.wait_for_timeout(random.randint(6_000, 9_000))
     _human_mouse_jitter(page)
 
-    if _looks_like_block(page):
+    if _looks_like_block(page, resp.status if resp else None):
         raise RuntimeError("ACCESS_DENIED")
 
     today = date.today().isoformat()
@@ -1371,13 +1384,13 @@ def scrape_js(page, url, restaurant_name, sector, currency,
     """
     log(f"  Loading {restaurant_name} (js generic)…")
     try:
-        page.goto(url, wait_until='domcontentloaded', timeout=45_000)
+        resp = page.goto(url, wait_until='domcontentloaded', timeout=45_000)
     except Exception as e:
         raise RuntimeError(f"ACCESS_DENIED (nav: {str(e)[:100]})")
     page.wait_for_timeout(random.randint(3_000, 5_000))
     _human_mouse_jitter(page)
 
-    if _looks_like_block(page):
+    if _looks_like_block(page, resp.status if resp else None):
         raise RuntimeError("ACCESS_DENIED")
 
     # Trigger lazy loading
@@ -2144,9 +2157,11 @@ TARGETS = [
      "https://www.foodpanda.my/chain/ce9ti/oldtown",
      "chain", "foodpanda", "MYR", "Malaysia"),
 
-    ("Nando's KL",
-     "https://food.grab.com/my/en/chain/nandos-delivery",
-     "chain", "grabfood", "MYR", "Malaysia"),
+    # [verifier:DEAD] status=500 title='500 Internal Server Error' — confirmed
+    # 2026-07-26: all GrabFood /chain/ URLs (SG, MY) now 500 server-side.
+    # ("Nando's KL",
+     # "https://food.grab.com/my/en/chain/nandos-delivery",
+     # "chain", "grabfood", "MYR", "Malaysia"),
 
     # Removed TGI Fridays KL: foodpanda.my URL couldn't be verified (IP-blocked),
     # not findable on GrabFood Malaysia from KLCC delivery address.
@@ -2868,6 +2883,89 @@ TARGETS = [
     # ("Dishoom Covent Garden (Deliveroo)",
      # "https://deliveroo.co.uk/menu/london/covent-garden/dishoom-covent-garden",
      # "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    # --- UK: 2026-08-02 wayback-sweep candidates (37 discovered by the
+    # continuation sweep, grocery/retail-filtered, deduped against the
+    # above, live-probed AND rechecked for the redirect-to-listing-page
+    # blind spot — see candidates_uk_deliveroo.json. 19/37 confirmed live
+    # with real parse_deliveroo_uk item counts; the other 18 silently
+    # redirected to a bare city/area listing page and are excluded, not
+    # added here. ---
+    ("China De Cusine (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/acton/china-de-cusine",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Selekt Chicken Chiswick (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/acton/selekt-chicken-chiswick",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Chinese Express Addlestone (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/addlestone/chinese-express-addlestone",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Papa John's Addlestone Wey (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/addlestone/papa-johns-addlestone-wey",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Abbey Cafe (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/abbey-wood-central/abbey-cafe",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("The Grill Horn Lane (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/acton/the-grill-horn-lane",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Bayleaf Indian Cuisine (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/abbey-wood-central/bayleaf-indian-cuisine",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Massachusetts Fried Chicken (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/acton/massachusetts-fried-chicken",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Mooboo Addlestone (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/addlestone/mooboo-addlestone",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Sophie's Cafe (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/addlestone/sophies-cafe",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Hadrians Italian Cuisine Acton (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/acton/hadrians-italian-cuisine-acton",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Top Stream Anerley (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/anerley/top-stream-anerley",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("El Kervan Grill House (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/addington/el-kervan-grill-house",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Dominic Pizza Station Rd (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/addlestone/dominic-pizza-station-rd",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Grain Kitchen Harrow Place (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/aldgate/grain-kitchen-harrow-place",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Lailaty EC M (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/aldgate/lailaty-ec-m",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Mr Wingzzz (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/acton/mr-wingzzz",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Xian Biang Biang Noodles (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/aldgate/xian-biang-biang-noodles",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Ghost Pizza (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/alperton/ghost-pizza",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
 
     # ==========================================================================
     # AUSTRALIA  (direct chain websites)
