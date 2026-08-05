@@ -6,6 +6,8 @@
 playwright>=1.40.0
 beautifulsoup4>=4.12.0
 requests>=2.31.0
+fake-useragent>=2.2.0
+playwright-stealth>=2.0.3
 
 # Database (stdlib sqlite3 is sufficient — no extra package needed)
 
