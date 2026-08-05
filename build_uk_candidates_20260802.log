@@ -1,0 +1,43 @@
+Pool before filtering: 37 distinct stores
+After grocery/convenience filter: 37
+After dedup against live_scraper.TARGETS: 37
+Live-probing top 37 by item_count...
+  [1/37] OK             selekt chicken chiswick (deliveroo-uk)        item_count=273
+  [2/37] OK             thai yum yum (deliveroo-uk)                   item_count=211
+  [3/37] OK             chinese express addlestone (deliveroo-uk)     item_count=205
+  [4/37] OK             china de cusine (deliveroo-uk)                item_count=192
+  [5/37] OK             abbey cafe (deliveroo-uk)                     item_count=184
+  [6/37] OK             the grill horn lane (deliveroo-uk)            item_count=177
+  [7/37] OK             hadrians italian cuisine acton (deliveroo-uk) item_count=173
+  [8/37] OK             pizza hut delivery acton 7535 (deliveroo-uk)  item_count=151
+  [9/37] OK             bayleaf indian cuisine (deliveroo-uk)         item_count=149
+  [10/37] OK             burger link (deliveroo-uk)                    item_count=147
+  [11/37] OK             papa johns addlestone wey (deliveroo-uk)      item_count=146
+  [12/37] OK             tossed leadenhall street (deliveroo-uk)       item_count=146
+  [13/37] OK             dominic pizza station rd (deliveroo-uk)       item_count=145
+  [14/37] OK             xpress curry ltd (deliveroo-uk)               item_count=133
+  [15/37] OK             massachusetts fried chicken (deliveroo-uk)    item_count=129
+  [16/37] OK             sushi lane brick lanes (deliveroo-uk)         item_count=119
+  [17/37] OK             pizza town high street (deliveroo-uk)         item_count=117
+  [18/37] OK             chicken cottage acton (deliveroo-uk)          item_count=114
+  [19/37] OK             tifin box (deliveroo-uk)                      item_count=114
+  [20/37] OK             coughlans bakery cro (deliveroo-uk)           item_count=113
+  [21/37] OK             lailaty ec m (deliveroo-uk)                   item_count=105
+  [22/37] OK             sophies cafe (deliveroo-uk)                   item_count=105
+  [23/37] OK             jangos (deliveroo-uk)                         item_count=98
+  [24/37] OK             mooboo addlestone (deliveroo-uk)              item_count=98
+  [25/37] OK             walid kitchen lebanese cuisine aldgate (deliv item_count=87
+  [26/37] OK             el kervan grill house (deliveroo-uk)          item_count=85
+  [27/37] OK             tai kitchen at the bell (deliveroo-uk)        item_count=82
+  [28/37] OK             xian biang biang noodles (deliveroo-uk)       item_count=76
+  [29/37] OK             top stream anerley (deliveroo-uk)             item_count=71
+  [30/37] OK             ting tong thai (deliveroo-uk)                 item_count=68
+  [31/37] OK             ghost pizza (deliveroo-uk)                    item_count=61
+  [32/37] OK             grain kitchen harrow place (deliveroo-uk)     item_count=56
+  [33/37] OK             mr wingzzz (deliveroo-uk)                     item_count=52
+  [34/37] OK             smash patties (deliveroo-uk)                  item_count=34
+  [35/37] OK             a burgers by taster kentish town (deliveroo-u item_count=33
+  [36/37] OK             hawkyns restaurant by atul kochhar (deliveroo item_count=18
+  [37/37] OK             terra brazil brazilian pizza (deliveroo-uk)   item_count=1
+
+37/37 passed live-probe -> candidates_uk_deliveroo.json

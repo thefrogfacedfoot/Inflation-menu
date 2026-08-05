@@ -1,0 +1,295 @@
+Auditing 84 targets (headless=False)
+2026-08-02 14:03:21,608 —   ✓ Using cached USD rates (0.1h old)
+2026-08-02 14:03:22,691 —   Loading Rubato (foodpanda)…
+  [1/84] BLOCKED          real_items=0    Rubato                                   (Singapore/foodpanda)
+2026-08-02 14:03:34,836 —   Loading Ichiban Boshi (foodpanda)…
+  [2/84] BLOCKED          real_items=0    Ichiban Boshi                            (Singapore/foodpanda)
+2026-08-02 14:03:47,105 —   Loading Din Tai Fung (GrabFood)…
+2026-08-02 14:04:05,430 —   ✓ Din Tai Fung: 60 items
+  [3/84] CONFIRMED_LIVE   real_items=60   Din Tai Fung                             (Singapore/grabfood)
+2026-08-02 14:04:06,631 —   Loading Sushi Tei (GrabFood)…
+2026-08-02 14:04:24,555 —   ✓ Sushi Tei: 191 items
+  [4/84] CONFIRMED_LIVE   real_items=191  Sushi Tei                                (Singapore/grabfood)
+2026-08-02 14:04:25,645 —   Loading Jumbo Seafood (GrabFood)…
+2026-08-02 14:04:43,045 —   ✓ Jumbo Seafood: 54 items
+  [5/84] CONFIRMED_LIVE   real_items=54   Jumbo Seafood                            (Singapore/grabfood)
+2026-08-02 14:04:44,225 —   Loading Crystal Jade La Mian Xiao Long Bao (foodpanda)…
+  [6/84] BLOCKED          real_items=0    Crystal Jade La Mian Xiao Long Bao       (Singapore/foodpanda)
+2026-08-02 14:04:54,292 —   Loading No Signboard Prawn Noodles and Carrot Cake (foodpanda)…
+  [7/84] BLOCKED          real_items=0    No Signboard Prawn Noodles and Carrot Ca (Singapore/foodpanda)
+2026-08-02 14:05:04,855 —   Loading Putien (foodpanda)…
+  [8/84] BLOCKED          real_items=0    Putien                                   (Singapore/foodpanda)
+2026-08-02 14:05:15,297 —   Loading Paradise Dynasty (foodpanda)…
+  [9/84] BLOCKED          real_items=0    Paradise Dynasty                         (Singapore/foodpanda)
+2026-08-02 14:05:26,867 —   Loading Tim Ho Wan (GrabFood)…
+2026-08-02 14:05:38,763 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:05:57,480 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:06:15,599 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:06:20,454 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 178986 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:06:20,454 —   ✗ Tim Ho Wan: 0 items — page did not yield menu data
+  [10/84] DEAD_NO_ITEMS    real_items=0    Tim Ho Wan                               (Singapore/grabfood)
+2026-08-02 14:06:21,684 —   Loading Crystal Jade Hong Kong Kitchen (foodpanda)…
+  [11/84] BLOCKED          real_items=0    Crystal Jade Hong Kong Kitchen           (Singapore/foodpanda)
+2026-08-02 14:06:34,217 —   Loading Pepper Lunch (foodpanda)…
+  [12/84] BLOCKED          real_items=0    Pepper Lunch                             (Singapore/foodpanda)
+2026-08-02 14:06:45,784 —   Loading Ippudo Ramen (GrabFood)…
+2026-08-02 14:06:58,774 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:07:17,580 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:07:34,364 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:07:39,213 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 178965 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:07:39,213 —   ✗ Ippudo Ramen: 0 items — page did not yield menu data
+  [13/84] DEAD_NO_ITEMS    real_items=0    Ippudo Ramen                             (Singapore/grabfood)
+2026-08-02 14:07:40,501 —   Loading Seoul Garden HotPot (GrabFood)…
+2026-08-02 14:07:52,654 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:08:12,056 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:08:30,426 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:08:35,277 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 180453 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nM'
+2026-08-02 14:08:35,277 —   ✗ Seoul Garden HotPot: 0 items — page did not yield menu data
+  [14/84] DEAD_NO_ITEMS    real_items=0    Seoul Garden HotPot                      (Singapore/grabfood)
+2026-08-02 14:08:36,484 —   Loading BreadTalk (GrabFood)…
+2026-08-02 14:08:48,322 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:09:04,916 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:09:22,271 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:09:27,121 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 179077 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:09:27,121 —   ✗ BreadTalk: 0 items — page did not yield menu data
+  [15/84] DEAD_NO_ITEMS    real_items=0    BreadTalk                                (Singapore/grabfood)
+2026-08-02 14:09:28,395 —   Loading Toast Box (foodpanda)…
+  [16/84] BLOCKED          real_items=0    Toast Box                                (Singapore/foodpanda)
+2026-08-02 14:09:39,521 —   Loading Old Chang Kee (foodpanda)…
+  [17/84] BLOCKED          real_items=0    Old Chang Kee                            (Singapore/foodpanda)
+2026-08-02 14:09:51,459 —   Loading Crystal Jade GO (foodpanda)…
+  [18/84] BLOCKED          real_items=0    Crystal Jade GO                          (Singapore/foodpanda)
+2026-08-02 14:10:00,921 —   Loading McDonald's (GrabFood)…
+2026-08-02 14:10:18,923 —   ✓ McDonald's: 111 items
+  [19/84] CONFIRMED_LIVE   real_items=111  McDonald's                               (Singapore/grabfood)
+2026-08-02 14:10:20,060 —   Loading Han's (GrabFood)…
+2026-08-02 14:10:31,540 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:10:49,980 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:11:08,412 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:11:13,256 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 180397 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nM'
+2026-08-02 14:11:13,256 —   ✗ Han's: 0 items — page did not yield menu data
+  [20/84] DEAD_NO_ITEMS    real_items=0    Han's                                    (Singapore/grabfood)
+2026-08-02 14:11:14,592 —   Loading Saizeriya (GrabFood)…
+2026-08-02 14:11:26,407 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:11:46,531 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:12:05,182 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:12:10,023 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 179021 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:12:10,023 —   ✗ Saizeriya: 0 items — page did not yield menu data
+  [21/84] DEAD_NO_ITEMS    real_items=0    Saizeriya                                (Singapore/grabfood)
+2026-08-02 14:12:11,298 —   Loading Subway (GrabFood)…
+2026-08-02 14:12:23,381 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:12:41,405 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:12:56,295 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:13:01,141 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 180362 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nM'
+2026-08-02 14:13:01,141 —   ✗ Subway: 0 items — page did not yield menu data
+  [22/84] DEAD_NO_ITEMS    real_items=0    Subway                                   (Singapore/grabfood)
+2026-08-02 14:13:02,432 —   Loading Burger King (GrabFood)…
+2026-08-02 14:13:13,655 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:13:32,215 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:13:49,144 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:13:53,993 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 180412 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nM'
+2026-08-02 14:13:53,993 —   ✗ Burger King: 0 items — page did not yield menu data
+  [23/84] DEAD_NO_ITEMS    real_items=0    Burger King                              (Singapore/grabfood)
+2026-08-02 14:13:55,261 —   Loading Old Chang Kee IMM (GrabFood)…
+2026-08-02 14:14:07,622 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:14:25,504 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:14:44,134 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:14:48,990 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 179028 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:14:48,990 —   ✗ Old Chang Kee IMM: 0 items — page did not yield menu data
+  [24/84] DEAD_NO_ITEMS    real_items=0    Old Chang Kee IMM                        (Singapore/grabfood)
+2026-08-02 14:14:50,209 —   Loading Toast Box VivoCity (GrabFood)…
+2026-08-02 14:15:01,773 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:15:20,069 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:15:37,390 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:15:42,249 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 180299 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nM'
+2026-08-02 14:15:42,249 —   ✗ Toast Box VivoCity: 0 items — page did not yield menu data
+  [25/84] DEAD_NO_ITEMS    real_items=0    Toast Box VivoCity                       (Singapore/grabfood)
+2026-08-02 14:15:43,503 —   Loading Song Fa Bak Kut Teh (foodpanda)…
+  [26/84] BLOCKED          real_items=0    Song Fa Bak Kut Teh                      (Singapore/foodpanda)
+2026-08-02 14:15:55,012 —   Loading Hawker Chan (GrabFood)…
+2026-08-02 14:16:06,468 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:16:24,957 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:16:41,517 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:16:46,371 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 180446 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nFrequently Searched\nBubble Tea Delivery\nChinese food delivery\nFast Food Delivery\nGrabFood Promo\nHalal Food Delivery\nJapanese delivery\nKorean Food Delivery\nPeranakanan Food Delivery\nPizza Delivery\nThai Food Delivery\nVietnamese Food Delivery\nPopular Cuisines\nBurger king delivery\nJollibee Delivery\nKFC Delivery\nKoi Delivery\nLong John Silver Delivery\nM'
+2026-08-02 14:16:46,371 —   ✗ Hawker Chan: 0 items — page did not yield menu data
+  [27/84] DEAD_NO_ITEMS    real_items=0    Hawker Chan                              (Singapore/grabfood)
+2026-08-02 14:16:47,567 —   Loading A Noodle Story (foodpanda)…
+  [28/84] BLOCKED          real_items=0    A Noodle Story                           (Singapore/foodpanda)
+2026-08-02 14:16:59,774 —   Loading 328 Katong Laksa (foodpanda)…
+  [29/84] BLOCKED          real_items=0    328 Katong Laksa                         (Singapore/foodpanda)
+2026-08-02 14:17:09,013 —   Loading Crave Nasi Lemak (foodpanda)…
+  [30/84] BLOCKED          real_items=0    Crave Nasi Lemak                         (Singapore/foodpanda)
+2026-08-02 14:17:20,038 —   Loading 28 Fried Kway Teow (GrabFood)…
+2026-08-02 14:17:38,106 —   ✓ 28 Fried Kway Teow: 10 items
+  [31/84] CONFIRMED_LIVE   real_items=10   28 Fried Kway Teow                       (Singapore/grabfood)
+2026-08-02 14:17:39,331 —   Loading Tai Wah Pork Noodles (foodpanda)…
+  [32/84] BLOCKED          real_items=0    Tai Wah Pork Noodles                     (Singapore/foodpanda)
+2026-08-02 14:17:50,901 —   Loading Janggut Laksa (foodpanda)…
+  [33/84] BLOCKED          real_items=0    Janggut Laksa                            (Singapore/foodpanda)
+2026-08-02 14:18:02,691 —   Loading Nam Kee Chicken Rice (foodpanda)…
+  [34/84] BLOCKED          real_items=0    Nam Kee Chicken Rice                     (Singapore/foodpanda)
+2026-08-02 14:18:12,398 —   Loading Swee Choon Tim Sum (GrabFood)…
+2026-08-02 14:18:24,280 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:18:40,436 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:18:57,602 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:19:02,455 —     GrabFood returned 0 items. title='Food Delivery Singapore: Promos & Menu | GrabFood SG'. HTML 179161 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:19:02,455 —   ✗ Swee Choon Tim Sum: 0 items — page did not yield menu data
+  [35/84] DEAD_NO_ITEMS    real_items=0    Swee Choon Tim Sum                       (Singapore/grabfood)
+2026-08-02 14:19:03,738 —   Loading Killiney Kopitiam (foodpanda)…
+2026-08-02 14:19:32,524 —     Saved first 5000 chars of HTML to debug_page.html
+  [36/84] DEAD_NO_ITEMS    real_items=0    Killiney Kopitiam                        (Singapore/foodpanda)
+2026-08-02 14:19:33,805 —   Loading Din Tai Fung KL (GrabFood)…
+2026-08-02 14:19:47,482 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:20:05,578 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:20:25,063 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:20:29,909 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 180038 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:20:29,909 —   ✗ Din Tai Fung KL: 0 items — page did not yield menu data
+  [37/84] DEAD_NO_ITEMS    real_items=0    Din Tai Fung KL                          (Malaysia/grabfood)
+2026-08-02 14:20:31,240 —   Loading Ichiban Boshi KL (foodpanda)…
+  [38/84] BLOCKED          real_items=0    Ichiban Boshi KL                         (Malaysia/foodpanda)
+2026-08-02 14:20:42,435 —   Loading Pepper Lunch KL (foodpanda)…
+  [39/84] BLOCKED          real_items=0    Pepper Lunch KL                          (Malaysia/foodpanda)
+2026-08-02 14:20:53,863 —   Loading Ippudo KL (GrabFood)…
+2026-08-02 14:21:11,736 —   ✓ Ippudo KL: 47 items
+  [40/84] CONFIRMED_LIVE   real_items=47   Ippudo KL                                (Malaysia/grabfood)
+2026-08-02 14:21:12,920 —   Loading OldTown White Coffee (foodpanda)…
+  [41/84] BLOCKED          real_items=0    OldTown White Coffee                     (Malaysia/foodpanda)
+2026-08-02 14:21:22,022 —   Loading Restoran Yusoof Dan Zakhir (foodpanda)…
+  [42/84] BLOCKED          real_items=0    Restoran Yusoof Dan Zakhir               (Malaysia/foodpanda)
+2026-08-02 14:21:32,560 —   Loading Ah Weng Koh Hainan Tea (GrabFood)…
+2026-08-02 14:21:43,961 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:22:03,289 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:22:22,977 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:22:27,826 —     GrabFood returned 0 items. title='Food Delivery Malaysia - Promos & Menu | GrabFood MY'. HTML 182302 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nFrequently Searched\n4fingers Menu\nA&W Menu\nBoost Juice Menu\nBurger King Menu\nDin Tai Fung Menu\nDominos Pizza Delivery\nKyochon Menu\nMcdonalds Menu\nMyeongdong Topokki Menu\nNandos Menu\nPapparich Menu\nSecret Recipe Menu\nStarbucks Menu\nSubway Menu\nSushi King Menu\nTealive Menu\nTexas Chicken Menu\nThe Alley Menu\nchicken rice shop Menu\nCoffee Bean Menu\nPop'
+2026-08-02 14:22:27,826 —   ✗ Ah Weng Koh Hainan Tea: 0 items — page did not yield menu data
+  [43/84] DEAD_NO_ITEMS    real_items=0    Ah Weng Koh Hainan Tea                   (Malaysia/grabfood)
+2026-08-02 14:22:29,088 —   Loading Dragon-i (GrabFood)…
+2026-08-02 14:22:41,956 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:22:59,440 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:23:23,283 —   ✓ Dragon-i: 108 items
+  [44/84] CONFIRMED_LIVE   real_items=108  Dragon-i                                 (Malaysia/grabfood)
+2026-08-02 14:23:24,606 —   Loading Kluang Rail Coffee (foodpanda)…
+  [45/84] BLOCKED          real_items=0    Kluang Rail Coffee                       (Malaysia/foodpanda)
+2026-08-02 14:23:34,271 —   Loading Kim Lian Kee (foodpanda)…
+  [46/84] BLOCKED          real_items=0    Kim Lian Kee                             (Malaysia/foodpanda)
+2026-08-02 14:23:46,324 —   Loading Hameed Pata Mee Sotong (foodpanda)…
+  [47/84] BLOCKED          real_items=0    Hameed Pata Mee Sotong                   (Malaysia/foodpanda)
+2026-08-02 14:23:55,557 —   Loading Nasi Kandar Pelita (foodpanda)…
+  [48/84] BLOCKED          real_items=0    Nasi Kandar Pelita                       (Malaysia/foodpanda)
+2026-08-02 14:24:05,305 —   Loading Jerung Char Koay Teow (foodpanda)…
+  [49/84] BLOCKED          real_items=0    Jerung Char Koay Teow                    (Malaysia/foodpanda)
+2026-08-02 14:24:14,839 —   Loading Family Seafood (foodpanda)…
+  [50/84] BLOCKED          real_items=0    Family Seafood                           (Malaysia/foodpanda)
+2026-08-02 14:24:24,803 —   Loading XIANG BA LAO Chinese Food (GrabFood)…
+2026-08-02 14:24:36,595 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:24:55,101 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:25:13,909 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:25:18,776 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 176797 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nEN\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:25:18,776 —   ✗ XIANG BA LAO Chinese Food: 0 items — page did not yield menu data
+  [51/84] DEAD_NO_ITEMS    real_items=0    XIANG BA LAO Chinese Food                (Vietnam/grabfood)
+2026-08-02 14:25:20,106 —   Loading MAD ROOSTA Burgers & Grill (GrabFood)…
+2026-08-02 14:25:32,445 —     landing-page redirect on nav 1; re-warming + retry
+2026-08-02 14:25:50,017 —     landing-page redirect on nav 2; re-warming + retry
+2026-08-02 14:26:07,061 —     still on landing page after 3 nav attempts; giving up
+2026-08-02 14:26:11,922 —     GrabFood returned 0 items. title='Food Delivery Service: Promos & Menu | GrabFood VN | GrabFood VN'. HTML 176789 chars saved to debug_page.html. Body head: 'loading...\n\nLogin to search location\nLogin/Sign Up\nEN\nLogin to search location\nFrequently Searched\nPopular Cuisines\nAbout Grab\nSupport\nCountries with GrabFood\nIndonesiaSingaporePhilippinesMalaysiaVietnamThailandMyanmarCambodia\n© Grab 2026\nTerms of Service•Privacy Policy'
+2026-08-02 14:26:11,922 —   ✗ MAD ROOSTA Burgers & Grill: 0 items — page did not yield menu data
+  [52/84] DEAD_NO_ITEMS    real_items=0    MAD ROOSTA Burgers & Grill               (Vietnam/grabfood)
+2026-08-02 14:26:13,193 —   Loading Applebee's (direct)…
+2026-08-02 14:26:23,701 —   ✓ Applebee's: 1 items
+  [53/84] CONFIRMED_LIVE   real_items=1    Applebee's                               (United States/direct)
+2026-08-02 14:26:24,834 —   Loading Buffalo Wild Wings (direct)…
+2026-08-02 14:26:36,474 —     captured 3 XHR JSON responses
+2026-08-02 14:26:36,486 —   ✓ Buffalo Wild Wings: 2 items
+  [54/84] CONFIRMED_LIVE   real_items=2    Buffalo Wild Wings                       (United States/direct)
+2026-08-02 14:26:37,659 —   Loading Sonic Drive-In (direct)…
+  [55/84] BLOCKED          real_items=0    Sonic Drive-In                           (United States/direct)
+2026-08-02 14:26:46,978 —   Loading Olive Garden (direct)…
+  [56/84] BLOCKED          real_items=0    Olive Garden                             (United States/direct)
+2026-08-02 14:26:57,367 —   Loading IHOP (direct)…
+  [57/84] BLOCKED          real_items=0    IHOP                                     (United States/direct)
+2026-08-02 14:27:07,864 —   Loading Outback Steakhouse (direct)…
+  [58/84] BLOCKED          real_items=0    Outback Steakhouse                       (United States/direct)
+2026-08-02 14:27:17,751 —   Loading Wendy's (direct)…
+2026-08-02 14:27:29,488 —   ✗ Wendy's: 0 items — page did not yield menu data
+  [59/84] DEAD_NO_ITEMS    real_items=0    Wendy's                                  (United States/direct)
+2026-08-02 14:27:30,660 —   Loading Cava (direct)…
+  [60/84] BLOCKED          real_items=0    Cava                                     (United States/direct)
+2026-08-02 14:27:40,846 —   Loading Captain D's (direct)…
+  [61/84] BLOCKED          real_items=0    Captain D's                              (United States/direct)
+2026-08-02 14:27:53,527 —   Loading Zaxby's (direct)…
+  [62/84] BLOCKED          real_items=0    Zaxby's                                  (United States/direct)
+2026-08-02 14:27:55,190 —   Loading White Castle (direct)…
+2026-08-02 14:28:07,495 —   ✗ White Castle: 0 items — page did not yield menu data
+  [63/84] DEAD_NO_ITEMS    real_items=0    White Castle                             (United States/direct)
+2026-08-02 14:28:08,699 —   Loading Denny's (direct)…
+  [64/84] BLOCKED          real_items=0    Denny's                                  (United States/direct)
+2026-08-02 14:28:19,997 —   Loading Whataburger (direct)…
+2026-08-02 14:28:30,188 —   ✗ Whataburger: 0 items — page did not yield menu data
+  [65/84] DEAD_NO_ITEMS    real_items=0    Whataburger                              (United States/direct)
+2026-08-02 14:28:31,348 —   Loading Leon (direct)…
+2026-08-02 14:28:41,760 —   ✓ Leon: 5 items
+  [66/84] CONFIRMED_LIVE   real_items=5    Leon                                     (United Kingdom/direct)
+2026-08-02 14:28:42,921 —   Loading Bleecker Burger (direct)…
+2026-08-02 14:28:53,897 —   ✓ Bleecker Burger: 20 items
+  [67/84] CONFIRMED_LIVE   real_items=20   Bleecker Burger                          (United Kingdom/direct)
+2026-08-02 14:28:55,029 —   Loading Hoppers (direct)…
+2026-08-02 14:29:06,535 —     captured 6 XHR JSON responses
+2026-08-02 14:29:06,541 —     XHR yielded 16 candidate items
+2026-08-02 14:29:06,544 —   ✓ Hoppers: 16 items
+  [68/84] CONFIRMED_LIVE   real_items=16   Hoppers                                  (United Kingdom/direct)
+2026-08-02 14:29:07,749 —   Loading Nando's London (Deliveroo) (js generic)…
+2026-08-02 14:29:19,746 —   ✓ Nando's London (Deliveroo): 134 items
+  [69/84] CONFIRMED_LIVE   real_items=134  Nando's London (Deliveroo)               (United Kingdom/deliveroo)
+2026-08-02 14:29:20,892 —   Loading Wagamama London (Deliveroo) (js generic)…
+2026-08-02 14:29:32,530 —   ✓ Wagamama London (Deliveroo): 106 items
+  [70/84] CONFIRMED_LIVE   real_items=106  Wagamama London (Deliveroo)              (United Kingdom/deliveroo)
+2026-08-02 14:29:33,735 —   Loading Tayyabs Whitechapel (Deliveroo) (js generic)…
+2026-08-02 14:29:44,470 —   ✓ Tayyabs Whitechapel (Deliveroo): 78 items
+  [71/84] CONFIRMED_LIVE   real_items=78   Tayyabs Whitechapel (Deliveroo)          (United Kingdom/deliveroo)
+2026-08-02 14:29:45,606 —   Loading Pizza Pilgrims Soho (Deliveroo) (js generic)…
+2026-08-02 14:29:56,968 —   ✓ Pizza Pilgrims Soho (Deliveroo): 48 items
+  [72/84] CONFIRMED_LIVE   real_items=48   Pizza Pilgrims Soho (Deliveroo)          (United Kingdom/deliveroo)
+2026-08-02 14:29:58,110 —   Loading Dishoom Shoreditch (Deliveroo) (js generic)…
+2026-08-02 14:30:08,590 —   ✓ Dishoom Shoreditch (Deliveroo): 47 items
+  [73/84] CONFIRMED_LIVE   real_items=47   Dishoom Shoreditch (Deliveroo)           (United Kingdom/deliveroo)
+2026-08-02 14:30:09,746 —   Loading Pho Soho (Deliveroo) (js generic)…
+2026-08-02 14:30:21,584 —   ✓ Pho Soho (Deliveroo): 161 items
+  [74/84] CONFIRMED_LIVE   real_items=161  Pho Soho (Deliveroo)                     (United Kingdom/deliveroo)
+2026-08-02 14:30:22,743 —   Loading Pizza Pilgrims Camden (Deliveroo) (js generic)…
+2026-08-02 14:30:34,587 —   ✓ Pizza Pilgrims Camden (Deliveroo): 49 items
+  [75/84] CONFIRMED_LIVE   real_items=49   Pizza Pilgrims Camden (Deliveroo)        (United Kingdom/deliveroo)
+2026-08-02 14:30:35,727 —   Loading Dishoom King's Cross (Deliveroo) (js generic)…
+2026-08-02 14:30:45,275 —   ✓ Dishoom King's Cross (Deliveroo): 48 items
+  [76/84] CONFIRMED_LIVE   real_items=48   Dishoom King's Cross (Deliveroo)         (United Kingdom/deliveroo)
+2026-08-02 14:30:46,439 —   Loading Wagamama Camden (Deliveroo) (js generic)…
+2026-08-02 14:30:57,390 —   ✓ Wagamama Camden (Deliveroo): 106 items
+  [77/84] CONFIRMED_LIVE   real_items=106  Wagamama Camden (Deliveroo)              (United Kingdom/deliveroo)
+2026-08-02 14:30:58,639 —   Loading Burger & Lobster Soho (Deliveroo) (js generic)…
+2026-08-02 14:31:08,421 —   ✓ Burger & Lobster Soho (Deliveroo): 36 items
+  [78/84] CONFIRMED_LIVE   real_items=36   Burger & Lobster Soho (Deliveroo)        (United Kingdom/deliveroo)
+2026-08-02 14:31:09,554 —   Loading Nando's King's Cross (Deliveroo) (js generic)…
+2026-08-02 14:31:20,476 —   ✓ Nando's King's Cross (Deliveroo): 135 items
+  [79/84] CONFIRMED_LIVE   real_items=135  Nando's King's Cross (Deliveroo)         (United Kingdom/deliveroo)
+2026-08-02 14:31:21,632 —   Loading Yo Sushi London Bridge (Deliveroo) (js generic)…
+2026-08-02 14:31:33,182 —   ✓ Yo Sushi London Bridge (Deliveroo): 55 items
+  [80/84] CONFIRMED_LIVE   real_items=55   Yo Sushi London Bridge (Deliveroo)       (United Kingdom/deliveroo)
+2026-08-02 14:31:34,475 —   Loading Nando's Australia (direct)…
+2026-08-02 14:31:46,209 —     captured 6 XHR JSON responses
+2026-08-02 14:31:46,249 —     XHR yielded 41 candidate items
+2026-08-02 14:31:46,252 —   ✓ Nando's Australia: 41 items
+  [81/84] CONFIRMED_LIVE   real_items=41   Nando's Australia                        (Australia/direct)
+2026-08-02 14:31:47,416 —   Loading Oporto (direct)…
+2026-08-02 14:31:57,219 —     captured 5 XHR JSON responses
+2026-08-02 14:31:57,224 —   ✓ Oporto: 1 items
+  [82/84] CONFIRMED_LIVE   real_items=1    Oporto                                   (Australia/direct)
+2026-08-02 14:31:58,425 —   Loading Domino's AU (direct)…
+2026-08-02 14:32:07,314 —   ✓ Domino's AU: 1 items
+  [83/84] CONFIRMED_LIVE   real_items=1    Domino's AU                              (Australia/direct)
+2026-08-02 14:32:08,446 —   Loading Schnitz (direct)…
+2026-08-02 14:32:19,812 —   ✓ Schnitz: 1 items
+  [84/84] CONFIRMED_LIVE   real_items=1    Schnitz                                  (Australia/direct)
+
+=== Summary ===
+  BLOCKED          36
+  CONFIRMED_LIVE   28
+  DEAD_NO_ITEMS    20

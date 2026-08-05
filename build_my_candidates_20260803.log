@@ -1,0 +1,57 @@
+Pool before filtering: 543 distinct stores
+After raw-store-ID fallback filter: 390
+After grocery/convenience filter: 381
+After dedup against live_scraper.TARGETS: 380
+Live-probing top 50 by item_count...
+  [1/50] WRONG_PAGE     8P Concept Sdn Bhd - Taman Midah (grabfood-my item_count=396
+  [2/50] OK_TITLE_ONLY  Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [No item_count=370
+  [3/50] OK_TITLE_ONLY  Abang Adik Kopitiam - Bandar Menjalara (grabf item_count=368
+  [4/50] OK_TITLE_ONLY  Kafe Se'eh Sokmo - Taman Sri Gombak (grabfood item_count=306
+  [5/50] OK_TITLE_ONLY  Mee Tarik - Jalan Sultan (grabfood-my)        item_count=297
+  [6/50] OK_TITLE_ONLY  King Of Pizza - Taman Sri Rampai (grabfood-my item_count=253
+  [7/50] OK_TITLE_ONLY  KFC - Sungai Besi Toll DT (grabfood-my)       item_count=226
+  [8/50] OK_TITLE_ONLY  Abadi Cafeteria - TTDI (grabfood-my)          item_count=213
+  [9/50] OK_TITLE_ONLY  ABC Banana Leaf - Brickfields (grabfood-my)   item_count=200
+  [10/50] OK_TITLE_ONLY  Punjab Express Restaurant - Dataran C180 (gra item_count=200
+  [11/50] WRONG_PAGE     Farmasi Park@City - Damansara Utama (grabfood item_count=200
+  [12/50] WRONG_PAGE     Haider & Sons KLCC Mart - Vortex Suites (grab item_count=200
+  [13/50] OK_TITLE_ONLY  Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Ha item_count=200
+  [14/50] OK_TITLE_ONLY  Mr Naan & Mrs Idly Restaurant - Brickfields ( item_count=200
+  [15/50] WRONG_PAGE     Nasi Kandar Utara - Jalan Bangsar (grabfood-m item_count=200
+  [16/50] WRONG_PAGE     ABC Bistro Cafe (grabfood-my)                 item_count=199
+  [17/50] WRONG_PAGE     Hank's - The Gardens [Non-Halal] (grabfood-my item_count=199
+  [18/50] WRONG_PAGE     Moghul Mahal Restaurant - Brickfields (grabfo item_count=199
+  [19/50] WRONG_PAGE     Hua Wei Chinese Restaurant 华味 - Off Pudu [Non item_count=199
+  [20/50] WRONG_PAGE     21 Shopping Mart - Damansara Perdana (grabfoo item_count=198
+  [21/50] WRONG_PAGE     Hock Choon - Jalan Ampang (grabfood-my)       item_count=198
+  [22/50] WRONG_PAGE     Deli Cafe - Business Park (grabfood-my)       item_count=198
+  [23/50] WRONG_PAGE     Dindigul Thalappakatti - Brickfields (grabfoo item_count=193
+  [24/50] WRONG_PAGE     Chatto - Setapak (grabfood-my)                item_count=192
+  [25/50] WRONG_PAGE     Halab KL Beremi - Bukit Bintang (grabfood-my) item_count=191
+  [26/50] WRONG_PAGE     Hekaya Shamia Restaurant - Laman Baginda (gra item_count=191
+  [27/50] WRONG_PAGE     Metro Mart - Damansara Perdana (grabfood-my)  item_count=184
+  [28/50] WRONG_PAGE     Burger & Sushi (grabfood-my)                  item_count=183
+  [29/50] WRONG_PAGE     Lai Heng Mart - D'Alamanda (grabfood-my)      item_count=182
+  [30/50] WRONG_PAGE     DZ Burger Bangsar - Jalan Maarof (grabfood-my item_count=180
+  [31/50] WRONG_PAGE     KGB Gourmet Burgers - Bangsar (grabfood-my)   item_count=176
+  [32/50] WRONG_PAGE     Adult Food & Beverage - Bukit Damansara [Non- item_count=170
+  [33/50] WRONG_PAGE     Hometown Hainan Coffee - Berjaya Times Square item_count=170
+  [34/50] WRONG_PAGE     Hometown Hainan Coffee - Tropicana Avenue (gr item_count=170
+  [35/50] WRONG_PAGE     Lisette's - Jalan Kemuja (grabfood-my)        item_count=168
+  [36/50] WRONG_PAGE     ABC Food's Corner - Pantai Dalam (grabfood-my item_count=167
+  [37/50] WRONG_PAGE     Simply Thai - Taman Gembira [Non-Halal] (grab item_count=164
+  [38/50] WRONG_PAGE     MyeongDong Topokki - Pusat Niaga Metro Prima  item_count=162
+  [39/50] WRONG_PAGE     Kanna Curry House - Jalan Gasing (grabfood-my item_count=156
+  [40/50] WRONG_PAGE     Bachelor's Pizza Co. - Bangsar (grabfood-my)  item_count=153
+  [41/50] WRONG_PAGE     Cafe Kelab Golf Kuala Kangsar - Jalan Sultan  item_count=152
+  [42/50] WRONG_PAGE     Adult Food & Beverage - Bangsar [Non-Halal] ( item_count=151
+  [43/50] WRONG_PAGE     Addy Buang Burger Corner (grabfood-my)        item_count=149
+  [44/50] WRONG_PAGE     GEM Restaurant - Brickfields (grabfood-my)    item_count=149
+  [45/50] WRONG_PAGE     BMS Organics (Cafe) - Mid Valley (grabfood-my item_count=148
+  [46/50] WRONG_PAGE     McDonald's® - Mont Kiara 139 (grabfood-my)    item_count=147
+  [47/50] WRONG_PAGE     Epic Food Hall - Bangsar (grabfood-my)        item_count=146
+  [48/50] WRONG_PAGE     Muslim Mee Tarik Quill Residences - Wisma Buk item_count=146
+  [49/50] WRONG_PAGE     Husen Cafe - Brickfields (grabfood-my)        item_count=140
+  [50/50] WRONG_PAGE     Muslim Mee Tarik - Bukit Bintang (grabfood-my item_count=139
+
+11/50 passed live-probe -> candidates_my_grabfood.json

@@ -1,0 +1,44 @@
+Pool before filtering: 543 distinct stores
+After raw-store-ID fallback filter: 390
+After grocery/convenience filter: 381
+After dedup against live_scraper.TARGETS: 380
+Skipping first 10 ranked candidates already tested; probing remaining 370
+Existing confirmed in candidates_my_grabfood.json: 9
+Penalty sentinel: Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [Non-Halal] (grabfood-my)
+[11/380] DEAD_REDIRECTED  real_items=0    Farmasi Park@City - Damansara Utama (grabfood-my)            item_count_wayback=200
+[12/380] DEAD_REDIRECTED  real_items=0    Haider & Sons KLCC Mart - Vortex Suites (grabfood-my)        item_count_wayback=200
+[13/380] CONFIRMED_LIVE   real_items=200  Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Halal] (grabfood- item_count_wayback=200
+[14/380] CONFIRMED_LIVE   real_items=200  Mr Naan & Mrs Idly Restaurant - Brickfields (grabfood-my)    item_count_wayback=200
+[15/380] CONFIRMED_LIVE   real_items=192  Nasi Kandar Utara - Jalan Bangsar (grabfood-my)              item_count_wayback=200
+[16/380] CONFIRMED_LIVE   real_items=102  ABC Bistro Cafe (grabfood-my)                                item_count_wayback=199
+[17/380] DEAD_REDIRECTED  real_items=0    Hank's - The Gardens [Non-Halal] (grabfood-my)               item_count_wayback=199
+[18/380] CONFIRMED_LIVE   real_items=194  Moghul Mahal Restaurant - Brickfields (grabfood-my)          item_count_wayback=199
+[19/380] CONFIRMED_LIVE   real_items=199  Hua Wei Chinese Restaurant 华味 - Off Pudu [Non-Halal] (grabfo item_count_wayback=199
+[20/380] DEAD_REDIRECTED  real_items=0    21 Shopping Mart - Damansara Perdana (grabfood-my)           item_count_wayback=198
+[21/380] DEAD_REDIRECTED  real_items=0    Hock Choon - Jalan Ampang (grabfood-my)                      item_count_wayback=198
+[22/380] CONFIRMED_LIVE   real_items=96   Deli Cafe - Business Park (grabfood-my)                      item_count_wayback=198
+[23/380] CONFIRMED_LIVE   real_items=198  Dindigul Thalappakatti - Brickfields (grabfood-my)           item_count_wayback=193
+[24/380] CONFIRMED_LIVE   real_items=95   Chatto - Setapak (grabfood-my)                               item_count_wayback=192
+[25/380] CONFIRMED_LIVE   real_items=199  Halab KL Beremi - Bukit Bintang (grabfood-my)                item_count_wayback=191
+[26/380] CONFIRMED_LIVE   real_items=193  Hekaya Shamia Restaurant - Laman Baginda (grabfood-my)       item_count_wayback=191
+[27/380] DEAD_REDIRECTED  real_items=0    Metro Mart - Damansara Perdana (grabfood-my)                 item_count_wayback=184
+[28/380] CONFIRMED_LIVE   real_items=192  Burger & Sushi (grabfood-my)                                 item_count_wayback=183
+[29/380] DEAD_REDIRECTED  real_items=0    Lai Heng Mart - D'Alamanda (grabfood-my)                     item_count_wayback=182
+[30/380] CONFIRMED_LIVE   real_items=180  DZ Burger Bangsar - Jalan Maarof (grabfood-my)               item_count_wayback=180
+[31/380] CONFIRMED_LIVE   real_items=84   KGB Gourmet Burgers - Bangsar (grabfood-my)                  item_count_wayback=176
+[32/380] DEAD_REDIRECTED  real_items=0    Adult Food & Beverage - Bukit Damansara [Non-Halal] (grabfoo item_count_wayback=170
+[33/380] CONFIRMED_LIVE   real_items=175  Hometown Hainan Coffee - Berjaya Times Square (grabfood-my)  item_count_wayback=170
+[34/380] DEAD_REDIRECTED  real_items=0    Hometown Hainan Coffee - Tropicana Avenue (grabfood-my)      item_count_wayback=170
+[35/380] DEAD_REDIRECTED  real_items=0    Lisette's - Jalan Kemuja (grabfood-my)                       item_count_wayback=168
+[36/380] DEAD_REDIRECTED  real_items=0    ABC Food's Corner - Pantai Dalam (grabfood-my)               item_count_wayback=167
+[37/380] DEAD_REDIRECTED  real_items=0    Simply Thai - Taman Gembira [Non-Halal] (grabfood-my)        item_count_wayback=164
+[38/380] DEAD_REDIRECTED  real_items=0    MyeongDong Topokki - Pusat Niaga Metro Prima Kepong (grabfoo item_count_wayback=162
+Penalty guard: 5 consecutive DEAD_REDIRECTED; re-testing sentinel
+Penalty sentinel result: DEAD_REDIRECTED real_items=0
+
+Full MY retry summary
+processed_this_run=28
+new_confirmed_this_run=15
+total_confirmed=24
+fail_counts={'DEAD_REDIRECTED': 13, 'CONFIRMED_LIVE': 15}
+stopped_reason=penalty suspected: sentinel returned DEAD_REDIRECTED after 5 consecutive landing-page redirects

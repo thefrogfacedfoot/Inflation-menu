@@ -1,0 +1,26 @@
+Pool before filtering: 543 distinct stores
+After raw-store-ID fallback filter: 390
+After grocery/convenience filter: 381
+After dedup against live_scraper.TARGETS: 380
+Live-probing top 50 by item_count (warmup + real parser)...
+  [1/50] DEAD_REDIRECTED  real_items=0    8P Concept Sdn Bhd - Taman Midah (grabfood-my item_count_wayback=396
+  [2/50] CONFIRMED_LIVE   real_items=200  Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [No item_count_wayback=370
+  [3/50] CONFIRMED_LIVE   real_items=192  Abang Adik Kopitiam - Bandar Menjalara (grabf item_count_wayback=368
+  [4/50] CONFIRMED_LIVE   real_items=153  Kafe Se'eh Sokmo - Taman Sri Gombak (grabfood item_count_wayback=306
+  [5/50] CONFIRMED_LIVE   real_items=146  Mee Tarik - Jalan Sultan (grabfood-my)        item_count_wayback=297
+  [6/50] CONFIRMED_LIVE   real_items=134  King Of Pizza - Taman Sri Rampai (grabfood-my item_count_wayback=253
+  [7/50] CONFIRMED_LIVE   real_items=133  KFC - Sungai Besi Toll DT (grabfood-my)       item_count_wayback=226
+  [8/50] CONFIRMED_LIVE   real_items=120  Abadi Cafeteria - TTDI (grabfood-my)          item_count_wayback=213
+  [9/50] CONFIRMED_LIVE   real_items=199  ABC Banana Leaf - Brickfields (grabfood-my)   item_count_wayback=200
+  [10/50] DEAD_REDIRECTED  real_items=0    Punjab Express Restaurant - Dataran C180 (gra item_count_wayback=200
+  [11/50] DEAD_REDIRECTED  real_items=0    Farmasi Park@City - Damansara Utama (grabfood item_count_wayback=200
+  [12/50] DEAD_REDIRECTED  real_items=0    Haider & Sons KLCC Mart - Vortex Suites (grab item_count_wayback=200
+  [13/50] DEAD_REDIRECTED  real_items=0    Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Ha item_count_wayback=200
+  [14/50] DEAD_REDIRECTED  real_items=0    Mr Naan & Mrs Idly Restaurant - Brickfields ( item_count_wayback=200
+  [15/50] DEAD_REDIRECTED  real_items=0    Nasi Kandar Utara - Jalan Bangsar (grabfood-m item_count_wayback=200
+  [16/50] DEAD_REDIRECTED  real_items=0    ABC Bistro Cafe (grabfood-my)                 item_count_wayback=199
+  [17/50] DEAD_REDIRECTED  real_items=0    Hank's - The Gardens [Non-Halal] (grabfood-my item_count_wayback=199
+  [18/50] DEAD_REDIRECTED  real_items=0    Moghul Mahal Restaurant - Brickfields (grabfo item_count_wayback=199
+  [19/50] DEAD_REDIRECTED  real_items=0    Hua Wei Chinese Restaurant 华味 - Off Pudu [Non item_count_wayback=199
+  [20/50] DEAD_REDIRECTED  real_items=0    21 Shopping Mart - Damansara Perdana (grabfoo item_count_wayback=198
+  [21/50] DEAD_REDIRECTED  real_items=0    Hock Choon - Jalan Ampang (grabfood-my)       item_count_wayback=198

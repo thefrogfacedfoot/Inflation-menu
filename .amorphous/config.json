@@ -1,0 +1,38 @@
+{
+  "//": [
+    "Amorphous worktree config.",
+    "Use AMORPHOUS_ROOT_PATH for the repository root and AMORPHOUS_WORKTREE_PATH for the active worktree path.",
+    "scripts.setup runs after creating a worktree, scripts.archive runs before removing one.",
+    "preview.services is the source of truth for Preview terminals."
+  ],
+  "scripts": {
+    "setup": "([ -d \"$AMORPHOUS_ROOT_PATH/.vercel\" ] && cp -R \"$AMORPHOUS_ROOT_PATH/.vercel\" . || true) && pnpm install --prefer-offline",
+    "run": "",
+    "archive": ""
+  },
+  "preview": {
+    "services": {}
+  },
+  "example": {
+    "preview": {
+      "services": {
+        "backend": {
+          "port": 8000,
+          "run": "cd backend && uvicorn main:app --port $PORT"
+        },
+        "frontend": {
+          "port": 3000,
+          "run": "cd frontend && npm run dev",
+          "env": {
+            "VITE_API_URL": "$BACKEND_URL"
+          }
+        }
+      }
+    },
+    "scripts": {
+      "setup": "pnpm install",
+      "run": "pnpm run dev",
+      "archive": "echo \"Archive hook\""
+    }
+  }
+}

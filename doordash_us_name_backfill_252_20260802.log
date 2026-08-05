@@ -1,0 +1,702 @@
+DB backed up to /Users/erwenchen/Inflation-menu/uifpi.db.backup_pre_doordash_us_name_backfill_20260802_133650
+254 unreadable-name URL(s) to process (APPLY)
+[1/254] https://www.doordash.com/store/$0.55
+    before: 'junkbucket 555a48bd (doordash-us)'
+    after:  'Queen House (doordash-us)'
+[2/254] https://www.doordash.com/store/$0.99
+    no CDX snapshot found — skip
+[3/254] https://www.doordash.com/store/$1.30
+    before: 'junkbucket 51f99bda (doordash-us)'
+    after:  'Amarin Thai Cuisine (doordash-us)'
+[4/254] https://www.doordash.com/store/$1.39
+    before: 'junkbucket 75847fb5 (doordash-us)'
+    after:  'Ephesus (doordash-us)'
+[5/254] https://www.doordash.com/store/$1.44
+    before: 'junkbucket b171d001 (doordash-us)'
+    after:  'Crepevine (doordash-us)'
+[6/254] https://www.doordash.com/store/$1.49
+    JSON-LD Restaurant name not found — skip
+[7/254] https://www.doordash.com/store/$1.55
+    before: 'junkbucket f25e24f6 (doordash-us)'
+    after:  'Queen House (doordash-us)'
+[8/254] https://www.doordash.com/store/$1.60
+    before: 'junkbucket 2678e1f6 (doordash-us)'
+    after:  'Calafia Cafe (doordash-us)'
+[9/254] https://www.doordash.com/store/$1.67
+    before: 'junkbucket dd324dab (doordash-us)'
+    after:  'La Bodeguita Del Medio (doordash-us)'
+[10/254] https://www.doordash.com/store/$1.69
+    JSON-LD Restaurant name not found — skip
+[11/254] https://www.doordash.com/store/$1.72
+    JSON-LD Restaurant name not found — skip
+[12/254] https://www.doordash.com/store/$1.79
+    before: 'junkbucket 97098233 (doordash-us)'
+    after:  'Sultana (doordash-us)'
+[13/254] https://www.doordash.com/store/$1.90
+    before: 'junkbucket 16cd9934 (doordash-us)'
+    after:  'Taqueria Los Charros (doordash-us)'
+[14/254] https://www.doordash.com/store/$1.91
+    before: 'junkbucket ec261f66 (doordash-us)'
+    after:  'Coconuts (doordash-us)'
+[15/254] https://www.doordash.com/store/$1.95
+    before: 'junkbucket 67205eec (doordash-us)'
+    after:  'Fu Lam Mum (doordash-us)'
+[16/254] https://www.doordash.com/store/$10.09
+    before: 'junkbucket 6d6c9fee (doordash-us)'
+    after:  'LYFE Kitchen (doordash-us)'
+[17/254] https://www.doordash.com/store/$10.10
+    before: 'junkbucket 1e28c04f (doordash-us)'
+    after:  'Darbar (doordash-us)'
+[18/254] https://www.doordash.com/store/$10.15
+    before: 'junkbucket 28ddeea8 (doordash-us)'
+    after:  'Village Cheese House (doordash-us)'
+[19/254] https://www.doordash.com/store/$10.19
+    JSON-LD Restaurant name not found — skip
+[20/254] https://www.doordash.com/store/$10.20
+    before: 'junkbucket f4045a02 (doordash-us)'
+    after:  "Oren's Hummus (doordash-us)"
+[21/254] https://www.doordash.com/store/$10.26
+    before: 'junkbucket 915fcef1 (doordash-us)'
+    after:  'Taqueria la Bamba (doordash-us)'
+[22/254] https://www.doordash.com/store/$10.29
+    before: 'junkbucket 9cef07c0 (doordash-us)'
+    after:  'Ristorante Don Giovanni (doordash-us)'
+[23/254] https://www.doordash.com/store/$10.35
+    JSON-LD Restaurant name not found — skip
+[24/254] https://www.doordash.com/store/$10.37
+    before: 'junkbucket 56d2d227 (doordash-us)'
+    after:  'Fiesta Del Mar Too (doordash-us)'
+[25/254] https://www.doordash.com/store/$10.41
+    before: 'junkbucket 218dfd60 (doordash-us)'
+    after:  'Amber Indian Restaurant (doordash-us)'
+[26/254] https://www.doordash.com/store/$10.42
+    before: 'junkbucket 966e4cf8 (doordash-us)'
+    after:  'GRAVEYARD [DO NOT EDIT] (doordash-us)'
+[27/254] https://www.doordash.com/store/$10.45
+    before: 'junkbucket e23ea5a6 (doordash-us)'
+    after:  'Blue Line Pizza (doordash-us)'
+[28/254] https://www.doordash.com/store/$10.47
+    before: 'junkbucket b2e721fa (doordash-us)'
+    after:  'Mayfield Bakery & Cafe (doordash-us)'
+[29/254] https://www.doordash.com/store/$10.49
+    JSON-LD Restaurant name not found — skip
+[30/254] https://www.doordash.com/store/$10.59
+    before: 'junkbucket 535fa277 (doordash-us)'
+    after:  'Spice Kit (doordash-us)'
+[31/254] https://www.doordash.com/store/$10.60
+    before: 'junkbucket 3aa8254e (doordash-us)'
+    after:  'Calafia Cafe (doordash-us)'
+[32/254] https://www.doordash.com/store/$10.61
+    before: 'junkbucket 34c23e44 (doordash-us)'
+    after:  'Famous Toastery Tega Cay (doordash-us)'
+[33/254] https://www.doordash.com/store/$10.65
+    before: 'junkbucket c87e03cf (doordash-us)'
+    after:  'Joya (doordash-us)'
+[34/254] https://www.doordash.com/store/$10.67
+    before: 'junkbucket fdc1215d (doordash-us)'
+    after:  'La Bodeguita Del Medio (doordash-us)'
+[35/254] https://www.doordash.com/store/$10.70
+    before: 'junkbucket c4384460 (doordash-us)'
+    after:  'Left Bank (doordash-us)'
+[36/254] https://www.doordash.com/store/$10.72
+    JSON-LD Restaurant name not found — skip
+[37/254] https://www.doordash.com/store/$10.79
+    before: 'junkbucket c33ed1c9 (doordash-us)'
+    after:  'Sultana (doordash-us)'
+[38/254] https://www.doordash.com/store/$10.80
+    before: 'junkbucket 9e3cd00c (doordash-us)'
+    after:  'Carpaccio (doordash-us)'
+[39/254] https://www.doordash.com/store/$10.85
+    before: 'junkbucket 88cd59ec (doordash-us)'
+    after:  'Mandarin Roots (doordash-us)'
+[40/254] https://www.doordash.com/store/$10.95
+    before: 'junkbucket 1d06ca83 (doordash-us)'
+    after:  'Fu Lam Mum (doordash-us)'
+[41/254] https://www.doordash.com/store/$10.96
+    JSON-LD Restaurant name not found — skip
+[42/254] https://www.doordash.com/store/$107.49
+    JSON-LD Restaurant name not found — skip
+[43/254] https://www.doordash.com/store/$11.04
+    before: 'junkbucket bbb5e094 (doordash-us)'
+    after:  'Cafe 220 (doordash-us)'
+[44/254] https://www.doordash.com/store/$11.15
+    before: 'junkbucket bd4fa205 (doordash-us)'
+    after:  'Village Cheese House (doordash-us)'
+[45/254] https://www.doordash.com/store/$11.17
+    before: 'junkbucket 5ca40c83 (doordash-us)'
+    after:  'Jupiter (Shattuck Ave) (doordash-us)'
+[46/254] https://www.doordash.com/store/$11.24
+    before: 'junkbucket ff549fce (doordash-us)'
+    after:  "Pluto's (doordash-us)"
+[47/254] https://www.doordash.com/store/$11.32
+    before: 'junkbucket c460311f (doordash-us)'
+    after:  'QBB (doordash-us)'
+[48/254] https://www.doordash.com/store/$11.39
+    before: 'junkbucket 44ee5318 (doordash-us)'
+    after:  'Ephesus (doordash-us)'
+[49/254] https://www.doordash.com/store/$11.61
+    before: 'junkbucket e220b3c3 (doordash-us)'
+    after:  'Famous Toastery Tega Cay (doordash-us)'
+[50/254] https://www.doordash.com/store/$11.72
+    JSON-LD Restaurant name not found — skip
+[51/254] https://www.doordash.com/store/$11.80
+    before: 'junkbucket fddab8df (doordash-us)'
+    after:  'Carpaccio (doordash-us)'
+[52/254] https://www.doordash.com/store/$11.85
+    before: 'junkbucket 875c2f43 (doordash-us)'
+    after:  'Mandarin Roots (doordash-us)'
+[53/254] https://www.doordash.com/store/$11.99
+    JSON-LD Restaurant name not found — skip
+[54/254] https://www.doordash.com/store/$110.99
+    JSON-LD Restaurant name not found — skip
+[55/254] https://www.doordash.com/store/$113.79
+    before: 'junkbucket 36b68dfb (doordash-us)'
+    after:  'Sultana (doordash-us)'
+[56/254] https://www.doordash.com/store/$114.75
+    before: 'junkbucket 36fa3938 (doordash-us)'
+    after:  'Rose International Market (doordash-us)'
+[57/254] https://www.doordash.com/store/$115.69
+    before: 'junkbucket 65483fdc (doordash-us)'
+    after:  'GRAVEYARD [DO NOT EDIT] (doordash-us)'
+[58/254] https://www.doordash.com/store/$116.99
+    JSON-LD Restaurant name not found — skip
+[59/254] https://www.doordash.com/store/$12.10
+    before: 'junkbucket 884f39b6 (doordash-us)'
+    after:  'Darbar (doordash-us)'
+[60/254] https://www.doordash.com/store/$12.18
+    before: 'junkbucket 61dce43f (doordash-us)'
+    after:  'Mediterranean Wraps (doordash-us)'
+[61/254] https://www.doordash.com/store/$12.21
+    before: 'junkbucket e4b06a9a (doordash-us)'
+    after:  'Bistro Maxine (doordash-us)'
+[62/254] https://www.doordash.com/store/$12.49
+    JSON-LD Restaurant name not found — skip
+[63/254] https://www.doordash.com/store/$12.65
+    before: 'junkbucket 726e8bc8 (doordash-us)'
+    after:  'Joya (doordash-us)'
+[64/254] https://www.doordash.com/store/$12.75
+    before: 'junkbucket c2625b5a (doordash-us)'
+    after:  'Rose International Market (doordash-us)'
+[65/254] https://www.doordash.com/store/$12.80
+    before: 'junkbucket da942b01 (doordash-us)'
+    after:  'Carpaccio (doordash-us)'
+[66/254] https://www.doordash.com/store/$12.87
+    before: 'junkbucket d8dbc4d2 (doordash-us)'
+    after:  'Shana Thai (doordash-us)'
+[67/254] https://www.doordash.com/store/$12.93
+    JSON-LD Restaurant name not found — skip
+[68/254] https://www.doordash.com/store/$12.94
+    before: 'junkbucket 1989c915 (doordash-us)'
+    after:  'Three Seasons (doordash-us)'
+[69/254] https://www.doordash.com/store/$12.99
+    JSON-LD Restaurant name not found — skip
+[70/254] https://www.doordash.com/store/$13.08
+    before: 'junkbucket 50e40fbc (doordash-us)'
+    after:  'Sprout Cafe (doordash-us)'
+[71/254] https://www.doordash.com/store/$13.11
+    before: 'junkbucket b9e6fa28 (doordash-us)'
+    after:  "Oren's Hummus (doordash-us)"
+[72/254] https://www.doordash.com/store/$13.19
+    JSON-LD Restaurant name not found — skip
+[73/254] https://www.doordash.com/store/$13.20
+    before: 'junkbucket e058f516 (doordash-us)'
+    after:  "Oren's Hummus (doordash-us)"
+[74/254] https://www.doordash.com/store/$13.34
+    before: 'junkbucket fecd1ff3 (doordash-us)'
+    after:  'Vaso Azzurro (doordash-us)'
+[75/254] https://www.doordash.com/store/$13.38
+    before: 'junkbucket 161cf602 (doordash-us)'
+    after:  'Cascal (doordash-us)'
+[76/254] https://www.doordash.com/store/$13.48
+    before: 'junkbucket 4d828a91 (doordash-us)'
+    after:  'Da Sichuan Bistro (doordash-us)'
+[77/254] https://www.doordash.com/store/$13.49
+    JSON-LD Restaurant name not found — skip
+[78/254] https://www.doordash.com/store/$13.53
+    before: 'junkbucket 6af318a9 (doordash-us)'
+    after:  'Terun (doordash-us)'
+[79/254] https://www.doordash.com/store/$13.58
+    before: 'junkbucket f8e7f20c (doordash-us)'
+    after:  'Cafe Brioche (doordash-us)'
+[80/254] https://www.doordash.com/store/$13.64
+    before: 'junkbucket 92126aa3 (doordash-us)'
+    after:  'Bushido Izakaya Restaurant (doordash-us)'
+[81/254] https://www.doordash.com/store/$13.79
+    JSON-LD Restaurant name not found — skip
+[82/254] https://www.doordash.com/store/$13.80
+    before: 'junkbucket 2b9aaa59 (doordash-us)'
+    after:  'Carpaccio (doordash-us)'
+[83/254] https://www.doordash.com/store/$13.94
+    before: 'junkbucket 48433d6e (doordash-us)'
+    after:  'Three Seasons (doordash-us)'
+[84/254] https://www.doordash.com/store/$13.98
+    before: 'junkbucket 9d24721c (doordash-us)'
+    after:  'The Counter Burger (doordash-us)'
+[85/254] https://www.doordash.com/store/$13.99
+    JSON-LD Restaurant name not found — skip
+[86/254] https://www.doordash.com/store/$130.99
+    JSON-LD Restaurant name not found — skip
+[87/254] https://www.doordash.com/store/$135.30
+    before: 'junkbucket bb589fde (doordash-us)'
+    after:  'Amarin Thai Cuisine (doordash-us)'
+[88/254] https://www.doordash.com/store/$136.99
+    JSON-LD Restaurant name not found — skip
+[89/254] https://www.doordash.com/store/$14.03
+    before: 'junkbucket 41dafe0a (doordash-us)'
+    after:  'Curry Up Now (doordash-us)'
+[90/254] https://www.doordash.com/store/$14.12
+    before: 'junkbucket 81541856 (doordash-us)'
+    after:  'Asian Box (doordash-us)'
+[91/254] https://www.doordash.com/store/$14.28
+    before: 'junkbucket 9b5395c1 (doordash-us)'
+    after:  'Bangkok Cuisine (doordash-us)'
+[92/254] https://www.doordash.com/store/$14.49
+    JSON-LD Restaurant name not found — skip
+[93/254] https://www.doordash.com/store/$14.58
+    before: 'junkbucket 15f14897 (doordash-us)'
+    after:  'Cafe Brioche (doordash-us)'
+[94/254] https://www.doordash.com/store/$14.64
+    before: 'junkbucket c15d1989 (doordash-us)'
+    after:  'Bushido Izakaya Restaurant (doordash-us)'
+[95/254] https://www.doordash.com/store/$14.87
+    before: 'junkbucket 84891139 (doordash-us)'
+    after:  'Shana Thai (doordash-us)'
+[96/254] https://www.doordash.com/store/$14.88
+    before: 'junkbucket 2ea624f5 (doordash-us)'
+    after:  'The Sandwich Spot (doordash-us)'
+[97/254] https://www.doordash.com/store/$14.99
+    JSON-LD Restaurant name not found — skip
+[98/254] https://www.doordash.com/store/$15.47
+    before: 'junkbucket 48664bb3 (doordash-us)'
+    after:  'Mayfield Bakery & Cafe (doordash-us)'
+[99/254] https://www.doordash.com/store/$15.49
+    JSON-LD Restaurant name not found — skip
+[100/254] https://www.doordash.com/store/$15.60
+    before: 'junkbucket e3d0a155 (doordash-us)'
+    after:  'Calafia Cafe (doordash-us)'
+[101/254] https://www.doordash.com/store/$15.63
+    before: 'junkbucket aa598735 (doordash-us)'
+    after:  'Fuki Sushi (doordash-us)'
+[102/254] https://www.doordash.com/store/$15.75
+    before: 'junkbucket eec842b4 (doordash-us)'
+    after:  'Rose International Market (doordash-us)'
+[103/254] https://www.doordash.com/store/$15.99
+    JSON-LD Restaurant name not found — skip
+[104/254] https://www.doordash.com/store/$150-fresh-pizza-new-york-1214701/
+    before: 'junkbucket 4a600cee (doordash-us)'
+    after:  '$1.50 Fresh Pizza (doordash-us)'
+[105/254] https://www.doordash.com/store/$150-fresh-pizza-new-york-1227820/
+    before: 'junkbucket fc23864b (doordash-us)'
+    after:  '$1.50 Fresh Pizza (doordash-us)'
+[106/254] https://www.doordash.com/store/$157.75
+    before: 'junkbucket dc2cb405 (doordash-us)'
+    after:  'Rose International Market (doordash-us)'
+[107/254] https://www.doordash.com/store/$16.09
+    before: 'junkbucket 4be5985f (doordash-us)'
+    after:  'LYFE Kitchen (doordash-us)'
+[108/254] https://www.doordash.com/store/$16.12
+    before: 'junkbucket dde63259 (doordash-us)'
+    after:  'Asian Box (doordash-us)'
+[109/254] https://www.doordash.com/store/$16.20
+    before: 'junkbucket c0333154 (doordash-us)'
+    after:  "Oren's Hummus (doordash-us)"
+[110/254] https://www.doordash.com/store/$16.49
+    JSON-LD Restaurant name not found — skip
+[111/254] https://www.doordash.com/store/$16.98
+    before: 'junkbucket ecc6188f (doordash-us)'
+    after:  'The Counter Burger (doordash-us)'
+[112/254] https://www.doordash.com/store/$16.99
+    JSON-LD Restaurant name not found — skip
+[113/254] https://www.doordash.com/store/$168.75
+    before: 'junkbucket 81fb58dd (doordash-us)'
+    after:  'Rose International Market (doordash-us)'
+[114/254] https://www.doordash.com/store/$17.42
+    JSON-LD Restaurant name not found — skip
+[115/254] https://www.doordash.com/store/$17.49
+    JSON-LD Restaurant name not found — skip
+[116/254] https://www.doordash.com/store/$17.65
+    before: 'junkbucket c900c8db (doordash-us)'
+    after:  'Joya (doordash-us)'
+[117/254] https://www.doordash.com/store/$17.98
+    before: 'junkbucket 714c8de3 (doordash-us)'
+    after:  'The Counter Burger (doordash-us)'
+[118/254] https://www.doordash.com/store/$17.99
+    JSON-LD Restaurant name not found — skip
+[119/254] https://www.doordash.com/store/$175.75
+    before: 'junkbucket 3689618d (doordash-us)'
+    after:  'Rose International Market (doordash-us)'
+[120/254] https://www.doordash.com/store/$18.39
+    before: 'junkbucket 98ebb933 (doordash-us)'
+    after:  'Ephesus (doordash-us)'
+[121/254] https://www.doordash.com/store/&bagel-new-york-shop-sterling-34954379/73502546/
+    before: '73502546 (doordash-us)'
+    after:  '&BAGEL NEW YORK SHOP (doordash-us)'
+[122/254] https://www.doordash.com/store/100001/
+    JSON-LD Restaurant name not found — skip
+[123/254] https://www.doordash.com/store/100007/
+    before: '100007 (doordash-us)'
+    after:  'Pegasus Greek Restaurant Calgary (doordash-us)'
+[124/254] https://www.doordash.com/store/100121/
+    before: '100121 (doordash-us)'
+    after:  'Buffalo Wild Wings (doordash-us)'
+[125/254] https://www.doordash.com/store/100122/?utm_source=partner-link&utm_medium=websit
+    JSON-LD Restaurant name not found — skip
+[126/254] https://www.doordash.com/store/100124/
+    before: '100124 (doordash-us)'
+    after:  'Buffalo Wild Wings (doordash-us)'
+[127/254] https://www.doordash.com/store/100180/
+    before: '100180 (doordash-us)'
+    after:  'Buffalo Wild Wings (doordash-us)'
+[128/254] https://www.doordash.com/store/1001905/
+    before: '1001905 (doordash-us)'
+    after:  'William Cavins Restaurant (doordash-us)'
+[129/254] https://www.doordash.com/store/1002030/
+    before: '1002030 (doordash-us)'
+    after:  'Chang An Chinese Restaurant (doordash-us)'
+[130/254] https://www.doordash.com/store/1002173/?utm_source=partner-link&utm_medium=websi
+    before: '1002173 (doordash-us)'
+    after:  'La Piazzetta (doordash-us)'
+[131/254] https://www.doordash.com/store/100218/
+    before: '100218 (doordash-us)'
+    after:  'Masala Bhavan Indian Restaurant (doordash-us)'
+[132/254] https://www.doordash.com/store/100286/
+    before: '100286 (doordash-us)'
+    after:  'Craft Beer Market (doordash-us)'
+[133/254] https://www.doordash.com/store/1003/
+    before: '1003 (doordash-us)'
+    after:  'J Nichols (doordash-us)'
+[134/254] https://www.doordash.com/store/100312/
+    before: '100312 (doordash-us)'
+    after:  'Globefish Sushi & Izakaya (doordash-us)'
+[135/254] https://www.doordash.com/store/100420/
+    before: '100420 (doordash-us)'
+    after:  "Portillo's (doordash-us)"
+[136/254] https://www.doordash.com/store/10048/
+    before: '10048 (doordash-us)'
+    after:  'TGI Fridays (doordash-us)'
+[137/254] https://www.doordash.com/store/10049/
+    before: '10049 (doordash-us)'
+    after:  'TGI Fridays (doordash-us)'
+[138/254] https://www.doordash.com/store/1005043/
+    before: '1005043 (doordash-us)'
+    after:  'Subway (doordash-us)'
+[139/254] https://www.doordash.com/store/1005070/
+    before: '1005070 (doordash-us)'
+    after:  'Subway (doordash-us)'
+[140/254] https://www.doordash.com/store/10051/
+    before: '10051 (doordash-us)'
+    after:  'TGI Fridays (doordash-us)'
+[141/254] https://www.doordash.com/store/1005394/
+    before: '1005394 (doordash-us)'
+    after:  'A&W Canada (doordash-us)'
+[142/254] https://www.doordash.com/store/1005396/
+    before: '1005396 (doordash-us)'
+    after:  'Milestones Grill + Bar (doordash-us)'
+[143/254] https://www.doordash.com/store/1005574/
+    before: '1005574 (doordash-us)'
+    after:  'Vegas Diner & Restaurant (doordash-us)'
+[144/254] https://www.doordash.com/store/1005717/
+    before: '1005717 (doordash-us)'
+    after:  'Turismo Restaurant (doordash-us)'
+[145/254] https://www.doordash.com/store/1005819/
+    before: '1005819 (doordash-us)'
+    after:  "Betty's Burgers (doordash-us)"
+[146/254] https://www.doordash.com/store/1005893/
+    JSON-LD Restaurant name not found — skip
+[147/254] https://www.doordash.com/store/1005914/
+    JSON-LD Restaurant name not found — skip
+[148/254] https://www.doordash.com/store/100661/
+    before: '100661 (doordash-us)'
+    after:  "Steak 'n Shake (doordash-us)"
+[149/254] https://www.doordash.com/store/1006832/
+    before: '1006832 (doordash-us)'
+    after:  'Good Friends Chinese Restaurant (doordash-us)'
+[150/254] https://www.doordash.com/store/100688/
+    before: '100688 (doordash-us)'
+    after:  'Buffalo Wild Wings (doordash-us)'
+[151/254] https://www.doordash.com/store/100705/
+    before: '100705 (doordash-us)'
+    after:  'Red Lobster (doordash-us)'
+[152/254] https://www.doordash.com/store/1007202/
+    before: '1007202 (doordash-us)'
+    after:  'Quiznos By Ghost Kitchens (doordash-us)'
+[153/254] https://www.doordash.com/store/1007222/
+    before: '1007222 (doordash-us)'
+    after:  'The Cheesecake Factory Bakery by Ghost Kitchens (doordash-us)'
+[154/254] https://www.doordash.com/store/1007228/?utm_source=partner-link&utm_medium=websi
+    before: '1007228 (doordash-us)'
+    after:  'New York Fries (doordash-us)'
+[155/254] https://www.doordash.com/store/1007270/
+    before: '1007270 (doordash-us)'
+    after:  "Fazoli's (doordash-us)"
+[156/254] https://www.doordash.com/store/100729/
+    before: '100729 (doordash-us)'
+    after:  'California Pizza Kitchen (doordash-us)'
+[157/254] https://www.doordash.com/store/1007344
+    before: '1007344 (doordash-us)'
+    after:  "Church's Chicken (doordash-us)"
+[158/254] https://www.doordash.com/store/1007346/?utm_source=partner-link&utm_medium=websi
+    JSON-LD Restaurant name not found — skip
+[159/254] https://www.doordash.com/store/1007374/
+    before: '1007374 (doordash-us)'
+    after:  "Jalisco's Mexican Grill Restaurant (doordash-us)"
+[160/254] https://www.doordash.com/store/1007380/
+    JSON-LD Restaurant name not found — skip
+[161/254] https://www.doordash.com/store/1007382/
+    JSON-LD Restaurant name not found — skip
+[162/254] https://www.doordash.com/store/1007384/
+    before: '1007384 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[163/254] https://www.doordash.com/store/1007387/
+    before: '1007387 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[164/254] https://www.doordash.com/store/1007388/
+    before: '1007388 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[165/254] https://www.doordash.com/store/1007392/
+    JSON-LD Restaurant name not found — skip
+[166/254] https://www.doordash.com/store/1007395/
+    before: '1007395 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[167/254] https://www.doordash.com/store/1007397/
+    before: '1007397 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[168/254] https://www.doordash.com/store/1007400/
+    before: '1007400 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[169/254] https://www.doordash.com/store/1007403/
+    before: '1007403 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[170/254] https://www.doordash.com/store/1007405/
+    before: '1007405 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[171/254] https://www.doordash.com/store/1007407/
+    JSON-LD Restaurant name not found — skip
+[172/254] https://www.doordash.com/store/1007410/
+    before: '1007410 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[173/254] https://www.doordash.com/store/1007412/
+    before: '1007412 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[174/254] https://www.doordash.com/store/1007414/
+    JSON-LD Restaurant name not found — skip
+[175/254] https://www.doordash.com/store/1007417/
+    JSON-LD Restaurant name not found — skip
+[176/254] https://www.doordash.com/store/1007418/
+    before: '1007418 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[177/254] https://www.doordash.com/store/1007419/
+    JSON-LD Restaurant name not found — skip
+[178/254] https://www.doordash.com/store/1007430/
+    before: '1007430 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[179/254] https://www.doordash.com/store/1007435/
+    before: '1007435 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[180/254] https://www.doordash.com/store/1007438/
+    before: '1007438 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[181/254] https://www.doordash.com/store/1007441/
+    JSON-LD Restaurant name not found — skip
+[182/254] https://www.doordash.com/store/1007447/
+    JSON-LD Restaurant name not found — skip
+[183/254] https://www.doordash.com/store/1007453/
+    before: '1007453 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[184/254] https://www.doordash.com/store/1007457/
+    before: '1007457 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[185/254] https://www.doordash.com/store/1007459/
+    before: '1007459 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[186/254] https://www.doordash.com/store/1007462/
+    before: '1007462 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[187/254] https://www.doordash.com/store/1007463/
+    before: '1007463 (doordash-us)'
+    after:  'A&W Restaurant (doordash-us)'
+[188/254] https://www.doordash.com/store/1007465/
+    JSON-LD Restaurant name not found — skip
+[189/254] https://www.doordash.com/store/1007472/
+    JSON-LD Restaurant name not found — skip
+[190/254] https://www.doordash.com/store/1007542/
+    before: '1007542 (doordash-us)'
+    after:  'Checkers (doordash-us)'
+[191/254] https://www.doordash.com/store/1007613/
+    before: '1007613 (doordash-us)'
+    after:  'Restaurant La Esperanza (doordash-us)'
+[192/254] https://www.doordash.com/store/1007813/
+    JSON-LD Restaurant name not found — skip
+[193/254] https://www.doordash.com/store/1008008/
+    before: '1008008 (doordash-us)'
+    after:  'Dallastown Family Restaurant (doordash-us)'
+[194/254] https://www.doordash.com/store/1008261/
+    before: '1008261 (doordash-us)'
+    after:  "Joe's Chicken and Waffles (doordash-us)"
+[195/254] https://www.doordash.com/store/1008268/
+    before: '1008268 (doordash-us)'
+    after:  'Rockaway Roasters (doordash-us)'
+[196/254] https://www.doordash.com/store/1008451/
+    JSON-LD Restaurant name not found — skip
+[197/254] https://www.doordash.com/store/100848/
+    before: '100848 (doordash-us)'
+    after:  'Chick-fil-A (doordash-us)'
+[198/254] https://www.doordash.com/store/1008514/
+    before: '1008514 (doordash-us)'
+    after:  "King's Noodle Restaurant 富豪面家 (doordash-us)"
+[199/254] https://www.doordash.com/store/100854/
+    before: '100854 (doordash-us)'
+    after:  "Bad Daddy's Burger Bar (doordash-us)"
+[200/254] https://www.doordash.com/store/100894/
+    before: '100894 (doordash-us)'
+    after:  'Buffalo Wild Wings (doordash-us)'
+[201/254] https://www.doordash.com/store/1008950/
+    before: '1008950 (doordash-us)'
+    after:  'Burger King (doordash-us)'
+[202/254] https://www.doordash.com/store/100897/
+    before: '100897 (doordash-us)'
+    after:  'Buffalo Wild Wings (doordash-us)'
+[203/254] https://www.doordash.com/store/1009194?event_type=autocomplete&pickup=false
+    before: '1009194 (doordash-us)'
+    after:  'Matcha Cafe Maiko (doordash-us)'
+[204/254] https://www.doordash.com/store/100933/
+    before: '100933 (doordash-us)'
+    after:  'Redheads Japa Cafe (doordash-us)'
+[205/254] https://www.doordash.com/store/100933?cursor=eyJzdG9yZV92ZXJ0aWNhbF9pZCI6bnVsbCw
+    before: '100933 (doordash-us)'
+    after:  'Redheads Japa Cafe (doordash-us)'
+[206/254] https://www.doordash.com/store/1009385/
+    JSON-LD Restaurant name not found — skip
+[207/254] https://www.doordash.com/store/1009413/
+    JSON-LD Restaurant name not found — skip
+[208/254] https://www.doordash.com/store/100970/
+    before: '100970 (doordash-us)'
+    after:  'Diamond Knot (doordash-us)'
+[209/254] https://www.doordash.com/store/101004/
+    before: '101004 (doordash-us)'
+    after:  'The Egg & Us (doordash-us)'
+[210/254] https://www.doordash.com/store/101033/?utm_source=partner-link&utm_medium=websit
+    JSON-LD Restaurant name not found — skip
+[211/254] https://www.doordash.com/store/101041/?cursor=eyJzZWFyY2hfaXRlbV9jYXJvdXNlbF9jdX
+    before: '101041 (doordash-us)'
+    after:  'The Cheesecake Factory (doordash-us)'
+[212/254] https://www.doordash.com/store/101041/?cursor=eyJzZWFyY2hfaXRlbV9jYXJvdXNlbF9jdX
+    before: '101041 (doordash-us)'
+    after:  'The Cheesecake Factory (doordash-us)'
+[213/254] https://www.doordash.com/store/101056/
+    before: '101056 (doordash-us)'
+    after:  'A&W Canada (doordash-us)'
+[214/254] https://www.doordash.com/store/1010906/
+    JSON-LD Restaurant name not found — skip
+[215/254] https://www.doordash.com/store/1011308
+    before: '1011308 (doordash-us)'
+    after:  'Pita Pit (doordash-us)'
+[216/254] https://www.doordash.com/store/1011327/
+    before: '1011327 (doordash-us)'
+    after:  "Paschal's Restaurant (doordash-us)"
+[217/254] https://www.doordash.com/store/1011490/
+    JSON-LD Restaurant name not found — skip
+[218/254] https://www.doordash.com/store/1012005/
+    before: '1012005 (doordash-us)'
+    after:  'Casa Mexicana Restaurante (doordash-us)'
+[219/254] https://www.doordash.com/store/1012107/
+    before: '1012107 (doordash-us)'
+    after:  'El Baron Restaurant Salvadorean and Mexican Food (doordash-us)'
+[220/254] https://www.doordash.com/store/1012525/
+    before: '1012525 (doordash-us)'
+    after:  'Fryn’ Pan (doordash-us)'
+[221/254] https://www.doordash.com/store/101256/
+    before: '101256 (doordash-us)'
+    after:  'Bonefish Grill (doordash-us)'
+[222/254] https://www.doordash.com/store/1012585/
+    JSON-LD Restaurant name not found — skip
+[223/254] https://www.doordash.com/store/1012682/?utm_campaign=1012682&utm_content=red-xtr
+    before: '1012682 (doordash-us)'
+    after:  "Darcy's Pub (doordash-us)"
+[224/254] https://www.doordash.com/store/1012823/
+    before: '1012823 (doordash-us)'
+    after:  'La Leyenda Authentic Mexican Restaurant (doordash-us)'
+[225/254] https://www.doordash.com/store/1013162/
+    before: '1013162 (doordash-us)'
+    after:  'The Bamboo House (doordash-us)'
+[226/254] https://www.doordash.com/store/1013438/
+    before: '1013438 (doordash-us)'
+    after:  'Thai Quality Restaurant (doordash-us)'
+[227/254] https://www.doordash.com/store/1014204/
+    JSON-LD Restaurant name not found — skip
+[228/254] https://www.doordash.com/store/101433/
+    before: '101433 (doordash-us)'
+    after:  'Meaza Restaurant (doordash-us)'
+[229/254] https://www.doordash.com/store/1014671
+    before: '1014671 (doordash-us)'
+    after:  "Original Joe's (doordash-us)"
+[230/254] https://www.doordash.com/store/1015381/
+    JSON-LD Restaurant name not found — skip
+[231/254] https://www.doordash.com/store/1015760/
+    before: '1015760 (doordash-us)'
+    after:  "Kim's Teriyaki (doordash-us)"
+[232/254] https://www.doordash.com/store/101583/
+    before: '101583 (doordash-us)'
+    after:  'Haven Restaurant and Lounge (doordash-us)'
+[233/254] https://www.doordash.com/store/1017517/
+    JSON-LD Restaurant name not found — skip
+[234/254] https://www.doordash.com/store/101820/
+    before: '101820 (doordash-us)'
+    after:  'Minami Sushi (doordash-us)'
+[235/254] https://www.doordash.com/store/101885/
+    before: '101885 (doordash-us)'
+    after:  'Pelton Cafe (doordash-us)'
+[236/254] https://www.doordash.com/store/101919/
+    before: '101919 (doordash-us)'
+    after:  "Louie Bossi's Ristorante (doordash-us)"
+[237/254] https://www.doordash.com/store/102137/
+    JSON-LD Restaurant name not found — skip
+[238/254] https://www.doordash.com/store/102155/
+    before: '102155 (doordash-us)'
+    after:  'Red Robin Gourmet Burgers and Brews (doordash-us)'
+[239/254] https://www.doordash.com/store/1022547/
+    before: '1022547 (doordash-us)'
+    after:  'Royal Thai Restaurant (doordash-us)'
+[240/254] https://www.doordash.com/store/102380/?utm_source=partner-link&utm_medium=websit
+    JSON-LD Restaurant name not found — skip
+[241/254] https://www.doordash.com/store/1026285/
+    before: '1026285 (doordash-us)'
+    after:  'Forum Social House (doordash-us)'
+[242/254] https://www.doordash.com/store/1026551/
+    before: '1026551 (doordash-us)'
+    after:  'Krispy Kreme (doordash-us)'
+[243/254] https://www.doordash.com/store/1026817/
+    before: '1026817 (doordash-us)'
+    after:  'Burger King (doordash-us)'
+[244/254] https://www.doordash.com/store/102700/
+    before: '102700 (doordash-us)'
+    after:  "BJ's Restaurant & Brewhouse (doordash-us)"
+[245/254] https://www.doordash.com/store/102705/
+    before: '102705 (doordash-us)'
+    after:  "BJ's Restaurant & Brewhouse (doordash-us)"
+[246/254] https://www.doordash.com/store/1027243/
+    before: '1027243 (doordash-us)'
+    after:  "Zeppe's (doordash-us)"
+[247/254] https://www.doordash.com/store/1027565/
+    JSON-LD Restaurant name not found — skip
+[248/254] https://www.doordash.com/store/1028208
+    JSON-LD Restaurant name not found — skip
+[249/254] https://www.doordash.com/store/1028266
+    before: '1028266 (doordash-us)'
+    after:  "It's Just Wings (doordash-us)"
+[250/254] https://www.doordash.com/store/1028355
+    JSON-LD Restaurant name not found — skip
+[251/254] https://www.doordash.com/store/1028518
+    before: '1028518 (doordash-us)'
+    after:  "It's Just Wings (doordash-us)"
+[252/254] https://www.doordash.com/store/1028610
+    before: '1028610 (doordash-us)'
+    after:  "It's Just Wings (doordash-us)"
+[253/254] https://www.doordash.com/store/1036141/
+    before: '1036141 (doordash-us)'
+    after:  'AweSum Dimsum (doordash-us)'
+[254/254] https://www.doordash.com/store/1040348/
+    before: '1040348 (doordash-us)'
+    after:  'Ozzie Kebabs Preston (doordash-us)'
+
+Done. 190 name(s) updated, 64 unresolved.
