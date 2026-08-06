@@ -25,8 +25,6 @@ import sqlite3
 import sys
 import time
 from datetime import date
-
-import requests
 from playwright.sync_api import sync_playwright
 
 try:

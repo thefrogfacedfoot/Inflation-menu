@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-05T10:11:19.166382",
+  "generated_at": "2026-08-06T18:05:30.656131",
   "source_pool": "wayback-grabfood",
   "country": "Malaysia",
   "pool_size_after_filters": 380,
-  "probed": 38,
-  "passed": 24,
+  "probed": 48,
+  "passed": 29,
   "candidates": [
     {
       "name": "Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [Non-Halal] (grabfood-my)",
@@ -437,18 +437,108 @@
           "19.9 MYR 240. Golden Fried Rice  & Fried Egg"
         ]
       }
+    },
+    {
+      "name": "Kanna Curry House - Jalan Gasing (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/kanna-curry-house-jalan-gasing-delivery/1-CZEHJEB2LUCFRN",
+      "item_count_wayback": 156,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/kanna-curry-house-jalan-gasing-delivery/1-CZEHJEB2LUCFRN",
+        "real_item_count": 157,
+        "sample_items": [
+          "3.32 MYR Plain Thosai \ud83e\udd66",
+          "12.96 MYR Banana Leaf Rice \ud83d\udc4d\ud83c\udffc",
+          "10.89 MYR KANNA\u00ae Pressure Fried Chicken \ud83d\udc4d\ud83c\udffc",
+          "10.89 MYR Chicken Varuval \ud83d\udc4d\ud83c\udffc",
+          "10.89 MYR Ikan Tenggiri \ud83d\udc4d\ud83c\udffc"
+        ]
+      }
+    },
+    {
+      "name": "Bachelor's Pizza Co. - Bangsar (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/bachelor-s-pizza-co-bangsar-delivery/1-C4K2CJ23JGBGCA",
+      "item_count_wayback": 153,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/bachelor-s-pizza-co-bangsar-delivery/1-C4K2CJ23JGBGCA",
+        "real_item_count": 53,
+        "sample_items": [
+          "22.84 MYR Hawaiian Wrapmelts",
+          "24.27 MYR Pepperoni Wrapmelts",
+          "28.56 MYR Pulled Beef Wrapmelts",
+          "24.27 MYR Shrimp Wrapmelts",
+          "21.41 MYR Mushroom Wrapmelts"
+        ]
+      }
+    },
+    {
+      "name": "Cafe Kelab Golf Kuala Kangsar - Jalan Sultan Iskandar Shah (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/cafe-kelab-golf-kuala-kangsar-jalan-sultan-iskandar-shah-delivery/1-C6BCR4LZFAUYCE",
+      "item_count_wayback": 152,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/cafe-kelab-golf-kuala-kangsar-jalan-sultan-iskandar-shah-delivery/1-C6BCR4LZFAUYCE",
+        "real_item_count": 86,
+        "sample_items": [
+          "13.9 MYR Kuey Teow Kungfu",
+          "14.0 MYR Nasi Goreng Daging",
+          "10.5 MYR Nasi Goreng Kampung",
+          "13.5 MYR Nasi Goreng Pataya",
+          "14.7 MYR nasi goreng sotong"
+        ]
+      }
+    },
+    {
+      "name": "Addy Buang Burger Corner (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/addy-buang-burger-corner-delivery/MYDD11044",
+      "item_count_wayback": 149,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/addy-buang-burger-corner-delivery/MYDD11044",
+        "real_item_count": 149,
+        "sample_items": [
+          "6.25 MYR Hot Dog Biasa",
+          "8.75 MYR Burger Panggang Biasa",
+          "11.9 MYR Burger Double",
+          "5.0 MYR Benjo Biasa",
+          "7.5 MYR Benjo Double"
+        ]
+      }
+    },
+    {
+      "name": "GEM Restaurant - Brickfields (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/gem-restaurant-brickfields-delivery/MYDD12506",
+      "item_count_wayback": 149,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/gem-restaurant-brickfields-delivery/MYDD12506",
+        "real_item_count": 199,
+        "sample_items": [
+          "7.1 MYR Soft Drinks",
+          "8.3 MYR Milo / Horlicks",
+          "8.3 MYR Bru Coffee / Nescafe",
+          "8.3 MYR Tea (Plain / Masala / Ginger)",
+          "6.6 MYR Tea"
+        ]
+      }
     }
   ],
   "append_run": {
-    "started_at": "2026-08-05T09:56:06.917190",
-    "updated_at": "2026-08-05T10:11:19.166393",
-    "skipped_ranked_prefix": 10,
-    "processed_this_run": 28,
-    "new_confirmed_this_run": 15,
+    "started_at": "2026-08-06T18:05:30.656140",
+    "updated_at": "2026-08-06T18:05:30.656142",
+    "skipped_ranked_prefix": 38,
+    "processed_this_run": 10,
+    "new_confirmed_this_run": 5,
     "fail_counts_this_run": {
-      "DEAD_REDIRECTED": 13,
-      "CONFIRMED_LIVE": 15
+      "CONFIRMED_LIVE": 5,
+      "DEAD_REDIRECTED": 5
     },
-    "stopped_reason": "penalty suspected: sentinel returned DEAD_REDIRECTED after 5 consecutive landing-page redirects"
+    "stopped_reason": "completed requested 10-candidate cooldown test"
   }
 }
