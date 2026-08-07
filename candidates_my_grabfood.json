@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-06T18:05:30.656131",
+  "generated_at": "2026-08-07T09:35:52.870576",
   "source_pool": "wayback-grabfood",
   "country": "Malaysia",
   "pool_size_after_filters": 380,
-  "probed": 48,
-  "passed": 29,
+  "probed": 58,
+  "passed": 34,
   "candidates": [
     {
       "name": "Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [Non-Halal] (grabfood-my)",
@@ -525,6 +525,96 @@
           "8.3 MYR Bru Coffee / Nescafe",
           "8.3 MYR Tea (Plain / Masala / Ginger)",
           "6.6 MYR Tea"
+        ]
+      }
+    },
+    {
+      "name": "Husen Cafe - Brickfields (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/husen-cafe-brickfields-delivery/1-CZEVCY4XNE6YLN",
+      "item_count_wayback": 140,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/husen-cafe-brickfields-delivery/1-CZEVCY4XNE6YLN",
+        "real_item_count": 140,
+        "sample_items": [
+          "5.5 MYR Nasi Lemak",
+          "11.8 MYR Nasi Goreng Ayam",
+          "2.5 MYR Tosai",
+          "1.7 MYR Telur Mata",
+          "6.6 MYR Indo Mee"
+        ]
+      }
+    },
+    {
+      "name": "Muslim Mee Tarik - Bukit Bintang (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/muslim-mee-tarik-bukit-bintang-delivery/1-C651CUVBPBNAPA",
+      "item_count_wayback": 139,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/inactv-coco-muslim-mee-tarik-bukit-bintang-delivery/1-C651CUVBPBNAPA",
+        "real_item_count": 139,
+        "sample_items": [
+          "18.75 MYR R001. Beef Ramen \u725b\u8089\u62c9\u9762",
+          "18.75 MYR R003. Beef Daoxiao Noodle \u725b\u8089\u5200\u524a\u9762",
+          "22.9 MYR XC007. Fried Dumpling \u9505\u8d34",
+          "22.9 MYR XC008. Chinese Dumpling \u997a\u5b50",
+          "7.0 MYR XC003. Chicken Pancake \u9e21\u8089\u9985\u997c"
+        ]
+      }
+    },
+    {
+      "name": "McDonald's\u00ae - Jalan Tun Perak 101 (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-jalan-tun-perak-101-delivery/MYDD07810",
+      "item_count_wayback": 136,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-jalan-tun-perak-101-delivery/MYDD07810",
+        "real_item_count": 77,
+        "sample_items": [
+          "14.05 MYR Sausage McMuffin with Egg Breakfast Meal",
+          "13.9 MYR Crispy Chicken & Scrambled Egg Sandwich ",
+          "5.35 MYR Hash Browns",
+          "13.05 MYR Sausage McMuffin Breakfast Meal",
+          "9.2 MYR Sausage McMuffin with Egg"
+        ]
+      }
+    },
+    {
+      "name": "Muslim Mee Tarik Intermark - Wisma Bukit Bintang (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/muslim-mee-tarik-intermark-wisma-bukit-bintang-delivery/1-C4EBAXCWRFUBVA",
+      "item_count_wayback": 133,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/zhang-lala-mee-tarik-wisma-bukit-bintang-delivery/1-C4EBAXCWRFUBVA",
+        "real_item_count": 133,
+        "sample_items": [
+          "22.9 MYR R035. Braised Beef Ramen \u7ea2\u70e7\u725b\u8089\u62c9\u9762",
+          "18.75 MYR R001. Beef Ramen \u725b\u8089\u62c9\u9762",
+          "27.9 MYR R008. Fried Ramen \u7092\u62c9\u9762",
+          "17.5 MYR R031. Fried Rice \u7092\u996d",
+          "8.5 MYR XC004. Beef Pancake \u725b\u8089\u9985\u997c"
+        ]
+      }
+    },
+    {
+      "name": "Lavender Bakery - Mid Valley (grabfood-my)",
+      "url": "https://food.grab.com/my/en/restaurant/lavender-bakery-mid-valley-delivery/1-C2J2V4DWG3MUA6",
+      "item_count_wayback": 132,
+      "recheck": {
+        "verdict": "CONFIRMED_LIVE",
+        "http_status": 200,
+        "final_url": "https://food.grab.com/my/en/restaurant/lavender-bakery-mid-valley-delivery/1-C2J2V4DWG3MUA6",
+        "real_item_count": 141,
+        "sample_items": [
+          "17.1 MYR Enamel Pin \u2013 Puffy Baked Series",
+          "17.1 MYR Enamel Pin \u2013 Luna",
+          "28.6 MYR Pandan Rolly (Pouch)",
+          "34.4 MYR Puffy Croissant Bag",
+          "34.4 MYR Toasty Bag"
         ]
       }
     }
