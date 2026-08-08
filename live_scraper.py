@@ -27,7 +27,19 @@ import time
 from datetime import date
 
 import requests
-from playwright.sync_api import sync_playwright
+
+try:
+    from playwright.sync_api import sync_playwright
+except ModuleNotFoundError:
+    print(
+        f"ERROR: failed to import Playwright using Python executable: {sys.executable}",
+        file=sys.stderr,
+    )
+    print(
+        "Run this script with /Users/erwenchen/venv/bin/python live_scraper.py",
+        file=sys.stderr,
+    )
+    raise
 
 try:
     from playwright_stealth import Stealth
