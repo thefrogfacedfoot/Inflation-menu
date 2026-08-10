@@ -1,0 +1,659 @@
+{
+  "started_at": "2026-08-10T20:10:35.524999",
+  "pools": {
+    "my": {
+      "probed": [
+        {
+          "name": "Best Bro Western Ala Thai",
+          "url": "https://food.grab.com/my/en/restaurant/best-bro-western-ala-thai-delivery/1-CYLTR6C2R2MCJT",
+          "item_count_wayback": 398,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/best-bro-western-ala-thai-delivery/1-CYLTR6C2R2MCJT",
+            "real_item_count": 189,
+            "sample_items": [
+              "7.0 MYR Burger Daging",
+              "20.25 MYR Nasi Goreng Lamb Chop",
+              "22.0 MYR Beef Steak",
+              "21.0 MYR Lamb Chop",
+              "15.0 MYR Chicken Chop Cheese"
+            ]
+          },
+          "elapsed_s": 14.8
+        },
+        {
+          "name": "Banana Leaf Corner Brickfields",
+          "url": "https://food.grab.com/my/en/restaurant/banana-leaf-corner-brickfields-delivery/1-C6XZR3MJVTXXNJ",
+          "item_count_wayback": 376,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/banana-leaf-brickfields-delivery/1-C6XZR3MJVTXXNJ",
+            "real_item_count": 200,
+            "sample_items": [
+              "7.0 MYR Bun Parota Set",
+              "10.0 MYR Nasi Lemak Chicken",
+              "13.0 MYR Satti Sorru Chicken Thiruvila",
+              "15.0 MYR Banana Leaf Chicken 65 Biryani",
+              "16.0 MYR Banana Leaf Biryani Thiruvila Mutton"
+            ]
+          },
+          "elapsed_s": 15.9
+        },
+        {
+          "name": "Bread History Quill City Mall",
+          "url": "https://food.grab.com/my/en/restaurant/bread-history-quill-city-mall-delivery/1-C4MAR3MAVLC3ME",
+          "item_count_wayback": 266,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/bread-history-quill-city-mall-delivery/1-C4MAR3MAVLC3ME",
+            "real_item_count": 88,
+            "sample_items": [
+              "57.0 MYR C6 - Italian Tiramisu",
+              "76.9 MYR C8 - Italian Tiramisu",
+              "76.9 MYR C8 - Rainbow Cake",
+              "76.9 MYR C8 - Black Forest",
+              "13.1 MYR Chocolate Oreo Swiss Roll"
+            ]
+          },
+          "elapsed_s": 14.8
+        },
+        {
+          "name": "Christine S Bakery Mid Valley",
+          "url": "https://food.grab.com/my/en/restaurant/christine-s-bakery-mid-valley-delivery/1-C3UZJLKBJJBJGT",
+          "item_count_wayback": 226,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/christine-s-bakery-mid-valley-delivery/1-C3UZJLKBJJBJGT",
+            "real_item_count": 61,
+            "sample_items": [
+              "31.0 MYR THE PRESIDENT",
+              "33.0 MYR SURF",
+              "30.0 MYR BLT-C",
+              "39.0 MYR TEXAS BURGER",
+              "59.9 MYR BAGEL SANDO"
+            ]
+          },
+          "elapsed_s": 16.1
+        },
+        {
+          "name": "Burgerlogy Taman Sri Rampai",
+          "url": "https://food.grab.com/my/en/restaurant/burgerlogy-taman-sri-rampai-delivery/1-C4ABL2LEFBK1HA",
+          "item_count_wayback": 206,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/burgerlogy-taman-sri-rampai-delivery/1-C4ABL2LEFBK1HA",
+            "real_item_count": 103,
+            "sample_items": [
+              "48.0 MYR lamb beacon burger",
+              "36.0 MYR lamb paramount chesse burger",
+              "23.0 MYR big peety lamb burger",
+              "28.0 MYR juicy lamb burger",
+              "8.5 MYR Beef regular burger"
+            ]
+          },
+          "elapsed_s": 16.5
+        },
+        {
+          "name": "Lot 10 Hutong Lot 10 Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/lot-10-hutong-lot-10-non-halal-delivery/1-C2DCCXKKVNUDG2",
+          "item_count_wayback": 200,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/lot-10-hutong-lot-10-non-halal-delivery/1-C2DCCXKKVNUDG2",
+            "real_item_count": 131,
+            "sample_items": [
+              "18.49 MYR W01. HK PRAWN WONTON NOODLE",
+              "19.53 MYR W02. HK PORK & SHRIMP DUMPLING NOODLE",
+              "25.0 MYR W03. HK STYLE DUCK NOODLE SOUP",
+              "18.49 MYR W04. LUNCHEON MEAT & EGG NOODLE",
+              "17.36 MYR W05. SCRAMBLED EGG WITH LUNCHEON MEAT ON"
+            ]
+          },
+          "elapsed_s": 14.8
+        },
+        {
+          "name": "Al Khatiri Kofee Bandar Baru Kubang Kerian",
+          "url": "https://food.grab.com/my/en/restaurant/al-khatiri-kofee-bandar-baru-kubang-kerian-delivery/1-C2A2T22UTXTESA",
+          "item_count_wayback": 200,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/al-khatiri-kofee-bandar-baru-kubang-kerian-delivery/1-C2A2T22UTXTESA",
+            "real_item_count": 192,
+            "sample_items": [
+              "19.4 MYR chicken skewer",
+              "18.1 MYR Crispy chicken tender",
+              "29.8 MYR Chicken Chop",
+              "25.9 MYR Spaghetti Aglio Olio",
+              "16.8 MYR popcorn chicken"
+            ]
+          },
+          "elapsed_s": 15.9
+        },
+        {
+          "name": "Azuma Sushi Village Mall",
+          "url": "https://food.grab.com/my/en/restaurant/azuma-sushi-village-mall-delivery/1-C7BJVUKFCKBKLE",
+          "item_count_wayback": 200,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/azuma-sushi-village-mall-delivery/1-C7BJVUKFCKBKLE",
+            "real_item_count": 191,
+            "sample_items": [
+              "18.0 MYR Q10. Kimuchee Ebi Chahan",
+              "19.0 MYR R02. Kitsune Udon/Soba/Ramen",
+              "29.0 MYR F11. Azuma Volcano Maki",
+              "21.0 MYR A16. Shake Sashimi (5pcs)",
+              "2.6 MYR CP01. Tamago Sushi (2pcs)"
+            ]
+          },
+          "elapsed_s": 15.3
+        },
+        {
+          "name": "Fei Fei Crab Restaurant Arked Esplanad Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/fei-fei-crab-restaurant-arked-esplanad-non-halal-delivery/1-C3TCV2JETPW3GT",
+          "item_count_wayback": 200,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "DEAD_REDIRECTED",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/fei-fei-crab-restaurant-arked-esplanad-non-halal-delivery/1-C3TCV2JETPW3GT",
+            "real_item_count": 0,
+            "sample_items": []
+          },
+          "elapsed_s": 52.8
+        },
+        {
+          "name": "Beer Bank Wisma Lim Foo Yong Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/beer-bank-wisma-lim-foo-yong-non-halal-delivery/1-C2LFRPT1KFM2CE",
+          "item_count_wayback": 200,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "DEAD_REDIRECTED",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/beer-bank-wisma-lim-foo-yong-non-halal-delivery/1-C2LFRPT1KFM2CE",
+            "real_item_count": 0,
+            "sample_items": []
+          },
+          "elapsed_s": 51.2
+        },
+        {
+          "name": "Chong Qing Jiang Hu Food \u91cd\u6176\u6c5f\u6e56\u83dc Restaurant Hua Wei Xuan Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/chong-qing-jiang-hu-food-%E9%87%8D%E6%85%B6%E6%B1%9F%E6%B9%96%E8%8F%9C-restaurant-hua-wei-xuan-non-halal-delivery/1-C4BJNEL3PGLVTJ",
+          "item_count_wayback": 200,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/chong-qing-jiang-hu-food-%E9%87%8D%E6%85%B6%E6%B1%9F%E6%B9%96%E8%8F%9C-restaurant-hua-wei-xuan-non-halal-delivery/1-C4BJNEL3PGLVTJ",
+            "real_item_count": 192,
+            "sample_items": [
+              "22.0 MYR \u56de\u9505\u8089\u76d6\u6d47\u996d Twice-Cooked Meat Bowl with Rice",
+              "60.0 MYR \u9ebb\u8fa3\u62cc Spicy Mix",
+              "5.0 MYR \u7c73\u996d Rice",
+              "18.0 MYR \u5bab\u4fdd\u9e21\u4e01\u76d6\u6d47\u996d Kung Pao Chicken Rice Bowl",
+              "15.0 MYR \u626c\u5dde\u7092\u996dYangzhou Fried Rice"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "Chopsticks Asia Restaurant Cyberjaya",
+          "url": "https://food.grab.com/my/en/restaurant/chopsticks-asia-restaurant-cyberjaya-delivery/1-C3BTDBWWV3TDVJ",
+          "item_count_wayback": 181,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/chopsticks-asia-restaurant-cyberjaya-delivery/1-C3BTDBWWV3TDVJ",
+            "real_item_count": 186,
+            "sample_items": [
+              "63.0 MYR * SET A",
+              "93.0 MYR * SET B",
+              "18.0 MYR FRIED CHICKEN LOBAK WITH TOFU \u70b8\u9e21\u8089\u5377\u548c\u8c46\u8150",
+              "16.0 MYR OTAK-OTAK \u4e4c\u8fbe\u4e4c\u8fbe",
+              "29.5 MYR BUTTER FLOSS FISH FILLET \u5976\u6cb9\u4e1d\u9c7c\u7247"
+            ]
+          },
+          "elapsed_s": 15.8
+        },
+        {
+          "name": "The Coffee Bean Tea Leaf Pavilion",
+          "url": "https://food.grab.com/my/en/restaurant/the-coffee-bean-tea-leaf-pavilion-delivery/1-CY5WGBBXLJBXC2",
+          "item_count_wayback": 177,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/the-coffee-bean-tea-leaf-pavilion-delivery/1-CY5WGBBXLJBXC2",
+            "real_item_count": 110,
+            "sample_items": [
+              "17.83 MYR Iced Hojicha Tea Latte (with Warabi Moch",
+              "19.72 MYR Hojicha Tea Ice Blended\u00ae (with Warabi Mo",
+              "17.45 MYR Hojicha Tea Latte",
+              "17.45 MYR Iced Hojicha Tea Latte",
+              "19.34 MYR Hojicha Tea Ice Blended\u00ae"
+            ]
+          },
+          "elapsed_s": 15.0
+        },
+        {
+          "name": "Mcdonald S\u00ae Melaka Mall 239",
+          "url": "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-melaka-mall-239-delivery/1-CYWTLEWTJFWZNE",
+          "item_count_wayback": 171,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-melaka-mall-239-delivery/1-CYWTLEWTJFWZNE",
+            "real_item_count": 157,
+            "sample_items": [
+              "19.69 MYR Spicy Chicken McDeluxe Medium McValue Me",
+              "20.25 MYR 2pcs Ayam Goreng McD Spicy Medium McValu",
+              "19.8 MYR Nasi Lemak McD + 2pcs Ayam Goreng McD Sp",
+              "18.4 MYR Double Cheeseburger Medium McValue Meal",
+              "20.9 MYR Ayam Combo F: 1pc Ayam Goreng McD + Spic"
+            ]
+          },
+          "elapsed_s": 16.4
+        },
+        {
+          "name": "Beutea \u8336\u4ed9\u5b50 Pavilion Damansara Heights",
+          "url": "https://food.grab.com/my/en/restaurant/beutea-%E8%8C%B6%E4%BB%99%E5%AD%90-pavilion-damansara-heights-delivery/1-C4NBGVBUJ7AGBA",
+          "item_count_wayback": 163,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/beutea-%E8%8C%B6%E4%BB%99%E5%AD%90-pavilion-damansara-heights-delivery/1-C4NBGVBUJ7AGBA",
+            "real_item_count": 133,
+            "sample_items": [
+              "33.8 MYR Matcha Duo Bundle",
+              "11.9 MYR Jasmine Green Milk Tea (M) \u8309\u8389\u96ea\u82bd(\u4e2d\uff09",
+              "13.9 MYR Jasmine Green Milk Tea (L) \u8309\u8389\u96ea\u82bd(\u5927\uff09",
+              "12.9 MYR White Peach Oolong Milk Tea (M)\u767d\u6843\u4e4c\u9f99(\u4e2d\uff09",
+              "14.9 MYR White Peach Oolong Milk Tea (L)\u767d\u6843\u4e4c\u9f99(\u5927\uff09"
+            ]
+          },
+          "elapsed_s": 16.3
+        },
+        {
+          "name": "Kungfu Ramen Summit Usj",
+          "url": "https://food.grab.com/my/en/restaurant/kungfu-ramen-summit-usj-delivery/1-CZNKKGKZJY2EVJ",
+          "item_count_wayback": 153,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/kungfu-ramen-summit-usj-delivery/1-CZNKKGKZJY2EVJ",
+            "real_item_count": 152,
+            "sample_items": [
+              "13.0 MYR 2. Beef Noodle Soup",
+              "15.0 MYR 82B. Beef Dry Dumpling",
+              "13.0 MYR 1.kungfu Beef Noodle Soup",
+              "15.0 MYR 82C. Chicken Dry Dumpling",
+              "13.0 MYR 4. Chicken Noodle Soup"
+            ]
+          },
+          "elapsed_s": 16.3
+        },
+        {
+          "name": "Baristart Coffee Hokkaido Bsc",
+          "url": "https://food.grab.com/my/en/restaurant/baristart-coffee-hokkaido-bsc-delivery/1-C3K3UCKKHAWYG6",
+          "item_count_wayback": 151,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/inactv-cl-baristart-coffee-hokkaido-bsc-delivery/1-C3K3UCKKHAWYG6",
+            "real_item_count": 64,
+            "sample_items": [
+              "20.7 MYR Creampuff",
+              "20.7 MYR Coffee Latte (Hot)",
+              "20.7 MYR Coffee Latte (Iced)",
+              "20.7 MYR Dirty Latte",
+              "20.7 MYR Piccolo Latte (Hot)"
+            ]
+          },
+          "elapsed_s": 15.7
+        },
+        {
+          "name": "Big Oriental Restaurant Kei Huo Kitchen Persiaran Greenhill Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/big-oriental-restaurant-kei-huo-kitchen-persiaran-greenhill-non-halal--delivery/1-C2WJHEVBKBT3AJ",
+          "item_count_wayback": 151,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/big-oriental-restaurant-kei-huo-kitchen-persiaran-greenhill-non-halal-delivery/1-C2WJHEVBKBT3AJ",
+            "real_item_count": 150,
+            "sample_items": [
+              "12.9 MYR \ud83c\udf36\ufe0f India style fried mee noodles \u5370\u5ea6\u5f0f\u7092\u9762",
+              "12.9 MYR Hokkien yee mee \u7086\u4f0a\u9762",
+              "12.9 MYR Pinang fried  kuey teow \u867e\u86cb\u7092\u9983\u6761",
+              "14.9 MYR Salte  Fish Fried Noodles \u54b8\u9c7c\u7092\u7c73",
+              "12.9 MYR Sambal Fried Noodles \u53c1\u5df4\u8001\u9f20\u7c89"
+            ]
+          },
+          "elapsed_s": 15.2
+        },
+        {
+          "name": "Break\u00b7Fast \u597d\u4e03\u70b9 Damansara Utama Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/break%C2%B7fast-%E5%A5%BD%E4%B8%83%E7%82%B9-damansara-utama-non-halal-delivery/1-C6CJNYBYA7MKC6",
+          "item_count_wayback": 145,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/break%C2%B7fast-%E5%A5%BD%E4%B8%83%E7%82%B9-damansara-utama-non-halal-delivery/1-C6CJNYBYA7MKC6",
+            "real_item_count": 65,
+            "sample_items": [
+              "15.8 MYR L01. Bursting Pork Ball \u7206\u9171\u732a\u8089\u4e38\u9762",
+              "19.7 MYR L02. Cheese Pork Ball \u829d\u58eb\u7206\u9171\u4e38\u9762",
+              "15.8 MYR L03. Cuttlefish Pork Ball \u540a\u7247\u732a\u8089\u4e38\u9762",
+              "15.8 MYR L04. Fu Zhou Fish Ball \u798f\u5dde\u9c7c\u4e38\u9762",
+              "15.8 MYR L05. Golden\u00a0Fish\u00a0Tofu\u9ec4\u91d1\u9c7c\u8150\u9762"
+            ]
+          },
+          "elapsed_s": 17.7
+        },
+        {
+          "name": "Chelliah\u2019S Kitchen Lucky Gardens",
+          "url": "https://food.grab.com/my/en/restaurant/chelliah%E2%80%99s-kitchen-lucky-gardens-delivery/1-C4M1SFWZG4BBRT",
+          "item_count_wayback": 142,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/chelliah%E2%80%99s-kitchen-lucky-gardens-delivery/1-C4M1SFWZG4BBRT",
+            "real_item_count": 78,
+            "sample_items": [
+              "26.0 MYR Seafood",
+              "23.9 MYR Prawn Sati Sorru",
+              "23.9 MYR Sotong Sati Sorru",
+              "25.9 MYR Salmon Satti Sorru",
+              "17.0 MYR Sardine Satti Orru"
+            ]
+          },
+          "elapsed_s": 15.5
+        },
+        {
+          "name": "Dara Burger Bakar Ttdi",
+          "url": "https://food.grab.com/my/en/restaurant/dara-burger-bakar-ttdi-delivery/1-C3ADENXZCBUBRN",
+          "item_count_wayback": 138,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/dara-burger-bakar-wisma-central-delivery/1-C3ADENXZCBUBRN",
+            "real_item_count": 38,
+            "sample_items": [
+              "9.2 MYR Moo Burger (Beef)",
+              "13.9 MYR Maxi Moo Burger (Beef)",
+              "13.7 MYR Rindumoo Beef Burger",
+              "26.5 MYR Waygoo Burger",
+              "11.5 MYR Dara Lamb Burger"
+            ]
+          },
+          "elapsed_s": 16.5
+        },
+        {
+          "name": "D Tandoor Jalan Tanjung Tokong",
+          "url": "https://food.grab.com/my/en/restaurant/d-tandoor-jalan-tanjung-tokong-delivery/1-CYV1R8MZABBJT6",
+          "item_count_wayback": 134,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/inactv-coco-d-tandoor-jalan-tanjung-tokong-delivery/1-CYV1R8MZABBJT6",
+            "real_item_count": 138,
+            "sample_items": [
+              "20.1 MYR Rasmalai",
+              "14.35 MYR Gulab Jamoon",
+              "15.5 MYR Kulfi",
+              "14.8 MYR Gajar Halwa",
+              "21.25 MYR Orange Fruit Kulfi"
+            ]
+          },
+          "elapsed_s": 16.3
+        },
+        {
+          "name": "Starbucks Batu Ferringhi",
+          "url": "https://food.grab.com/my/en/restaurant/starbucks-batu-ferringhi-delivery/1-CZMGUEKEE6VZCN",
+          "item_count_wayback": 132,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/starbucks-batu-ferringhi-delivery/1-CZMGUEKEE6VZCN",
+            "real_item_count": 91,
+            "sample_items": [
+              "17.0 MYR Iced Caramel Macchiato Espresso",
+              "6.21 MYR Donut\u00b2",
+              "15.0 MYR Iced Caff\u00e9 Latte",
+              "9.9 MYR Iced Caff\u00e9 Americano",
+              "15.0 MYR Caff\u00e9 Latte"
+            ]
+          },
+          "elapsed_s": 48.8
+        },
+        {
+          "name": "Jama Kl Soho Kl",
+          "url": "https://food.grab.com/my/en/restaurant/jama-kl-soho-kl-delivery/1-C2NCAXMCJE4CLE",
+          "item_count_wayback": 129,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/inactv-cl-jama-kl-soho-kl-delivery/1-C2NCAXMCJE4CLE",
+            "real_item_count": 78,
+            "sample_items": [
+              "44.8 MYR White Clams",
+              "48.64 MYR Black Mussels",
+              "57.6 MYR Tiger Prawn",
+              "57.6 MYR Mixed",
+              "38.4 MYR Classic Pomodoro"
+            ]
+          },
+          "elapsed_s": 15.6
+        },
+        {
+          "name": "Restoran Patatimo Jalan Wangsa Delima 10",
+          "url": "https://food.grab.com/my/en/restaurant/restoran-patatimo-jalan-wangsa-delima-10-delivery/1-CZD3N8CZTZDUKA",
+          "item_count_wayback": 119,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/restoran-patatimo-jalan-wangsa-delima-10-delivery/1-CZD3N8CZTZDUKA",
+            "real_item_count": 88,
+            "sample_items": [
+              "12.0 MYR NASI GORENG KAMPUNG ( FREE DRINK )",
+              "14.0 MYR NASI GORENG PATTAYA ( FREE DRINK )",
+              "16.0 MYR SUP DAGING",
+              "15.0 MYR TOMYAM AYAM",
+              "19.5 MYR TOMYAM CAMPUR"
+            ]
+          },
+          "elapsed_s": 16.9
+        },
+        {
+          "name": "Chili S Sunway Putra Mall",
+          "url": "https://food.grab.com/my/en/restaurant/chili-s-sunway-putra-mall-delivery/1-CZCDJACFC24EG6",
+          "item_count_wayback": 118,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/chili-s-sunway-putra-mall-delivery/1-CZCDJACFC24EG6",
+            "real_item_count": 113,
+            "sample_items": [
+              "86.95 MYR Classic Ribeye",
+              "14.95 MYR Country-Fried Chicken Crispers & Fries",
+              "43.95 MYR Big Mouth Bites",
+              "50.95 MYR Triple Dipper\u00ae",
+              "39.95 MYR Crispy Honey-Chipotle Chicken Crispers\u00ae"
+            ]
+          },
+          "elapsed_s": 14.6
+        },
+        {
+          "name": "Waki Malaysian Dim Sum",
+          "url": "https://food.grab.com/my/en/restaurant/waki-malaysian-dim-sum-delivery/MYDD05972",
+          "item_count_wayback": 118,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/waki-dim-sum-jalan-usj-1-1c-delivery/MYDD05972",
+            "real_item_count": 112,
+            "sample_items": [
+              "19.9 MYR C05 Matcha Chee Cheong Fun (July Limited",
+              "13.0 MYR C01. Chee Cheong Fun With Prawn Spring R",
+              "12.0 MYR C02. Chee Cheong Fun With Prawn \u723d\u6ed1\u867e\u80a0\u7c89",
+              "11.0 MYR C03. Chee Cheong Fun With Chicken Char-S",
+              "10.0 MYR C04. Chee Cheong Fun \u723d\u6ed1\u80a0\u7c89"
+            ]
+          },
+          "elapsed_s": 14.4
+        },
+        {
+          "name": "Kfc Menara Uoa Bangsar",
+          "url": "https://food.grab.com/my/en/restaurant/kfc-menara-uoa-bangsar-delivery/1-C32YVBKCSAJ2NA",
+          "item_count_wayback": 118,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/kfc-menara-uoa-bangsar-delivery/1-C32YVBKCSAJ2NA",
+            "real_item_count": 131,
+            "sample_items": [
+              "20.75 MYR Snack Plate Combo",
+              "99.99 MYR 15-pc Combo",
+              "66.5 MYR 9-pc Combo",
+              "23.1 MYR Dinner Plate (no drink)",
+              "22.63 MYR Signature Box - Classic"
+            ]
+          },
+          "elapsed_s": 15.6
+        },
+        {
+          "name": "Tsuen Wan Restaurant Pearl Shopping Gallery Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/tsuen-wan-restaurant-pearl-shopping-gallery-non-halal-delivery/1-CZKDALBCV6CHTT",
+          "item_count_wayback": 117,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/tsuen-wan-restaurant-pearl-shopping-gallery-non-halal-delivery/1-CZKDALBCV6CHTT",
+            "real_item_count": 135,
+            "sample_items": [
+              "17.9 MYR B4 \u63da\u5dde\u7092\u98efFried Rice In Yang Zhou Style",
+              "21.9 MYR B18 \u7cd6\u918b\u5495\u565c\u8089\u996d\u914d\u592a\u9633\u86cb Sweet And Sour Pork with ",
+              "18.9 MYR B8 \u83b2\u85d5\u8089\u9920\u98efPan Fried Lotus Root Mixed Mince",
+              "9.9 MYR A11 \u6cd5\u862d\u897f\u591a\u58ebFrench Toast",
+              "18.9 MYR B1 XO\u91ac\u6d77\u9bae\u7092\u98efSeafood Fried Rice with XO Sau"
+            ]
+          },
+          "elapsed_s": 16.0
+        },
+        {
+          "name": "A W\u00ae Sunway Putra Mall",
+          "url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-sunway-putra-mall-delivery/1-C3TCCUDEPB2CJ2",
+          "item_count_wayback": 117,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/a-w%C2%AE-sunway-putra-mall-delivery/1-C3TCCUDEPB2CJ2",
+            "real_item_count": 98,
+            "sample_items": [
+              "24.06 MYR 2 pcs Aroma Chicken Combo with Nasi Arom",
+              "25.94 MYR 2 pcs Aroma Chicken Combo",
+              "16.98 MYR Mozza\u00ae Burger",
+              "36.08 MYR 2 x 2 pcs Aroma Chicken Combo with Nasi ",
+              "24.06 MYR Double Cheese Burger Combo"
+            ]
+          },
+          "elapsed_s": 15.1
+        },
+        {
+          "name": "Din Tai Fung Sunway Pyramid Non Halal",
+          "url": "https://food.grab.com/my/en/restaurant/din-tai-fung-sunway-pyramid-non-halal-delivery/1-CY2UGABXE6K1J2",
+          "item_count_wayback": 117,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/din-tai-fung-sunway-pyramid-non-halal-delivery/1-CY2UGABXE6K1J2",
+            "real_item_count": 144,
+            "sample_items": [
+              "32.0 MYR 6503. Shrimp Egg Fried Rice \u867e\u4ec1\u86cb\u7092\u996d",
+              "34.18 MYR 620110. Pork Xiao Long Bao \u5c0f\u7b3c\u5305 (10pc)",
+              "28.75 MYR 6505. Shredded Pork Egg Fried Rice \u8089\u4e1d\u86cb\u7092\u996d",
+              "28.21 MYR 6428. Scallion Sauce Noodle with Shredde",
+              "37.97 MYR 6701. String Bean with Minced Pork \u5e72\u7178\u56db\u5b63\u8c46"
+            ]
+          },
+          "elapsed_s": 15.0
+        },
+        {
+          "name": "Dome Cafe Bsc",
+          "url": "https://food.grab.com/my/en/restaurant/dome-cafe-bsc-delivery/1-CYVWJXBTEP41GN",
+          "item_count_wayback": 117,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/dome-cafe-bsc-delivery/1-CYVWJXBTEP41GN",
+            "real_item_count": 125,
+            "sample_items": [
+              "36.0 MYR SPICY OLIO BEEF PASTA",
+              "38.5 MYR BEEF BOLOGNESE PASTA",
+              "29.9 MYR CAESAR",
+              "36.0 MYR SPICY OLIO CHICKEN PASTA",
+              "31.9 MYR CAESAR SALAD"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "Lim Fried Chicken Mid Valley",
+          "url": "https://food.grab.com/my/en/restaurant/lim-fried-chicken-mid-valley-delivery/1-C2AVTCKTHF63T6",
+          "item_count_wayback": 117,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/lim-fried-chicken-mid-valley-delivery/1-C2AVTCKTHF63T6",
+            "real_item_count": 62,
+            "sample_items": [
+              "21.9 MYR (F2) LFC Rice + Whole leg + Vege + Egg",
+              "23.9 MYR (G2) AYAM GERUK KRISPY 2PCS SET",
+              "21.9 MYR LFC Signature Rice + Whole Leg + Vege + ",
+              "19.9 MYR Rice + LFC Whole Leg + Vegetables",
+              "20.9 MYR (F3) Chee Cheong Fun + LFC Whole Leg"
+            ]
+          },
+          "elapsed_s": 16.4
+        }
+      ],
+      "confirmed": 31
+    }
+  },
+  "updated_at": "2026-08-10T20:49:50.435297"
+}

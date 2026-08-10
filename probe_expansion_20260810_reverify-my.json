@@ -1,0 +1,571 @@
+{
+  "started_at": "2026-08-10T17:49:25.868150",
+  "pools": {
+    "reverify-my": {
+      "probed": [
+        {
+          "name": "Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [Non-Halal] (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-jalan-vista-mutiara-non-halal-delivery/1-C2B2RPKZDE5JLJ",
+          "item_count_wayback": 370,
+          "prev_item_count": 200,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-jalan-vista-mutiara-non-halal-delivery/1-C2B2RPKZDE5JLJ",
+            "real_item_count": 195,
+            "sample_items": [
+              "15.0 MYR Q01.BBQ Pork Meat Skewer (3Pcs)",
+              "14.5 MYR R08.Deep-Fried Pork with Garlic with Ric",
+              "17.5 MYR R17.Braised Pork Leg with Thai Herb (Kha",
+              "5.0 MYR SR01.Sticky Rice (Khao Niao)",
+              "17.5 MYR BN01-1 Spicy Boat Noodles with Pork Thai"
+            ]
+          },
+          "elapsed_s": 16.5
+        },
+        {
+          "name": "Abang Adik Kopitiam - Bandar Menjalara (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/abang-adik-kopitiam-bandar-menjalara-delivery/1-C4LWL8AZLU31A2",
+          "item_count_wayback": 368,
+          "prev_item_count": 192,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/abang-adik-kopitiam-bandar-menjalara-delivery/1-C4LWL8AZLU31A2",
+            "real_item_count": 192,
+            "sample_items": [
+              "19.25 MYR Abang Adik Chilli Pan Mee",
+              "21.2 MYR Beef Rendang Nasi Lemak",
+              "21.85 MYR Fried Chicken Pieces Nasi Lemak",
+              "10.4 MYR Cendol",
+              "22.8 MYR Grill Chicken Chop With Fries"
+            ]
+          },
+          "elapsed_s": 16.1
+        },
+        {
+          "name": "Kafe Se'eh Sokmo - Taman Sri Gombak (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/kafe-se-eh-sokmo-taman-sri-gombak-delivery/1-C2J2V4DUVZEYRT",
+          "item_count_wayback": 306,
+          "prev_item_count": 153,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/inactv-ph25-kafe-se-eh-sokmo-taman-sri-gombak-delivery/1-C2J2V4DUVZEYRT",
+            "real_item_count": 153,
+            "sample_items": [
+              "12.5 MYR Cendawan Celup Tepung",
+              "23.5 MYR Sotong + Udang Celup Tepung",
+              "23.5 MYR Sotong Celup Tepung",
+              "23.5 MYR Udang Celup Tepung",
+              "13.0 MYR Nasi Goreng Kampung"
+            ]
+          },
+          "elapsed_s": 16.6
+        },
+        {
+          "name": "Mee Tarik - Jalan Sultan (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/mee-tarik-jalan-sultan-delivery/1-C4L3RRE1WF4EHA",
+          "item_count_wayback": 297,
+          "prev_item_count": 146,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/inactv-coco-mee-tarik-jalan-sultan-delivery/1-C4L3RRE1WF4EHA",
+            "real_item_count": 146,
+            "sample_items": [
+              "4.5 MYR XC006. Chinese Hamburger \u8089\u5939\u998d",
+              "18.75 MYR R001. Beef Ramen \u725b\u8089\u62c9\u9762",
+              "18.75 MYR R003. Beef Daoxiao Noodle \u725b\u8089\u5200\u524a\u9762",
+              "22.9 MYR XC007. Fried Dumpling \u9505\u8d34",
+              "22.9 MYR XC008. Chinese Dumpling \u997a\u5b50"
+            ]
+          },
+          "elapsed_s": 14.8
+        },
+        {
+          "name": "King Of Pizza - Taman Sri Rampai (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/king-of-pizza-taman-sri-rampai-delivery/1-C4ABL2LEFCNJSA",
+          "item_count_wayback": 253,
+          "prev_item_count": 134,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/king-of-pizza-taman-sri-rampai-delivery/1-C4ABL2LEFCNJSA",
+            "real_item_count": 134,
+            "sample_items": [
+              "21.0 MYR HAWAIIAN CHICKEN PIZZA ( medium 9\u201d)",
+              "30.0 MYR beef pepperoni medium",
+              "9.5 MYR smokey BBQ beef regular",
+              "26.0 MYR triple chicken Medium",
+              "6.5 MYR mushroom shop creamy"
+            ]
+          },
+          "elapsed_s": 14.3
+        },
+        {
+          "name": "KFC - Sungai Besi Toll DT (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/kfc-sungai-besi-toll-dt-delivery/1-CZM3R7ETKAEXRA",
+          "item_count_wayback": 226,
+          "prev_item_count": 81,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/kfc-sungai-besi-toll-dt-delivery/1-CZM3R7ETKAEXRA",
+            "real_item_count": 131,
+            "sample_items": [
+              "24.99 MYR Zinger Cheezy Box",
+              "20.75 MYR Snack Plate Combo",
+              "24.99 MYR Dinner Plate Combo",
+              "24.52 MYR Twister Box",
+              "43.39 MYR 5-pc Combo"
+            ]
+          },
+          "elapsed_s": 15.1
+        },
+        {
+          "name": "Abadi Cafeteria - TTDI (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/abadi-cafeteria-ttdi-delivery/MYDD08665",
+          "item_count_wayback": 213,
+          "prev_item_count": 121,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/abadi-cafeteria-ttdi-delivery/MYDD08665",
+            "real_item_count": 109,
+            "sample_items": [
+              "12.5 MYR ayam tandoori",
+              "4.4 MYR naan biasa",
+              "8.6 MYR cheese naan",
+              "13.9 MYR double cheese garlic butter naan",
+              "11.2 MYR double cheese naan"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "ABC Banana Leaf - Brickfields (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/abc-banana-leaf-brickfields-delivery/1-C6VTVAJZNYT1RE",
+          "item_count_wayback": 200,
+          "prev_item_count": 200,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/abc-banana-leaf-brickfields-delivery/1-C6VTVAJZNYT1RE",
+            "real_item_count": 192,
+            "sample_items": [
+              "6.6 MYR LYCHEE",
+              "4.2 MYR BRU CAF\u00c9",
+              "3.6 MYR TEA O AIS",
+              "4.2 MYR TEA AIS",
+              "5.0 MYR NESCAFE AIS"
+            ]
+          },
+          "elapsed_s": 14.9
+        },
+        {
+          "name": "Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Halal] (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-taman-connaught-non-halal-delivery/1-C2B2RPKZRT3XFE",
+          "item_count_wayback": 200,
+          "prev_item_count": 200,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-taman-connaught-non-halal-delivery/1-C2B2RPKZRT3XFE",
+            "real_item_count": 194,
+            "sample_items": [
+              "15.0 MYR Q01.BBQ Pork Meat Skewer (3Pcs)",
+              "17.5 MYR R17.Braised Pork Leg with Thai Herb (Kha",
+              "17.5 MYR BN01-1 Spicy Boat Noodles with Pork Thai",
+              "2.5 MYR SR02.Thai Fragrant White Rice",
+              "5.0 MYR SR01.Sticky Rice (Khao Niao)"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "Mr Naan & Mrs Idly Restaurant - Brickfields (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/mr-naan-mrs-idly-restaurant-brickfields-delivery/1-C6BKPFJBCKWZLT",
+          "item_count_wayback": 200,
+          "prev_item_count": 200,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/mr-naan-mrs-idly-restaurant-brickfields-delivery/1-C6BKPFJBCKWZLT",
+            "real_item_count": 192,
+            "sample_items": [
+              "12.0 MYR Vada Pav",
+              "11.7 MYR Sambar Idli",
+              "30.0 MYR Paneer Tikka",
+              "19.0 MYR Mini Idli (18 pcs)",
+              "41.0 MYR Tandoori Paneer Pizza"
+            ]
+          },
+          "elapsed_s": 15.1
+        },
+        {
+          "name": "Nasi Kandar Utara - Jalan Bangsar (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/nasi-kandar-utara-jalan-bangsar-delivery/1-C3KKMEA3EZJ3E2",
+          "item_count_wayback": 200,
+          "prev_item_count": 192,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/nasi-kandar-utara-jalan-bangsar-delivery/1-C3KKMEA3EZJ3E2",
+            "real_item_count": 192,
+            "sample_items": [
+              "15.2 MYR Kuey Teow Goreng Daging",
+              "8.8 MYR Mee Goreng",
+              "20.8 MYR Maggi Goreng Kambing",
+              "11.2 MYR NASI GORENG CINA",
+              "13.6 MYR Maggi Goreng Pattaya"
+            ]
+          },
+          "elapsed_s": 16.4
+        },
+        {
+          "name": "Punjab Express Restaurant - Dataran C180 (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/punjab-express-restaurant-dataran-c180-delivery/1-C2UHREKJJGDXVT",
+          "item_count_wayback": 200,
+          "prev_item_count": 200,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/punjab-express-restaurant-brickfields-delivery/1-C2UHREKJJGDXVT",
+            "real_item_count": 192,
+            "sample_items": [
+              "9.6 MYR Garlic Naan",
+              "13.6 MYR Dhall Tadka",
+              "24.5 MYR Chicken Biryani",
+              "21.9 MYR Channa Batura Set",
+              "8.1 MYR Plain Rice"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "ABC Bistro Cafe (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/abc-bistro-cafe-delivery/MYDD10955",
+          "item_count_wayback": 199,
+          "prev_item_count": 102,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/abc-bistro-cafe-delivery/MYDD10955",
+            "real_item_count": 127,
+            "sample_items": [
+              "18.5 MYR CHICKEN BRIYANI",
+              "7.2 MYR NASI GORENG",
+              "7.2 MYR MAGGI GORENG",
+              "7.2 MYR MEE GORENG GORENG",
+              "7.2 MYR BIHUN GORENG"
+            ]
+          },
+          "elapsed_s": 14.6
+        },
+        {
+          "name": "Hua Wei Chinese Restaurant \u534e\u5473 - Off Pudu [Non-Halal] (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/hua-wei-chinese-restaurant-%E5%8D%8E%E5%91%B3-off-pudu-non-halal-delivery/1-C36KGUJDRRKBRN",
+          "item_count_wayback": 199,
+          "prev_item_count": 199,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/hua-wei-chinese-restaurant-%E5%8D%8E%E5%91%B3-off-pudu-non-halal-delivery/1-C36KGUJDRRKBRN",
+            "real_item_count": 192,
+            "sample_items": [
+              "15.0 MYR \u5e72\u7092\u6cb3\u7c89 Fried Hor Fun",
+              "135.0 MYR \u9999\u8fa3\u5c0f\u9f99\u867e Spicy Crayfish",
+              "48.0 MYR \u5c71\u836f\u6392\u9aa8\u6c64 Yam Rib Soup",
+              "135.0 MYR \u9ebb\u8fa3\u5c0f\u9f99\u867e Hot and Spicy Crayfish",
+              "28.0 MYR \u849c\u84c9\u7a7a\u5fc3\u83dc Garlic Water Spinach"
+            ]
+          },
+          "elapsed_s": 16.1
+        },
+        {
+          "name": "Moghul Mahal Restaurant - Brickfields (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/moghul-mahal-restaurant-brickfields-delivery/1-CZDTJAXKKFUURN",
+          "item_count_wayback": 199,
+          "prev_item_count": 194,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/moghul-mahal-restaurant-brickfields-delivery/1-CZDTJAXKKFUURN",
+            "real_item_count": 196,
+            "sample_items": [
+              "12.5 MYR Fresh Cow's Milk (Per Litre)",
+              "21.9 MYR Fresh Paneer",
+              "10.0 MYR LADDU",
+              "3.75 MYR Chapati",
+              "12.5 MYR Aloo Paratha With Makhan"
+            ]
+          },
+          "elapsed_s": 15.5
+        },
+        {
+          "name": "Deli Cafe - Business Park (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/deli-cafe-business-park-delivery/1-C2VUET5BAANCAE",
+          "item_count_wayback": 198,
+          "prev_item_count": 96,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/deli-cafe-business-park-delivery/1-C2VUET5BAANCAE",
+            "real_item_count": 96,
+            "sample_items": [
+              "39.8 MYR NASI GORENG LAMB CHOP",
+              "28.0 MYR FISH \u2018n\u2019 CHIPS",
+              "32.4 MYR CHICKEN CHOP FRIED RICE",
+              "35.4 MYR CHICKEN PARMIGIANA CHEESY",
+              "38.3 MYR SPICY RAMEN PLATTER"
+            ]
+          },
+          "elapsed_s": 15.6
+        },
+        {
+          "name": "Dindigul Thalappakatti - Brickfields (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/dindigul-thalappakatti-brickfields-delivery/MYDD03633",
+          "item_count_wayback": 193,
+          "prev_item_count": 198,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/dindigul-thalappakatti-brickfields-delivery/MYDD03633",
+            "real_item_count": 192,
+            "sample_items": [
+              "34.5 MYR Thalappakatti 65 Biriyani",
+              "24.0 MYR Chicken Biriyani Combo",
+              "28.0 MYR Mutton Biriyani Combo",
+              "38.95 MYR Thalappakatti Mutton Biriyani",
+              "33.4 MYR Chicken Bone Less Sukka"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "Chatto - Setapak (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/chatto-setapak-delivery/MYDD12144",
+          "item_count_wayback": 192,
+          "prev_item_count": 95,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/nomu-nomu-norm-pv128-setapak-delivery/MYDD12144",
+            "real_item_count": 143,
+            "sample_items": [
+              "15.6 MYR GREY ORGANIC OOLONG MILK TEA WITH TOPPIN",
+              "35.0 MYR SALMON SLICED OCHAZUKE \u4e09\u6587\u9c7c\u8336\u6ce1\u996d",
+              "23.75 MYR GRILLED CHICKEN CHOP OMURICE BOWL \u714e\u9e21\u6252\u86cb\u5305\u996d",
+              "23.75 MYR CHICKEN KATSU CURRY BOWL \u9999\u9165\u9e21\u6392\u5496\u55b1",
+              "12.5 MYR CURRY UDON \u7ecf\u5178\u5496\u55b1\u4e4c\u51ac\u9762"
+            ]
+          },
+          "elapsed_s": 16.4
+        },
+        {
+          "name": "Halab KL Beremi - Bukit Bintang (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/halab-kl-beremi-bukit-bintang-delivery/1-CYW1JJ4TKB5ZR6",
+          "item_count_wayback": 191,
+          "prev_item_count": 199,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/halab-kl-beremi-bukit-bintang-delivery/1-CYW1JJ4TKB5ZR6",
+            "real_item_count": 191,
+            "sample_items": [
+              "69.96 MYR Mix grill",
+              "15.37 MYR Shawarma Chicken sandwich",
+              "41.98 MYR Arabic chicken shwarma",
+              "17.81 MYR Shawarma Lamb Sandwich",
+              "61.06 MYR Mandy lamb"
+            ]
+          },
+          "elapsed_s": 15.3
+        },
+        {
+          "name": "Hekaya Shamia Restaurant - Laman Baginda (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/hekaya-shamia-restaurant-laman-baginda-delivery/1-C7ETBBK1PCBDGN",
+          "item_count_wayback": 191,
+          "prev_item_count": 193,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/al-a-rab-restaurant-plaza-ampang-city-delivery/1-C7ETBBK1PCBDGN",
+            "real_item_count": 193,
+            "sample_items": [
+              "13.0 MYR ARABIC SALAD",
+              "16.0 MYR TABBULE SALAD",
+              "15.0 MYR FATOUSH SALAD",
+              "15.0 MYR CUCUMBER WITH YOGURT",
+              "18.0 MYR GREEK SALAD"
+            ]
+          },
+          "elapsed_s": 15.0
+        },
+        {
+          "name": "Burger & Sushi (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/burger-sushi-delivery/MYDD03373",
+          "item_count_wayback": 183,
+          "prev_item_count": 192,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/burger-sushi-delivery/MYDD03373",
+            "real_item_count": 192,
+            "sample_items": [
+              "44.9 MYR Salmon Delight.",
+              "34.9 MYR Salmon Sashimi.",
+              "37.9 MYR Salmon Teriyaki Don.",
+              "14.5 MYR Salmon Nigiri.",
+              "18.9 MYR Chicken Gyoza."
+            ]
+          },
+          "elapsed_s": 16.1
+        },
+        {
+          "name": "DZ Burger Bangsar - Jalan Maarof (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/dz-burger-bangsar-jalan-maarof-delivery/1-C22TR25DNXJXNX",
+          "item_count_wayback": 180,
+          "prev_item_count": 180,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/dz-burger-bangsar-jalan-maarof-delivery/1-C22TR25DNXJXNX",
+            "real_item_count": 180,
+            "sample_items": [
+              "36.9 MYR BAKSO BERANAK+NASI AYAM PENYET+MILO AIS",
+              "19.8 MYR BURGER BENJO CHEESE+BURGER AYAM SPECIAL+",
+              "31.9 MYR TALAPIA PENYET+BURGER AYAM CRISPY+SIRAP ",
+              "24.0 MYR BAKSO BIASA+KELI PENYET+TEA O AIS",
+              "26.0 MYR NASI AYAM PENYET+BURGER CRISPY CHIKEN+LI"
+            ]
+          },
+          "elapsed_s": 15.9
+        },
+        {
+          "name": "KGB Gourmet Burgers - Bangsar (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/kgb-gourmet-burgers-bangsar-delivery/MYDD03542",
+          "item_count_wayback": 176,
+          "prev_item_count": 84,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/inactv-cl-kgb-gourmet-burgers-bangsar-delivery/MYDD03542",
+            "real_item_count": 84,
+            "sample_items": [
+              "20.2 MYR \u2756 Raya Edition \u2756 Satay Style Loaded Frie",
+              "12.6 MYR Onion Rings",
+              "21.0 MYR Texas Jalepeno Steak Fries",
+              "15.5 MYR Chicken Bites",
+              "18.0 MYR Southwestern Egg Rolls"
+            ]
+          },
+          "elapsed_s": 16.0
+        },
+        {
+          "name": "Hometown Hainan Coffee - Berjaya Times Square (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/hometown-hainan-coffee-berjaya-times-square-delivery/MYDD12706",
+          "item_count_wayback": 170,
+          "prev_item_count": 175,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/hometown-hainan-coffee-berjaya-times-square-delivery/MYDD12706",
+            "real_item_count": 175,
+            "sample_items": [
+              "25.9 MYR 199. Hainan Chicken Rice (Poached Chicke",
+              "25.9 MYR 201. Hainan Chicken Rice With Fried Chic",
+              "8.9 MYR 103. Crispy Hainan Kaya Butter Bread (Do",
+              "19.9 MYR 260. Fried Koay Teow \ud83d\udc4d",
+              "8.5 MYR 701. Hainan Kopi (Coffee) \ud83d\udc4d"
+            ]
+          },
+          "elapsed_s": 15.2
+        },
+        {
+          "name": "Kanna Curry House - Jalan Gasing (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/kanna-curry-house-jalan-gasing-delivery/1-CZEHJEB2LUCFRN",
+          "item_count_wayback": 156,
+          "prev_item_count": 157,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/kanna-curry-house-jalan-gasing-delivery/1-CZEHJEB2LUCFRN",
+            "real_item_count": 157,
+            "sample_items": [
+              "2.86 MYR Roti Canai \ud83d\udc4d\ud83c\udffc",
+              "3.32 MYR Plain Thosai \ud83e\udd66",
+              "15.0 MYR Combo Saver Meal",
+              "10.89 MYR Chicken Varuval \ud83d\udc4d\ud83c\udffc",
+              "10.89 MYR Ikan Tenggiri \ud83d\udc4d\ud83c\udffc"
+            ]
+          },
+          "elapsed_s": 16.6
+        },
+        {
+          "name": "McDonald's\u00ae - Jalan Tun Perak 101 (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-jalan-tun-perak-101-delivery/MYDD07810",
+          "item_count_wayback": 136,
+          "prev_item_count": 77,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-jalan-tun-perak-101-delivery/MYDD07810",
+            "real_item_count": 157,
+            "sample_items": [
+              "19.69 MYR Spicy Chicken McDeluxe Medium McValue Me",
+              "18.4 MYR Double Cheeseburger Medium McValue Meal",
+              "19.45 MYR Big Mac Medium McValue Meal",
+              "21.95 MYR Big Mac Large McValue Meal",
+              "22.2 MYR Spicy Chicken McDeluxe Large McValue Mea"
+            ]
+          },
+          "elapsed_s": 15.0
+        },
+        {
+          "name": "Muslim Mee Tarik Intermark - Wisma Bukit Bintang (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/muslim-mee-tarik-intermark-wisma-bukit-bintang-delivery/1-C4EBAXCWRFUBVA",
+          "item_count_wayback": 133,
+          "prev_item_count": 133,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/zhang-lala-mee-tarik-wisma-bukit-bintang-delivery/1-C4EBAXCWRFUBVA",
+            "real_item_count": 133,
+            "sample_items": [
+              "22.9 MYR R035. Braised Beef Ramen \u7ea2\u70e7\u725b\u8089\u62c9\u9762",
+              "18.75 MYR R001. Beef Ramen \u725b\u8089\u62c9\u9762",
+              "27.9 MYR R008. Fried Ramen \u7092\u62c9\u9762",
+              "17.5 MYR R031. Fried Rice \u7092\u996d",
+              "8.5 MYR XC004. Beef Pancake \u725b\u8089\u9985\u997c"
+            ]
+          },
+          "elapsed_s": 14.9
+        },
+        {
+          "name": "Lavender Bakery - Mid Valley (grabfood-my)",
+          "url": "https://food.grab.com/my/en/restaurant/lavender-bakery-mid-valley-delivery/1-C2J2V4DWG3MUA6",
+          "item_count_wayback": 132,
+          "prev_item_count": 141,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/my/en/restaurant/lavender-bakery-mid-valley-delivery/1-C2J2V4DWG3MUA6",
+            "real_item_count": 143,
+            "sample_items": [
+              "99.0 MYR Exotic Fruit Cake",
+              "99.0 MYR Tropical Mango Cake",
+              "99.0 MYR Strawberry Cake",
+              "110.0 MYR Pistachio Chocolate Cake",
+              "9.0 MYR 5pcs Soft Raisin Ball"
+            ]
+          },
+          "elapsed_s": 15.3
+        }
+      ],
+      "confirmed": 28
+    }
+  },
+  "updated_at": "2026-08-10T18:38:39.564690"
+}
