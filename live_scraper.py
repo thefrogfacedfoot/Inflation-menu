@@ -53,7 +53,11 @@ LOG_PATH = os.path.join(BASE_DIR, 'scraper_log.txt')
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s — %(message)s',
+    # Level is in the format on purpose: without it a logging.error() line
+    # is visually identical to routine progress output, which is how a dead
+    # exchange-rate fetch stayed invisible for a week. Every line now carries
+    # its level, so WARNING/ERROR are greppable.
+    format='%(asctime)s %(levelname)s — %(message)s',
     handlers=[
         logging.FileHandler(LOG_PATH),
         logging.StreamHandler(sys.stdout),
@@ -101,6 +105,29 @@ def _save_cached_rates(rates):
         log(f"  ⚠  Could not cache exchange rates ({e})")
 
 
+def _log_rate_fallback(err):
+    """Announce, at ERROR level, that this run's price_usd is not using live
+    rates.
+
+    Deliberately loud. The previous version logged the failure through
+    `log` (= logging.info), indistinguishable from ordinary progress output
+    in a multi-megabyte log, which is why a totally dead FX fetch went
+    unnoticed from 2026-08-03 to 2026-08-10.
+    """
+    cached, fetched_at = _load_cached_rates()
+    if cached:
+        age_h = (time.time() - fetched_at) / 3600
+        logging.error(
+            '‼  USD RATE FETCH FAILED (%s) — falling back to CACHED rates '
+            'fetched %.1f h (%.1f days) ago. Every price_usd written by this '
+            'run is computed from STALE rates.', err, age_h, age_h / 24)
+    else:
+        logging.error(
+            '‼  USD RATE FETCH FAILED (%s) — no usable cache; using hardcoded '
+            'FALLBACK_RATES from fx_rates.py. Every price_usd written by this '
+            'run is computed from FIXED rates.', err)
+
+
 def get_usd_rates(force_refresh=False):
     """
     Return USD exchange rates (1 USD = X local).
@@ -123,18 +150,21 @@ def get_usd_rates(force_refresh=False):
         )
         r.raise_for_status()
         rates = r.json()['rates']
+    except (requests.RequestException, ValueError, KeyError) as e:
+        # Only genuine network/response failures fall back. A bare
+        # `except Exception` here previously swallowed a NameError from a
+        # missing `import requests`, so the fetch was dead for a week while
+        # every run quietly used week-old rates. Programming errors must
+        # surface, not be laundered into "just use the cache".
+        _log_rate_fallback(e)
+        cached, fetched_at = _load_cached_rates()
+        if cached:
+            return cached
+        return FALLBACK_RATES
+    else:
         _save_cached_rates(rates)
         log("  ✓ Fetched fresh USD rates and cached them")
         return rates
-    except Exception as e:
-        log(f"  ⚠  Exchange rate fetch failed ({e})")
-        # Prefer a stale cache over fallback constants if available
-        cached, _ = _load_cached_rates()
-        if cached:
-            log("  ↩  Falling back to stale cached rates")
-            return cached
-        log("  ↩  Using hardcoded fallback rates")
-        return FALLBACK_RATES
 
 
 def to_usd(price, currency, rates):
