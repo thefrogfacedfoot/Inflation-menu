@@ -2,6 +2,38 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-08-10 — Fix dead USD exchange-rate fetch (silent for a week)
+
+`live_scraper.get_usd_rates()` called `requests.get(...)` but `live_scraper.py`
+never imported `requests`. The resulting `NameError` was caught by a bare
+`except Exception`, logged through `log` (= `logging.info`), and treated as a
+routine fetch failure — so every run from 2026-08-03 silently computed
+`price_usd` from a week-old cache. `requests` was installed the whole time;
+only the import line was missing.
+
+Three changes:
+
+* Added the missing `import requests`.
+* Narrowed the handler to `(requests.RequestException, ValueError, KeyError)`.
+  Genuine network/response failures still fall back to cache; a programming
+  error now propagates instead of being laundered into "just use the cache".
+  This exact bug class would now fail loudly on the first run.
+* Fallbacks log at ERROR via `_log_rate_fallback()`, stating the cache age and
+  that `price_usd` for the run is stale, and the log format carries
+  `%(levelname)s` so an ERROR is no longer visually identical to progress
+  output in a multi-megabyte log.
+
+Verified: `exchange_rates.json` refreshed 2026-08-03T21:00 → 2026-08-10T23:06
+on the next run; a simulated outage produces the loud ERROR and still returns
+cached rates; an injected `NameError` propagates.
+
+**No `price_usd` backfill needed.** Of 22,278 rows written on stale rates,
+GBP/SGD/MYR/AUD/USD drifted 0.000% over the week and only VND moved (-0.200%,
+128 rows, 0.201% error). Structurally the exposure is smaller still:
+`build_stable_basket_index` uses `price_usd / base_price_usd`, so a constant
+per-currency rate error cancels in the ratio and affects only cross-country
+USD-level comparisons, not the within-country index.
+
 ## 2026-08-10 — Expand live TARGETS 103 → 250; retire never-producing US entries
 
 Live-probed 378 candidates drawn from the wayback pools and promoted 158,
