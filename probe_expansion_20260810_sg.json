@@ -1,0 +1,191 @@
+{
+  "started_at": "2026-08-10T18:38:39.898780",
+  "pools": {
+    "sg": {
+      "probed": [
+        {
+          "name": "Collin S\u00ae Restaurant Northpoint City",
+          "url": "https://food.grab.com/sg/en/restaurant/collin-s%C2%AE-restaurant-northpoint-city-delivery/SGDD06431",
+          "item_count_wayback": 130,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/collin-s%C2%AE-restaurant-northpoint-city-delivery/SGDD06431",
+            "real_item_count": 88,
+            "sample_items": [
+              "52.0 SGD 1-FOR-1 $19.90",
+              "75.0 SGD Singapura Platter",
+              "28.0 SGD Squid Ink Vongole",
+              "34.0 SGD French Duck Leg Confit",
+              "28.0 SGD Prawn and Clam Aglio"
+            ]
+          },
+          "elapsed_s": 13.9
+        },
+        {
+          "name": "Founder Bak Kut Teh Balestier Road",
+          "url": "https://food.grab.com/sg/en/restaurant/founder-bak-kut-teh-balestier-road-delivery/4-C2BGNTVDN6CVWE",
+          "item_count_wayback": 78,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/founder-bak-kut-teh-balestier-road-delivery/4-C2BGNTVDN6CVWE",
+            "real_item_count": 76,
+            "sample_items": [
+              "12.5 SGD Founder Bak Kut Teh \u767c\u8d77\u4eba\u8089\u9aa8\u8336",
+              "16.0 SGD Premium Loin Ribs \u9f99\u9aa8 (\u957f\u6392\u9aa8)",
+              "14.5 SGD Premium Short Ribs \u5c0f\u6392\u9aa8",
+              "9.6 SGD Sliced Lean Meat Soup \u7626\u8089\u6c64",
+              "1.8 SGD Plain Rice"
+            ]
+          },
+          "elapsed_s": 14.2
+        },
+        {
+          "name": "Baristart Coffee Singapore Tras Street",
+          "url": "https://food.grab.com/sg/en/restaurant/baristart-coffee-singapore-tras-street-delivery/4-CZDDC7BYR3WFTE",
+          "item_count_wayback": 54,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/baristart-coffee-singapore-tras-street-delivery/4-CZDDC7BYR3WFTE",
+            "real_item_count": 96,
+            "sample_items": [
+              "90.0 SGD Coffee & Tea Traveller",
+              "24.0 SGD Obihiro Butadon",
+              "30.0 SGD Grilled Miso Black Cod Ochazuke",
+              "16.5 SGD Signature Espresso Tiramisu - 1 box (G)",
+              "48.0 SGD Coffee Traveller"
+            ]
+          },
+          "elapsed_s": 15.3
+        },
+        {
+          "name": "Chimi S One Marina Boulevard",
+          "url": "https://food.grab.com/sg/en/restaurant/chimi-s-one-marina-boulevard-delivery/4-CZCZLB2HT3KVC2",
+          "item_count_wayback": 46,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/closed-chimi-s-one-marina-boulevard-delivery/4-CZCZLB2HT3KVC2",
+            "real_item_count": 27,
+            "sample_items": [
+              "30.0 SGD Smashed Angus Cheeseburger",
+              "24.0 SGD No-llo Burger",
+              "18.0 SGD Loaded Nachos",
+              "16.0 SGD Tacos",
+              "18.0 SGD Chimichangas"
+            ]
+          },
+          "elapsed_s": 15.3
+        },
+        {
+          "name": "Captain Kim Korean Bbq Ntuc Income Tampines Junction",
+          "url": "https://food.grab.com/sg/en/restaurant/captain-kim-korean-bbq-ntuc-income-tampines-junction-delivery/4-C2UFJJJGMEXUKA",
+          "item_count_wayback": 33,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/captain-kim-korean-bbq-ntuc-income-tampines-junction-delivery/4-C2UFJJJGMEXUKA",
+            "real_item_count": 33,
+            "sample_items": [
+              "9.9 SGD Korean BBQ Bento x Rice Combo",
+              "13.9 SGD Tender Beef Bulgogi",
+              "7.9 SGD Tteokbokki",
+              "9.9 SGD Spicy Volcano Chicken",
+              "10.9 SGD Korean Chicken x Soy Fried Rice Combo"
+            ]
+          },
+          "elapsed_s": 15.5
+        },
+        {
+          "name": "Dough Culture Waterway Point",
+          "url": "https://food.grab.com/sg/en/restaurant/dough-culture-waterway-point-delivery/SGDD11087",
+          "item_count_wayback": 29,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/dough-culture-waterway-point-delivery/SGDD11087",
+            "real_item_count": 46,
+            "sample_items": [
+              "3.1 SGD TAU SUAN",
+              "2.3 SGD SAMOSA (3 PCS)",
+              "4.6 SGD YOU TIAO ROJAK",
+              "1.8 SGD BUTTERFLY BUN",
+              "2.8 SGD Jemput Jemput 4pc"
+            ]
+          },
+          "elapsed_s": 15.9
+        },
+        {
+          "name": "Jb\u70eb\u9c7c \u836f\u6750\u8089\u9aa8\u8336 338 Ang Mo Kio",
+          "url": "https://food.grab.com/sg/en/restaurant/jb%E7%83%AB%E9%B1%BC-%E8%8D%AF%E6%9D%90%E8%82%89%E9%AA%A8%E8%8C%B6-338-ang-mo-kio-delivery/4-C2TKR7MBEXKHNT",
+          "item_count_wayback": 19,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/closed-jb%E7%83%AB%E9%B1%BC-%E8%8D%AF%E6%9D%90%E8%82%89%E9%AA%A8%E8%8C%B6-338-ang-mo-kio-delivery/4-C2TKR7MBEXKHNT",
+            "real_item_count": 29,
+            "sample_items": [
+              "20.0 SGD \u9178\u8fa3\u8c46\u9171\u70eb\u9c7c Hot & Sour Chilli Bean Paste Poac",
+              "20.0 SGD \u83dc\u752b\u70eb\u9c7c Cai Po Poached Fish",
+              "20.0 SGD \u8c49\u6cb9\u7687\u70eb\u9c7c Soy Sauce Poached Fish",
+              "20.0 SGD \u5a18\u60f9\u9171\u70eb\u9c7c Nyonya Sauce Poached Fish",
+              "9.0 SGD \u8089\u9aa8\u8336 Bak Kut Teh"
+            ]
+          },
+          "elapsed_s": 14.5
+        },
+        {
+          "name": "21 Toh Guan Fish Soup 21 \u5353\u6e90\u9c7c\u6c64 Lazada One",
+          "url": "https://food.grab.com/sg/en/restaurant/21-toh-guan-fish-soup-21-%E5%8D%93%E6%BA%90%E9%B1%BC%E6%B1%A4-lazada-one-delivery/4-C3JJR7ATGFAUVA",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/closed-21-toh-guan-fish-soup-21-%E5%8D%93%E6%BA%90%E9%B1%BC%E6%B1%A4-lazada-one-delivery/4-C3JJR7ATGFAUVA",
+            "real_item_count": 15,
+            "sample_items": [
+              "8.5 SGD Sliced Fish Soup \u9c7c\u7247\u6c64",
+              "8.5 SGD Sliced Fish Noodle Soup \u9c7c\u7247\u9762\u6c64",
+              "8.5 SGD Fried Fish Noodle Soup \u70b8\u9c7c\u9762\u6c64",
+              "9.5 SGD Double Fish Soup \u53cc\u9c7c\u6c64",
+              "9.5 SGD Double Fish Noodle Soup \u53cc\u9c7c\u9762\u6c64"
+            ]
+          },
+          "elapsed_s": 15.8
+        },
+        {
+          "name": "Spice Box Mala Xiang Guo Cross Street Exchange",
+          "url": "https://food.grab.com/sg/en/restaurant/spice-box-mala-xiang-guo-cross-street-exchange-delivery/4-C2KCJYTBGJJ2RX",
+          "item_count_wayback": 13,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/sg/en/restaurant/closed-spice-box-mala-xiang-guo-cross-street-exchange-delivery/4-C2KCJYTBGJJ2RX",
+            "real_item_count": 13,
+            "sample_items": [
+              "3.9 SGD Pot Base \u9505\u5e95",
+              "0.1 SGD Veg & Dry \u852c\u83dc\u7c7b/\u5e72\u8d27\u7c7b",
+              "21.8 SGD A1. Chicken Set for 1 \u96de\u7fc5\u55ae\u4eba\u5957\u9910",
+              "21.8 SGD A2. Pork Set for 1 \u8c6c\u8089\u55ae\u4eba\u5957\u9910",
+              "22.8 SGD A3. Beef Set for 1 \u725b\u8089\u5355\u4eba\u5957\u9910"
+            ]
+          },
+          "elapsed_s": 29.6
+        }
+      ],
+      "confirmed": 9
+    }
+  },
+  "updated_at": "2026-08-10T18:42:49.169245"
+}

@@ -1,0 +1,1289 @@
+{
+  "started_at": "2026-08-10T18:42:49.462588",
+  "pools": {
+    "vn": {
+      "probed": [
+        {
+          "name": "B\u00e1nh M\u00ec C\u00f4 Chun",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-c%C3%B4-chun-delivery/5-C3VWSBAALXMUNJ",
+          "item_count_wayback": 222,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-c%C3%B4-chun-delivery/5-C3VWSBAALXMUNJ",
+            "real_item_count": 139,
+            "sample_items": [
+              "83.0 VND Special Hoi An Banh Mi Combo + Coke",
+              "72.0 VND Hoi An Banh Mi Combo + Coke",
+              "89.0 VND Combo Banh Mi With Taco Chicken Mozzarel",
+              "63.0 VND Pear Juice Without Sugar",
+              "56.0 VND Watermelon juice"
+            ]
+          },
+          "elapsed_s": 15.3
+        },
+        {
+          "name": "Cafe Phin Phan Rang Nguy\u00ean Ch\u1ea5t 100",
+          "url": "https://food.grab.com/vn/en/restaurant/cafe-phin-phan-rang-nguy%C3%AAn-ch%E1%BA%A5t-100-delivery/5-C6NVEJ2BHCLKHE",
+          "item_count_wayback": 90,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/cafe-phin-phan-rang-nguy%C3%AAn-ch%E1%BA%A5t-100-delivery/5-C6NVEJ2BHCLKHE",
+            "real_item_count": 33,
+            "sample_items": [
+              "19.0 VND Phan Rang-style strong milk coffee",
+              "17.0 VND Strong black coffee Phan Rang style",
+              "25.0 VND Bear Coffee with Condensed Milk",
+              "18.0 VND Salt Coffee",
+              "15.0 VND Saigon iced coffee"
+            ]
+          },
+          "elapsed_s": 15.3
+        },
+        {
+          "name": "Alpha Coffee",
+          "url": "https://food.grab.com/vn/en/restaurant/alpha-coffee-delivery/5-CZKTSBDFEZEDBE",
+          "item_count_wayback": 90,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/alpha-coffee-delivery/5-CZKTSBDFEZEDBE",
+            "real_item_count": 55,
+            "sample_items": [
+              "46.0 VND Lotus Seed Oolong Tea Macchiato",
+              "38.0 VND Traditional Black Milk Tea",
+              "42.0 VND Traditional Red Milk Tea with Full Toppi",
+              "39.0 VND Fresh Milk With Black Sugar Boba",
+              "42.0 VND Peach, Lemon, and Lemongrass Tea"
+            ]
+          },
+          "elapsed_s": 14.8
+        },
+        {
+          "name": "Burger House Downtown",
+          "url": "https://food.grab.com/vn/en/restaurant/burger-house-downtown-delivery/5-C2AXKFWKPAUCCN",
+          "item_count_wayback": 89,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/burger-house-downtown-delivery/5-C2AXKFWKPAUCCN",
+            "real_item_count": 90,
+            "sample_items": [
+              "169.0 VND Combo Beef And Bacon Burger(Beef150Gr,Ba",
+              "149.0 VND Combo Cheese Burger .(Ketchup) + Pepsi",
+              "75.0 VND Combo Hand Cut Fries-Mayo(Khoai Nh\u00e0 L\u00e0m ",
+              "169.0 VND Combobeefandbaconburger(Beef150Gr,Bacon,",
+              "149.0 VND Combo Cheese Burger (Beef + Cheese + Che"
+            ]
+          },
+          "elapsed_s": 14.7
+        },
+        {
+          "name": "Burger King Gi\u1ea3ng V\u00f5",
+          "url": "https://food.grab.com/vn/en/restaurant/burger-king-gi%E1%BA%A3ng-v%C3%B5-delivery/5-CZNDJ4MDEBWJUA",
+          "item_count_wayback": 88,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/burger-king-gi%E1%BA%A3ng-v%C3%B5-inactive-delivery/5-CZNDJ4MDEBWJUA",
+            "real_item_count": 62,
+            "sample_items": [
+              "59.0 VND BBQ Chicken Burger with Cheese",
+              "79.0 VND Beef Burger with Cheese, Medium Size",
+              "59.0 VND Crispy Fish Burger",
+              "79.0 VND Medium-Sized Beef Cheese Bacon Burger",
+              "139.0 VND Grilled Beef Whopper Burger Large Size"
+            ]
+          },
+          "elapsed_s": 14.4
+        },
+        {
+          "name": "Tr\u00e0 S\u1eefa Chapong",
+          "url": "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-chapong-delivery/5-C4CZRTBWEABHR2",
+          "item_count_wayback": 81,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-ch%C3%A0p%C3%B4ng-delivery/5-C4CZRTBWEABHR2",
+            "real_item_count": 114,
+            "sample_items": [
+              "55.0 VND Chocolate Milk Tea With Creamy Cheese",
+              "55.0 VND Chocolate Milk Tea",
+              "55.0 VND Matcha Milk Tea With Red Beans",
+              "55.0 VND Matcha Milk Tea With Creamy Cheese",
+              "55.0 VND Matcha Milk Tea"
+            ]
+          },
+          "elapsed_s": 16.5
+        },
+        {
+          "name": "B\u1ebfp \u0102n Nh\u00e0 Su \u0110i\u1ec3m T\u00e2m C\u01a1m Tr\u01b0a Chi\u1ec1u",
+          "url": "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-%C4%83n-nh%C3%A0-su-%C4%91i%E1%BB%83m-t%C3%A2m-c%C6%A1m-tr%C6%B0a-chi%E1%BB%81u-delivery/5-C6VXGZN3KF4CGJ",
+          "item_count_wayback": 74,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-%C4%83n-nh%C3%A0-su-%C4%91i%E1%BB%83m-t%C3%A2m-c%C6%A1m-tr%C6%B0a-chi%E1%BB%81u-delivery/5-C6VXGZN3KF4CGJ",
+            "real_item_count": 24,
+            "sample_items": [
+              "53.0 VND Grilled Pork Rib Rice",
+              "52.0 VND Stir-Fried Beef with White Rice and Must",
+              "52.0 VND Stir-Fried Beef with Onion and White Ric",
+              "52.0 VND Shaking Beef White Rice",
+              "52.0 VND Sour and Sweet Seafood Stir-Fried White "
+            ]
+          },
+          "elapsed_s": 16.0
+        },
+        {
+          "name": "B\u00e1nh M\u00ec D\u00e2n T\u1ed5 Ph\u1ea1m Ng\u1ecdc Th\u1ea1ch",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-d%C3%A2n-t%E1%BB%95-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C4NXHABDCLM2E2",
+          "item_count_wayback": 73,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-d%C3%A2n-t%E1%BB%95-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C4NXHABDCLM2E2",
+            "real_item_count": 78,
+            "sample_items": [
+              "45.0 VND Combo Head-Turning Bread + Coca",
+              "30.0 VND Garlic Butter Sauce Baguette Combo + Coc",
+              "50.0 VND Combo Playful Baguette + Coca",
+              "43.0 VND Combo Dan To-style sandwich + Pepsi",
+              "52.0 VND Combo Grilled Pork Baguette + Pepsi"
+            ]
+          },
+          "elapsed_s": 15.4
+        },
+        {
+          "name": "Reply 1988 Cafe",
+          "url": "https://food.grab.com/vn/en/restaurant/reply-1988-cafe-delivery/5-C3AYJ7WCLGJDPA",
+          "item_count_wayback": 70,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/reply-1988-cafe-delivery/5-C3AYJ7WCLGJDPA",
+            "real_item_count": 67,
+            "sample_items": [
+              "35.0 VND Salted Coffee",
+              "40.0 VND Jasmine Oolong Milk Tea",
+              "45.0 VND Capuchino hot",
+              "45.0 VND Vietnamese White Coffee With Grilled Egg",
+              "35.0 VND Iced Coffee with Condensed Milk"
+            ]
+          },
+          "elapsed_s": 14.5
+        },
+        {
+          "name": "Highlands Coffee 36 Duy T\u00e2n H\u00e0 N\u1ed9i",
+          "url": "https://food.grab.com/vn/en/restaurant/highlands-coffee-36-duy-t%C3%A2n-h%C3%A0-n%E1%BB%99i-delivery/5-C6CEE3ABJE6UTA",
+          "item_count_wayback": 66,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/highlands-coffee-36-duy-t%C3%A2n-h%C3%A0-n%E1%BB%99i-delivery/5-C6CEE3ABJE6UTA",
+            "real_item_count": 72,
+            "sample_items": [
+              "68.0 VND Combo S\u00e1ng Highlands 58K",
+              "236.0 VND Mua 2 Tr\u00e0 t\u1eb7ng 2 Phin\u0110I",
+              "54.0 VND Combo S\u00e1ng Highlands 45K",
+              "78.0 VND Combo S\u00e1ng Highlands 63K",
+              "88.0 VND Highlands Afternoon Tea Combo (1 Person)"
+            ]
+          },
+          "elapsed_s": 16.0
+        },
+        {
+          "name": "B\u00e1nh Bao N\u00f3ng S\u1eefa H\u1ea1t N\u01b0\u1edbc \u00c9p Nguy\u00ean Ch\u1ea5t",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-n%C3%B3ng-s%E1%BB%AFa-h%E1%BA%A1t-n%C6%B0%E1%BB%9Bc-%C3%A9p-nguy%C3%AAn-ch%E1%BA%A5t-delivery/5-CZJDV8NANUVYVT",
+          "item_count_wayback": 65,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-n%C3%B3ng-s%E1%BB%AFa-h%E1%BA%A1t-n%C6%B0%E1%BB%9Bc-%C3%A9p-nguy%C3%AAn-ch%E1%BA%A5t-delivery/5-CZJDV8NANUVYVT",
+            "real_item_count": 64,
+            "sample_items": [
+              "20.0 VND Steamed buns with young rice and coconut",
+              "20.0 VND Whole wheat steamed buns with sweet pota",
+              "15.0 VND Super Large Green Tea Steamed Bun Specia",
+              "10.0 VND Charcoal Egg Milk Steamed Buns",
+              "20.0 VND Sausage and Cheese Steamed Buns"
+            ]
+          },
+          "elapsed_s": 14.6
+        },
+        {
+          "name": "C\u01a1m T\u1ea5m S\u01b0\u1eddn N\u01b0\u1edbng 87 L\u00f2 \u0110\u00fac",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-87-l%C3%B2-%C4%91%C3%BAc-delivery/5-CYWYAKCDEECDGA",
+          "item_count_wayback": 64,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-87-l%C3%B2-%C4%91%C3%BAc-delivery/5-CYWYAKCDEECDGA",
+            "real_item_count": 40,
+            "sample_items": [
+              "52.0 VND Broken Rice With Grilled Pork Chop And V",
+              "57.0 VND Broken Rice With Pork Belly, Shredded Po",
+              "52.0 VND Broken Rice With Pork Belly, Egg Meatloa",
+              "52.0 VND Broken Rice With Pork Ribs And Fried Egg",
+              "57.0 VND Broken Rice With Grilled Pork, Shredded "
+            ]
+          },
+          "elapsed_s": 15.8
+        },
+        {
+          "name": "B\u00e1nh Tr\u00e1ng C\u00f4 H\u1eb1ng 2D1 Kh\u00e2m Thi\u00ean",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-tr%C3%A1ng-c%C3%B4-h%E1%BA%B1ng-2d1-kh%C3%A2m-thi%C3%AAn-delivery/5-C3BAKEWVG8LHWE",
+          "item_count_wayback": 64,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-tr%C3%A1ng-c%C3%B4-h%E1%BA%B1ng-2d1-kh%C3%A2m-thi%C3%AAn-delivery/5-C3BAKEWVG8LHWE",
+            "real_item_count": 72,
+            "sample_items": [
+              "33.0 VND Rice paper rolls with tamarind sauce",
+              "35.0 VND Mixed Rice Paper with Butter from Saigon",
+              "33.0 VND Butter Rice Paper Rolls",
+              "33.0 VND Rice paper rolls with rich butter and sa",
+              "33.0 VND Rice paper rolls with mayonnaise"
+            ]
+          },
+          "elapsed_s": 15.2
+        },
+        {
+          "name": "Kfc Vmq",
+          "url": "https://food.grab.com/vn/en/restaurant/kfc-vmq-delivery/5-CYMADBU1JVLGAT",
+          "item_count_wayback": 59,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/kfc-vmq-delivery/5-CYMADBU1JVLGAT",
+            "real_item_count": 92,
+            "sample_items": [
+              "239.0 VND Couple's Bucket 189k",
+              "392.0 VND Cool & Chill Bucket 289k",
+              "114.0 VND COMBO EXCLUSIVE GRAB 85K",
+              "134.0 VND Combo Hot Deal 99k",
+              "97.0 VND Combo Tieu Tung Chill 85k"
+            ]
+          },
+          "elapsed_s": 15.4
+        },
+        {
+          "name": "B\u1ebfp Nh\u00e0 B\u00f4ng M\u00ec Indomie Tr\u1ed9n",
+          "url": "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-nh%C3%A0-b%C3%B4ng-m%C3%AC-indomie-tr%E1%BB%99n-delivery/5-C6X1LJ5JWFBBL2",
+          "item_count_wayback": 51,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-nh%C3%A0-b%C3%B4ng-m%C3%AC-indomie-tr%E1%BB%99n-delivery/5-C6X1LJ5JWFBBL2",
+            "real_item_count": 60,
+            "sample_items": [
+              "61.0 VND Special Mixed Noodles 2 Packs",
+              "49.0 VND Special Mixed Noodles 1 Pack",
+              "20.0 VND Grilled Pork Sausage with Stone Rice",
+              "45.0 VND Goose breast mixed noodles",
+              "40.0 VND Black Bean Noodle Mix"
+            ]
+          },
+          "elapsed_s": 15.8
+        },
+        {
+          "name": "B\u00e1nh M\u00ec H\u1ed9i An H\u00e0ng Bu\u1ed3m",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-h%E1%BB%99i-an-h%C3%A0ng-bu%E1%BB%93m-delivery/5-C6TUVFU3GY5EUE",
+          "item_count_wayback": 50,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-h%E1%BB%99i-an-h%C3%A0ng-bu%E1%BB%93m-delivery/5-C6TUVFU3GY5EUE",
+            "real_item_count": 40,
+            "sample_items": [
+              "90.0 VND Combo Roasted Pork Baguette + Coca",
+              "95.0 VND Combo Special Baguette + Coca",
+              "69.0 VND Roasted pork Banh Mi",
+              "75.0 VND Beef Banh Mi",
+              "75.0 VND Special Vietnamese Sandwich"
+            ]
+          },
+          "elapsed_s": 14.7
+        },
+        {
+          "name": "B\u00fan Ri\u00eau B\u00fan Th\u00e1i H\u1ed3ng \u00c2n",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-b%C3%BAn-th%C3%A1i-h%E1%BB%93ng-%C3%A2n-delivery/5-C64KGLJWCFJJA2",
+          "item_count_wayback": 48,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-b%C3%BAn-th%C3%A1i-h%E1%BB%93ng-%C3%A2n-delivery/5-C64KGLJWCFJJA2",
+            "real_item_count": 29,
+            "sample_items": [
+              "50.0 VND Mix 2 Five-Colored Vegetable Rice Paper ",
+              "45.0 VND Mixed Five-Colored Vegetable Spring Roll",
+              "100.0 VND Mixed Five-Colored Vegetable Rolls",
+              "80.0 VND Mixed 4 Fresh Vegetable Spring Rolls",
+              "59.0 VND 5 Fresh Rolls \ud83e\udd90 + Pork \ud83d\udc37"
+            ]
+          },
+          "elapsed_s": 15.1
+        },
+        {
+          "name": "\u00d4 M\u00ea Ly Tokbokki B\u00e1nh M\u00ec M\u00ec Tr\u1ed9n Indomie Drinks Online",
+          "url": "https://food.grab.com/vn/en/restaurant/%C3%B4-m%C3%AA-ly-tokbokki-b%C3%A1nh-m%C3%AC-m%C3%AC-tr%E1%BB%99n-indomie-drinks-online-delivery/5-CZAYNRNHTPW1N2",
+          "item_count_wayback": 47,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C3%B4-m%C3%AA-ly-tokbokki-b%C3%A1nh-m%C3%AC-m%C3%AC-tr%E1%BB%99n-indomie-drinks-online-delivery/5-CZAYNRNHTPW1N2",
+            "real_item_count": 15,
+            "sample_items": [
+              "20.0 VND Brown Rice Tea",
+              "20.0 VND Lemon water",
+              "30.0 VND Orange juice",
+              "15.0 VND Green Tea 0 degrees (Iced Green Tea)",
+              "13.0 VND Sprite or 7up"
+            ]
+          },
+          "elapsed_s": 14.6
+        },
+        {
+          "name": "9X Food Ch\u00e1o \u1ebech Singapore B\u00e1nh M\u1ef3 Truy\u1ec1n Th\u1ed1ng Ph\u1ea1m Ng\u1ecdc Th\u1ea1ch",
+          "url": "https://food.grab.com/vn/en/restaurant/9x-food-ch%C3%A1o-%E1%BA%BFch-singapore-b%C3%A1nh-m%E1%BB%B3-truy%E1%BB%81n-th%E1%BB%91ng-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C6XHCY3JCKABT2",
+          "item_count_wayback": 47,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/9x-food-ch%C3%A1o-%E1%BA%BFch-singapore-b%C3%A1nh-m%E1%BB%B3-truy%E1%BB%81n-th%E1%BB%91ng-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C6XHCY3JCKABT2",
+            "real_item_count": 55,
+            "sample_items": [
+              "49.0 VND Braised Frog with Satay Sauce size S (01",
+              "49.0 VND Braised Frog with Lemongrass, size S (01",
+              "49.0 VND \u1ebech Kho Singapore size S (01 con)",
+              "84.0 VND \u1ebech Kho Singapore size M (02 con)",
+              "125.0 VND \u1ebech Kho Singapore size L (03 con)"
+            ]
+          },
+          "elapsed_s": 14.8
+        },
+        {
+          "name": "Cacao S\u1eefa Gia Linh",
+          "url": "https://food.grab.com/vn/en/restaurant/cacao-s%E1%BB%AFa-gia-linh-delivery/5-C2ECAA2ELB2URX",
+          "item_count_wayback": 46,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-gia-linh-delivery/5-C2ECAA2ELB2URX",
+            "real_item_count": 46,
+            "sample_items": [
+              "28.0 VND Grape Size L",
+              "38.0 VND Jasmine Tea With Arenga Pinnata And Aren",
+              "30.0 VND Jasmine Tea With Arenga Pinnata And Aren",
+              "45.0 VND Fresh Lemongrass Tea Size L",
+              "35.0 VND Fresh Lemongrass Tea Size M"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "B\u00e1nh Bao T\u01b0\u01a1i S\u1eefa H\u1ea1t \u0110\u1eb7c Bi\u1ec7t Tr\u00e0 Hoa B\u1ebfp Xanh",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-t%C6%B0%C6%A1i-s%E1%BB%AFa-h%E1%BA%A1t-%C4%91%E1%BA%B7c-bi%E1%BB%87t-tr%C3%A0-hoa-b%E1%BA%BFp-xanh-delivery/5-C2V2E3VEBBBUJA",
+          "item_count_wayback": 45,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-t%C6%B0%C6%A1i-s%E1%BB%AFa-h%E1%BA%A1t-%C4%91%E1%BA%B7c-bi%E1%BB%87t-tr%C3%A0-hoa-b%E1%BA%BFp-xanh-delivery/5-C2V2E3VEBBBUJA",
+            "real_item_count": 45,
+            "sample_items": [
+              "39.0 VND Guava Juice",
+              "39.0 VND Pure pineapple juice",
+              "39.0 VND Freshly squeezed tangerine juice",
+              "68.0 VND Combo 2",
+              "45.0 VND Char Siu Bao Sandwich"
+            ]
+          },
+          "elapsed_s": 14.8
+        },
+        {
+          "name": "B\u00fan Ri\u00eau T\u00f3p M\u1ee1 Huy\u1ec1n Anh B\u1ea1ch Mai",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-t%C3%B3p-m%E1%BB%A1-huy%E1%BB%81n-anh-b%E1%BA%A1ch-mai-delivery/5-C63WANX2TFL1E6",
+          "item_count_wayback": 45,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-t%C3%B3p-m%E1%BB%A1-huy%E1%BB%81n-anh-b%E1%BA%A1ch-mai-delivery/5-C63WANX2TFL1E6",
+            "real_item_count": 47,
+            "sample_items": [
+              "93.0 VND Combo \ud83d\udca5Crab Noodle Soup With Pork Crackl",
+              "73.0 VND Combo \ud83d\udca5Crab And Beef Noodle Soup\ud83d\udca5 + Peps",
+              "103.0 VND Combo \ud83d\udca5Crab Noodle Soup With Pork Crackl",
+              "300.0 VND \ud83d\udca5 Mini Baby Crab Hot Pot \ud83d\udca5",
+              "400.0 VND \ud83d\udca5Crab Paste Hotpot with Pork Cracklings "
+            ]
+          },
+          "elapsed_s": 15.2
+        },
+        {
+          "name": "Tr\u00e0 S\u1eefa C\u00f4 Ba",
+          "url": "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-c%C3%B4-ba-delivery/5-CZBFCXBXKEXBNX",
+          "item_count_wayback": 44,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-c%C3%B4-ba-delivery/5-CZBFCXBXKEXBNX",
+            "real_item_count": 23,
+            "sample_items": [
+              "30.0 VND Fried Rice With Fried Egg",
+              "45.0 VND Chicken Breast Rice With Garlic Sauce",
+              "68.0 VND 14 Chicken Thigh Rice With Garlic Sauce",
+              "45.0 VND Rice With Chicken Garlic Fish Sauce",
+              "40.0 VND Rice With Chicken Thigh"
+            ]
+          },
+          "elapsed_s": 14.7
+        },
+        {
+          "name": "Caf\u00e9 Aguri",
+          "url": "https://food.grab.com/vn/en/restaurant/caf%C3%A9-aguri-delivery/5-C6JEEFKTVPCKGT",
+          "item_count_wayback": 43,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/caf%C3%A9-aguri-delivery/5-C6JEEFKTVPCKGT",
+            "real_item_count": 44,
+            "sample_items": [
+              "55.0 VND Coco Presso",
+              "65.0 VND Apricot Noir",
+              "60.0 VND Coco Cloud",
+              "70.0 VND Ame Minced",
+              "60.0 VND Mulberry Tea"
+            ]
+          },
+          "elapsed_s": 14.1
+        },
+        {
+          "name": "C\u01a1m T\u1ea5m T\u00e0i",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-t%C3%A0i-delivery/5-C2KFCP2ETUCBAE",
+          "item_count_wayback": 42,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "DEAD_REDIRECTED",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-t%C3%A0i-delivery/5-C2KFCP2ETUCBAE",
+            "real_item_count": 0,
+            "sample_items": []
+          },
+          "elapsed_s": 49.6
+        },
+        {
+          "name": "C\u01a1m Th\u1ed1 Anh Nguy\u1ec5n Nguy\u1ec5n Nh\u01b0 \u0110\u1ed5",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-anh-nguy%E1%BB%85n-nguy%E1%BB%85n-nh%C6%B0-%C4%91%E1%BB%95-delivery/5-C4E1LLMFNNBZTT",
+          "item_count_wayback": 41,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-anh-nguy%E1%BB%85n-l%C3%AA-v%C4%83n-hi%E1%BA%BFn-delivery/5-C4E1LLMFNNBZTT",
+            "real_item_count": 41,
+            "sample_items": [
+              "65.0 VND Clay pot rice with char siu",
+              "65.0 VND Beef Bowl Rice",
+              "85.0 VND Special rice in claypot",
+              "62.0 VND Grilled chicken rice bowl",
+              "62.0 VND Chicken Claypot Rice"
+            ]
+          },
+          "elapsed_s": 31.4
+        },
+        {
+          "name": "Bumtro B\u00fan Tr\u1ed9n Nam B\u1ed9 Tr\u00e0ng Thi",
+          "url": "https://food.grab.com/vn/en/restaurant/bumtro-b%C3%BAn-tr%E1%BB%99n-nam-b%E1%BB%99-tr%C3%A0ng-thi-delivery/5-CZCVAZLFHAAVAN",
+          "item_count_wayback": 37,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/bumtro-b%C3%BAn-tr%E1%BB%99n-nam-b%E1%BB%99-tr%C3%A0ng-thi-delivery/5-CZCVAZLFHAAVAN",
+            "real_item_count": 37,
+            "sample_items": [
+              "75.0 VND Combo Vermicelli Mixed With Grilled Pork",
+              "75.0 VND Southern Beef Noodle Combo + Pepsi",
+              "75.0 VND Southern Beef Noodle Combo With Tamarind",
+              "65.0 VND Vegetarian Mixed Rice Noodles (vegetaria",
+              "60.0 VND Mixed Chicken Noodle"
+            ]
+          },
+          "elapsed_s": 16.4
+        },
+        {
+          "name": "B\u00fan \u1ed0c S\u01b0\u1eddn C\u00f4 S\u00e1u Mai Anh Tu\u1ea5n",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-%E1%BB%91c-s%C6%B0%E1%BB%9Dn-c%C3%B4-s%C3%A1u-mai-anh-tu%E1%BA%A5n-delivery/5-C4BUVETYE3JYJJ",
+          "item_count_wayback": 37,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-%E1%BB%91c-c%C3%B4-s%C3%A1u-giang-v%C4%83n-minh-delivery/5-C4BUVETYE3JYJJ",
+            "real_item_count": 37,
+            "sample_items": [
+              "75.0 VND Special Snail Noodle Soup",
+              "60.0 VND Small noodle soup with ribs + beef.",
+              "75.0 VND Large Snail Noodles with Ribs + Beef",
+              "39.0 VND Small snail noodle soup",
+              "60.0 VND Large Snail Noodle Soup"
+            ]
+          },
+          "elapsed_s": 14.3
+        },
+        {
+          "name": "Bento Delichi C\u01a1m G\u00e0 X\u1ed1i M\u1ee1 C\u01a1m G\u00e0 M\u1eafm T\u1ecfi Nguy\u1ec5n Th\u00e1i H\u1ecdc",
+          "url": "https://food.grab.com/vn/en/restaurant/bento-delichi-c%C6%A1m-g%C3%A0-x%E1%BB%91i-m%E1%BB%A1-c%C6%A1m-g%C3%A0-m%E1%BA%AFm-t%E1%BB%8Fi-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6VBENTBBEC2ET",
+          "item_count_wayback": 37,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/bento-delichi-by-cooky-c%C6%A1m-g%C3%A0-m%E1%BA%AFm-t%E1%BB%8Fi-x%E1%BB%91i-m%E1%BB%A1-th%E1%BB%A5y-khu%C3%AA-delivery/5-C6VBENTBBEC2ET",
+            "real_item_count": 46,
+            "sample_items": [
+              "70.0 VND Combo Chicken Rice With Lemongrass Chili",
+              "55.0 VND Lemongrass Chili Chicken Rice",
+              "56.0 VND Chicken Rice with Garlic Fish Sauce (Dru",
+              "23.0 VND Combo [Gifts Do Not Sell] C2 Cool Chrysa",
+              "70.0 VND Combo Rice With Garlic Fish Sauce Chicke"
+            ]
+          },
+          "elapsed_s": 17.1
+        },
+        {
+          "name": "Gagu Deli N\u01b0\u1edbc \u00c9p Tr\u00e1i C\u00e2y B\u00e1nh M\u00ec Sandwich Linh \u0110\u00e0m",
+          "url": "https://food.grab.com/vn/en/restaurant/gagu-deli-n%C6%B0%E1%BB%9Bc-%C3%A9p-tr%C3%A1i-c%C3%A2y-b%C3%A1nh-m%C3%AC-sandwich-linh-%C4%91%C3%A0m-delivery/5-C2NXGCK1RXECDA",
+          "item_count_wayback": 36,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/gagu-deli-n%C6%B0%E1%BB%9Bc-%C3%A9p-tr%C3%A1i-c%C3%A2y-b%C3%A1nh-m%C3%AC-sandwich-linh-%C4%91%C3%A0m-delivery/5-C2NXGCK1RXECDA",
+            "real_item_count": 36,
+            "sample_items": [
+              "32.0 VND Pure freshly squeezed orange juice",
+              "30.0 VND Pineapple and Kumquat Juice",
+              "30.0 VND Watermelon Juice",
+              "30.0 VND Pineapple Juice",
+              "40.0 VND Apple Juice"
+            ]
+          },
+          "elapsed_s": 15.1
+        },
+        {
+          "name": "Bi B\u1ed5 Healthy Food",
+          "url": "https://food.grab.com/vn/en/restaurant/bi-b%E1%BB%95-healthy-food-delivery/5-C3MVN25EBEMDPE",
+          "item_count_wayback": 36,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/bi-b%E1%BB%95-healthy-food-delivery/5-C3MVN25EBEMDPE",
+            "real_item_count": 72,
+            "sample_items": [
+              "145.0 VND [Salad] Sweet Potato With Salmon",
+              "115.0 VND [Salad] Sweet Potato With Seabass Fish",
+              "1.0 VND Choose Your Favorite Dish",
+              "25.0 VND Grilled Sweet Potato with Sugar",
+              "53.0 VND Pan-fried Sea Bass \ud83d\udc1f"
+            ]
+          },
+          "elapsed_s": 15.5
+        },
+        {
+          "name": "C\u00e0 Ri G\u00e0 1357",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C3%A0-ri-g%C3%A0-1357-delivery/VNGFVN000002ip",
+          "item_count_wayback": 36,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C3%A0-ri-g%C3%A0-1357-delivery/VNGFVN000002ip",
+            "real_item_count": 36,
+            "sample_items": [
+              "57.0 VND C\u00e0 ri tr\u1ee9ng non, d\u1ed3i tr\u01b0\u1eddng",
+              "57.0 VND C\u00e0 ri \u0111\u00f9i g\u00e0",
+              "57.0 VND C\u00e0 ri phao c\u00e2u g\u00e0",
+              "52.0 VND C\u00e0 ri d\u1ed3i tr\u01b0\u1eddng",
+              "52.0 VND C\u00e0 ri c\u00e1nh g\u00e0"
+            ]
+          },
+          "elapsed_s": 15.4
+        },
+        {
+          "name": "Tr\u00e0 S\u1eefa_\u0102n V\u1eb7t Nh\u00e0 N\u00e0ng",
+          "url": "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa_%C4%83n-v%E1%BA%B7t-nh%C3%A0-n%C3%A0ng-delivery/5-C25GBA4BGNMKRT",
+          "item_count_wayback": 35,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa_%C4%83n-v%E1%BA%B7t-nh%C3%A0-n%C3%A0ng-delivery/5-C25GBA4BGNMKRT",
+            "real_item_count": 35,
+            "sample_items": [
+              "27.0 VND Iced Cocoa with Crushed Ice, Large Size",
+              "27.0 VND Mango milk tea size L",
+              "25.0 VND Mango milk tea size M",
+              "25.0 VND Boba milk tea - Size M",
+              "27.0 VND Boba milk tea - Size L"
+            ]
+          },
+          "elapsed_s": 14.0
+        },
+        {
+          "name": "B\u1ed1ng B\u00f4ng V\u1eb7t Ch\u00e2n G\u00e0 M\u00ec Tr\u1ed9n Indomie",
+          "url": "https://food.grab.com/vn/en/restaurant/b%E1%BB%91ng-b%C3%B4ng-v%E1%BA%B7t-ch%C3%A2n-g%C3%A0-m%C3%AC-tr%E1%BB%99n-indomie-delivery/5-C633SCBTVRJUA2",
+          "item_count_wayback": 35,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%E1%BB%91ng-b%C3%B4ng-v%E1%BA%B7t-ch%C3%A2n-g%C3%A0-m%C3%AC-tr%E1%BB%99n-indomie-delivery/5-C633SCBTVRJUA2",
+            "real_item_count": 35,
+            "sample_items": [
+              "45.0 VND Beef and corn pizza, 16cm size",
+              "45.0 VND Chicken pizza 16cm",
+              "45.0 VND Seafood Pizza 16cm",
+              "45.0 VND Mixed pizza 16cm",
+              "7.0 VND Peach / Lemon Tea"
+            ]
+          },
+          "elapsed_s": 16.8
+        },
+        {
+          "name": "B\u00e1nh Gi\u00f2 \u0110\u00f4ng C\u00e1c",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-gi%C3%B2-%C4%91%C3%B4ng-c%C3%A1c-delivery/5-C2EFJT2HL8KWVX",
+          "item_count_wayback": 33,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-gi%C3%B2-%C4%91%C3%B4ng-c%C3%A1c-delivery/5-C2EFJT2HL8KWVX",
+            "real_item_count": 32,
+            "sample_items": [
+              "20.0 VND Soy milk",
+              "20.0 VND Sugarcane Juice",
+              "30.0 VND Beef jerky salad",
+              "20.0 VND Corn milk",
+              "25.0 VND Beef Jerky Omelette Sandwich"
+            ]
+          },
+          "elapsed_s": 14.9
+        },
+        {
+          "name": "\u00d4 Mai Chip Ch\u00e8 \u0102n V\u1eb7t",
+          "url": "https://food.grab.com/vn/en/restaurant/%C3%B4-mai-chip-ch%C3%A8-%C4%83n-v%E1%BA%B7t-delivery/5-CYMCKAMXRTX3EX",
+          "item_count_wayback": 31,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C3%B4-mai-chip-ch%C3%A8-%C4%83n-v%E1%BA%B7t-delivery/5-CYMCKAMXRTX3EX",
+            "real_item_count": 30,
+            "sample_items": [
+              "17.0 VND X\u00fac x\u00edch l\u1ed1c xo\u00e1y - c\u00e2y",
+              "17.0 VND Kimbap chi\u00ean",
+              "30.0 VND Nem chua r\u00e1n ph\u00f4 mai - 4 vi\u00ean",
+              "35.0 VND Ch\u00e2n g\u00e0 s\u1ed1t Th\u00e1i - ph\u1ea7n",
+              "20.0 VND G\u1ecfi kh\u00f4 b\u00f2 \u0111en"
+            ]
+          },
+          "elapsed_s": 16.3
+        },
+        {
+          "name": "C\u01a1m S\u01b0\u1eddn Cay Himc 3 466 \u0110\u00ea La Th\u00e0nh",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-s%C6%B0%E1%BB%9Dn-cay-himc-3-466-%C4%91%C3%AA-la-th%C3%A0nh-delivery/5-C6KCCCDFTPMJRN",
+          "item_count_wayback": 31,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-s%C6%B0%E1%BB%9Dn-cay-himc-23-371-%C4%91%C3%AA-la-th%C3%A0nh-delivery/5-C6KCCCDFTPMJRN",
+            "real_item_count": 47,
+            "sample_items": [
+              "100.0 VND Special Spicy Pork Rib Rice",
+              "100.0 VND C\u01a1m\u00a0S\u01b0\u1eddn Cay Tr\u1ee9ng Ng\u00e2m + N\u01b0\u1edbc",
+              "155.0 VND Pork Rib Combo with Full Flavor Rice",
+              "230.0 VND [ 2 Xu\u1ea5t C\u01a1m\u00a0S\u01b0\u1eddn Cay Tr\u1ee9ng Ng\u00e2m T\u01b0\u01a1ng +",
+              "180.0 VND Combo [Spicy Rib Rice + Sweet Chicken Ri"
+            ]
+          },
+          "elapsed_s": 51.9
+        },
+        {
+          "name": "Bami King B\u00e1nh M\u00ec B\u00f2 N\u01b0\u1edbng C\u01a1m Th\u1ed1 An Tr\u1ea1ch",
+          "url": "https://food.grab.com/vn/en/restaurant/bami-king-b%C3%A1nh-m%C3%AC-b%C3%B2-n%C6%B0%E1%BB%9Bng-c%C6%A1m-th%E1%BB%91-an-tr%E1%BA%A1ch-delivery/VNGFVN0000038c",
+          "item_count_wayback": 30,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/bami-king-b%C3%A1nh-m%C3%AC-b%C3%B2-n%C6%B0%E1%BB%9Bng-c%C6%A1m-th%E1%BB%91-an-tr%E1%BA%A1ch-delivery/VNGFVN0000038c",
+            "real_item_count": 23,
+            "sample_items": [
+              "63.0 VND Combo Grilled Beef Sausage Banh Mi + Jas",
+              "58.5 VND Combo Beef Banh Mi 42",
+              "71.5 VND Beef Fillet Combo",
+              "54.5 VND Combo Grilled Beef Patty Banh Mi + Drink",
+              "58.5 VND Combo of Chicken BBQ Rice Cake with Egg "
+            ]
+          },
+          "elapsed_s": 16.1
+        },
+        {
+          "name": "C\u01a1m Ni\u00eau H\u1ee3p T\u00e1c X\u00e3 \u0110\u1ed9i C\u1ea5n",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-ni%C3%AAu-h%E1%BB%A3p-t%C3%A1c-x%C3%A3-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C35EJPN1SBB2KA",
+          "item_count_wayback": 30,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-ni%C3%AAu-h%E1%BB%A3p-t%C3%A1c-x%C3%A3-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C35EJPN1SBB2KA",
+            "real_item_count": 32,
+            "sample_items": [
+              "65.0 VND Clay Pot Braised Fish Rice Combo + Pepsi",
+              "69.0 VND Combo Claypot Rice With Beef In Black Pe",
+              "67.0 VND Claypot Chicken Thigh With Mushroom Sauc",
+              "65.0 VND C\u01a1m Ni\u00eau C\u00e1 Kho T\u1ed9",
+              "65.0 VND C\u01a1m Ni\u00eau B\u00f2 S\u00f4t ti\u00eau \u0110en"
+            ]
+          },
+          "elapsed_s": 18.3
+        },
+        {
+          "name": "C\u01a1m G\u00e0 Q35 Ng\u00f5 Quan Th\u1ed5 1 Online",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-g%C3%A0-q35-ng%C3%B5-quan-th%E1%BB%95-1-online-delivery/5-CZEWNYNHSAJ2DA",
+          "item_count_wayback": 29,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-g%C3%A0-q35-delivery/5-CZEWNYNHSAJ2DA",
+            "real_item_count": 22,
+            "sample_items": [
+              "50.0 VND Fried rice with char siu pork shoulder",
+              "55.0 VND Fried Rice with Char Siu (Best Seller)",
+              "55.0 VND Fried rice with beef and pickles",
+              "55.0 VND Fried Rice With Chicken Drumstick In Oil",
+              "50.0 VND Fried rice with deep fried boneless chic"
+            ]
+          },
+          "elapsed_s": 14.9
+        },
+        {
+          "name": "An Chicken Ti\u1ec7m G\u00e0 R\u00e1n H\u00e0n Qu\u1ed1c \u0110\u1ea1i T\u1eeb",
+          "url": "https://food.grab.com/vn/en/restaurant/an-chicken-ti%E1%BB%87m-g%C3%A0-r%C3%A1n-h%C3%A0n-qu%E1%BB%91c-%C4%91%E1%BA%A1i-t%E1%BB%AB-delivery/5-C65XLBCVVLKBBE",
+          "item_count_wayback": 27,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/an-chicken-ti%E1%BB%87m-g%C3%A0-r%C3%A1n-h%C3%A0n-qu%E1%BB%91c-%C4%91%E1%BA%A1i-t%E1%BB%AB-delivery/5-C65XLBCVVLKBBE",
+            "real_item_count": 27,
+            "sample_items": [
+              "180.0 VND Delicious Chicken Combo",
+              "220.0 VND Addictive Eating Combo",
+              "195.0 VND Half Chicken Combo with 2 Sauces + Pepsi",
+              "235.0 VND Try It To Get Addicted",
+              "40.0 VND 1 Fried Chicken Thigh"
+            ]
+          },
+          "elapsed_s": 16.7
+        },
+        {
+          "name": "B\u00fan B\u00f2 Hu\u1ebf Ng\u1ef1 Uy\u1ec3n H\u1ed3 \u0110\u1eafc Di",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-b%C3%B2-hu%E1%BA%BF-ng%E1%BB%B1-uy%E1%BB%83n-h%E1%BB%93-%C4%91%E1%BA%AFc-di-delivery/5-C4A1UA6UAFU2NE",
+          "item_count_wayback": 27,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-b%C3%B2-hu%E1%BA%BF-ng%E1%BB%B1-uy%E1%BB%83n-h%E1%BB%93-%C4%91%E1%BA%AFc-di-delivery/5-C4A1UA6UAFU2NE",
+            "real_item_count": 27,
+            "sample_items": [
+              "58.0 VND Hue-Style Beef Noodle Soup (Medium Size)",
+              "68.0 VND Full Hue style beef noodle soup",
+              "88.0 VND Special Hue style beef noodle soup",
+              "68.0 VND Rice vermicelli with grilled pork in soy",
+              "68.0 VND Grilled Pork Noodle with Sweet and Sour "
+            ]
+          },
+          "elapsed_s": 15.6
+        },
+        {
+          "name": "C\u00e0 Ph\u00ea Mu\u1ed1i Ch\u00fa Long \u0110\u1ed9i C\u1ea5n",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C3%A0-ph%C3%AA-mu%E1%BB%91i-ch%C3%BA-long-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C6WXC65ELLMELE",
+          "item_count_wayback": 27,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C3%A0-ph%C3%AA-mu%E1%BB%91i-ch%C3%BA-long-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C6WXC65ELLMELE",
+            "real_item_count": 28,
+            "sample_items": [
+              "29.0 VND Salt Coffee (Large)",
+              "22.0 VND Salty Coffee (Small)",
+              "65.0 VND Salty Coffee Bottle",
+              "50.0 VND Combo Tea Lover",
+              "25.0 VND Tamarind Tea"
+            ]
+          },
+          "elapsed_s": 14.9
+        },
+        {
+          "name": "Bluecup Coffee B\u00e1nh M\u00ec C\u00e0 Ph\u00ea",
+          "url": "https://food.grab.com/vn/en/restaurant/bluecup-coffee-b%C3%A1nh-m%C3%AC-c%C3%A0-ph%C3%AA-delivery/5-C2EUEULFRZDEJE",
+          "item_count_wayback": 26,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/bluecup-coffee-b%C3%A1nh-m%C3%AC-v%C3%A0-c%C3%A0-ph%C3%AA-delivery/5-C2EUEULFRZDEJE",
+            "real_item_count": 42,
+            "sample_items": [
+              "59.0 VND Combo 1: Vietnamese Sandwich with Egg, P",
+              "69.0 VND Combo 2: Traditional Banh Mi + Honey Ool",
+              "79.0 VND Combo 3: Vietnamese grilled pork sausage",
+              "89.0 VND Combo 4: Bancon Ham Cheese Sandwich + Ic",
+              "49.0 VND Bacon Ham & Cheese Sub / Grilled Pork Be"
+            ]
+          },
+          "elapsed_s": 16.2
+        },
+        {
+          "name": "C\u01a1m T\u1ea5m Delichi C\u01a1m T\u1ea5m S\u01b0\u1eddn N\u01b0\u1edbng C\u01a1m T\u1ea5m S\u01b0\u1eddn B\u00ec Ch\u1ea3 Nguy\u1ec5n Th\u00e1i H\u1ecdc",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-delichi-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-b%C3%AC-ch%E1%BA%A3-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6VDCLCBEVMKDE",
+          "item_count_wayback": 26,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-s%C6%B0%E1%BB%9Dn-cooky-c%C6%A1m-t%E1%BA%A5m-c%C6%A1m-s%C6%B0%E1%BB%9Dn-x%E1%BB%91t-thu%E1%BB%B5-khu%C3%AA-delivery/5-C6VDCLCBEVMKDE",
+            "real_item_count": 30,
+            "sample_items": [
+              "39.0 VND Broken Rice With Grilled Pork Patty And ",
+              "55.0 VND Rice with braised pork belly and pepper",
+              "74.0 VND Grilled Pork Ribs Broken Rice + Soup",
+              "39.0 VND Pork Rib Piece",
+              "37.0 VND Grilled Pork Belly"
+            ]
+          },
+          "elapsed_s": 21.9
+        },
+        {
+          "name": "C\u01a1m Th\u1ed1 Delichi Nguy\u1ec5n Th\u00e1i H\u1ecdc",
+          "url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-delichi-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6UDCVAAWGDET2",
+          "item_count_wayback": 26,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-delichi-c%C6%A1m-th%E1%BB%91-x%C3%A1-x%C3%ADu-c%C6%A1m-th%E1%BB%91-g%C3%A0-m%E1%BA%AFm-t%E1%BB%8Fi-th%E1%BB%A5y-khu%C3%AA-delivery/5-C6UDCVAAWGDET2",
+            "real_item_count": 26,
+            "sample_items": [
+              "72.0 VND Char Siu Pork Rice Bowl + Soup (Choice o",
+              "115.0 VND Combo 2 dishes: Char Siu Rice Bowl + BBQ",
+              "115.0 VND Combo 2 dishes: Char Siu Rice Bowl + Gar",
+              "59.0 VND Char siu rice bowl",
+              "58.0 VND Chicken Rice Bowl with Garlic Fish Sauce"
+            ]
+          },
+          "elapsed_s": 14.5
+        },
+        {
+          "name": "B\u00fan D\u1ecdc M\u00f9ng 195 \u0110\u1ed9i C\u1ea5n",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-d%E1%BB%8Dc-m%C3%B9ng-195-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C64FTAKYN3NGV6",
+          "item_count_wayback": 23,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/ph%E1%BB%9F-g%C3%A0-ta-195-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C64FTAKYN3NGV6",
+            "real_item_count": 23,
+            "sample_items": [
+              "30.0 VND Liver, gizzard",
+              "70.0 VND Soft-boiled egg custard pudding",
+              "40.0 VND Chicken feet",
+              "500.0 VND Whole chopped chicken",
+              "250.0 VND Half a chicken"
+            ]
+          },
+          "elapsed_s": 14.3
+        },
+        {
+          "name": "Mumy Chicken Wraps",
+          "url": "https://food.grab.com/vn/en/restaurant/mumy-chicken-wraps-delivery/5-CZBXVCKGVVNDE2",
+          "item_count_wayback": 22,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "DEAD_REDIRECTED",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/mumy-chicken-wraps-delivery/5-CZBXVCKGVVNDE2",
+            "real_item_count": 0,
+            "sample_items": []
+          },
+          "elapsed_s": 47.2
+        },
+        {
+          "name": "Bami Bread Banh Mi Hoi An Ph\u1ea1m Ng\u1ecdc Th\u1ea1ch",
+          "url": "https://food.grab.com/vn/en/restaurant/bami-bread-banh-mi-hoi-an-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C7BUGYBTNXBYNN",
+          "item_count_wayback": 22,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/bami-bread-banh-mi-hoi-an-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C7BUGYBTNXBYNN",
+            "real_item_count": 22,
+            "sample_items": [
+              "30.0 VND Baguette with Pate, Fried Shallots, and ",
+              "54.0 VND Pate egg sandwich with bologna",
+              "44.0 VND Pate and Pork Sausage Sandwich",
+              "44.0 VND Pate egg sandwich",
+              "55.0 VND Special Hoi An Banh Mi"
+            ]
+          },
+          "elapsed_s": 14.6
+        },
+        {
+          "name": "B\u00e1nh Cu\u1ed1n N\u00f3ng Gia Truy\u1ec1n \u0110\u1ed9i C\u1ea5n",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-cu%E1%BB%91n-n%C3%B3ng-gia-truy%E1%BB%81n-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C26CTEUVL7EKVT",
+          "item_count_wayback": 21,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-cu%E1%BB%91n-n%C3%B3ng-gia-truy%E1%BB%81n-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C26CTEUVL7EKVT",
+            "real_item_count": 25,
+            "sample_items": [
+              "70.0 VND Combo Steamed Rice Rolls With Mixed Pork",
+              "48.0 VND Rolled rice pancake with grilled pork",
+              "57.0 VND Combo Grilled Pork Rice Rolls + Coca",
+              "48.0 VND Combo Steamed Rice Rolls Without Vietnam",
+              "55.0 VND Combo Of Steamed Rice Rolls With Scallio"
+            ]
+          },
+          "elapsed_s": 14.9
+        },
+        {
+          "name": "\u00d4 Ngon M\u00f3n \u0102n Nh\u00e0 L\u00e0m V\u0129nh Tuy",
+          "url": "https://food.grab.com/vn/en/restaurant/%C3%B4-ngon-m%C3%B3n-%C4%83n-nh%C3%A0-l%C3%A0m-v%C4%A9nh-tuy-delivery/5-CZKDBBMXCKA3ME",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C3%B4-ngon-m%C3%B3n-%C4%83n-nh%C3%A0-l%C3%A0m-v%C4%A9nh-tuy-delivery/5-CZKDBBMXCKA3ME",
+            "real_item_count": 3,
+            "sample_items": [
+              "30.0 VND Traditional Silver Roll",
+              "30.0 VND Special Almond Panna Cotta",
+              "25.0 VND Pomelo Sweet Soup"
+            ]
+          },
+          "elapsed_s": 15.8
+        },
+        {
+          "name": "\u00dat Teen Tr\u00e0 S\u1eefa \u0102n V\u1eb7t Online",
+          "url": "https://food.grab.com/vn/en/restaurant/%C3%BAt-teen-tr%C3%A0-s%E1%BB%AFa-%C4%83n-v%E1%BA%B7t-online-delivery/5-CZCGC33HDGMZBA",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C3%BAt-teen-tr%C3%A0-s%E1%BB%AFa-%C4%83n-v%E1%BA%B7t-online-delivery/5-CZCGC33HDGMZBA",
+            "real_item_count": 5,
+            "sample_items": [
+              "97.0 VND Chicago-Style Stuffed Pizza with BBQ Chi",
+              "97.0 VND Chicago-style Stuffed Pizza with [insert",
+              "97.0 VND Chicago-Style Seafood Stuffed Pizza",
+              "97.0 VND Chicago-style stuffed pizza with beef an",
+              "97.0 VND Deep-Dish Chicago-Style Mixed Meat Pizza"
+            ]
+          },
+          "elapsed_s": 16.6
+        },
+        {
+          "name": "\u00dd Nh\u01b0 D\u01b0\u01a1ng \u0110\u1ed3 \u0102n H\u00e0n Qu\u1ed1c Online",
+          "url": "https://food.grab.com/vn/en/restaurant/%C3%BD-nh%C6%B0-d%C6%B0%C6%A1ng-%C4%91%E1%BB%93-%C4%83n-h%C3%A0n-qu%E1%BB%91c-online-delivery/5-CZE2AY6VCEJKVT",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C3%BD-nh%C6%B0-d%C6%B0%C6%A1ng-%C4%91%E1%BB%93-%C4%83n-h%C3%A0n-qu%E1%BB%91c-online-delivery/5-CZE2AY6VCEJKVT",
+            "real_item_count": 115,
+            "sample_items": [
+              "79.0 VND Mixed Gimbap",
+              "69.0 VND Stir-fried Pasta with beef and cabbage",
+              "85.0 VND Popcorn Chicken Fried Gimbap Set",
+              "45.0 VND Egg Rolled Gimbap",
+              "45.0 VND Fried Fermented Pork Roll"
+            ]
+          },
+          "elapsed_s": 15.6
+        },
+        {
+          "name": "\u0102n \u0110\u00eam Ph\u1ed1 C\u1ed5",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-%C4%91%C3%AAm-ph%E1%BB%91-c%E1%BB%95-delivery/5-CZDFDGKXL4BCRX",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-%C4%91%C3%AAm-ph%E1%BB%91-c%E1%BB%95-delivery/5-CZDFDGKXL4BCRX",
+            "real_item_count": 5,
+            "sample_items": [
+              "80.0 VND Old Quarter Chicken Stew - 1/4 chicken t",
+              "85.0 VND Old Quarter Chicken Stew - Black Chicken",
+              "85.0 VND Chicken Noodle Soup with 1/4 Chicken Thi",
+              "90.0 VND Herbal Chicken Noodle Soup with Black Ch",
+              "70.0 VND Boiled Chicken Feet (5 pieces)"
+            ]
+          },
+          "elapsed_s": 15.8
+        },
+        {
+          "name": "\u0102n C\u01a1m U\u1ed1ng N\u01b0\u1edbc Qu\u00e0 V\u1eb7t Gi\u1ea3i Ph\u00f3ng",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-c%C6%A1m-u%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-qu%C3%A0-v%E1%BA%B7t-gi%E1%BA%A3i-ph%C3%B3ng-delivery/5-CZJETYNATYDHJ2",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-c%C6%A1m-u%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-qu%C3%A0-v%E1%BA%B7t-gi%E1%BA%A3i-ph%C3%B3ng-delivery/5-CZJETYNATYDHJ2",
+            "real_item_count": 88,
+            "sample_items": [
+              "59.0 VND Pork Rib with Sour and Sweet Sauce serve",
+              "59.0 VND Rice with fried chicken",
+              "65.0 VND Beef wrapped in wild betel leaves",
+              "85.0 VND Traditional Fried Spring Rolls",
+              "59.0 VND Stir-fried beef with noodles"
+            ]
+          },
+          "elapsed_s": 15.5
+        },
+        {
+          "name": "\u0102n C\u1ea3 Ng\u00e0y \u0110\u00eam H\u1ea3i Nam Food",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-c%E1%BA%A3-ng%C3%A0y-%C4%91%C3%AAm-h%E1%BA%A3i-nam-food-delivery/5-CZJJJPBVNRJDE6",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-c%E1%BA%A3-ng%C3%A0y-%C4%91%C3%AAm-h%E1%BA%A3i-nam-food-delivery/5-CZJJJPBVNRJDE6",
+            "real_item_count": 8,
+            "sample_items": [
+              "35.0 VND Full rice vermicelli with tofu",
+              "30.0 VND Rice noodle with tofu, pork leg, and you",
+              "30.0 VND Rice vermicelli with tofu, fried blood s",
+              "30.0 VND Rice noodle with fried tofu and sausage,",
+              "25.0 VND Rice vermicelli with tofu, pork leg"
+            ]
+          },
+          "elapsed_s": 16.9
+        },
+        {
+          "name": "\u0102n Chu\u1ea9n Healthy Food Shop Online",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-chu%E1%BA%A9n-healthy-food-shop-online-delivery/5-CY5VJFVVPGMWEA",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-chu%E1%BA%A9n-healthy-food-shop-online-delivery/5-CY5VJFVVPGMWEA",
+            "real_item_count": 51,
+            "sample_items": [
+              "35.0 VND Brown Rice With Honey Grilled Chicken",
+              "35.0 VND Brown Rice With Chicken Thighs",
+              "35.0 VND Korean Style Brown Rice",
+              "33.0 VND Set Of Rice Set 2",
+              "33.0 VND Set 1"
+            ]
+          },
+          "elapsed_s": 16.3
+        },
+        {
+          "name": "\u0102n Ngon B\u00e0 B\u00e9o",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-ngon-b%C3%A0-b%C3%A9o-delivery/5-CZEKGENGEK4WLE",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-ngon-b%C3%A0-b%C3%A9o-delivery/5-CZEKGENGEK4WLE",
+            "real_item_count": 5,
+            "sample_items": [
+              "35.0 VND B\u00e1nh b\u1ed9t chi\u00ean L\u1ea1p x\u01b0\u1edfng B\u00e0 B\u00e9o ",
+              "65.0 VND L\u1ea1p x\u01b0\u1edfng t\u01b0\u01a1i chi\u00ean s\u1ed1t sa t\u1ebf cay - set",
+              "28.0 VND L\u1ea1p x\u01b0\u1edfng t\u01b0\u01a1i chi\u00ean s\u1ed1t sa t\u1ebf cay - set",
+              "54.0 VND L\u1ea1p x\u01b0\u1edfng t\u01b0\u01a1i chi\u00ean - set 5 c\u00e1i",
+              "24.0 VND L\u1ea1p x\u01b0\u1edfng t\u01b0\u01a1i chi\u00ean - set 2 c\u00e1i"
+            ]
+          },
+          "elapsed_s": 14.4
+        },
+        {
+          "name": "\u0102n Th\u00ec G\u1ecdi Y\u1ebfn",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-th%C3%AC-g%E1%BB%8Di-y%E1%BA%BFn-delivery/5-CZEWLNAVN23FVN",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-th%C3%AC-g%E1%BB%8Di-y%E1%BA%BFn-delivery/5-CZEWLNAVN23FVN",
+            "real_item_count": 9,
+            "sample_items": [
+              "40.0 VND Rice Noodle with Fried Tofu and Herbs Pl",
+              "40.0 VND Grilled Pork Noodles",
+              "40.0 VND spring roll noodles",
+              "40.0 VND Southern Beef Noodle Soup",
+              "40.0 VND Mixed Fish vermicelli"
+            ]
+          },
+          "elapsed_s": 15.3
+        },
+        {
+          "name": "\u0102n V\u1eb7t 24H Ch\u00edp Ch\u00edp Ho\u00e0ng Mai",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-24h-ch%C3%ADp-ch%C3%ADp-ho%C3%A0ng-mai-delivery/5-CZDZGYXHLATFNT",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-24h-ch%C3%ADp-ch%C3%ADp-ho%C3%A0ng-mai-delivery/5-CZDZGYXHLATFNT",
+            "real_item_count": 24,
+            "sample_items": [
+              "69.0 VND Fried Fermented Pork Roll (10 pieces)",
+              "130.0 VND Sticky rice with chicken and mushroom in",
+              "110.0 VND Marinated but not roasted bird - 10 piec",
+              "239.0 VND Salted Chicken with Sichuan Pepper - 1 w",
+              "129.0 VND Salted Chicken with Sichuan Pepper - hal"
+            ]
+          },
+          "elapsed_s": 16.6
+        },
+        {
+          "name": "\u0102n V\u1eb7t B\u1ebfp M\u1eb9 Coca",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-b%E1%BA%BFp-m%E1%BA%B9-coca-delivery/5-CZEJJX22J2D2JT",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "DEAD_NO_ITEMS",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-b%E1%BA%BFp-m%E1%BA%B9-coca-delivery/5-CZEJJX22J2D2JT",
+            "real_item_count": 0,
+            "sample_items": []
+          },
+          "elapsed_s": 14.6
+        },
+        {
+          "name": "B\u00e1nh Cu\u1ed1n N\u00f3ng Gia Truy\u1ec1n 195 \u0110\u1ed9i C\u1ea5n",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-cu%E1%BB%91n-n%C3%B3ng-gia-truy%E1%BB%81n-195-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-CY53GXBWNPKFNT",
+          "item_count_wayback": 15,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-cu%E1%BB%91n-n%C3%B3ng-gia-truy%E1%BB%81n-195-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-CY53GXBWNPKFNT",
+            "real_item_count": 15,
+            "sample_items": [
+              "49.0 VND Rolled Rice Pancake With Grilled Pork Pi",
+              "50.0 VND Grilled Pork With Noodles",
+              "59.0 VND Rolled Rice Pancake With Grilled Pork Pi",
+              "30.0 VND Egg Rolled Rice Pancake + Pork Pie",
+              "30.0 VND Rolled Rice Pancake Without Pork Pie"
+            ]
+          },
+          "elapsed_s": 15.7
+        },
+        {
+          "name": "\u0110\u1ed3 \u0102n V\u1eb7t 25 H\u00e0ng Da",
+          "url": "https://food.grab.com/vn/en/restaurant/%C4%91%E1%BB%93-%C4%83n-v%E1%BA%B7t-25-h%C3%A0ng-da-delivery/5-C2DWEYWAKFXVME",
+          "item_count_wayback": 14,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/%C4%91%E1%BB%93-%C4%83n-v%E1%BA%B7t-25-h%C3%A0ng-da-delivery/5-C2DWEYWAKFXVME",
+            "real_item_count": 13,
+            "sample_items": [
+              "30.0 VND Shaken Potato with Cheese",
+              "35.0 VND Sausage (3 pieces)",
+              "35.0 VND Cheese sticks (3 pieces)",
+              "17.0 VND Steamed Buns With 2 Quail Eggs",
+              "20.0 VND Salted egg steam buns"
+            ]
+          },
+          "elapsed_s": 15.4
+        },
+        {
+          "name": "3Ae Cafe B\u00e1nh M\u00ec Que With Cafe Tea",
+          "url": "https://food.grab.com/vn/en/restaurant/3ae-cafe-b%C3%A1nh-m%C3%AC-que-with-cafe-tea-delivery/5-C2VUMCK2RTAGHA",
+          "item_count_wayback": 12,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/3ae-cafe-b%C3%A1nh-m%C3%AC-que-with-cafe-tea-delivery/5-C2VUMCK2RTAGHA",
+            "real_item_count": 12,
+            "sample_items": [
+              "25.0 VND Black coffee",
+              "30.0 VND Brown coffee",
+              "35.0 VND Iced milk coffee with condensed milk",
+              "40.0 VND Coconut coffee",
+              "30.0 VND Coffee Yogurt"
+            ]
+          },
+          "elapsed_s": 14.6
+        },
+        {
+          "name": "B\u00fan Tr\u1ed9n Th\u1ecbt N\u01b0\u1edbng B\u00e1nh M\u00ec Mu\u1ed1i \u1edat Trang Ty",
+          "url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-tr%E1%BB%99n-th%E1%BB%8Bt-n%C6%B0%E1%BB%9Bng-b%C3%A1nh-m%C3%AC-mu%E1%BB%91i-%E1%BB%9Bt-trang-ty-delivery/5-C2WEBAD1HB6WKA",
+          "item_count_wayback": 3,
+          "sector_hint": null,
+          "recheck": {
+            "verdict": "CONFIRMED_LIVE",
+            "http_status": 200,
+            "final_url": "https://food.grab.com/vn/en/restaurant/b%C3%BAn-tr%E1%BB%99n-th%E1%BB%8Bt-n%C6%B0%E1%BB%9Bng-b%C3%A1nh-m%C3%AC-mu%E1%BB%91i-%E1%BB%9Bt-trang-ty-delivery/5-C2WEBAD1HB6WKA",
+            "real_item_count": 3,
+            "sample_items": [
+              "50.0 VND Mixed Noodle with Grilled Pork",
+              "55.0 VND Grilled pork with rice noodles",
+              "30.0 VND Chinese Tea"
+            ]
+          },
+          "elapsed_s": 16.1
+        }
+      ],
+      "confirmed": 62
+    }
+  },
+  "updated_at": "2026-08-10T20:10:33.889135"
+}

@@ -2,6 +2,43 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-08-10 — Expand live TARGETS 103 → 250; retire never-producing US entries
+
+Live-probed 378 candidates drawn from the wayback pools and promoted 158,
+taking `live_scraper.TARGETS` from 103 to 250 (capped). Every promoted entry
+passed a probe using the real menu parser (`parse_deliveroo_uk` /
+`parse_grabfood`) plus landing-shell and redirect detection — the standard
+that caught the earlier UK false positives — not a "page has prices"
+heuristic. New: UK Deliveroo +49, Malaysia GrabFood +49, Vietnam GrabFood
++49, Singapore GrabFood +9, Australia direct +2. Allocation is round-robin by
+country so the largest pool (UK, 242 verified) could not absorb every slot.
+
+Retired 11 US direct entries that had never produced a single row in `prices`
+(Captain D's, Cava, Denny's, IHOP, Olive Garden, Outback, Sonic, Wendy's,
+Whataburger, White Castle, Zaxby's), commented out with `[audit:NEVER-PRODUCED]`
+per the existing graveyard convention. Whataburger had also been duplicated —
+active in TARGETS and already present in the graveyard. US direct expansion
+room is exhausted: 35 further chains probed, 0 usable (17× HTTP 403 WAF, 14×
+location-gated React shells, 3× ACCESS_DENIED).
+
+Foodpanda's 23 stale entries were deliberately left in place — all 23 stopped
+on the same day (2026-06-15), which is the per-IP block, not dead URLs.
+
+Tooling added: `probe_expansion_20260810.py` (platform pools),
+`probe_direct_20260810.py` (US/AU chain sites, discovers the menu URL from the
+site's own nav rather than guessing paths), `promote_candidates_20260810.py`
+(quality gates + sector labelling + cap). Findings in
+`docs/dead_targets_report_20260810.md`.
+
+Probe methodology note: GrabFood throttling manufactures false
+`DEAD_REDIRECTED` verdicts in sustained runs (observed: 11 live, then 10
+straight "dead" on stores that had 192–200 items three days earlier). The
+probe driver now discards a run of ≥6 consecutive redirects rather than
+recording them, and cools down 300s. Vietnam initially measured 20% live and
+finished at 95% once guarded — without this the VN pool would have been
+written off. Deliveroo showed no such pattern; its decline down the ranking is
+genuine attrition.
+
 ## 2026-07-09 — Quarantine corrupted UAE/VN wayback price slices
 
 Two (country, source) slices carried systematically corrupted prices:

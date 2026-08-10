@@ -1,0 +1,321 @@
+{
+  "results": [
+    {
+      "name": "Red Rooster",
+      "homepage": "https://www.redrooster.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.redrooster.com.au/menu/",
+      "menu_link_found": true,
+      "items": 1,
+      "sample_items": [
+        "25.0 AUD NEW"
+      ],
+      "verdict": "CONFIRMED_LIVE",
+      "elapsed_s": 14.7
+    },
+    {
+      "name": "Hungry Jack's",
+      "homepage": "https://www.hungryjacks.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.hungryjacks.com.au/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 18.2
+    },
+    {
+      "name": "KFC Australia",
+      "homepage": "https://www.kfc.com.au",
+      "sector": "chain",
+      "verdict": "NAV_ERROR",
+      "detail": "Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.kfc.com.au/\nCall log:\n  - navigating to \"https://www.kfc.com.au/\", waiting until \"domcontentloaded\"\n",
+      "items": 0,
+      "elapsed_s": 0.9
+    },
+    {
+      "name": "Pizza Hut Australia",
+      "homepage": "https://www.pizzahut.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.pizzahut.com.au/menu/pizza/",
+      "menu_link_found": true,
+      "items": 62,
+      "sample_items": [
+        "12.95 AUD Standard",
+        "15.95 AUD Large",
+        "14.45 AUD Medium",
+        "3.95 AUD Stuffed Crust",
+        "3.95 AUD Gluten Free* Base"
+      ],
+      "verdict": "CONFIRMED_LIVE",
+      "elapsed_s": 13.1
+    },
+    {
+      "name": "Crust Pizza",
+      "homepage": "https://www.crust.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.crust.com.au",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 14.6
+    },
+    {
+      "name": "Betty's Burgers",
+      "homepage": "https://bettysburgers.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.bettysburgers.com.au/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.1
+    },
+    {
+      "name": "Chicken Treat",
+      "homepage": "https://www.chickentreat.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.chickentreat.com.au/menu/",
+      "menu_link_found": true,
+      "items": 226,
+      "sample_items": [
+        "11.99 AUD Sticky Korean Burger",
+        "50.0 AUD Add Stingin\u2019 Maple Sauce",
+        "50.0 AUD Add BBQ Sauce",
+        "50.0 AUD Add Spicy Kamikaze Sauce ",
+        "50.0 AUD Add Sriracha Mayo"
+      ],
+      "verdict": "CONFIRMED_LIVE",
+      "elapsed_s": 15.0
+    },
+    {
+      "name": "Salsa's Fresh Mex",
+      "homepage": "https://salsas.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://salsas.com.au",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 12.9
+    },
+    {
+      "name": "Zeus Street Greek",
+      "homepage": "https://zeusstreetgreek.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://zeusstreetgreek.com.au/menus/",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.2
+    },
+    {
+      "name": "Fishbowl",
+      "homepage": "https://www.fishbowl.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://fishbowl.com.au/pages/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 14.2
+    },
+    {
+      "name": "SumoSalad",
+      "homepage": "https://sumosalad.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://sumosalad.com",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 14.4
+    },
+    {
+      "name": "Gami Chicken",
+      "homepage": "https://gamichicken.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://gamichicken.com.au",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 19.7
+    },
+    {
+      "name": "Nene Chicken",
+      "homepage": "https://nenechicken.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://nenechicken.com.au/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 13.4
+    },
+    {
+      "name": "Chatime Australia",
+      "homepage": "https://chatime.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://chatime.com.au",
+      "menu_link_found": false,
+      "items": 1,
+      "sample_items": [
+        "9.0 AUD Nongshim noodle cups are here"
+      ],
+      "verdict": "CONFIRMED_LIVE",
+      "elapsed_s": 13.2
+    },
+    {
+      "name": "Gong Cha Australia",
+      "homepage": "https://gongcha.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://gongchatea.com.au/menu/",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 16.4
+    },
+    {
+      "name": "Muffin Break",
+      "homepage": "https://www.muffinbreak.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://muffinbreak.com.au/our-menu/",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 14.6
+    },
+    {
+      "name": "Donut King",
+      "homepage": "https://www.donutking.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.donutking.com.au/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 13.5
+    },
+    {
+      "name": "Baker's Delight",
+      "homepage": "https://www.bakersdelight.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.bakersdelight.com.au",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 14.5
+    },
+    {
+      "name": "Krispy Kreme Australia",
+      "homepage": "https://www.krispykreme.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.krispykreme.com.au/products",
+      "menu_link_found": true,
+      "items": 122,
+      "sample_items": [
+        "34.95 AUD Pick Your Own Dozen",
+        "34.95 AUD Passport to Japan Dozen",
+        "49.95 AUD Passport to Japan Double Pack",
+        "26.95 AUD Original Glazed\u00ae Dozen",
+        "44.95 AUD Original Glazed\u00ae Double Dozen"
+      ],
+      "verdict": "CONFIRMED_LIVE",
+      "elapsed_s": 15.1
+    },
+    {
+      "name": "Sushi Hub",
+      "homepage": "https://sushihub.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://sushihub.com.au",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 19.4
+    },
+    {
+      "name": "Rashays",
+      "homepage": "https://rashays.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://rashays.com/dine-in/",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 16.8
+    },
+    {
+      "name": "Ribs & Burgers",
+      "homepage": "https://ribsandburgers.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://ribsandburgers.com/au/the-menu/",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.0
+    },
+    {
+      "name": "Soul Origin",
+      "homepage": "https://soulorigin.com.au",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.soulorigin.com.au/collections",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 19.0
+    },
+    {
+      "name": "Din Tai Fung Australia",
+      "homepage": "https://dintaifungaustralia.com.au",
+      "sector": "independent",
+      "verdict": "NAV_ERROR",
+      "detail": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://dintaifungaustralia.com.au/\nCall log:\n  - navigating to \"https://dintaifungaustralia.com.au/\", waiting until \"d",
+      "items": 0,
+      "elapsed_s": 0.8
+    },
+    {
+      "name": "Ippudo Australia",
+      "homepage": "https://www.ippudo.com.au",
+      "sector": "independent",
+      "home_status": 200,
+      "menu_url": "https://www.ippudo.com.au",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 12.5
+    }
+  ],
+  "updated_at": "2026-08-10T18:06:46.935708"
+}
