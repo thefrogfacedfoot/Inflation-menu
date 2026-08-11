@@ -9,7 +9,7 @@ UICPI (branded UIFPI in code/DB) — a research project that scrapes restaurant 
 
 # Commands
 - Setup: `pip install -r requirements.txt && playwright install chromium`
-- Daily scrape: `python3 live_scraper.py` (runs nightly via launchd; needs a residential IP — datacenter IPs are bot-blocked; keep UIFPI_CONCURRENCY=1)
+- Daily scrape: `python3 live_scraper.py` (runs nightly at 21:00 via **crontab**, not launchd; needs a residential IP — datacenter IPs are bot-blocked). See the concurrency rule below.
 - Rebuild index: `python3 index_builder.py` → Granger: `python3 granger_analysis.py --min-obs 24` → dashboard export: `python3 dashboard_data.py`
 - Monthly orchestrator: `scheduled/monthly_ingest.py` (GitHub Actions, 1st of month, runs with --skip-scrape)
 - No test suite — verify by running the affected script and checking its output/DB effect.
@@ -21,6 +21,7 @@ UICPI (branded UIFPI in code/DB) — a research project that scrapes restaurant 
 - Sector taxonomy: DB labels are `chain`/`independent` (renamed 2026-06-21) but JSON keys and variable names keep legacy `formal`/`informal`. Any sector filter must handle BOTH label generations — partial renames silently drop rows. After any DB label rename, audit every filter/comparison downstream.
 - The headline US result is the calendar-true respec: F=4.20, p=0.0499 (2026-07-06). The old F=6.03/p=0.021 is DEPRECATED (gap-mixing) — don't cite it in paper or dashboard.
 - Secrets stay in .env — never write a real key into any file.
+- Scraper concurrency (`UIFPI_CONCURRENCY`): the code default is **1**. The old blanket "keep it at 1" was adopted 2026-06-23 for **Foodpanda**, whose blocks turned out to be IP-reputation, not concurrency (that commit's own finding: "GrabFood reliable at all worker counts"). Foodpanda has since been permanently IP-blocked (~224 rows in 3 weeks across 29 targets), so tuning the whole run around it is pointless. Measured on the 21:00 cron at **4 workers**: GrabFood yields 23/23 restaurants on every night with no competing sweep, and collapses to 0 MY / 0 VN only on nights a wayback sweep or candidate probe ran against GrabFood on the same IP (Jul 27/30/31, Aug 2/3/5/7). **Rule: never run a GrabFood sweep or probe while the nightly is running — that, not the worker count, is what wipes MY/VN.** Keep 4 for the 103-target set. Drop to 1 for the first run at 250 targets, where GrabFood goes 23 → 130 entries and the 23/23 evidence no longer extrapolates; sequential measures ~25.8 s/target-scrape vs 14.4 s at 4 workers (≈4h10m vs ≈2h20m for 250).
 
 # Gotchas
 - Currency parsing: VND and IDR are dot-grouped thousands with no decimals ("45.000" = 45000); GrabFood VN's `priceInMinorUnit` carries raw VND, not centimes. EUR uses comma decimals.

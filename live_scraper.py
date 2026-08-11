@@ -23,6 +23,7 @@ import random
 import re
 import sqlite3
 import sys
+import threading
 import time
 from datetime import date
 
@@ -681,6 +682,79 @@ def _looks_like_grabfood_landing(page):
     return all(frag in title for frag in _GRABFOOD_LANDING_TITLE_FRAGMENTS)
 
 
+# ── GrabFood throttle guard ───────────────────────────────────────────────────
+#
+# One landing-page redirect means this target's location cookie didn't take. A
+# *run* of them across different targets means GrabFood is throttling the IP,
+# and every further request confirms the throttle instead of measuring a
+# restaurant. probe_expansion_20260810.py established this on 2026-08-10 — 11
+# straight live, then 10 straight "dead" stores that had 192-200 items three
+# days earlier — and recovered Vietnam from 20% to 95% live by cooling down
+# rather than pressing on.
+#
+# The nightly needs the same brake for a different reason than the probe tool
+# did. TARGETS went from 23 GrabFood entries to 130, so a single run now issues
+# ~5.6x the GrabFood volume that the 100%-yield nights (23/23 restaurants) were
+# measured at; that measurement does not extrapolate to the new count. Unlike
+# the probe tool there are no verdicts to discard here — a throttled target
+# just yields 0 items and falls into the end-of-run retry queue — so this port
+# keeps the cooldown half of the guard and drops the discard half.
+#
+# State is global rather than per-worker on purpose: throttling is per-IP, so
+# all workers share one budget and a cooldown has to stop every one of them.
+# Cooling a single worker while the other three keep navigating would just
+# sustain the throttle it is trying to clear.
+GRABFOOD_GUARD_THRESHOLD = 6       # consecutive landing redirects before cooling
+GRABFOOD_GUARD_COOLDOWN_S = 300    # matches probe_expansion_20260810.py
+
+_grabfood_guard_lock = threading.Lock()
+_grabfood_consecutive_landings = 0
+_grabfood_cooldown_until = 0.0
+
+
+def _grabfood_guard_wait():
+    """Block while a throttle cooldown is in effect.
+
+    Called before each GrabFood navigation so every worker observes the same
+    pause. Polls in short slices rather than sleeping the whole remainder so a
+    cooldown opened by another worker mid-wait is still honoured in full.
+    """
+    while True:
+        with _grabfood_guard_lock:
+            remaining = _grabfood_cooldown_until - time.time()
+        if remaining <= 0:
+            return
+        time.sleep(min(remaining, 5))
+
+
+def _grabfood_guard_record(hit_landing):
+    """Record one GrabFood target's outcome, opening a cooldown once the run of
+    consecutive landing-page redirects reaches GRABFOOD_GUARD_THRESHOLD.
+
+    Only a target that exhausted its nav retries counts: a redirect that
+    recovered on re-warmup is the ordinary cookie race, not throttling.
+    """
+    global _grabfood_consecutive_landings, _grabfood_cooldown_until
+    with _grabfood_guard_lock:
+        if not hit_landing:
+            _grabfood_consecutive_landings = 0
+            return
+        _grabfood_consecutive_landings += 1
+        if _grabfood_consecutive_landings < GRABFOOD_GUARD_THRESHOLD:
+            return
+        run = _grabfood_consecutive_landings
+        _grabfood_consecutive_landings = 0
+        _grabfood_cooldown_until = time.time() + GRABFOOD_GUARD_COOLDOWN_S
+
+    # ERROR, not info: a throttled window is silent under-collection, the same
+    # failure class as the dead FX fetch. It must be greppable after the fact.
+    logging.error(
+        '‼  GrabFood throttle guard: %d consecutive landing-page redirects — '
+        'pausing ALL GrabFood work for %ds. Targets that returned 0 items in '
+        'this window are unmeasured, not dead restaurants; they are retried at '
+        'the end of the run.', run, GRABFOOD_GUARD_COOLDOWN_S)
+
+
 def scrape_grabfood(page, url, restaurant_name, sector, currency,
                     conn, country, usd_rates):
     """
@@ -688,6 +762,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     Tries aria-label extraction first; falls back to standalone price spans.
     """
     log(f"  Loading {restaurant_name} (GrabFood)…")
+    _grabfood_guard_wait()
     _warmup(page, 'grabfood', country)
 
     # GrabFood will silently 302 a chain/restaurant URL to the country
@@ -695,6 +770,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     # up to 3 times with re-warmup between, so the location cookie has
     # time to propagate.
     nav_attempts = 0
+    hit_landing = False
     while True:
         nav_attempts += 1
         try:
@@ -711,10 +787,15 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
             break
         if nav_attempts >= 3:
             log(f"    still on landing page after {nav_attempts} nav attempts; giving up")
+            hit_landing = True
             break
         log(f"    landing-page redirect on nav {nav_attempts}; re-warming + retry")
         _warmup(page, 'grabfood', country)
         page.wait_for_timeout(random.randint(5_000, 7_500))
+
+    # Feed the per-IP throttle guard: a run of these across targets is the
+    # throttle signature, not a run of genuinely dead restaurants.
+    _grabfood_guard_record(hit_landing)
 
     if '/chain/' in url:
         try:
