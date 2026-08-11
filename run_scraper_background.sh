@@ -12,7 +12,7 @@
 
 cd /Users/erwenchen/Inflation-menu || exit 1
 
-nohup python3 live_scraper.py > scraper_output.txt 2>&1 &
+nohup /Users/erwenchen/venv/bin/python live_scraper.py >> scraper_output.txt 2>&1 &
 PID=$!
 echo "$PID" > scraper.pid
 
