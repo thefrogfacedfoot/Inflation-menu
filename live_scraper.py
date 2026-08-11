@@ -23,6 +23,7 @@ import random
 import re
 import sqlite3
 import sys
+import threading
 import time
 from datetime import date
 
@@ -64,7 +65,8 @@ LOG_PATH = os.path.join(BASE_DIR, 'scraper_log.txt')
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s — %(message)s',
+    # Include level names so ERROR/WARNING lines stand out from routine output.
+    format='%(asctime)s — %(levelname)s — %(message)s',
     handlers=[
         logging.FileHandler(LOG_PATH),
         logging.StreamHandler(sys.stdout),
