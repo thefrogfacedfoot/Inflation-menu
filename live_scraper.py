@@ -23,6 +23,7 @@ import random
 import re
 import sqlite3
 import sys
+import threading
 import time
 from datetime import date
 
@@ -53,7 +54,11 @@ LOG_PATH = os.path.join(BASE_DIR, 'scraper_log.txt')
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s — %(message)s',
+    # Level is in the format on purpose: without it a logging.error() line
+    # is visually identical to routine progress output, which is how a dead
+    # exchange-rate fetch stayed invisible for a week. Every line now carries
+    # its level, so WARNING/ERROR are greppable.
+    format='%(asctime)s %(levelname)s — %(message)s',
     handlers=[
         logging.FileHandler(LOG_PATH),
         logging.StreamHandler(sys.stdout),
@@ -101,6 +106,29 @@ def _save_cached_rates(rates):
         log(f"  ⚠  Could not cache exchange rates ({e})")
 
 
+def _log_rate_fallback(err):
+    """Announce, at ERROR level, that this run's price_usd is not using live
+    rates.
+
+    Deliberately loud. The previous version logged the failure through
+    `log` (= logging.info), indistinguishable from ordinary progress output
+    in a multi-megabyte log, which is why a totally dead FX fetch went
+    unnoticed from 2026-08-03 to 2026-08-10.
+    """
+    cached, fetched_at = _load_cached_rates()
+    if cached:
+        age_h = (time.time() - fetched_at) / 3600
+        logging.error(
+            '‼  USD RATE FETCH FAILED (%s) — falling back to CACHED rates '
+            'fetched %.1f h (%.1f days) ago. Every price_usd written by this '
+            'run is computed from STALE rates.', err, age_h, age_h / 24)
+    else:
+        logging.error(
+            '‼  USD RATE FETCH FAILED (%s) — no usable cache; using hardcoded '
+            'FALLBACK_RATES from fx_rates.py. Every price_usd written by this '
+            'run is computed from FIXED rates.', err)
+
+
 def get_usd_rates(force_refresh=False):
     """
     Return USD exchange rates (1 USD = X local).
@@ -123,18 +151,21 @@ def get_usd_rates(force_refresh=False):
         )
         r.raise_for_status()
         rates = r.json()['rates']
+    except (requests.RequestException, ValueError, KeyError) as e:
+        # Only genuine network/response failures fall back. A bare
+        # `except Exception` here previously swallowed a NameError from a
+        # missing `import requests`, so the fetch was dead for a week while
+        # every run quietly used week-old rates. Programming errors must
+        # surface, not be laundered into "just use the cache".
+        _log_rate_fallback(e)
+        cached, fetched_at = _load_cached_rates()
+        if cached:
+            return cached
+        return FALLBACK_RATES
+    else:
         _save_cached_rates(rates)
         log("  ✓ Fetched fresh USD rates and cached them")
         return rates
-    except Exception as e:
-        log(f"  ⚠  Exchange rate fetch failed ({e})")
-        # Prefer a stale cache over fallback constants if available
-        cached, _ = _load_cached_rates()
-        if cached:
-            log("  ↩  Falling back to stale cached rates")
-            return cached
-        log("  ↩  Using hardcoded fallback rates")
-        return FALLBACK_RATES
 
 
 def to_usd(price, currency, rates):
@@ -651,6 +682,79 @@ def _looks_like_grabfood_landing(page):
     return all(frag in title for frag in _GRABFOOD_LANDING_TITLE_FRAGMENTS)
 
 
+# ── GrabFood throttle guard ───────────────────────────────────────────────────
+#
+# One landing-page redirect means this target's location cookie didn't take. A
+# *run* of them across different targets means GrabFood is throttling the IP,
+# and every further request confirms the throttle instead of measuring a
+# restaurant. probe_expansion_20260810.py established this on 2026-08-10 — 11
+# straight live, then 10 straight "dead" stores that had 192-200 items three
+# days earlier — and recovered Vietnam from 20% to 95% live by cooling down
+# rather than pressing on.
+#
+# The nightly needs the same brake for a different reason than the probe tool
+# did. TARGETS went from 23 GrabFood entries to 130, so a single run now issues
+# ~5.6x the GrabFood volume that the 100%-yield nights (23/23 restaurants) were
+# measured at; that measurement does not extrapolate to the new count. Unlike
+# the probe tool there are no verdicts to discard here — a throttled target
+# just yields 0 items and falls into the end-of-run retry queue — so this port
+# keeps the cooldown half of the guard and drops the discard half.
+#
+# State is global rather than per-worker on purpose: throttling is per-IP, so
+# all workers share one budget and a cooldown has to stop every one of them.
+# Cooling a single worker while the other three keep navigating would just
+# sustain the throttle it is trying to clear.
+GRABFOOD_GUARD_THRESHOLD = 6       # consecutive landing redirects before cooling
+GRABFOOD_GUARD_COOLDOWN_S = 300    # matches probe_expansion_20260810.py
+
+_grabfood_guard_lock = threading.Lock()
+_grabfood_consecutive_landings = 0
+_grabfood_cooldown_until = 0.0
+
+
+def _grabfood_guard_wait():
+    """Block while a throttle cooldown is in effect.
+
+    Called before each GrabFood navigation so every worker observes the same
+    pause. Polls in short slices rather than sleeping the whole remainder so a
+    cooldown opened by another worker mid-wait is still honoured in full.
+    """
+    while True:
+        with _grabfood_guard_lock:
+            remaining = _grabfood_cooldown_until - time.time()
+        if remaining <= 0:
+            return
+        time.sleep(min(remaining, 5))
+
+
+def _grabfood_guard_record(hit_landing):
+    """Record one GrabFood target's outcome, opening a cooldown once the run of
+    consecutive landing-page redirects reaches GRABFOOD_GUARD_THRESHOLD.
+
+    Only a target that exhausted its nav retries counts: a redirect that
+    recovered on re-warmup is the ordinary cookie race, not throttling.
+    """
+    global _grabfood_consecutive_landings, _grabfood_cooldown_until
+    with _grabfood_guard_lock:
+        if not hit_landing:
+            _grabfood_consecutive_landings = 0
+            return
+        _grabfood_consecutive_landings += 1
+        if _grabfood_consecutive_landings < GRABFOOD_GUARD_THRESHOLD:
+            return
+        run = _grabfood_consecutive_landings
+        _grabfood_consecutive_landings = 0
+        _grabfood_cooldown_until = time.time() + GRABFOOD_GUARD_COOLDOWN_S
+
+    # ERROR, not info: a throttled window is silent under-collection, the same
+    # failure class as the dead FX fetch. It must be greppable after the fact.
+    logging.error(
+        '‼  GrabFood throttle guard: %d consecutive landing-page redirects — '
+        'pausing ALL GrabFood work for %ds. Targets that returned 0 items in '
+        'this window are unmeasured, not dead restaurants; they are retried at '
+        'the end of the run.', run, GRABFOOD_GUARD_COOLDOWN_S)
+
+
 def scrape_grabfood(page, url, restaurant_name, sector, currency,
                     conn, country, usd_rates):
     """
@@ -658,6 +762,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     Tries aria-label extraction first; falls back to standalone price spans.
     """
     log(f"  Loading {restaurant_name} (GrabFood)…")
+    _grabfood_guard_wait()
     _warmup(page, 'grabfood', country)
 
     # GrabFood will silently 302 a chain/restaurant URL to the country
@@ -665,6 +770,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     # up to 3 times with re-warmup between, so the location cookie has
     # time to propagate.
     nav_attempts = 0
+    hit_landing = False
     while True:
         nav_attempts += 1
         try:
@@ -681,10 +787,15 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
             break
         if nav_attempts >= 3:
             log(f"    still on landing page after {nav_attempts} nav attempts; giving up")
+            hit_landing = True
             break
         log(f"    landing-page redirect on nav {nav_attempts}; re-warming + retry")
         _warmup(page, 'grabfood', country)
         page.wait_for_timeout(random.randint(5_000, 7_500))
+
+    # Feed the per-IP throttle guard: a run of these across targets is the
+    # throttle signature, not a run of genuinely dead restaurants.
+    _grabfood_guard_record(hit_landing)
 
     if '/chain/' in url:
         try:
@@ -2645,49 +2756,60 @@ TARGETS = [
     # preserved; these are the canonical menu paths — expect some to need
     # URL fixes after the first US run. Boston Market dropped (chain has
     # closed nearly all locations).
-    ("Sonic Drive-In",
-     "https://www.sonicdrivein.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Sonic Drive-In",
+    # "https://www.sonicdrivein.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Olive Garden",
-     "https://www.olivegarden.com/menus",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Olive Garden",
+    # "https://www.olivegarden.com/menus",
+    # "chain", "direct", "USD", "United States"),
 
-    ("IHOP",
-     "https://www.ihop.com/en/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("IHOP",
+    # "https://www.ihop.com/en/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Outback Steakhouse",
-     "https://www.outback.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Outback Steakhouse",
+    # "https://www.outback.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Wendy's",
-     "https://www.wendys.com/food",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Wendy's",
+    # "https://www.wendys.com/food",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Cava",
-     "https://cava.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Cava",
+    # "https://cava.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Captain D's",
-     "https://www.captainds.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Captain D's",
+    # "https://www.captainds.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Zaxby's",
-     "https://www.zaxbys.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Zaxby's",
+    # "https://www.zaxbys.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("White Castle",
-     "https://www.whitecastle.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("White Castle",
+    # "https://www.whitecastle.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Denny's",
-     "https://www.dennys.com/food",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Denny's",
+    # "https://www.dennys.com/food",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Whataburger",
-     "https://whataburger.com/menu",
-     "independent", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED 2026-08-10] no rows in `prices`, ever — retired
+    # ("Whataburger",
+    # "https://whataburger.com/menu",
+    # "independent", "direct", "USD", "United States"),
 
     # ==========================================================================
     # UNITED KINGDOM  (direct chain websites)
@@ -3079,6 +3201,486 @@ TARGETS = [
     # (abc123, def456, ghi789, jkl012, mno345, pqr678, stu901, vwx234,
     # yza567, bcd890, efg321) which never resolved to real restaurants.
     # Replace with real Uber Eats URLs once obtained from a manual search.
+
+
+    # ── Expansion probed 2026-08-10 (158 added) ──
+    # Every entry below passed a live probe with the real menu parser
+    # (parse_deliveroo_uk / parse_grabfood) plus landing-page and
+    # redirect detection -- see probe_expansion_20260810.py.
+    ("Chicken Treat",
+     "https://www.chickentreat.com.au/menu/",
+     "chain", "direct", "AUD", "Australia"),
+    ("Banana Leaf Corner Brickfields",
+     "https://food.grab.com/my/en/restaurant/banana-leaf-corner-brickfields-delivery/1-C6XZR3MJVTXXNJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Baristart Coffee Singapore Tras Street",
+     "https://food.grab.com/sg/en/restaurant/baristart-coffee-singapore-tras-street-delivery/4-CZDDC7BYR3WFTE",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Worldwide Munchies Faifley 260 Faifley Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/drumchapel/worldwide-munchies-faifley-260-faifley-road",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Mì Cô Chun",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-c%C3%B4-chun-delivery/5-C3VWSBAALXMUNJ",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Krispy Kreme Australia",
+     "https://www.krispykreme.com.au/products",
+     "chain", "direct", "AUD", "Australia"),
+    ("Moghul Mahal Restaurant - Brickfields",
+     "https://food.grab.com/my/en/restaurant/moghul-mahal-restaurant-brickfields-delivery/1-CZDTJAXKKFUURN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Collin S® Restaurant Northpoint City",
+     "https://food.grab.com/sg/en/restaurant/collin-s%C2%AE-restaurant-northpoint-city-delivery/SGDD06431",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Pathans (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/airdrie/pathans",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Ý Như Dương Đồ Ăn Hàn Quốc Online",
+     "https://food.grab.com/vn/en/restaurant/%C3%BD-nh%C6%B0-d%C6%B0%C6%A1ng-%C4%91%E1%BB%93-%C4%83n-h%C3%A0n-qu%E1%BB%91c-online-delivery/5-CZE2AY6VCEJKVT",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [Non-Halal]",
+     "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-jalan-vista-mutiara-non-halal-delivery/1-C2B2RPKZDE5JLJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Founder Bak Kut Teh Balestier Road",
+     "https://food.grab.com/sg/en/restaurant/founder-bak-kut-teh-balestier-road-delivery/4-C2BGNTVDN6CVWE",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("New Kismet Drumry Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/drumchapel/new-kismet-drumry-road",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Trà Sữa Chapong",
+     "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-chapong-delivery/5-C4CZRTBWEABHR2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Halal]",
+     "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-taman-connaught-non-halal-delivery/1-C2B2RPKZRT3XFE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Dough Culture Waterway Point",
+     "https://food.grab.com/sg/en/restaurant/dough-culture-waterway-point-delivery/SGDD11087",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Madras Tandoori Kyleakin Rd (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/arden-thornliebank/madras-tandoori-kyleakin-rd",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Kfc Vmq",
+     "https://food.grab.com/vn/en/restaurant/kfc-vmq-delivery/5-CYMADBU1JVLGAT",
+     "chain", "grabfood", "VND", "Vietnam"),
+    ("Hekaya Shamia Restaurant - Laman Baginda",
+     "https://food.grab.com/my/en/restaurant/hekaya-shamia-restaurant-laman-baginda-delivery/1-C7ETBBK1PCBDGN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Captain Kim Korean Bbq Ntuc Income Tampines Junction",
+     "https://food.grab.com/sg/en/restaurant/captain-kim-korean-bbq-ntuc-income-tampines-junction-delivery/4-C2UFJJJGMEXUKA",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Paprika Paisley (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/charleston/paprika-paisley",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Burger House Downtown",
+     "https://food.grab.com/vn/en/restaurant/burger-house-downtown-delivery/5-C2AXKFWKPAUCCN",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Al Khatiri Kofee Bandar Baru Kubang Kerian",
+     "https://food.grab.com/my/en/restaurant/al-khatiri-kofee-bandar-baru-kubang-kerian-delivery/1-C2A2T22UTXTESA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Jb烫鱼 药材肉骨茶 338 Ang Mo Kio",
+     "https://food.grab.com/sg/en/restaurant/jb%E7%83%AB%E9%B1%BC-%E8%8D%AF%E6%9D%90%E8%82%89%E9%AA%A8%E8%8C%B6-338-ang-mo-kio-delivery/4-C2TKR7MBEXKHNT",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Spice Of Life Cumbernauld (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/cumbernauld/spice-of-life-cumbernauld",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Ăn Cơm Uống Nước Quà Vặt Giải Phóng",
+     "https://food.grab.com/vn/en/restaurant/%C4%83n-c%C6%A1m-u%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-qu%C3%A0-v%E1%BA%B7t-gi%E1%BA%A3i-ph%C3%B3ng-delivery/5-CZJETYNATYDHJ2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Chong Qing Jiang Hu Food 重慶江湖菜 Restaurant Hua Wei Xuan Non Halal",
+     "https://food.grab.com/my/en/restaurant/chong-qing-jiang-hu-food-%E9%87%8D%E6%85%B6%E6%B1%9F%E6%B9%96%E8%8F%9C-restaurant-hua-wei-xuan-non-halal-delivery/1-C4BJNEL3PGLVTJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Chimi S One Marina Boulevard",
+     "https://food.grab.com/sg/en/restaurant/chimi-s-one-marina-boulevard-delivery/4-CZCZLB2HT3KVC2",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Paprika Kings 3 Broomlands Street (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/ferguslie-park/paprika-kings-3-broomlands-street",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Mì Dân Tổ Phạm Ngọc Thạch",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-d%C3%A2n-t%E1%BB%95-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C4NXHABDCLM2E2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Abang Adik Kopitiam - Bandar Menjalara",
+     "https://food.grab.com/my/en/restaurant/abang-adik-kopitiam-bandar-menjalara-delivery/1-C4LWL8AZLU31A2",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("21 Toh Guan Fish Soup 21 卓源鱼汤 Lazada One",
+     "https://food.grab.com/sg/en/restaurant/21-toh-guan-fish-soup-21-%E5%8D%93%E6%BA%90%E9%B1%BC%E6%B1%A4-lazada-one-delivery/4-C3JJR7ATGFAUVA",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Spice Magic (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/bridgeton-camlachie/spice-magic",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Highlands Coffee 36 Duy Tân Hà Nội",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-36-duy-t%C3%A2n-h%C3%A0-n%E1%BB%99i-delivery/5-C6CEE3ABJE6UTA",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("ABC Banana Leaf - Brickfields",
+     "https://food.grab.com/my/en/restaurant/abc-banana-leaf-brickfields-delivery/1-C6VTVAJZNYT1RE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Spice Box Mala Xiang Guo Cross Street Exchange",
+     "https://food.grab.com/sg/en/restaurant/spice-box-mala-xiang-guo-cross-street-exchange-delivery/4-C2KCJYTBGJJ2RX",
+     "independent", "grabfood", "SGD", "Singapore"),
+    ("Mirch Masala Curry House Paisley (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/central-paisley/mirch-masala-curry-house-paisley",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Tráng Cô Hằng 2D1 Khâm Thiên",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-tr%C3%A1ng-c%C3%B4-h%E1%BA%B1ng-2d1-kh%C3%A2m-thi%C3%AAn-delivery/5-C3BAKEWVG8LHWE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Mr Naan & Mrs Idly Restaurant - Brickfields",
+     "https://food.grab.com/my/en/restaurant/mr-naan-mrs-idly-restaurant-brickfields-delivery/1-C6BKPFJBCKWZLT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Bilals Pizza (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/armley-and-new-wortley/bilals-pizza",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bi Bổ Healthy Food",
+     "https://food.grab.com/vn/en/restaurant/bi-b%E1%BB%95-healthy-food-delivery/5-C3MVN25EBEMDPE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Nasi Kandar Utara - Jalan Bangsar",
+     "https://food.grab.com/my/en/restaurant/nasi-kandar-utara-jalan-bangsar-delivery/1-C3KKMEA3EZJ3E2",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Eastern Pizza And Kebab (Deliveroo)",
+     "https://deliveroo.co.uk/menu/liverpool/fairfield/eastern-pizza-and-kebab",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Reply 1988 Cafe",
+     "https://food.grab.com/vn/en/restaurant/reply-1988-cafe-delivery/5-C3AYJ7WCLGJDPA",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Punjab Express Restaurant - Dataran C180",
+     "https://food.grab.com/my/en/restaurant/punjab-express-restaurant-dataran-c180-delivery/1-C2UHREKJJGDXVT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Mede Food Club (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/drumchapel/mede-food-club",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Bao Nóng Sữa Hạt Nước Ép Nguyên Chất",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-n%C3%B3ng-s%E1%BB%AFa-h%E1%BA%A1t-n%C6%B0%E1%BB%9Bc-%C3%A9p-nguy%C3%AAn-ch%E1%BA%A5t-delivery/5-CZJDV8NANUVYVT",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Hua Wei Chinese Restaurant 华味 - Off Pudu [Non-Halal]",
+     "https://food.grab.com/my/en/restaurant/hua-wei-chinese-restaurant-%E5%8D%8E%E5%91%B3-off-pudu-non-halal-delivery/1-C36KGUJDRRKBRN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Tartan Tikka Second Ave (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/duntocher-and-parkhall/tartan-tikka-second-ave",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Burger King Giảng Võ",
+     "https://food.grab.com/vn/en/restaurant/burger-king-gi%E1%BA%A3ng-v%C3%B5-delivery/5-CZNDJ4MDEBWJUA",
+     "chain", "grabfood", "VND", "Vietnam"),
+    ("Dindigul Thalappakatti - Brickfields",
+     "https://food.grab.com/my/en/restaurant/dindigul-thalappakatti-brickfields-delivery/MYDD03633",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Bennies Fast Food (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/duntocher-and-parkhall/bennies-fast-food",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bếp Nhà Bông Mì Indomie Trộn",
+     "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-nh%C3%A0-b%C3%B4ng-m%C3%AC-indomie-tr%E1%BB%99n-delivery/5-C6X1LJ5JWFBBL2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Burger & Sushi",
+     "https://food.grab.com/my/en/restaurant/burger-sushi-delivery/MYDD03373",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Munchies Rutherglen (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/eastfield-and-burnside/munchies-rutherglen",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Alpha Coffee",
+     "https://food.grab.com/vn/en/restaurant/alpha-coffee-delivery/5-CZKTSBDFEZEDBE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Azuma Sushi Village Mall",
+     "https://food.grab.com/my/en/restaurant/azuma-sushi-village-mall-delivery/1-C7BJVUKFCKBKLE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Papa Dinos Castleford (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/papa-dinos-castleford",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("9X Food Cháo Ếch Singapore Bánh Mỳ Truyền Thống Phạm Ngọc Thạch",
+     "https://food.grab.com/vn/en/restaurant/9x-food-ch%C3%A1o-%E1%BA%BFch-singapore-b%C3%A1nh-m%E1%BB%B3-truy%E1%BB%81n-th%E1%BB%91ng-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C6XHCY3JCKABT2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Halab KL Beremi - Bukit Bintang",
+     "https://food.grab.com/my/en/restaurant/halab-kl-beremi-bukit-bintang-delivery/1-CYW1JJ4TKB5ZR6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Subway Cumbernauld Shopping Centre 41713 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/cumbernauld/subway-cumbernauld-shopping-centre-41713",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Ăn Chuẩn Healthy Food Shop Online",
+     "https://food.grab.com/vn/en/restaurant/%C4%83n-chu%E1%BA%A9n-healthy-food-shop-online-delivery/5-CY5VJFVVPGMWEA",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Best Bro Western Ala Thai",
+     "https://food.grab.com/my/en/restaurant/best-bro-western-ala-thai-delivery/1-CYLTR6C2R2MCJT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Xi Yang Yang Chinese Delivered By Deliveroo (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Liverpool/croxteth-park-south/xi-yang-yang-chinese-delivered-by-deliveroo",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bún Riêu Tóp Mỡ Huyền Anh Bạch Mai",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-t%C3%B3p-m%E1%BB%A1-huy%E1%BB%81n-anh-b%E1%BA%A1ch-mai-delivery/5-C63WANX2TFL1E6",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Chopsticks Asia Restaurant Cyberjaya",
+     "https://food.grab.com/my/en/restaurant/chopsticks-asia-restaurant-cyberjaya-delivery/1-C3BTDBWWV3TDVJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Lucky House 313 Brodie Avenue (Deliveroo)",
+     "https://deliveroo.co.uk/menu/liverpool/grassendale/lucky-house-313-brodie-avenue",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Cơm Sườn Cay Himc 3 466 Đê La Thành",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-s%C6%B0%E1%BB%9Dn-cay-himc-3-466-%C4%91%C3%AA-la-th%C3%A0nh-delivery/5-C6KCCCDFTPMJRN",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("DZ Burger Bangsar - Jalan Maarof",
+     "https://food.grab.com/my/en/restaurant/dz-burger-bangsar-jalan-maarof-delivery/1-C22TR25DNXJXNX",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Zainus Leeds (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/armley-and-new-wortley/zainus-leeds",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Cacao Sữa Gia Linh",
+     "https://food.grab.com/vn/en/restaurant/cacao-s%E1%BB%AFa-gia-linh-delivery/5-C2ECAA2ELB2URX",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Hometown Hainan Coffee - Berjaya Times Square",
+     "https://food.grab.com/my/en/restaurant/hometown-hainan-coffee-berjaya-times-square-delivery/MYDD12706",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Dessert King (Deliveroo)",
+     "https://deliveroo.co.uk/menu/birmingham/balsall-heath-edgbaston-stadium/dessert-king",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bento Delichi Cơm Gà Xối Mỡ Cơm Gà Mắm Tỏi Nguyễn Thái Học",
+     "https://food.grab.com/vn/en/restaurant/bento-delichi-c%C6%A1m-g%C3%A0-x%E1%BB%91i-m%E1%BB%A1-c%C6%A1m-g%C3%A0-m%E1%BA%AFm-t%E1%BB%8Fi-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6VBENTBBEC2ET",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Mcdonald S® Melaka Mall 239",
+     "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-melaka-mall-239-delivery/1-CYWTLEWTJFWZNE",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Javs Authentic Indian Cuisine (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/javs-authentic-indian-cuisine",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Bao Tươi Sữa Hạt Đặc Biệt Trà Hoa Bếp Xanh",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-t%C6%B0%C6%A1i-s%E1%BB%AFa-h%E1%BA%A1t-%C4%91%E1%BA%B7c-bi%E1%BB%87t-tr%C3%A0-hoa-b%E1%BA%BFp-xanh-delivery/5-C2V2E3VEBBBUJA",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Kanna Curry House - Jalan Gasing",
+     "https://food.grab.com/my/en/restaurant/kanna-curry-house-jalan-gasing-delivery/1-CZEHJEB2LUCFRN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Madras Cottage (Deliveroo)",
+     "https://deliveroo.co.uk/menu/edinburgh/edinburgh-east/madras-cottage",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Café Aguri",
+     "https://food.grab.com/vn/en/restaurant/caf%C3%A9-aguri-delivery/5-C6JEEFKTVPCKGT",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Kafe Se'eh Sokmo - Taman Sri Gombak",
+     "https://food.grab.com/my/en/restaurant/kafe-se-eh-sokmo-taman-sri-gombak-delivery/1-C2J2V4DUVZEYRT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Minars Kebab Inn Duke Street (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/dennistoun/minars-kebab-inn-duke-street",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bluecup Coffee Bánh Mì Cà Phê",
+     "https://food.grab.com/vn/en/restaurant/bluecup-coffee-b%C3%A1nh-m%C3%AC-c%C3%A0-ph%C3%AA-delivery/5-C2EUEULFRZDEJE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Kungfu Ramen Summit Usj",
+     "https://food.grab.com/my/en/restaurant/kungfu-ramen-summit-usj-delivery/1-CZNKKGKZJY2EVJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("East End Caffe Glasgow (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/dennistoun/east-end-caffe-glasgow",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Cơm Thố Anh Nguyễn Nguyễn Như Đổ",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-anh-nguy%E1%BB%85n-nguy%E1%BB%85n-nh%C6%B0-%C4%91%E1%BB%95-delivery/5-C4E1LLMFNNBZTT",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Big Oriental Restaurant Kei Huo Kitchen Persiaran Greenhill Non Halal",
+     "https://food.grab.com/my/en/restaurant/big-oriental-restaurant-kei-huo-kitchen-persiaran-greenhill-non-halal--delivery/1-C2WJHEVBKBT3AJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Angelos (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/burley-park-and-hyde-park/angelos",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Cơm Tấm Sườn Nướng 87 Lò Đúc",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-87-l%C3%B2-%C4%91%C3%BAc-delivery/5-CYWYAKCDEECDGA",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Mee Tarik - Jalan Sultan",
+     "https://food.grab.com/my/en/restaurant/mee-tarik-jalan-sultan-delivery/1-C4L3RRE1WF4EHA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("73 Pret A Manger Aldgate (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/aldgate/73-pret-a-manger-aldgate",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Mì Hội An Hàng Buồm",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-h%E1%BB%99i-an-h%C3%A0ng-bu%E1%BB%93m-delivery/5-C6TUVFU3GY5EUE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Din Tai Fung Sunway Pyramid Non Halal",
+     "https://food.grab.com/my/en/restaurant/din-tai-fung-sunway-pyramid-non-halal-delivery/1-CY2UGABXE6K1J2",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Alis Pennywell 51B Pennywell Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Edinburgh/drylaw-and-blackhall/alis-pennywell-51b-pennywell-road",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bumtro Bún Trộn Nam Bộ Tràng Thi",
+     "https://food.grab.com/vn/en/restaurant/bumtro-b%C3%BAn-tr%E1%BB%99n-nam-b%E1%BB%99-tr%C3%A0ng-thi-delivery/5-CZCVAZLFHAAVAN",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Chatto - Setapak",
+     "https://food.grab.com/my/en/restaurant/chatto-setapak-delivery/MYDD12144",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("The Gold Sea Takeaway (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Edinburgh/bonnington/the-gold-sea-takeaway",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bún Ốc Sườn Cô Sáu Mai Anh Tuấn",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-%E1%BB%91c-s%C6%B0%E1%BB%9Dn-c%C3%B4-s%C3%A1u-mai-anh-tu%E1%BA%A5n-delivery/5-C4BUVETYE3JYJJ",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Lavender Bakery - Mid Valley",
+     "https://food.grab.com/my/en/restaurant/lavender-bakery-mid-valley-delivery/1-C2J2V4DWG3MUA6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Baba Bs Burgers (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/east-kilbride/baba-bs-burgers",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Gagu Deli Nước Ép Trái Cây Bánh Mì Sandwich Linh Đàm",
+     "https://food.grab.com/vn/en/restaurant/gagu-deli-n%C6%B0%E1%BB%9Bc-%C3%A9p-tr%C3%A1i-c%C3%A2y-b%C3%A1nh-m%C3%AC-sandwich-linh-%C4%91%C3%A0m-delivery/5-C2NXGCK1RXECDA",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("D Tandoor Jalan Tanjung Tokong",
+     "https://food.grab.com/my/en/restaurant/d-tandoor-jalan-tanjung-tokong-delivery/1-CYV1R8MZABBJT6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Francos Continental Bridgeton (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/bridgeton-camlachie/francos-continental-bridgeton",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Cà Ri Gà 1357",
+     "https://food.grab.com/vn/en/restaurant/c%C3%A0-ri-g%C3%A0-1357-delivery/VNGFVN000002ip",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Tsuen Wan Restaurant Pearl Shopping Gallery Non Halal",
+     "https://food.grab.com/my/en/restaurant/tsuen-wan-restaurant-pearl-shopping-gallery-non-halal-delivery/1-CZKDALBCV6CHTT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Le Runa Rth (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/fernhill-and-cathkin/le-runa-rth",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Trà Sữa_Ăn Vặt Nhà Nàng",
+     "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa_%C4%83n-v%E1%BA%B7t-nh%C3%A0-n%C3%A0ng-delivery/5-C25GBA4BGNMKRT",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("King Of Pizza - Taman Sri Rampai",
+     "https://food.grab.com/my/en/restaurant/king-of-pizza-taman-sri-rampai-delivery/1-C4ABL2LEFCNJSA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Subway Horsforth 60902 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/cragg-wood/subway-horsforth-60902",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Bống Bông Vặt Chân Gà Mì Trộn Indomie",
+     "https://food.grab.com/vn/en/restaurant/b%E1%BB%91ng-b%C3%B4ng-v%E1%BA%B7t-ch%C3%A2n-g%C3%A0-m%C3%AC-tr%E1%BB%99n-indomie-delivery/5-C633SCBTVRJUA2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Beutea 茶仙子 Pavilion Damansara Heights",
+     "https://food.grab.com/my/en/restaurant/beutea-%E8%8C%B6%E4%BB%99%E5%AD%90-pavilion-damansara-heights-delivery/1-C4NBGVBUJ7AGBA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Subway Castleford 43428 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/subway-castleford-43428",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Cafe Phin Phan Rang Nguyên Chất 100",
+     "https://food.grab.com/vn/en/restaurant/cafe-phin-phan-rang-nguy%C3%AAn-ch%E1%BA%A5t-100-delivery/5-C6NVEJ2BHCLKHE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Muslim Mee Tarik Intermark - Wisma Bukit Bintang",
+     "https://food.grab.com/my/en/restaurant/muslim-mee-tarik-intermark-wisma-bukit-bintang-delivery/1-C4EBAXCWRFUBVA",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Subway Glasshoughton 41744 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/subway-glasshoughton-41744",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Giò Đông Các",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-gi%C3%B2-%C4%91%C3%B4ng-c%C3%A1c-delivery/5-C2EFJT2HL8KWVX",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Lot 10 Hutong Lot 10 Non Halal",
+     "https://food.grab.com/my/en/restaurant/lot-10-hutong-lot-10-non-halal-delivery/1-C2DCCXKKVNUDG2",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Subway Corstorphine 39429 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Edinburgh/corstorphine-and-corstorphine-hill/subway-corstorphine-39429",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Cơm Niêu Hợp Tác Xã Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-ni%C3%AAu-h%E1%BB%A3p-t%C3%A1c-x%C3%A3-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C35EJPN1SBB2KA",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Kfc Menara Uoa Bangsar",
+     "https://food.grab.com/my/en/restaurant/kfc-menara-uoa-bangsar-delivery/1-C32YVBKCSAJ2NA",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Subway Great Western Street 65804 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/clydebank/subway-great-western-street-65804",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Ô Mai Chip Chè Ăn Vặt",
+     "https://food.grab.com/vn/en/restaurant/%C3%B4-mai-chip-ch%C3%A8-%C4%83n-v%E1%BA%B7t-delivery/5-CYMCKAMXRTX3EX",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("KFC - Sungai Besi Toll DT",
+     "https://food.grab.com/my/en/restaurant/kfc-sungai-besi-toll-dt-delivery/1-CZM3R7ETKAEXRA",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Subway Glasgow Road 67971 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/cumbernauld/subway-glasgow-road-67971",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Cơm Tấm Delichi Cơm Tấm Sườn Nướng Cơm Tấm Sườn Bì Chả Nguyễn Thái Học",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-delichi-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-b%C3%AC-ch%E1%BA%A3-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6VDCLCBEVMKDE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("ABC Bistro Cafe",
+     "https://food.grab.com/my/en/restaurant/abc-bistro-cafe-delivery/MYDD10955",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Pizza Pot Morley (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/churwell/pizza-pot-morley",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bún Riêu Bún Thái Hồng Ân",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-b%C3%BAn-th%C3%A1i-h%E1%BB%93ng-%C3%A2n-delivery/5-C64KGLJWCFJJA2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Dome Cafe Bsc",
+     "https://food.grab.com/my/en/restaurant/dome-cafe-bsc-delivery/1-CYVWJXBTEP41GN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Fazil King Takeaway 40 High Street (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/central-paisley/fazil-king-takeaway-40-high-street",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Cà Phê Muối Chú Long Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/c%C3%A0-ph%C3%AA-mu%E1%BB%91i-ch%C3%BA-long-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C6WXC65ELLMELE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Chili S Sunway Putra Mall",
+     "https://food.grab.com/my/en/restaurant/chili-s-sunway-putra-mall-delivery/1-CZCDJACFC24EG6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Subway Glossop Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Sheffield/broomhill/subway-glossop-road",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("An Chicken Tiệm Gà Rán Hàn Quốc Đại Từ",
+     "https://food.grab.com/vn/en/restaurant/an-chicken-ti%E1%BB%87m-g%C3%A0-r%C3%A1n-h%C3%A0n-qu%E1%BB%91c-%C4%91%E1%BA%A1i-t%E1%BB%AB-delivery/5-C65XLBCVVLKBBE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Waki Malaysian Dim Sum",
+     "https://food.grab.com/my/en/restaurant/waki-malaysian-dim-sum-delivery/MYDD05972",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Tasty Point Airdrie (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/airdrie/tasty-point-airdrie",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bún Bò Huế Ngự Uyển Hồ Đắc Di",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-b%C3%B2-hu%E1%BA%BF-ng%E1%BB%B1-uy%E1%BB%83n-h%E1%BB%93-%C4%91%E1%BA%AFc-di-delivery/5-C4A1UA6UAFU2NE",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("The Coffee Bean Tea Leaf Pavilion",
+     "https://food.grab.com/my/en/restaurant/the-coffee-bean-tea-leaf-pavilion-delivery/1-CY5WGBBXLJBXC2",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Desi Sizzlers (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/armley-and-new-wortley/desi-sizzlers",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Cơm Thố Delichi Nguyễn Thái Học",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-delichi-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6UDCVAAWGDET2",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Abadi Cafeteria - TTDI",
+     "https://food.grab.com/my/en/restaurant/abadi-cafeteria-ttdi-delivery/MYDD08665",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Golden Wok Hea (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Leeds/burley-park-and-hyde-park/golden-wok-hea",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bánh Cuốn Nóng Gia Truyền Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-cu%E1%BB%91n-n%C3%B3ng-gia-truy%E1%BB%81n-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C26CTEUVL7EKVT",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Burgerlogy Taman Sri Rampai",
+     "https://food.grab.com/my/en/restaurant/burgerlogy-taman-sri-rampai-delivery/1-C4ABL2LEFBK1HA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Sizzlers Takeaway Batl (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/batley-centre/sizzlers-takeaway-batl",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bếp Ăn Nhà Su Điểm Tâm Cơm Trưa Chiều",
+     "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-%C4%83n-nh%C3%A0-su-%C4%91i%E1%BB%83m-t%C3%A2m-c%C6%A1m-tr%C6%B0a-chi%E1%BB%81u-delivery/5-C6VXGZN3KF4CGJ",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("A W® Sunway Putra Mall",
+     "https://food.grab.com/my/en/restaurant/a-w%C2%AE-sunway-putra-mall-delivery/1-C3TCCUDEPB2CJ2",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Subway Middleton Gardens 65671 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Manchester/boothroyden-and-middleton/subway-middleton-gardens-65671",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+    ("Ăn Vặt 24H Chíp Chíp Hoàng Mai",
+     "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-24h-ch%C3%ADp-ch%C3%ADp-ho%C3%A0ng-mai-delivery/5-CZDZGYXHLATFNT",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Deli Cafe - Business Park",
+     "https://food.grab.com/my/en/restaurant/deli-cafe-business-park-delivery/1-C2VUET5BAANCAE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("The Dessert Kings 652 Alexandra Parade (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/dennistoun/the-dessert-kings-652-alexandra-parade",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Trà Sữa Cô Ba",
+     "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-c%C3%B4-ba-delivery/5-CZBFCXBXKEXBNX",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Starbucks Batu Ferringhi",
+     "https://food.grab.com/my/en/restaurant/starbucks-batu-ferringhi-delivery/1-CZMGUEKEE6VZCN",
+     "chain", "grabfood", "MYR", "Malaysia"),
+    ("Crunchies Pizza (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Leeds/armley-and-new-wortley/crunchies-pizza",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bami King Bánh Mì Bò Nướng Cơm Thố An Trạch",
+     "https://food.grab.com/vn/en/restaurant/bami-king-b%C3%A1nh-m%C3%AC-b%C3%B2-n%C6%B0%E1%BB%9Bng-c%C6%A1m-th%E1%BB%91-an-tr%E1%BA%A1ch-delivery/VNGFVN0000038c",
+     "independent", "grabfood", "VND", "Vietnam"),
+    ("Bread History Quill City Mall",
+     "https://food.grab.com/my/en/restaurant/bread-history-quill-city-mall-delivery/1-C4MAR3MAVLC3ME",
+     "independent", "grabfood", "MYR", "Malaysia"),
+    ("Zaynab Balti (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/crossley-hall-and-thornton/zaynab-balti",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+    ("Bún Dọc Mùng 195 Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-d%E1%BB%8Dc-m%C3%B9ng-195-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C64FTAKYN3NGV6",
+     "independent", "grabfood", "VND", "Vietnam"),
 
 ]
 

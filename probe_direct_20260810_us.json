@@ -1,0 +1,376 @@
+{
+  "results": [
+    {
+      "name": "Chili's",
+      "homepage": "https://www.chilis.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.chilis.com/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 20.1
+    },
+    {
+      "name": "TGI Fridays",
+      "homepage": "https://www.tgifridays.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://tgifridays.com/wp-content/uploads/2025/05/Large-Format_Q2-2025_05132025.pdf",
+      "menu_link_found": true,
+      "verdict": "SCRAPE_ERROR",
+      "detail": "ACCESS_DENIED (nav: Page.goto: Download is starting\nCall log:\n  - navigating to \"https://tgifridays.com/wp-content/uploa)",
+      "items": 0,
+      "elapsed_s": 5.2
+    },
+    {
+      "name": "Red Robin",
+      "homepage": "https://www.redrobin.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.0
+    },
+    {
+      "name": "Texas Roadhouse",
+      "homepage": "https://www.texasroadhouse.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.texasroadhouse.com/global-menu",
+      "menu_link_found": true,
+      "verdict": "SCRAPE_ERROR",
+      "detail": "ACCESS_DENIED",
+      "items": 0,
+      "elapsed_s": 14.8
+    },
+    {
+      "name": "Cracker Barrel",
+      "homepage": "https://www.crackerbarrel.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 0.9
+    },
+    {
+      "name": "Bob Evans",
+      "homepage": "https://www.bobevans.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.0
+    },
+    {
+      "name": "Red Lobster",
+      "homepage": "https://www.redlobster.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.redlobster.com/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.8
+    },
+    {
+      "name": "LongHorn Steakhouse",
+      "homepage": "https://www.longhornsteakhouse.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.0
+    },
+    {
+      "name": "Cheesecake Factory",
+      "homepage": "https://www.thecheesecakefactory.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.thecheesecakefactory.com/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.4
+    },
+    {
+      "name": "PF Chang's",
+      "homepage": "https://www.pfchangs.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.pfchangs.com/menu",
+      "menu_link_found": true,
+      "verdict": "SCRAPE_ERROR",
+      "detail": "ACCESS_DENIED",
+      "items": 0,
+      "elapsed_s": 14.7
+    },
+    {
+      "name": "BJ's Restaurant",
+      "homepage": "https://www.bjsrestaurants.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.bjsrestaurants.com/menu-item/bjs-classic-crispy-chicken-sandwich",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 17.1
+    },
+    {
+      "name": "Golden Corral",
+      "homepage": "https://www.goldencorral.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.6
+    },
+    {
+      "name": "Perkins",
+      "homepage": "https://www.perkinsrestaurants.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.perkinsrestaurants.com/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.2
+    },
+    {
+      "name": "Hooters",
+      "homepage": "https://www.hooters.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.hooters.com/menu/",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 14.7
+    },
+    {
+      "name": "Carrabba's",
+      "homepage": "https://www.carrabbas.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.1
+    },
+    {
+      "name": "Bonefish Grill",
+      "homepage": "https://www.bonefishgrill.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 0.9
+    },
+    {
+      "name": "Maggiano's",
+      "homepage": "https://www.maggianos.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.maggianos.com/menus/",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 18.2
+    },
+    {
+      "name": "Yard House",
+      "homepage": "https://www.yardhouse.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 0.9
+    },
+    {
+      "name": "Bahama Breeze",
+      "homepage": "https://www.bahamabreeze.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 0.9
+    },
+    {
+      "name": "Chuy's",
+      "homepage": "https://www.chuys.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.2
+    },
+    {
+      "name": "On The Border",
+      "homepage": "https://www.ontheborder.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.ontheborder.com",
+      "menu_link_found": false,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 16.3
+    },
+    {
+      "name": "Famous Dave's",
+      "homepage": "https://www.famousdaves.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.famousdaves.com/Menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 16.2
+    },
+    {
+      "name": "Miller's Ale House",
+      "homepage": "https://millersalehouse.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://millersalehouse.com/menu/",
+      "menu_link_found": true,
+      "items": 1,
+      "sample_items": [
+        "7.0 USD Raise Your Cups"
+      ],
+      "verdict": "CONFIRMED_LIVE",
+      "elapsed_s": 14.8
+    },
+    {
+      "name": "Panda Express",
+      "homepage": "https://www.pandaexpress.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.0
+    },
+    {
+      "name": "Noodles & Company",
+      "homepage": "https://www.noodles.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.noodles.com/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.8
+    },
+    {
+      "name": "Potbelly",
+      "homepage": "https://www.potbelly.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 0.9
+    },
+    {
+      "name": "Jason's Deli",
+      "homepage": "https://www.jasonsdeli.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 0.9
+    },
+    {
+      "name": "McAlister's Deli",
+      "homepage": "https://www.mcalistersdeli.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.mcalistersdeli.com/lifestyle",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.0
+    },
+    {
+      "name": "Firehouse Subs",
+      "homepage": "https://www.firehousesubs.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.firehousesubs.com/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 17.3
+    },
+    {
+      "name": "Jersey Mike's",
+      "homepage": "https://www.jerseymikes.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.jerseymikes.com/menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 15.7
+    },
+    {
+      "name": "Boston Market",
+      "homepage": "https://www.bostonmarket.com",
+      "sector": "chain",
+      "home_status": 200,
+      "menu_url": "https://www.bostonmarket.com/#menu",
+      "menu_link_found": true,
+      "items": 0,
+      "sample_items": [],
+      "verdict": "DEAD_NO_ITEMS",
+      "elapsed_s": 11.6
+    },
+    {
+      "name": "Portillo's",
+      "homepage": "https://www.portillos.com",
+      "sector": "independent",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.2
+    },
+    {
+      "name": "Bojangles",
+      "homepage": "https://www.bojangles.com",
+      "sector": "chain",
+      "home_status": 404,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 0.8
+    },
+    {
+      "name": "Culver's",
+      "homepage": "https://www.culvers.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 2.0
+    },
+    {
+      "name": "Freddy's",
+      "homepage": "https://www.freddys.com",
+      "sector": "chain",
+      "home_status": 403,
+      "verdict": "DEAD_HTTP",
+      "items": 0,
+      "elapsed_s": 1.3
+    }
+  ],
+  "updated_at": "2026-08-10T17:59:28.075138"
+}

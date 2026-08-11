@@ -15,7 +15,7 @@ UICPI (branded UIFPI in code/DB) — a research project that scrapes restaurant 
 - No test suite — verify by running the affected script and checking its output/DB effect.
 
 # Rules for this repo
-- No `Co-Authored-By: Claude` (or similar) trailer on commits in this repo.
+- No `Co-Authored-By: Codex` (or similar) trailer on commits in this repo.
 - Before any destructive DB operation, copy uifpi.db to `uifpi.db.backup_<desc>_<YYYYMMDD_HHMMSS>` (existing repo convention).
 - DoorDash is excluded from index construction via `index_builder.EXCLUDED_SOURCES` (it dilutes the US Granger signal); raw rows stay in `prices`. Never let excluded sources back into the index or dashboard aggregates.
 - Sector taxonomy: DB labels are `chain`/`independent` (renamed 2026-06-21) but JSON keys and variable names keep legacy `formal`/`informal`. Any sector filter must handle BOTH label generations — partial renames silently drop rows. After any DB label rename, audit every filter/comparison downstream.

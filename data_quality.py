@@ -55,10 +55,30 @@ QUARANTINED_SLICES = (
 # candidate list from a wayback delivery-platform pool (any country/source,
 # not just UK Deliveroo) should filter through this before ranking/probing.
 GROCERY_RETAIL_NAME_MARKERS = (
+    # UK
     'sainsbury', 'morrison', 'tesco', 'asda', 'co-op', 'co op', 'waitrose',
     'wilko', 'iceland', 'aldi', 'lidl', 'spar', 'marks and spencer', 'm&s',
     'boots', 'superdrug', 'gopuff', 'poundland', 'wh smith', 'costcutter',
     'nisa', 'budgens', 'londis',
+    # Malaysia — added 2026-08-03 for the GrabFood MY candidate build;
+    # convenience-store / hypermarket chains carry the same SKU-dump-vs-
+    # restaurant-menu problem as UK Deliveroo's supermarkets. NOTE: bare
+    # 'aeon' was deliberately left out — the MY pool has AEON-mall-tenant
+    # restaurants (e.g. "Auntie Anne's - AEON Bandaraya Melaka", "Eato
+    # Enjoy Japanese Teppanyaki - AEON Food Market @ MidValley") that use
+    # "AEON <mall>" as a location suffix, not the AEON hypermarket itself;
+    # a bare substring match would have dropped real restaurant chains.
+    '7-eleven', '7 eleven', 'kk mart', 'kk super mart', 'mynews',
+    'speedmart', '99 speedmart', 'giant hypermarket', 'giant supermarket',
+    'jaya grocer', 'village grocer', 'econsave', "lotus's", 'lotuss',
+    'cold storage', 'hero market', 'family mart', 'familymart', 'emart24',
+    # United States — added 2026-08-03 for the DoorDash US candidate build;
+    # same rationale (drugstores/convenience/big-box carry thousands of
+    # non-restaurant SKUs under the same store-page URL shape).
+    'cvs', 'walgreens', 'walmart', 'target', 'costco', 'wawa', 'circle k',
+    'dollar general', 'family dollar', 'rite aid', 'safeway', 'kroger',
+    'publix', 'whole foods', "trader joe's", 'giant eagle', 'wegmans',
+    'meijer', 'speedway', 'quiktrip', 'sheetz', "casey's general store",
 )
 
 
