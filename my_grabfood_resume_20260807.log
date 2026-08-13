@@ -1,0 +1,23 @@
+Reconstructed pool: 380 (expect 380)
+Existing file: probed=48 passed=29 candidates_stored=29
+Probing ranks 49-58 (10 candidates)
+
+[49/380] CONFIRMED_LIVE   real_items=140  Husen Cafe - Brickfields (grabfood-my)             item_count_wayback=140
+[50/380] CONFIRMED_LIVE   real_items=139  Muslim Mee Tarik - Bukit Bintang (grabfood-my)     item_count_wayback=139
+[51/380] CONFIRMED_LIVE   real_items=77   McDonald's® - Jalan Tun Perak 101 (grabfood-my)    item_count_wayback=136
+[52/380] CONFIRMED_LIVE   real_items=133  Muslim Mee Tarik Intermark - Wisma Bukit Bintang ( item_count_wayback=133
+[53/380] CONFIRMED_LIVE   real_items=141  Lavender Bakery - Mid Valley (grabfood-my)         item_count_wayback=132
+[54/380] DEAD_REDIRECTED  real_items=0    Din By Din Tai Fung - NU Sentral (grabfood-my)     item_count_wayback=130
+[55/380] DEAD_REDIRECTED  real_items=0    Muslim Mee Tarik Megan - Wisma Bukit Bintang (grab item_count_wayback=127
+[56/380] DEAD_REDIRECTED  real_items=0    A&W® - Rivercity (grabfood-my)                     item_count_wayback=124
+[57/380] DEAD_REDIRECTED  real_items=0    KOI Thé - Sri Petaling (grabfood-my)               item_count_wayback=123
+[58/380] DEAD_REDIRECTED  real_items=0    DubuYo - Sogo (grabfood-my)                        item_count_wayback=122
+
+Penalty guard: 5 consecutive DEAD_REDIRECTED -- stopping
+
+Batch summary
+  processed_this_run=10
+  new_confirmed_this_run=5
+  total_probed=58
+  total_confirmed=34
+  stopped_reason=penalty suspected: 5 consecutive DEAD_REDIRECTED landing-page redirects
