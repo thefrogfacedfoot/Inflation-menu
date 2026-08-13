@@ -8,7 +8,45 @@
      gap-mixing artifact) is retained only here, for provenance — see
      analysis_results/gap_robustness.json. -->
 
-# UICPI — A Method for Collecting Restaurant and Informal-Vendor Prices at Scale, with Evidence from the United States
+<!-- ✅ REVISION PASS (2026-08-13). Six changes, in descending order of how
+     badly they would mislead a reviewer if reverted:
+
+     1. VIETNAM + UAE GRANGER STATISTICS WITHDRAWN. The VN (n=12, p=0.42)
+        and UAE (n=47, F=0.016, p=0.90) figures were computed on Wayback
+        slices quarantined as systematically mispriced on 2026-07-09
+        (commit 6092242): UAE wayback-deliveroo digit-fuses an object-valued
+        price field (AED 9 -> 90,009, 9,243 rows); VN wayback-grabfood
+        misparses dot-grouped thousands (4,309 rows). Both slices carry
+        null price_usd throughout. 573a8b8 already fixed the paper; the
+        revert in 409d5de reinstated the stale numbers. DO NOT REINSTATE
+        THEM AGAIN — see §4.7, §5.1, §6.3, §8 item 7.
+     2. Multiple-testing family is 3, not 8 or 10: US (n=31), India (n=47),
+        Malaysia (n=30) — the only tests meeting n>=24 on real-monthly CPI
+        and reproducible from analysis_results/granger_results.json.
+        FWER ~= 1-0.95^3 ~= 14.3%. §8 item 9, restated in §9.
+     3. Permutation framing inverted: circular-block (b=5, p=0.069) is now
+        the PRIMARY figure; naive full shuffle (p=0.052) is a secondary,
+        weaker check, because a full shuffle destroys the serial dependence
+        Granger causality is defined over. Both numbers stay in the paper.
+     4. US result recharacterised as suggestive rather than confirmatory
+        throughout; "significant"/"validated" framing removed.
+     5. Prose renamed UIFPI -> UICPI; title and §4.4 moved to
+        chain/independent framing. Code identifiers (uifpi.db,
+        uifpi_combined) and JSON keys (formal/informal) deliberately remain
+        legacy. Literature discussion of the *informal sector* (§2, §3) is
+        the external economics term and was intentionally NOT renamed.
+     6. Added §7.4 (core-inflation exclusion; Detmeister 2012 FEDS 2012-43,
+        verified; R. Verbrugge personal communication, cited with
+        permission) and §8 items 9-12. Outline section removed; §4.3 and
+        §5.2 detail moved to Appendices A and B.
+
+     KNOWN DIVERGENCE, NOT YET FIXED: the Next.js dashboard still lists
+     Vietnam and UAE as primary reporting countries, still publishes the
+     withdrawn UAE statistic in types/index.ts COVERAGE_NOTES, and still
+     renders "Granger Significant 1 / 10". Reconcile before submission if
+     the dashboard link is part of the package. -->
+
+# UICPI — A Method for Collecting Chain and Independent Restaurant Prices at Scale, with Evidence from the United States
 
 **Author**: Wen Chen Er
 **Category**: Behavioral & Social Sciences / Economics
@@ -93,7 +131,7 @@ Construction follows the *matched-model restaurant-median* method (`index_builde
 3. Per restaurant, take the median price within month; per country-month, take the median of restaurant medians.
 4. Index level is the geometric mean of category relatives, base = 100 at the first month with sufficient coverage.
 
-Formal-sector and informal-sector indices are computed separately and combined into `uifpi_combined`.
+Chain and independent sub-indices are computed separately and combined into a single headline series. The two sectors are the paper's `chain` / `independent` labels as stored in the database; the combined-series code identifier retains the legacy name `uifpi_combined`, as do the `formal` / `informal` JSON keys in the dashboard export — the rename was applied to the labels and the prose, not to the field names.
 
 ### 4.5 Granger causality and pass-through
 
@@ -275,7 +313,7 @@ This is not merely a definitional quibble. Detmeister [2012] evaluates which exc
 
 ## 9. Conclusion and Future Work
 
-This paper's contribution is the method, not the finding. UICPI extends the Billion Prices Project approach to the restaurant sector — and, where data is available, to informal-vendor pricing — through a developmental eight-country dataset of 41,263 price observations and a fully open-source pipeline whose probes, extractors, bail decisions, and monthly cron are all committed to the repository.
+This paper's contribution is the method, not the finding. UICPI extends the Billion Prices Project approach to the restaurant sector — and, where data is available, to independent-vendor pricing — through a developmental eight-country dataset of 41,263 price observations and a fully open-source pipeline whose probes, extractors, bail decisions, and monthly cron are all committed to the repository.
 
 On the evidence, US food-service menu prices lead headline CPI at an exact one-month calendar lag (F(1, 28) = 4.20, analytic p = 0.0499), with the primary circular-block permutation test — the resampling design that preserves the serial dependence Granger causality is defined over — returning p = 0.069, and the secondary naive full shuffle agreeing closely at p = 0.052. The US result (F = 4.20, p = 0.0499) is the most numerically interesting in the panel but should be read as suggestive rather than confirmatory, given the small sample (n = 31), the multiple-testing problem in §8 — the three clean country-level tests in the panel carry an approximately 14 % chance of throwing up at least one p ≤ 0.05 under a global null — and the block-permutation caveat above. It is positioned as a proof of concept for the pipeline rather than as an established empirical regularity; the India null is the cross-country counterpoint that disciplines the generalisation; and the audit trail of declined sources is the contribution future contributors can build on.
 
