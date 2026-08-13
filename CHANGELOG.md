@@ -2,6 +2,45 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-08-13 — Chunk 1: live TARGETS 103 → 85 (net), guard + FX hardening
+
+First slice of the staged 103 → 250 promotion held open in PR #19. Deployed as
+a chunk rather than wholesale because the scraper host has no dependable
+multi-hour unattended window: 38 reboots and 17 shutdowns in the 13 days to
+2026-08-13, spread across 11 different hours of the day, with no scheduled
+power event and no kernel panics — it is a personal laptop power-cycled by
+hand. The 2026-08-12 run died at 22:01 to one such shutdown, mid-`retry 2/2`.
+Chunk sizing targets a run short enough that a random power cycle banks most
+of its work.
+
+**Removed 40 entries** (commented out in place, restorable by uncommenting):
+
+* 29 Foodpanda — 0/29 on this IP, re-confirmed 2026-08-12 (29 attempted, zero
+  rows landed). They cost ~26 min per run at concurrency 1 across three
+  attempts for no yield. Marked `[chunk1:FOODPANDA-IP-BLOCKED]`. The
+  residential-IP A/B test remains the separate, still-open path for Foodpanda;
+  nothing here forecloses it.
+* 11 US direct that never produced a single row, per
+  `docs/dead_targets_report_20260810.md`. Marked `[audit:NEVER-PRODUCED]`.
+
+**Added 22** probe-confirmed targets, all `CONFIRMED_LIVE` in the 2026-08-10
+probe: GrabFood MY +6, GrabFood VN +6, GrabFood SG +3, Deliveroo UK +6, direct
+AU +1. Selected as an even spread across each pool's menu-size distribution
+rather than the largest menus, so the throughput this run measures is
+representative rather than worst-case.
+
+Net TARGETS 103 → 85; composition GrabFood 38 / Deliveroo 37 / direct 10.
+
+Also carried from PR #19: the GrabFood consecutive-redirect throttle guard
+(`_grabfood_guard_wait` / `_grabfood_guard_record`, threshold 6, 300s cooldown)
+and the narrowed USD-rate exception handler with ERROR-level fallback logging.
+The log format keeps main's `'%(asctime)s — %(levelname)s — %(message)s'`
+separator for continuity with the historical `scraper_log.txt`.
+
+Remaining 136 staged targets stay in PR #19 for chunks 2–4, to be sized from
+this run's measured per-platform throughput at concurrency 1 — Deliveroo's
+per-target cost in particular has never been measured separately.
+
 ## 2026-08-10 — Fix dead USD exchange-rate fetch (silent for a week)
 
 `live_scraper.get_usd_rates()` called `requests.get(...)` but `live_scraper.py`
