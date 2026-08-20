@@ -65,7 +65,11 @@ LOG_PATH = os.path.join(BASE_DIR, 'scraper_log.txt')
 
 logging.basicConfig(
     level=logging.INFO,
-    # Include level names so ERROR/WARNING lines stand out from routine output.
+    # Level is in the format on purpose: without it a logging.error() line
+    # is visually identical to routine progress output, which is how a dead
+    # exchange-rate fetch stayed invisible for a week. Every line now carries
+    # its level, so WARNING/ERROR are greppable. Separator kept as main's
+    # ' — ' for continuity with the historical scraper_log.txt.
     format='%(asctime)s — %(levelname)s — %(message)s',
     handlers=[
         logging.FileHandler(LOG_PATH),
@@ -114,6 +118,29 @@ def _save_cached_rates(rates):
         log(f"  ⚠  Could not cache exchange rates ({e})")
 
 
+def _log_rate_fallback(err):
+    """Announce, at ERROR level, that this run's price_usd is not using live
+    rates.
+
+    Deliberately loud. The previous version logged the failure through
+    `log` (= logging.info), indistinguishable from ordinary progress output
+    in a multi-megabyte log, which is why a totally dead FX fetch went
+    unnoticed from 2026-08-03 to 2026-08-10.
+    """
+    cached, fetched_at = _load_cached_rates()
+    if cached:
+        age_h = (time.time() - fetched_at) / 3600
+        logging.error(
+            '‼  USD RATE FETCH FAILED (%s) — falling back to CACHED rates '
+            'fetched %.1f h (%.1f days) ago. Every price_usd written by this '
+            'run is computed from STALE rates.', err, age_h, age_h / 24)
+    else:
+        logging.error(
+            '‼  USD RATE FETCH FAILED (%s) — no usable cache; using hardcoded '
+            'FALLBACK_RATES from fx_rates.py. Every price_usd written by this '
+            'run is computed from FIXED rates.', err)
+
+
 def get_usd_rates(force_refresh=False):
     """
     Return USD exchange rates (1 USD = X local).
@@ -136,18 +163,21 @@ def get_usd_rates(force_refresh=False):
         )
         r.raise_for_status()
         rates = r.json()['rates']
+    except (requests.RequestException, ValueError, KeyError) as e:
+        # Only genuine network/response failures fall back. A bare
+        # `except Exception` here previously swallowed a NameError from a
+        # missing `import requests`, so the fetch was dead for a week while
+        # every run quietly used week-old rates. Programming errors must
+        # surface, not be laundered into "just use the cache".
+        _log_rate_fallback(e)
+        cached, fetched_at = _load_cached_rates()
+        if cached:
+            return cached
+        return FALLBACK_RATES
+    else:
         _save_cached_rates(rates)
         log("  ✓ Fetched fresh USD rates and cached them")
         return rates
-    except Exception as e:
-        log(f"  ⚠  Exchange rate fetch failed ({e})")
-        # Prefer a stale cache over fallback constants if available
-        cached, _ = _load_cached_rates()
-        if cached:
-            log("  ↩  Falling back to stale cached rates")
-            return cached
-        log("  ↩  Using hardcoded fallback rates")
-        return FALLBACK_RATES
 
 
 def to_usd(price, currency, rates):
@@ -664,6 +694,79 @@ def _looks_like_grabfood_landing(page):
     return all(frag in title for frag in _GRABFOOD_LANDING_TITLE_FRAGMENTS)
 
 
+# ── GrabFood throttle guard ───────────────────────────────────────────────────
+#
+# One landing-page redirect means this target's location cookie didn't take. A
+# *run* of them across different targets means GrabFood is throttling the IP,
+# and every further request confirms the throttle instead of measuring a
+# restaurant. probe_expansion_20260810.py established this on 2026-08-10 — 11
+# straight live, then 10 straight "dead" stores that had 192-200 items three
+# days earlier — and recovered Vietnam from 20% to 95% live by cooling down
+# rather than pressing on.
+#
+# The nightly needs the same brake for a different reason than the probe tool
+# did. TARGETS went from 23 GrabFood entries to 130, so a single run now issues
+# ~5.6x the GrabFood volume that the 100%-yield nights (23/23 restaurants) were
+# measured at; that measurement does not extrapolate to the new count. Unlike
+# the probe tool there are no verdicts to discard here — a throttled target
+# just yields 0 items and falls into the end-of-run retry queue — so this port
+# keeps the cooldown half of the guard and drops the discard half.
+#
+# State is global rather than per-worker on purpose: throttling is per-IP, so
+# all workers share one budget and a cooldown has to stop every one of them.
+# Cooling a single worker while the other three keep navigating would just
+# sustain the throttle it is trying to clear.
+GRABFOOD_GUARD_THRESHOLD = 6       # consecutive landing redirects before cooling
+GRABFOOD_GUARD_COOLDOWN_S = 300    # matches probe_expansion_20260810.py
+
+_grabfood_guard_lock = threading.Lock()
+_grabfood_consecutive_landings = 0
+_grabfood_cooldown_until = 0.0
+
+
+def _grabfood_guard_wait():
+    """Block while a throttle cooldown is in effect.
+
+    Called before each GrabFood navigation so every worker observes the same
+    pause. Polls in short slices rather than sleeping the whole remainder so a
+    cooldown opened by another worker mid-wait is still honoured in full.
+    """
+    while True:
+        with _grabfood_guard_lock:
+            remaining = _grabfood_cooldown_until - time.time()
+        if remaining <= 0:
+            return
+        time.sleep(min(remaining, 5))
+
+
+def _grabfood_guard_record(hit_landing):
+    """Record one GrabFood target's outcome, opening a cooldown once the run of
+    consecutive landing-page redirects reaches GRABFOOD_GUARD_THRESHOLD.
+
+    Only a target that exhausted its nav retries counts: a redirect that
+    recovered on re-warmup is the ordinary cookie race, not throttling.
+    """
+    global _grabfood_consecutive_landings, _grabfood_cooldown_until
+    with _grabfood_guard_lock:
+        if not hit_landing:
+            _grabfood_consecutive_landings = 0
+            return
+        _grabfood_consecutive_landings += 1
+        if _grabfood_consecutive_landings < GRABFOOD_GUARD_THRESHOLD:
+            return
+        run = _grabfood_consecutive_landings
+        _grabfood_consecutive_landings = 0
+        _grabfood_cooldown_until = time.time() + GRABFOOD_GUARD_COOLDOWN_S
+
+    # ERROR, not info: a throttled window is silent under-collection, the same
+    # failure class as the dead FX fetch. It must be greppable after the fact.
+    logging.error(
+        '‼  GrabFood throttle guard: %d consecutive landing-page redirects — '
+        'pausing ALL GrabFood work for %ds. Targets that returned 0 items in '
+        'this window are unmeasured, not dead restaurants; they are retried at '
+        'the end of the run.', run, GRABFOOD_GUARD_COOLDOWN_S)
+
+
 def scrape_grabfood(page, url, restaurant_name, sector, currency,
                     conn, country, usd_rates):
     """
@@ -671,6 +774,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     Tries aria-label extraction first; falls back to standalone price spans.
     """
     log(f"  Loading {restaurant_name} (GrabFood)…")
+    _grabfood_guard_wait()
     _warmup(page, 'grabfood', country)
 
     # GrabFood will silently 302 a chain/restaurant URL to the country
@@ -678,6 +782,7 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
     # up to 3 times with re-warmup between, so the location cookie has
     # time to propagate.
     nav_attempts = 0
+    hit_landing = False
     while True:
         nav_attempts += 1
         try:
@@ -694,10 +799,15 @@ def scrape_grabfood(page, url, restaurant_name, sector, currency,
             break
         if nav_attempts >= 3:
             log(f"    still on landing page after {nav_attempts} nav attempts; giving up")
+            hit_landing = True
             break
         log(f"    landing-page redirect on nav {nav_attempts}; re-warming + retry")
         _warmup(page, 'grabfood', country)
         page.wait_for_timeout(random.randint(5_000, 7_500))
+
+    # Feed the per-IP throttle guard: a run of these across targets is the
+    # throttle signature, not a run of genuinely dead restaurants.
+    _grabfood_guard_record(hit_landing)
 
     if '/chain/' in url:
         try:
@@ -1969,13 +2079,15 @@ TARGETS = [
     # ==========================================================================
 
     # --- Formal ---
-    ("Rubato",
-     "https://www.foodpanda.sg/chain/cg9st/rubato-italian",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Rubato",
+    # "https://www.foodpanda.sg/chain/cg9st/rubato-italian",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
-    ("Ichiban Boshi",
-     "https://www.foodpanda.sg/chain/cf5xz/ichiban-boshi",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Ichiban Boshi",
+    # "https://www.foodpanda.sg/chain/cf5xz/ichiban-boshi",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Din Tai Fung",
      "https://food.grab.com/sg/en/restaurant/din-tai-fung-plaza-singapura-delivery/4-C2DHGZLXE2DURJ",
@@ -1989,34 +2101,40 @@ TARGETS = [
      "https://food.grab.com/sg/en/restaurant/jumbo-seafood-east-coast-delivery/SGDD01672",
      "chain", "grabfood", "SGD", "Singapore"),
 
-    ("Crystal Jade La Mian Xiao Long Bao",
-     "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Crystal Jade La Mian Xiao Long Bao",
+    # "https://www.foodpanda.sg/chain/cp7ao/crystal-jade-la-mian-xiao-long-bao",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
-    ("No Signboard Prawn Noodles and Carrot Cake",
-     "https://www.foodpanda.sg/restaurant/v2xf/no-signboard-prawn-noodles-and-carrot-cake-301-ubi-food-house",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("No Signboard Prawn Noodles and Carrot Cake",
+    # "https://www.foodpanda.sg/restaurant/v2xf/no-signboard-prawn-noodles-and-carrot-cake-301-ubi-food-house",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
-    ("Putien",
-     "https://www.foodpanda.sg/chain/cc7gt/putien",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Putien",
+    # "https://www.foodpanda.sg/chain/cc7gt/putien",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
-    ("Paradise Dynasty",
-     "https://www.foodpanda.sg/chain/cf5cj/paradise-dynasty",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Paradise Dynasty",
+    # "https://www.foodpanda.sg/chain/cf5cj/paradise-dynasty",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Tim Ho Wan",
      "https://food.grab.com/sg/en/restaurant/tim-ho-wan-plaza-singapura-delivery/SGDD11583",
      "chain", "grabfood", "SGD", "Singapore"),
 
-    ("Crystal Jade Hong Kong Kitchen",
-     "https://www.foodpanda.sg/chain/cs3bp/crystal-jade-hong-kong-kitchen",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Crystal Jade Hong Kong Kitchen",
+    # "https://www.foodpanda.sg/chain/cs3bp/crystal-jade-hong-kong-kitchen",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
-    ("Pepper Lunch",
-     "https://www.foodpanda.sg/chain/cx6yd/pepper-lunch",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Pepper Lunch",
+    # "https://www.foodpanda.sg/chain/cx6yd/pepper-lunch",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
     ("Ippudo Ramen",
      "https://food.grab.com/sg/en/restaurant/ippudo-mandarin-gallery-delivery/SGDD11131",
@@ -2035,17 +2153,20 @@ TARGETS = [
      "https://food.grab.com/sg/en/restaurant/breadtalk-bedok-mall-b2-25-26-delivery/4-CZBGAY4AVA4GLE",
      "chain", "grabfood", "SGD", "Singapore"),
 
-    ("Toast Box",
-     "https://www.foodpanda.sg/chain/cv4kj/toast-box",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Toast Box",
+    # "https://www.foodpanda.sg/chain/cv4kj/toast-box",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
-    ("Old Chang Kee",
-     "https://www.foodpanda.sg/chain/cl8xf/old-chang-kee",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Old Chang Kee",
+    # "https://www.foodpanda.sg/chain/cl8xf/old-chang-kee",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
-    ("Crystal Jade GO",
-     "https://www.foodpanda.sg/chain/cx5on/crystal-jade-go",
-     "chain", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Crystal Jade GO",
+    # "https://www.foodpanda.sg/chain/cx5on/crystal-jade-go",
+    # "chain", "foodpanda", "SGD", "Singapore"),
 
     # Round-2 GrabFood SG additions (probed 2026-06-23 with WAF priming).
     # GrabFood added an aws-waf-token gate; new URLs redirect to landing
@@ -2088,52 +2209,60 @@ TARGETS = [
      "chain", "grabfood", "SGD", "Singapore"),
 
     # --- Informal ---
-    ("Song Fa Bak Kut Teh",
-     "https://www.foodpanda.sg/chain/cw6zr/song-fa-bak-kut-teh",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Song Fa Bak Kut Teh",
+    # "https://www.foodpanda.sg/chain/cw6zr/song-fa-bak-kut-teh",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Hawker Chan",
      "https://food.grab.com/sg/en/restaurant/hawker-chan-76-78-smith-street-delivery/4-CYVGGU3TVCLFAT",
      "independent", "grabfood", "SGD", "Singapore"),
 
-    ("A Noodle Story",
-     "https://www.foodpanda.sg/chain/ck9ew/a-noodle-story",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("A Noodle Story",
+    # "https://www.foodpanda.sg/chain/ck9ew/a-noodle-story",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
-    ("328 Katong Laksa",
-     "https://www.foodpanda.sg/chain/cj3zd/328-katong-laksa",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("328 Katong Laksa",
+    # "https://www.foodpanda.sg/chain/cj3zd/328-katong-laksa",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
-    ("Crave Nasi Lemak",
-     "https://www.foodpanda.sg/chain/cq1ek/crave",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Crave Nasi Lemak",
+    # "https://www.foodpanda.sg/chain/cq1ek/crave",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("28 Fried Kway Teow",
      "https://food.grab.com/sg/en/restaurant/28-fried-kway-teow-dunman-food-centre-stall-28-delivery/4-CYLCC4CHANVTBE",
      "independent", "grabfood", "SGD", "Singapore"),
 
-    ("Tai Wah Pork Noodles",
-     "https://www.foodpanda.sg/chain/ce0vj/tai-wah-pork-noodles",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Tai Wah Pork Noodles",
+    # "https://www.foodpanda.sg/chain/ce0vj/tai-wah-pork-noodles",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
-    ("Janggut Laksa",
-     "https://www.foodpanda.sg/chain/cv4xl/the-original-katong-laksa-since-1950",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Janggut Laksa",
+    # "https://www.foodpanda.sg/chain/cv4xl/the-original-katong-laksa-since-1950",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
-    ("Nam Kee Chicken Rice",
-     "https://www.foodpanda.sg/chain/ci9rk/nam-kee-chicken-rice",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Nam Kee Chicken Rice",
+    # "https://www.foodpanda.sg/chain/ci9rk/nam-kee-chicken-rice",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
     ("Swee Choon Tim Sum",
      "https://food.grab.com/sg/en/restaurant/swee-choon-tim-sum-restaurant-jalan-besar-delivery/4-CY42SA2VETAKN6",
      "independent", "grabfood", "SGD", "Singapore"),
 
-    ("Killiney Kopitiam",
-     "https://www.foodpanda.sg/chain/ca6up/killiney-kopitiam-alexandra",
-     "independent", "foodpanda", "SGD", "Singapore"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Killiney Kopitiam",
+    # "https://www.foodpanda.sg/chain/ca6up/killiney-kopitiam-alexandra",
+    # "independent", "foodpanda", "SGD", "Singapore"),
 
     # ==========================================================================
     # MALAYSIA
@@ -2149,13 +2278,15 @@ TARGETS = [
     # not findable on GrabFood Malaysia from KLCC delivery address.
 
 
-    ("Ichiban Boshi KL",
-     "https://www.foodpanda.my/chain/ct3ai/ichiban-boshi-japanese-restaurant",
-     "chain", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Ichiban Boshi KL",
+    # "https://www.foodpanda.my/chain/ct3ai/ichiban-boshi-japanese-restaurant",
+    # "chain", "foodpanda", "MYR", "Malaysia"),
 
-    ("Pepper Lunch KL",
-     "https://www.foodpanda.my/chain/cc7eh/pepper-lunch-nh-group",
-     "chain", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Pepper Lunch KL",
+    # "https://www.foodpanda.my/chain/cc7eh/pepper-lunch-nh-group",
+    # "chain", "foodpanda", "MYR", "Malaysia"),
 
     ("Ippudo KL",
      "https://food.grab.com/my/en/restaurant/ippudo-bsc-non-halal-delivery/1-CZC3AE5BRJXJJT",
@@ -2166,9 +2297,10 @@ TARGETS = [
      # "https://food.grab.com/my/en/chain/secret-recipe-delivery",
      # "chain", "grabfood", "MYR", "Malaysia"),
 
-    ("OldTown White Coffee",
-     "https://www.foodpanda.my/chain/ce9ti/oldtown",
-     "chain", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("OldTown White Coffee",
+    # "https://www.foodpanda.my/chain/ce9ti/oldtown",
+    # "chain", "foodpanda", "MYR", "Malaysia"),
 
     # [verifier:DEAD] status=500 title='500 Internal Server Error' — confirmed
     # 2026-07-26: all GrabFood /chain/ URLs (SG, MY) now 500 server-side.
@@ -2193,9 +2325,10 @@ TARGETS = [
     #  "https://food.grab.com/my/en/restaurant/village-park-restaurant-delivery/MYDD05660",
     #  "independent", "grabfood", "MYR", "Malaysia"),
 
-    ("Restoran Yusoof Dan Zakhir",
-     "https://www.foodpanda.my/restaurant/y9sn/restoran-yusoof-and-zakhir-sdn-bhd",
-     "independent", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Restoran Yusoof Dan Zakhir",
+    # "https://www.foodpanda.my/restaurant/y9sn/restoran-yusoof-and-zakhir-sdn-bhd",
+    # "independent", "foodpanda", "MYR", "Malaysia"),
 
     ("Ah Weng Koh Hainan Tea",
      "https://food.grab.com/my/en/restaurant/ah-weng-koh-hainan-tea-icc-pudu-delivery/1-CZJKJY4ZA4EXT6",
@@ -2205,29 +2338,35 @@ TARGETS = [
      "https://food.grab.com/my/en/restaurant/dragon-i-mid-valley-non-halal-delivery/MYDD12601",
      "independent", "grabfood", "MYR", "Malaysia"),
 
-    ("Kluang Rail Coffee",
-     "https://www.foodpanda.my/chain/ct6tr/kluang-rail-coffee",
-     "independent", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Kluang Rail Coffee",
+    # "https://www.foodpanda.my/chain/ct6tr/kluang-rail-coffee",
+    # "independent", "foodpanda", "MYR", "Malaysia"),
 
-    ("Kim Lian Kee",
-     "https://www.foodpanda.my/restaurant/ch0l/kim-lian-kee-ch0l",
-     "independent", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Kim Lian Kee",
+    # "https://www.foodpanda.my/restaurant/ch0l/kim-lian-kee-ch0l",
+    # "independent", "foodpanda", "MYR", "Malaysia"),
 
-    ("Hameed Pata Mee Sotong",
-     "https://www.foodpanda.my/restaurant/pp2t/hameed-pata-mee",
-     "independent", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Hameed Pata Mee Sotong",
+    # "https://www.foodpanda.my/restaurant/pp2t/hameed-pata-mee",
+    # "independent", "foodpanda", "MYR", "Malaysia"),
 
-    ("Nasi Kandar Pelita",
-     "https://www.foodpanda.my/restaurant/o2ge/nasi-kandar-pelita-bangsar",
-     "independent", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Nasi Kandar Pelita",
+    # "https://www.foodpanda.my/restaurant/o2ge/nasi-kandar-pelita-bangsar",
+    # "independent", "foodpanda", "MYR", "Malaysia"),
 
-    ("Jerung Char Koay Teow",
-     "https://www.foodpanda.my/chain/cd4du/jerung-char-koay-teow",
-     "independent", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Jerung Char Koay Teow",
+    # "https://www.foodpanda.my/chain/cd4du/jerung-char-koay-teow",
+    # "independent", "foodpanda", "MYR", "Malaysia"),
 
-    ("Family Seafood",
-     "https://www.foodpanda.my/chain/cr6of/family-seafood",
-     "independent", "foodpanda", "MYR", "Malaysia"),
+    # [chunk1:FOODPANDA-IP-BLOCKED] removed from chunk 1 — restore by uncommenting
+    # ("Family Seafood",
+    # "https://www.foodpanda.my/chain/cr6of/family-seafood",
+    # "independent", "foodpanda", "MYR", "Malaysia"),
 
     # --- Extended Malaysia targets — REMOVED ---
     # The 8 Foodpanda.my URLs here used slug-only paths
@@ -2658,49 +2797,60 @@ TARGETS = [
     # preserved; these are the canonical menu paths — expect some to need
     # URL fixes after the first US run. Boston Market dropped (chain has
     # closed nearly all locations).
-    ("Sonic Drive-In",
-     "https://www.sonicdrivein.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Sonic Drive-In",
+    # "https://www.sonicdrivein.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Olive Garden",
-     "https://www.olivegarden.com/menus",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Olive Garden",
+    # "https://www.olivegarden.com/menus",
+    # "chain", "direct", "USD", "United States"),
 
-    ("IHOP",
-     "https://www.ihop.com/en/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("IHOP",
+    # "https://www.ihop.com/en/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Outback Steakhouse",
-     "https://www.outback.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Outback Steakhouse",
+    # "https://www.outback.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Wendy's",
-     "https://www.wendys.com/food",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Wendy's",
+    # "https://www.wendys.com/food",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Cava",
-     "https://cava.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Cava",
+    # "https://cava.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Captain D's",
-     "https://www.captainds.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Captain D's",
+    # "https://www.captainds.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Zaxby's",
-     "https://www.zaxbys.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Zaxby's",
+    # "https://www.zaxbys.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("White Castle",
-     "https://www.whitecastle.com/menu",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("White Castle",
+    # "https://www.whitecastle.com/menu",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Denny's",
-     "https://www.dennys.com/food",
-     "chain", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Denny's",
+    # "https://www.dennys.com/food",
+    # "chain", "direct", "USD", "United States"),
 
-    ("Whataburger",
-     "https://whataburger.com/menu",
-     "independent", "direct", "USD", "United States"),
+    # [audit:NEVER-PRODUCED] removed from chunk 1 — restore by uncommenting
+    # ("Whataburger",
+    # "https://whataburger.com/menu",
+    # "independent", "direct", "USD", "United States"),
 
     # ==========================================================================
     # UNITED KINGDOM  (direct chain websites)
@@ -3092,6 +3242,106 @@ TARGETS = [
     # (abc123, def456, ghi789, jkl012, mno345, pqr678, stu901, vwx234,
     # yza567, bcd890, efg321) which never resolved to real restaurants.
     # Replace with real Uber Eats URLs once obtained from a manual search.
+
+
+    # ======================================================================
+    # CHUNK 1 ADDITIONS (2026-08-13) — 22 probe-confirmed targets
+    # Promoted from PR #19 staging; all CONFIRMED_LIVE in the 2026-08-10
+    # probe, selected as a spread across the menu-size distribution.
+    # ======================================================================
+
+    # --- Malaysia (grabfood) ---
+    ("Burgerlogy Taman Sri Rampai",
+     "https://food.grab.com/my/en/restaurant/burgerlogy-taman-sri-rampai-delivery/1-C4ABL2LEFBK1HA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Kfc Menara Uoa Bangsar",
+     "https://food.grab.com/my/en/restaurant/kfc-menara-uoa-bangsar-delivery/1-C32YVBKCSAJ2NA",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Lavender Bakery - Mid Valley",
+     "https://food.grab.com/my/en/restaurant/lavender-bakery-mid-valley-delivery/1-C2J2V4DWG3MUA6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("DZ Burger Bangsar - Jalan Maarof",
+     "https://food.grab.com/my/en/restaurant/dz-burger-bangsar-jalan-maarof-delivery/1-C22TR25DNXJXNX",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("ABC Banana Leaf - Brickfields",
+     "https://food.grab.com/my/en/restaurant/abc-banana-leaf-brickfields-delivery/1-C6VTVAJZNYT1RE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Halal]",
+     "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-taman-connaught-non-halal-delivery/1-C2B2RPKZRT3XFE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    # --- Vietnam (grabfood) ---
+    ("Ăn Vặt 24H Chíp Chíp Hoàng Mai",
+     "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-24h-ch%C3%ADp-ch%C3%ADp-ho%C3%A0ng-mai-delivery/5-CZDZGYXHLATFNT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cơm Tấm Delichi Cơm Tấm Sườn Nướng Cơm Tấm Sườn Bì Chả Nguyễn Thái Học",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-delichi-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-b%C3%AC-ch%E1%BA%A3-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6VDCLCBEVMKDE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bumtro Bún Trộn Nam Bộ Tràng Thi",
+     "https://food.grab.com/vn/en/restaurant/bumtro-b%C3%BAn-tr%E1%BB%99n-nam-b%E1%BB%99-tr%C3%A0ng-thi-delivery/5-CZCVAZLFHAAVAN",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bento Delichi Cơm Gà Xối Mỡ Cơm Gà Mắm Tỏi Nguyễn Thái Học",
+     "https://food.grab.com/vn/en/restaurant/bento-delichi-c%C6%A1m-g%C3%A0-x%E1%BB%91i-m%E1%BB%A1-c%C6%A1m-g%C3%A0-m%E1%BA%AFm-t%E1%BB%8Fi-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6VBENTBBEC2ET",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bánh Bao Nóng Sữa Hạt Nước Ép Nguyên Chất",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-n%C3%B3ng-s%E1%BB%AFa-h%E1%BA%A1t-n%C6%B0%E1%BB%9Bc-%C3%A9p-nguy%C3%AAn-ch%E1%BA%A5t-delivery/5-CZJDV8NANUVYVT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Kfc Vmq",
+     "https://food.grab.com/vn/en/restaurant/kfc-vmq-delivery/5-CYMADBU1JVLGAT",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    # --- Singapore (grabfood) ---
+    ("Chimi S One Marina Boulevard",
+     "https://food.grab.com/sg/en/restaurant/chimi-s-one-marina-boulevard-delivery/4-CZCZLB2HT3KVC2",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    ("Captain Kim Korean Bbq Ntuc Income Tampines Junction",
+     "https://food.grab.com/sg/en/restaurant/captain-kim-korean-bbq-ntuc-income-tampines-junction-delivery/4-C2UFJJJGMEXUKA",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    ("Baristart Coffee Singapore Tras Street",
+     "https://food.grab.com/sg/en/restaurant/baristart-coffee-singapore-tras-street-delivery/4-CZDDC7BYR3WFTE",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    # --- United Kingdom (deliveroo) ---
+    ("Sizzlers Takeaway Batl (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/batley-centre/sizzlers-takeaway-batl",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Great Western Street 65804 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/clydebank/subway-great-western-street-65804",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("The Gold Sea Takeaway (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Edinburgh/bonnington/the-gold-sea-takeaway",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Zainus Leeds (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/armley-and-new-wortley/zainus-leeds",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Mede Food Club (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/drumchapel/mede-food-club",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Madras Tandoori Kyleakin Rd (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/arden-thornliebank/madras-tandoori-kyleakin-rd",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    # --- Australia (direct) ---
+    ("Chicken Treat",
+     "https://www.chickentreat.com.au/menu/",
+     "chain", "direct", "AUD", "Australia"),
 
 ]
 

@@ -2,6 +2,77 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-08-13 — Chunk 1: live TARGETS 103 → 85 (net), guard + FX hardening
+
+First slice of the staged 103 → 250 promotion held open in PR #19. Deployed as
+a chunk rather than wholesale because the scraper host has no dependable
+multi-hour unattended window: 38 reboots and 17 shutdowns in the 13 days to
+2026-08-13, spread across 11 different hours of the day, with no scheduled
+power event and no kernel panics — it is a personal laptop power-cycled by
+hand. The 2026-08-12 run died at 22:01 to one such shutdown, mid-`retry 2/2`.
+Chunk sizing targets a run short enough that a random power cycle banks most
+of its work.
+
+**Removed 40 entries** (commented out in place, restorable by uncommenting):
+
+* 29 Foodpanda — 0/29 on this IP, re-confirmed 2026-08-12 (29 attempted, zero
+  rows landed). They cost ~26 min per run at concurrency 1 across three
+  attempts for no yield. Marked `[chunk1:FOODPANDA-IP-BLOCKED]`. The
+  residential-IP A/B test remains the separate, still-open path for Foodpanda;
+  nothing here forecloses it.
+* 11 US direct that never produced a single row, per
+  `docs/dead_targets_report_20260810.md`. Marked `[audit:NEVER-PRODUCED]`.
+
+**Added 22** probe-confirmed targets, all `CONFIRMED_LIVE` in the 2026-08-10
+probe: GrabFood MY +6, GrabFood VN +6, GrabFood SG +3, Deliveroo UK +6, direct
+AU +1. Selected as an even spread across each pool's menu-size distribution
+rather than the largest menus, so the throughput this run measures is
+representative rather than worst-case.
+
+Net TARGETS 103 → 85; composition GrabFood 38 / Deliveroo 37 / direct 10.
+
+Also carried from PR #19: the GrabFood consecutive-redirect throttle guard
+(`_grabfood_guard_wait` / `_grabfood_guard_record`, threshold 6, 300s cooldown)
+and the narrowed USD-rate exception handler with ERROR-level fallback logging.
+The log format keeps main's `'%(asctime)s — %(levelname)s — %(message)s'`
+separator for continuity with the historical `scraper_log.txt`.
+
+Remaining 136 staged targets stay in PR #19 for chunks 2–4, to be sized from
+this run's measured per-platform throughput at concurrency 1 — Deliveroo's
+per-target cost in particular has never been measured separately.
+
+## 2026-08-10 — Fix dead USD exchange-rate fetch (silent for a week)
+
+`live_scraper.get_usd_rates()` called `requests.get(...)` but `live_scraper.py`
+never imported `requests`. The resulting `NameError` was caught by a bare
+`except Exception`, logged through `log` (= `logging.info`), and treated as a
+routine fetch failure — so every run from 2026-08-03 silently computed
+`price_usd` from a week-old cache. `requests` was installed the whole time;
+only the import line was missing.
+
+Three changes:
+
+* Added the missing `import requests`.
+* Narrowed the handler to `(requests.RequestException, ValueError, KeyError)`.
+  Genuine network/response failures still fall back to cache; a programming
+  error now propagates instead of being laundered into "just use the cache".
+  This exact bug class would now fail loudly on the first run.
+* Fallbacks log at ERROR via `_log_rate_fallback()`, stating the cache age and
+  that `price_usd` for the run is stale, and the log format carries
+  `%(levelname)s` so an ERROR is no longer visually identical to progress
+  output in a multi-megabyte log.
+
+Verified: `exchange_rates.json` refreshed 2026-08-03T21:00 → 2026-08-10T23:06
+on the next run; a simulated outage produces the loud ERROR and still returns
+cached rates; an injected `NameError` propagates.
+
+**No `price_usd` backfill needed.** Of 22,278 rows written on stale rates,
+GBP/SGD/MYR/AUD/USD drifted 0.000% over the week and only VND moved (-0.200%,
+128 rows, 0.201% error). Structurally the exposure is smaller still:
+`build_stable_basket_index` uses `price_usd / base_price_usd`, so a constant
+per-currency rate error cancels in the ratio and affects only cross-country
+USD-level comparisons, not the within-country index.
+
 ## 2026-07-09 — Quarantine corrupted UAE/VN wayback price slices
 
 Two (country, source) slices carried systematically corrupted prices:
