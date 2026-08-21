@@ -1,14 +1,17 @@
 """
 UIFPI — Figure Generation
 Creates all charts needed for the research paper and SSEF poster.
-Saves 5 PNG files at 300 DPI to figures/.
+Saves 4 PNG files at 300 DPI to figures/.
 
 Figures:
   fig1 — UIFPI vs Official CPI per country (2×4 grid)
-  fig2 — Granger causality lead times bar chart
-  fig3 — Formal vs Informal pass-through rates
+  fig2 — Granger causality significance/lead times bar chart (calendar-true US spec)
   fig4 — Directional prediction accuracy vs AR1 baseline
   fig5 — Country sample map
+
+fig3 (formal vs informal pass-through) was removed 2026-08-20: the paper
+makes no pass-through/magnitude claim in this draft (see paper §7.1, §8
+item 2) pending re-estimation on the calendar-true CPI construction.
 """
 
 import json
@@ -27,6 +30,7 @@ import pandas as pd
 warnings.filterwarnings("ignore")
 
 DB_PATH    = "uifpi.db"
+INDEX_CSV_FALLBACK = "uifpi_index.csv"  # used when uifpi.db is unavailable (not tracked in git)
 CPI_DIR    = "cpi_data"
 FIG_DIR    = "figures"
 RESULTS_DIR = "analysis_results"
@@ -103,13 +107,24 @@ def load_cpi(country: str) -> Optional[pd.Series]:
 
 
 def load_index(country: str) -> Optional[pd.DataFrame]:
-    conn = sqlite3.connect(DB_PATH)
-    df = pd.read_sql_query(
-        "SELECT year_month, formal_index, informal_index, uifpi_combined "
-        "FROM uifpi_index WHERE country = ? ORDER BY year_month",
-        conn, params=[country],
-    )
-    conn.close()
+    if os.path.exists(DB_PATH) and os.path.getsize(DB_PATH) > 0:
+        conn = sqlite3.connect(DB_PATH)
+        df = pd.read_sql_query(
+            "SELECT year_month, formal_index, informal_index, uifpi_combined "
+            "FROM uifpi_index WHERE country = ? ORDER BY year_month",
+            conn, params=[country],
+        )
+        conn.close()
+    elif os.path.exists(INDEX_CSV_FALLBACK):
+        # uifpi.db is gitignored and not always present locally; fall back to
+        # the flat CSV export of the same uifpi_index table (kept in sync by
+        # the monthly ingest). Same columns, same source of truth.
+        full = pd.read_csv(INDEX_CSV_FALLBACK)
+        df = full[full["country"] == country][
+            ["year_month", "formal_index", "informal_index", "uifpi_combined"]
+        ].sort_values("year_month")
+    else:
+        return None
     if df.empty:
         return None
     df["dt"] = pd.to_datetime(df["year_month"])
@@ -122,6 +137,47 @@ def load_granger_results() -> dict:
         return {}
     with open(path) as f:
         return json.load(f)
+
+
+def load_gap_robustness() -> dict:
+    """Calendar-true US Granger spec (analysis_results/gap_robustness.json).
+    granger_results.json's "United States" entry is the deprecated
+    gap-mixing spec (F=6.0336, p=0.021) — do not use it as the headline.
+    """
+    path = os.path.join(RESULTS_DIR, "gap_robustness.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path) as f:
+        return json.load(f)
+
+
+def granger_results_calendar_true() -> dict:
+    """Per-country Granger results with the United States entry patched to
+    the calendar-true spec. India/Malaysia/etc. in granger_results.json are
+    already the correct, non-deprecated values — only the US entry used the
+    gap-mixing method that was superseded on 2026-07-06.
+    """
+    granger = load_granger_results()
+    gap = load_gap_robustness()
+    ct = gap.get("specs", {}).get("calendar_true")
+    if ct:
+        us = dict(granger.get("United States", {}))
+        us["granger_p_value"] = ct["p_analytic"]
+        us["granger_f_statistic"] = ct["F"]
+        us["n_obs"] = ct["n"]
+        us["lead_months"] = 1
+        us["aic_lag"] = None  # calendar-true is a fixed lag-1 spec, not AIC-selected
+        us["permutation_p_shuffle"] = ct.get("p_permutation", {}).get("shuffle")
+        us["permutation_p_block"] = ct.get("p_permutation", {}).get("block")
+        # Deprecated gap-mixing pass-through is not carried forward — the
+        # paper makes no pass-through/magnitude claim in this draft.
+        for k in ("pass_through_formal", "pass_through_se", "pass_through_p_value",
+                  "pass_through_ci_low", "pass_through_ci_high", "pass_through_significant"):
+            us[k] = None
+        us["granger_significant"] = None  # not a clean true/false — see fig2 colour logic
+        us["note"] = "calendar-true spec (analysis_results/gap_robustness.json); analytic p<0.05 but not confirmed by permutation checks — not a validated finding"
+        granger["United States"] = us
+    return granger
 
 
 def load_benchmark_results() -> dict:
@@ -223,11 +279,12 @@ def fig1_index_comparison():
 # ---------------------------------------------------------------------------
 
 def fig2_lead_times():
-    granger = load_granger_results()
+    granger = granger_results_calendar_true()
 
     countries  = []
     lead_times = []
     p_values   = []
+    not_validated = []  # True when analytic p<0.05 but permutation checks don't confirm it
     for c in COUNTRIES:
         r = granger.get(c, {})
         countries.append(c)
@@ -236,100 +293,73 @@ def fig2_lead_times():
         lead_times.append(lt if lt is not None else 0)
         p_values.append(pv if pv is not None else 1.0)
 
-    # bar colours by significance
+        perm_shuffle = r.get("permutation_p_shuffle")
+        perm_block = r.get("permutation_p_block")
+        if pv is not None and perm_shuffle is not None and perm_block is not None:
+            # confirmed-significant only if analytic AND both permutation
+            # checks clear 0.05 — otherwise it's not a clean rejection
+            not_validated.append(max(pv, perm_shuffle, perm_block) >= 0.05)
+        else:
+            not_validated.append(False)
+
+    # bar colours by significance; a distinct hatched "not validated" bucket
+    # is used when the analytic p clears 0.05 but permutation checks don't
+    # confirm it (this applies to the US calendar-true result: p=0.0499
+    # analytic vs 0.052/0.069 permutation) — this must not read as a clean
+    # "significant" green bar per the paper's own framing (§6.1, §7.1, §9).
     colours = []
-    for pv in p_values:
-        if pv < 0.05:
+    hatches = []
+    for pv, nv in zip(p_values, not_validated):
+        if nv:
+            colours.append("#FFC107")   # amber — same family as "marginal"
+            hatches.append("//")
+        elif pv < 0.05:
             colours.append("#4CAF50")   # green
+            hatches.append(None)
         elif pv < 0.10:
             colours.append("#FFC107")   # yellow
+            hatches.append(None)
         else:
             colours.append("#F44336")   # red
+            hatches.append(None)
 
     fig, ax = plt.subplots(figsize=(10, 5))
     x = np.arange(len(countries))
     bars = ax.bar(x, lead_times, color=colours, edgecolor="white", linewidth=0.5)
+    for bar, h in zip(bars, hatches):
+        if h:
+            bar.set_hatch(h)
+            bar.set_edgecolor("#7A5C00")
 
-    # annotate data status
-    for i, (lt, pv) in enumerate(zip(lead_times, p_values)):
+    # annotate data status / not-validated caveat
+    for i, (lt, pv, nv) in enumerate(zip(lead_times, p_values, not_validated)):
         if pv >= 1.0 - 1e-9:
             ax.text(x[i], 0.1, "insuff.\ndata", ha="center", va="bottom",
                     fontsize=7, color="grey")
+        elif nv:
+            ax.text(x[i], lead_times[i] + 0.08, "not validated\n(permutation p ≥ .05)",
+                    ha="center", va="bottom", fontsize=6.5, color="#7A5C00")
 
     ax.set_xticks(x)
     ax.set_xticklabels(countries, rotation=30, ha="right", fontsize=9)
     ax.set_ylabel("Lead Time (months)", fontsize=10)
-    ax.set_title("Granger Causality Lead Times: UIFPI → Official CPI",
+    ax.set_title("Granger Causality by Country: UIFPI → Official CPI\n(calendar-true spec, United States)",
                  fontsize=11, fontweight="bold")
     ax.set_ylim(0, max(max(lead_times) + 1, 4))
 
     # legend
     legend_elements = [
-        mpatches.Patch(facecolor="#4CAF50", label="p < 0.05 (significant)"),
+        mpatches.Patch(facecolor="#4CAF50", label="p < 0.05 (significant, permutation-confirmed)"),
+        mpatches.Patch(facecolor="#FFC107", hatch="//", edgecolor="#7A5C00",
+                        label="Analytic p < 0.05, not confirmed by permutation\n(most interesting, not validated)"),
         mpatches.Patch(facecolor="#FFC107", label="p < 0.10 (marginal)"),
         mpatches.Patch(facecolor="#F44336", label="Not significant"),
     ]
-    ax.legend(handles=legend_elements, loc="upper right", fontsize=8)
+    ax.legend(handles=legend_elements, loc="upper right", fontsize=7)
     ax.grid(axis="y", alpha=0.3)
 
     plt.tight_layout()
     out = os.path.join(FIG_DIR, "fig2_lead_times.png")
-    fig.savefig(out, dpi=300, bbox_inches="tight")
-    plt.close(fig)
-    print(f"  Saved {out}")
-
-
-# ---------------------------------------------------------------------------
-# Figure 3 — Formal vs Informal pass-through
-# ---------------------------------------------------------------------------
-
-def fig3_pass_through():
-    granger = load_granger_results()
-
-    countries_f, formal_pt, informal_pt = [], [], []
-    for c in COUNTRIES:
-        r = granger.get(c, {})
-        fp = r.get("pass_through_formal")
-        ip = r.get("pass_through_informal")
-        if fp is None and ip is None:
-            continue
-        countries_f.append(c)
-        formal_pt.append(fp if fp is not None else 0.0)
-        informal_pt.append(ip if ip is not None else 0.0)
-
-    if not countries_f:
-        # fallback: placeholder bars clearly labelled "pending"
-        countries_f = COUNTRIES
-        formal_pt   = [0.0] * len(COUNTRIES)
-        informal_pt = [0.0] * len(COUNTRIES)
-        no_data = True
-    else:
-        no_data = False
-
-    fig, ax = plt.subplots(figsize=(12, 5))
-    x    = np.arange(len(countries_f))
-    w    = 0.35
-    ax.bar(x - w / 2, formal_pt,   width=w, color=FORMAL_COLOUR,   label="Formal sector",   alpha=0.85)
-    ax.bar(x + w / 2, informal_pt, width=w, color=INFORMAL_COLOUR, label="Informal sector", alpha=0.85)
-
-    ax.axhline(1.0, color="black", ls="--", lw=1.5, label="Full pass-through (β=1)")
-    ax.set_xticks(x)
-    ax.set_xticklabels(countries_f, rotation=30, ha="right", fontsize=9)
-    ax.set_ylabel("Pass-Through Coefficient (β)", fontsize=10)
-    ax.set_title("Formal vs Informal Cost Pass-Through Rates",
-                 fontsize=11, fontweight="bold")
-    ax.legend(fontsize=9)
-    ax.grid(axis="y", alpha=0.3)
-
-    if no_data:
-        ax.text(0.5, 0.6, "Pass-through results pending full data collection\n"
-                           "(requires ≥24 monthly observations per country)",
-                ha="center", va="center", transform=ax.transAxes,
-                fontsize=10, color="grey",
-                bbox=dict(boxstyle="round,pad=0.3", facecolor="lightyellow", alpha=0.8))
-
-    plt.tight_layout()
-    out = os.path.join(FIG_DIR, "fig3_pass_through.png")
     fig.savefig(out, dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"  Saved {out}")
@@ -491,7 +521,6 @@ def main():
 
     fig1_index_comparison()
     fig2_lead_times()
-    fig3_pass_through()
     fig4_benchmark()
     fig5_country_map()
 
@@ -499,7 +528,6 @@ def main():
     expected = [
         "fig1_index_comparison.png",
         "fig2_lead_times.png",
-        "fig3_pass_through.png",
         "fig4_benchmark.png",
         "fig5_country_map.png",
     ]
