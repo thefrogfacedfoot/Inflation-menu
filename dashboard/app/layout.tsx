@@ -5,11 +5,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "UICPI — Unified Independent-Chain Price Index",
   description:
-    "A real-time restaurant price index tracking chain and independent food vendors across 10 countries as a leading indicator of official CPI.",
+    "A real-time restaurant price index tracking chain and independent food vendors across an eight-country panel as a leading indicator of official CPI.",
   openGraph: {
     title: "UICPI — Unified Independent-Chain Price Index",
     description:
-      "Real-time restaurant price index across 10 countries. Extends MIT Billion Prices Project to independent vendors.",
+      "Real-time restaurant price index across an eight-country panel. Extends MIT Billion Prices Project to independent vendors.",
     type: "website",
   },
 };

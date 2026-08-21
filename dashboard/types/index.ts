@@ -62,12 +62,21 @@ export const COUNTRIES = [
 // demoted on the homepage and excluded from the main grid.
 export const LIMITED_COVERAGE = new Set<string>(["Indonesia", "Thailand"]);
 
+// Countries whose entire Wayback price slice was found to be systematically
+// mispriced and quarantined from the index on 2026-07-09 (paper §4.7). Not
+// "collecting data" — the earlier Granger statistics for these two are
+// withdrawn, not merely stale, and no re-scrape has happened yet. Still
+// routable, but kept out of the primary grid so they aren't read as
+// reporting countries on the same footing as the rest of the panel.
+export const WITHDRAWN = new Set<string>(["Vietnam", "United Arab Emirates"]);
+
 export const PRIMARY_COUNTRIES = COUNTRIES.filter(
-  (c) => !LIMITED_COVERAGE.has(c)
+  (c) => !LIMITED_COVERAGE.has(c) && !WITHDRAWN.has(c)
 );
 export const LIMITED_COVERAGE_COUNTRIES = COUNTRIES.filter((c) =>
   LIMITED_COVERAGE.has(c)
 );
+export const WITHDRAWN_COUNTRIES = COUNTRIES.filter((c) => WITHDRAWN.has(c));
 
 export type Country = (typeof COUNTRIES)[number];
 
@@ -111,9 +120,9 @@ export const COVERAGE_NOTES: Record<string, string> = {
   "United Kingdom":
     "18 months of UIFPI data collected. Granger testing requires n ≥ 24 — threshold expected Q4 2026 via monthly accumulation.",
   Vietnam:
-    "19 months of GrabFood archival snapshots (4,309 items). CPI series is annual (World Bank, interpolated) — Granger inconclusive at this resolution. Below n ≥ 24 threshold (overlap with CPI: 12 months).",
+    "Withdrawn 2026-07-09. The Wayback GrabFood slice (4,309 rows — all of Vietnam's archival data) was found to misparse VND's dot-grouped-thousands convention (\"45.000\" = 45,000, not 45.0), leaving every row with a null price. The Granger statistic reported in earlier drafts is not carried forward; no statistic is reported until a corrected re-scrape runs. See paper §4.7.",
   "United Arab Emirates":
-    "57 months of Deliveroo AE archival snapshots (9,243 items). CPI series is annual (World Bank, interpolated); Granger F = 0.016, p = 0.900 — null result reflects the annual-CPI ceiling, consistent with other emerging-market countries on this dataset.",
+    "Withdrawn 2026-07-09. The Wayback Deliveroo slice (9,243 rows — all of the UAE's archival data) was found to digit-fuse an object-valued price field from 2022-01 onward (AED 9 read as 90,009), leaving every row with a null price. The Granger statistic reported in earlier drafts (F = 0.016, p = 0.900) is withdrawn and not carried forward; no statistic is reported until a corrected re-scrape runs. See paper §4.7.",
 };
 
 export const DEVELOPMENT_STATUS: Record<string, "Developed" | "Emerging"> = {
