@@ -3837,6 +3837,118 @@ TARGETS = [
      "https://food.grab.com/vn/en/restaurant/b%E1%BB%91ng-b%C3%B4ng-v%E1%BA%B7t-ch%C3%A2n-g%C3%A0-m%C3%AC-tr%E1%BB%99n-indomie-delivery/5-C633SCBTVRJUA2",
      "independent", "grabfood", "VND", "Vietnam"),
 
+    # ==========================================================================
+    # CHUNK 3C — GrabFood MY/VN, pulled from PR #19's verified pool.
+    # Split off a 77-target single batch (~3h56m at chunk-1's 184.3s/target incl.
+    # retries) into 3 sub-chunks of ~25-30 to stay inside the 1.5-2h window this
+    # machine's unreliable uptime requires. This is sub-chunk C (25 targets,
+    # MY 12 / VN 13), est. 76.8 min. No new probing.
+    # ==========================================================================
+
+    # --- Malaysia (grabfood) ---
+
+    ("Muslim Mee Tarik Intermark - Wisma Bukit Bintang",
+     "https://food.grab.com/my/en/restaurant/muslim-mee-tarik-intermark-wisma-bukit-bintang-delivery/1-C4EBAXCWRFUBVA",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Lot 10 Hutong Lot 10 Non Halal",
+     "https://food.grab.com/my/en/restaurant/lot-10-hutong-lot-10-non-halal-delivery/1-C2DCCXKKVNUDG2",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("KFC - Sungai Besi Toll DT",
+     "https://food.grab.com/my/en/restaurant/kfc-sungai-besi-toll-dt-delivery/1-CZM3R7ETKAEXRA",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("ABC Bistro Cafe",
+     "https://food.grab.com/my/en/restaurant/abc-bistro-cafe-delivery/MYDD10955",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Chili S Sunway Putra Mall",
+     "https://food.grab.com/my/en/restaurant/chili-s-sunway-putra-mall-delivery/1-CZCDJACFC24EG6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Waki Malaysian Dim Sum",
+     "https://food.grab.com/my/en/restaurant/waki-malaysian-dim-sum-delivery/MYDD05972",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("The Coffee Bean Tea Leaf Pavilion",
+     "https://food.grab.com/my/en/restaurant/the-coffee-bean-tea-leaf-pavilion-delivery/1-CY5WGBBXLJBXC2",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Abadi Cafeteria - TTDI",
+     "https://food.grab.com/my/en/restaurant/abadi-cafeteria-ttdi-delivery/MYDD08665",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("A W® Sunway Putra Mall",
+     "https://food.grab.com/my/en/restaurant/a-w%C2%AE-sunway-putra-mall-delivery/1-C3TCCUDEPB2CJ2",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Deli Cafe - Business Park",
+     "https://food.grab.com/my/en/restaurant/deli-cafe-business-park-delivery/1-C2VUET5BAANCAE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Starbucks Batu Ferringhi",
+     "https://food.grab.com/my/en/restaurant/starbucks-batu-ferringhi-delivery/1-CZMGUEKEE6VZCN",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Bread History Quill City Mall",
+     "https://food.grab.com/my/en/restaurant/bread-history-quill-city-mall-delivery/1-C4MAR3MAVLC3ME",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    # --- Vietnam (grabfood) ---
+
+    ("Cafe Phin Phan Rang Nguyên Chất 100",
+     "https://food.grab.com/vn/en/restaurant/cafe-phin-phan-rang-nguy%C3%AAn-ch%E1%BA%A5t-100-delivery/5-C6NVEJ2BHCLKHE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bánh Giò Đông Các",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-gi%C3%B2-%C4%91%C3%B4ng-c%C3%A1c-delivery/5-C2EFJT2HL8KWVX",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cơm Niêu Hợp Tác Xã Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-ni%C3%AAu-h%E1%BB%A3p-t%C3%A1c-x%C3%A3-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C35EJPN1SBB2KA",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bún Riêu Bún Thái Hồng Ân",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-b%C3%BAn-th%C3%A1i-h%E1%BB%93ng-%C3%A2n-delivery/5-C64KGLJWCFJJA2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cà Phê Muối Chú Long Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/c%C3%A0-ph%C3%AA-mu%E1%BB%91i-ch%C3%BA-long-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C6WXC65ELLMELE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("An Chicken Tiệm Gà Rán Hàn Quốc Đại Từ",
+     "https://food.grab.com/vn/en/restaurant/an-chicken-ti%E1%BB%87m-g%C3%A0-r%C3%A1n-h%C3%A0n-qu%E1%BB%91c-%C4%91%E1%BA%A1i-t%E1%BB%AB-delivery/5-C65XLBCVVLKBBE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bún Bò Huế Ngự Uyển Hồ Đắc Di",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-b%C3%B2-hu%E1%BA%BF-ng%E1%BB%B1-uy%E1%BB%83n-h%E1%BB%93-%C4%91%E1%BA%AFc-di-delivery/5-C4A1UA6UAFU2NE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cơm Thố Delichi Nguyễn Thái Học",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-delichi-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6UDCVAAWGDET2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bánh Cuốn Nóng Gia Truyền Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-cu%E1%BB%91n-n%C3%B3ng-gia-truy%E1%BB%81n-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C26CTEUVL7EKVT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bếp Ăn Nhà Su Điểm Tâm Cơm Trưa Chiều",
+     "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-%C4%83n-nh%C3%A0-su-%C4%91i%E1%BB%83m-t%C3%A2m-c%C6%A1m-tr%C6%B0a-chi%E1%BB%81u-delivery/5-C6VXGZN3KF4CGJ",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Trà Sữa Cô Ba",
+     "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-c%C3%B4-ba-delivery/5-CZBFCXBXKEXBNX",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bami King Bánh Mì Bò Nướng Cơm Thố An Trạch",
+     "https://food.grab.com/vn/en/restaurant/bami-king-b%C3%A1nh-m%C3%AC-b%C3%B2-n%C6%B0%E1%BB%9Bng-c%C6%A1m-th%E1%BB%91-an-tr%E1%BA%A1ch-delivery/VNGFVN0000038c",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bún Dọc Mùng 195 Đội Cấn",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-d%E1%BB%8Dc-m%C3%B9ng-195-%C4%91%E1%BB%99i-c%E1%BA%A5n-delivery/5-C64FTAKYN3NGV6",
+     "independent", "grabfood", "VND", "Vietnam"),
+
 ]
 
 
