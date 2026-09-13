@@ -2180,9 +2180,11 @@ TARGETS = [
      "https://food.grab.com/sg/en/restaurant/mcdonald-s-people-s-park-delivery/SGDD04919",
      "chain", "grabfood", "SGD", "Singapore"),
 
-    ("Han's",
-     "https://food.grab.com/sg/en/restaurant/han-s-jalan-bukit-merah-delivery/4-CZDJJPJFFEVXHE",
-     "chain", "grabfood", "SGD", "Singapore"),
+    # [chunk2:GRABFOOD-PERMANENT-FAIL] removed from chunk 2 — landing-page-redirect
+    # block on all 3 retry attempts in the 2026-08-20 chunk-1 run, not transient
+    # ("Han's",
+    # "https://food.grab.com/sg/en/restaurant/han-s-jalan-bukit-merah-delivery/4-CZDJJPJFFEVXHE",
+    # "chain", "grabfood", "SGD", "Singapore"),
 
     ("Saizeriya",
      "https://food.grab.com/sg/en/restaurant/saizeriya-chinatown-point-delivery/4-CZEAR6D3V2JFCT",
@@ -2270,9 +2272,11 @@ TARGETS = [
 
     # --- Formal ---
     # Replaced foodpanda URL with verifiable GrabFood URL (found via search 2026-06-15)
-    ("Din Tai Fung KL",
-     "https://food.grab.com/my/en/restaurant/din-tai-fung-the-gardens-mall-non-halal-delivery/1-CY2UGABXFCA2RE",
-     "chain", "grabfood", "MYR", "Malaysia"),
+    # [chunk2:GRABFOOD-PERMANENT-FAIL] removed from chunk 2 — landing-page-redirect
+    # block on all 3 retry attempts in the 2026-08-20 chunk-1 run, not transient
+    # ("Din Tai Fung KL",
+    # "https://food.grab.com/my/en/restaurant/din-tai-fung-the-gardens-mall-non-halal-delivery/1-CY2UGABXFCA2RE",
+    # "chain", "grabfood", "MYR", "Malaysia"),
 
     # Removed Sushi Tei KL: foodpanda.my URL couldn't be verified (IP-blocked),
     # not findable on GrabFood Malaysia from KLCC delivery address.
@@ -3271,14 +3275,18 @@ TARGETS = [
      "https://food.grab.com/my/en/restaurant/abc-banana-leaf-brickfields-delivery/1-C6VTVAJZNYT1RE",
      "independent", "grabfood", "MYR", "Malaysia"),
 
-    ("Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Halal]",
-     "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-taman-connaught-non-halal-delivery/1-C2B2RPKZRT3XFE",
-     "independent", "grabfood", "MYR", "Malaysia"),
+    # [chunk2:GRABFOOD-PERMANENT-FAIL] removed from chunk 2 — landing-page-redirect
+    # block on all 3 retry attempts in the 2026-08-20 chunk-1 run, not transient
+    # ("Krua Thai Moo-Ka-Ta - Taman Connaught [Non-Halal]",
+    # "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-taman-connaught-non-halal-delivery/1-C2B2RPKZRT3XFE",
+    # "independent", "grabfood", "MYR", "Malaysia"),
 
     # --- Vietnam (grabfood) ---
-    ("Ăn Vặt 24H Chíp Chíp Hoàng Mai",
-     "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-24h-ch%C3%ADp-ch%C3%ADp-ho%C3%A0ng-mai-delivery/5-CZDZGYXHLATFNT",
-     "independent", "grabfood", "VND", "Vietnam"),
+    # [chunk2:GRABFOOD-PERMANENT-FAIL] removed from chunk 2 — landing-page-redirect
+    # block on all 3 retry attempts in the 2026-08-20 chunk-1 run, not transient
+    # ("Ăn Vặt 24H Chíp Chíp Hoàng Mai",
+    # "https://food.grab.com/vn/en/restaurant/%C4%83n-v%E1%BA%B7t-24h-ch%C3%ADp-ch%C3%ADp-ho%C3%A0ng-mai-delivery/5-CZDZGYXHLATFNT",
+    # "independent", "grabfood", "VND", "Vietnam"),
 
     ("Cơm Tấm Delichi Cơm Tấm Sườn Nướng Cơm Tấm Sườn Bì Chả Nguyễn Thái Học",
      "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-delichi-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-b%C3%AC-ch%E1%BA%A3-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/5-C6VDCLCBEVMKDE",
@@ -3301,9 +3309,11 @@ TARGETS = [
      "chain", "grabfood", "VND", "Vietnam"),
 
     # --- Singapore (grabfood) ---
-    ("Chimi S One Marina Boulevard",
-     "https://food.grab.com/sg/en/restaurant/chimi-s-one-marina-boulevard-delivery/4-CZCZLB2HT3KVC2",
-     "independent", "grabfood", "SGD", "Singapore"),
+    # [chunk2:GRABFOOD-PERMANENT-FAIL] removed from chunk 2 — landing-page-redirect
+    # block on all 3 retry attempts in the 2026-08-20 chunk-1 run, not transient
+    # ("Chimi S One Marina Boulevard",
+    # "https://food.grab.com/sg/en/restaurant/chimi-s-one-marina-boulevard-delivery/4-CZCZLB2HT3KVC2",
+    # "independent", "grabfood", "SGD", "Singapore"),
 
     ("Captain Kim Korean Bbq Ntuc Income Tampines Junction",
      "https://food.grab.com/sg/en/restaurant/captain-kim-korean-bbq-ntuc-income-tampines-junction-delivery/4-C2UFJJJGMEXUKA",
@@ -3342,6 +3352,258 @@ TARGETS = [
     ("Chicken Treat",
      "https://www.chickentreat.com.au/menu/",
      "chain", "direct", "AUD", "Australia"),
+
+    # ==========================================================================
+    # CHUNK 2 — pulled from PR #19's verified 250-target pool, no new probing.
+    # Weighted toward Deliveroo/direct per chunk-1 real costs (Deliveroo 10.9s/
+    # target, 100% reliable; GrabFood 184.3s/target incl. retries, dosed lightly).
+    # ==========================================================================
+
+    # --- United Kingdom (deliveroo) — all 43 remaining PR #19 targets ---
+
+    ("Worldwide Munchies Faifley 260 Faifley Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/drumchapel/worldwide-munchies-faifley-260-faifley-road",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Pathans (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/airdrie/pathans",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("New Kismet Drumry Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/drumchapel/new-kismet-drumry-road",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Paprika Paisley (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/charleston/paprika-paisley",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Spice Of Life Cumbernauld (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/cumbernauld/spice-of-life-cumbernauld",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Paprika Kings 3 Broomlands Street (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/ferguslie-park/paprika-kings-3-broomlands-street",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Spice Magic (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/bridgeton-camlachie/spice-magic",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Mirch Masala Curry House Paisley (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/central-paisley/mirch-masala-curry-house-paisley",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Bilals Pizza (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/armley-and-new-wortley/bilals-pizza",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Eastern Pizza And Kebab (Deliveroo)",
+     "https://deliveroo.co.uk/menu/liverpool/fairfield/eastern-pizza-and-kebab",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Tartan Tikka Second Ave (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/duntocher-and-parkhall/tartan-tikka-second-ave",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Bennies Fast Food (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/duntocher-and-parkhall/bennies-fast-food",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Munchies Rutherglen (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/eastfield-and-burnside/munchies-rutherglen",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Papa Dinos Castleford (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/papa-dinos-castleford",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Cumbernauld Shopping Centre 41713 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/cumbernauld/subway-cumbernauld-shopping-centre-41713",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Xi Yang Yang Chinese Delivered By Deliveroo (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Liverpool/croxteth-park-south/xi-yang-yang-chinese-delivered-by-deliveroo",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Lucky House 313 Brodie Avenue (Deliveroo)",
+     "https://deliveroo.co.uk/menu/liverpool/grassendale/lucky-house-313-brodie-avenue",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Dessert King (Deliveroo)",
+     "https://deliveroo.co.uk/menu/birmingham/balsall-heath-edgbaston-stadium/dessert-king",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Javs Authentic Indian Cuisine (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/javs-authentic-indian-cuisine",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Madras Cottage (Deliveroo)",
+     "https://deliveroo.co.uk/menu/edinburgh/edinburgh-east/madras-cottage",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Minars Kebab Inn Duke Street (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/dennistoun/minars-kebab-inn-duke-street",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("East End Caffe Glasgow (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/dennistoun/east-end-caffe-glasgow",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Angelos (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/burley-park-and-hyde-park/angelos",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("73 Pret A Manger Aldgate (Deliveroo)",
+     "https://deliveroo.co.uk/menu/london/aldgate/73-pret-a-manger-aldgate",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Alis Pennywell 51B Pennywell Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Edinburgh/drylaw-and-blackhall/alis-pennywell-51b-pennywell-road",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Baba Bs Burgers (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/east-kilbride/baba-bs-burgers",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Francos Continental Bridgeton (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/bridgeton-camlachie/francos-continental-bridgeton",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Le Runa Rth (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/fernhill-and-cathkin/le-runa-rth",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Horsforth 60902 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/cragg-wood/subway-horsforth-60902",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Castleford 43428 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/subway-castleford-43428",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Glasshoughton 41744 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/castleford/subway-glasshoughton-41744",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Corstorphine 39429 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Edinburgh/corstorphine-and-corstorphine-hill/subway-corstorphine-39429",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Glasgow Road 67971 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/cumbernauld/subway-glasgow-road-67971",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Pizza Pot Morley (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/churwell/pizza-pot-morley",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Fazil King Takeaway 40 High Street (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/central-paisley/fazil-king-takeaway-40-high-street",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Glossop Road (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Sheffield/broomhill/subway-glossop-road",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Tasty Point Airdrie (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/airdrie/tasty-point-airdrie",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Desi Sizzlers (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/armley-and-new-wortley/desi-sizzlers",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Golden Wok Hea (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Leeds/burley-park-and-hyde-park/golden-wok-hea",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Subway Middleton Gardens 65671 (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Manchester/boothroyden-and-middleton/subway-middleton-gardens-65671",
+     "chain", "deliveroo", "GBP", "United Kingdom"),
+
+    ("The Dessert Kings 652 Alexandra Parade (Deliveroo)",
+     "https://deliveroo.co.uk/menu/glasgow/dennistoun/the-dessert-kings-652-alexandra-parade",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Crunchies Pizza (Deliveroo)",
+     "https://deliveroo.co.uk/menu/Leeds/armley-and-new-wortley/crunchies-pizza",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    ("Zaynab Balti (Deliveroo)",
+     "https://deliveroo.co.uk/menu/leeds/crossley-hall-and-thornton/zaynab-balti",
+     "independent", "deliveroo", "GBP", "United Kingdom"),
+
+    # --- Australia (direct) — sole remaining PR #19 direct target ---
+
+    ("Krispy Kreme Australia",
+     "https://www.krispykreme.com.au/products",
+     "chain", "direct", "AUD", "Australia"),
+
+    # --- Malaysia (grabfood) — light dose, evenly spread pick of 5/43 remaining ---
+
+    ("Banana Leaf Corner Brickfields",
+     "https://food.grab.com/my/en/restaurant/banana-leaf-corner-brickfields-delivery/1-C6XZR3MJVTXXNJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Nasi Kandar Utara - Jalan Bangsar",
+     "https://food.grab.com/my/en/restaurant/nasi-kandar-utara-jalan-bangsar-delivery/1-C3KKMEA3EZJ3E2",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Hometown Hainan Coffee - Berjaya Times Square",
+     "https://food.grab.com/my/en/restaurant/hometown-hainan-coffee-berjaya-times-square-delivery/MYDD12706",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Chatto - Setapak",
+     "https://food.grab.com/my/en/restaurant/chatto-setapak-delivery/MYDD12144",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Dome Cafe Bsc",
+     "https://food.grab.com/my/en/restaurant/dome-cafe-bsc-delivery/1-CYVWJXBTEP41GN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    # --- Vietnam (grabfood) — light dose, evenly spread pick of 4/43 remaining ---
+
+    ("Bánh Mì Cô Chun",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-c%C3%B4-chun-delivery/5-C3VWSBAALXMUNJ",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Burger King Giảng Võ",
+     "https://food.grab.com/vn/en/restaurant/burger-king-gi%E1%BA%A3ng-v%C3%B5-delivery/5-CZNDJ4MDEBWJUA",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Cơm Thố Anh Nguyễn Nguyễn Như Đổ",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-th%E1%BB%91-anh-nguy%E1%BB%85n-nguy%E1%BB%85n-nh%C6%B0-%C4%91%E1%BB%95-delivery/5-C4E1LLMFNNBZTT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Ô Mai Chip Chè Ăn Vặt",
+     "https://food.grab.com/vn/en/restaurant/%C3%B4-mai-chip-ch%C3%A8-%C4%83n-v%E1%BA%B7t-delivery/5-CYMCKAMXRTX3EX",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    # --- Singapore (grabfood) — light dose, all 6 remaining PR #19 targets ---
+
+    ("Collin S® Restaurant Northpoint City",
+     "https://food.grab.com/sg/en/restaurant/collin-s%C2%AE-restaurant-northpoint-city-delivery/SGDD06431",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    ("Founder Bak Kut Teh Balestier Road",
+     "https://food.grab.com/sg/en/restaurant/founder-bak-kut-teh-balestier-road-delivery/4-C2BGNTVDN6CVWE",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    ("Dough Culture Waterway Point",
+     "https://food.grab.com/sg/en/restaurant/dough-culture-waterway-point-delivery/SGDD11087",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    ("Jb烫鱼 药材肉骨茶 338 Ang Mo Kio",
+     "https://food.grab.com/sg/en/restaurant/jb%E7%83%AB%E9%B1%BC-%E8%8D%AF%E6%9D%90%E8%82%89%E9%AA%A8%E8%8C%B6-338-ang-mo-kio-delivery/4-C2TKR7MBEXKHNT",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    ("21 Toh Guan Fish Soup 21 卓源鱼汤 Lazada One",
+     "https://food.grab.com/sg/en/restaurant/21-toh-guan-fish-soup-21-%E5%8D%93%E6%BA%90%E9%B1%BC%E6%B1%A4-lazada-one-delivery/4-C3JJR7ATGFAUVA",
+     "independent", "grabfood", "SGD", "Singapore"),
+
+    ("Spice Box Mala Xiang Guo Cross Street Exchange",
+     "https://food.grab.com/sg/en/restaurant/spice-box-mala-xiang-guo-cross-street-exchange-delivery/4-C2KCJYTBGJJ2RX",
+     "independent", "grabfood", "SGD", "Singapore"),
 
 ]
 
