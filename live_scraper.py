@@ -3605,6 +3605,122 @@ TARGETS = [
      "https://food.grab.com/sg/en/restaurant/spice-box-mala-xiang-guo-cross-street-exchange-delivery/4-C2KCJYTBGJJ2RX",
      "independent", "grabfood", "SGD", "Singapore"),
 
+    # ==========================================================================
+    # CHUNK 3A — GrabFood MY/VN, pulled from PR #19's verified pool.
+    # Split off a 77-target single batch (~3h56m at chunk-1's 184.3s/target incl.
+    # retries) into 3 sub-chunks of ~25-30 to stay inside the 1.5-2h window this
+    # machine's unreliable uptime requires. This is sub-chunk A (26 targets,
+    # MY 13 / VN 13), est. 79.9 min. No new probing.
+    # ==========================================================================
+
+    # --- Malaysia (grabfood) ---
+
+    ("Moghul Mahal Restaurant - Brickfields",
+     "https://food.grab.com/my/en/restaurant/moghul-mahal-restaurant-brickfields-delivery/1-CZDTJAXKKFUURN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Krua Thai Moo-Ka-Ta - Jalan Vista Mutiara [Non-Halal]",
+     "https://food.grab.com/my/en/restaurant/krua-thai-moo-ka-ta-jalan-vista-mutiara-non-halal-delivery/1-C2B2RPKZDE5JLJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Hekaya Shamia Restaurant - Laman Baginda",
+     "https://food.grab.com/my/en/restaurant/hekaya-shamia-restaurant-laman-baginda-delivery/1-C7ETBBK1PCBDGN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Al Khatiri Kofee Bandar Baru Kubang Kerian",
+     "https://food.grab.com/my/en/restaurant/al-khatiri-kofee-bandar-baru-kubang-kerian-delivery/1-C2A2T22UTXTESA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Chong Qing Jiang Hu Food 重慶江湖菜 Restaurant Hua Wei Xuan Non Halal",
+     "https://food.grab.com/my/en/restaurant/chong-qing-jiang-hu-food-%E9%87%8D%E6%85%B6%E6%B1%9F%E6%B9%96%E8%8F%9C-restaurant-hua-wei-xuan-non-halal-delivery/1-C4BJNEL3PGLVTJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Abang Adik Kopitiam - Bandar Menjalara",
+     "https://food.grab.com/my/en/restaurant/abang-adik-kopitiam-bandar-menjalara-delivery/1-C4LWL8AZLU31A2",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Mr Naan & Mrs Idly Restaurant - Brickfields",
+     "https://food.grab.com/my/en/restaurant/mr-naan-mrs-idly-restaurant-brickfields-delivery/1-C6BKPFJBCKWZLT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Punjab Express Restaurant - Dataran C180",
+     "https://food.grab.com/my/en/restaurant/punjab-express-restaurant-dataran-c180-delivery/1-C2UHREKJJGDXVT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Hua Wei Chinese Restaurant 华味 - Off Pudu [Non-Halal]",
+     "https://food.grab.com/my/en/restaurant/hua-wei-chinese-restaurant-%E5%8D%8E%E5%91%B3-off-pudu-non-halal-delivery/1-C36KGUJDRRKBRN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Dindigul Thalappakatti - Brickfields",
+     "https://food.grab.com/my/en/restaurant/dindigul-thalappakatti-brickfields-delivery/MYDD03633",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Burger & Sushi",
+     "https://food.grab.com/my/en/restaurant/burger-sushi-delivery/MYDD03373",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Azuma Sushi Village Mall",
+     "https://food.grab.com/my/en/restaurant/azuma-sushi-village-mall-delivery/1-C7BJVUKFCKBKLE",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Halab KL Beremi - Bukit Bintang",
+     "https://food.grab.com/my/en/restaurant/halab-kl-beremi-bukit-bintang-delivery/1-CYW1JJ4TKB5ZR6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    # --- Vietnam (grabfood) ---
+
+    ("Ý Như Dương Đồ Ăn Hàn Quốc Online",
+     "https://food.grab.com/vn/en/restaurant/%C3%BD-nh%C6%B0-d%C6%B0%C6%A1ng-%C4%91%E1%BB%93-%C4%83n-h%C3%A0n-qu%E1%BB%91c-online-delivery/5-CZE2AY6VCEJKVT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Trà Sữa Chapong",
+     "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa-chapong-delivery/5-C4CZRTBWEABHR2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Burger House Downtown",
+     "https://food.grab.com/vn/en/restaurant/burger-house-downtown-delivery/5-C2AXKFWKPAUCCN",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Ăn Cơm Uống Nước Quà Vặt Giải Phóng",
+     "https://food.grab.com/vn/en/restaurant/%C4%83n-c%C6%A1m-u%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-qu%C3%A0-v%E1%BA%B7t-gi%E1%BA%A3i-ph%C3%B3ng-delivery/5-CZJETYNATYDHJ2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bánh Mì Dân Tổ Phạm Ngọc Thạch",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-d%C3%A2n-t%E1%BB%95-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C4NXHABDCLM2E2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee 36 Duy Tân Hà Nội",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-36-duy-t%C3%A2n-h%C3%A0-n%E1%BB%99i-delivery/5-C6CEE3ABJE6UTA",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bánh Tráng Cô Hằng 2D1 Khâm Thiên",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-tr%C3%A1ng-c%C3%B4-h%E1%BA%B1ng-2d1-kh%C3%A2m-thi%C3%AAn-delivery/5-C3BAKEWVG8LHWE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bi Bổ Healthy Food",
+     "https://food.grab.com/vn/en/restaurant/bi-b%E1%BB%95-healthy-food-delivery/5-C3MVN25EBEMDPE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Reply 1988 Cafe",
+     "https://food.grab.com/vn/en/restaurant/reply-1988-cafe-delivery/5-C3AYJ7WCLGJDPA",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bếp Nhà Bông Mì Indomie Trộn",
+     "https://food.grab.com/vn/en/restaurant/b%E1%BA%BFp-nh%C3%A0-b%C3%B4ng-m%C3%AC-indomie-tr%E1%BB%99n-delivery/5-C6X1LJ5JWFBBL2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Alpha Coffee",
+     "https://food.grab.com/vn/en/restaurant/alpha-coffee-delivery/5-CZKTSBDFEZEDBE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("9X Food Cháo Ếch Singapore Bánh Mỳ Truyền Thống Phạm Ngọc Thạch",
+     "https://food.grab.com/vn/en/restaurant/9x-food-ch%C3%A1o-%E1%BA%BFch-singapore-b%C3%A1nh-m%E1%BB%B3-truy%E1%BB%81n-th%E1%BB%91ng-ph%E1%BA%A1m-ng%E1%BB%8Dc-th%E1%BA%A1ch-delivery/5-C6XHCY3JCKABT2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Ăn Chuẩn Healthy Food Shop Online",
+     "https://food.grab.com/vn/en/restaurant/%C4%83n-chu%E1%BA%A9n-healthy-food-shop-online-delivery/5-CY5VJFVVPGMWEA",
+     "independent", "grabfood", "VND", "Vietnam"),
+
 ]
 
 
