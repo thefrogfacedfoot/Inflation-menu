@@ -3721,6 +3721,122 @@ TARGETS = [
      "https://food.grab.com/vn/en/restaurant/%C4%83n-chu%E1%BA%A9n-healthy-food-shop-online-delivery/5-CY5VJFVVPGMWEA",
      "independent", "grabfood", "VND", "Vietnam"),
 
+    # ==========================================================================
+    # CHUNK 3B — GrabFood MY/VN, pulled from PR #19's verified pool.
+    # Split off a 77-target single batch (~3h56m at chunk-1's 184.3s/target incl.
+    # retries) into 3 sub-chunks of ~25-30 to stay inside the 1.5-2h window this
+    # machine's unreliable uptime requires. This is sub-chunk B (26 targets,
+    # MY 13 / VN 13), est. 79.9 min. No new probing.
+    # ==========================================================================
+
+    # --- Malaysia (grabfood) ---
+
+    ("Best Bro Western Ala Thai",
+     "https://food.grab.com/my/en/restaurant/best-bro-western-ala-thai-delivery/1-CYLTR6C2R2MCJT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Chopsticks Asia Restaurant Cyberjaya",
+     "https://food.grab.com/my/en/restaurant/chopsticks-asia-restaurant-cyberjaya-delivery/1-C3BTDBWWV3TDVJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Mcdonald S® Melaka Mall 239",
+     "https://food.grab.com/my/en/restaurant/mcdonald-s%C2%AE-melaka-mall-239-delivery/1-CYWTLEWTJFWZNE",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("Kanna Curry House - Jalan Gasing",
+     "https://food.grab.com/my/en/restaurant/kanna-curry-house-jalan-gasing-delivery/1-CZEHJEB2LUCFRN",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Kafe Se'eh Sokmo - Taman Sri Gombak",
+     "https://food.grab.com/my/en/restaurant/kafe-se-eh-sokmo-taman-sri-gombak-delivery/1-C2J2V4DUVZEYRT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Kungfu Ramen Summit Usj",
+     "https://food.grab.com/my/en/restaurant/kungfu-ramen-summit-usj-delivery/1-CZNKKGKZJY2EVJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Big Oriental Restaurant Kei Huo Kitchen Persiaran Greenhill Non Halal",
+     "https://food.grab.com/my/en/restaurant/big-oriental-restaurant-kei-huo-kitchen-persiaran-greenhill-non-halal--delivery/1-C2WJHEVBKBT3AJ",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Mee Tarik - Jalan Sultan",
+     "https://food.grab.com/my/en/restaurant/mee-tarik-jalan-sultan-delivery/1-C4L3RRE1WF4EHA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Din Tai Fung Sunway Pyramid Non Halal",
+     "https://food.grab.com/my/en/restaurant/din-tai-fung-sunway-pyramid-non-halal-delivery/1-CY2UGABXE6K1J2",
+     "chain", "grabfood", "MYR", "Malaysia"),
+
+    ("D Tandoor Jalan Tanjung Tokong",
+     "https://food.grab.com/my/en/restaurant/d-tandoor-jalan-tanjung-tokong-delivery/1-CYV1R8MZABBJT6",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Tsuen Wan Restaurant Pearl Shopping Gallery Non Halal",
+     "https://food.grab.com/my/en/restaurant/tsuen-wan-restaurant-pearl-shopping-gallery-non-halal-delivery/1-CZKDALBCV6CHTT",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("King Of Pizza - Taman Sri Rampai",
+     "https://food.grab.com/my/en/restaurant/king-of-pizza-taman-sri-rampai-delivery/1-C4ABL2LEFCNJSA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    ("Beutea 茶仙子 Pavilion Damansara Heights",
+     "https://food.grab.com/my/en/restaurant/beutea-%E8%8C%B6%E4%BB%99%E5%AD%90-pavilion-damansara-heights-delivery/1-C4NBGVBUJ7AGBA",
+     "independent", "grabfood", "MYR", "Malaysia"),
+
+    # --- Vietnam (grabfood) ---
+
+    ("Bún Riêu Tóp Mỡ Huyền Anh Bạch Mai",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-ri%C3%AAu-t%C3%B3p-m%E1%BB%A1-huy%E1%BB%81n-anh-b%E1%BA%A1ch-mai-delivery/5-C63WANX2TFL1E6",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cơm Sườn Cay Himc 3 466 Đê La Thành",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-s%C6%B0%E1%BB%9Dn-cay-himc-3-466-%C4%91%C3%AA-la-th%C3%A0nh-delivery/5-C6KCCCDFTPMJRN",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cacao Sữa Gia Linh",
+     "https://food.grab.com/vn/en/restaurant/cacao-s%E1%BB%AFa-gia-linh-delivery/5-C2ECAA2ELB2URX",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bánh Bao Tươi Sữa Hạt Đặc Biệt Trà Hoa Bếp Xanh",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-bao-t%C6%B0%C6%A1i-s%E1%BB%AFa-h%E1%BA%A1t-%C4%91%E1%BA%B7c-bi%E1%BB%87t-tr%C3%A0-hoa-b%E1%BA%BFp-xanh-delivery/5-C2V2E3VEBBBUJA",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Café Aguri",
+     "https://food.grab.com/vn/en/restaurant/caf%C3%A9-aguri-delivery/5-C6JEEFKTVPCKGT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bluecup Coffee Bánh Mì Cà Phê",
+     "https://food.grab.com/vn/en/restaurant/bluecup-coffee-b%C3%A1nh-m%C3%AC-c%C3%A0-ph%C3%AA-delivery/5-C2EUEULFRZDEJE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cơm Tấm Sườn Nướng 87 Lò Đúc",
+     "https://food.grab.com/vn/en/restaurant/c%C6%A1m-t%E1%BA%A5m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-87-l%C3%B2-%C4%91%C3%BAc-delivery/5-CYWYAKCDEECDGA",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bánh Mì Hội An Hàng Buồm",
+     "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-m%C3%AC-h%E1%BB%99i-an-h%C3%A0ng-bu%E1%BB%93m-delivery/5-C6TUVFU3GY5EUE",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bún Ốc Sườn Cô Sáu Mai Anh Tuấn",
+     "https://food.grab.com/vn/en/restaurant/b%C3%BAn-%E1%BB%91c-s%C6%B0%E1%BB%9Dn-c%C3%B4-s%C3%A1u-mai-anh-tu%E1%BA%A5n-delivery/5-C4BUVETYE3JYJJ",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Gagu Deli Nước Ép Trái Cây Bánh Mì Sandwich Linh Đàm",
+     "https://food.grab.com/vn/en/restaurant/gagu-deli-n%C6%B0%E1%BB%9Bc-%C3%A9p-tr%C3%A1i-c%C3%A2y-b%C3%A1nh-m%C3%AC-sandwich-linh-%C4%91%C3%A0m-delivery/5-C2NXGCK1RXECDA",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Cà Ri Gà 1357",
+     "https://food.grab.com/vn/en/restaurant/c%C3%A0-ri-g%C3%A0-1357-delivery/VNGFVN000002ip",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Trà Sữa_Ăn Vặt Nhà Nàng",
+     "https://food.grab.com/vn/en/restaurant/tr%C3%A0-s%E1%BB%AFa_%C4%83n-v%E1%BA%B7t-nh%C3%A0-n%C3%A0ng-delivery/5-C25GBA4BGNMKRT",
+     "independent", "grabfood", "VND", "Vietnam"),
+
+    ("Bống Bông Vặt Chân Gà Mì Trộn Indomie",
+     "https://food.grab.com/vn/en/restaurant/b%E1%BB%91ng-b%C3%B4ng-v%E1%BA%B7t-ch%C3%A2n-g%C3%A0-m%C3%AC-tr%E1%BB%99n-indomie-delivery/5-C633SCBTVRJUA2",
+     "independent", "grabfood", "VND", "Vietnam"),
+
 ]
 
 
