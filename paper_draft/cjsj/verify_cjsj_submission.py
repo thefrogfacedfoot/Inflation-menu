@@ -176,6 +176,11 @@ rec("F15 fonts: Times New Roman only", fonts == {"Times New Roman"}, str(fonts))
 # figure geometry
 pw = int(re.search(r'<wp:extent cx="(\d+)"', D).group(1)) / 914400; pxw, pxh = struct.unpack(">II", b[16:24])
 rec("F16 figure fits column and is placed 1:1 (8pt stays 8pt)", pw <= (avail - 288) // 2 / 1440 and abs(pw / (pxw / 400) - 1) < 0.01, f"placed {pw:.3f}in in a {((avail-288)//2)/1440:.3f}in column; native {pxw/400:.3f}in @400dpi -> scale {pw/(pxw/400):.3f}")
+# template: "Insert figures ... after they are cited in the text. Use the abbreviation 'Fig. 1,' even at the beginning of a sentence."
+_seq = [("IMG" if "<w:drawing" in p else tx(p)) for p in PARAS if ("<w:drawing" in p or tx(p))]; _ki = _seq.index("IMG")
+_cited = [i for i, s in enumerate(_seq[:_ki]) if "Fig. 1" in s]
+_spelled = [s[:40] for s in _seq if s != "IMG" and not s.startswith("Figure 1.") and "Figure 1" in s]
+rec("F17 figure cited in text as 'Fig. 1' before it appears; no spelled-out 'Figure 1' outside the caption", bool(_cited) and not _spelled, f"first citation in paragraph {_cited[0] + 1 if _cited else None}, figure at paragraph {_ki + 1}; spelled-out uses outside caption: {_spelled}")
 
 # word counts
 ri = P.index("References"); ci = next(i for i, s in enumerate(P) if s.startswith("Figure 1."))
