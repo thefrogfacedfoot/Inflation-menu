@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "description": "Build dependencies for build_cjsj_docx.js",
+  "dependencies": {
+    "docx": "9.7.1"
+  }
+}
