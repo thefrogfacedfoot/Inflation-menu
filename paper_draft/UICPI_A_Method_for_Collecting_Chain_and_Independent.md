@@ -11,11 +11,11 @@
 
 Consumer price indices in developing economies rely on infrequent collection, and algorithmic alternatives like the MIT Billion Prices Project exclude services and the informal food economy (40–65 % of food expenditure in emerging markets). This paper's contribution is a **scalable, publicly available method** for collecting restaurant-chain and independent-vendor menu prices and constructing a Unified Independent-Chain Price Index (UICPI), with an eight-country panel as proof of concept.
 
-The pipeline combines Phase 0 yield probes against Wayback CDX archives to triage sources, per-source extractors matched to each platform's HTML pattern, a live scraper for going-forward collection, and a bail-decision audit trail. Index construction uses the matched-model restaurant-median method; Granger testing follows Cavallo and Rigobon (2016).
+The pipeline combines Phase 0 yield probes against Wayback CDX archives to triage sources, per-source extractors matched to each platform's HTML pattern, a live forward-collection scraper, and a bail-decision audit trail. Index construction uses the matched-model restaurant-median method; Granger testing follows Cavallo and Rigobon (2016).
 
-Applied to 48,730 price observations (2026-06-19 snapshot) across the eight-country panel, the method's most numerically interesting result — not a validated finding — comes from one country: in the United States (n = 31), UICPI Granger-leads headline CPI at an exact one-month calendar lag (F(1, 28) = 4.20, analytic p = 0.0499; permutation p = 0.052 shuffle / 0.069 block), strengthening under a forward-fill robustness check (F(1, 35) = 9.05, p = 0.0048, n = 38). India (n = 47) and Malaysia (n = 30) both return clean nulls (F = 0.521, p = 0.474; F = 0.111, p = 0.742). Five countries remain below n = 24, accumulating monthly. The finding is best read as a *timing* signal — menu repricing precedes CPI movement by one month — with no claim made here about the magnitude of that movement.
+Applied to 48,730 price observations (2026-06-19 snapshot) across the eight-country panel, the method's most numerically interesting result — not a validated finding — comes from one country: in the United States (n = 31), UICPI Granger-leads headline CPI at an exact one-month calendar lag (F(1, 28) = 4.20, analytic p = 0.0499; permutation p = 0.052 shuffle / 0.069 block), strengthening under a forward-fill robustness check (F(1, 35) = 9.05, p = 0.0048, n = 38). India (n = 47) and Malaysia (n = 30) both return clean nulls (F = 0.521, p = 0.474; F = 0.111, p = 0.742). Five countries remain below n = 24, accumulating monthly. The finding is best read as a *timing* signal — menu repricing precedes CPI movement by one month — with no claim here about the magnitude of that movement.
 
-*Word count: 253*
+*Word count: 250*
 
 ---
 
