@@ -12,6 +12,7 @@ const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType,
   ImageRun, FootnoteReferenceRun, SectionType, LevelFormat,
+  Table, TableRow, TableCell, WidthType, BorderStyle,
 } = require("docx");
 
 const FONT = "Times New Roman";
@@ -72,6 +73,50 @@ function h2(text) {
     ],
   });
 }
+
+// ---- table header caption: "TABLE I. ..." — mirrors the figure-caption style (8pt, centered)
+// but placed ABOVE the table, per the template: "table headers should appear above the tables."
+function tableCaption(text) {
+  return new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { before: 120, after: 40, line: 240, lineRule: "auto" },
+    children: [new TextRun({ text, font: FONT, size: CAP_SIZE, smallCaps: true })],
+  });
+}
+const TBL_BORDER = { style: BorderStyle.SINGLE, size: 4, color: "000000" };
+const NO_BORDER = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" };
+function tcell(text, { width, bold = false, align = AlignmentType.CENTER, top, bottom } = {}) {
+  return new TableCell({
+    width: { size: width, type: WidthType.DXA },
+    margins: { top: 20, bottom: 20, left: 40, right: 40 },
+    borders: { top: top || NO_BORDER, bottom: bottom || NO_BORDER, left: NO_BORDER, right: NO_BORDER },
+    children: [new Paragraph({
+      alignment: align,
+      spacing: { line: 240, lineRule: "auto" },
+      children: [new TextRun({ text, font: FONT, size: CAP_SIZE, bold })],
+    })],
+  });
+}
+// Column widths (DXA) sum to 4700, inside the 4896-twip column (F2/F16's column width).
+const TCOLS = [1050, 500, 700, 900, 1550];
+function trow(cells, { header = false, topRule = false, bottomRule = false } = {}) {
+  return new TableRow({
+    children: cells.map((text, i) => tcell(text, {
+      width: TCOLS[i], bold: header, align: i === 0 ? AlignmentType.LEFT : AlignmentType.CENTER,
+      top: topRule ? TBL_BORDER : undefined, bottom: bottomRule ? TBL_BORDER : undefined,
+    })),
+  });
+}
+const resultsTable = new Table({
+  width: { size: TCOLS.reduce((a, b) => a + b, 0), type: WidthType.DXA },
+  borders: { top: NO_BORDER, bottom: NO_BORDER, left: NO_BORDER, right: NO_BORDER, insideHorizontal: NO_BORDER, insideVertical: NO_BORDER },
+  rows: [
+    trow(["Country", "n", "F", "p", "CPI"], { header: true, topRule: true, bottomRule: true }),
+    trow(["United States", "31", "4.20", "0.0499", "Monthly"]),
+    trow(["India", "47", "0.521", "0.474", "Monthly"]),
+    trow(["Malaysia", "30", "0.111", "0.742", "Monthly"], { bottomRule: true }),
+  ],
+});
 
 const imgBuf = fs.readFileSync(path.join(__dirname, "fig2_lead_times_cjsj.png"));
 const IMG_W = 315, IMG_H = 236; // 1314x984px @400dpi = 3.285in: placed 1:1 so 8pt figure text stays 8pt
@@ -159,9 +204,11 @@ const doc = new Document({
         h1("II", "Results & Discussion"),
         body("The headline result is the United States: over 31 overlapping months (2018-04–2024-10), UICPI Granger-leads CPI at exactly one month (F(1,28)=4.20, analytic p=0.0499; Fig. 1). Both permutation checks land in the same narrow band (shuffle p=0.052; circular block p=0.069, the more appropriate check given monthly serial dependence), so none of the three tests is a clean rejection of independence, and the result should be read as suggestive rather than confirmatory. It strengthens under a causal forward-fill robustness check that uses only past information to fill single-month gaps (F(1,35)=9.05, p=0.0048, n=38). The finding is a timing signal only — UICPI changes precede CPI changes by one month — with no claim made about the magnitude of the eventual CPI movement."),
         body("India (n=47) and Malaysia (n=30), the panel's other two countries with real monthly CPI and sufficient overlap, return clean nulls (F=0.521, p=0.474; F=0.111, p=0.742). The India null is especially informative given its sample size and stationarity: it suggests the menu-to-CPI channel is not universal, plausibly because Indian CPI weighting emphasizes staples subject to monsoon and procurement-policy pricing rather than restaurant repricing, and because the Indian series is restaurant-aggregate (Zomato “cost for two”), not item-level, which may smooth the high-frequency variation the US result depends on."),
-        body("Three tests meet every condition this paper requires of a clean test: real monthly CPI, ≥24 overlapping months, reproducible statistics. Under a global null, the chance of observing at least one p≤0.05 among three independent tests is 1−0.95³≈14.3%; no multiplicity correction is applied, the US test was not pre-registered as the primary hypothesis, and 14.3% is the most favourable defensible accounting rather than a conservative one (counting the untested or withdrawn countries would raise it). The US result should therefore be read as the most numerically interesting result in the panel, not as one demonstrated to be distinguishable from chance."),
-        body("Two further caveats bound the interpretation. The Vietnam and UAE Wayback slices were found to be systematically mispriced (UAE: digit-fusion in archived price objects; Vietnam: an unconditional \u00f7100 of GrabFood’s priceInMinorUnit, which for VND already carries the raw amount) and were quarantined from the index; no statistic is reported for either country here. And the causal mechanism behind the US lead is ambiguous — labor-cost pass-through and shared exposure to energy-price shocks could each generate the observed sequencing without restaurant repricing being the causal driver of CPI, and the present design cannot separate these from a genuine food-price channel."),
-        body("The panel's chief contribution is methodological — a reproducible, publicly available pipeline for chain and independent-vendor food-price collection — rather than the US result itself, which is a proof of concept awaiting replication as the United Kingdom — the only country on real monthly CPI still below the 24-month threshold — crosses it."),
+        body("Three tests meet every condition this paper requires of a clean test: real monthly CPI, ≥24 overlapping months, reproducible statistics. Under a global null, the chance of observing at least one p≤0.05 among three independent tests is 1−0.95³≈14.3%; no multiplicity correction is applied, the US test was not pre-registered as the primary hypothesis, and 14.3% is the most favourable defensible accounting rather than a conservative one (counting the untested or withdrawn countries would raise it). The US result should therefore be read as the most numerically interesting result in the panel, not as one demonstrated to be distinguishable from chance. Table I summarizes the three tests."),
+        tableCaption("TABLE I. Summary of the Three Qualifying Granger Tests"),
+        resultsTable,
+        body("Two further caveats bound the interpretation. The Vietnam and UAE Wayback slices were found to be systematically mispriced (UAE: digit-fusion in archived price objects; Vietnam: an unconditional \u00f7100 of GrabFood’s priceInMinorUnit, which for VND already carries the raw amount) and were quarantined from the index; no statistic is reported for either country here. And the causal mechanism behind the US lead is ambiguous — labor-cost pass-through and shared exposure to energy-price shocks could each generate the observed sequencing without restaurant repricing being the causal driver of CPI, and the present design cannot separate these from a genuine food-price channel. UICPI is tested here against headline CPI, but the operational policy target in most inflation-targeting regimes is a core measure that excludes food and energy specifically because those components are volatile. Detmeister [2] finds that the food-and-energy exclusion often performs worse out-of-sample than other underlying-inflation measures, while still defending it as a reasonable ex-ante convention. That a food-service index falls inside the excluded category is therefore not itself evidence that it carries no policy-relevant signal; testing UICPI against core CPI is left to future work."),
+        body("The panel's chief contribution is methodological — a reproducible, publicly available pipeline for chain and independent-vendor food-price collection — rather than the US result itself, which is a proof of concept awaiting replication as the United Kingdom — the only country on real monthly CPI still below the 24-month threshold — crosses it. Hand-collected price data from Singapore hawker centres, intended to observe independent vendors directly rather than through delivery-platform intermediaries, is being gathered in parallel but is not analysed here."),
 
         // Figure — caption below, 8pt, "Figure 1." per template's example caption, not bold
         new Paragraph({
@@ -188,6 +235,14 @@ const doc = new Document({
           spacing: { line: 240, lineRule: "auto" },
           children: [new TextRun({
             text: "A. Cavallo and R. Rigobon, “The Billion Prices Project: Using Online Prices for Measurement and Research,” J. Econ. Perspect., vol. 30, no. 2, pp. 151–178, 2016.",
+            font: FONT, size: CAP_SIZE,
+          })],
+        }),
+        new Paragraph({
+          numbering: { reference: "refs", level: 0 },
+          spacing: { line: 240, lineRule: "auto" },
+          children: [new TextRun({
+            text: "A. K. Detmeister, “What Should Core Inflation Exclude?”, Finance and Economics Discussion Series 2012-43, Board of Governors of the Federal Reserve System, 2012.",
             font: FONT, size: CAP_SIZE,
           })],
         }),

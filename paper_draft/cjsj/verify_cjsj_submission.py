@@ -182,6 +182,12 @@ _cited = [i for i, s in enumerate(_seq[:_ki]) if "Fig. 1" in s]
 _spelled = [s[:40] for s in _seq if s != "IMG" and not s.startswith("Figure 1.") and "Figure 1" in s]
 rec("F17 figure cited in text as 'Fig. 1' before it appears; no spelled-out 'Figure 1' outside the caption", bool(_cited) and not _spelled, f"first citation in paragraph {_cited[0] + 1 if _cited else None}, figure at paragraph {_ki + 1}; spelled-out uses outside caption: {_spelled}")
 
+# ============ G. CITATIONS ============
+ref_paras = [p for p in PARAS if f'<w:numId w:val="{num}"/>' in p]
+cited = sorted(set(int(m) for m in re.findall(r"\[(\d+)\]", TEXT)))
+expected = list(range(1, len(ref_paras) + 1))
+rec("G1 every in-text citation [n] has a matching reference, and vice versa", cited == expected, f"in-text citations: {cited}; references defined: {expected} ({len(ref_paras)} entries)")
+
 # word counts
 ri = P.index("References"); ci = next(i for i, s in enumerate(P) if s.startswith("Figure 1."))
 res.append(("W  word counts", "INFO", f"total {len(' '.join(P).split())}; excl. References+caption {len(' '.join(s for i,s in enumerate(P) if i<ri and i!=ci).split())}; abstract {len(ab.split())}"))
