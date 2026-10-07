@@ -57,8 +57,13 @@ export default function CountryMap({ summaries }: Props) {
         {Object.entries(POSITIONS).map(([country, [xPct, yPct]]) => {
           const summary = summaries[country];
           const isHovered = hovered === country;
-          const isSignificant = summary?.granger_significant ?? false;
-          const color = isSignificant ? "#276749" : "#64748b";
+          const isSignificant =
+            (summary?.granger_significant ?? false) && !summary?.granger_note;
+          const color = summary?.granger_note
+            ? "#d97706"
+            : isSignificant
+            ? "#276749"
+            : "#64748b";
           const cx = (xPct / 100) * 1000;
           const cy = (yPct / 100) * 500;
 
@@ -126,6 +131,10 @@ export default function CountryMap({ summaries }: Props) {
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded-full bg-[#276749]" />
           Granger significant
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-full bg-[#d97706]" />
+          Superseded (earlier specification)
         </span>
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded-full bg-[#64748b]" />

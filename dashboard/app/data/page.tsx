@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SupersededNote from "@/components/SupersededNote";
 import { getCountrySummaries, getIndexSeries, seriesToCsv } from "@/lib/data";
 import {
   COUNTRIES,
@@ -83,6 +84,7 @@ export default async function DataPage() {
       </div>
 
       {/* Country table */}
+      <SupersededNote className="mb-4" />
       <div className="rounded-xl border border-gray-200 bg-white overflow-hidden mb-8">
         <div className="px-6 py-4 border-b border-gray-200">
           <h2 className="font-semibold text-gray-900">
@@ -146,7 +148,11 @@ export default async function DataPage() {
                       </div>
                     </td>
                     <td className="px-4 py-3">
-                      {s?.granger_significant ? (
+                      {s?.granger_note ? (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-amber-100 text-amber-800 font-medium">
+                          Superseded
+                        </span>
+                      ) : s?.granger_significant ? (
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800 font-medium">
                           ✓ Granger sig.
                         </span>

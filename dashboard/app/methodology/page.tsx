@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SupersededNote from "@/components/SupersededNote";
 
 export const metadata: Metadata = {
   title: "Methodology — UICPI",
@@ -219,6 +220,7 @@ export default function MethodologyPage() {
         </Section>
 
         <Section id="granger" title="5. Granger Causality Testing">
+          <SupersededNote />
           <p>
             To test whether UICPI leads official CPI, we apply the{" "}
             <strong>Granger causality test</strong> following Cavallo &amp;

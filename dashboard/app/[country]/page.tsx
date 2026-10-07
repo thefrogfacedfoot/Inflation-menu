@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { getCountryData, seriesToCsv } from "@/lib/data";
 import IndexChart from "@/components/IndexChart";
 import StatCard from "@/components/StatCard";
+import SupersededNote from "@/components/SupersededNote";
 import {
   SLUG_TO_COUNTRY,
   COUNTRY_FLAGS,
@@ -153,7 +154,12 @@ export default async function CountryPage({ params }: PageProps) {
                   CPI {CPI_CLASS_LABEL[cpiClass]}
                 </span>
               )}
-              {summary?.granger_significant ? (
+              {summary?.granger_note ? (
+                <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  Superseded
+                </span>
+              ) : summary?.granger_significant ? (
                 <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-800 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                   Granger Significant
@@ -173,6 +179,9 @@ export default async function CountryPage({ params }: PageProps) {
       {/* Granger results callout — US (positive) and India / Malaysia (null).
           The other 5 countries don't yet have enough months for a valid
           test; they keep the in-chart "Data Collection Ongoing" notice. */}
+      {(countryName === "United States" ||
+        countryName === "India" ||
+        countryName === "Malaysia") && <SupersededNote className="mb-4" />}
       {countryName === "United States" && <USGrangerCallout />}
       {countryName === "India" && <IndiaGrangerCallout />}
       {countryName === "Malaysia" && <MalaysiaGrangerCallout />}
@@ -214,10 +223,23 @@ export default async function CountryPage({ params }: PageProps) {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
         <StatCard
           label="Lead Time"
-          value={summary?.lead_months != null ? summary.lead_months : null}
-          unit={summary?.lead_months != null ? "months" : undefined}
-          sub="Ahead of official CPI"
-          highlight={summary?.lead_months != null}
+          value={
+            summary?.lead_months != null && !summary?.granger_note
+              ? summary.lead_months
+              : null
+          }
+          unit={
+            summary?.lead_months != null && !summary?.granger_note
+              ? "months"
+              : undefined
+          }
+          sub={
+            summary?.granger_note
+              ? "Earlier specification, superseded"
+              : "Ahead of official CPI"
+          }
+          highlight={summary?.lead_months != null && !summary?.granger_note}
+          naLabel={summary?.granger_note ? "n/a — superseded" : undefined}
         />
         <StatCard
           label="Chain Pass-Through"
