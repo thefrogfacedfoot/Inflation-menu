@@ -94,18 +94,63 @@ def matched_restaurant_counts(df: pd.DataFrame) -> dict:
     return counts
 
 
-def apply_matched_rule(rows: list, counts: dict, minimum: int = MIN_MATCHED_RESTAURANTS):
-    """Keep only index rows whose country-month has >= `minimum` matched
-    restaurants; stamp each kept row with its count. Returns (kept, dropped
-    [(country, ym, matched)]). Dropped months get no row (no carry-forward)."""
-    kept, dropped = [], []
-    for r in rows:
-        m = counts.get((r["country"], r["year_month"]), 0)
-        if m >= minimum:
-            kept.append(dict(r, matched_restaurants=m))
-        else:
-            dropped.append((r["country"], r["year_month"], m))
-    return kept, dropped
+def build_confirmatory_index(df: pd.DataFrame, minimum: int = MIN_MATCHED_RESTAURANTS):
+    """The registered confirmatory index: matched-model, calendar-consecutive months only.
+
+    For each country and month t, with t-1 the calendar-adjacent previous month
+    (never the previous OBSERVED month):
+      1. item relative = median price of (restaurant, item, currency) in t divided
+         by its median in t-1, for items present in both months (local currency);
+      2. restaurant relative = geometric mean of its item relatives;
+      3. month relative = geometric mean of restaurant relatives across
+         restaurants, equal restaurant weights (no sector weights);
+      4. chained: level_t = level_{t-1} * relative_t.
+    A country-month has a row only if >= `minimum` restaurants were observed in
+    both t and t-1 (MIN_MATCHED_RESTAURANTS) and at least one restaurant has a
+    matched item. Otherwise it is MISSING: no row, no carry-forward. Each run of
+    consecutive rows is chained from 100 at its first row, so a gap restarts the
+    chain instead of bridging it; analysis uses within-run differences only.
+
+    Returns (rows, dropped): rows as uifpi_index-style dicts plus
+    matched_restaurants / contributing_restaurants; dropped = [(country, ym, matched)].
+    """
+    d = df[["country", "restaurant_name", "item_name", "currency", "price", "year_month"]].copy()
+    d["restaurant_name"] = d["restaurant_name"].astype(str).str.strip()
+    d["item_name"] = d["item_name"].astype(str).str.strip().str.casefold()
+    counts = matched_restaurant_counts(d)
+    med = (d.groupby(["country", "restaurant_name", "item_name", "currency", "year_month"])["price"]
+             .median().rename("p").reset_index())
+    rows, dropped = [], []
+    for country, g in med.groupby("country"):
+        by_month = {ym: m.set_index(["restaurant_name", "item_name", "currency"])["p"]
+                    for ym, m in g.groupby("year_month")}
+        prev_valid, level = False, None
+        for ym in sorted(by_month):
+            prev_ym = str(pd.Period(ym, freq="M") - 1)
+            matched = counts.get((country, ym), 0)
+            contributing, n_items, rel = 0, 0, None
+            if prev_ym in by_month:
+                both = pd.concat([by_month[prev_ym].rename("p0"), by_month[ym].rename("p1")],
+                                 axis=1, join="inner")
+                if len(both):
+                    both["lr"] = np.log(both["p1"] / both["p0"])
+                    rest_lr = both.groupby(level=0)["lr"].mean()      # geometric mean within restaurant
+                    contributing, n_items = len(rest_lr), len(both)
+                    rel = float(np.exp(rest_lr.mean()))               # equal restaurant weights
+            valid = matched >= minimum and contributing >= 1
+            if not valid:
+                dropped.append((country, ym, matched))
+                prev_valid = False
+                continue
+            level = (level if prev_valid else 100.0) * rel
+            rows.append({"country": country, "year_month": ym,
+                         "formal_index": None, "informal_index": None,
+                         "uifpi_combined": round(level, 6), "item_count": n_items,
+                         "coverage_note": None if prev_valid else "confirmatory chain start (first link of a run)",
+                         "matched_restaurants": matched, "contributing_restaurants": contributing})
+            prev_valid = True
+    return rows, dropped
+
 
 # Approximate informal sector share of food expenditure by country.
 # Source: author estimates from World Bank household survey data.
@@ -793,6 +838,31 @@ def print_index_summary(all_rows: list[dict]) -> None:
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 
+def _save_index(conn, all_index_rows: list, csv_out: str) -> None:
+    print("\nStep 6 — Saving to database and CSV …")
+    for row in all_index_rows:
+        conn.execute("""
+            INSERT OR REPLACE INTO uifpi_index
+                (country, year_month, formal_index, informal_index,
+                 uifpi_combined, item_count, coverage_note)
+            VALUES (:country, :year_month, :formal_index, :informal_index,
+                    :uifpi_combined, :item_count, :coverage_note)
+        """, row)
+    conn.commit()
+    print(f"  {len(all_index_rows)} rows written to uifpi_index table")
+
+    if all_index_rows:
+        out_df = pd.DataFrame(all_index_rows)
+        out_df.to_csv(csv_out, index=False)
+        print(f"  Exported to {csv_out}")
+    else:
+        print("  ⚠  No index rows produced — insufficient data for any country.")
+        print("     Collect data for >= 2 months and re-run.")
+
+    conn.close()
+    print_index_summary(all_index_rows)
+
+
 def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
         method: str = "restaurant-median", confirmatory: bool = False,
         exclude_doordash: bool = False) -> None:
@@ -830,6 +900,22 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
           f"{df['country'].nunique()} countries")
     print(f"  Date range: {df['collection_date'].min().date()} — "
           f"{df['collection_date'].max().date()}")
+
+    if confirmatory:
+        # The restaurant-median default and the previous-observed-month matched
+        # model are NOT confirmatory paths; --method is ignored here.
+        print(f"\nConfirmatory index: matched-model, calendar-consecutive months, equal restaurant "
+              f"weights, >= {MIN_MATCHED_RESTAURANTS} matched restaurants (--method ignored)")
+        all_index_rows, dropped = build_confirmatory_index(df)
+        print(f"  kept {len(all_index_rows)} country-months, missing {len(dropped)} "
+              f"(no row, no carry-forward)")
+        for c, ym, m in dropped:
+            print(f"    missing: {c} {ym} matched={m}")
+        for r in all_index_rows:
+            print(f"    kept:    {r['country']} {r['year_month']} matched={r['matched_restaurants']} "
+                  f"contributing={r['contributing_restaurants']} items={r['item_count']}")
+        _save_index(conn, all_index_rows, csv_out)
+        return
 
     print("\nStep 2 — Building monthly price panel …")
     monthly = build_monthly_prices(df)
@@ -875,38 +961,7 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
             else:
                 print(f"  {country}: insufficient data — skipped")
 
-    if confirmatory:
-        counts = matched_restaurant_counts(df)
-        all_index_rows, dropped = apply_matched_rule(all_index_rows, counts)
-        print(f"\nMatched-restaurant rule (>= {MIN_MATCHED_RESTAURANTS} restaurants in both t and t-1): "
-              f"kept {len(all_index_rows)} country-months, dropped {len(dropped)} (no row, no carry-forward)")
-        for c, ym, m in dropped:
-            print(f"    missing: {c} {ym} matched={m}")
-        for r in all_index_rows:
-            print(f"    kept:    {r['country']} {r['year_month']} matched={r['matched_restaurants']}")
-
-    print("\nStep 6 — Saving to database and CSV …")
-    for row in all_index_rows:
-        conn.execute("""
-            INSERT OR REPLACE INTO uifpi_index
-                (country, year_month, formal_index, informal_index,
-                 uifpi_combined, item_count, coverage_note)
-            VALUES (:country, :year_month, :formal_index, :informal_index,
-                    :uifpi_combined, :item_count, :coverage_note)
-        """, row)
-    conn.commit()
-    print(f"  {len(all_index_rows)} rows written to uifpi_index table")
-
-    if all_index_rows:
-        out_df = pd.DataFrame(all_index_rows)
-        out_df.to_csv(csv_out, index=False)
-        print(f"  Exported to {csv_out}")
-    else:
-        print("  ⚠  No index rows produced — insufficient data for any country.")
-        print("     Collect data for >= 2 months and re-run.")
-
-    conn.close()
-    print_index_summary(all_index_rows)
+    _save_index(conn, all_index_rows, csv_out)
 
 
 if __name__ == "__main__":
