@@ -90,7 +90,7 @@ pending Anthropic API credits).
 
 | Country        | Granger p-value | Lag | β pass-through |    R² | Sig. |
 |----------------|----------------:|----:|---------------:|------:|:----:|
-| Singapore      |          0.0922 |   2 |          0.017 | 0.117 |  ✗   |
+| Singapore      |  withdrawn (†)  |   — |              — |     — |  —   |
 | Australia      |          0.4150 |   2 |         -0.001 | 0.000 |  ✗   |
 | United States  |          0.5858 |   1 |          0.006 | 0.039 |  ✗   |
 | Malaysia       |          0.7044 |   1 |          0.007 | 0.089 |  ✗   |
@@ -99,9 +99,14 @@ pending Anthropic API credits).
 | Indonesia      |               — |   — |              — |     — |  ✗   |
 | Thailand       |               — |   — |              — |     — |  ✗   |
 
-**Singapore** is the strongest signal (p = 0.092, near-significant at the
-10% level) and is preserved as the headline result. **No country has yet
-reached the p < 0.05 threshold or the 24-month overlap required for a clean
+(†) **The earlier Singapore figure (p = 0.092, lag 2, n = 12) is withdrawn.**
+Its provenance could not be traced (no committed script or data snapshot
+reproduces it), and it cannot have come from the current pre-registered
+specification: at n = 12 that specification has negative residual degrees of
+freedom. It is not evidence of anything and is no longer the headline. This
+table is a 2026-06-13 snapshot; see `docs/preregistration.md` and the paper
+draft for the current analysis plan and results. **No country in this
+snapshot reached the p < 0.05 threshold or the 24-month overlap required for a clean
 Granger test** — this is structural: most countries currently sit at
 11-18 UICPI months and the official CPI is annual-only for SG / MY / ID / TH /
 GB (World Bank fallback). Significance awaits ≥ 24 monthly UICPI observations
@@ -283,8 +288,10 @@ API available at `http://localhost:5000`. Endpoints:
 - **4,227** price observations across **8 countries** (Singapore dominates).
 - **83** UICPI index rows across 7 countries (Indonesia and Thailand each at
   one month).
-- **Granger headline:** Singapore p = 0.092 (lag 2). Six other countries
-  computed; none significant. Significance awaits ≥ 24 monthly observations.
+- **Granger headline:** none. The earlier Singapore p = 0.092 (lag 2) is
+  withdrawn (untraceable provenance, n = 12; see the note under the Granger
+  table). Six other countries were computed; none significant.
+  Significance awaits ≥ 24 monthly observations.
 - **CPI series:** monthly for AU / US / IN (OECD); annual-only for SG / MY /
   ID / TH / GB (World Bank fallback — primary monthly sources unreachable
   from this collection environment).
