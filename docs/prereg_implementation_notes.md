@@ -21,11 +21,18 @@ Code: analysis module PR #45 (`prereg_analysis.py`), provenance whitelist PR #43
 
 ## 2. Size-check outcome: registered contingency invoked
 
-§5.2 registers a size check on simulated null data at n = 36 and n = 100 and a fallback if the rejection rate at 5% falls outside [0.03, 0.07]. The check is `diagnostics/prereg_size_check.py` (seed 20261008, 2,000 replications). The primary Freedman-Lane scheme's country-level rate was **0.074 at n = 36**, outside the interval, so **the registered contingency was invoked** (this is the registered procedure operating, not a deviation). The recursive restricted-model block bootstrap is therefore the primary scheme for country-level and panel tests, and **no further switching will occur**, whatever later size results show.
+§5.2 registers a size check on simulated null data at n = 36 and n = 100 and a fallback if the rejection rate at 5% falls outside [0.03, 0.07]. The check is `diagnostics/prereg_size_check.py` (seed 20261008, 2,000 replications; results files `diagnostics/prereg_size_check_*.txt` in PR #45). The primary Freedman-Lane scheme's country-level rate was **0.074 at n = 36**, outside the interval, so **the registered contingency was invoked** (this is the registered procedure operating, not a deviation). The recursive restricted-model block bootstrap is therefore the primary scheme for country-level and panel tests, and **no further switching will occur**, whatever later size results show.
 
 Size results as limitations (rejection rate at nominal 5%, 2,000 replications; ± is the 95% Monte Carlo half-width):
 
-SIZE_TABLE_PLACEHOLDER
+| scheme / DGP | country n=36 | country n=100 | panel n=36 (N=4) | panel n=100 (N=4) |
+|---|---|---|---|---|
+| Freedman-Lane, base DGP (B=9999 country, 1999 panel) | **0.0740** | 0.0530 | 0.0655 | 0.0425 |
+| **Recursive (primary)**, base DGP (B=999) | 0.0675 | 0.0510 | 0.0540 | 0.0395 |
+| Recursive, persistent CPI, AR(y)=0.9 (B=999) | 0.0680 | 0.0520 | 0.0550 | 0.0460 |
+| Recursive, stochastic seasonality, lag-12 term 0.5 (B=999) | **0.0975** | **0.1740** | **0.0775** | **0.2985** |
+
+Panel DGPs share an i.i.d. common shock across countries (cross-sectional dependence with the null true). Under the base and persistent DGPs every recursive rate is inside [0.03, 0.07]. **Under stochastic seasonality the recursive test is badly over-sized, increasingly so at n = 100.** Month dummies absorb deterministic seasonality exactly but not a lag-12 dependence, and the registered maximum lag of 3 cannot model it, so lagged index terms pick up omitted dynamics; the recursive bootstrap resamples residuals of the same misspecified model and does not repair this. A rejecting Ljung-Box(12) diagnostic (reported only) is the warning sign; results must then be read with this limitation in mind. This is a limitation, not a specification change. (An earlier version of the simulation used a serially correlated common factor in the panel levels, which makes the null false; those panel numbers were discarded. The country-level Freedman-Lane figure that triggered the contingency did not depend on it.)
 
 These come from one family of simulated data-generating processes; actual size on the real series is not known. At n = 36 a single country's test has 14 to 18 parameters on 32 to 34 observations, and even the asymptotic F test is over-sized there (0.075).
 
