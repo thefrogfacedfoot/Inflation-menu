@@ -1,0 +1,15 @@
+official series seasonality check: Δlog on longest contiguous run; const + 11 month dummies + AR(1..3); Ljung-Box(12) with model_df=3; residual ACF at lag 12
+
+country series        fit        months                  window   LB(12) p  resid ACF(12)  +-2/sqrt(T)
+US      CUUR0000SEFV  full          873        1953-01..2025-09     0.0000         0.1696       0.0678
+US      CUUR0000SEFV  last 60        60        2020-10..2025-09     0.9374        -0.1292       0.2673
+         (longest contiguous run of CUUR0000SEFV: 873 months, 1953-01..2025-09; series spans 1953-01..2026-08)
+GB      D7EW          full          464        1988-01..2026-08     0.0000         0.1894       0.0933
+GB      D7EW          last 60        60        2021-09..2026-08     0.2428        -0.1926       0.2673
+         (longest contiguous run of D7EW: 464 months, 1988-01..2026-08; series spans 1988-01..2026-08)
+SG      M213751:1.11  full          440        1990-01..2026-08     0.0120         0.1321       0.0958
+SG      M213751:1.11  last 60        60        2021-09..2026-08     0.8781         0.0367       0.2673
+         (longest contiguous run of M213751:1.11: 440 months, 1990-01..2026-08; series spans 1990-01..2026-08)
+MY      cpi_3d:111    full          200        2010-01..2026-08     0.1675        -0.0019       0.1429
+MY      cpi_3d:111    last 60        60        2021-09..2026-08     0.2432        -0.0565       0.2673
+         (longest contiguous run of cpi_3d:111: 200 months, 2010-01..2026-08; series spans 2010-01..2026-08)
