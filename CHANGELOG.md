@@ -2,6 +2,20 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-10-07 — Withdraw the Singapore p = 0.092 Granger figure
+
+- The Singapore result (p = 0.092 / 0.0922, lag 2, n = 12), previously the
+  README headline and recorded in `diagnostic_report_v3.txt`,
+  `diagnostic_report_v4.txt` and the 2026-06-13 entry below, is **withdrawn**.
+- Reason: its provenance could not be traced (no committed script, command or
+  data snapshot reproduces it; the current `analysis_results/granger_results.json`
+  lists SG with n = 8), and it cannot come from the pre-registered specification
+  (`docs/preregistration.md`): with n = 12 levels, lag 2, a constant and 11
+  month dummies the residual degrees of freedom are negative. Even if
+  reproduced, a result with only a handful of residual df is not evidence.
+- README headline and Granger table row edited. Older changelog entries and
+  the diagnostic reports are left unchanged as history.
+
 ## 2026-08-13 — Chunk 1: live TARGETS 103 → 85 (net), guard + FX hardening
 
 First slice of the staged 103 → 250 promotion held open in PR #19. Deployed as
