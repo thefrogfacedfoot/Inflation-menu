@@ -182,6 +182,27 @@ _cited = [i for i, s in enumerate(_seq[:_ki]) if "Fig. 1" in s]
 _spelled = [s[:40] for s in _seq if s != "IMG" and not s.startswith("Figure 1.") and "Figure 1" in s]
 rec("F17 figure cited in text as 'Fig. 1' before it appears; no spelled-out 'Figure 1' outside the caption", bool(_cited) and not _spelled, f"first citation in paragraph {_cited[0] + 1 if _cited else None}, figure at paragraph {_ki + 1}; spelled-out uses outside caption: {_spelled}")
 
+# ============ G. CITATIONS ============
+ref_paras = [p for p in PARAS if f'<w:numId w:val="{num}"/>' in p]
+cited = sorted(set(int(m) for m in re.findall(r"\[(\d+)\]", TEXT)))
+expected = list(range(1, len(ref_paras) + 1))
+rec("G1 every in-text citation [n] has a matching reference, and vice versa", cited == expected, f"in-text citations: {cited}; references defined: {expected} ({len(ref_paras)} entries)")
+
+# "<N> further caveats bound the interpretation" must count the caveats actually present.
+# Cheap and tied to this paragraph's current wording (like the must/mustnot phrase checks
+# above): each caveat is identified by a fixed substring that survives the "Third," prefix
+# added ahead of it. Update the marker list if a caveat is added, removed, or reworded.
+NUMWORD = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6}
+cav_markers = [
+    "Vietnam and UAE Wayback slices were found to be systematically mispriced",
+    "the causal mechanism behind the US lead is ambiguous",
+    "UICPI is tested here against headline CPI",
+]
+cav_p = next((s for s in P if re.match(r"^(?:One|Two|Three|Four|Five|Six) further caveats bound the interpretation\.", s)), None)
+cav_n = re.match(r"^(\w+)", cav_p).group(1).lower() if cav_p else None
+cav_found = sum(1 for m in cav_markers if cav_p and m in cav_p)
+rec("G2 'N further caveats' count matches the caveats present", bool(cav_p) and NUMWORD.get(cav_n) == cav_found == len(cav_markers), f"header says '{cav_n}' ({NUMWORD.get(cav_n)}); markers found: {cav_found}/{len(cav_markers)}" if cav_p else "paragraph not found")
+
 # word counts
 ri = P.index("References"); ci = next(i for i, s in enumerate(P) if s.startswith("Figure 1."))
 res.append(("W  word counts", "INFO", f"total {len(' '.join(P).split())}; excl. References+caption {len(' '.join(s for i,s in enumerate(P) if i<ri and i!=ci).split())}; abstract {len(ab.split())}"))
