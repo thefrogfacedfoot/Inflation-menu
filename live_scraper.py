@@ -3884,6 +3884,16 @@ if __name__ == '__main__':
 
     log(f"\nTotal targets: {len(active_targets)}")
 
+    try:
+        import subprocess
+        git_sha = subprocess.run(["git", "rev-parse", "--short", "HEAD"],
+                                 cwd=os.path.dirname(os.path.abspath(__file__)),
+                                 capture_output=True, text=True, timeout=5).stdout.strip() or "unknown"
+    except Exception:
+        git_sha = "unknown"
+    log(f"Run config: concurrency={SCRAPE_CONCURRENCY} headless={HEADLESS} "
+        f"targets={len(active_targets)} git={git_sha}")
+
     remaining = [t for t in active_targets if not already_scraped(conn, t[0], today)]
     skipped   = len(active_targets) - len(remaining)
     if skipped:
