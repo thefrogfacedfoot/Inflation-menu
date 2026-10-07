@@ -172,12 +172,9 @@ export default async function HomePage() {
                 MIT Billion Prices Project
               </span>{" "}
               to chain restaurants and independent hawker stalls across 10
-              countries. Tests whether food service prices lead official CPI
-              as an early inflation signal — and{" "}
-              <span className="text-white font-medium">
-                finds they do in the US, with a 1-month lead (p = 0.0499, superseded — earlier specification, see docs/preregistration.md)
-              </span>
-              .
+              countries. Tests whether restaurant menu prices lead official CPI.
+              An earlier US result has been superseded; a pre-specified
+              re-analysis is pending.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
