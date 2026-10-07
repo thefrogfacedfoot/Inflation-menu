@@ -61,11 +61,16 @@ EXCLUDED_SOURCES = ("wayback-doordash",)
 # Everything else is quarantined, in particular live-scraper output: "js"
 # (platform hidden by the label), "direct", "grabfood", "foodpanda", and the
 # non-restaurant "official_price_series_bls_apu".
-# Hawker fieldwork rows are admitted by exact label; no fieldwork label
-# exists in `prices` yet, so the tuple is empty until one is registered.
-# Official CPI is not read by this builder (it lives in `monthly_cpi`).
+# Hawker fieldwork is descriptive-only evidence and is NOT an index input, so
+# no fieldwork label is admitted. Official CPI is not read by this builder (it
+# lives in `monthly_cpi`).
 CONFIRMATORY_SOURCE_PREFIXES = ("wayback",)
-CONFIRMATORY_FIELDWORK_SOURCES: tuple = ()
+
+# §3 inclusion rule 4: a country-month needs >= 15 MATCHED restaurants, i.e.
+# restaurants observed in both month t and the calendar-adjacent month t-1.
+# Country-months below this are MISSING in confirmatory mode: no index row,
+# never filled or carried forward.
+MIN_MATCHED_RESTAURANTS = 15
 
 
 def is_confirmatory_source(source) -> bool:
@@ -73,8 +78,34 @@ def is_confirmatory_source(source) -> bool:
     if source is None:
         return False
     s = str(source).strip().lower()
-    return s.startswith(CONFIRMATORY_SOURCE_PREFIXES) or \
-        str(source) in CONFIRMATORY_FIELDWORK_SOURCES
+    return s.startswith(CONFIRMATORY_SOURCE_PREFIXES)
+
+
+def matched_restaurant_counts(df: pd.DataFrame) -> dict:
+    """{(country, year_month): number of restaurants observed in BOTH that month
+    and the calendar-adjacent previous month}. A month whose previous calendar
+    month has no data has count 0 (a gap is never bridged)."""
+    counts = {}
+    for country, g in df.groupby("country"):
+        by_month = g.groupby("year_month")["restaurant_name"].agg(lambda s: set(s.dropna()))
+        for ym, names in by_month.items():
+            prev = str(pd.Period(ym, freq="M") - 1)
+            counts[(country, ym)] = len(names & by_month[prev]) if prev in by_month.index else 0
+    return counts
+
+
+def apply_matched_rule(rows: list, counts: dict, minimum: int = MIN_MATCHED_RESTAURANTS):
+    """Keep only index rows whose country-month has >= `minimum` matched
+    restaurants; stamp each kept row with its count. Returns (kept, dropped
+    [(country, ym, matched)]). Dropped months get no row (no carry-forward)."""
+    kept, dropped = [], []
+    for r in rows:
+        m = counts.get((r["country"], r["year_month"]), 0)
+        if m >= minimum:
+            kept.append(dict(r, matched_restaurants=m))
+        else:
+            dropped.append((r["country"], r["year_month"], m))
+    return kept, dropped
 
 # Approximate informal sector share of food expenditure by country.
 # Source: author estimates from World Bank household survey data.
@@ -255,6 +286,23 @@ def load_price_data(conn: sqlite3.Connection,
 
     # Cap rows per (country, year_month) so dense months don't dominate the
     # cross-country index. Deterministic via SAMPLE_SEED.
+    if confirmatory:
+        # The cap would sample rows away and so change which restaurants are
+        # observed per month. In confirmatory mode log what it WOULD drop per
+        # country-month and, if anything would be dropped, leave the cap off.
+        sizes = df.groupby(["country", "year_month"]).size()
+        over = sizes[sizes > MAX_ROWS_PER_COUNTRY]
+        if len(over):
+            print(f"  Row cap DISABLED in confirmatory mode: it would have dropped "
+                  f"{int((over - MAX_ROWS_PER_COUNTRY).sum()):,} rows in "
+                  f"{len(over)} country-months:")
+            for (c, ym), n in over.items():
+                print(f"    cap would drop {n - MAX_ROWS_PER_COUNTRY:,} rows: {c} {ym} "
+                      f"({n:,} -> {MAX_ROWS_PER_COUNTRY})")
+        else:
+            print("  Row cap: no country-month exceeds the cap; nothing dropped.")
+        return df
+
     before_rows = len(df)
     df = (df.groupby(["country", "year_month"], group_keys=False)
             .apply(lambda g: g.sample(n=min(len(g), MAX_ROWS_PER_COUNTRY),
@@ -827,6 +875,16 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
             else:
                 print(f"  {country}: insufficient data — skipped")
 
+    if confirmatory:
+        counts = matched_restaurant_counts(df)
+        all_index_rows, dropped = apply_matched_rule(all_index_rows, counts)
+        print(f"\nMatched-restaurant rule (>= {MIN_MATCHED_RESTAURANTS} restaurants in both t and t-1): "
+              f"kept {len(all_index_rows)} country-months, dropped {len(dropped)} (no row, no carry-forward)")
+        for c, ym, m in dropped:
+            print(f"    missing: {c} {ym} matched={m}")
+        for r in all_index_rows:
+            print(f"    kept:    {r['country']} {r['year_month']} matched={r['matched_restaurants']}")
+
     print("\nStep 6 — Saving to database and CSV …")
     for row in all_index_rows:
         conn.execute("""
@@ -865,7 +923,7 @@ if __name__ == "__main__":
                     help="Index CSV output path (default: uifpi_index.csv).")
     ap.add_argument("--confirmatory", action="store_true",
                     help="Confirmatory mode: admit only whitelisted sources "
-                         "(wayback-*, registered fieldwork); quarantine the "
+                         "(wayback-*); quarantine the "
                          "rest and log their row counts. DoorDash stays in "
                          "unless --exclude-doordash is given.")
     ap.add_argument("--exclude-doordash", action="store_true",
