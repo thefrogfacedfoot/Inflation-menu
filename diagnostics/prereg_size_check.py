@@ -75,13 +75,25 @@ def gen_country(rng, n, common=None, load=0.6, dgp="base"):
     return li, lc
 
 
+PRE = 15          # pre-window official months simulated for Option C (>= 12 needed)
+
+
+def gen_window(rng, n, dgp, common=None, seasonal_lag=False):
+    """Index over n months; official CPI over the same window (+ PRE earlier months for Option C)."""
+    if not seasonal_lag:
+        return gen_country(rng, n, common=common, dgp=dgp)
+    li, lc = gen_country(rng, n + PRE, common=common, dgp=dgp)
+    return li.iloc[PRE:], lc
+
+
 def one_country(args):
-    n, seed, B, scheme, dgp = args
+    n, seed, B, scheme, dgp, sl = args
     rng = np.random.default_rng(seed)
-    li, lc = gen_country(rng, n, dgp=dgp)
+    li, lc = gen_window(rng, n, dgp, seasonal_lag=sl)
     pr = pa.prepare("S", li, lc)
-    p = pa.select_lag(pr.y, pr.x, pr.moy)["p"]
-    f = pa.granger_fit(pr.y, pr.x, pr.moy, p, lb=False)
+    yp = pr.ypre if sl else None
+    p = pa.select_lag(pr.y, pr.x, pr.moy, True, yp)["p"]
+    f = pa.granger_fit(pr.y, pr.x, pr.moy, p, lb=False, ypre=yp)
     b = pa.block_length(f.T)
     starts = rng.integers(0, f.T, size=(B, int(np.ceil(f.T / b))))
     idx = pa.circular_blocks(starts, b, f.T, f.T)
@@ -90,11 +102,11 @@ def one_country(args):
 
 
 def one_panel(args):
-    n, seed, B, scheme, N, dgp = args
+    n, seed, B, scheme, N, dgp, sl = args
     rng = np.random.default_rng(seed)
-    fac = rng.normal(size=n)                      # i.i.d. common shock
-    preps = [pa.prepare(f"C{i}", *gen_country(rng, n, common=fac, dgp=dgp)) for i in range(N)]
-    r = pa.panel_test(preps, B=B, seed=int(rng.integers(1 << 31)), scheme=scheme)
+    fac = rng.normal(size=n + (PRE if sl else 0))     # i.i.d. common shock
+    preps = [pa.prepare(f"C{i}", *gen_window(rng, n, dgp, common=fac, seasonal_lag=sl)) for i in range(N)]
+    r = pa.panel_test(preps, B=B, seed=int(rng.integers(1 << 31)), scheme=scheme, seasonal_lag=sl)
     return r["p_boot_Ztilde"] < ALPHA, r["p_boot_Wbar"] < ALPHA, r["p_asym_Ztilde"] < ALPHA
 
 
@@ -114,9 +126,12 @@ def main():
     ap.add_argument("--recursive-only", action="store_true", help="check only the recursive scheme")
     ap.add_argument("--B-recursive", type=int, default=499)
     ap.add_argument("--dgp", default="base", choices=sorted(DGPS))
+    ap.add_argument("--seasonal-lag", action="store_true",
+                    help="Option C (proposed amendment): own seasonal lag y(t-12) in the CPI equation, "
+                         "from simulated pre-window official history")
     ap.add_argument("--out", default=None)
     a = ap.parse_args()
-    lines = [f"size check: dgp={a.dgp} reps={a.reps} seed={a.seed} alpha={ALPHA} B_country={a.B_country} "
+    lines = [f"size check{' (Option C: y(t-12) in the CPI equation)' if a.seasonal_lag else ''}: dgp={a.dgp} reps={a.reps} seed={a.seed} alpha={ALPHA} B_country={a.B_country} "
              f"B_panel={a.B_panel} panel_N={a.panel_N}", ""]
     t0 = time.time()
     schemes = [] if a.recursive_only else [("freedman_lane", a.B_country, a.B_panel)]
@@ -126,13 +141,13 @@ def main():
         for scheme, Bc, Bp in schemes:
             for n in (36, 100):
                 seeds = [a.seed + 1000 * n + i for i in range(a.reps)]
-                res = list(ex.map(one_country, [(n, s, Bc, scheme, a.dgp) for s in seeds], chunksize=20))
+                res = list(ex.map(one_country, [(n, s, Bc, scheme, a.dgp, a.seasonal_lag) for s in seeds], chunksize=20))
                 asym, perm = zip(*res)
                 (ra, ea), (rp, ep) = rate(asym), rate(perm)
                 lines.append(f"{scheme:14s} country n={n:3d} B={Bc:5d}: perm reject {rp:.4f} (±{ep:.4f}); "
                              f"asymptotic-F reject {ra:.4f} (±{ea:.4f})")
                 print(lines[-1], flush=True)
-                res = list(ex.map(one_panel, [(n, s + 7, Bp, scheme, a.panel_N, a.dgp) for s in seeds], chunksize=10))
+                res = list(ex.map(one_panel, [(n, s + 7, Bp, scheme, a.panel_N, a.dgp, a.seasonal_lag) for s in seeds], chunksize=10))
                 z, w, zasym = zip(*res)
                 (rz, ez), (rw, ew), (rza, eza) = rate(z), rate(w), rate(zasym)
                 lines.append(f"{scheme:14s} panel   n={n:3d} B={Bp:5d} N={a.panel_N}: Z-tilde bootstrap reject {rz:.4f} (±{ez:.4f}); "

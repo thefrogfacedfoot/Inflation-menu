@@ -133,4 +133,52 @@ short = [pa.prepare("S", *sim_levels(30, seed=5))] + preps[:3]
 assert pa.panel_test(short, B=99)["status"] == "stop", "common window < 36 must stop"
 small = pa.country_family([pa.prepare("S", *sim_levels(30, seed=5))], B=99)
 assert small["rows"][0]["included"] is False and "n=30" in small["rows"][0]["reason"]
+# ── Option C: own seasonal lag y(t-12) from pre-window official history (proposed amendment, off by default) ──
+li_all, lc_all = sim_levels(36 + 15, seed=21)
+li_w = li_all.iloc[15:]                                  # the index exists only for the window
+prc = pa.prepare("C", li_w, lc_all)                      # official CPI has 15 pre-window months
+assert prc.n == 36 and prc.ypre is not None and len(prc.ypre) == 12
+ycal = pa.log_diff(lc_all)
+first_diff_month = prc.months[1]
+want = ycal.reindex(pd.period_range(first_diff_month - 12, periods=12, freq="M")).values
+assert np.allclose(prc.ypre, want), "ypre = the 12 official diffs before the first difference"
+assert pa.prepare("C", li_w, lc_all.iloc[14:]).ypre is None, "not enough pre-window history -> unavailable"
+for p, df in ((1, 19), (2, 16), (3, 13)):                # one extra regressor: residual df fall by 1
+    f = pa.granger_fit(prc.y, prc.x, prc.moy, p, lb=False, ypre=prc.ypre)
+    assert f.T == 35 - p and f.df2 == df, (p, f.T, f.df2)
+    assert f.Zr.shape[1] == 12 + p + 1 and f.Zu.shape[1] == 12 + 2 * p + 1
+ext = np.concatenate([prc.ypre, prc.y])
+_, Zr_c, _ = pa.build_design(prc.y, prc.x, prc.moy, 2, True, None, prc.ypre)
+assert np.allclose(Zr_c[:, -1], ext[2:len(prc.y)]), "y(t-12) column = y at index t-12 (pre-window values for t<12)"
+assert np.allclose(Zr_c[12 - 2:, -1], prc.y[: len(prc.y) - 12]), "from row 12 on, the lag-12 value is inside the window"
+
+# recursion with the seasonal lag equals a hand-rolled loop (p=1)
+fc = pa.granger_fit(prc.y, prc.x, prc.moy, 1, lb=False, ypre=prc.ypre)
+idxc = pa.circular_blocks(rng.integers(0, fc.T, size=(1, math.ceil(fc.T / 3))), 3, fc.T, fc.T)
+Frc = pa.null_F_recursive(fc, idxc)[0]
+brc = np.linalg.lstsq(fc.Zr, fc.Y, rcond=None)[0]       # [const, 11 dummies, phi1, phi12]
+hist = list(prc.ypre) + [prc.y[0]]                       # ext layout: 12 pre-window values, then y[0]
+for t in range(fc.T):
+    pos = len(hist)
+    hist.append(fc.Zr[t, :12] @ brc[:12] + brc[12] * hist[pos - 1] + brc[13] * hist[pos - 12] + fc.e_r[idxc[0, t]])
+ysc = np.array(hist)
+Yb = ysc[13:]
+Zr_b = np.column_stack([fc.Zu[:, :12], ysc[12:-1], ysc[1:1 + fc.T]])
+Zu_b = np.column_stack([Zr_b, fc.Zu[:, 14:]])
+eu = Yb - Zu_b @ np.linalg.lstsq(Zu_b, Yb, rcond=None)[0]
+er = Yb - Zr_b @ np.linalg.lstsq(Zr_b, Yb, rcond=None)[0]
+assert abs(Frc - ((er @ er - eu @ eu) / 1) / ((eu @ eu) / fc.df2)) < 1e-8, "Option C recursion regenerates y(t-12) too"
+
+# restrict() carries the right pre-window values; family and panel run with the option
+wide = [pa.prepare(f"W{i}", sim_levels(51, seed=30 + i)[0].iloc[15:], sim_levels(51, seed=30 + i)[1]) for i in range(4)]
+win = pa.common_window(wide)
+cut = pa.restrict(wide[0], win.__class__(win[3:], freq="M"))
+direct = np.concatenate([wide[0].ypre, wide[0].y])[3:15]
+assert np.allclose(cut.ypre, direct)
+famc = pa.country_family(wide, B=99, seed=3, seasonal_lag=True)
+assert all(r["df2"] == r["T"] - (13 + 2 * r["lag"]) for r in famc["rows"] if r["included"]) and famc["included"]
+ptc = pa.panel_test(wide, B=99, seed=3, seasonal_lag=True)
+assert ptc["status"] == "ok" and 0 < ptc["p_boot_Ztilde"] <= 1
+assert pa.panel_test([pa.prepare("N", li_w, lc_all.iloc[14:])] * 4, B=9, seasonal_lag=True)["status"] == "stop"
+
 print("ok: all prereg_analysis tests passed")

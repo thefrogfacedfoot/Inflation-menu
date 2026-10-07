@@ -22,6 +22,10 @@ calendar blocks applied jointly to every country); N_PANEL = 4 rule (D8).
 Fallback (§5.2): recursive restricted-model block bootstrap, used only if the
 size check falls outside [0.03, 0.07]; it IS now the primary scheme (see
 PRIMARY_SCHEME).
+Option C (seasonal_lag=True; a PROPOSED amendment, off by default): the own
+seasonal lag of the official CPI, y(t-12), enters the CPI equation (restricted and
+unrestricted); y(t-12) for the first rows comes from official history before
+the window (Prepared.ypre).
 
 Choices the registration leaves open (flagged in the PR): ties in D5 go to the
 earliest run; the BIC is the Gaussian system criterion ln|Σ| + k ln(T)/T on a
@@ -33,6 +37,7 @@ lengths share the draw's random block starts.
 import math
 import warnings
 from dataclasses import dataclass, field
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -90,6 +95,8 @@ class Prepared:
     y: np.ndarray                   # Δlog CPI
     moy: np.ndarray                 # calendar month (1-12) of each difference
     n: int                          # levels in the run
+    ypre: Optional[np.ndarray] = None   # Option C: the 12 official-CPI Δlog values for the 12 calendar
+                                        # months before the first difference (None if not available)
 
 
 def prepare(name: str, index_levels: pd.Series, cpi_levels: pd.Series) -> Prepared:
@@ -99,6 +106,7 @@ def prepare(name: str, index_levels: pd.Series, cpi_levels: pd.Series) -> Prepar
     a.index = pd.PeriodIndex(a.index, freq="M")
     c = cpi_levels.copy()
     c.index = pd.PeriodIndex(c.index, freq="M")
+    c_full = c                       # full official history, used for the Option C seasonal lag
     both = pd.concat([a.rename("i"), c.rename("c")], axis=1)
     both = both.reindex(pd.period_range(both.index.min(), both.index.max(), freq="M"))
     valid = (both["i"] > 0) & (both["c"] > 0)
@@ -110,7 +118,13 @@ def prepare(name: str, index_levels: pd.Series, cpi_levels: pd.Series) -> Prepar
     x = np.diff(np.log(run["i"].values))
     y = np.diff(np.log(run["c"].values))
     moy = np.array([m.month for m in months[1:]])
-    return Prepared(name, months, x, y, moy, n)
+    # Option C: y(t-12) for the first rows comes from the official series BEFORE the run,
+    # calendar-true (a pre-window month with no official value leaves ypre = None).
+    ycal = log_diff(c_full)
+    want = pd.period_range(months[1] - 12, periods=12, freq="M")
+    pre = ycal.reindex(want).values
+    ypre = pre.astype(float) if not np.isnan(pre).any() else None
+    return Prepared(name, months, x, y, moy, n, ypre)
 
 
 # ── Stationarity gate (§4.2, D3) ───────────────────────────────────────────
@@ -124,10 +138,12 @@ def stationarity(series: np.ndarray) -> dict:
 
 
 # ── Design and OLS pieces (§4.3, §4.6) ─────────────────────────────────────
-def build_design(y, x, moy, p, dummies=True, row_start=None):
+def build_design(y, x, moy, p, dummies=True, row_start=None, ypre=None):
     """Rows t = row_start..len-1 (default p). Columns of the restricted design:
-    const, 11 month dummies (Feb..Dec), y lags 1..p; unrestricted adds x lags
-    1..p. A lag never spans a missing month because the run is contiguous."""
+    const, 11 month dummies (Feb..Dec), y lags 1..p, and (Option C, when ypre is
+    given) the own seasonal lag y(t-12); unrestricted adds x lags 1..p. A lag never
+    spans a missing month because the run is contiguous. y(t-12) is read from the
+    12 official values before the window (ypre) for the first rows, so no row is lost."""
     r0 = p if row_start is None else row_start
     T = len(y) - r0
     cols = [np.ones(T)]
@@ -136,8 +152,12 @@ def build_design(y, x, moy, p, dummies=True, row_start=None):
             cols.append((moy[r0:] == m).astype(float))
     ylags = [y[r0 - j: len(y) - j] for j in range(1, p + 1)]
     xlags = [x[r0 - j: len(x) - j] for j in range(1, p + 1)]
-    Zr = np.column_stack(cols + ylags)
-    Zu = np.column_stack(cols + ylags + xlags)
+    seas = []
+    if ypre is not None:
+        ext = np.concatenate([np.asarray(ypre, float), y])       # ext[i] = y at index i-12
+        seas = [ext[r0: len(y)]]
+    Zr = np.column_stack(cols + ylags + seas)
+    Zu = np.column_stack(cols + ylags + seas + xlags)
     return y[r0:], Zr, Zu
 
 
@@ -154,19 +174,20 @@ def _ols(Z, Y):
     return beta, Y - Z @ beta
 
 
-def select_lag(y, x, moy, dummies=True) -> dict:
+def select_lag(y, x, moy, dummies=True, ypre=None) -> dict:
     """BIC on the unrestricted bivariate VAR(p) (equations for y and x, same
     regressors), p in 1..MAX_LAG, common sample; ties -> smaller p (D4)."""
     out = {}
     r0 = MAX_LAG
     for p in range(1, MAX_LAG + 1):
-        _, Zr, Zu = build_design(y, x, moy, p, dummies, row_start=r0)
+        _, Zr, Zu = build_design(y, x, moy, p, dummies, row_start=r0, ypre=ypre)
         Yx = x[r0:]
         Yy = y[r0:]
         T = len(Yy)
-        res = np.column_stack([_ols(Zu, Yy)[1], _ols(Zu, Yx)[1]])
+        Zx = Zu if ypre is None else np.delete(Zu, 1 + (11 if dummies else 0) + p, axis=1)   # y(t-12) only in the CPI equation
+        res = np.column_stack([_ols(Zu, Yy)[1], _ols(Zx, Yx)[1]])
         sig = res.T @ res / T
-        k_total = 2 * Zu.shape[1]
+        k_total = Zu.shape[1] + Zx.shape[1]
         out[p] = float(np.log(np.linalg.det(sig)) + k_total * np.log(T) / T)
     best = 1
     for p in range(2, MAX_LAG + 1):
@@ -192,10 +213,13 @@ class Fit:
     Y: np.ndarray = field(repr=False)
     lb_p_y: float = float("nan")
     lb_p_x: float = float("nan")
+    ypre: Optional[np.ndarray] = field(default=None, repr=False)   # Option C pre-window values
+    y_first: Optional[np.ndarray] = field(default=None, repr=False)  # observed y[0..p-1]
+    n_dum: int = 11
 
 
-def granger_fit(y, x, moy, p, dummies=True, row_start=None, lb=True) -> Fit:
-    Y, Zr, Zu = build_design(y, x, moy, p, dummies, row_start)
+def granger_fit(y, x, moy, p, dummies=True, row_start=None, lb=True, ypre=None) -> Fit:
+    Y, Zr, Zu = build_design(y, x, moy, p, dummies, row_start, ypre)
     T = len(Y)
     k_u = Zu.shape[1]
     df2 = T - k_u
@@ -204,11 +228,16 @@ def granger_fit(y, x, moy, p, dummies=True, row_start=None, lb=True) -> Fit:
     rss_u, rss_r = float(e_u @ e_u), float(e_r @ e_r)
     F = ((rss_r - rss_u) / p) / (rss_u / df2)
     fit = Fit(p=p, T=T, df2=df2, F=F, W=F * p, p_asym=float(stats.f.sf(F, p, df2)),
-              Mu=_proj_resid(Zu), Mr=_proj_resid(Zr), e_r=e_r, yhat_r=Zr @ br, Zr=Zr, Zu=Zu, Y=Y)
+              Mu=_proj_resid(Zu), Mr=_proj_resid(Zr), e_r=e_r, yhat_r=Zr @ br, Zr=Zr, Zu=Zu, Y=Y,
+              ypre=None if ypre is None else np.asarray(ypre, float),
+              y_first=np.asarray(y[(p if row_start is None else row_start) - p:
+                                   (p if row_start is None else row_start)], float),
+              n_dum=11 if dummies else 0)
     if lb:
         from statsmodels.stats.diagnostic import acorr_ljungbox
         x_target = x[len(x) - T:]
-        e_x = _ols(Zu, x_target)[1]
+        Zx = Zu if ypre is None else np.delete(Zu, 1 + (11 if dummies else 0) + p, axis=1)
+        e_x = _ols(Zx, x_target)[1]
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             fit.lb_p_y = float(acorr_ljungbox(e_u, lags=[LB_LAGS], model_df=2 * p)["lb_pvalue"].iloc[0])
@@ -239,34 +268,44 @@ def null_F_freedman_lane(fit: Fit, idx: np.ndarray) -> np.ndarray:
     return ((rr - ru) / fit.p) / (ru / fit.df2)
 
 
-def null_F_recursive(fit: Fit, idx: np.ndarray, n_dummy_cols: int) -> np.ndarray:
+def null_F_recursive(fit: Fit, idx: np.ndarray, n_dummy_cols: int = None) -> np.ndarray:
     """Registered fallback: recursive restricted-model block bootstrap. y* is
-    regenerated recursively from the restricted model (const, dummies, own lags)
-    with resampled residual blocks, started from the observed first p values;
+    regenerated recursively from the restricted model (const, dummies, own lags and,
+    under Option C, the own seasonal lag y(t-12)) with resampled residual blocks;
+    the p observed values before the first row start the recursion, and under
+    Option C the 12 pre-window official values supply y(t-12) for the first rows.
     F* is recomputed from the unrestricted model on y* and ITS lags (x lags fixed)."""
     p, T = fit.p, fit.T
+    nd = fit.n_dum if n_dummy_cols is None else n_dummy_cols
+    seas = fit.ypre is not None
+    k_common = 1 + nd
     Zr, Zu = fit.Zr, fit.Zu
     beta_r, *_ = np.linalg.lstsq(Zr, fit.Y, rcond=None)
-    base = Zr[:, :1 + n_dummy_cols] @ beta_r[:1 + n_dummy_cols]       # const + dummy part
-    phi = beta_r[1 + n_dummy_cols:]                                   # own-lag coefficients
+    base = Zr[:, :k_common] @ beta_r[:k_common]                     # const + dummy part
+    phi = beta_r[k_common: k_common + p]                            # own-lag coefficients
+    phi12 = beta_r[k_common + p] if seas else 0.0                   # seasonal-lag coefficient
     B = idx.shape[0]
-    ystar = np.zeros((B, T + p))
-    # the p observed values preceding the first row
-    # recover observed y for the p pre-sample rows from the first row's lag columns
-    first_lags = Zr[0, 1 + n_dummy_cols: 1 + n_dummy_cols + p]       # y_{p-1}.. y_0 order = lag1..lagp
-    for j in range(p):
-        ystar[:, p - 1 - j] = first_lags[j]
+    PRE = 12
+    ext = np.zeros((B, PRE + p + T))
+    if seas:
+        ext[:, :PRE] = fit.ypre
+    ext[:, PRE: PRE + p] = fit.y_first
     E = fit.e_r[idx]
     for t in range(T):
-        pred = base[t] + sum(phi[j] * ystar[:, p + t - 1 - j] for j in range(p)) + E[:, t]
-        ystar[:, p + t] = pred
-    Y = ystar[:, p:]
-    k_common = 1 + n_dummy_cols
-    xl = Zu[:, k_common + p:]
+        pos = PRE + p + t
+        pred = base[t] + sum(phi[j] * ext[:, pos - 1 - j] for j in range(p)) + E[:, t]
+        if seas:
+            pred = pred + phi12 * ext[:, pos - 12]
+        ext[:, pos] = pred
+    Y = ext[:, PRE + p:]
+    xl = Zu[:, k_common + p + (1 if seas else 0):]
     out = np.empty(B)
     for b in range(B):
-        yl = np.column_stack([ystar[b, p - 1 - j: p - 1 - j + T] for j in range(p)])
-        Zr_b = np.column_stack([Zu[:, :k_common], yl])
+        cols = [Zu[:, :k_common]]
+        cols.append(np.column_stack([ext[b, PRE + p - 1 - j: PRE + p - 1 - j + T] for j in range(p)]))
+        if seas:
+            cols.append(ext[b, p: p + T][:, None])                  # y*(t-12)
+        Zr_b = np.column_stack(cols)
         Zu_b = np.column_stack([Zr_b, xl])
         e_u = Y[b] - Zu_b @ np.linalg.lstsq(Zu_b, Y[b], rcond=None)[0]
         e_r = Y[b] - Zr_b @ np.linalg.lstsq(Zr_b, Y[b], rcond=None)[0]
@@ -345,11 +384,11 @@ def decide_primary(n_included: int, common_window_levels: int = None) -> str:
     return "country_rw" if n_included >= 2 else "country_single"
 
 
-def pooled_bic_lag(preps: list, dummies=True) -> int:
+def pooled_bic_lag(preps: list, dummies=True, seasonal_lag=False) -> int:
     """Common lag for the panel: BIC summed over countries (pooled criterion)."""
     tot = {p: 0.0 for p in range(1, MAX_LAG + 1)}
     for pr in preps:
-        s = select_lag(pr.y, pr.x, pr.moy, dummies)["bic"]
+        s = select_lag(pr.y, pr.x, pr.moy, dummies, pr.ypre if seasonal_lag else None)["bic"]
         for p in tot:
             tot[p] += s[p]
     best = 1
@@ -375,11 +414,14 @@ def restrict(pr: Prepared, window: pd.PeriodIndex) -> Prepared:
     i1 = int(np.where(pr.months == window[-1])[0][0])
     # differences are indexed by months[1:], so level month i maps to diff i-1
     sl = slice(i0, i1)          # diffs for months i0+1..i1
-    return Prepared(pr.name, window, pr.x[sl], pr.y[sl], pr.moy[sl], len(window))
+    ypre = None
+    if pr.ypre is not None:
+        ypre = np.concatenate([pr.ypre, pr.y])[i0: i0 + 12]    # the 12 diffs before the window's first diff
+    return Prepared(pr.name, window, pr.x[sl], pr.y[sl], pr.moy[sl], len(window), ypre)
 
 
 def panel_test(preps: list, B: int = B_DEFAULT, seed: int = 20261008, dummies=True,
-               scheme: str = None) -> dict:
+               scheme: str = None, seasonal_lag: bool = False) -> dict:
     """Primary DH panel test on the common calendar window with a cross-sectionally
     dependent bootstrap: ONE set of calendar blocks per draw, applied jointly to
     every country's restricted residuals."""
@@ -388,8 +430,10 @@ def panel_test(preps: list, B: int = B_DEFAULT, seed: int = 20261008, dummies=Tr
     if len(win) < N_MIN:
         return {"status": "stop", "reason": f"common window {len(win)} < {N_MIN} levels"}
     cut = [restrict(pr, win) for pr in preps]
-    p = pooled_bic_lag(cut, dummies)
-    fits = [granger_fit(c.y, c.x, c.moy, p, dummies, lb=False) for c in cut]
+    if seasonal_lag and any(c.ypre is None for c in cut):
+        return {"status": "stop", "reason": "Option C needs 12 pre-window official CPI values for every country"}
+    p = pooled_bic_lag(cut, dummies, seasonal_lag)
+    fits = [granger_fit(c.y, c.x, c.moy, p, dummies, lb=False, ypre=c.ypre if seasonal_lag else None) for c in cut]
     T = fits[0].T
     W = np.array([f.W for f in fits])
     obs = dh_stats(W, T, p)
@@ -400,7 +444,7 @@ def panel_test(preps: list, B: int = B_DEFAULT, seed: int = 20261008, dummies=Tr
     n_dum = 11 if dummies else 0
     Wstar = np.empty((B, len(fits)))
     for i, f in enumerate(fits):
-        Fs = null_F_freedman_lane(f, idx) if scheme == "freedman_lane" else null_F_recursive(f, idx, n_dum)
+        Fs = null_F_freedman_lane(f, idx) if scheme == "freedman_lane" else null_F_recursive(f, idx)
         Wstar[:, i] = Fs * p
     nul = dh_stats(Wstar, T, p)
     out = {"status": "ok", "N": len(fits), "window": (str(win[0]), str(win[-1])), "levels": len(win),
@@ -414,7 +458,7 @@ def panel_test(preps: list, B: int = B_DEFAULT, seed: int = 20261008, dummies=Tr
 
 # ── Country-level family (§3, §5) ──────────────────────────────────────────
 def country_family(preps: list, B: int = B_DEFAULT, seed: int = 20261008, dummies=True,
-                   scheme: str = None) -> dict:
+                   scheme: str = None, seasonal_lag: bool = False) -> dict:
     """Inclusion by rule (n >= N_MIN, ADF+KPSS pass), then per-country F, raw p,
     Freedman-Lane permutation p on shared calendar draws, Romano-Wolf and BH."""
     scheme = scheme or PRIMARY_SCHEME
@@ -426,7 +470,9 @@ def country_family(preps: list, B: int = B_DEFAULT, seed: int = 20261008, dummie
         else:
             sx, sy = stationarity(pr.x), stationarity(pr.y)
             row.update(adf_p_x=sx["adf_p"], kpss_p_x=sx["kpss_p"], adf_p_y=sy["adf_p"], kpss_p_y=sy["kpss_p"])
-            if not (sx["stationary"] and sy["stationary"]):
+            if seasonal_lag and pr.ypre is None:
+                row["reason"] = "Option C: 12 pre-window official CPI values unavailable"
+            elif not (sx["stationary"] and sy["stationary"]):
                 row["reason"] = "ADF+KPSS fail: exploratory (no second difference)"
             else:
                 row["included"] = True
@@ -443,14 +489,15 @@ def country_family(preps: list, B: int = B_DEFAULT, seed: int = 20261008, dummie
     fits, Fnull = [], np.empty((B, len(included)))
     n_dum = 11 if dummies else 0
     for k, pr in enumerate(included):
-        p = select_lag(pr.y, pr.x, pr.moy, dummies)["p"]
-        f = granger_fit(pr.y, pr.x, pr.moy, p, dummies)
+        yp = pr.ypre if seasonal_lag else None
+        p = select_lag(pr.y, pr.x, pr.moy, dummies, yp)["p"]
+        f = granger_fit(pr.y, pr.x, pr.moy, p, dummies, ypre=yp)
         b = block_length(f.T)
         # global positions of this country's regression rows
         pos0 = pr.months[p + 1].ordinal - g0           # first row is diff index p -> level month p+1
         src = circular_blocks(starts, b, G, G)[:, (pos0 + np.arange(f.T)) % G]
         idx = ((src - pos0) % G) % f.T
-        Fnull[:, k] = null_F_freedman_lane(f, idx) if scheme == "freedman_lane" else null_F_recursive(f, idx, n_dum)
+        Fnull[:, k] = null_F_freedman_lane(f, idx) if scheme == "freedman_lane" else null_F_recursive(f, idx)
         fits.append((pr, f, b))
     Fobs = np.array([f.F for _, f, _ in fits])
     pperm = np.array([perm_p(Fobs[k], Fnull[:, k]) for k in range(len(fits))])

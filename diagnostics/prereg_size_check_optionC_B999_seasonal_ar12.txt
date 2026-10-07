@@ -1,0 +1,9 @@
+size check (Option C: y(t-12) in the CPI equation): dgp=seasonal_ar12 reps=2000 seed=20261008 alpha=0.05 B_country=9999 B_panel=1999 panel_N=4
+
+recursive      country n= 36 B=  999: perm reject 0.0980 (±0.0130); asymptotic-F reject 0.1180 (±0.0141)
+recursive      panel   n= 36 B=  999 N=4: Z-tilde bootstrap reject 0.0770 (±0.0117); W-bar bootstrap 0.0770 (±0.0117); asymptotic Z-tilde (not used) 0.1735 (±0.0166)
+recursive      country n=100 B=  999: perm reject 0.0675 (±0.0110); asymptotic-F reject 0.0935 (±0.0128)
+recursive      panel   n=100 B=  999 N=4: Z-tilde bootstrap reject 0.0555 (±0.0100); W-bar bootstrap 0.0555 (±0.0100); asymptotic Z-tilde (not used) 0.1625 (±0.0162)
+
+elapsed 218s
+target interval for a primary scheme: [0.03, 0.07]
