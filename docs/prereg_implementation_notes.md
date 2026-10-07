@@ -42,10 +42,78 @@ These come from one family of simulated data-generating processes; actual size o
 - **Differences and missing months.** A first difference exists only if both calendar months have a value. No month is filled, interpolated or carried forward, at any stage (index, official series, regression rows).
 - **Stationarity.** ADF (constant, lag length by AIC) and KPSS (level, automatic bandwidth) on Δlog of each series within the run; both must pass for the country to be in the confirmatory family (ADF p < 0.05 and KPSS p > 0.05).
 - **Fieldwork.** The hawker fieldwork is descriptive-only and is **not an index input**. §8 of the registration lists fieldwork among the confirmatory inputs; this note narrows that: no fieldwork row enters any confirmatory index.
+- **US official series.** The restaurant series (`CUUR0000SEFV`) and headline (`CPIAUCNS`) have no value for 2025-10; GB, SG and MY have no missing months. Missing months are never filled.
 - **Provenance whitelist.** Confirmatory mode admits only source labels beginning with `wayback` (case-insensitive). Everything else, including `js`, is quarantined with its row counts logged. The `MAX_ROWS_PER_COUNTRY` cap is not applied in confirmatory mode; what it would have dropped is logged per country-month.
 - **Matched-restaurant rule.** A country-month's matched count is the number of restaurants observed in both that month and the calendar-adjacent previous month; a month whose predecessor has no data has count 0. Country-months below 15 have no index row.
 - **Dumitrescu-Hurlin cross-check.** The module's W-bar, Z-bar and Z-tilde were checked against R `plm::pgrangertest` (plm 2.6.3, R 4.2.3) on a simulated balanced panel (N = 6, T = 60, lag 2, no dummies): W-bar 4.389292, Z-bar 2.926273, Z-tilde 2.618628 in both. Z-tilde uses T equal to the observations after lags (58 here), as in plm.
 
-## 4. Not yet decided (needs registration or amendment before the backfill build)
+## 4. Decided: the confirmatory index method
 
-- Which index aggregation method is the confirmatory index. The builder's default (`restaurant-median`) is not a matched design, and its matched-model path pairs each month with the previous *observed* month, which can span a calendar gap. The ≥15 matched-restaurant filter removes the first month after any gap but does not settle the method.
+The confirmatory index is a **matched-model index on calendar-consecutive months only** (never the previous *observed* month). Implemented as the only confirmatory path in `index_builder.py` (PR #43, `build_confirmatory_index`):
+1. Item relative: the median price of a (restaurant, item, currency) in month t divided by its median in month t-1, for items present in both months. Prices are local currency. Repeated captures of an item within a month are reduced by the median. Item names are matched after trimming and case-folding.
+2. Restaurant relative: the geometric mean of that restaurant's item relatives.
+3. Month relative: the geometric mean of restaurant relatives across restaurants, with **equal restaurant weights** (no sector weights, no item weights).
+4. Chained: level_t = level_{t-1} x relative_t. A country-month has a row only if at least 15 restaurants were observed in both t and t-1 (§3 rule 4) and at least one restaurant has a matched item; otherwise it is missing (no row, no carry-forward). A gap restarts the chain at 100, so no relative ever bridges a missing month, and the analysis uses within-run differences only.
+
+The builder's default `restaurant-median` method and its previous-observed-month matched model are **not** confirmatory paths.
+
+One point left as registered: the ≥15 rule counts restaurants *observed* in both months. The builder also records `contributing_restaurants` (restaurants with at least one matched item), which can be smaller. Applying the 15 threshold to contributing restaurants would be stricter; this note does not change the registered rule.
+
+## 5. Proposed pre-data amendment: seasonal-misspecification flag
+
+**Status: proposed, not yet registered. No menu data have been used for any evidence below.**
+
+### Motivation
+The registered specification handles seasonality with 11 month dummies and a maximum lag of 3. That absorbs deterministic seasonality but not seasonal *dependence* at lag 12. In simulation (§2 table) the recursive test is badly over-sized under lag-12 stochastic seasonality (country level 0.0975 at n = 36 and 0.174 at n = 100; panel 0.0775 and 0.2985, against a nominal 0.05). A flag is therefore proposed so that results obtained under visible seasonal misspecification are not read as confirmatory.
+
+### Proposed rule
+If the Ljung-Box(12) diagnostic on a country's unrestricted y-equation residuals rejects at 5%, that country's country-level result is reported as **"not interpretable — seasonal misspecification"**. If it rejects for **any** country in the panel, the panel result is **exploratory**. The diagnostic never changes the specification.
+
+### Evidence 1: the official series (official data only)
+`diagnostics/official_seasonality_check.py` (PR #44). Δlog of the registered NSA restaurant-CPI series on the longest contiguous run, fitted with constant + 11 month dummies + AR(3); Ljung-Box(12) with 3 model df; residual autocorrelation at lag 12.
+
+| series | fit | months | LB(12) p | residual ACF(12) | ±2/√T |
+|---|---|---|---|---|---|
+| US CUUR0000SEFV | full 1953-01..2025-09 | 873 | <0.0001 | +0.170 | 0.068 |
+| US | last 60 | 60 | 0.937 | −0.129 | 0.267 |
+| GB D7EW | full 1988-01..2026-08 | 464 | <0.0001 | +0.189 | 0.093 |
+| GB | last 60 | 60 | 0.243 | −0.193 | 0.267 |
+| SG M213751 row 1.11 | full 1990-01..2026-08 | 440 | 0.0120 | +0.132 | 0.096 |
+| SG | last 60 | 60 | 0.878 | +0.037 | 0.267 |
+| MY cpi_3d 111 | full 2010-01..2026-08 | 200 | 0.1675 | −0.002 | 0.143 |
+| MY | last 60 | 60 | 0.243 | −0.057 | 0.267 |
+
+Over their full histories, US, GB and SG retain positive residual autocorrelation at lag 12 (+0.13 to +0.19, outside the ±2/√T band), i.e. seasonal dependence that dummies and three lags do not remove; MY does not. In the last 60 months no series rejects, but power there is low and the dummy-induced bias (below) pushes the lag-12 autocorrelation negative. (The "last 60" rows are supplementary to the full-history fits.) The US series has **no October 2025 observation** (both the restaurant series and the headline), so no US window can span 2025-10 and no value is filled.
+
+### Evidence 2: the raw Ljung-Box(12) is miscalibrated under this specification
+`diagnostics/lb_rejection_share.py` (PR #45), simulated null series, 2,000 replications, share rejecting at 5% (standard chi-square, 2p model df):
+
+| DGP | n | y equation | x equation | either |
+|---|---|---|---|---|
+| base | 36 | 0.516 | 0.518 | 0.761 |
+| base | 100 | 0.184 | 0.189 | 0.339 |
+| persistent | 36 | 0.549 | 0.535 | 0.785 |
+| persistent | 100 | 0.193 | 0.188 | 0.348 |
+| seasonal_ar12 | 36 | 0.394 | 0.382 | 0.614 |
+| seasonal_ar12 | 100 | 0.525 | 0.584 | 0.791 |
+
+The test rejects about half the time at n = 36 and 18% at n = 100 even when the model is correctly specified. Cause: with 11 month dummies the residuals within each calendar-month class sum to zero, which forces **negative** lag-12 residual autocorrelation (checked on pure iid noise: mean lag-12 correlation −0.52 at T = 34 and −0.15 at T = 97; chi-square LB(12) rejects 45% and 14%). It also rejects *less* often at n = 36 under the seasonal DGP (0.394) than under the correct model (0.516), so it carries no signal at that size. **A flag defined on the raw chi-square test would label most countries not interpretable for no reason.**
+
+### Evidence 3: a bootstrap-calibrated Ljung-Box(12)
+`diagnostics/lb_calibrated_check.py` (PR #45), 500 replications, B = 199. The observed LB statistic (y-equation residuals of the unrestricted fit) is compared with its distribution under the restricted model regenerated by the registered recursive block bootstrap, which carries the same dummy-induced bias.
+
+| DGP | n | raw chi-square | calibrated |
+|---|---|---|---|
+| base | 36 | 0.508 | 0.020 |
+| base | 100 | 0.176 | 0.022 |
+| persistent | 36 | 0.534 | 0.024 |
+| persistent | 100 | 0.182 | 0.018 |
+| seasonal_ar12 | 36 | 0.394 | 0.022 |
+| seasonal_ar12 | 100 | 0.504 | 0.184 |
+
+The calibrated version has correct (slightly conservative, about 2%) size, but **little power**: it flags the lag-12 seasonal DGP in 2% of series at n = 36 and 18% at n = 100, while the Granger test's own over-size there is large. The flag is a weak protection, not a guarantee.
+
+### Proposed wording, for decision
+- **Option A (recommended):** the flag uses the bootstrap-calibrated Ljung-Box(12) on the y-equation residuals, as above, with the same B and seed rules as the primary test.
+- **Option B:** the flag uses the raw chi-square Ljung-Box(12) as originally drafted. Evidence 2 shows it would flag about half of countries at n = 36 irrespective of the truth.
+- In either case a flagged country-level result is reported as "not interpretable — seasonal misspecification", a flagged panel is exploratory, and the unflagged results carry the size limitation in §2.
