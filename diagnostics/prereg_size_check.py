@@ -10,10 +10,19 @@ at n = 36 and n = 100 levels, for the primary scheme and, with --recursive, the
 registered fallback. A scheme must have its rate inside [0.03, 0.07] at both n,
 else the fallback replaces it (§5.2).
 
-DGP per country: seasonal means (12 month effects, sd 0.5), AR(1) y (0.4) and x
-(0.5) with contemporaneous innovation correlation 0.3 (allowed under
-noncausality); panel countries share a common AR(1) factor loading 0.6 on both
-x and y (cross-sectional dependence). x never enters y's equation.
+DGPs (--dgp), per country: 12 deterministic month effects, AR y and x with
+contemporaneous innovation correlation 0.3 (allowed under noncausality). Panel
+countries share an i.i.d. COMMON SHOCK (loading 0.6) added to both innovations,
+which is cross-sectional dependence with the null still true. (An earlier
+version put a serially correlated common factor into the levels; that makes
+lagged x informative about y, i.e. a false null, and is not used.) x never
+enters y's equation.
+  base          month-effect sd 0.5, AR(y)=0.4, AR(x)=0.5
+  persistent    AR(y)=0.9 (high-persistence CPI), AR(x)=0.5
+  seasonal_ar12 stochastic seasonality that month dummies do NOT absorb:
+                AR(y)=0.4 and AR(x)=0.5 plus a lag-12 term of 0.5 in both
+(Deterministic month effects of any size are absorbed exactly by the 11
+dummies, so a "bigger month effect" DGP is identical to base and tests nothing.)
 
 Usage: python3 diagnostics/prereg_size_check.py --reps 2000 --seed 20261008 [--recursive] [--out FILE]
 """
@@ -38,30 +47,38 @@ warnings.filterwarnings("ignore")
 ALPHA = 0.05
 
 
-def gen_country(rng, n, common=None, load=0.6):
-    """Levels for index and CPI (n months from 2018-01) under the null."""
-    mu_y, mu_x = rng.normal(0, 0.5, 12), rng.normal(0, 0.5, 12)
+DGPS = {"base": dict(sd=0.5, phi_y=0.4, phi_x=0.5, ar12=0.0),
+        "persistent": dict(sd=0.5, phi_y=0.9, phi_x=0.5, ar12=0.0),
+        "seasonal_ar12": dict(sd=0.5, phi_y=0.4, phi_x=0.5, ar12=0.5)}
+
+
+def gen_country(rng, n, common=None, load=0.6, dgp="base"):
+    """Levels for index and CPI (n months from 2018-01) under the null.
+    common: optional i.i.d. N(0,1) array added (times load) to both innovations."""
+    g = DGPS[dgp]
+    mu_y, mu_x = rng.normal(0, g["sd"], 12), rng.normal(0, g["sd"], 12)
     L = np.linalg.cholesky(np.array([[1.0, 0.3], [0.3, 1.0]]))
     e = rng.normal(size=(n, 2)) @ L.T
+    if common is not None:
+        e = e + load * common[:, None]
     y = np.zeros(n)
     x = np.zeros(n)
     for t in range(1, n):
-        y[t] = 0.4 * y[t - 1] + e[t, 0]
-        x[t] = 0.5 * x[t - 1] + e[t, 1]
-    moy = (np.arange(n) + 0) % 12
-    y = y + mu_y[moy] + (load * common if common is not None else 0)
-    x = x + mu_x[moy] + (load * common if common is not None else 0)
+        y[t] = g["phi_y"] * y[t - 1] + (g["ar12"] * y[t - 12] if t >= 12 else 0.0) + e[t, 0]
+        x[t] = g["phi_x"] * x[t - 1] + (g["ar12"] * x[t - 12] if t >= 12 else 0.0) + e[t, 1]
+    moy = np.arange(n) % 12
+    y = y + mu_y[moy]
+    x = x + mu_x[moy]
     idx = pd.period_range("2018-01", periods=n, freq="M")
-    d_i, d_c = x[1:], y[1:]            # first difference of log level = these draws
-    li = pd.Series(100 * np.exp(np.concatenate([[0], np.cumsum(d_i)]) * 0.01), index=idx)
-    lc = pd.Series(100 * np.exp(np.concatenate([[0], np.cumsum(d_c)]) * 0.01), index=idx)
+    li = pd.Series(100 * np.exp(np.concatenate([[0], np.cumsum(x[1:])]) * 0.01), index=idx)
+    lc = pd.Series(100 * np.exp(np.concatenate([[0], np.cumsum(y[1:])]) * 0.01), index=idx)
     return li, lc
 
 
 def one_country(args):
-    n, seed, B, scheme = args
+    n, seed, B, scheme, dgp = args
     rng = np.random.default_rng(seed)
-    li, lc = gen_country(rng, n)
+    li, lc = gen_country(rng, n, dgp=dgp)
     pr = pa.prepare("S", li, lc)
     p = pa.select_lag(pr.y, pr.x, pr.moy)["p"]
     f = pa.granger_fit(pr.y, pr.x, pr.moy, p, lb=False)
@@ -73,12 +90,10 @@ def one_country(args):
 
 
 def one_panel(args):
-    n, seed, B, scheme, N = args
+    n, seed, B, scheme, N, dgp = args
     rng = np.random.default_rng(seed)
-    fac = np.zeros(n)
-    for t in range(1, n):
-        fac[t] = 0.5 * fac[t - 1] + rng.normal()
-    preps = [pa.prepare(f"C{i}", *gen_country(rng, n, common=fac)) for i in range(N)]
+    fac = rng.normal(size=n)                      # i.i.d. common shock
+    preps = [pa.prepare(f"C{i}", *gen_country(rng, n, common=fac, dgp=dgp)) for i in range(N)]
     r = pa.panel_test(preps, B=B, seed=int(rng.integers(1 << 31)), scheme=scheme)
     return r["p_boot_Ztilde"] < ALPHA, r["p_boot_Wbar"] < ALPHA, r["p_asym_Ztilde"] < ALPHA
 
@@ -96,26 +111,28 @@ def main():
     ap.add_argument("--B-panel", type=int, default=1999)
     ap.add_argument("--panel-N", type=int, default=4)
     ap.add_argument("--recursive", action="store_true", help="also check the registered fallback (slower, smaller B)")
+    ap.add_argument("--recursive-only", action="store_true", help="check only the recursive scheme")
     ap.add_argument("--B-recursive", type=int, default=499)
+    ap.add_argument("--dgp", default="base", choices=sorted(DGPS))
     ap.add_argument("--out", default=None)
     a = ap.parse_args()
-    lines = [f"size check: reps={a.reps} seed={a.seed} alpha={ALPHA} B_country={a.B_country} "
+    lines = [f"size check: dgp={a.dgp} reps={a.reps} seed={a.seed} alpha={ALPHA} B_country={a.B_country} "
              f"B_panel={a.B_panel} panel_N={a.panel_N}", ""]
     t0 = time.time()
-    schemes = [("freedman_lane", a.B_country, a.B_panel)]
-    if a.recursive:
+    schemes = [] if a.recursive_only else [("freedman_lane", a.B_country, a.B_panel)]
+    if a.recursive or a.recursive_only:
         schemes.append(("recursive", a.B_recursive, a.B_recursive))
     with ProcessPoolExecutor() as ex:
         for scheme, Bc, Bp in schemes:
             for n in (36, 100):
                 seeds = [a.seed + 1000 * n + i for i in range(a.reps)]
-                res = list(ex.map(one_country, [(n, s, Bc, scheme) for s in seeds], chunksize=20))
+                res = list(ex.map(one_country, [(n, s, Bc, scheme, a.dgp) for s in seeds], chunksize=20))
                 asym, perm = zip(*res)
                 (ra, ea), (rp, ep) = rate(asym), rate(perm)
                 lines.append(f"{scheme:14s} country n={n:3d} B={Bc:5d}: perm reject {rp:.4f} (±{ep:.4f}); "
                              f"asymptotic-F reject {ra:.4f} (±{ea:.4f})")
                 print(lines[-1], flush=True)
-                res = list(ex.map(one_panel, [(n, s + 7, Bp, scheme, a.panel_N) for s in seeds], chunksize=10))
+                res = list(ex.map(one_panel, [(n, s + 7, Bp, scheme, a.panel_N, a.dgp) for s in seeds], chunksize=10))
                 z, w, zasym = zip(*res)
                 (rz, ez), (rw, ew), (rza, eza) = rate(z), rate(w), rate(zasym)
                 lines.append(f"{scheme:14s} panel   n={n:3d} B={Bp:5d} N={a.panel_N}: Z-tilde bootstrap reject {rz:.4f} (±{ez:.4f}); "

@@ -1,13 +1,13 @@
-size check: reps=2000 seed=20261008 alpha=0.05 B_country=9999 B_panel=1999 panel_N=4
+size check: dgp=base reps=2000 seed=20261008 alpha=0.05 B_country=9999 B_panel=1999 panel_N=4
 
 freedman_lane  country n= 36 B= 9999: perm reject 0.0740 (±0.0115); asymptotic-F reject 0.0750 (±0.0115)
-freedman_lane  panel   n= 36 B= 1999 N=4: Z-tilde bootstrap reject 0.0695 (±0.0111); W-bar bootstrap 0.0695 (±0.0111); asymptotic Z-tilde (not used) 0.1105 (±0.0137)
+freedman_lane  panel   n= 36 B= 1999 N=4: Z-tilde bootstrap reject 0.0655 (±0.0108); W-bar bootstrap 0.0655 (±0.0108); asymptotic Z-tilde (not used) 0.1010 (±0.0132)
 freedman_lane  country n=100 B= 9999: perm reject 0.0530 (±0.0098); asymptotic-F reject 0.0525 (±0.0098)
-freedman_lane  panel   n=100 B= 1999 N=4: Z-tilde bootstrap reject 0.0510 (±0.0096); W-bar bootstrap 0.0510 (±0.0096); asymptotic Z-tilde (not used) 0.0745 (±0.0115)
+freedman_lane  panel   n=100 B= 1999 N=4: Z-tilde bootstrap reject 0.0425 (±0.0088); W-bar bootstrap 0.0425 (±0.0088); asymptotic Z-tilde (not used) 0.0620 (±0.0106)
 recursive      country n= 36 B=  499: perm reject 0.0655 (±0.0108); asymptotic-F reject 0.0750 (±0.0115)
-recursive      panel   n= 36 B=  499 N=4: Z-tilde bootstrap reject 0.0495 (±0.0095); W-bar bootstrap 0.0495 (±0.0095); asymptotic Z-tilde (not used) 0.1105 (±0.0137)
+recursive      panel   n= 36 B=  499 N=4: Z-tilde bootstrap reject 0.0550 (±0.0100); W-bar bootstrap 0.0550 (±0.0100); asymptotic Z-tilde (not used) 0.1010 (±0.0132)
 recursive      country n=100 B=  499: perm reject 0.0510 (±0.0096); asymptotic-F reject 0.0525 (±0.0098)
-recursive      panel   n=100 B=  499 N=4: Z-tilde bootstrap reject 0.0460 (±0.0092); W-bar bootstrap 0.0460 (±0.0092); asymptotic Z-tilde (not used) 0.0745 (±0.0115)
+recursive      panel   n=100 B=  499 N=4: Z-tilde bootstrap reject 0.0415 (±0.0087); W-bar bootstrap 0.0415 (±0.0087); asymptotic Z-tilde (not used) 0.0620 (±0.0106)
 
-elapsed 107s
+elapsed 100s
 target interval for a primary scheme: [0.03, 0.07]

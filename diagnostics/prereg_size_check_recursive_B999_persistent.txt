@@ -1,0 +1,9 @@
+size check: dgp=persistent reps=2000 seed=20261008 alpha=0.05 B_country=9999 B_panel=1999 panel_N=4
+
+recursive      country n= 36 B=  999: perm reject 0.0680 (±0.0110); asymptotic-F reject 0.0895 (±0.0125)
+recursive      panel   n= 36 B=  999 N=4: Z-tilde bootstrap reject 0.0550 (±0.0100); W-bar bootstrap 0.0550 (±0.0100); asymptotic Z-tilde (not used) 0.1270 (±0.0146)
+recursive      country n=100 B=  999: perm reject 0.0520 (±0.0097); asymptotic-F reject 0.0585 (±0.0103)
+recursive      panel   n=100 B=  999 N=4: Z-tilde bootstrap reject 0.0460 (±0.0092); W-bar bootstrap 0.0460 (±0.0092); asymptotic Z-tilde (not used) 0.0805 (±0.0119)
+
+elapsed 179s
+target interval for a primary scheme: [0.03, 0.07]

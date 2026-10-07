@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Export a SIMULATED balanced panel for cross-checking the DH statistics against Stata's xtgcause.
+"""Export a SIMULATED balanced panel for cross-checking the DH statistics against an existing implementation.
 
 Writes dh_check_panel.csv (id, t, y, x) with no month dummies, and prints this
 module's W-bar, Z-bar and Z-tilde for lag K. In Stata:
     insheet using dh_check_panel.csv, clear
     xtset id t
     xtgcause y x, lags(K)
-and compare W-bar, Z-bar, Z-bar tilde. (Not executed here: no Stata in this environment.)
+and compare W-bar, Z-bar, Z-bar tilde. (Stata not available here. The same CSV was checked against R plm::pgrangertest
+with diagnostics/dh_check_pgrangertest.R: exact agreement, see that file.)
 
 Usage: python3 diagnostics/dh_export_for_xtgcause.py [K] [out.csv]
 """
