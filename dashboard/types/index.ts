@@ -10,6 +10,7 @@ export interface IndexPoint {
 export interface CountrySummary {
   granger_significant: boolean | null;
   granger_p_value: number | null;
+  granger_note?: string | null;
   lead_months: number | null;
   pass_through_formal: number | null;
   pass_through_informal: number | null;

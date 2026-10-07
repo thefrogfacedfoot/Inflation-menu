@@ -149,6 +149,7 @@
   "United States": {
     "granger_significant": true,
     "granger_p_value": 0.0499,
+    "granger_note": "superseded — earlier specification, see docs/preregistration.md",
     "lead_months": 1,
     "pass_through_formal": -0.0043,
     "pass_through_informal": null,

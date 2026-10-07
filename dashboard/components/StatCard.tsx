@@ -4,9 +4,10 @@ interface Props {
   unit?: string;
   sub?: string;
   highlight?: boolean;
+  naLabel?: string;
 }
 
-export default function StatCard({ label, value, unit, sub, highlight }: Props) {
+export default function StatCard({ label, value, unit, sub, highlight, naLabel }: Props) {
   return (
     <div
       className={`rounded-lg border p-4 ${
@@ -16,7 +17,7 @@ export default function StatCard({ label, value, unit, sub, highlight }: Props) 
       <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">{label}</p>
       <p className="mt-1 text-2xl font-bold text-gray-900">
         {value == null ? (
-          <span className="text-gray-400 text-base">Pending</span>
+          <span className="text-gray-400 text-base">{naLabel ?? "Pending"}</span>
         ) : (
           <>
             {value}

@@ -1,3 +1,5 @@
+> **The US F=4.20 / p=0.0499 figure cited below is superseded — earlier specification, see docs/preregistration.md.**
+
 > **DEPRECATED (2026-07-06).** The results below use the original spec, which
 > intersected CPI to menu-observation months before differencing and therefore
 > mixed 1–9-month CPI changes. Do not cite F=6.034 / p=0.021. The current

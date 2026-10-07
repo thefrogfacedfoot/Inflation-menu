@@ -26,6 +26,10 @@ INDEX_CSV    = "uifpi_index.csv"
 GRANGER_JSON = "analysis_results/granger_results.json"
 GAP_ROBUSTNESS_JSON = "analysis_results/gap_robustness.json"
 DB_PATH      = "uifpi.db"
+
+# Label attached to the US headline figure (F=4.20 / p=0.0499) in the dashboard
+# JSON; the figure is from an earlier specification (see the pre-registration).
+SUPERSEDED_NOTE = "superseded — earlier specification, see docs/preregistration.md"
 OUT_DIR      = "dashboard_data"
 # Next.js dashboard reads JSON from this path at build time (see
 # dashboard/lib/data.ts). Keep both in sync so Vercel deployments pick up
@@ -93,6 +97,7 @@ def apply_headline_respec(granger: dict,
         granger[country]["granger_f_statistic"] = spec["F"]
         granger[country]["granger_significant"] = spec["p_analytic"] < 0.05
         granger[country]["granger_spec"] = "calendar_true (gap_robustness respec 2026-07-06)"
+        granger[country]["granger_note"] = SUPERSEDED_NOTE
     return granger
 
 
@@ -367,6 +372,9 @@ def build_country_summary(granger: dict, index_df: pd.DataFrame,
             "avg_price_informal_usd":   pc["avg_price_informal_usd"],
             "status":                   status,
         }
+        # Only the respecified country carries a note; others keep their shape.
+        if g.get("granger_note"):
+            summary[country]["granger_note"] = g["granger_note"]
 
     return summary
 

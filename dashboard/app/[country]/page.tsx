@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { getCountryData, seriesToCsv } from "@/lib/data";
 import IndexChart from "@/components/IndexChart";
 import StatCard from "@/components/StatCard";
+import SupersededNote from "@/components/SupersededNote";
 import {
   SLUG_TO_COUNTRY,
   COUNTRY_FLAGS,
@@ -153,7 +154,12 @@ export default async function CountryPage({ params }: PageProps) {
                   CPI {CPI_CLASS_LABEL[cpiClass]}
                 </span>
               )}
-              {summary?.granger_significant ? (
+              {summary?.granger_note ? (
+                <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  Superseded
+                </span>
+              ) : summary?.granger_significant ? (
                 <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-800 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                   Granger Significant
@@ -173,6 +179,9 @@ export default async function CountryPage({ params }: PageProps) {
       {/* Granger results callout — US (positive) and India / Malaysia (null).
           The other 5 countries don't yet have enough months for a valid
           test; they keep the in-chart "Data Collection Ongoing" notice. */}
+      {(countryName === "United States" ||
+        countryName === "India" ||
+        countryName === "Malaysia") && <SupersededNote className="mb-4" />}
       {countryName === "United States" && <USGrangerCallout />}
       {countryName === "India" && <IndiaGrangerCallout />}
       {countryName === "Malaysia" && <MalaysiaGrangerCallout />}
@@ -214,10 +223,23 @@ export default async function CountryPage({ params }: PageProps) {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
         <StatCard
           label="Lead Time"
-          value={summary?.lead_months != null ? summary.lead_months : null}
-          unit={summary?.lead_months != null ? "months" : undefined}
-          sub="Ahead of official CPI"
-          highlight={summary?.lead_months != null}
+          value={
+            summary?.lead_months != null && !summary?.granger_note
+              ? summary.lead_months
+              : null
+          }
+          unit={
+            summary?.lead_months != null && !summary?.granger_note
+              ? "months"
+              : undefined
+          }
+          sub={
+            summary?.granger_note
+              ? "Earlier specification, superseded"
+              : "Ahead of official CPI"
+          }
+          highlight={summary?.lead_months != null && !summary?.granger_note}
+          naLabel={summary?.granger_note ? "n/a — superseded" : undefined}
         />
         <StatCard
           label="Chain Pass-Through"
@@ -356,44 +378,43 @@ const FULL_RESULTS_URL =
 
 function USGrangerCallout() {
   return (
-    <div className="rounded-xl border border-green-200 bg-green-50 p-5 mb-6">
+    <div className="rounded-xl border border-amber-200 bg-amber-50 p-5 mb-6">
       <div className="flex items-center gap-2 mb-2">
-        <span className="inline-flex w-2 h-2 rounded-full bg-green-500" />
-        <h2 className="font-semibold text-green-900 text-base">
-          UIFPI Granger-causes CPI at 1-month lead
+        <span className="inline-flex w-2 h-2 rounded-full bg-amber-500" />
+        <h2 className="font-semibold text-amber-900 text-base">
+          Earlier US result superseded
         </h2>
       </div>
+      <p className="text-xs font-medium text-amber-800 mb-3">
+        An earlier US result has been superseded; a pre-specified re-analysis is pending (see docs/preregistration.md). The figures below are from the earlier specification and are kept for reference only.
+      </p>
       <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm mb-3">
         <div>
-          <dt className="text-xs text-green-700 uppercase tracking-wide">F</dt>
-          <dd className="font-mono font-semibold text-green-900">4.201</dd>
+          <dt className="text-xs text-amber-700 uppercase tracking-wide">F</dt>
+          <dd className="font-mono font-semibold text-amber-900">4.201</dd>
         </div>
         <div>
-          <dt className="text-xs text-green-700 uppercase tracking-wide">p</dt>
-          <dd className="font-mono font-semibold text-green-900">0.0499</dd>
+          <dt className="text-xs text-amber-700 uppercase tracking-wide">p</dt>
+          <dd className="font-mono font-semibold text-amber-900">0.0499</dd>
         </div>
         <div>
-          <dt className="text-xs text-green-700 uppercase tracking-wide">n</dt>
-          <dd className="font-mono font-semibold text-green-900">31</dd>
+          <dt className="text-xs text-amber-700 uppercase tracking-wide">n</dt>
+          <dd className="font-mono font-semibold text-amber-900">31</dd>
         </div>
         <div>
-          <dt className="text-xs text-green-700 uppercase tracking-wide">Lag</dt>
-          <dd className="font-mono font-semibold text-green-900">1 mo</dd>
+          <dt className="text-xs text-amber-700 uppercase tracking-wide">Lag</dt>
+          <dd className="font-mono font-semibold text-amber-900">1 mo</dd>
         </div>
       </dl>
-      <p className="text-sm text-green-900 leading-relaxed">
+      <p className="text-sm text-amber-900 leading-relaxed">
         Calendar-true specification: exact 1-month lags on full-calendar CPI
         changes, no imputation (permutation p = 0.052 shuffle / 0.069 block).
-        Forward-filling single-month menu gaps with past information only
-        strengthens the result (n = 38, F = 9.05, p = 0.0048). The result is a{" "}
-        <span className="font-semibold">timing signal</span>, not a level
-        coincidence.
       </p>
       <a
         href={FULL_RESULTS_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block mt-3 text-xs font-medium text-green-800 underline hover:text-green-900"
+        className="inline-block mt-3 text-xs font-medium text-amber-800 underline hover:text-amber-900"
       >
         Full multi-lag table & methodology notes →
       </a>

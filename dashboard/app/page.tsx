@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCountrySummaries, getLatestValues } from "@/lib/data";
 import CountryMap from "@/components/CountryMap";
+import SupersededNote from "@/components/SupersededNote";
 import {
   COUNTRIES,
   COUNTRY_FLAGS,
@@ -19,7 +20,21 @@ function fmt(v: number | null | undefined, decimals = 1): string {
   return v.toFixed(decimals);
 }
 
-function StatusBadge({ significant }: { significant: boolean }) {
+function StatusBadge({
+  significant,
+  superseded,
+}: {
+  significant: boolean;
+  superseded?: boolean;
+}) {
+  if (superseded) {
+    return (
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+        Superseded
+      </span>
+    );
+  }
   return significant ? (
     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
       <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -72,7 +87,10 @@ function CountryCard({
             </span>
           </div>
         </div>
-        <StatusBadge significant={s?.granger_significant ?? false} />
+        <StatusBadge
+          significant={s?.granger_significant ?? false}
+          superseded={!!s?.granger_note}
+        />
       </div>
 
       <div className="grid grid-cols-2 gap-2 text-sm">
@@ -101,7 +119,7 @@ function CountryCard({
 
       <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
         <span>
-          {s?.lead_months != null
+          {s?.lead_months != null && !s?.granger_note
             ? `Leads CPI by ${s.lead_months} month${s.lead_months !== 1 ? "s" : ""}`
             : `${s?.months_of_data ?? 0} months collected`}
         </span>
@@ -136,7 +154,7 @@ export default async function HomePage() {
   ]);
 
   const sigCount = COUNTRIES.filter(
-    (c) => summaries[c]?.granger_significant
+    (c) => summaries[c]?.granger_significant && !summaries[c]?.granger_note
   ).length;
   const totalItems = COUNTRIES.reduce(
     (acc, c) =>
@@ -172,12 +190,9 @@ export default async function HomePage() {
                 MIT Billion Prices Project
               </span>{" "}
               to chain restaurants and independent hawker stalls across 10
-              countries. Tests whether food service prices lead official CPI
-              as an early inflation signal — and{" "}
-              <span className="text-white font-medium">
-                finds they do in the US, with a 1-month lead (p = 0.0499)
-              </span>
-              .
+              countries. Tests whether restaurant menu prices lead official CPI.
+              An earlier US result has been superseded; a pre-specified
+              re-analysis is pending.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -230,6 +245,7 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
+          <SupersededNote className="mt-4" />
         </div>
       </section>
 
