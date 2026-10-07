@@ -88,7 +88,7 @@ pending Anthropic API credits).
 
 ## Granger Causality Results (superseded — earlier specification; see docs/preregistration.md)
 
-> **Superseded.** The table below is a 2026-06-13 snapshot from an earlier, pre-respec specification and is kept only as history. The published US result, F(1,28) = 4.20, p = 0.0499 (n = 31, 2018-04 to 2024-10), comes from a different, fixed specification (`gap_robustness.py`): CPI_chg(t) ~ 1 + CPI_chg(t-1) + UICPI(t-1), UICPI in levels, CPI differenced month-over-month, exact calendar-month lags, headline OECD HICP CPI, no month dummies. It is exploratory, not a validated finding.
+> **Superseded.** The table below is a 2026-06-13 snapshot from an earlier, pre-respec specification and is kept only as history. The published US result, F(1,28) = 4.20, p = 0.0499 (n = 31, 2018-04 to 2024-10), comes from a different, fixed specification (`gap_robustness.py`): CPI_chg(t) ~ 1 + CPI_chg(t-1) + UICPI(t-1), UICPI in levels, CPI differenced month-over-month, exact calendar-month lags, CPI from OECD PRICES_CPI `USA.M.HICP.CPI.IX._T.N._Z` (OECD's HICP-methodology series, 2015=100; not the BLS CPI-U), no month dummies; UICPI enters in levels, so the p-value is not relied on (see docs/preregistration.md). It is exploratory, not a validated finding.
 
 | Country        | Granger p-value | Lag | β pass-through |    R² | Sig. |
 |----------------|----------------:|----:|---------------:|------:|:----:|
