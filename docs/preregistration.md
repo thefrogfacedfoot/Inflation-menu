@@ -1,7 +1,7 @@
-# UICPI Pre-registration, v1 (DRAFT, revision 3)
+# UICPI Pre-registration, v1 (DRAFT, revision 4)
 
 Status: DRAFT for review. Becomes binding when merged; the merge commit SHA is the registered version.
-Drafted: 2026-10-07. Revised: 2026-10-07 (revisions 2 and 3). No analysis was run and no index values were viewed while writing or revising this document. Data touched in revisions 2 and 3: official-series metadata (IDs, start/end dates, adjustment status, code-label lookups) for §2, and one read-only count of `prices` rows per `source` (§0, D1).
+Drafted: 2026-10-07. Revised: 2026-10-07 (revisions 2 to 4). No analysis was run and no index values were viewed while writing or revising this document. Data touched in revisions 2 to 4: official-series metadata (IDs, start/end dates, adjustment status, code-label lookups) for §2; one read-only count of `prices` rows per `source` (§0, D1); and a Monte Carlo on simulated data (no project data) to check the §3 power figures.
 
 **Study type: pre-specified analysis of partially observed data.** This is not a blind pre-registration (§0). The word "confirmatory" in this document always carries that qualifier.
 
@@ -20,7 +20,7 @@ Prior country-level Granger runs and related looks, all treated as seen:
 | US (source-stratified) | menupages-only F=6.22, p=0.021, n=27; with DoorDash pooled F=0.006, p=0.94, n=38 (`diagnostics/diag_us_no_doordash.py`). A related stratified run reports F=5.56, p=0.026, n=31 without DoorDash. |
 | India | F=0.521, p=0.474, n=47 (paper draft). |
 | Malaysia | F=0.111, p=0.742, n=30 (paper draft). |
-| Singapore | **Withdrawn pending reproduction.** The figure p=0.092 (lag 2, n=12) appears in `diagnostic_report_v3.txt`, `diagnostic_report_v4.txt`, `README.md`, `CHANGELOG.md` and `docs/archival_data_findings_2026-06-16.md`, but its provenance could not be traced: no committed script, command, or data snapshot that reproduces it was found, and the current `analysis_results/granger_results.json` lists SG with n=8, below the n=24 threshold. It is not cited as a result and is not counted as a prior run until reproduced. |
+| Singapore | **Withdrawn; not evidence of anything even if reproduced.** The figure p=0.092 (lag 2, n=12) appears in `diagnostic_report_v3.txt`, `diagnostic_report_v4.txt`, `README.md`, `CHANGELOG.md` and `docs/archival_data_findings_2026-06-16.md`. Its provenance could not be traced: no committed script, command, or data snapshot that reproduces it was found, and the current `analysis_results/granger_results.json` lists SG with n=8, below the n=24 threshold. It also cannot have come from this registration's specification: n=12 levels gives 11 differences, 9 usable observations at lag 2, against 16 parameters (constant, 11 dummies, 4 lag terms), i.e. negative residual df. It must therefore have come from a different, much smaller specification (details unrecorded) with at most a handful of residual df. It is not cited as a result and is not counted as a prior run. A reproduction, if ever done, would be reported as exploratory. |
 | Australia, Indonesia, UK | Below the n=24 threshold in `analysis_results/granger_results.json` (n=23, 20, 18); no test reported. |
 | Thailand | No overlap with a monthly CPI series; no test. |
 | Vietnam, UAE | Earlier Granger statistics (VN n=12, p=0.42; UAE n=47, F=0.016, p=0.90) were computed on corrupted Wayback slices and are withdrawn. |
@@ -55,7 +55,7 @@ Consequences stated plainly:
 | Wayback/TripAdvisor | 10 |
 | Wayback/wongnai | 1 |
 
-  No DoorDash-labelled live source exists. Caveats: the `js` label (generic JS scraper, 265,889 rows) is not broken down by platform, and I ran no other query, so labels alone cannot show that none of it came from DoorDash; the code history says live DoorDash returned nothing. The bare `wayback`, `Wayback/TripAdvisor` and `Wayback/wongnai` labels, and the non-restaurant `official_price_series_bls_apu`, show the source taxonomy has several label generations, which a whitelist must handle (§9 item 2).
+  No DoorDash-labelled live source exists. The largest open provenance gap is the `js` label (265,889 rows, about 4× the `wayback-doordash` count). `live_scraper.py` writes the literal `'js'` for every target routed through `scrape_js`, and that function is the handler for the `js`, `doordash`, `deliveroo`, `ubereats` and `gofood` target types (lines 1668, 1707-1711). So the label hides the platform, and nothing in the labels rules out DoorDash (or any other platform) inside `js`. The code history says live DoorDash returned nothing, but that is not a row-level check. `js` rows are also live-scraper output (residential-IP), which §8 already makes supplementary-only. **Rule adopted: `js` is quarantined from the confirmatory index entirely** (§8, §9 item 2) until its rows are broken down by platform from the scraper's logged URL or domain. The bare `wayback`, `Wayback/TripAdvisor` and `Wayback/wongnai` labels, and the non-restaurant `official_price_series_bls_apu`, show the source taxonomy has several label generations, which a whitelist must handle (§9 item 2).
 - Many sweep snapshots parsed to "0 items" (e.g. a 97% zero-item rate on an earlier sweep). That affects coverage, not provenance.
 - The exclusion rationale on record is explicitly "a deliberate scope decision, not a data-quality bail": delivery-platform prices embed fees and markup, and the pooled index diluted the Granger statistic.
 
@@ -105,20 +105,29 @@ Inclusion is evaluated on data counts only (series length, restaurant counts) by
 
 **D2 = 36 (decided).**
 
-**Minimum detectable effect at n=36, with the 11 month dummies (approximate, hand calculation, not yet simulated).** n=36 monthly levels gives 35 differences. Each equation has a constant, p lags of each variable (2p coefficients), and 11 month dummies:
+**Minimum detectable effect at n=36, with the 11 month dummies.**
 
-| Lag p | Regression obs (35 − p) | Parameters (1 + 2p + 11) | **Residual df** |
+*Degrees of freedom, and what n counts.* n is the number of monthly **levels** in the contiguous run (§4.5). n=36 levels gives 35 first differences. A VAR(p) loses p differences to lags, so each equation has T = 35 − p regression observations. There is **no trend term**. Each equation has a constant, 11 month dummies, and p lags of each variable (2p coefficients). Residual df of the unrestricted equation:
+
+| Lag p | T = 35 − p | Parameters (1 + 11 + 2p) | **Residual df** |
 |---|---|---|---|
 | 1 | 34 | 14 | **20** |
 | 2 | 33 | 16 | **17** |
 | 3 | 32 | 18 | **14** |
 
-At α=0.05 and 80% power, using a noncentral-F approximation for one country's Granger test:
-- Lag 1 (1 restriction, residual df 20): λ≈8.7, so partial f²≈0.26, i.e. a partial R² for the lagged index term of about 0.20 (partial correlation about 0.45).
-- Lag 3 (3 restrictions, residual df 14): λ≈13, so partial f²≈0.4, i.e. partial R² about 0.3.
-- At n=36 a single-country test therefore detects only a **large** lead-lag effect. Power for a medium effect (partial R² ≈ 0.10) is low, and a null at this n is not evidence of absence. This is before any multiplicity correction, which only raises the minimum detectable effect.
-- The panel test (primary, §6) pools countries and has more power than any one country, but its power depends on how many countries enter and on the common window length, neither of which is known yet. It is not quantified here.
-- These figures are hand approximations. The code PR (§9 item 1) replaces them with a simulation-based power calculation run on simulated data, not on index values.
+(A calculation that counts all 35 differences at every lag, without losing p to lags, gives 21, 18, 15. That is a different convention; this registration uses T = 35 − p.)
+
+*Minimum detectable partial R² of the lagged-index block* (noncentral F, α = 0.05, power 0.80, λ = f²·(u+v+1) with u = p restrictions and v = the residual df above, f² = R²/(1−R²)):
+
+| Lag p | Residual df | **MDE (partial R²)** |
+|---|---|---|
+| 1 | 20 | **0.28** |
+| 2 | 17 | **0.37** |
+| 3 | 14 | **0.45** |
+
+These replace the earlier hand approximations (about 0.20 at lag 1 and 0.30 at lag 3), which were too low (they used λ = f²·T). A Monte Carlo on simulated regressors, with the same design (constant, 11 month dummies, own lags, 1,500 replications, df as above) corroborates the corrected figures: at lag 1, power was 0.59 at partial R² = 0.20 and 0.76 at 0.28; at lag 3, power was 0.74 at 0.45 (so the lag-3 MDE is at or slightly above 0.45). Script: simulation only, no project data.
+
+Reading: at n=36 a single country's Granger test can only detect a **very large** lead-lag effect (the lagged index explaining 28% to 45% of the CPI variance left after the other regressors). A null at this n is not evidence of absence. This is before multiplicity correction, which only raises the MDE. The panel test (§6) pools countries and has more power, but how much depends on how many countries enter and on the common window; that is not quantified here. The code PR (§9 item 1) replaces these figures with a scripted calculation and a size check, run on simulated data only.
 
 ## 4. Specification (fixed)
 
@@ -145,9 +154,15 @@ At α=0.05 and 80% power, using a noncentral-F approximation for one country's G
 
 5.1 Raw p-value: the asymptotic F-test p-value, always reported next to the permutation p.
 
-5.2 Circular-block permutation (primary p-value for country-level tests). The permuted object is the x series (month dummies are not permuted). Cut it into circular blocks of length b, draw blocks with replacement, concatenate to the original length, and recompute the F statistic. y is not permuted. B = 9,999, fixed seed recorded in the results commit. p = (1 + #{F* ≥ F_obs}) / (B + 1).
+5.2 Permutation scheme (primary p-value for country-level tests): **Freedman–Lane with circular blocks of restricted-model residuals.** Permuting the raw index series would destroy its autocorrelation and misalign its seasonal pattern with the month dummies, so the null distribution would be wrong. Instead, for each country:
+1. Fit the restricted model for the CPI equation: y on a constant, the 11 month dummies and p lags of y (no index lags). Keep its fitted values ŷ and residuals e.
+2. Cut e (in calendar order) into circular blocks of length b, draw blocks with replacement and concatenate to the original length to get e*.
+3. Form y* = ŷ + e*. Recompute the Granger F statistic from the unrestricted model with y* as the dependent variable and the **original, unpermuted** regressors (x lags, y lags, dummies). Regressors are held fixed, so x keeps its own autocorrelation and seasonality.
+4. B = 9,999 draws, fixed seed recorded in the results commit. p = (1 + #{F* ≥ F_obs}) / (B + 1).
 
-**D6 (as recommended):** b = ⌈n^(1/3)⌉ per country (n = number of differenced observations), floor 3, cap 6. Report p at b±1 as an exploratory robustness line.
+Holding the lagged-y regressors at their observed values is an approximation to a fully recursive scheme. The code PR (§9 item 1) must show by simulation on data generated under the null (an AR process for y, an independent autocorrelated x, with seasonality) that the rejection rate at α=0.05 is close to 5% for n=36 and n=100; if not, the scheme is revised before any real data are run. Permuting blocks of the raw x series is an exploratory robustness check only.
+
+**D6 (as recommended):** b = ⌈n^(1/3)⌉ per country applied to the residual blocks above (n = number of regression observations), floor 3, cap 6. Report p at b±1 as an exploratory robustness line.
 
 5.3 Multiplicity for the **secondary** country-level family. Within the family of countries from §3, for the primary outcome:
 - Romano–Wolf stepdown adjusted p-values from the permutation distributions. Blocks are drawn on a common calendar index, so overlapping months share the same resampling and cross-country dependence is retained.
@@ -156,17 +171,23 @@ At α=0.05 and 80% power, using a noncentral-F approximation for one country's G
 
 Country-level evidence is claimed only where the Romano–Wolf adjusted p < 0.05, and is labelled secondary. The headline-CPI outcome is its own family with its own adjustment and is never pooled.
 
-## 6. Panel test (primary confirmatory test, unconditional)
+## 6. Panel test (primary confirmatory test when the panel is large enough)
 
-The **Dumitrescu–Hurlin panel Granger test is the primary confirmatory test, unconditionally.** It is not conditional on how many countries reach any n threshold. The country-level tests (§5) are secondary.
+The **Dumitrescu–Hurlin (DH) panel Granger test is the primary confirmatory test, provided the panel has at least N_PANEL countries (D8).** It does not depend on any country reaching n ≥ 100. The country-level tests (§5) are secondary, except under the small-panel rule below.
 
 - Panel: all countries meeting the §3 inclusion rule; same transforms (§4), month dummies, and NSA series.
-- Statistic: the Z̃-bar (small-T standardised) statistic; W-bar also reported.
+- Statistic: the Z̃-bar statistic; W-bar also reported.
 - **Window:** the **common calendar window**, the months for which every included country has a valid observation, so the panel is balanced.
 - Lag: the common lag p from the BIC rule (§4.3) applied to the pooled panel.
-- **Inference:** the p-value comes from the circular-block permutation with **blocks drawn on calendar time and applied jointly across countries** (the same calendar blocks to every country's x series in each draw), so cross-sectional dependence is preserved. Asymptotic Z̃ is reported but not used for the decision.
+- **Inference: bootstrap, never asymptotic.** DH's Z̃-bar relies on N → ∞ and assumes cross-sectional independence. At small N the normal approximation is not trustworthy, and food prices in neighbouring countries (SG, MY, TH, ID in particular) share common shocks. So the p-value used for the decision is a **bootstrap p-value that preserves cross-sectional dependence**: each draw applies the §5.2 Freedman–Lane scheme in every country, with the **same calendar-time blocks drawn once per draw and applied jointly to all countries' restricted residuals**, and recomputes Z̃-bar (and W-bar). B = 9,999. The asymptotic Z̃ p-value is reported but never used for a decision, at any N. (The code PR should compare this scheme against an existing implementation, such as the `xtgcause` bootstrap, on simulated panels with common shocks.)
 - The code is written from Dumitrescu–Hurlin (2012) and committed.
-- **Failure mode, stated now:** if the common window is shorter than N_MIN=36 months, or fewer than 2 countries are included, the primary test cannot be run as registered. The run **stops and reports**; it does not shorten the threshold, drop countries post hoc, or substitute another test.
+
+**D8 (DECISION FOR WC): minimum panel size and the small-panel rule.**
+Recommendation: **N_PANEL = 4.**
+- If N ≥ 4: DH is the primary confirmatory test, as above.
+- If N < 4 (including the likely case N = 2 if TH and ID stay unverified): DH is **still computed and reported, but as exploratory**, with bootstrap p only. The **primary confirmatory test becomes the country-level family** (§5): Romano–Wolf adjusted permutation p for N = 2 or 3, and a single unadjusted permutation p for N = 1. This is declared now and depends only on the data-count rule in §3, not on any result.
+- If N = 0, or the common calendar window is shorter than 36 months, the panel cannot be run as registered. The run **stops and reports**; it does not shorten the threshold, drop countries post hoc, or substitute another test. The country-level tests are then still run on each country's own window and labelled secondary.
+Reason: with N = 2 or 3 a "panel" adds little over the country tests and its asymptotics are weakest there, but a bootstrap p remains valid in principle, so it is kept as an exploratory report rather than discarded. N = 4 is the smallest size I would call a panel; there is no theory that gives a sharp cutoff, so this is a judgement.
 
 **D7 (decided):** panel on the common calendar window, calendar-time blocks applied jointly.
 
@@ -174,8 +195,8 @@ The **Dumitrescu–Hurlin panel Granger test is the primary confirmatory test, u
 
 "Confirmatory" here always means *pre-specified analysis of partially observed data* (§0).
 
-- **Primary confirmatory (C1):** the Dumitrescu–Hurlin panel test, UICPI → restaurant / food-away-from-home CPI, with permutation p (§6).
-- **Secondary confirmatory (C2):** per-country Granger tests for countries in the §3 family, with raw p, block-permutation p, Romano–Wolf p and BH q.
+- **Primary confirmatory (C1):** if N ≥ N_PANEL (D8), the Dumitrescu–Hurlin panel test, UICPI → restaurant / food-away-from-home CPI, with bootstrap p (§6). If N < N_PANEL, C1 is instead the country-level family below, with Romano–Wolf adjusted p (N = 2 or 3) or the single permutation p (N = 1), and DH is exploratory.
+- **Secondary confirmatory (C2):** per-country Granger tests for countries in the §3 family, with raw p, Freedman–Lane block-permutation p, Romano–Wolf p and BH q (secondary when C1 is the panel).
 - **Secondary confirmatory (C3):** UICPI → headline CPI (panel and per-country), its own family, labelled secondary.
 
 Everything else is exploratory and must be labelled "exploratory" wherever it appears, including:
@@ -191,16 +212,17 @@ Everything else is exploratory and must be labelled "exploratory" wherever it ap
 - The confirmatory index uses only: archival data (Wayback Machine snapshots fetched via the raw-bytes `id_` path), data from public sites, and the hawker fieldwork. Every Wayback row carries its snapshot timestamp, original URL and CDX digest so each price is traceable.
 - **DoorDash:** the D1 audit shows `wayback-doordash` is Internet Archive data collected without proxy or block circumvention, so it is **in** the confirmatory index. The DoorDash-excluded index is an exploratory sensitivity. If a later audit finds DoorDash rows from residential-IP or circumvented live access, those rows are removed from the confirmatory index.
 - Residential-IP live-scrape data (`live_scraper.py`, nightly cron) is supplementary only. It may appear in clearly labelled exploratory figures and sensitivity analyses and never contributes to a confirmatory index level or test.
-- The confirmatory index is built with an explicit source whitelist (§9 item 2); the current builder has no provenance filter.
+- The confirmatory index is built with an explicit source whitelist (§9 item 2); the current builder has no provenance filter. **The `js` source is quarantined entirely** (265,889 rows whose platform is hidden by the label; also live-scraper output). It may re-enter only after its rows are broken down by platform from the logged URL or domain, a rule is committed, and it is shown to contain no DoorDash or other circumvention-collected data; that change would be a deviation (§7) unless made before merge.
 - Code is frozen at a commit SHA recorded in the results commit. If the specification cannot be executed as written, the run stops and reports. It does not improvise.
 
 ## 9. Code PRs required before the confirmatory run (none done yet)
 
-1. **`granger_analysis.py` (or a new script) implementing this specification.** Today's script uses AIC (max lag 4), has no BIC rule, no month dummies, no ADF+KPSS gate, no Ljung–Box diagnostic, no circular-block permutation (b=⌈n^(1/3)⌉, B=9,999), no Romano–Wolf or BH, no Dumitrescu–Hurlin panel, and no calendar-true contiguous-run handling; it also interpolates AU. Includes the simulation-based power calculation that replaces the §3 hand figures.
-2. **Provenance whitelist in `index_builder.py`.** Add an explicit source whitelist for the confirmatory index (archival `wayback-*` and public-site sources only; live-scrape sources excluded), handling every label generation present in `prices` (including `wayback`, `Wayback/TripAdvisor`, `Wayback/wongnai`, and excluding non-restaurant `official_price_series_bls_apu`). Enforce the ≥15 matched-restaurant rule per country-month, emit missing months as missing (no carry-forward), and make `EXCLUDED_SOURCES` a switch so the D1 sensitivity index comes from the same code path.
+1. **`granger_analysis.py` (or a new script) implementing this specification.** Today's script uses AIC (max lag 4), has no BIC rule, no month dummies, no Freedman–Lane residual-block permutation, no bootstrap panel scheme, no ADF+KPSS gate, no Ljung–Box diagnostic, no circular-block permutation (b=⌈n^(1/3)⌉, B=9,999), no Romano–Wolf or BH, no Dumitrescu–Hurlin panel, and no calendar-true contiguous-run handling; it also interpolates AU. Includes a scripted power calculation (replacing the §3 table's hand-entered values) and null-simulation size checks of the §5.2 scheme and the §6 bootstrap (n=36, n=100; panels with common shocks), all on simulated data.
+2. **Provenance whitelist in `index_builder.py`.** Add an explicit source whitelist for the confirmatory index (archival `wayback-*` and public-site sources only; live-scrape sources excluded, **`js` quarantined entirely**, §8), handling every label generation present in `prices` (including `wayback`, `Wayback/TripAdvisor`, `Wayback/wongnai`, and excluding non-restaurant `official_price_series_bls_apu`). Enforce the ≥15 matched-restaurant rule per country-month, emit missing months as missing (no carry-forward), and make `EXCLUDED_SOURCES` a switch so the D1 sensitivity index comes from the same code path.
 3. **Monthly CPI ingestion for the five countries.** Wire the monthly NSA restaurant/food-away-from-home series into the CPI pipeline (`get_monthly_cpi_all.py` currently loads headline/food and falls back to World Bank annual): US `CUUR0000SEFV`, GB `D7EW`, SG `M213751` row `1.11`, MY `cpi_3d` group `111`, and TH and ID once verified (§2). Record the series ID, vintage, and fetch date; implement the §2 rebasing/splicing rule. Remove AU interpolation from the primary path.
 
 ## 10. Pre-merge checklist
 
 - [ ] TH and ID: WC to supply raw files; verify series ID, start date, NSA status, and any rebasing break (§2), then remove the VERIFY tags.
+- [ ] Resolve D8 (N_PANEL and the small-panel rule).
 - [ ] Record the merge commit SHA as the registered version.
