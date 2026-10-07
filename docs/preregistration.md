@@ -59,7 +59,7 @@ Consequences stated plainly:
 - Many sweep snapshots parsed to "0 items" (e.g. a 97% zero-item rate on an earlier sweep). That affects coverage, not provenance.
 - The exclusion rationale on record is explicitly "a deliberate scope decision, not a data-quality bail": delivery-platform prices embed fees and markup, and the pooled index diluted the Granger statistic.
 
-**Resolution under your rule (D1):** the DoorDash data are archival, not circumvention-collected, so they are **included in the primary confirmatory index**. The exclusion is reported as a **labelled sensitivity analysis** (index built with `wayback-doordash` removed). The result-informed exclusion is not used for the primary. Expect this to change the US primary result relative to the published headline.
+**Resolution under the D1 rule:** the DoorDash data are archival, not circumvention-collected, so they are **included in the primary confirmatory index**. The exclusion is reported as a **labelled sensitivity analysis** (index built with `wayback-doordash` removed). The result-informed exclusion is not used for the primary. Expect this to change the US primary result relative to the published headline.
 
 ## 1. Primary hypothesis
 
@@ -117,17 +117,17 @@ Inclusion is evaluated on data counts only (series length, restaurant counts) by
 
 (A calculation that counts all 35 differences at every lag, without losing p to lags, gives 21, 18, 15. That is a different convention; this registration uses T = 35 − p.)
 
-*Minimum detectable partial R² of the lagged-index block* (noncentral F, α = 0.05, power 0.80, λ = f²·(u+v+1) with u = p restrictions and v = the residual df above, f² = R²/(1−R²)):
+*Minimum detectable effect (simulated).* Monte Carlo, `diagnostics/mde_simulation.py` (simulated data only, no project data; standard library; seed 20261007; 2,000 replications per grid point). Design: the residual df above, iid N(0,1) regressors and errors, the tested block's effect spread equally over its p lags, joint F test at α = 0.05. Effect size is the population partial R² of the lagged-index block. Interpolated **MDE at 80% power**:
 
-| Lag p | Residual df | **MDE (partial R²)** |
-|---|---|---|
-| 1 | 20 | **0.28** |
-| 2 | 17 | **0.37** |
-| 3 | 14 | **0.45** |
+| Lag p | Residual df | **Simulated MDE (partial R²)** | Power at partial R² = 0.30 |
+|---|---|---|---|
+| 1 | 20 | **0.31** | 0.78 |
+| 2 | 17 | **0.40** | 0.64 |
+| 3 | 14 | **0.49** | 0.50 |
 
-These replace the earlier hand approximations (about 0.20 at lag 1 and 0.30 at lag 3), which were too low (they used λ = f²·T). A Monte Carlo on simulated regressors, with the same design (constant, 11 month dummies, own lags, 1,500 replications, df as above) corroborates the corrected figures: at lag 1, power was 0.59 at partial R² = 0.20 and 0.76 at 0.28; at lag 3, power was 0.74 at 0.45 (so the lag-3 MDE is at or slightly above 0.45). Script: simulation only, no project data.
+The simulation's Monte Carlo error on each MDE is about ±0.01. These supersede the earlier hand approximations (about 0.20 at lag 1 and 0.30 at lag 3) and an analytic noncentral-F approximation (0.28, 0.37, 0.45), both of which understate the MDE relative to the simulation.
 
-Reading: at n=36 a single country's Granger test can only detect a **very large** lead-lag effect (the lagged index explaining 28% to 45% of the CPI variance left after the other regressors). A null at this n is not evidence of absence. This is before multiplicity correction, which only raises the MDE. The panel test (§6) pools countries and has more power, but how much depends on how many countries enter and on the common window; that is not quantified here. The code PR (§9 item 1) replaces these figures with a scripted calculation and a size check, run on simulated data only.
+Reading: at n=36 a single country's Granger test can only detect a **very large** lead-lag effect (the lagged index explaining roughly 31% to 49% of the CPI variance left after the other regressors). A null at this n is not evidence of absence. This is before multiplicity correction, which only raises the MDE. The panel test (§6) pools countries and has more power, but how much depends on how many countries enter and on the common window; that is not quantified here. The code PR (§9 item 1) replaces the §3 table with the script's output and adds a size check, on simulated data only.
 
 ## 4. Specification (fixed)
 
@@ -160,7 +160,7 @@ Reading: at n=36 a single country's Granger test can only detect a **very large*
 3. Form y* = ŷ + e*. Recompute the Granger F statistic from the unrestricted model with y* as the dependent variable and the **original, unpermuted** regressors (x lags, y lags, dummies). Regressors are held fixed, so x keeps its own autocorrelation and seasonality.
 4. B = 9,999 draws, fixed seed recorded in the results commit. p = (1 + #{F* ≥ F_obs}) / (B + 1).
 
-Holding the lagged-y regressors at their observed values is an approximation to a fully recursive scheme. The code PR (§9 item 1) must show by simulation on data generated under the null (an AR process for y, an independent autocorrelated x, with seasonality) that the rejection rate at α=0.05 is close to 5% for n=36 and n=100; if not, the scheme is revised before any real data are run. Permuting blocks of the raw x series is an exploratory robustness check only.
+Holding the lagged-y regressors at their observed values is an approximation to a fully recursive scheme. The code PR (§9 item 1) must show by simulation on data generated under the null (an AR process for y, an independent autocorrelated x, with seasonality) that the rejection rate at α=0.05 is close to 5% for n=36 and n=100; if not, the scheme is revised before any real data are run. **Fallback, fixed now.** The size check is run on data simulated under the null at n=36 and at n=100. If the null rejection rate at α=0.05 falls **outside [0.03, 0.07] at either n**, the primary scheme is replaced by a **recursive restricted-model block bootstrap**: fit the restricted model, draw circular blocks of its residuals as above, and regenerate y* **recursively** (y*_t = restricted-model prediction using the already-generated y*_{t−1}, …, y*_{t−p}, the dummies, and e*_t, started from the observed first p values), then recompute F from the unrestricted model on the regenerated series (including its lagged y*). The switch is decided by the size check alone, on simulated data, before any real data are analysed, and is recorded in the results commit. The same switch applies to the panel bootstrap (§6). Permuting blocks of the raw x series is an exploratory robustness check only.
 
 **D6 (as recommended):** b = ⌈n^(1/3)⌉ per country applied to the residual blocks above (n = number of regression observations), floor 3, cap 6. Report p at b±1 as an exploratory robustness line.
 
@@ -182,12 +182,10 @@ The **Dumitrescu–Hurlin (DH) panel Granger test is the primary confirmatory te
 - **Inference: bootstrap, never asymptotic.** DH's Z̃-bar relies on N → ∞ and assumes cross-sectional independence. At small N the normal approximation is not trustworthy, and food prices in neighbouring countries (SG, MY, TH, ID in particular) share common shocks. So the p-value used for the decision is a **bootstrap p-value that preserves cross-sectional dependence**: each draw applies the §5.2 Freedman–Lane scheme in every country, with the **same calendar-time blocks drawn once per draw and applied jointly to all countries' restricted residuals**, and recomputes Z̃-bar (and W-bar). B = 9,999. The asymptotic Z̃ p-value is reported but never used for a decision, at any N. (The code PR should compare this scheme against an existing implementation, such as the `xtgcause` bootstrap, on simulated panels with common shocks.)
 - The code is written from Dumitrescu–Hurlin (2012) and committed.
 
-**D8 (DECISION FOR WC): minimum panel size and the small-panel rule.**
-Recommendation: **N_PANEL = 4.**
+**D8 (decided): N_PANEL = 4, with the small-panel rule.**
 - If N ≥ 4: DH is the primary confirmatory test, as above.
 - If N < 4 (including the likely case N = 2 if TH and ID stay unverified): DH is **still computed and reported, but as exploratory**, with bootstrap p only. The **primary confirmatory test becomes the country-level family** (§5): Romano–Wolf adjusted permutation p for N = 2 or 3, and a single unadjusted permutation p for N = 1. This is declared now and depends only on the data-count rule in §3, not on any result.
 - If N = 0, or the common calendar window is shorter than 36 months, the panel cannot be run as registered. The run **stops and reports**; it does not shorten the threshold, drop countries post hoc, or substitute another test. The country-level tests are then still run on each country's own window and labelled secondary.
-Reason: with N = 2 or 3 a "panel" adds little over the country tests and its asymptotics are weakest there, but a bootstrap p remains valid in principle, so it is kept as an exploratory report rather than discarded. N = 4 is the smallest size I would call a panel; there is no theory that gives a sharp cutoff, so this is a judgement.
 
 **D7 (decided):** panel on the common calendar window, calendar-time blocks applied jointly.
 
@@ -217,12 +215,11 @@ Everything else is exploratory and must be labelled "exploratory" wherever it ap
 
 ## 9. Code PRs required before the confirmatory run (none done yet)
 
-1. **`granger_analysis.py` (or a new script) implementing this specification.** Today's script uses AIC (max lag 4), has no BIC rule, no month dummies, no Freedman–Lane residual-block permutation, no bootstrap panel scheme, no ADF+KPSS gate, no Ljung–Box diagnostic, no circular-block permutation (b=⌈n^(1/3)⌉, B=9,999), no Romano–Wolf or BH, no Dumitrescu–Hurlin panel, and no calendar-true contiguous-run handling; it also interpolates AU. Includes a scripted power calculation (replacing the §3 table's hand-entered values) and null-simulation size checks of the §5.2 scheme and the §6 bootstrap (n=36, n=100; panels with common shocks), all on simulated data.
+1. **`granger_analysis.py` (or a new script) implementing this specification.** Today's script uses AIC (max lag 4), has no BIC rule, no month dummies, no Freedman–Lane residual-block permutation, no bootstrap panel scheme, no ADF+KPSS gate, no Ljung–Box diagnostic, no circular-block permutation (b=⌈n^(1/3)⌉, B=9,999), no Romano–Wolf or BH, no Dumitrescu–Hurlin panel, and no calendar-true contiguous-run handling; it also interpolates AU. Includes a scripted power calculation (replacing the §3 table's hand-entered values) and null-simulation size checks of the §5.2 scheme and the §6 bootstrap (n=36, n=100; panels with common shocks), with the [0.03, 0.07] rule that triggers the §5.2 recursive-bootstrap fallback, all on simulated data.
 2. **Provenance whitelist in `index_builder.py`.** Add an explicit source whitelist for the confirmatory index (archival `wayback-*` and public-site sources only; live-scrape sources excluded, **`js` quarantined entirely**, §8), handling every label generation present in `prices` (including `wayback`, `Wayback/TripAdvisor`, `Wayback/wongnai`, and excluding non-restaurant `official_price_series_bls_apu`). Enforce the ≥15 matched-restaurant rule per country-month, emit missing months as missing (no carry-forward), and make `EXCLUDED_SOURCES` a switch so the D1 sensitivity index comes from the same code path.
 3. **Monthly CPI ingestion for the five countries.** Wire the monthly NSA restaurant/food-away-from-home series into the CPI pipeline (`get_monthly_cpi_all.py` currently loads headline/food and falls back to World Bank annual): US `CUUR0000SEFV`, GB `D7EW`, SG `M213751` row `1.11`, MY `cpi_3d` group `111`, and TH and ID once verified (§2). Record the series ID, vintage, and fetch date; implement the §2 rebasing/splicing rule. Remove AU interpolation from the primary path.
 
 ## 10. Pre-merge checklist
 
 - [ ] TH and ID: WC to supply raw files; verify series ID, start date, NSA status, and any rebasing break (§2), then remove the VERIFY tags.
-- [ ] Resolve D8 (N_PANEL and the small-panel rule).
 - [ ] Record the merge commit SHA as the registered version.
