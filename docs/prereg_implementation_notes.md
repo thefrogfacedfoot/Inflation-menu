@@ -114,7 +114,18 @@ The test rejects about half the time at n = 36 and 18% at n = 100 even when the 
 
 The calibrated version has correct (slightly conservative, about 2%) size, but **little power**: it flags the lag-12 seasonal DGP in 2% of series at n = 36 and 18% at n = 100, while the Granger test's own over-size there is large. The flag is a weak protection, not a guarantee.
 
-### Proposed wording, for decision
-- **Option A (recommended):** the flag uses the bootstrap-calibrated Ljung-Box(12) on the y-equation residuals, as above, with the same B and seed rules as the primary test.
-- **Option B:** the flag uses the raw chi-square Ljung-Box(12) as originally drafted. Evidence 2 shows it would flag about half of countries at n = 36 irrespective of the truth.
-- In either case a flagged country-level result is reported as "not interpretable — seasonal misspecification", a flagged panel is exploratory, and the unflagged results carry the size limitation in §2.
+### Option C considered and not adopted
+Option C adds the own seasonal lag y(t-12) of the official CPI to both the restricted and unrestricted CPI equations. y(t-12) for the first rows is taken from official history before the window, so no observation is lost; residual df fall by one (19/16/13 at n = 36), and the recursive bootstrap regenerates y*(t-12). The pre-set rule was: adopt Option C as the proposed amendment (with the calibrated LB(12) as diagnostic only) if every size rate is inside [0.03, 0.07]. Size, recursive scheme, B = 999, 2,000 replications (`diagnostics/prereg_size_check_optionC_B999_*.txt`, PR #45):
+
+| DGP | country n=36 | country n=100 | panel n=36 | panel n=100 |
+|---|---|---|---|---|
+| base | **0.0780** | 0.0515 | 0.0545 | 0.0480 |
+| persistent | **0.0780** | 0.0550 | 0.0695 | 0.0460 |
+| seasonal_ar12 | **0.0980** | 0.0675 | **0.0770** | 0.0555 |
+
+Four of the 12 rates exceed 0.07, so **Option C is not adopted** and the registered specification (dummies plus lags 1 to 3) is unchanged. Option C removes the large n = 100 over-size under lag-12 seasonality (country 0.174 to 0.0675; panel 0.2985 to 0.0555) but is over-sized at n = 36 under every DGP, including base (0.0675 to 0.0780), because the extra parameter uses one of about 20 residual df. The residual over-size of the registered test under lag-12 stochastic seasonality (§2 table) therefore remains a stated limitation.
+
+### Proposed wording (Option A retained)
+- The flag uses the **bootstrap-calibrated** Ljung-Box(12) on the y-equation residuals (Evidence 3), with the same B and seed rules as the primary test. A flagged country-level result is reported as "not interpretable — seasonal misspecification"; a flagged panel is exploratory. The diagnostic never changes the specification.
+- The raw chi-square Ljung-Box(12) is **not** proposed as the flag (Evidence 2: it rejects about half of correctly specified series at n = 36).
+- Unflagged results are reported with the §2 size limitation: the calibrated flag has low power (2% at n = 36, 18% at n = 100 against lag-12 seasonality), so an unflagged result is not evidence that seasonal misspecification is absent.
