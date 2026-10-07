@@ -26,6 +26,7 @@ import sys
 import threading
 import time
 from datetime import date
+from urllib.parse import urlparse
 
 import requests
 try:
@@ -202,7 +203,8 @@ def init_db():
             sector TEXT,
             source TEXT,
             collection_date TEXT,
-            url TEXT
+            url TEXT,
+            platform TEXT
         )
     ''')
     c.execute('''
@@ -247,6 +249,13 @@ def init_db():
     # Add price_usd column to existing tables that predate this schema
     try:
         c.execute('ALTER TABLE prices ADD COLUMN price_usd REAL')
+        conn.commit()
+    except sqlite3.OperationalError:
+        pass  # Column already exists
+    # platform: hostname of the target URL, recorded for new rows only.
+    # Existing rows stay NULL (deliberately not backfilled).
+    try:
+        c.execute('ALTER TABLE prices ADD COLUMN platform TEXT')
         conn.commit()
     except sqlite3.OperationalError:
         pass  # Column already exists
@@ -452,6 +461,15 @@ def already_scraped(conn, restaurant_name, today):
     return c.fetchone()[0] > 0
 
 
+def platform_from_url(url):
+    """Hostname of the target URL, lowercased, without a leading 'www.'.
+    None if the URL has no host."""
+    host = (urlparse(url or '').hostname or '').lower()
+    if host.startswith('www.'):
+        host = host[4:]
+    return host or None
+
+
 def insert_item(conn, restaurant_name, item_name, price, currency, country,
                 sector, source, today, url, usd_rates):
     price_usd = to_usd(price, currency, usd_rates)
@@ -459,10 +477,10 @@ def insert_item(conn, restaurant_name, item_name, price, currency, country,
     c.execute(
         '''INSERT INTO prices
            (restaurant_name, item_name, price, currency, price_usd, country,
-            sector, source, collection_date, url)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+            sector, source, collection_date, url, platform)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
         (restaurant_name, item_name, price, currency, price_usd, country,
-         sector, source, today, url),
+         sector, source, today, url, platform_from_url(url)),
     )
 
 
