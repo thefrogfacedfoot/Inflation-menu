@@ -233,8 +233,7 @@ export default function MethodologyPage() {
               docs/preregistration.md
             </a>
             . On this dashboard, &ldquo;significant&rdquo; was a flag set in
-            the analysis code at p &lt; 0.05, although step 3 below states
-            p &lt; 0.10.
+            the analysis code at p &lt; 0.05.
           </p>
           <p>
             To test whether UICPI leads official CPI, we apply the{" "}
@@ -252,7 +251,7 @@ export default function MethodologyPage() {
             </li>
             <li>
               F-test of joint significance of lagged ΔUICPI terms in the ΔCPI
-              equation. A significant result (p &lt; 0.10) indicates UICPI
+              equation. A significant result (p &lt; 0.05) indicates UICPI
               Granger-causes CPI.
             </li>
             <li>
