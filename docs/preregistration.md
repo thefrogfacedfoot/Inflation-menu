@@ -96,6 +96,7 @@ Rules:
 - A country whose primary series is not monthly over the whole analysis span is excluded from the confirmatory family (§3). It is never interpolated.
 - **Rebasing and splicing rule.** When a publisher rebases or reclassifies, two vintages of a series may be joined only by chain-linking at an **overlap month** present in both vintages: scale the older vintage by (new level at the overlap month) / (old level at the overlap month), then use the older vintage's month-on-month changes before the overlap. The overlap month, both vintages' IDs and the scaling factor are recorded in the results file. If the vintages have **no overlap month**, the rebasing is treated as a **series break**: the series is cut there and **D5 (longest contiguous run)** is applied, with no splice and no interpolation across the break. The same rule applies to the UICPI index if its basket definition changes.
 - A country enters the family only after its series is fully verified here and ingested monthly (§9 item 3).
+- **TH and ID entry rule.** TH and ID enter the family only if their official monthly restaurant / food-away-from-home series are verified (exact series ID, source, and start date, recorded in the §2 table) **before the Wayback feasibility audit begins**. If either is not verified by then, that country is **excluded from the confirmatory family**, and stays excluded: it cannot be added later, once the audit or any index data for it has been seen. A country excluded this way may still be analysed as exploratory.
 - Headline CPI is a secondary outcome, labelled "secondary" (§5).
 
 ## 3. Test family (inclusion by rule)
@@ -227,5 +228,5 @@ Everything else is exploratory and must be labelled "exploratory" wherever it ap
 
 ## 10. Pre-merge checklist
 
-- [ ] TH and ID: WC to supply raw files; verify series ID, start date, NSA status, and any rebasing break (§2), then remove the VERIFY tags.
+- [ ] TH and ID: verify series ID, source, start date, NSA status and any rebasing break (§2), and remove the VERIFY tags, **before the Wayback feasibility audit begins** (§2 TH and ID entry rule); otherwise they are excluded from the confirmatory family.
 - [ ] Record the merge commit SHA as the registered version.
