@@ -43,7 +43,7 @@ rows, dropped = build(recs("X", "2020-01", R(15), price=10.0) + recs("X", "2020-
                       recs("X", "2020-03", R(15), price=12.1))
 assert [r["year_month"] for r in rows] == ["2020-02", "2020-03"]
 assert abs(rows[0]["uifpi_combined"] - 110.0) < 1e-4 and abs(rows[1]["uifpi_combined"] - 121.0) < 1e-4
-assert dropped == [("X", "2020-01", 0)]
+assert dropped == [("X", "2020-01", 0, 0)]
 assert rows[0]["matched_restaurants"] == 15 and rows[0]["contributing_restaurants"] == 15
 
 # ── calendar-consecutive only: Apr absent, so May has NO row; June restarts the chain at 100 * relative ──
@@ -51,11 +51,11 @@ rows, dropped = build(recs("X", "2020-02", R(15), price=10.0) + recs("X", "2020-
                       recs("X", "2020-05", R(15), price=20.0) + recs("X", "2020-06", R(15), price=22.0))
 assert [r["year_month"] for r in rows] == ["2020-03", "2020-06"], rows
 assert abs(rows[1]["uifpi_combined"] - 110.0) < 1e-4, "restarted chain: 100 * 1.1, never bridging 03 -> 05"
-assert ("X", "2020-05", 0) in dropped
+assert ("X", "2020-05", 0, 0) in dropped
 
 # ── >= 15 matched restaurants (14 -> missing, exactly 15 -> kept) ──
 rows, dropped = build(recs("X", "2020-01", R(20)) + recs("X", "2020-02", R(14), price=11.0))
-assert rows == [] and dropped[-1] == ("X", "2020-02", 14)
+assert rows == [] and dropped[-1] == ("X", "2020-02", 14, 14)
 rows, _ = build(recs("X", "2020-01", R(20)) + recs("X", "2020-02", R(15), price=11.0))
 assert len(rows) == 1
 
@@ -84,14 +84,21 @@ assert abs(rows[0]["uifpi_combined"] - 130.0) < 1e-4, "median of (11, 13, 999) =
 # ── items must match within the same restaurant and currency; unmatched restaurants do not contribute ──
 rows, dropped = build(recs("X", "2020-01", R(15), items=("a",), price=10.0) +
                       recs("X", "2020-02", R(15), items=("b",), price=11.0))
-assert rows == [] and dropped[-1] == ("X", "2020-02", 15), "restaurants matched but no matched ITEM: no valid link"
+assert rows == [] and dropped[-1] == ("X", "2020-02", 15, 0), "restaurants observed in both but no matched ITEM: no valid link"
 rows, _ = build(recs("X", "2020-01", R(15), cur="USD") + recs("X", "2020-02", R(15), price=11.0, cur="EUR"))
 assert rows == [], "a different currency is a different item"
 mixed = recs("X", "2020-01", R(16), price=10.0) + recs("X", "2020-02", R(15), price=11.0) + \
     recs("X", "2020-02", ["Z"], items=("other",), price=5.0)
 rows, _ = build(mixed + recs("X", "2020-02", ["R15"], items=("other",), price=7.0))
 assert rows[0]["matched_restaurants"] == 16 and rows[0]["contributing_restaurants"] == 15, \
-    "R15 is observed in both months (counts as matched) but has no matched item (does not contribute)"
+    "R15 is observed in both months but has no matched item: it is not a contributing restaurant"
+# ── the >= 15 rule applies to CONTRIBUTING restaurants: 20 observed in both months, only 14 with a matched item ──
+m1 = recs("X", "2020-01", R(20), price=10.0)
+m2 = recs("X", "2020-02", R(14), price=11.0) + recs("X", "2020-02", R(20)[14:], items=("other",), price=3.0)
+rows, dropped = build(m1 + m2)
+assert rows == [] and dropped[-1] == ("X", "2020-02", 20, 14), dropped
+rows, dropped = build(m1 + recs("X", "2020-02", R(15), price=11.0) + recs("X", "2020-02", R(20)[15:], items=("other",), price=3.0))
+assert len(rows) == 1 and rows[0]["matched_restaurants"] == 20 and rows[0]["contributing_restaurants"] == 15
 
 # ── no leakage across countries ──
 rows, _ = build(recs("X", "2020-01", R(15)) + recs("X", "2020-02", R(15), price=11.0) +

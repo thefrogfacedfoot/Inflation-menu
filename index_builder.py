@@ -66,10 +66,14 @@ EXCLUDED_SOURCES = ("wayback-doordash",)
 # lives in `monthly_cpi`).
 CONFIRMATORY_SOURCE_PREFIXES = ("wayback",)
 
-# §3 inclusion rule 4: a country-month needs >= 15 MATCHED restaurants, i.e.
-# restaurants observed in both month t and the calendar-adjacent month t-1.
-# Country-months below this are MISSING in confirmatory mode: no index row,
-# never filled or carried forward.
+# §3 inclusion rule 4: a country-month needs >= 15 MATCHED restaurants.
+# Pre-data clarification (docs/prereg_implementation_notes.md): a "matched
+# restaurant" is a restaurant with at least one item priced in BOTH month t and
+# the calendar-adjacent month t-1 (a CONTRIBUTING restaurant, i.e. one that
+# enters the index), not merely one observed in both months. The weaker count
+# (observed in both months) is still logged as matched_restaurants.
+# Country-months below the minimum are MISSING in confirmatory mode: no index
+# row, never filled or carried forward.
 MIN_MATCHED_RESTAURANTS = 15
 
 
@@ -105,14 +109,15 @@ def build_confirmatory_index(df: pd.DataFrame, minimum: int = MIN_MATCHED_RESTAU
       3. month relative = geometric mean of restaurant relatives across
          restaurants, equal restaurant weights (no sector weights);
       4. chained: level_t = level_{t-1} * relative_t.
-    A country-month has a row only if >= `minimum` restaurants were observed in
-    both t and t-1 (MIN_MATCHED_RESTAURANTS) and at least one restaurant has a
-    matched item. Otherwise it is MISSING: no row, no carry-forward. Each run of
+    A country-month has a row only if >= `minimum` restaurants CONTRIBUTE (at
+    least one item priced in both t and t-1; MIN_MATCHED_RESTAURANTS). Otherwise
+    it is MISSING: no row, no carry-forward. Each run of
     consecutive rows is chained from 100 at its first row, so a gap restarts the
     chain instead of bridging it; analysis uses within-run differences only.
 
     Returns (rows, dropped): rows as uifpi_index-style dicts plus
-    matched_restaurants / contributing_restaurants; dropped = [(country, ym, matched)].
+    matched_restaurants (observed in both months) / contributing_restaurants;
+    dropped = [(country, ym, matched, contributing)].
     """
     d = df[["country", "restaurant_name", "item_name", "currency", "price", "year_month"]].copy()
     d["restaurant_name"] = d["restaurant_name"].astype(str).str.strip()
@@ -137,9 +142,9 @@ def build_confirmatory_index(df: pd.DataFrame, minimum: int = MIN_MATCHED_RESTAU
                     rest_lr = both.groupby(level=0)["lr"].mean()      # geometric mean within restaurant
                     contributing, n_items = len(rest_lr), len(both)
                     rel = float(np.exp(rest_lr.mean()))               # equal restaurant weights
-            valid = matched >= minimum and contributing >= 1
+            valid = contributing >= minimum
             if not valid:
-                dropped.append((country, ym, matched))
+                dropped.append((country, ym, matched, contributing))
                 prev_valid = False
                 continue
             level = (level if prev_valid else 100.0) * rel
@@ -905,12 +910,12 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
         # The restaurant-median default and the previous-observed-month matched
         # model are NOT confirmatory paths; --method is ignored here.
         print(f"\nConfirmatory index: matched-model, calendar-consecutive months, equal restaurant "
-              f"weights, >= {MIN_MATCHED_RESTAURANTS} matched restaurants (--method ignored)")
+              f"weights, >= {MIN_MATCHED_RESTAURANTS} contributing (matched-item) restaurants (--method ignored)")
         all_index_rows, dropped = build_confirmatory_index(df)
         print(f"  kept {len(all_index_rows)} country-months, missing {len(dropped)} "
               f"(no row, no carry-forward)")
-        for c, ym, m in dropped:
-            print(f"    missing: {c} {ym} matched={m}")
+        for c, ym, m, k in dropped:
+            print(f"    missing: {c} {ym} observed_in_both={m} contributing={k}")
         for r in all_index_rows:
             print(f"    kept:    {r['country']} {r['year_month']} matched={r['matched_restaurants']} "
                   f"contributing={r['contributing_restaurants']} items={r['item_count']}")
