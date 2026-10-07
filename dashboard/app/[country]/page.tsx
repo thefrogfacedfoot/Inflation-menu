@@ -363,6 +363,9 @@ function USGrangerCallout() {
           UIFPI Granger-causes CPI at 1-month lead
         </h2>
       </div>
+      <p className="text-xs font-medium text-green-800 mb-3">
+        F = 4.20, p = 0.0499: superseded — earlier specification, see docs/preregistration.md.
+      </p>
       <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm mb-3">
         <div>
           <dt className="text-xs text-green-700 uppercase tracking-wide">F</dt>

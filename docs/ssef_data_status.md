@@ -6,6 +6,8 @@
 
 ## Headline finding (respecified 2026-07-06)
 
+> **F = 4.20 / p = 0.0499: superseded — earlier specification, see docs/preregistration.md.**
+
 **United States — the UIFPI menu index Granger-leads CPI at an exact 1-month
 lag.** Calendar-true specification: F = 4.20, analytic p = 0.0499, n = 31
 (permutation p: 0.052 shuffle / 0.069 block). Robustness: forward-filling
@@ -22,7 +24,7 @@ CPI changes. Do not cite it. Authoritative numbers:
 
 | Country | n overlap | Granger p | β | 95 % CI on β | Verdict |
 |---|---:|---:|---:|---|---|
-| **United States** | **31** | **0.0499** ✓ (calendar-true respec) | −0.00248 | [−0.00531, +0.00034] | **Significant**; lead = 1 month |
+| **United States** | **31** | **0.0499** ✓ (calendar-true respec; superseded — earlier specification, see docs/preregistration.md) | −0.00248 | [−0.00531, +0.00034] | **Significant**; lead = 1 month |
 | India | 47 | 0.474 | −0.00076 | [−0.00220, +0.00068] | Null result |
 | **Australia** | **23** | — | — | — | **Pending one CPI publication** — ABS Q2 2026 expected late July via OECD SDMX. AU UIFPI sits at 24 distinct months; CPI overlap is 23. The next monthly ingest after the publication will tip AU over the n = 24 threshold automatically. |
 | **United Kingdom** | **18** | — | — | — | **Accumulating monthly**. 17,371 items / 20 months in UIFPI; CPI overlap 18. Bridging 18 → 24 requires either pre-2021 Wayback archives (the JS-shell era for Deliveroo — uncertain hit rate) or 6 monthly ticks of going-forward collection. SSEF write-up should treat UK as a "pending" panel member. |
