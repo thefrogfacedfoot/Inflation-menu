@@ -104,7 +104,7 @@ export default function MethodologyPage() {
             ["#sector-definitions", "Chain vs Independent"],
             ["#index-construction", "Index Construction"],
             ["#matched-model", "Matched-Model Approach"],
-            ["#granger", "Granger Causality Testing"],
+            ["#granger", "Earlier specification (superseded)"],
             ["#pass-through", "Pass-Through Regression"],
             ["#comparison", "Comparison: UICPI vs Big Mac vs BPP"],
           ].map(([href, label]) => (
@@ -219,8 +219,23 @@ export default function MethodologyPage() {
           </p>
         </Section>
 
-        <Section id="granger" title="5. Granger Causality Testing">
+        <Section id="granger" title="5. Earlier specification (superseded)">
           <SupersededNote />
+          <p>
+            This section describes the earlier procedure; the pre-registered
+            analysis that replaces it is in{" "}
+            <a
+              href="https://github.com/thefrogfacedfoot/Inflation-menu/blob/main/docs/preregistration.md"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              docs/preregistration.md
+            </a>
+            . On this dashboard, &ldquo;significant&rdquo; was a flag set in
+            the analysis code at p &lt; 0.05, although step 3 below states
+            p &lt; 0.10.
+          </p>
           <p>
             To test whether UICPI leads official CPI, we apply the{" "}
             <strong>Granger causality test</strong> following Cavallo &amp;
