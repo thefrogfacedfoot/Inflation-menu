@@ -15,7 +15,7 @@ Prior country-level Granger runs and related looks, all treated as seen:
 
 | Country | Prior run (source) |
 |---|---|
-| US | F=4.20, p=0.0499, n=31, one-month calendar lag, F(1,28); permutation p=0.052 (shuffle) / 0.069 (circular block, b=5) (paper draft). Forward-fill robustness F(1,35)=9.05, p=0.0048, n=38. |
+| US | **Superseded; the published specification is not relied on.** F=4.20, p=0.0499, n=31, one-month calendar lag, F(1,28); permutation p=0.052 (shuffle) / 0.069 (circular block, b=5) (paper draft). Forward-fill robustness F(1,35)=9.05, p=0.0048, n=38. See "Published US specification" below. |
 | US (deprecated) | F=6.03, p=0.021, gap-mixing; deprecated, not cited. |
 | US (source-stratified) | menupages-only F=6.22, p=0.021, n=27; with DoorDash pooled F=0.006, p=0.94, n=38 (`diagnostics/diag_us_no_doordash.py`). A related stratified run reports F=5.56, p=0.026, n=31 without DoorDash. |
 | India | F=0.521, p=0.474, n=47 (paper draft). |
@@ -24,6 +24,12 @@ Prior country-level Granger runs and related looks, all treated as seen:
 | Australia, Indonesia, UK | Below the n=24 threshold in `analysis_results/granger_results.json` (n=23, 20, 18); no test reported. |
 | Thailand | No overlap with a monthly CPI series; no test. |
 | Vietnam, UAE | Earlier Granger statistics (VN n=12, p=0.42; UAE n=47, F=0.016, p=0.90) were computed on corrupted Wayback slices and are withdrawn. |
+
+**Published US specification, and why it is superseded.** The published US result comes from `gap_robustness.py`: CPI_chg(t) ~ 1 + CPI_chg(t−1) + UICPI(t−1), with ΔCPI the full-calendar month-over-month change and **UICPI entered in levels**. The choice of levels rests on a single ADF test on 31 to 38 observations (paper table: ADF p = 0.0000, "stationary in levels"), which is a pretest decision.
+- If the UICPI level series is I(1), regressing the stationary ΔCPI on it makes the Granger F statistic **non-standard** (Sims, Stock and Watson 1990), so the reported p = 0.0499 does not have its nominal meaning under that specification. The project's own ADF classed the series as stationary, and this registration has not re-run it (no index values were viewed); so whether the published p-value is invalid depends on a pretest that a 31-observation ADF on a chain-linked index cannot settle.
+- Either way the published specification cannot be relied on: its levels-versus-differences choice is data-dependent, it has no lag selection, no month dummies, no stationarity gate on UICPI, and its p-value sits at the 0.05 boundary with both permutation p-values above it (0.052, 0.069).
+- This registration removes the question: both sides are log-differenced and passed through the ADF + KPSS gate (§4.2), and the lagged index never enters in levels.
+- The published result's CPI series is OECD PRICES_CPI key `USA.M.HICP.CPI.IX._T.N._Z` (METHODOLOGY = `HICP`, "Eurostat harmonised index of consumer prices", 2015=100). Checked 2026-10-07 against the OECD SDMX API: the values stored in `monthly_cpi` (source label "OECD PRICES_CPI HICP monthly index", 120 rows, 2015-01 to 2024-12) equal that series for 2024-09 to 2024-12 (129.21, 129.43, 129.46, 129.47). So the "HICP" label is correct. It is **not** the BLS CPI-U: OECD's national series for the same months (`USA.M.N.CPI.IX._T.N._Z`) reads 133.03 to 133.18. The paper's "(BLS-derived)" description is not something I could confirm. The registered US outcome (BLS `CUUR0000SEFV`, headline `CPIAUCNS`) is a different series, so the published and registered US results are not comparable.
 
 Also seen: the DoorDash exclusion from index construction (`index_builder.EXCLUDED_SOURCES`, 2026-06-22) was made after observing its effect on the US Granger statistic, and the 2026-07-06 calendar-true respec was made after seeing the gap-mixed result.
 
@@ -199,7 +205,7 @@ The **Dumitrescu–Hurlin (DH) panel Granger test is the primary confirmatory te
 
 Everything else is exploratory and must be labelled "exploratory" wherever it appears, including:
 
-- The earlier US F=4.20 / p=0.0499 result and every other prior run in §0.
+- The earlier US F=4.20 / p=0.0499 result (superseded specification, §0) and every other prior run in §0.
 - The reverse direction, the DoorDash-excluded sensitivity index, SA-series runs, AIC and max-lag-4 runs, no-dummy runs, source-stratified or chain-vs-independent indices, other block lengths, and any country dropped by the §3 or §4.2 rules.
 - The ADL pass-through models in the current code.
 - The hawker fieldwork (descriptive only).
