@@ -1,0 +1,9 @@
+Calibrated vs raw Ljung-Box(12), y equation, 5% level, simulated null series; reps=500 B=199 seed=20261008
+
+DGP                n   raw chi-sq  calibrated
+base              36       0.5080      0.0200
+base             100       0.1760      0.0220
+persistent        36       0.5340      0.0240
+persistent       100       0.1820      0.0180
+seasonal_ar12     36       0.3940      0.0220
+seasonal_ar12    100       0.5040      0.1840
