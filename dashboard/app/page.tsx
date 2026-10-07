@@ -8,6 +8,7 @@ import {
   DEVELOPMENT_STATUS,
   PRIMARY_COUNTRIES,
   LIMITED_COVERAGE_COUNTRIES,
+  WITHDRAWN_COUNTRIES,
   CPI_CLASS,
   CPI_CLASS_LABEL,
   CPI_CLASS_TOOLTIP,
@@ -171,11 +172,12 @@ export default async function HomePage() {
               <span className="text-white font-medium">
                 MIT Billion Prices Project
               </span>{" "}
-              to chain restaurants and independent hawker stalls across 10
-              countries. Tests whether food service prices lead official CPI
-              as an early inflation signal — and{" "}
+              to chain restaurants and independent hawker stalls across an
+              eight-country panel. Tests whether food service prices lead
+              official CPI as an early inflation signal — and finds{" "}
               <span className="text-white font-medium">
-                finds they do in the US, with a 1-month lead (p = 0.0499)
+                the most numerically interesting result in the panel in the
+                US, a 1-month lead (p = 0.0499, not a validated finding)
               </span>
               .
             </p>
@@ -277,6 +279,32 @@ export default async function HomePage() {
             </div>
           </div>
         )}
+
+        {WITHDRAWN_COUNTRIES.length > 0 && (
+          <div className="mt-10">
+            <div className="flex items-baseline justify-between mb-3 border-t border-gray-200 pt-6">
+              <h3 className="text-sm font-semibold text-rose-700">
+                Withdrawn — price data quarantined
+              </h3>
+              <span className="text-xs text-gray-400">
+                Not reporting countries. Entire Wayback slices found
+                systematically mispriced and quarantined 2026-07-09; earlier
+                Granger statistics for these two are not carried forward. See
+                paper §4.7.
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 opacity-60">
+              {WITHDRAWN_COUNTRIES.map((country) => (
+                <CountryCard
+                  key={country}
+                  country={country}
+                  summaries={summaries}
+                  latest={latest}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Map */}
@@ -300,8 +328,8 @@ export default async function HomePage() {
               <p className="text-sm text-gray-600 leading-relaxed">
                 The Unified Independent-Chain Price Index tracks restaurant menu
                 prices across chain restaurants and independent hawker stalls /
-                street vendors in 10 countries, testing whether they lead
-                official CPI readings.
+                street vendors in an eight-country panel, testing whether they
+                lead official CPI readings.
               </p>
             </div>
             <div>
