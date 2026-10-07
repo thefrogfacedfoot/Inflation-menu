@@ -52,6 +52,30 @@ SAMPLE_SEED = 42
 # diag_us_no_doordash.py for the reproducer.
 EXCLUDED_SOURCES = ("wayback-doordash",)
 
+# Confirmatory provenance whitelist (docs/preregistration.md §8, registered at
+# bd859403). In confirmatory mode ONLY these source labels are admitted into
+# index construction; every other source is quarantined (excluded, with its
+# row count logged). Matching is case-insensitive on the label's prefix, so
+# all label generations present in `prices` are covered: "wayback-<site>",
+# the bare "wayback", and "Wayback/TripAdvisor" / "Wayback/wongnai".
+# Everything else is quarantined, in particular live-scraper output: "js"
+# (platform hidden by the label), "direct", "grabfood", "foodpanda", and the
+# non-restaurant "official_price_series_bls_apu".
+# Hawker fieldwork rows are admitted by exact label; no fieldwork label
+# exists in `prices` yet, so the tuple is empty until one is registered.
+# Official CPI is not read by this builder (it lives in `monthly_cpi`).
+CONFIRMATORY_SOURCE_PREFIXES = ("wayback",)
+CONFIRMATORY_FIELDWORK_SOURCES: tuple = ()
+
+
+def is_confirmatory_source(source) -> bool:
+    """True if a source label passes the confirmatory provenance whitelist."""
+    if source is None:
+        return False
+    s = str(source).strip().lower()
+    return s.startswith(CONFIRMATORY_SOURCE_PREFIXES) or \
+        str(source) in CONFIRMATORY_FIELDWORK_SOURCES
+
 # Approximate informal sector share of food expenditure by country.
 # Source: author estimates from World Bank household survey data.
 # Update these when real survey weights become available.
@@ -133,10 +157,18 @@ def init_output_table(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
-def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
+def load_price_data(conn: sqlite3.Connection,
+                    confirmatory: bool = False,
+                    excluded_sources: tuple = EXCLUDED_SOURCES) -> pd.DataFrame:
     """
     Load prices joined with NLP categories.
     Backfills price_usd from price + currency when NULL.
+
+    confirmatory: apply the registered provenance whitelist
+    (is_confirmatory_source); non-whitelisted rows are dropped and their
+    per-source row counts logged. excluded_sources: sources dropped after
+    that (default: the published-index exclusion; the confirmatory primary
+    passes () so DoorDash stays in, per the D1 resolution).
     """
     df = pd.read_sql_query("""
         SELECT
@@ -190,15 +222,26 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
     df["sector"] = df["sector"].replace({"chain": "formal",
                                          "independent": "informal"})
 
+    # Confirmatory provenance whitelist: quarantine everything not admitted,
+    # logging how many rows each quarantined source loses.
+    if confirmatory:
+        keep = df["source"].map(is_confirmatory_source)
+        quarantined = df.loc[~keep, "source"].fillna("<NULL>").value_counts()
+        print(f"  Confirmatory whitelist: kept {int(keep.sum()):,} rows, "
+              f"quarantined {int((~keep).sum()):,} rows (kept in raw DB):")
+        for src, n in quarantined.items():
+            print(f"    quarantined  {src}: {n:,}")
+        df = df[keep].copy()
+
     # Drop sources excluded from index construction (see EXCLUDED_SOURCES
     # docstring at top of file for rationale).
-    if EXCLUDED_SOURCES:
+    if excluded_sources:
         before_excl = len(df)
-        df = df[~df["source"].isin(EXCLUDED_SOURCES)].copy()
+        df = df[~df["source"].isin(excluded_sources)].copy()
         dropped = before_excl - len(df)
         if dropped > 0:
             print(f"  Excluded {dropped:,} rows from sources "
-                  f"{list(EXCLUDED_SOURCES)} (kept in raw DB).")
+                  f"{list(excluded_sources)} (kept in raw DB).")
 
     # Drop quarantined (country, source) slices with corrupted prices — see
     # data_quality.py / docs/data_quality_2026-07.md.
@@ -703,7 +746,8 @@ def print_index_summary(all_rows: list[dict]) -> None:
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
-        method: str = "restaurant-median") -> None:
+        method: str = "restaurant-median", confirmatory: bool = False,
+        exclude_doordash: bool = False) -> None:
     """Build the UIFPI for all countries and save results.
 
     method:
@@ -725,7 +769,15 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
     print("\nIndex Builder")
     print("─" * 60)
     print("Step 1 — Loading price data …")
-    df = load_price_data(conn)
+    if confirmatory:
+        # Registered primary keeps DoorDash (D1); exclusion is the labelled
+        # sensitivity variant, switched on with exclude_doordash.
+        excluded = EXCLUDED_SOURCES if exclude_doordash else ()
+        print(f"  CONFIRMATORY MODE: provenance whitelist on; "
+              f"excluded_sources={list(excluded)}")
+        df = load_price_data(conn, confirmatory=True, excluded_sources=excluded)
+    else:
+        df = load_price_data(conn)
     print(f"  Loaded {len(df):,} price observations across "
           f"{df['country'].nunique()} countries")
     print(f"  Date range: {df['collection_date'].min().date()} — "
@@ -807,5 +859,18 @@ if __name__ == "__main__":
     ap.add_argument("--method", default="restaurant-median",
                     choices=("stable-basket", "restaurant-median"),
                     help="Index aggregation method (default: restaurant-median).")
+    ap.add_argument("--db", default=DB_PATH,
+                    help="SQLite DB to read and write (default: uifpi.db).")
+    ap.add_argument("--csv-out", default=CSV_OUT,
+                    help="Index CSV output path (default: uifpi_index.csv).")
+    ap.add_argument("--confirmatory", action="store_true",
+                    help="Confirmatory mode: admit only whitelisted sources "
+                         "(wayback-*, registered fieldwork); quarantine the "
+                         "rest and log their row counts. DoorDash stays in "
+                         "unless --exclude-doordash is given.")
+    ap.add_argument("--exclude-doordash", action="store_true",
+                    help="With --confirmatory: drop wayback-doordash "
+                         "(the labelled sensitivity variant).")
     args = ap.parse_args()
-    run(method=args.method)
+    run(db_path=args.db, csv_out=args.csv_out, method=args.method,
+        confirmatory=args.confirmatory, exclude_doordash=args.exclude_doordash)
