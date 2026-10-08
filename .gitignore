@@ -19,3 +19,4 @@ scraper_output.txt
 .amorphous/
 *.local_backup_*
 sapient-split/
+.gstack/
