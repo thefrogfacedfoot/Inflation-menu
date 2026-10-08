@@ -52,6 +52,111 @@ SAMPLE_SEED = 42
 # diag_us_no_doordash.py for the reproducer.
 EXCLUDED_SOURCES = ("wayback-doordash",)
 
+# Confirmatory provenance whitelist (docs/preregistration.md §8, registered at
+# bd859403). In confirmatory mode ONLY these source labels are admitted into
+# index construction; every other source is quarantined (excluded, with its
+# row count logged). Matching is case-insensitive on the label's prefix, so
+# all label generations present in `prices` are covered: "wayback-<site>",
+# the bare "wayback", and "Wayback/TripAdvisor" / "Wayback/wongnai".
+# Everything else is quarantined, in particular live-scraper output: "js"
+# (platform hidden by the label), "direct", "grabfood", "foodpanda", and the
+# non-restaurant "official_price_series_bls_apu".
+# Hawker fieldwork is descriptive-only evidence and is NOT an index input, so
+# no fieldwork label is admitted. Official CPI is not read by this builder (it
+# lives in `monthly_cpi`).
+CONFIRMATORY_SOURCE_PREFIXES = ("wayback",)
+
+# §3 inclusion rule 4: a country-month needs >= 15 MATCHED restaurants.
+# Pre-data clarification (docs/prereg_implementation_notes.md): a "matched
+# restaurant" is a restaurant with at least one item priced in BOTH month t and
+# the calendar-adjacent month t-1 (a CONTRIBUTING restaurant, i.e. one that
+# enters the index), not merely one observed in both months. The weaker count
+# (observed in both months) is still logged as matched_restaurants.
+# Country-months below the minimum are MISSING in confirmatory mode: no index
+# row, never filled or carried forward.
+MIN_MATCHED_RESTAURANTS = 15
+
+
+def is_confirmatory_source(source) -> bool:
+    """True if a source label passes the confirmatory provenance whitelist."""
+    if source is None:
+        return False
+    s = str(source).strip().lower()
+    return s.startswith(CONFIRMATORY_SOURCE_PREFIXES)
+
+
+def matched_restaurant_counts(df: pd.DataFrame) -> dict:
+    """{(country, year_month): number of restaurants observed in BOTH that month
+    and the calendar-adjacent previous month}. A month whose previous calendar
+    month has no data has count 0 (a gap is never bridged)."""
+    counts = {}
+    for country, g in df.groupby("country"):
+        by_month = g.groupby("year_month")["restaurant_name"].agg(lambda s: set(s.dropna()))
+        for ym, names in by_month.items():
+            prev = str(pd.Period(ym, freq="M") - 1)
+            counts[(country, ym)] = len(names & by_month[prev]) if prev in by_month.index else 0
+    return counts
+
+
+def build_confirmatory_index(df: pd.DataFrame, minimum: int = MIN_MATCHED_RESTAURANTS):
+    """The registered confirmatory index: matched-model, calendar-consecutive months only.
+
+    For each country and month t, with t-1 the calendar-adjacent previous month
+    (never the previous OBSERVED month):
+      1. item relative = median price of (restaurant, item, currency) in t divided
+         by its median in t-1, for items present in both months (local currency);
+      2. restaurant relative = geometric mean of its item relatives;
+      3. month relative = geometric mean of restaurant relatives across
+         restaurants, equal restaurant weights (no sector weights);
+      4. chained: level_t = level_{t-1} * relative_t.
+    A country-month has a row only if >= `minimum` restaurants CONTRIBUTE (at
+    least one item priced in both t and t-1; MIN_MATCHED_RESTAURANTS). Otherwise
+    it is MISSING: no row, no carry-forward. Each run of
+    consecutive rows is chained from 100 at its first row, so a gap restarts the
+    chain instead of bridging it; analysis uses within-run differences only.
+
+    Returns (rows, dropped): rows as uifpi_index-style dicts plus
+    matched_restaurants (observed in both months) / contributing_restaurants;
+    dropped = [(country, ym, matched, contributing)].
+    """
+    d = df[["country", "restaurant_name", "item_name", "currency", "price", "year_month"]].copy()
+    d["restaurant_name"] = d["restaurant_name"].astype(str).str.strip()
+    d["item_name"] = d["item_name"].astype(str).str.strip().str.casefold()
+    counts = matched_restaurant_counts(d)
+    med = (d.groupby(["country", "restaurant_name", "item_name", "currency", "year_month"])["price"]
+             .median().rename("p").reset_index())
+    rows, dropped = [], []
+    for country, g in med.groupby("country"):
+        by_month = {ym: m.set_index(["restaurant_name", "item_name", "currency"])["p"]
+                    for ym, m in g.groupby("year_month")}
+        prev_valid, level = False, None
+        for ym in sorted(by_month):
+            prev_ym = str(pd.Period(ym, freq="M") - 1)
+            matched = counts.get((country, ym), 0)
+            contributing, n_items, rel = 0, 0, None
+            if prev_ym in by_month:
+                both = pd.concat([by_month[prev_ym].rename("p0"), by_month[ym].rename("p1")],
+                                 axis=1, join="inner")
+                if len(both):
+                    both["lr"] = np.log(both["p1"] / both["p0"])
+                    rest_lr = both.groupby(level=0)["lr"].mean()      # geometric mean within restaurant
+                    contributing, n_items = len(rest_lr), len(both)
+                    rel = float(np.exp(rest_lr.mean()))               # equal restaurant weights
+            valid = contributing >= minimum
+            if not valid:
+                dropped.append((country, ym, matched, contributing))
+                prev_valid = False
+                continue
+            level = (level if prev_valid else 100.0) * rel
+            rows.append({"country": country, "year_month": ym,
+                         "formal_index": None, "informal_index": None,
+                         "uifpi_combined": round(level, 6), "item_count": n_items,
+                         "coverage_note": None if prev_valid else "confirmatory chain start (first link of a run)",
+                         "matched_restaurants": matched, "contributing_restaurants": contributing})
+            prev_valid = True
+    return rows, dropped
+
+
 # Approximate informal sector share of food expenditure by country.
 # Source: author estimates from World Bank household survey data.
 # Update these when real survey weights become available.
@@ -133,10 +238,18 @@ def init_output_table(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
-def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
+def load_price_data(conn: sqlite3.Connection,
+                    confirmatory: bool = False,
+                    excluded_sources: tuple = EXCLUDED_SOURCES) -> pd.DataFrame:
     """
     Load prices joined with NLP categories.
     Backfills price_usd from price + currency when NULL.
+
+    confirmatory: apply the registered provenance whitelist
+    (is_confirmatory_source); non-whitelisted rows are dropped and their
+    per-source row counts logged. excluded_sources: sources dropped after
+    that (default: the published-index exclusion; the confirmatory primary
+    passes () so DoorDash stays in, per the D1 resolution).
     """
     df = pd.read_sql_query("""
         SELECT
@@ -190,15 +303,26 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
     df["sector"] = df["sector"].replace({"chain": "formal",
                                          "independent": "informal"})
 
+    # Confirmatory provenance whitelist: quarantine everything not admitted,
+    # logging how many rows each quarantined source loses.
+    if confirmatory:
+        keep = df["source"].map(is_confirmatory_source)
+        quarantined = df.loc[~keep, "source"].fillna("<NULL>").value_counts()
+        print(f"  Confirmatory whitelist: kept {int(keep.sum()):,} rows, "
+              f"quarantined {int((~keep).sum()):,} rows (kept in raw DB):")
+        for src, n in quarantined.items():
+            print(f"    quarantined  {src}: {n:,}")
+        df = df[keep].copy()
+
     # Drop sources excluded from index construction (see EXCLUDED_SOURCES
     # docstring at top of file for rationale).
-    if EXCLUDED_SOURCES:
+    if excluded_sources:
         before_excl = len(df)
-        df = df[~df["source"].isin(EXCLUDED_SOURCES)].copy()
+        df = df[~df["source"].isin(excluded_sources)].copy()
         dropped = before_excl - len(df)
         if dropped > 0:
             print(f"  Excluded {dropped:,} rows from sources "
-                  f"{list(EXCLUDED_SOURCES)} (kept in raw DB).")
+                  f"{list(excluded_sources)} (kept in raw DB).")
 
     # Drop quarantined (country, source) slices with corrupted prices — see
     # data_quality.py / docs/data_quality_2026-07.md.
@@ -212,6 +336,23 @@ def load_price_data(conn: sqlite3.Connection) -> pd.DataFrame:
 
     # Cap rows per (country, year_month) so dense months don't dominate the
     # cross-country index. Deterministic via SAMPLE_SEED.
+    if confirmatory:
+        # The cap would sample rows away and so change which restaurants are
+        # observed per month. In confirmatory mode log what it WOULD drop per
+        # country-month and, if anything would be dropped, leave the cap off.
+        sizes = df.groupby(["country", "year_month"]).size()
+        over = sizes[sizes > MAX_ROWS_PER_COUNTRY]
+        if len(over):
+            print(f"  Row cap DISABLED in confirmatory mode: it would have dropped "
+                  f"{int((over - MAX_ROWS_PER_COUNTRY).sum()):,} rows in "
+                  f"{len(over)} country-months:")
+            for (c, ym), n in over.items():
+                print(f"    cap would drop {n - MAX_ROWS_PER_COUNTRY:,} rows: {c} {ym} "
+                      f"({n:,} -> {MAX_ROWS_PER_COUNTRY})")
+        else:
+            print("  Row cap: no country-month exceeds the cap; nothing dropped.")
+        return df
+
     before_rows = len(df)
     df = (df.groupby(["country", "year_month"], group_keys=False)
             .apply(lambda g: g.sample(n=min(len(g), MAX_ROWS_PER_COUNTRY),
@@ -702,8 +843,34 @@ def print_index_summary(all_rows: list[dict]) -> None:
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 
+def _save_index(conn, all_index_rows: list, csv_out: str) -> None:
+    print("\nStep 6 — Saving to database and CSV …")
+    for row in all_index_rows:
+        conn.execute("""
+            INSERT OR REPLACE INTO uifpi_index
+                (country, year_month, formal_index, informal_index,
+                 uifpi_combined, item_count, coverage_note)
+            VALUES (:country, :year_month, :formal_index, :informal_index,
+                    :uifpi_combined, :item_count, :coverage_note)
+        """, row)
+    conn.commit()
+    print(f"  {len(all_index_rows)} rows written to uifpi_index table")
+
+    if all_index_rows:
+        out_df = pd.DataFrame(all_index_rows)
+        out_df.to_csv(csv_out, index=False)
+        print(f"  Exported to {csv_out}")
+    else:
+        print("  ⚠  No index rows produced — insufficient data for any country.")
+        print("     Collect data for >= 2 months and re-run.")
+
+    conn.close()
+    print_index_summary(all_index_rows)
+
+
 def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
-        method: str = "restaurant-median") -> None:
+        method: str = "restaurant-median", confirmatory: bool = False,
+        exclude_doordash: bool = False) -> None:
     """Build the UIFPI for all countries and save results.
 
     method:
@@ -725,11 +892,35 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
     print("\nIndex Builder")
     print("─" * 60)
     print("Step 1 — Loading price data …")
-    df = load_price_data(conn)
+    if confirmatory:
+        # Registered primary keeps DoorDash (D1); exclusion is the labelled
+        # sensitivity variant, switched on with exclude_doordash.
+        excluded = EXCLUDED_SOURCES if exclude_doordash else ()
+        print(f"  CONFIRMATORY MODE: provenance whitelist on; "
+              f"excluded_sources={list(excluded)}")
+        df = load_price_data(conn, confirmatory=True, excluded_sources=excluded)
+    else:
+        df = load_price_data(conn)
     print(f"  Loaded {len(df):,} price observations across "
           f"{df['country'].nunique()} countries")
     print(f"  Date range: {df['collection_date'].min().date()} — "
           f"{df['collection_date'].max().date()}")
+
+    if confirmatory:
+        # The restaurant-median default and the previous-observed-month matched
+        # model are NOT confirmatory paths; --method is ignored here.
+        print(f"\nConfirmatory index: matched-model, calendar-consecutive months, equal restaurant "
+              f"weights, >= {MIN_MATCHED_RESTAURANTS} contributing (matched-item) restaurants (--method ignored)")
+        all_index_rows, dropped = build_confirmatory_index(df)
+        print(f"  kept {len(all_index_rows)} country-months, missing {len(dropped)} "
+              f"(no row, no carry-forward)")
+        for c, ym, m, k in dropped:
+            print(f"    missing: {c} {ym} observed_in_both={m} contributing={k}")
+        for r in all_index_rows:
+            print(f"    kept:    {r['country']} {r['year_month']} matched={r['matched_restaurants']} "
+                  f"contributing={r['contributing_restaurants']} items={r['item_count']}")
+        _save_index(conn, all_index_rows, csv_out)
+        return
 
     print("\nStep 2 — Building monthly price panel …")
     monthly = build_monthly_prices(df)
@@ -775,28 +966,7 @@ def run(db_path: str = DB_PATH, csv_out: str = CSV_OUT,
             else:
                 print(f"  {country}: insufficient data — skipped")
 
-    print("\nStep 6 — Saving to database and CSV …")
-    for row in all_index_rows:
-        conn.execute("""
-            INSERT OR REPLACE INTO uifpi_index
-                (country, year_month, formal_index, informal_index,
-                 uifpi_combined, item_count, coverage_note)
-            VALUES (:country, :year_month, :formal_index, :informal_index,
-                    :uifpi_combined, :item_count, :coverage_note)
-        """, row)
-    conn.commit()
-    print(f"  {len(all_index_rows)} rows written to uifpi_index table")
-
-    if all_index_rows:
-        out_df = pd.DataFrame(all_index_rows)
-        out_df.to_csv(csv_out, index=False)
-        print(f"  Exported to {csv_out}")
-    else:
-        print("  ⚠  No index rows produced — insufficient data for any country.")
-        print("     Collect data for >= 2 months and re-run.")
-
-    conn.close()
-    print_index_summary(all_index_rows)
+    _save_index(conn, all_index_rows, csv_out)
 
 
 if __name__ == "__main__":
@@ -807,5 +977,18 @@ if __name__ == "__main__":
     ap.add_argument("--method", default="restaurant-median",
                     choices=("stable-basket", "restaurant-median"),
                     help="Index aggregation method (default: restaurant-median).")
+    ap.add_argument("--db", default=DB_PATH,
+                    help="SQLite DB to read and write (default: uifpi.db).")
+    ap.add_argument("--csv-out", default=CSV_OUT,
+                    help="Index CSV output path (default: uifpi_index.csv).")
+    ap.add_argument("--confirmatory", action="store_true",
+                    help="Confirmatory mode: admit only whitelisted sources "
+                         "(wayback-*); quarantine the "
+                         "rest and log their row counts. DoorDash stays in "
+                         "unless --exclude-doordash is given.")
+    ap.add_argument("--exclude-doordash", action="store_true",
+                    help="With --confirmatory: drop wayback-doordash "
+                         "(the labelled sensitivity variant).")
     args = ap.parse_args()
-    run(method=args.method)
+    run(db_path=args.db, csv_out=args.csv_out, method=args.method,
+        confirmatory=args.confirmatory, exclude_doordash=args.exclude_doordash)

@@ -26,6 +26,7 @@ import sys
 import threading
 import time
 from datetime import date
+from urllib.parse import urlparse
 
 import requests
 try:
@@ -202,7 +203,8 @@ def init_db():
             sector TEXT,
             source TEXT,
             collection_date TEXT,
-            url TEXT
+            url TEXT,
+            platform TEXT
         )
     ''')
     c.execute('''
@@ -247,6 +249,13 @@ def init_db():
     # Add price_usd column to existing tables that predate this schema
     try:
         c.execute('ALTER TABLE prices ADD COLUMN price_usd REAL')
+        conn.commit()
+    except sqlite3.OperationalError:
+        pass  # Column already exists
+    # platform: hostname of the target URL, recorded for new rows only.
+    # Existing rows stay NULL (deliberately not backfilled).
+    try:
+        c.execute('ALTER TABLE prices ADD COLUMN platform TEXT')
         conn.commit()
     except sqlite3.OperationalError:
         pass  # Column already exists
@@ -452,6 +461,15 @@ def already_scraped(conn, restaurant_name, today):
     return c.fetchone()[0] > 0
 
 
+def platform_from_url(url):
+    """Hostname of the target URL, lowercased, without a leading 'www.'.
+    None if the URL has no host."""
+    host = (urlparse(url or '').hostname or '').lower()
+    if host.startswith('www.'):
+        host = host[4:]
+    return host or None
+
+
 def insert_item(conn, restaurant_name, item_name, price, currency, country,
                 sector, source, today, url, usd_rates):
     price_usd = to_usd(price, currency, usd_rates)
@@ -459,10 +477,10 @@ def insert_item(conn, restaurant_name, item_name, price, currency, country,
     c.execute(
         '''INSERT INTO prices
            (restaurant_name, item_name, price, currency, price_usd, country,
-            sector, source, collection_date, url)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+            sector, source, collection_date, url, platform)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
         (restaurant_name, item_name, price, currency, price_usd, country,
-         sector, source, today, url),
+         sector, source, today, url, platform_from_url(url)),
     )
 
 
@@ -3883,6 +3901,16 @@ if __name__ == '__main__':
         log(f"\n--country filter '{country_filter}' → {len(active_targets)} target(s)")
 
     log(f"\nTotal targets: {len(active_targets)}")
+
+    try:
+        import subprocess
+        git_sha = subprocess.run(["git", "rev-parse", "--short", "HEAD"],
+                                 cwd=os.path.dirname(os.path.abspath(__file__)),
+                                 capture_output=True, text=True, timeout=5).stdout.strip() or "unknown"
+    except Exception:
+        git_sha = "unknown"
+    log(f"Run config: concurrency={SCRAPE_CONCURRENCY} headless={HEADLESS} "
+        f"targets={len(active_targets)} git={git_sha}")
 
     remaining = [t for t in active_targets if not already_scraped(conn, t[0], today)]
     skipped   = len(active_targets) - len(remaining)

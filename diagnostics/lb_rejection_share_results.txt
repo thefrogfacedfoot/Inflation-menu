@@ -1,0 +1,9 @@
+Ljung-Box(12) rejection share at 5%, simulated null series, reps=2000 seed=20261008
+
+DGP                n   y-equation  x-equation   either
+base              36       0.5155      0.5175   0.7610
+base             100       0.1835      0.1885   0.3385
+persistent        36       0.5485      0.5350   0.7850
+persistent       100       0.1930      0.1880   0.3475
+seasonal_ar12     36       0.3935      0.3815   0.6140
+seasonal_ar12    100       0.5250      0.5835   0.7910
