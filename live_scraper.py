@@ -3195,9 +3195,11 @@ TARGETS = [
     # Boost Juice (timeout), Mad Mex. 0 items: Hungry Jack's, Crust Pizza,
     # Pizza Hut AU, Sumo Salad, Subway AU, Guzman y Gomez AU, Grill'd,
     # Zambrero, Roll'd. Both surviving AU adds are formal-sector chains.
-    ("Domino's AU",
-     "https://www.dominos.com.au/menu",
-     "chain", "direct", "AUD", "Australia"),
+    # [removed 2026-10-08] dominos.com.au returns ACCESS_DENIED (bot block) on every attempt (2026-10-07, 10-08 x3);
+    # rows stay in `prices` and are excluded from the index via index_builder.EXCLUDED_RESTAURANTS.
+    # ("Domino's AU",
+     # "https://www.dominos.com.au/menu",
+     # "chain", "direct", "AUD", "Australia"),
 
     ("Schnitz",
      "https://www.schnitz.com.au/menu/",

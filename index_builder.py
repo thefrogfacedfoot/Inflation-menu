@@ -52,6 +52,15 @@ SAMPLE_SEED = 42
 # diag_us_no_doordash.py for the reproducer.
 EXCLUDED_SOURCES = ("wayback-doordash",)
 
+# Restaurants excluded from index construction in ALL modes (default and
+# confirmatory; unlike EXCLUDED_SOURCES this is not switched off by
+# confirmatory passing excluded_sources=()). Rows stay in `prices`.
+# (country, restaurant_name):
+#  - Domino's AU: dominos.com.au returns ACCESS_DENIED to the scraper (removed
+#    from live_scraper TARGETS); its only stored rows are one junk row per date
+#    (item "Domino's", price 10.0 then 1.0), not a menu.
+EXCLUDED_RESTAURANTS = (("Australia", "Domino's AU"),)
+
 # Confirmatory provenance whitelist (docs/preregistration.md §8, registered at
 # bd859403). In confirmatory mode ONLY these source labels are admitted into
 # index construction; every other source is quarantined (excluded, with its
@@ -323,6 +332,14 @@ def load_price_data(conn: sqlite3.Connection,
         if dropped > 0:
             print(f"  Excluded {dropped:,} rows from sources "
                   f"{list(excluded_sources)} (kept in raw DB).")
+
+    # Drop excluded restaurants in every mode (see EXCLUDED_RESTAURANTS).
+    for ex_country, ex_name in EXCLUDED_RESTAURANTS:
+        before_r = len(df)
+        df = df[~((df["country"] == ex_country) & (df["restaurant_name"] == ex_name))].copy()
+        if before_r - len(df) > 0:
+            print(f"  Excluded {before_r - len(df):,} rows from restaurant "
+                  f"{ex_name!r} ({ex_country}) (kept in raw DB).")
 
     # Drop quarantined (country, source) slices with corrupted prices — see
     # data_quality.py / docs/data_quality_2026-07.md.
