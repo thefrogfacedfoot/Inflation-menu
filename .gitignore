@@ -10,3 +10,13 @@ scraper_log.txt
 *sweep*.log
 
 
+
+# Runtime / local artifacts
+__pycache__/
+*.pyc
+scraper.pid
+scraper_output.txt
+.amorphous/
+*.local_backup_*
+sapient-split/
+.gstack/
