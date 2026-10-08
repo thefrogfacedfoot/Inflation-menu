@@ -27,6 +27,7 @@ import argparse
 import datetime
 import gzip
 import json
+import os
 import random
 import re
 import sys
@@ -149,20 +150,41 @@ _slot_lock = threading.Lock()
 _next_slot = [0.0]
 
 
-DEADLINE = datetime.datetime(2026, 10, 8, 22, 0, tzinfo=datetime.timezone(datetime.timedelta(hours=8)))  # 22:00 SGT
+DEADLINE = datetime.datetime(2026, 10, 9, 20, 0, tzinfo=datetime.timezone(datetime.timedelta(hours=8)))  # 20:00 SGT
+TIMEOUT = (10, 60)                     # connect 10 s, read 60 s; a timeout is a failure and goes through backoff
+HEARTBEAT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wayback_audit", "heartbeat.txt")
+STATS = {"ok": 0, "fail": 0, "backoff": "none", "t0": time.time(), "last_report": time.time()}
+
+
+def _beat(ok, note=""):
+    """Heartbeat after EVERY request (success or failure) + a progress line every 30 min."""
+    STATS["ok" if ok else "fail"] += 1
+    now = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    os.makedirs(os.path.dirname(HEARTBEAT), exist_ok=True)
+    with open(HEARTBEAT, "a") as fh:
+        fh.write(f"{now} {'ok' if ok else 'FAIL'} {note}\n")
+    if time.time() - STATS["last_report"] >= 1800:
+        STATS["last_report"] = time.time()
+        try:
+            ck = json.load(open(CKPT))
+            done = sum(1 for c in ck.values() if c.get("status") in ("done", "empty"))
+            n = len(ck)
+        except Exception:
+            done, n = "?", "?"
+        print(f"PROGRESS {now} patterns done {done}/{n} requests ok={STATS['ok']} failed={STATS['fail']} backoff={STATS['backoff']}", flush=True)
 
 
 class DeadlineReached(RuntimeError):
     pass
 
 
-def polite_get(url, params=None, timeout=180, tries=5):
+def polite_get(url, params=None, timeout=TIMEOUT, tries=5):
     """Single global slot: request STARTS spaced 3-5 s apart (random); exponential backoff on 5xx and network
     errors; on 429 wait >= 5 min before retrying. Raises DeadlineReached after the hard deadline."""
     err = None
     for i in range(tries):
         if datetime.datetime.now(datetime.timezone.utc) >= DEADLINE:
-            raise DeadlineReached("deadline 22:00 SGT reached")
+            raise DeadlineReached("deadline 2026-10-09 20:00 SGT reached")
         with _slot_lock:
             slot = max(time.time(), _next_slot[0] + random.uniform(3.0, 5.0))
             _next_slot[0] = slot
@@ -171,16 +193,26 @@ def polite_get(url, params=None, timeout=180, tries=5):
             r = requests.get(url, params=params, headers={"User-Agent": UA}, timeout=timeout)
             if r.status_code == 429:
                 err = "HTTP 429"
+                STATS["backoff"] = f"429 sleep {300 + 60 * i}s"
+                _beat(False, err)
                 time.sleep(300 + 60 * i)
+                STATS["backoff"] = "none"
                 continue
             if r.status_code in (500, 502, 503, 504):
                 err = f"HTTP {r.status_code}"
+                STATS["backoff"] = f"{err} sleep {min(120, 5 * 2 ** i)}s"
+                _beat(False, err)
                 time.sleep(min(120, 5 * 2 ** i))
+                STATS["backoff"] = "none"
                 continue
+            _beat(True, f"HTTP {r.status_code}")
             return r
         except requests.RequestException as e:
             err = type(e).__name__
+            STATS["backoff"] = f"{err} sleep {min(120, 5 * 2 ** i)}s"
+            _beat(False, err)
             time.sleep(min(120, 5 * 2 ** i))
+            STATS["backoff"] = "none"
     raise RuntimeError(f"gave up after {tries} tries: {err}")
 
 
@@ -395,7 +427,7 @@ def parse_stage(countries):
             for label, ts, orig in pick:
                 html = None
                 try:
-                    r = polite_get(f"https://web.archive.org/web/{ts}id_/{orig}", timeout=60, tries=3)
+                    r = polite_get(f"https://web.archive.org/web/{ts}id_/{orig}", tries=3)
                     if r.status_code == 200:
                         r.encoding = "utf-8"
                         html = r.text
