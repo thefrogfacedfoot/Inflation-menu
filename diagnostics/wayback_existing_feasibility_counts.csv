@@ -1,0 +1,674 @@
+country,month,restaurants_observed,restaurants_contributing
+Australia,2019-09,1,0
+Australia,2019-10,1,0
+Australia,2019-11,0,0
+Australia,2019-12,0,0
+Australia,2020-01,0,0
+Australia,2020-02,0,0
+Australia,2020-03,0,0
+Australia,2020-04,0,0
+Australia,2020-05,0,0
+Australia,2020-06,0,0
+Australia,2020-07,0,0
+Australia,2020-08,0,0
+Australia,2020-09,0,0
+Australia,2020-10,0,0
+Australia,2020-11,0,0
+Australia,2020-12,0,0
+Australia,2021-01,0,0
+Australia,2021-02,0,0
+Australia,2021-03,0,0
+Australia,2021-04,0,0
+Australia,2021-05,1,0
+Australia,2021-06,0,0
+Australia,2021-07,0,0
+Australia,2021-08,0,0
+Australia,2021-09,0,0
+Australia,2021-10,0,0
+Australia,2021-11,0,0
+Australia,2021-12,1,0
+Australia,2022-01,0,0
+Australia,2022-02,0,0
+Australia,2022-03,0,0
+Australia,2022-04,0,0
+Australia,2022-05,2,0
+Australia,2022-06,1,0
+Australia,2022-07,2,0
+Australia,2022-08,0,0
+Australia,2022-09,0,0
+Australia,2022-10,0,0
+Australia,2022-11,2,0
+Australia,2022-12,1,0
+Australia,2023-01,0,0
+Australia,2023-02,1,0
+Australia,2023-03,1,0
+Australia,2023-04,0,0
+Australia,2023-05,3,0
+Australia,2023-06,1,0
+Australia,2023-07,2,0
+Australia,2023-08,1,0
+Australia,2023-09,0,0
+Australia,2023-10,1,0
+Australia,2023-11,0,0
+Australia,2023-12,0,0
+Australia,2024-01,0,0
+Australia,2024-02,0,0
+Australia,2024-03,1,0
+Australia,2024-04,1,0
+Australia,2024-05,1,0
+Australia,2024-06,0,0
+Australia,2024-07,0,0
+Australia,2024-08,1,0
+Australia,2024-09,1,0
+Australia,2024-10,0,0
+Australia,2024-11,0,0
+Australia,2024-12,0,0
+Australia,2025-01,0,0
+Australia,2025-02,0,0
+Australia,2025-03,0,0
+Australia,2025-04,0,0
+Australia,2025-05,0,0
+Australia,2025-06,0,0
+Australia,2025-07,0,0
+Australia,2025-08,0,0
+Australia,2025-09,0,0
+Australia,2025-10,0,0
+Australia,2025-11,1,0
+India,2018-01,2,0
+India,2018-02,0,0
+India,2018-03,1,0
+India,2018-04,0,0
+India,2018-05,0,0
+India,2018-06,0,0
+India,2018-07,0,0
+India,2018-08,3,0
+India,2018-09,0,0
+India,2018-10,2,0
+India,2018-11,1,0
+India,2018-12,0,0
+India,2019-01,4,0
+India,2019-02,0,0
+India,2019-03,0,0
+India,2019-04,0,0
+India,2019-05,1,0
+India,2019-06,0,0
+India,2019-07,0,0
+India,2019-08,0,0
+India,2019-09,0,0
+India,2019-10,0,0
+India,2019-11,4,0
+India,2019-12,0,0
+India,2020-01,1,0
+India,2020-02,0,0
+India,2020-03,1,0
+India,2020-04,0,0
+India,2020-05,0,0
+India,2020-06,0,0
+India,2020-07,0,0
+India,2020-08,1,0
+India,2020-09,0,0
+India,2020-10,0,0
+India,2020-11,1,0
+India,2020-12,2,0
+India,2021-01,1,0
+India,2021-02,0,0
+India,2021-03,0,0
+India,2021-04,0,0
+India,2021-05,2,0
+India,2021-06,0,0
+India,2021-07,1,0
+India,2021-08,0,0
+India,2021-09,2,0
+India,2021-10,0,0
+India,2021-11,2,0
+India,2021-12,1,0
+India,2022-01,2,0
+India,2022-02,0,0
+India,2022-03,1,0
+India,2022-04,2,0
+India,2022-05,1,0
+India,2022-06,0,0
+India,2022-07,0,0
+India,2022-08,0,0
+India,2022-09,0,0
+India,2022-10,2,0
+India,2022-11,0,0
+India,2022-12,0,0
+India,2023-01,1,0
+India,2023-02,1,0
+India,2023-03,1,0
+India,2023-04,1,0
+India,2023-05,1,0
+India,2023-06,0,0
+India,2023-07,0,0
+India,2023-08,2,0
+India,2023-09,1,0
+India,2023-10,0,0
+India,2023-11,0,0
+India,2023-12,2,0
+India,2024-01,2,0
+India,2024-02,0,0
+India,2024-03,1,0
+India,2024-04,1,0
+India,2024-05,0,0
+India,2024-06,3,0
+India,2024-07,1,0
+India,2024-08,1,0
+India,2024-09,1,0
+India,2024-10,0,0
+India,2024-11,0,0
+India,2024-12,2,0
+India,2025-01,0,0
+India,2025-02,0,0
+India,2025-03,1,0
+India,2025-04,1,0
+India,2025-05,0,0
+India,2025-06,2,0
+India,2025-07,0,0
+India,2025-08,1,0
+India,2025-09,1,1
+India,2025-10,0,0
+India,2025-11,1,0
+India,2025-12,0,0
+India,2026-01,2,0
+India,2026-02,0,0
+India,2026-03,0,0
+India,2026-04,3,0
+India,2026-05,1,0
+Indonesia,2018-02,1,0
+Indonesia,2018-03,1,0
+Indonesia,2018-04,0,0
+Indonesia,2018-05,0,0
+Indonesia,2018-06,0,0
+Indonesia,2018-07,0,0
+Indonesia,2018-08,4,0
+Indonesia,2018-09,0,0
+Indonesia,2018-10,0,0
+Indonesia,2018-11,4,0
+Indonesia,2018-12,0,0
+Indonesia,2019-01,0,0
+Indonesia,2019-02,0,0
+Indonesia,2019-03,1,0
+Indonesia,2019-04,1,0
+Indonesia,2019-05,0,0
+Indonesia,2019-06,1,0
+Indonesia,2019-07,0,0
+Indonesia,2019-08,0,0
+Indonesia,2019-09,1,0
+Indonesia,2019-10,0,0
+Indonesia,2019-11,0,0
+Indonesia,2019-12,0,0
+Indonesia,2020-01,0,0
+Indonesia,2020-02,0,0
+Indonesia,2020-03,1,0
+Indonesia,2020-04,0,0
+Indonesia,2020-05,0,0
+Indonesia,2020-06,0,0
+Indonesia,2020-07,1,0
+Indonesia,2020-08,0,0
+Indonesia,2020-09,0,0
+Indonesia,2020-10,1,0
+Indonesia,2020-11,1,0
+Indonesia,2020-12,0,0
+Indonesia,2021-01,0,0
+Indonesia,2021-02,1,0
+Indonesia,2021-03,0,0
+Indonesia,2021-04,0,0
+Indonesia,2021-05,1,0
+Indonesia,2021-06,3,0
+Indonesia,2021-07,0,0
+Indonesia,2021-08,0,0
+Indonesia,2021-09,0,0
+Indonesia,2021-10,0,0
+Indonesia,2021-11,0,0
+Indonesia,2021-12,0,0
+Indonesia,2022-01,0,0
+Indonesia,2022-02,1,0
+Indonesia,2022-03,0,0
+Indonesia,2022-04,0,0
+Indonesia,2022-05,2,0
+Indonesia,2022-06,0,0
+Indonesia,2022-07,0,0
+Indonesia,2022-08,0,0
+Indonesia,2022-09,1,0
+Indonesia,2022-10,1,0
+Indonesia,2022-11,0,0
+Indonesia,2022-12,0,0
+Indonesia,2023-01,1,0
+Malaysia,2019-07,1,0
+Malaysia,2019-08,0,0
+Malaysia,2019-09,0,0
+Malaysia,2019-10,1,0
+Malaysia,2019-11,0,0
+Malaysia,2019-12,0,0
+Malaysia,2020-01,0,0
+Malaysia,2020-02,0,0
+Malaysia,2020-03,0,0
+Malaysia,2020-04,0,0
+Malaysia,2020-05,0,0
+Malaysia,2020-06,0,0
+Malaysia,2020-07,0,0
+Malaysia,2020-08,0,0
+Malaysia,2020-09,0,0
+Malaysia,2020-10,0,0
+Malaysia,2020-11,0,0
+Malaysia,2020-12,0,0
+Malaysia,2021-01,0,0
+Malaysia,2021-02,0,0
+Malaysia,2021-03,0,0
+Malaysia,2021-04,0,0
+Malaysia,2021-05,43,0
+Malaysia,2021-06,12,0
+Malaysia,2021-07,0,0
+Malaysia,2021-08,0,0
+Malaysia,2021-09,0,0
+Malaysia,2021-10,0,0
+Malaysia,2021-11,0,0
+Malaysia,2021-12,0,0
+Malaysia,2022-01,0,0
+Malaysia,2022-02,0,0
+Malaysia,2022-03,0,0
+Malaysia,2022-04,0,0
+Malaysia,2022-05,0,0
+Malaysia,2022-06,0,0
+Malaysia,2022-07,1,0
+Malaysia,2022-08,0,0
+Malaysia,2022-09,2,0
+Malaysia,2022-10,2,0
+Malaysia,2022-11,2,0
+Malaysia,2022-12,2,0
+Malaysia,2023-01,1,0
+Malaysia,2023-02,3,0
+Malaysia,2023-03,4,0
+Malaysia,2023-04,0,0
+Malaysia,2023-05,3,0
+Malaysia,2023-06,2,0
+Malaysia,2023-07,0,0
+Malaysia,2023-08,0,0
+Malaysia,2023-09,0,0
+Malaysia,2023-10,79,0
+Malaysia,2023-11,6,0
+Malaysia,2023-12,15,0
+Malaysia,2024-01,1,0
+Malaysia,2024-02,2,0
+Malaysia,2024-03,0,0
+Malaysia,2024-04,0,0
+Malaysia,2024-05,0,0
+Malaysia,2024-06,2,0
+Malaysia,2024-07,0,0
+Malaysia,2024-08,0,0
+Malaysia,2024-09,1,0
+Malaysia,2024-10,0,0
+Malaysia,2024-11,31,0
+Malaysia,2024-12,100,0
+Malaysia,2025-01,27,8
+Malaysia,2025-02,3,0
+Malaysia,2025-03,13,0
+Malaysia,2025-04,0,0
+Malaysia,2025-05,0,0
+Malaysia,2025-06,0,0
+Malaysia,2025-07,34,0
+Malaysia,2025-08,50,0
+Malaysia,2025-09,74,0
+Malaysia,2025-10,70,3
+Malaysia,2025-11,0,0
+Malaysia,2025-12,0,0
+Malaysia,2026-01,0,0
+Malaysia,2026-02,0,0
+Malaysia,2026-03,0,0
+Malaysia,2026-04,0,0
+Malaysia,2026-05,2,0
+Singapore,2022-07,1,0
+Singapore,2022-08,3,0
+Singapore,2022-09,0,0
+Singapore,2022-10,1,0
+Singapore,2022-11,1,0
+Singapore,2022-12,2,0
+Singapore,2023-01,0,0
+Singapore,2023-02,0,0
+Singapore,2023-03,1,0
+Singapore,2023-04,1,0
+Singapore,2023-05,0,0
+Singapore,2023-06,0,0
+Singapore,2023-07,2,0
+Thailand,2026-06,8,0
+United Arab Emirates,2018-07,1,0
+United Arab Emirates,2018-08,5,0
+United Arab Emirates,2018-09,0,0
+United Arab Emirates,2018-10,1,0
+United Arab Emirates,2018-11,0,0
+United Arab Emirates,2018-12,2,0
+United Arab Emirates,2019-01,1,0
+United Arab Emirates,2019-02,0,0
+United Arab Emirates,2019-03,1,0
+United Arab Emirates,2019-04,3,0
+United Arab Emirates,2019-05,3,0
+United Arab Emirates,2019-06,0,0
+United Arab Emirates,2019-07,7,0
+United Arab Emirates,2019-08,5,0
+United Arab Emirates,2019-09,2,1
+United Arab Emirates,2019-10,1,0
+United Arab Emirates,2019-11,1,0
+United Arab Emirates,2019-12,0,0
+United Arab Emirates,2020-01,0,0
+United Arab Emirates,2020-02,2,0
+United Arab Emirates,2020-03,1,0
+United Arab Emirates,2020-04,1,0
+United Arab Emirates,2020-05,2,1
+United Arab Emirates,2020-06,2,0
+United Arab Emirates,2020-07,0,0
+United Arab Emirates,2020-08,3,0
+United Arab Emirates,2020-09,2,0
+United Arab Emirates,2020-10,4,0
+United Arab Emirates,2020-11,0,0
+United Arab Emirates,2020-12,0,0
+United Arab Emirates,2021-01,2,0
+United Arab Emirates,2021-02,0,0
+United Arab Emirates,2021-03,3,0
+United Arab Emirates,2021-04,4,0
+United Arab Emirates,2021-05,0,0
+United Arab Emirates,2021-06,1,0
+United Arab Emirates,2021-07,1,0
+United Arab Emirates,2021-08,2,0
+United Arab Emirates,2021-09,2,0
+United Arab Emirates,2021-10,3,0
+United Arab Emirates,2021-11,1,0
+United Arab Emirates,2021-12,1,0
+United Arab Emirates,2022-01,3,0
+United Arab Emirates,2022-02,0,0
+United Arab Emirates,2022-03,0,0
+United Arab Emirates,2022-04,0,0
+United Arab Emirates,2022-05,0,0
+United Arab Emirates,2022-06,0,0
+United Arab Emirates,2022-07,0,0
+United Arab Emirates,2022-08,5,0
+United Arab Emirates,2022-09,0,0
+United Arab Emirates,2022-10,4,0
+United Arab Emirates,2022-11,0,0
+United Arab Emirates,2022-12,1,0
+United Arab Emirates,2023-01,0,0
+United Arab Emirates,2023-02,3,0
+United Arab Emirates,2023-03,2,2
+United Arab Emirates,2023-04,1,0
+United Arab Emirates,2023-05,2,0
+United Arab Emirates,2023-06,0,0
+United Arab Emirates,2023-07,0,0
+United Arab Emirates,2023-08,0,0
+United Arab Emirates,2023-09,3,0
+United Arab Emirates,2023-10,0,0
+United Arab Emirates,2023-11,0,0
+United Arab Emirates,2023-12,0,0
+United Arab Emirates,2024-01,0,0
+United Arab Emirates,2024-02,3,0
+United Arab Emirates,2024-03,0,0
+United Arab Emirates,2024-04,1,0
+United Arab Emirates,2024-05,1,0
+United Arab Emirates,2024-06,0,0
+United Arab Emirates,2024-07,0,0
+United Arab Emirates,2024-08,1,0
+United Arab Emirates,2024-09,2,1
+United Arab Emirates,2024-10,1,0
+United Arab Emirates,2024-11,1,0
+United Arab Emirates,2024-12,0,0
+United Arab Emirates,2025-01,3,0
+United Arab Emirates,2025-02,0,0
+United Arab Emirates,2025-03,1,0
+United Arab Emirates,2025-04,0,0
+United Arab Emirates,2025-05,0,0
+United Arab Emirates,2025-06,3,0
+United Arab Emirates,2025-07,0,0
+United Arab Emirates,2025-08,2,0
+United Arab Emirates,2025-09,1,0
+United Arab Emirates,2025-10,3,0
+United Arab Emirates,2025-11,0,0
+United Arab Emirates,2025-12,0,0
+United Arab Emirates,2026-01,2,0
+United Arab Emirates,2026-02,1,0
+United Arab Emirates,2026-03,1,0
+United Arab Emirates,2026-04,3,0
+United Kingdom,2019-08,1,0
+United Kingdom,2019-09,2,0
+United Kingdom,2019-10,2,0
+United Kingdom,2019-11,1,0
+United Kingdom,2019-12,1,0
+United Kingdom,2020-01,0,0
+United Kingdom,2020-02,0,0
+United Kingdom,2020-03,0,0
+United Kingdom,2020-04,0,0
+United Kingdom,2020-05,0,0
+United Kingdom,2020-06,0,0
+United Kingdom,2020-07,0,0
+United Kingdom,2020-08,4,0
+United Kingdom,2020-09,3,0
+United Kingdom,2020-10,1,0
+United Kingdom,2020-11,4,0
+United Kingdom,2020-12,4,0
+United Kingdom,2021-01,2,0
+United Kingdom,2021-02,3,1
+United Kingdom,2021-03,4,0
+United Kingdom,2021-04,5,1
+United Kingdom,2021-05,4,2
+United Kingdom,2021-06,4,1
+United Kingdom,2021-07,10,1
+United Kingdom,2021-08,4,1
+United Kingdom,2021-09,8,0
+United Kingdom,2021-10,39,1
+United Kingdom,2021-11,0,0
+United Kingdom,2021-12,6,0
+United Kingdom,2022-01,1,0
+United Kingdom,2022-02,0,0
+United Kingdom,2022-03,0,0
+United Kingdom,2022-04,0,0
+United Kingdom,2022-05,3,0
+United Kingdom,2022-06,3,0
+United Kingdom,2022-07,17,0
+United Kingdom,2022-08,12,1
+United Kingdom,2022-09,2,1
+United Kingdom,2022-10,0,0
+United Kingdom,2022-11,0,0
+United Kingdom,2022-12,5,0
+United Kingdom,2023-01,1,0
+United Kingdom,2023-02,2,0
+United Kingdom,2023-03,3,0
+United Kingdom,2023-04,0,0
+United Kingdom,2023-05,11,0
+United Kingdom,2023-06,4,0
+United Kingdom,2023-07,0,0
+United Kingdom,2023-08,0,0
+United Kingdom,2023-09,1,0
+United Kingdom,2023-10,0,0
+United Kingdom,2023-11,8,0
+United Kingdom,2023-12,60,0
+United Kingdom,2024-01,2,0
+United Kingdom,2024-02,1,0
+United Kingdom,2024-03,9,0
+United Kingdom,2024-04,8,0
+United Kingdom,2024-05,1,0
+United Kingdom,2024-06,7,0
+United Kingdom,2024-07,4,1
+United Kingdom,2024-08,2,1
+United Kingdom,2024-09,10,0
+United Kingdom,2024-10,4,0
+United Kingdom,2024-11,9,0
+United Kingdom,2024-12,15,1
+United Kingdom,2025-01,15,2
+United Kingdom,2025-02,28,0
+United Kingdom,2025-03,88,0
+United Kingdom,2025-04,58,9
+United Kingdom,2025-05,121,8
+United Kingdom,2025-06,240,11
+United Kingdom,2025-07,67,23
+United Kingdom,2025-08,49,7
+United Kingdom,2025-09,24,4
+United Kingdom,2025-10,39,3
+United Kingdom,2025-11,11,3
+United Kingdom,2025-12,13,0
+United Kingdom,2026-01,3,0
+United Kingdom,2026-02,2,0
+United Kingdom,2026-03,6,1
+United Kingdom,2026-04,12,0
+United Kingdom,2026-05,7,0
+United States,2018-07,4,0
+United States,2018-08,0,0
+United States,2018-09,0,0
+United States,2018-10,0,0
+United States,2018-11,2,0
+United States,2018-12,0,0
+United States,2019-01,1,0
+United States,2019-02,2,0
+United States,2019-03,0,0
+United States,2019-04,0,0
+United States,2019-05,4,0
+United States,2019-06,0,0
+United States,2019-07,2,0
+United States,2019-08,2,1
+United States,2019-09,0,0
+United States,2019-10,1,0
+United States,2019-11,1,0
+United States,2019-12,2,0
+United States,2020-01,0,0
+United States,2020-02,0,0
+United States,2020-03,4,0
+United States,2020-04,4,0
+United States,2020-05,0,0
+United States,2020-06,0,0
+United States,2020-07,0,0
+United States,2020-08,3,0
+United States,2020-09,0,0
+United States,2020-10,2,0
+United States,2020-11,1,0
+United States,2020-12,0,0
+United States,2021-01,0,0
+United States,2021-02,0,0
+United States,2021-03,0,0
+United States,2021-04,2,0
+United States,2021-05,0,0
+United States,2021-06,0,0
+United States,2021-07,1,0
+United States,2021-08,0,0
+United States,2021-09,0,0
+United States,2021-10,0,0
+United States,2021-11,2,0
+United States,2021-12,0,0
+United States,2022-01,2,0
+United States,2022-02,0,0
+United States,2022-03,1,0
+United States,2022-04,0,0
+United States,2022-05,0,0
+United States,2022-06,0,0
+United States,2022-07,0,0
+United States,2022-08,0,0
+United States,2022-09,0,0
+United States,2022-10,0,0
+United States,2022-11,0,0
+United States,2022-12,1,0
+United States,2023-01,21,0
+United States,2023-02,20,1
+United States,2023-03,25,1
+United States,2023-04,12,2
+United States,2023-05,25,1
+United States,2023-06,53,5
+United States,2023-07,2,0
+United States,2023-08,10,1
+United States,2023-09,101,1
+United States,2023-10,14,2
+United States,2023-11,11,1
+United States,2023-12,42,2
+United States,2024-01,2,1
+United States,2024-02,26,0
+United States,2024-03,24,2
+United States,2024-04,3,0
+United States,2024-05,1,0
+United States,2024-06,0,0
+United States,2024-07,0,0
+United States,2024-08,0,0
+United States,2024-09,0,0
+United States,2024-10,1,0
+United States,2024-11,0,0
+United States,2024-12,5,0
+United States,2025-01,3,0
+United States,2025-02,7,0
+United States,2025-03,33,1
+United States,2025-04,19,0
+United States,2025-05,20,6
+United States,2025-06,31,9
+United States,2025-07,57,20
+United States,2025-08,1,0
+United States,2025-09,25,0
+United States,2025-10,82,14
+United States,2025-11,0,0
+United States,2025-12,1,0
+United States,2026-01,17,0
+United States,2026-02,39,4
+United States,2026-03,4,2
+Vietnam,2019-12,5,0
+Vietnam,2020-01,0,0
+Vietnam,2020-02,0,0
+Vietnam,2020-03,0,0
+Vietnam,2020-04,0,0
+Vietnam,2020-05,0,0
+Vietnam,2020-06,0,0
+Vietnam,2020-07,0,0
+Vietnam,2020-08,0,0
+Vietnam,2020-09,0,0
+Vietnam,2020-10,0,0
+Vietnam,2020-11,0,0
+Vietnam,2020-12,0,0
+Vietnam,2021-01,0,0
+Vietnam,2021-02,0,0
+Vietnam,2021-03,0,0
+Vietnam,2021-04,0,0
+Vietnam,2021-05,13,0
+Vietnam,2021-06,0,0
+Vietnam,2021-07,0,0
+Vietnam,2021-08,0,0
+Vietnam,2021-09,0,0
+Vietnam,2021-10,0,0
+Vietnam,2021-11,0,0
+Vietnam,2021-12,0,0
+Vietnam,2022-01,0,0
+Vietnam,2022-02,0,0
+Vietnam,2022-03,0,0
+Vietnam,2022-04,0,0
+Vietnam,2022-05,0,0
+Vietnam,2022-06,0,0
+Vietnam,2022-07,0,0
+Vietnam,2022-08,0,0
+Vietnam,2022-09,0,0
+Vietnam,2022-10,2,0
+Vietnam,2022-11,0,0
+Vietnam,2022-12,0,0
+Vietnam,2023-01,0,0
+Vietnam,2023-02,4,0
+Vietnam,2023-03,4,0
+Vietnam,2023-04,1,0
+Vietnam,2023-05,0,0
+Vietnam,2023-06,1,0
+Vietnam,2023-07,0,0
+Vietnam,2023-08,0,0
+Vietnam,2023-09,0,0
+Vietnam,2023-10,0,0
+Vietnam,2023-11,0,0
+Vietnam,2023-12,0,0
+Vietnam,2024-01,0,0
+Vietnam,2024-02,0,0
+Vietnam,2024-03,0,0
+Vietnam,2024-04,1,0
+Vietnam,2024-05,0,0
+Vietnam,2024-06,0,0
+Vietnam,2024-07,4,0
+Vietnam,2024-08,0,0
+Vietnam,2024-09,2,0
+Vietnam,2024-10,0,0
+Vietnam,2024-11,2,0
+Vietnam,2024-12,15,0
+Vietnam,2025-01,2,1
+Vietnam,2025-02,5,0
+Vietnam,2025-03,11,0
+Vietnam,2025-04,0,0
+Vietnam,2025-05,0,0
+Vietnam,2025-06,0,0
+Vietnam,2025-07,8,0
+Vietnam,2025-08,4,0
+Vietnam,2025-09,7,0
+Vietnam,2025-10,11,0
