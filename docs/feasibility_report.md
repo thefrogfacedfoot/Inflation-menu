@@ -84,6 +84,6 @@ A CDX crawl (single-threaded, 3 to 5 seconds between requests, deadline 2026-10-
 ## 7. Limitations
 
 - Restaurant identity in the name-matched run is the exact `restaurant_name` string; the ID-matched run corrects name variants but uses the page-derived name where a URL has no ID.
-- V1 to V3 are proposed in PR #46 and not yet registered; the counts use them as written there. Without V2 the counts could only be higher in observed restaurants, not in matched ones that survive V3.
+- V1 to V3 are proposed in PR #46 and not yet registered; the counts use them as written there.
 - "Registered currency" is the most common currency among a country's live rows; wayback rows in another currency would be dropped (none were: V1 removed no wayback row).
 - Known parser-garbage slices (for example some UAE and Vietnam wayback rows) are not removed here beyond V1 to V3.
