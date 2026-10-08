@@ -154,25 +154,34 @@ The nightly summary listed Chicken Treat Cheezy Bacon Loaded Chips (800.00 → 1
 The table has no modifier or option column, so the modifier diagnosis rests on price pattern and name, not on a recorded field.
 
 ### Counts (whole `prices` table)
-(a) **Same key and date, several prices with max/min > 2** (key = restaurant, item, source; 9,362 of 871,591 key-date cells, 1.07%):
+(a) **Same key and date, several distinct prices**, at the item-date level used by V2 (key = restaurant, item, currency, date; no cell mixes sources). 29,220 of 871,591 cells (3.35%) have more than one distinct price: 19,858 with max/min ≤ 2 and 9,362 with max/min > 2.
 
-| source | cells | read as |
-|---|---|---|
-| wayback-deliveroo | 5,692 | 5,402 variant/size spread; 214 power-of-10 scale; 76 modifier-like (min ≤ 2.00) |
-| js (live Deliveroo) | 3,135 | 2,972 variant/size spread; 163 modifier-like |
-| direct | 330 | 330 variant/size spread (includes the Chicken Treat cents/dollars mix) |
-| wayback-doordash | 68 | 63 / 3 / 2 |
-| grabfood | 63 | 56 variant/size spread; 7 modifier-like |
-| other wayback and foodpanda | 74 | mainly variant/size spread |
+| source | cells | removed | ratio ≤ 2 | ratio > 2 | % removed |
+|---|---|---|---|---|---|
+| js (live Deliveroo) | 273,461 | 13,169 | 10,034 | 3,135 | 4.82 |
+| wayback-deliveroo | 282,223 | 12,767 | 7,075 | 5,692 | 4.52 |
+| wayback-doordash | 51,920 | 1,336 | 1,268 | 68 | 2.57 |
+| grabfood | 154,215 | 1,028 | 965 | 63 | 0.67 |
+| direct | 10,521 | 426 | 96 | 330 | 4.05 |
+| wayback-grabfood | 44,685 | 174 | 145 | 29 | 0.39 |
+| foodpanda | 6,216 | 130 | 125 | 5 | 2.09 |
+| wayback-menupages | 8,140 | 130 | 117 | 13 | 1.60 |
+| wayback-zomato | 525 | 28 | 11 | 17 | 5.33 |
+| wayback-menulog | 1,430 | 18 | 18 | 0 | 1.26 |
+| wayback | 28 | 14 | 4 | 10 | 50.00 |
 
-(b) **Consecutive observations with item relative outside [0.5, 2.0]** (per-date median price, same key; 1,395 of 545,903 pairs, 0.26%): wayback-deliveroo 1,302 of 77,841 (1.67%; 212 are power-of-10 scale, 116 involve a same-date duplicate, 974 single-price jumps, many of them digit-garbage values such as 70007.0); wayback-doordash 35; grabfood 23 of 140,311 (0.02%); direct 12; js 12 of 257,350 (0.005%, all from same-date duplicates); the rest are fewer than 10 each (wayback-zomato, foodpanda, wayback-grabfood, and the BLS series, which is not an index input). Cause labels are heuristics from price ratios and key multiplicity, not manual review.
+The ratio > 2 cells are the variant, modifier and mixed-unit cases described above; by cause, 5,402 of the 5,692 wayback-deliveroo cells and 2,972 of the 3,135 js cells read as variant/size spread, 214 wayback-deliveroo cells as power-of-10 scale, and 163 js cells as modifier-like (min ≤ 2.00). The ratio ≤ 2 cells (two thirds of all removed cells) are mostly small spreads such as a size price next to a base price; V2 removes them as well because a name that carries two prices on one date is not a single matchable item.
+
+(b) **Consecutive observations with item relative outside [0.5, 2.0]** (per-date median price, same key; 1,395 of 545,903 pairs, 0.26%): wayback-deliveroo 1,302 of 77,841 (1.67%; 212 are power-of-10 scale, 116 involve a same-date duplicate, 974 single-price jumps, many of them digit-garbage values such as 70007.0); wayback-doordash 35; grabfood 23 of 140,311 (0.02%); direct 12; js 12 of 257,350 (0.005%, all from same-date duplicates); the rest are fewer than 10 each (wayback-zomato, foodpanda, wayback-grabfood, and the BLS series, which is not an index input). Cause labels are heuristics from price ratios and key multiplicity, not manual review. These counts were taken before V2; V3 is applied after V2 and its counts are reported by source.
+
+(c) **Why V1 does not require `price_usd`.** A condition requiring a non-null `price_usd` would have dropped 426,860 of 426,882 wayback-* rows (100.0%): every wayback source stores `price_usd` as null (wayback-deliveroo 306,103 of 306,103; wayback-doordash 64,922; wayback-grabfood 45,178; wayback-menupages 8,282; wayback-menulog 1,652; wayback-zomato 664; smaller sources 22 of 81). Relatives are computed in local currency, so the condition is not needed and would have removed the entire archival backfill.
 
 ### Proposed rule (applied before any index is computed; all thresholds fixed here)
-- **V1 Currency and positivity.** A row enters only with a finite price > 0 and a currency equal to its country's registered currency. Rows with a missing `price_usd` are excluded.
-- **V2 Duplicate-key exclusion.** If a (restaurant, item, currency) group has more than one distinct price within a calendar month and max/min > 2, the group is **excluded for that restaurant-month**; it is not reduced by the median. Groups with max/min ≤ 2 keep the median rule of §4. This removes the modifier, variant and mixed-unit cases above instead of letting a median pick among them.
-- **V3 Relative bounds.** An item relative outside [0.5, 2.0] is excluded from its restaurant's geometric mean. It is excluded, not winsorised, and the count per country-month is logged. The bounds are symmetric in logs and are fixed here.
+- **V1 Currency and positivity.** A row enters only with a finite price > 0 and a currency equal to its country's registered currency. `price_usd` is not used (relatives are in local currency).
+- **V2 Item-date exclusion.** For each (restaurant, item, currency, date) with more than one distinct price, **all rows of that item on that date are excluded**. The monthly median of §4 is then taken over the remaining dates of that month; if no date remains, the item has no price for that restaurant-month. The test is at the item-date level, with no ratio threshold.
+- **V3 Relative bounds.** An item relative outside [0.5, 2.0] is excluded from its restaurant's geometric mean. It is excluded, not winsorised, and applied after V2. The bounds are symmetric in logs and are fixed here. **Results report V3 exclusions by source** (and by country-month).
 - **V4 No unit repair.** Cents-valued prices are not rescaled. A matched-model relative is unaffected by a unit that is wrong but constant; V2 and V3 catch the cases where the unit changes.
-- **Reporting.** Every confirmatory result reports the number of rows and item relatives removed by V1 to V3 per country. The unvalidated index is reported alongside as a robustness run and never replaces the validated one.
+- **Reporting.** Every confirmatory result reports the rows, item-dates and item relatives removed by V1 to V3, by source and country. The unvalidated index is reported alongside as a robustness run and never replaces the validated one.
 
 ### Limits
-V2 and V3 can drop real moves (a promotion or a halving) and real multi-price items, which can only remove observations, never add them. V2 cannot recover the correct price for an item with variants. The bounds [0.5, 2.0] are a convention, not an estimate. The counts come from the current database; the Wayback backfill will have its own mix, and the rule is applied to it unchanged.
+V2 and V3 can drop real moves (a promotion or a halving) and real multi-price items, which can only remove observations, never add them. V2 cannot recover the correct price for an item with variants. The bounds [0.5, 2.0] are a convention, not an estimate. For a source with one capture per month (most wayback months), V2 removes the item for the whole month whenever its single date is duplicated. The counts come from the current database; the Wayback backfill will have its own mix, and the rule is applied to it unchanged.
