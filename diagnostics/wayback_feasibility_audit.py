@@ -580,13 +580,52 @@ def analyse(countries):
     print(json.dumps(summary, indent=1, default=lambda x: list(x) if isinstance(x, set) else x))
 
 
+def question(countries):
+    """Single question: does any source have >= 15 restaurants captured in each of >= 36 consecutive months, for any
+    country? Counts of distinct captured URLs per pattern-month from the CDX crawl (an UPPER bound: no parse or
+    matching yet, so 'yes' is necessary, not sufficient). Candidates per country: each URL-unit pattern; the sum over
+    each source type's URL-unit patterns (platform / aggregator); and the number of single-brand chain patterns with a
+    capture that month (>= 15 brands). Prints BLOCKED with no counts if any existing pattern is still incomplete."""
+    ck = load_ckpt()
+    cells = [c for c in ck.values() if c["country"] in countries]
+    pending = [c["label"] for c in cells if c.get("exists") is not False and c["status"] not in ("empty", "done")]
+    if pending:
+        print(f"BLOCKED on archive availability: {len(pending)} patterns incomplete: {pending}; no counts reported", flush=True)
+        return
+    allm = months_range(f"{FIRST_YEAR}01", f"{LAST_YEAR}09")
+    out = {}
+    for cc in sorted(countries):
+        cand = defaultdict(lambda: defaultdict(int))
+        for c in cells:
+            if c["country"] != cc or c["status"] == "empty":
+                continue
+            for ym, v in c["months"].items():
+                if unit_of(c["type"]) == "url":
+                    cand[c["label"]][ym] += v["n"]
+                    cand[f"SUM[{c['type']}]"][ym] += v["n"]
+                else:
+                    cand["SUM[brands with a capture]"][ym] += 1 if v["n"] else 0
+        res = {}
+        for name, d in cand.items():
+            flags = {ym: d.get(ym, 0) >= 15 for ym in allm}
+            n, s_, e_ = longest_run(flags)
+            res[name] = dict(longest_run_months_ge15=n, window=(s_, e_), peak=max(d.values()), months_ge15=sum(flags.values()))
+        best = max(res.items(), key=lambda kv: (kv[1]["longest_run_months_ge15"], kv[1]["months_ge15"]), default=(None, None))
+        out[cc] = dict(best=best[0], **(best[1] or {}), candidates=res)
+    yes = any(v.get("longest_run_months_ge15", 0) >= 36 for v in out.values())
+    (OUT / "question.json").write_text(json.dumps(out, indent=1))
+    print("ANSWER:", "YES" if yes else "NO", "- any source with >= 15 restaurants captured in each of >= 36 consecutive months", flush=True)
+    for cc, v in out.items():
+        print(f"{cc}: best={v['best']} longest_run={v.get('longest_run_months_ge15')} window={v.get('window')} peak={v.get('peak')}", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("stage", choices=("crawl", "parse", "analyse"))
+    ap.add_argument("stage", choices=("crawl", "parse", "analyse", "question"))
     ap.add_argument("--country", default="US,GB,SG,MY")
     a = ap.parse_args()
     cs = set(a.country.split(","))
-    {"crawl": crawl, "parse": parse_stage, "analyse": analyse}[a.stage](cs)
+    {"crawl": crawl, "parse": parse_stage, "analyse": analyse, "question": question}[a.stage](cs)
 
 
 if __name__ == "__main__":
