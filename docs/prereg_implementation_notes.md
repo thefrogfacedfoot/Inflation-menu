@@ -141,3 +141,38 @@ Four of the 12 rates exceed 0.07, so **Option C is not adopted** and the registe
 - The flag uses the **bootstrap-calibrated** Ljung-Box(12) on the y-equation residuals (Evidence 3), with the same B and seed rules as the primary test. A flagged country-level result is reported as "not interpretable — seasonal misspecification"; a flagged panel is exploratory. The diagnostic never changes the specification.
 - The raw chi-square Ljung-Box(12) is **not** proposed as the flag (Evidence 2: it rejects about half of correctly specified series at n = 36).
 - Unflagged results are reported with the §2 size limitation: the calibrated flag has low power (2% at n = 36, 18% at n = 100 against lag-12 seasonality), so an unflagged result is not evidence that seasonal misspecification is absent.
+
+## 6. Proposed pre-data amendment: input validation for the confirmatory index
+
+**Status: proposed, not yet registered.** The counts below describe data quality in the existing scrape database (`uifpi.db`, 2026-10-08 snapshot, read-only scan of all rows with a positive price). No index value, Granger statistic or p-value was computed or viewed. The rule is mechanical, uses only the price table, and changes no parser.
+
+### Motivation: three large "price drops" in the 2026-10-08 nightly log
+The nightly summary listed Chicken Treat Cheezy Bacon Loaded Chips (800.00 → 11.79), Crunchies Pizza Peri Peri (8.50 → 0.50) and Worldwide Munchies Silver Munchie Box (15.39 → 1.00). None is a price change over time. In each case the **same restaurant, item name and scrape date carries several prices at once**, and the same set repeats on every scrape since the item first appeared; the summary compared two different rows of the same key.
+- **Chicken Treat (direct, AUD).** Every scrape since 2026-08-20 holds both 800.0 and 11.79 for the item. On 2026-10-08, 169 of 209 Chicken Treat rows are integer-valued (e.g. "Add Cheese" 100.0, a large chips 220.0) and 40 carry decimals (e.g. 21.99). Integer values read as cents and decimal values as dollars. Cause: **mixed units in one scrape** (cents vs dollars). I did not inspect the raw page, so the origin of the two value streams is not verified.
+- **Crunchies Pizza Peri Peri (Deliveroo, GBP).** Four prices on every date since 2026-09-04: 8.50, 9.90, 14.95 and 0.50. Cause: **size/option variants and a modifier-like row sharing one item name**.
+- **Silver and Diamond Munchie Box (Deliveroo, GBP).** Pairs 15.39 / 1.00 and 24.19 / 2.00 on every date since 2026-09-13 (2026-10-05 for the Diamond box). On 2026-09-04 only the 1.00 row exists. Cause: **a modifier/option row carrying the item's name**; the median of the two rows is not stable when one row is missing.
+The table has no modifier or option column, so the modifier diagnosis rests on price pattern and name, not on a recorded field.
+
+### Counts (whole `prices` table)
+(a) **Same key and date, several prices with max/min > 2** (key = restaurant, item, source; 9,362 of 871,591 key-date cells, 1.07%):
+
+| source | cells | read as |
+|---|---|---|
+| wayback-deliveroo | 5,692 | 5,402 variant/size spread; 214 power-of-10 scale; 76 modifier-like (min ≤ 2.00) |
+| js (live Deliveroo) | 3,135 | 2,972 variant/size spread; 163 modifier-like |
+| direct | 330 | 330 variant/size spread (includes the Chicken Treat cents/dollars mix) |
+| wayback-doordash | 68 | 63 / 3 / 2 |
+| grabfood | 63 | 56 variant/size spread; 7 modifier-like |
+| other wayback and foodpanda | 74 | mainly variant/size spread |
+
+(b) **Consecutive observations with item relative outside [0.5, 2.0]** (per-date median price, same key; 1,395 of 545,903 pairs, 0.26%): wayback-deliveroo 1,302 of 77,841 (1.67%; 212 are power-of-10 scale, 116 involve a same-date duplicate, 974 single-price jumps, many of them digit-garbage values such as 70007.0); wayback-doordash 35; grabfood 23 of 140,311 (0.02%); direct 12; js 12 of 257,350 (0.005%, all from same-date duplicates); the rest are fewer than 10 each (wayback-zomato, foodpanda, wayback-grabfood, and the BLS series, which is not an index input). Cause labels are heuristics from price ratios and key multiplicity, not manual review.
+
+### Proposed rule (applied before any index is computed; all thresholds fixed here)
+- **V1 Currency and positivity.** A row enters only with a finite price > 0 and a currency equal to its country's registered currency. Rows with a missing `price_usd` are excluded.
+- **V2 Duplicate-key exclusion.** If a (restaurant, item, currency) group has more than one distinct price within a calendar month and max/min > 2, the group is **excluded for that restaurant-month**; it is not reduced by the median. Groups with max/min ≤ 2 keep the median rule of §4. This removes the modifier, variant and mixed-unit cases above instead of letting a median pick among them.
+- **V3 Relative bounds.** An item relative outside [0.5, 2.0] is excluded from its restaurant's geometric mean. It is excluded, not winsorised, and the count per country-month is logged. The bounds are symmetric in logs and are fixed here.
+- **V4 No unit repair.** Cents-valued prices are not rescaled. A matched-model relative is unaffected by a unit that is wrong but constant; V2 and V3 catch the cases where the unit changes.
+- **Reporting.** Every confirmatory result reports the number of rows and item relatives removed by V1 to V3 per country. The unvalidated index is reported alongside as a robustness run and never replaces the validated one.
+
+### Limits
+V2 and V3 can drop real moves (a promotion or a halving) and real multi-price items, which can only remove observations, never add them. V2 cannot recover the correct price for an item with variants. The bounds [0.5, 2.0] are a convention, not an estimate. The counts come from the current database; the Wayback backfill will have its own mix, and the rule is applied to it unchanged.
