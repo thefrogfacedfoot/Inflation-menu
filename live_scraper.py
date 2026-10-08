@@ -3857,7 +3857,7 @@ TARGETS = [
 
     ("Highlands Coffee 36 Duy Tân Hà Nội",
      "https://food.grab.com/vn/en/restaurant/highlands-coffee-36-duy-t%C3%A2n-h%C3%A0-n%E1%BB%99i-delivery/5-C6CEE3ABJE6UTA",
-     "independent", "grabfood", "VND", "Vietnam"),
+     "chain", "grabfood", "VND", "Vietnam"),
 
     ("Bánh Tráng Cô Hằng 2D1 Khâm Thiên",
      "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-tr%C3%A1ng-c%C3%B4-h%E1%BA%B1ng-2d1-kh%C3%A2m-thi%C3%AAn-delivery/5-C3BAKEWVG8LHWE",
