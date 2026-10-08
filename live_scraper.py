@@ -2421,6 +2421,154 @@ TARGETS = [
      "independent", "grabfood", "VND", "Vietnam"),
 
     # ==========================================================================
+    # VIETNAM CHAINS  (GrabFood, sector='chain'; verified live with >= 10 menu items 2026-10-09)
+    # ==========================================================================
+
+    ("Highlands Coffee - Pullman HN",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-pullman-hn-delivery/5-CZDFCNTJKEVTTJ",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - Kiosk Hồ Tây",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-kiosk-h%E1%BB%93-t%C3%A2y-delivery/5-CZDXGYKZLUXFC6",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - 402 Trần Hưng Đạo D5",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-402-tr%E1%BA%A7n-h%C6%B0ng-%C4%91%E1%BA%A1o-d5-delivery/5-C2LVTF23RTLJLA",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - Vincom Phan Văn Trị",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-vincom-phan-v%C4%83n-tr%E1%BB%8B-delivery/5-CZCYNYKXSF5GE6",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - Lê Quang Định",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-l%C3%AA-quang-%C4%91%E1%BB%8Bnh-delivery/5-CZCYNYKXRB6HAN",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - Nguyễn Trọng Tuyển",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-nguy%E1%BB%85n-tr%E1%BB%8Dng-tuy%E1%BB%83n-delivery/AWjrFQ3vR-bAtZoKZshD",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - Nguyễn Văn Quá",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-nguy%E1%BB%85n-v%C4%83n-qu%C3%A1-delivery/5-CZCYNYKXNEJUVT",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - Flora Thủ Đức",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-flora-th%E1%BB%A7-%C4%91%E1%BB%A9c-delivery/5-C2LVTF23R36AAN",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Highlands Coffee - 299 Lê Duẩn Long Thành",
+     "https://food.grab.com/vn/en/restaurant/highlands-coffee-299-l%C3%AA-du%E1%BA%A9n-long-th%C3%A0nh-delivery/5-CZCXR8NZTBLDHE",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("KFC - TTTM Big C Hà Nội",
+     "https://food.grab.com/vn/en/restaurant/kfc-tttm-big-c-h%C3%A0-n%E1%BB%99i-delivery/5-CYMAAGABJAJ1AX",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - TTTM Lotte Center",
+     "https://food.grab.com/vn/en/restaurant/lotteria-tttm-lotte-center-delivery/5-CYXGE6AAG4MKWE",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - TTTM The Garden",
+     "https://food.grab.com/vn/en/restaurant/lotteria-tttm-the-garden-delivery/5-CYXGE6AAGNJZE2",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - Trần Đại Nghĩa",
+     "https://food.grab.com/vn/en/restaurant/lotteria-tr%E1%BA%A7n-%C4%91%E1%BA%A1i-ngh%C4%A9a-delivery/VNGFVN000004za",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - Ngô Gia Tự",
+     "https://food.grab.com/vn/en/restaurant/lotteria-ng%C3%B4-gia-t%E1%BB%B1-delivery/VNGFVN0000046g",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - Lò Đúc",
+     "https://food.grab.com/vn/en/restaurant/lotteria-l%C3%B2-%C4%91%C3%BAc-delivery/VNGFVN000004z3",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - Phú Mỹ Hưng",
+     "https://food.grab.com/vn/en/restaurant/lotteria-ph%C3%BA-m%E1%BB%B9-h%C6%B0ng-delivery/VNGFVN00000458",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - Xô Viết Nghệ Tĩnh",
+     "https://food.grab.com/vn/en/restaurant/lotteria-x%C3%B4-vi%E1%BA%BFt-ngh%E1%BB%87-t%C4%A9nh-delivery/VNGFVN0000045w",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - Khâm Thiên",
+     "https://food.grab.com/vn/en/restaurant/lotteria-kh%C3%A2m-thi%C3%AAn-delivery/VNGFVN000004z8",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Lotteria - TTTM Royal City",
+     "https://food.grab.com/vn/en/restaurant/lotteria-tttm-royal-city-delivery/5-CYXGE6AAGXCXNT",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phúc Long - Nguyễn Thái Học",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-coffee-tea-house-nguy%E1%BB%85n-th%C3%A1i-h%E1%BB%8Dc-delivery/VNGFVN000003lk",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phúc Long - 382 Trần Hưng Đạo",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-coffee-tea-house-tr%E1%BA%A7n-h%C6%B0ng-%C4%91%E1%BA%A1o-delivery/VNGFVN000003lr",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phúc Long - 317 Ngô Gia Tự",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-coffee-tea-house-ng%C3%B4-gia-t%E1%BB%B1-delivery/5-CY5AGYMCV7V3EA",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phúc Long - TTTM Vietjet Plaza",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-tttm-vietjet-plaza-delivery/5-CY5AGYMCWCB1VJ",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phúc Long - Sky Garden",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-sky-garden-delivery/VNGFVN000003qn",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phúc Long - Phổ Quang",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-coffee-tea-house-ph%E1%BB%95-quang-delivery/5-CY5AGYMCV2XCBE",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Phúc Long - 82 Hàng Điếu",
+     "https://food.grab.com/vn/en/restaurant/ph%C3%BAc-long-82-h%C3%A0ng-%C4%91i%E1%BA%BFu-delivery/5-CYLTGZMUGPB1SA",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Katinat - Nguyễn Du",
+     "https://food.grab.com/vn/en/restaurant/katinat-s%C3%A0i-g%C3%B2n-nguy%E1%BB%85n-du-delivery/VNGFVN00000713",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("The Coffee House - Hai Bà Trưng",
+     "https://food.grab.com/vn/en/restaurant/the-coffee-house-hai-b%C3%A0-tr%C6%B0ng-delivery/5-C3DGGU41FGK3TJ",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("The Coffee House - Trung Hòa",
+     "https://food.grab.com/vn/en/restaurant/the-coffee-house-trung-h%C3%B2a-delivery/5-C3DGGU41E7KXEN",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Jollibee - Tiến Bộ Plaza",
+     "https://food.grab.com/vn/en/restaurant/jollibee-ti%E1%BA%BFn-b%E1%BB%99-plaza-h%C3%A0-n%E1%BB%99i-delivery/5-C7NFCUBXT722JT",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Jollibee - Tô Hiệu",
+     "https://food.grab.com/vn/en/restaurant/jollibee-t%C3%B4-hi%E1%BB%87u-delivery/AWjmn1Cn2bMmVZfr_kgB",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Jollibee - EC Đà Nẵng",
+     "https://food.grab.com/vn/en/restaurant/jollibee-ec-%C4%91%C3%A0-n%E1%BA%B5ng-delivery/AWjmnpbKcEjWIUmPsqs7",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Texas Chicken - Võ Văn Ngân",
+     "https://food.grab.com/vn/en/restaurant/texas-chicken-v%C3%B5-v%C4%83n-ng%C3%A2n-delivery/5-C6AJCNKTN4KVVN",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Pizza 4P's - Hoàng Thành Tower",
+     "https://food.grab.com/vn/en/restaurant/pizza-4p%E2%80%99s-ho%C3%A0ng-th%C3%A0nh-tower-delivery/5-C2U2GELXMCLEET",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Pizza Hut - Đỗ Xuân Hợp",
+     "https://food.grab.com/vn/en/restaurant/pizza-hut-%C4%91%E1%BB%97-xu%C3%A2n-h%E1%BB%A3p-delivery/5-CYUGRACERLAYJX",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    ("Burger King - Trung Hòa",
+     "https://food.grab.com/vn/en/restaurant/burger-king-trung-h%C3%B2a-delivery/5-CZNDJ4MDC4MDCE",
+     "chain", "grabfood", "VND", "Vietnam"),
+
+    # ==========================================================================
     # INDONESIA  (GrabFood food.grab.com/id/en)
     # NOTE: All Foodpanda Indonesia URLs (foodpanda.id/*) were removed —
     # foodpanda.id does not resolve at the DNS level. Foodpanda exited the
@@ -3709,7 +3857,7 @@ TARGETS = [
 
     ("Highlands Coffee 36 Duy Tân Hà Nội",
      "https://food.grab.com/vn/en/restaurant/highlands-coffee-36-duy-t%C3%A2n-h%C3%A0-n%E1%BB%99i-delivery/5-C6CEE3ABJE6UTA",
-     "independent", "grabfood", "VND", "Vietnam"),
+     "chain", "grabfood", "VND", "Vietnam"),
 
     ("Bánh Tráng Cô Hằng 2D1 Khâm Thiên",
      "https://food.grab.com/vn/en/restaurant/b%C3%A1nh-tr%C3%A1ng-c%C3%B4-h%E1%BA%B1ng-2d1-kh%C3%A2m-thi%C3%AAn-delivery/5-C3BAKEWVG8LHWE",
