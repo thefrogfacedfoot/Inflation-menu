@@ -284,6 +284,18 @@ def _record(cell, key, rows, rng, lock):
             cell["months"][ym] = {"n": len(items), "trunc": False, "sample": [[v[0], v[1]] for _, v in pick]}
 
 
+# Crawl order from the existing-data feasibility (wayback_existing_feasibility.py): the longest runs come from
+# platform listings (deliveroo-uk UK, doordash US, grabfood MY), where the binding constraint is the number of
+# restaurants matched in consecutive months. Platform patterns that can add restaurants per month go first, then
+# directory aggregators, then single-brand pages. Years are crawled newest first, extending the existing
+# windows (UK 2024-12..2025-10, US 2025-03..2025-07, MY 2025-07..2025-10) before older history.
+_PRIORITY_ORDER = ["deliveroo-uk", "doordash", "grabfood-my", "ubereats-gb", "ubereats", "justeat-uk", "grubhub",
+                   "seamless", "foodpanda-my", "deliveroo-sg", "grabfood-sg", "foodpanda-sg",
+                   "allmenus", "menupages", "menus-uk", "hungryhouse", "postmates", "menuism", "yelp-menu",
+                   "hungrygowhere", "burpple", "openrice-my", "tripadvisor-uk", "tripadvisor-my", "tripadvisor-sg"]
+PRIORITY = {pid(l): i for i, l in enumerate(_PRIORITY_ORDER)}
+
+
 def crawl(countries):
     from concurrent.futures import ThreadPoolExecutor, as_completed
     ck = load_ckpt()
@@ -319,7 +331,7 @@ def crawl(countries):
         if unit_of(c["type"]) == "brand":
             return [("all", f"{FIRST_YEAR}0101", f"{LAST_YEAR}0930")]
         out = []
-        for y in range(FIRST_YEAR, LAST_YEAR + 1):
+        for y in range(LAST_YEAR, FIRST_YEAR - 1, -1):
             if c.setdefault("split", {}).get(str(y)):
                 for q in range(4):
                     m0, m1 = 3 * q + 1, 3 * q + 3
@@ -329,7 +341,7 @@ def crawl(countries):
         return out
 
     jobs = []
-    for key, c in cells.items():
+    for key, c in sorted(cells.items(), key=lambda kv: PRIORITY.get(pid(kv[1]["label"]), len(PRIORITY))):
         if c["status"] in ("empty", "done") or not c.get("exists"):
             continue
         jobs.append(key)
