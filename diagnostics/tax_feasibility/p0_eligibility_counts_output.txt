@@ -1,0 +1,14 @@
+series | h | base-eligible | eligible (neighbour rule)
+SG restaurants/cafes/pubs, fast food (2005-01..2026-08) | 1 | 253 247
+SG restaurants/cafes/pubs, fast food (2005-01..2026-08) | 2 | 249 240
+SG restaurants/cafes/pubs, fast food (2005-01..2026-08) | 3 | 245 233
+SG Hawker Centres only (2019-01..2026-08) | 1 | 87 81
+SG Hawker Centres only (2019-01..2026-08) | 2 | 84 74
+SG Hawker Centres only (2019-01..2026-08) | 3 | 81 67
+SG M213761 full-span dishes (2015-01..2026-08) | 1 | 135 131
+SG M213761 full-span dishes (2015-01..2026-08) | 2 | 132 126
+SG M213761 full-span dishes (2015-01..2026-08) | 3 | 129 121
+UK months present: 191 (upper bound; before the 500-relative rule)
+UK catering quotes | h 1 | 179 178
+UK catering quotes | h 2 | 172 171
+UK catering quotes | h 3 | 166 165

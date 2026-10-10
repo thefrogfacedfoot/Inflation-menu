@@ -66,3 +66,14 @@ Table Builder returned HTTP 200 today. M213761 [P] (API metadata and data endpoi
 3. How the 2024-base series was spliced to earlier vintages at the 2024 boundary (information paper "Rebasing of the CPI (2024 as Base Year)" not opened).
 4. Whether the ONS August 2020 PRICE field is raw or EOHO-adjusted.
 5. ONS index day for July 2020 (ONS says the index day is the second or third Tuesday and publishes the exact date in each bulletin's background notes; the July 2020 date was not retrieved).
+
+## Update 2 (2026-10-10, for preregistration v2 revision 2)
+
+Read-only again: period labels, metadata and methodology text only; no value read.
+
+- **ONS field glossary** (Feb 2025 onwards xlsx, page read). `VALIDITY` is TRUE/FALSE (quote in the month's index or not); `INDICATOR_BOX` codes C, M, N, P, Q, R, S, T, W; `TEMPORAL` flags quotes collected the Friday before the index day; **`REGION` has 13 codes (1 = catalogue collections, 2-13 the English regions, Wales, Scotland, NI) and `SHOP_TYPE` has codes 1-3**, which corrects "SHOP_TYPE (1-4)" in `tax_pass_through_feasibility.md` §3. **No flag for imputed or carried-forward quotes exists**; `BASE_PRICE_CPI/RPI` may be "observed or imputed".
+- **ONS July 2020 bulletin** (page read): data "collected on or around 14 July 2020"; from April 2020 prices collected centrally and imputation used for index movements of unavailable items.
+- **SingStat rebasing paper ip-e61** (PDF read): prices are "inclusive of taxes levied and net of subsidies/ rebates" (¶15); service charge not mentioned; the 2019-based series are linked to the 2024-based by a constant link factor (annual 2024 ratio), overlap year 2024 (¶42-43); class mapping 2019 to 2024 is Restaurant Food to Restaurants, Cafes & Pubs, Fast Food to Fast Food Restaurants, Hawker Food to Hawker Centres, And Food Courts, Coffee Shops & Kiosks.
+- **M213751 food-service series** (labels and period keys): 1.11.1, 1.11.2, 1.11.3 and 1.11.4 non-empty for all 36 months of 2006-01 to 2008-12 (and from 2005-01); 1.11.3.1 Hawker Centres from 2019-01 (92 months); 1.11.3.2 Food Courts, Coffee Shops & Kiosks and 1.11.1.1-3 are 2024-base sub-series. Older-base tables are still not listed in Table Builder; the 2004- and 2009-base information papers returned 404; the September 2008 CPI release (archived) states "2004 = 100".
+- **Dates** (page read): gov.uk/vat-rates for 4 Jan 2011; GOV.UK hospitality guidance for 15 Jul 2020, 1 Oct 2021, 1 Apr 2022; IRAS consumer page for 1 Jan 2023 and 1 Jan 2024.
+- **Frames for H4** (not opened beyond metadata): ACRA entity datasets ("U", "E", "P") on data.gov.sg updated 2026-09-16; NEA hawker-centre list datasets (search extract only).
