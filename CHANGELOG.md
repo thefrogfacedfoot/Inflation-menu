@@ -2,6 +2,34 @@
 
 All notable changes to the UIFPI project. Dates in YYYY-MM-DD.
 
+## 2026-10-10 — Nightly run interrupted by system shutdown (PARTIAL DAY, not re-run)
+
+First nightly at the new 19:00 slot (`concurrency=1`, headless, 191 targets,
+git 78242d6). It started 19:00:01 and was cut off at **20:25:41**; the last
+scraper log line is 20:25:40,998. Cause: **interrupted by system shutdown** —
+`loginwindow` received a shutdown request at 20:25:38 and `launchd` terminated
+the user session at 20:25:41. The Mac was powered on again at 20:34, logged out
+at ~20:35, and powered on again at 11:29 on 2026-10-11. No kernel panic report,
+no OS update, no sleep/wake events in that span. Attempts 2 and 3 never ran and
+the run wrote no `done_2026-10-10`. The day is left **partial** and was not
+re-run (a manual re-run would collide with the next 19:00 nightly).
+
+Rows written with `collection_date` 2026-10-10:
+
+| Platform | Rows | Restaurants |
+|---|---:|---:|
+| js (Deliveroo etc.) | 17,634 | 80 |
+| grabfood | 9,510 | 96 |
+| direct | 425 | 9 |
+
+185 of 191 targets have data. Not reached: 3 Vietnam GrabFood targets at the
+end of `TARGETS` (Cà Ri Gà 1357; Trà Sữa_Ăn Vặt Nhà Nàng; Bống Bông Vặt Chân Gà
+Mì Trộn Indomie). Failed in attempt 1 and never retried: Leon (UK, direct) and
+Domino's AU (direct), both ACCESS_DENIED before the shutdown, and Gagu Deli
+Linh Đàm (VN GrabFood), whose ACCESS_DENIED at 20:25:40 is a shutdown artefact
+("browser has been closed"). Treat 2026-10-10 as incomplete for any
+per-restaurant daily comparison; Vietnam GrabFood coverage that day is 33/37.
+
 ## 2026-08-13 — Chunk 1: live TARGETS 103 → 85 (net), guard + FX hardening
 
 First slice of the staged 103 → 250 promotion held open in PR #19. Deployed as
