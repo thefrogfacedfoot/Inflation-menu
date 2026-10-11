@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.uicpi.interrupted-check</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>/Users/erwenchen/scraper_watch/check_interrupted.sh</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/Users/erwenchen/scraper_watch/check_interrupted.out</string>
+  <key>StandardErrorPath</key><string>/Users/erwenchen/scraper_watch/check_interrupted.out</string>
+</dict>
+</plist>
