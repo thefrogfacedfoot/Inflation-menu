@@ -1,3 +1,4 @@
+// Internal working label; no SSEF 2026 entry was submitted.
 import Link from "next/link";
 import { getCountrySummaries, getLatestValues } from "@/lib/data";
 import CountryMap from "@/components/CountryMap";
