@@ -20,3 +20,10 @@ scraper_output.txt
 *.local_backup_*
 sapient-split/
 .gstack/
+
+# Repo hygiene (2026-10-16): unrelated project, build output, OS junk
+sapient_app/
+.venv/
+.DS_Store
+.next/
+The deployment could not be found*
