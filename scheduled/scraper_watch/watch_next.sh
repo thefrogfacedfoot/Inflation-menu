@@ -16,6 +16,12 @@ if [ -e $W/state_inrun ]; then
   fi
 fi
 echo "$(date '+%F %T') armed" >> $L
+# Armed after 19:05 with no scraper running: the 19:00 cron slot was missed (machine off or asleep at 19:00).
+# cron has no GUI session, so the banner is posted by notify.sh (launchd) when it sees the alert_ marker.
+if [ "$(date +%H%M)" -gt 1905 ] && ! pgrep -f '[Pp]ython.* live_scraper.py' >/dev/null; then
+  echo "$(date '+%F %T') 19:00 slot missed: armed late and live_scraper.py not running" >> $L
+  touch $W/alert_${D}_missed
+fi
 [ -n "$WATCH_DRYRUN" ] && exit 0
 until pgrep -f '[Pp]ython.* live_scraper.py' >/dev/null; do
   [ "$(date +%H%M)" -ge 2330 ] && { echo "$(date '+%F %T') scraper never started by 23:30" >> $L; touch $W/done_$D; exit 0; }
