@@ -1,3 +1,5 @@
+> Internal working label; no SSEF 2026 entry was submitted.
+
 # UIFPI — SSEF 2026 data status
 
 **Date**: 2026-06-18
