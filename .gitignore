@@ -21,9 +21,5 @@ scraper_output.txt
 sapient-split/
 .gstack/
 
-# Repo hygiene (2026-10-16): unrelated project, build output, OS junk
-sapient_app/
-.venv/
-.DS_Store
-.next/
-The deployment could not be found*
+# Claude Code session transcripts: kept outside the repo in ~/uifpi_private/sessions/ (see docs/ai_use_log.md)
+sessions/

@@ -4,6 +4,7 @@
 #   notify.sh done    fires when ~/scraper_watch changes (com.uicpi.notify-done); once per run, only after
 #                     watch_next.sh wrote its last watch.log line and touched done_<date>
 #   notify.sh test    sends a test banner
+#   (done also posts alert_<date>_missed|interrupted markers written by watch_next.sh / check_interrupted.sh)
 # Test hooks (env): W, REPO, NOTIFY_DRY=1 (print the message instead of posting it).
 W=${W:-/Users/erwenchen/scraper_watch}; L=$W/watch.log; REPO=${REPO:-/Users/erwenchen/Inflation-menu}; D=$(date +%F)
 notify() { if [ -n "$NOTIFY_DRY" ]; then echo "NOTIFY: $1"; else /usr/bin/osascript -e "display notification \"$1\" with title \"UIFPI\""; fi; }
@@ -24,6 +25,16 @@ case "$1" in
         *"REBOOT during"*) notify "UIFPI run INTERRUPTED by a reboot: $n/$total targets" ;;
         *"never started"*) notify "UIFPI: scraper never started tonight" ;;
         *) notify "UIFPI watch finished: $n/$total targets (see watch.log)" ;;
+      esac
+    done
+    # alert_<date>_<kind> markers (watch_next.sh, check_interrupted.sh): post each once, then mark .sent
+    for f in $(find $W -maxdepth 1 -name 'alert_*' ! -name '*.sent'); do
+      [ -e $f.sent ] && continue; touch $f.sent
+      a=${f##*alert_}; d=${a%%_*}; k=${a#*_}
+      case "$k" in
+        missed) notify "UIFPI: 19:00 scrape slot MISSED on $d (machine was off or asleep) — run it manually?" ;;
+        interrupted) notify "UIFPI: run of $d did not finish (no done file) — see watch.log" ;;
+        *) notify "UIFPI alert $k for $d (see watch.log)" ;;
       esac
     done ;;
   *) echo "usage: notify.sh remind|done|test" >&2; exit 2 ;;
