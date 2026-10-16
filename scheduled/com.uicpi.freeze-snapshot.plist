@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Data-freeze snapshot (data_freeze.py). Install: cp to ~/Library/LaunchAgents/ and
+     `launchctl load ~/Library/LaunchAgents/com.uicpi.freeze-snapshot.plist`.
+     Fires at 00:05 on the day AFTER the freeze date (freeze 2026-12-15 23:59:59 SGT, so 16 December 00:05) and at every login
+     (RunAtLoad), so a laptop that was off at the freeze minute snapshots at next login.
+     The script is a no-op before freeze_at and after the manifest exists. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.uicpi.freeze-snapshot</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/erwenchen/venv/bin/python</string>
+    <string>/Users/erwenchen/Inflation-menu/data_freeze.py</string>
+    <string>snapshot</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/erwenchen/Inflation-menu</string>
+  <key>StartCalendarInterval</key>
+  <dict><key>Month</key><integer>12</integer><key>Day</key><integer>16</integer>
+        <key>Hour</key><integer>0</integer><key>Minute</key><integer>5</integer></dict>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/Users/erwenchen/scraper_watch/freeze_snapshot.out</string>
+  <key>StandardErrorPath</key><string>/Users/erwenchen/scraper_watch/freeze_snapshot.out</string>
+</dict>
+</plist>

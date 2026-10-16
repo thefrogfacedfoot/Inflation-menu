@@ -1,0 +1,4 @@
+{
+  "freeze_at": "2026-12-15T23:59:59+08:00",
+  "note": "WC decision 2026-10-16: freeze 2026-12-15 23:59 SGT (the whole 23:59 minute is included). Rows with prices.inserted_at <= freeze_at are in the analysis."
+}

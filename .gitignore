@@ -20,3 +20,7 @@ scraper_output.txt
 *.local_backup_*
 sapient-split/
 .gstack/
+
+# Data freeze (data_freeze.py): frozen DB copies are local; docs/data_freeze.json is committed
+uifpi_freeze_*.db
+uifpi_freeze_*.db.partial
