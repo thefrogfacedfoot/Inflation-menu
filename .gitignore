@@ -21,12 +21,5 @@ scraper_output.txt
 sapient-split/
 .gstack/
 
-# Data freeze (data_freeze.py): frozen DB copies are local; docs/data_freeze.json is committed
-uifpi_freeze_*.db
-uifpi_freeze_*.db.partial
-
-# Prior submission drafts (IRC-SET, CJSJ): archived privately in ~/uifpi_private/paper_draft/
-paper_draft/UICPI_A_Method_for_Collecting_Chain_and_Independent.md
-paper_draft/UICPI_A_Method_for_Collecting_Chain_and_Independent.pdf
-paper_draft/UICPI_CJSJ_submission.docx
-paper_draft/cjsj/
+# Claude Code session transcripts: kept outside the repo in ~/uifpi_private/sessions/ (see docs/ai_use_log.md)
+sessions/
