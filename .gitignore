@@ -20,3 +20,6 @@ scraper_output.txt
 *.local_backup_*
 sapient-split/
 .gstack/
+
+# Claude Code session transcripts: kept outside the repo in ~/uifpi_private/sessions/ (see docs/ai_use_log.md)
+sessions/
