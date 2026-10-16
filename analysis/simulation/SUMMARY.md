@@ -125,3 +125,12 @@ The UK calendar is used, with one shared placebo pool (N = 171), h = 2 and α = 
 - Cross-series dependence for the H3 contrast. Here σ is simply the SD of the contrast's own monthly change.
 - Non-Gaussian or heteroskedastic noise (for example, COVID-period variance).
 - **Ambiguity noted, not resolved:** §4 says neighbours are "eligible non-event anchors". Here they are base-eligible anchors, matching `p0_eligibility_counts.py`. §5.3 also does not specify a quantile definition; numpy's default linear interpolation is used for q95 and q20.
+
+## Follow-up for prereg revision 3 (`prereg_v3_checks.py`, 2026-10-16)
+
+Synthetic data only, run with `--reps 20000` in about 75 s. Outputs are in `output/prereg_v3/`:
+- `a1_gate_summary.csv` and `a1_gate_curves.csv`: gate variants compared with power at ρ = 1.
+- `a2_size_before_after.csv` and `calibration_tables.csv`: the size-control rule and its calibrated critical values.
+- `a3_cny_bump.csv`: the CNY-like bump in the H3 hawker arm.
+
+The findings and the two open decisions (D1 and D2) are written into `docs/preregistration_v2.md` §5.3, §5.5 and §9 item 4.
