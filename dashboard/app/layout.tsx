@@ -66,7 +66,7 @@ export default function RootLayout({
             >
               GitHub
             </a>{" "}
-            &mdash; Raffles Institution, Singapore. 2026.
+            &mdash; Singapore. 2026.
           </p>
         </footer>
       </body>

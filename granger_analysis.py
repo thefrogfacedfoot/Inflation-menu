@@ -35,7 +35,7 @@ try:
 except ImportError:
     STATSMODELS_OK = False
 
-DB_PATH     = "uifpi.db"
+DB_PATH     = os.environ.get("UICPI_DB", "uifpi.db")  # UICPI_DB: e.g. the frozen working copy (data_freeze.py)
 UIFPI_CSV   = "uifpi_index.csv"
 CPI_DIR     = "cpi_data"
 RESULTS_DIR = "analysis_results"

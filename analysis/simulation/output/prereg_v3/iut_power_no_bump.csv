@@ -1,0 +1,4 @@
+phi,N_h2,N_h1,size_h2_only,size_IUT,r_gate_pass_50pct,sigma_at_that_r_logpts,power_rho1_h2_only_at_r50,power_rho1_IUT_at_r50,min_P(reject|gate passes)_h2_only,min_P(reject|gate passes)_IUT,reps
+0.0,74,81,0.01695,0.00475,5.43,0.00171,0.882,0.881,0.878,0.865,20000
+0.6,74,81,0.0174,0.0088,6.94,0.00134,0.861,0.861,0.87,0.87,20000
+0.9,74,81,0.01905,0.0133,6.82,0.00136,0.823,0.823,0.892,0.892,20000
