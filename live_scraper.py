@@ -25,7 +25,7 @@ import sqlite3
 import sys
 import threading
 import time
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from urllib.parse import urlparse
 
 import requests
@@ -204,7 +204,8 @@ def init_db():
             source TEXT,
             collection_date TEXT,
             url TEXT,
-            platform TEXT
+            platform TEXT,
+            inserted_at TEXT
         )
     ''')
     c.execute('''
@@ -256,6 +257,13 @@ def init_db():
     # Existing rows stay NULL (deliberately not backfilled).
     try:
         c.execute('ALTER TABLE prices ADD COLUMN platform TEXT')
+        conn.commit()
+    except sqlite3.OperationalError:
+        pass  # Column already exists
+    # inserted_at: SGT wall-clock time the row was written (data freeze, see
+    # data_freeze.py). Existing rows stay NULL (deliberately not backfilled).
+    try:
+        c.execute('ALTER TABLE prices ADD COLUMN inserted_at TEXT')
         conn.commit()
     except sqlite3.OperationalError:
         pass  # Column already exists
@@ -470,6 +478,9 @@ def platform_from_url(url):
     return host or None
 
 
+SGT = timezone(timedelta(hours=8))
+
+
 def insert_item(conn, restaurant_name, item_name, price, currency, country,
                 sector, source, today, url, usd_rates):
     price_usd = to_usd(price, currency, usd_rates)
@@ -477,10 +488,11 @@ def insert_item(conn, restaurant_name, item_name, price, currency, country,
     c.execute(
         '''INSERT INTO prices
            (restaurant_name, item_name, price, currency, price_usd, country,
-            sector, source, collection_date, url, platform)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+            sector, source, collection_date, url, platform, inserted_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
         (restaurant_name, item_name, price, currency, price_usd, country,
-         sector, source, today, url, platform_from_url(url)),
+         sector, source, today, url, platform_from_url(url),
+         datetime.now(SGT).isoformat(timespec='seconds')),
     )
 
 
