@@ -1,4 +1,3 @@
-// Internal working label; no SSEF 2026 entry was submitted.
 import Link from "next/link";
 import { getCountrySummaries, getLatestValues } from "@/lib/data";
 import CountryMap from "@/components/CountryMap";
@@ -159,7 +158,7 @@ export default async function HomePage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-blue-200 text-sm font-medium mb-5">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-              Open source research — SSEF 2026
+              Open source research
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4 leading-tight">
               UICPI

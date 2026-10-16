@@ -1,4 +1,3 @@
-Internal working label; no SSEF 2026 entry was submitted.
 ==============================================================================
 Claude Code session transcript
 Source: /Users/erwenchen/.claude/projects/-Users-erwenchen-Inflation-menu/f4c9be8a-2d9f-4a66-bd7f-61f81e5b9d75.jsonl
