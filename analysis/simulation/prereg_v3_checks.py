@@ -174,6 +174,8 @@ def gate_study(sps, tables, reps):
                 "A1+A2 calibrated: c_used-q15 (rule test)": (d["c_rule"] - q(0.15), d["c_rule"]),
                 "A1+A2 calibrated: c_used-q10 (rule test)": (d["c_rule"] - q(0.10), d["c_rule"]),
                 "A1+A2 calibrated: c_used-q05 (rule test)": (d["c_rule"] - q(0.05), d["c_rule"]),
+                "REGISTERED D1-b+D2-b: c_cal-q10 (always-calibrated test)": (d["c_alt"] - q(0.10), d["c_alt"]),
+                "D1-a+D2-b: c_cal-q20 (always-calibrated test)": (d["c_alt"] - q20, d["c_alt"]),
             }
             for vname, (G, c) in variants.items():
                 D = c - Za  # reject iff r > D

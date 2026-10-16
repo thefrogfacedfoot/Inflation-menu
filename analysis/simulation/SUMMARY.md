@@ -134,3 +134,5 @@ Synthetic data only, run with `--reps 20000` in about 75 s. Outputs are in `outp
 - `a3_cny_bump.csv`: the CNY-like bump in the H3 hawker arm.
 
 The findings and the two open decisions (D1 and D2) are written into `docs/preregistration_v2.md` §5.3, §5.5 and §9 item 4.
+
+`prereg_v3_iut.py` checks the H3 intersection-union test, which rejects only if both h = 2 and h = 1 reject. It reports size and power at ρ = 1 against using h = 2 alone, with and without the CNY bump scenarios. It takes about 17 s and writes `iut_power_no_bump.csv` and `iut_cny_scenarios.csv`. The registered gate and size rule (D1-b and D2-b) appear in `a1_gate_summary.csv` under the variant "REGISTERED D1-b+D2-b" and in the `size_alt_always_calibrated_bc` column.
