@@ -1,0 +1,526 @@
+setting,phi,t_crit
+UK-E3 (H1),-0.5,1.60109
+UK-E3 (H1),-0.48,1.57583
+UK-E3 (H1),-0.46,1.56806
+UK-E3 (H1),-0.44,1.57989
+UK-E3 (H1),-0.42,1.57877
+UK-E3 (H1),-0.4,1.59638
+UK-E3 (H1),-0.38,1.58601
+UK-E3 (H1),-0.36,1.56767
+UK-E3 (H1),-0.34,1.55358
+UK-E3 (H1),-0.32,1.5897
+UK-E3 (H1),-0.3,1.56549
+UK-E3 (H1),-0.28,1.59094
+UK-E3 (H1),-0.26,1.55633
+UK-E3 (H1),-0.24,1.58385
+UK-E3 (H1),-0.22,1.58665
+UK-E3 (H1),-0.2,1.55415
+UK-E3 (H1),-0.18,1.57171
+UK-E3 (H1),-0.16,1.57292
+UK-E3 (H1),-0.14,1.55681
+UK-E3 (H1),-0.12,1.5602
+UK-E3 (H1),-0.1,1.60104
+UK-E3 (H1),-0.08,1.58024
+UK-E3 (H1),-0.06,1.58161
+UK-E3 (H1),-0.04,1.55836
+UK-E3 (H1),-0.02,1.57423
+UK-E3 (H1),0.0,1.58664
+UK-E3 (H1),0.02,1.54896
+UK-E3 (H1),0.04,1.57368
+UK-E3 (H1),0.06,1.56704
+UK-E3 (H1),0.08,1.5881
+UK-E3 (H1),0.1,1.56822
+UK-E3 (H1),0.12,1.59829
+UK-E3 (H1),0.14,1.54567
+UK-E3 (H1),0.16,1.58796
+UK-E3 (H1),0.18,1.56712
+UK-E3 (H1),0.2,1.55919
+UK-E3 (H1),0.22,1.5741
+UK-E3 (H1),0.24,1.59745
+UK-E3 (H1),0.26,1.58229
+UK-E3 (H1),0.28,1.58164
+UK-E3 (H1),0.3,1.57437
+UK-E3 (H1),0.32,1.58216
+UK-E3 (H1),0.34,1.56934
+UK-E3 (H1),0.36,1.60456
+UK-E3 (H1),0.38,1.58997
+UK-E3 (H1),0.4,1.5753
+UK-E3 (H1),0.42,1.58834
+UK-E3 (H1),0.44,1.567
+UK-E3 (H1),0.46,1.58891
+UK-E3 (H1),0.48,1.5891
+UK-E3 (H1),0.5,1.57532
+UK-E3 (H1),0.52,1.6026
+UK-E3 (H1),0.54,1.58978
+UK-E3 (H1),0.56,1.58091
+UK-E3 (H1),0.58,1.57357
+UK-E3 (H1),0.6,1.5911
+UK-E3 (H1),0.62,1.55509
+UK-E3 (H1),0.64,1.57971
+UK-E3 (H1),0.66,1.58325
+UK-E3 (H1),0.68,1.57539
+UK-E3 (H1),0.7,1.59769
+UK-E3 (H1),0.72,1.58741
+UK-E3 (H1),0.74,1.58063
+UK-E3 (H1),0.76,1.56675
+UK-E3 (H1),0.78,1.61044
+UK-E3 (H1),0.8,1.60282
+UK-E3 (H1),0.82,1.5843
+UK-E3 (H1),0.84,1.59385
+UK-E3 (H1),0.86,1.59471
+UK-E3 (H1),0.88,1.61619
+UK-E3 (H1),0.9,1.58393
+UK-E3 (H1),0.92,1.56796
+UK-E3 (H1),0.94,1.60166
+UK-E3 (H1),0.96,1.58336
+UK-E3 (H1),0.98,1.54042
+UK-E4 (H1),-0.5,1.5819
+UK-E4 (H1),-0.48,1.63422
+UK-E4 (H1),-0.46,1.57196
+UK-E4 (H1),-0.44,1.63522
+UK-E4 (H1),-0.42,1.62973
+UK-E4 (H1),-0.4,1.59191
+UK-E4 (H1),-0.38,1.63506
+UK-E4 (H1),-0.36,1.5991
+UK-E4 (H1),-0.34,1.59663
+UK-E4 (H1),-0.32,1.59873
+UK-E4 (H1),-0.3,1.61606
+UK-E4 (H1),-0.28,1.6177
+UK-E4 (H1),-0.26,1.58326
+UK-E4 (H1),-0.24,1.60516
+UK-E4 (H1),-0.22,1.60174
+UK-E4 (H1),-0.2,1.59192
+UK-E4 (H1),-0.18,1.58379
+UK-E4 (H1),-0.16,1.56836
+UK-E4 (H1),-0.14,1.59211
+UK-E4 (H1),-0.12,1.61656
+UK-E4 (H1),-0.1,1.58588
+UK-E4 (H1),-0.08,1.59351
+UK-E4 (H1),-0.06,1.60006
+UK-E4 (H1),-0.04,1.61105
+UK-E4 (H1),-0.02,1.63238
+UK-E4 (H1),0.0,1.60802
+UK-E4 (H1),0.02,1.63065
+UK-E4 (H1),0.04,1.6047
+UK-E4 (H1),0.06,1.60539
+UK-E4 (H1),0.08,1.62928
+UK-E4 (H1),0.1,1.63924
+UK-E4 (H1),0.12,1.59147
+UK-E4 (H1),0.14,1.63493
+UK-E4 (H1),0.16,1.57434
+UK-E4 (H1),0.18,1.6314
+UK-E4 (H1),0.2,1.60986
+UK-E4 (H1),0.22,1.59649
+UK-E4 (H1),0.24,1.59177
+UK-E4 (H1),0.26,1.58552
+UK-E4 (H1),0.28,1.59431
+UK-E4 (H1),0.3,1.60579
+UK-E4 (H1),0.32,1.6228
+UK-E4 (H1),0.34,1.62432
+UK-E4 (H1),0.36,1.59279
+UK-E4 (H1),0.38,1.60189
+UK-E4 (H1),0.4,1.64432
+UK-E4 (H1),0.42,1.61227
+UK-E4 (H1),0.44,1.61433
+UK-E4 (H1),0.46,1.60055
+UK-E4 (H1),0.48,1.59337
+UK-E4 (H1),0.5,1.60559
+UK-E4 (H1),0.52,1.5879
+UK-E4 (H1),0.54,1.62544
+UK-E4 (H1),0.56,1.63997
+UK-E4 (H1),0.58,1.59817
+UK-E4 (H1),0.6,1.608
+UK-E4 (H1),0.62,1.60974
+UK-E4 (H1),0.64,1.56581
+UK-E4 (H1),0.66,1.61239
+UK-E4 (H1),0.68,1.60967
+UK-E4 (H1),0.7,1.60377
+UK-E4 (H1),0.72,1.61283
+UK-E4 (H1),0.74,1.608
+UK-E4 (H1),0.76,1.62346
+UK-E4 (H1),0.78,1.63488
+UK-E4 (H1),0.8,1.62668
+UK-E4 (H1),0.82,1.58886
+UK-E4 (H1),0.84,1.60472
+UK-E4 (H1),0.86,1.59649
+UK-E4 (H1),0.88,1.58623
+UK-E4 (H1),0.9,1.58354
+UK-E4 (H1),0.92,1.57807
+UK-E4 (H1),0.94,1.55472
+UK-E4 (H1),0.96,1.53075
+UK-E4 (H1),0.98,1.51792
+UK-E1 (H1),-0.5,1.70482
+UK-E1 (H1),-0.48,1.67568
+UK-E1 (H1),-0.46,1.67706
+UK-E1 (H1),-0.44,1.67598
+UK-E1 (H1),-0.42,1.68864
+UK-E1 (H1),-0.4,1.66504
+UK-E1 (H1),-0.38,1.66568
+UK-E1 (H1),-0.36,1.69069
+UK-E1 (H1),-0.34,1.70482
+UK-E1 (H1),-0.32,1.66997
+UK-E1 (H1),-0.3,1.67754
+UK-E1 (H1),-0.28,1.68876
+UK-E1 (H1),-0.26,1.6662
+UK-E1 (H1),-0.24,1.67107
+UK-E1 (H1),-0.22,1.67559
+UK-E1 (H1),-0.2,1.65828
+UK-E1 (H1),-0.18,1.66152
+UK-E1 (H1),-0.16,1.6885
+UK-E1 (H1),-0.14,1.68119
+UK-E1 (H1),-0.12,1.69922
+UK-E1 (H1),-0.1,1.7154
+UK-E1 (H1),-0.08,1.71779
+UK-E1 (H1),-0.06,1.69315
+UK-E1 (H1),-0.04,1.67576
+UK-E1 (H1),-0.02,1.6596
+UK-E1 (H1),0.0,1.68736
+UK-E1 (H1),0.02,1.72955
+UK-E1 (H1),0.04,1.66949
+UK-E1 (H1),0.06,1.64596
+UK-E1 (H1),0.08,1.693
+UK-E1 (H1),0.1,1.66037
+UK-E1 (H1),0.12,1.68443
+UK-E1 (H1),0.14,1.65195
+UK-E1 (H1),0.16,1.70239
+UK-E1 (H1),0.18,1.68886
+UK-E1 (H1),0.2,1.70227
+UK-E1 (H1),0.22,1.6905
+UK-E1 (H1),0.24,1.66524
+UK-E1 (H1),0.26,1.68243
+UK-E1 (H1),0.28,1.67952
+UK-E1 (H1),0.3,1.71456
+UK-E1 (H1),0.32,1.71219
+UK-E1 (H1),0.34,1.69614
+UK-E1 (H1),0.36,1.69422
+UK-E1 (H1),0.38,1.72894
+UK-E1 (H1),0.4,1.64129
+UK-E1 (H1),0.42,1.7032
+UK-E1 (H1),0.44,1.69496
+UK-E1 (H1),0.46,1.7075
+UK-E1 (H1),0.48,1.69279
+UK-E1 (H1),0.5,1.6395
+UK-E1 (H1),0.52,1.71365
+UK-E1 (H1),0.54,1.70177
+UK-E1 (H1),0.56,1.73674
+UK-E1 (H1),0.58,1.68808
+UK-E1 (H1),0.6,1.72143
+UK-E1 (H1),0.62,1.6991
+UK-E1 (H1),0.64,1.67388
+UK-E1 (H1),0.66,1.69603
+UK-E1 (H1),0.68,1.68845
+UK-E1 (H1),0.7,1.64682
+UK-E1 (H1),0.72,1.69244
+UK-E1 (H1),0.74,1.66596
+UK-E1 (H1),0.76,1.69169
+UK-E1 (H1),0.78,1.68717
+UK-E1 (H1),0.8,1.65497
+UK-E1 (H1),0.82,1.69777
+UK-E1 (H1),0.84,1.67262
+UK-E1 (H1),0.86,1.67876
+UK-E1 (H1),0.88,1.69081
+UK-E1 (H1),0.9,1.72012
+UK-E1 (H1),0.92,1.73461
+UK-E1 (H1),0.94,1.73415
+UK-E1 (H1),0.96,1.78775
+UK-E1 (H1),0.98,1.85108
+UK-E2 (H2/secondary),-0.5,1.57301
+UK-E2 (H2/secondary),-0.48,1.59589
+UK-E2 (H2/secondary),-0.46,1.6077
+UK-E2 (H2/secondary),-0.44,1.59627
+UK-E2 (H2/secondary),-0.42,1.57203
+UK-E2 (H2/secondary),-0.4,1.58288
+UK-E2 (H2/secondary),-0.38,1.59151
+UK-E2 (H2/secondary),-0.36,1.58123
+UK-E2 (H2/secondary),-0.34,1.60851
+UK-E2 (H2/secondary),-0.32,1.59295
+UK-E2 (H2/secondary),-0.3,1.60553
+UK-E2 (H2/secondary),-0.28,1.59079
+UK-E2 (H2/secondary),-0.26,1.60615
+UK-E2 (H2/secondary),-0.24,1.60103
+UK-E2 (H2/secondary),-0.22,1.61488
+UK-E2 (H2/secondary),-0.2,1.59391
+UK-E2 (H2/secondary),-0.18,1.60156
+UK-E2 (H2/secondary),-0.16,1.5609
+UK-E2 (H2/secondary),-0.14,1.6276
+UK-E2 (H2/secondary),-0.12,1.62616
+UK-E2 (H2/secondary),-0.1,1.60232
+UK-E2 (H2/secondary),-0.08,1.60957
+UK-E2 (H2/secondary),-0.06,1.60319
+UK-E2 (H2/secondary),-0.04,1.59577
+UK-E2 (H2/secondary),-0.02,1.60106
+UK-E2 (H2/secondary),0.0,1.5864
+UK-E2 (H2/secondary),0.02,1.61159
+UK-E2 (H2/secondary),0.04,1.62495
+UK-E2 (H2/secondary),0.06,1.5834
+UK-E2 (H2/secondary),0.08,1.60393
+UK-E2 (H2/secondary),0.1,1.57219
+UK-E2 (H2/secondary),0.12,1.63652
+UK-E2 (H2/secondary),0.14,1.60073
+UK-E2 (H2/secondary),0.16,1.62667
+UK-E2 (H2/secondary),0.18,1.58939
+UK-E2 (H2/secondary),0.2,1.57896
+UK-E2 (H2/secondary),0.22,1.58668
+UK-E2 (H2/secondary),0.24,1.60549
+UK-E2 (H2/secondary),0.26,1.63173
+UK-E2 (H2/secondary),0.28,1.60132
+UK-E2 (H2/secondary),0.3,1.60512
+UK-E2 (H2/secondary),0.32,1.60761
+UK-E2 (H2/secondary),0.34,1.58503
+UK-E2 (H2/secondary),0.36,1.60068
+UK-E2 (H2/secondary),0.38,1.6018
+UK-E2 (H2/secondary),0.4,1.6423
+UK-E2 (H2/secondary),0.42,1.58643
+UK-E2 (H2/secondary),0.44,1.6161
+UK-E2 (H2/secondary),0.46,1.64442
+UK-E2 (H2/secondary),0.48,1.62716
+UK-E2 (H2/secondary),0.5,1.62362
+UK-E2 (H2/secondary),0.52,1.61301
+UK-E2 (H2/secondary),0.54,1.6432
+UK-E2 (H2/secondary),0.56,1.61014
+UK-E2 (H2/secondary),0.58,1.58524
+UK-E2 (H2/secondary),0.6,1.61678
+UK-E2 (H2/secondary),0.62,1.61535
+UK-E2 (H2/secondary),0.64,1.61553
+UK-E2 (H2/secondary),0.66,1.62297
+UK-E2 (H2/secondary),0.68,1.62106
+UK-E2 (H2/secondary),0.7,1.61402
+UK-E2 (H2/secondary),0.72,1.60593
+UK-E2 (H2/secondary),0.74,1.59976
+UK-E2 (H2/secondary),0.76,1.64037
+UK-E2 (H2/secondary),0.78,1.57916
+UK-E2 (H2/secondary),0.8,1.60893
+UK-E2 (H2/secondary),0.82,1.61423
+UK-E2 (H2/secondary),0.84,1.62148
+UK-E2 (H2/secondary),0.86,1.64337
+UK-E2 (H2/secondary),0.88,1.6022
+UK-E2 (H2/secondary),0.9,1.61246
+UK-E2 (H2/secondary),0.92,1.62013
+UK-E2 (H2/secondary),0.94,1.61452
+UK-E2 (H2/secondary),0.96,1.63501
+UK-E2 (H2/secondary),0.98,1.66202
+SG-E1 hawker contrast h=2 (H3),-0.5,1.63077
+SG-E1 hawker contrast h=2 (H3),-0.48,1.61153
+SG-E1 hawker contrast h=2 (H3),-0.46,1.62976
+SG-E1 hawker contrast h=2 (H3),-0.44,1.63549
+SG-E1 hawker contrast h=2 (H3),-0.42,1.65153
+SG-E1 hawker contrast h=2 (H3),-0.4,1.6353
+SG-E1 hawker contrast h=2 (H3),-0.38,1.64838
+SG-E1 hawker contrast h=2 (H3),-0.36,1.6929
+SG-E1 hawker contrast h=2 (H3),-0.34,1.63039
+SG-E1 hawker contrast h=2 (H3),-0.32,1.66927
+SG-E1 hawker contrast h=2 (H3),-0.3,1.66304
+SG-E1 hawker contrast h=2 (H3),-0.28,1.68294
+SG-E1 hawker contrast h=2 (H3),-0.26,1.60968
+SG-E1 hawker contrast h=2 (H3),-0.24,1.64308
+SG-E1 hawker contrast h=2 (H3),-0.22,1.64923
+SG-E1 hawker contrast h=2 (H3),-0.2,1.63752
+SG-E1 hawker contrast h=2 (H3),-0.18,1.65204
+SG-E1 hawker contrast h=2 (H3),-0.16,1.63818
+SG-E1 hawker contrast h=2 (H3),-0.14,1.65208
+SG-E1 hawker contrast h=2 (H3),-0.12,1.65078
+SG-E1 hawker contrast h=2 (H3),-0.1,1.68484
+SG-E1 hawker contrast h=2 (H3),-0.08,1.63216
+SG-E1 hawker contrast h=2 (H3),-0.06,1.62966
+SG-E1 hawker contrast h=2 (H3),-0.04,1.68287
+SG-E1 hawker contrast h=2 (H3),-0.02,1.64525
+SG-E1 hawker contrast h=2 (H3),0.0,1.65162
+SG-E1 hawker contrast h=2 (H3),0.02,1.65986
+SG-E1 hawker contrast h=2 (H3),0.04,1.64298
+SG-E1 hawker contrast h=2 (H3),0.06,1.69632
+SG-E1 hawker contrast h=2 (H3),0.08,1.66218
+SG-E1 hawker contrast h=2 (H3),0.1,1.65437
+SG-E1 hawker contrast h=2 (H3),0.12,1.65422
+SG-E1 hawker contrast h=2 (H3),0.14,1.65854
+SG-E1 hawker contrast h=2 (H3),0.16,1.68117
+SG-E1 hawker contrast h=2 (H3),0.18,1.65655
+SG-E1 hawker contrast h=2 (H3),0.2,1.65969
+SG-E1 hawker contrast h=2 (H3),0.22,1.66592
+SG-E1 hawker contrast h=2 (H3),0.24,1.68812
+SG-E1 hawker contrast h=2 (H3),0.26,1.69662
+SG-E1 hawker contrast h=2 (H3),0.28,1.66888
+SG-E1 hawker contrast h=2 (H3),0.3,1.67891
+SG-E1 hawker contrast h=2 (H3),0.32,1.62993
+SG-E1 hawker contrast h=2 (H3),0.34,1.63622
+SG-E1 hawker contrast h=2 (H3),0.36,1.66921
+SG-E1 hawker contrast h=2 (H3),0.38,1.65811
+SG-E1 hawker contrast h=2 (H3),0.4,1.65999
+SG-E1 hawker contrast h=2 (H3),0.42,1.66795
+SG-E1 hawker contrast h=2 (H3),0.44,1.65218
+SG-E1 hawker contrast h=2 (H3),0.46,1.67981
+SG-E1 hawker contrast h=2 (H3),0.48,1.68088
+SG-E1 hawker contrast h=2 (H3),0.5,1.67896
+SG-E1 hawker contrast h=2 (H3),0.52,1.68062
+SG-E1 hawker contrast h=2 (H3),0.54,1.69159
+SG-E1 hawker contrast h=2 (H3),0.56,1.69816
+SG-E1 hawker contrast h=2 (H3),0.58,1.68918
+SG-E1 hawker contrast h=2 (H3),0.6,1.67283
+SG-E1 hawker contrast h=2 (H3),0.62,1.70202
+SG-E1 hawker contrast h=2 (H3),0.64,1.64411
+SG-E1 hawker contrast h=2 (H3),0.66,1.67209
+SG-E1 hawker contrast h=2 (H3),0.68,1.72227
+SG-E1 hawker contrast h=2 (H3),0.7,1.70208
+SG-E1 hawker contrast h=2 (H3),0.72,1.72749
+SG-E1 hawker contrast h=2 (H3),0.74,1.72586
+SG-E1 hawker contrast h=2 (H3),0.76,1.71153
+SG-E1 hawker contrast h=2 (H3),0.78,1.68796
+SG-E1 hawker contrast h=2 (H3),0.8,1.69163
+SG-E1 hawker contrast h=2 (H3),0.82,1.6928
+SG-E1 hawker contrast h=2 (H3),0.84,1.70948
+SG-E1 hawker contrast h=2 (H3),0.86,1.6902
+SG-E1 hawker contrast h=2 (H3),0.88,1.73285
+SG-E1 hawker contrast h=2 (H3),0.9,1.71672
+SG-E1 hawker contrast h=2 (H3),0.92,1.65334
+SG-E1 hawker contrast h=2 (H3),0.94,1.67103
+SG-E1 hawker contrast h=2 (H3),0.96,1.66206
+SG-E1 hawker contrast h=2 (H3),0.98,1.58477
+SG-E1 hawker contrast h=1 (secondary),-0.5,1.64343
+SG-E1 hawker contrast h=1 (secondary),-0.48,1.62788
+SG-E1 hawker contrast h=1 (secondary),-0.46,1.63436
+SG-E1 hawker contrast h=1 (secondary),-0.44,1.65423
+SG-E1 hawker contrast h=1 (secondary),-0.42,1.60724
+SG-E1 hawker contrast h=1 (secondary),-0.4,1.62159
+SG-E1 hawker contrast h=1 (secondary),-0.38,1.63469
+SG-E1 hawker contrast h=1 (secondary),-0.36,1.63507
+SG-E1 hawker contrast h=1 (secondary),-0.34,1.62984
+SG-E1 hawker contrast h=1 (secondary),-0.32,1.65792
+SG-E1 hawker contrast h=1 (secondary),-0.3,1.64352
+SG-E1 hawker contrast h=1 (secondary),-0.28,1.64158
+SG-E1 hawker contrast h=1 (secondary),-0.26,1.60393
+SG-E1 hawker contrast h=1 (secondary),-0.24,1.63712
+SG-E1 hawker contrast h=1 (secondary),-0.22,1.61103
+SG-E1 hawker contrast h=1 (secondary),-0.2,1.65217
+SG-E1 hawker contrast h=1 (secondary),-0.18,1.66097
+SG-E1 hawker contrast h=1 (secondary),-0.16,1.60744
+SG-E1 hawker contrast h=1 (secondary),-0.14,1.64779
+SG-E1 hawker contrast h=1 (secondary),-0.12,1.61633
+SG-E1 hawker contrast h=1 (secondary),-0.1,1.64282
+SG-E1 hawker contrast h=1 (secondary),-0.08,1.64511
+SG-E1 hawker contrast h=1 (secondary),-0.06,1.63
+SG-E1 hawker contrast h=1 (secondary),-0.04,1.62906
+SG-E1 hawker contrast h=1 (secondary),-0.02,1.62125
+SG-E1 hawker contrast h=1 (secondary),0.0,1.6217
+SG-E1 hawker contrast h=1 (secondary),0.02,1.61622
+SG-E1 hawker contrast h=1 (secondary),0.04,1.6482
+SG-E1 hawker contrast h=1 (secondary),0.06,1.63481
+SG-E1 hawker contrast h=1 (secondary),0.08,1.63691
+SG-E1 hawker contrast h=1 (secondary),0.1,1.62373
+SG-E1 hawker contrast h=1 (secondary),0.12,1.61467
+SG-E1 hawker contrast h=1 (secondary),0.14,1.63277
+SG-E1 hawker contrast h=1 (secondary),0.16,1.63341
+SG-E1 hawker contrast h=1 (secondary),0.18,1.63001
+SG-E1 hawker contrast h=1 (secondary),0.2,1.61513
+SG-E1 hawker contrast h=1 (secondary),0.22,1.64388
+SG-E1 hawker contrast h=1 (secondary),0.24,1.62122
+SG-E1 hawker contrast h=1 (secondary),0.26,1.64298
+SG-E1 hawker contrast h=1 (secondary),0.28,1.60909
+SG-E1 hawker contrast h=1 (secondary),0.3,1.62626
+SG-E1 hawker contrast h=1 (secondary),0.32,1.66876
+SG-E1 hawker contrast h=1 (secondary),0.34,1.59951
+SG-E1 hawker contrast h=1 (secondary),0.36,1.65717
+SG-E1 hawker contrast h=1 (secondary),0.38,1.62313
+SG-E1 hawker contrast h=1 (secondary),0.4,1.63928
+SG-E1 hawker contrast h=1 (secondary),0.42,1.65583
+SG-E1 hawker contrast h=1 (secondary),0.44,1.66817
+SG-E1 hawker contrast h=1 (secondary),0.46,1.63625
+SG-E1 hawker contrast h=1 (secondary),0.48,1.61633
+SG-E1 hawker contrast h=1 (secondary),0.5,1.64967
+SG-E1 hawker contrast h=1 (secondary),0.52,1.65354
+SG-E1 hawker contrast h=1 (secondary),0.54,1.64935
+SG-E1 hawker contrast h=1 (secondary),0.56,1.63678
+SG-E1 hawker contrast h=1 (secondary),0.58,1.65815
+SG-E1 hawker contrast h=1 (secondary),0.6,1.63755
+SG-E1 hawker contrast h=1 (secondary),0.62,1.64763
+SG-E1 hawker contrast h=1 (secondary),0.64,1.64639
+SG-E1 hawker contrast h=1 (secondary),0.66,1.63374
+SG-E1 hawker contrast h=1 (secondary),0.68,1.65338
+SG-E1 hawker contrast h=1 (secondary),0.7,1.67344
+SG-E1 hawker contrast h=1 (secondary),0.72,1.67389
+SG-E1 hawker contrast h=1 (secondary),0.74,1.6704
+SG-E1 hawker contrast h=1 (secondary),0.76,1.62378
+SG-E1 hawker contrast h=1 (secondary),0.78,1.66571
+SG-E1 hawker contrast h=1 (secondary),0.8,1.64856
+SG-E1 hawker contrast h=1 (secondary),0.82,1.68168
+SG-E1 hawker contrast h=1 (secondary),0.84,1.65231
+SG-E1 hawker contrast h=1 (secondary),0.86,1.69786
+SG-E1 hawker contrast h=1 (secondary),0.88,1.71174
+SG-E1 hawker contrast h=1 (secondary),0.9,1.69298
+SG-E1 hawker contrast h=1 (secondary),0.92,1.65289
+SG-E1 hawker contrast h=1 (secondary),0.94,1.63592
+SG-E1 hawker contrast h=1 (secondary),0.96,1.60315
+SG-E1 hawker contrast h=1 (secondary),0.98,1.55907
+SG-E1 dish arm h=2 (secondary),-0.5,1.60812
+SG-E1 dish arm h=2 (secondary),-0.48,1.6144
+SG-E1 dish arm h=2 (secondary),-0.46,1.64426
+SG-E1 dish arm h=2 (secondary),-0.44,1.63777
+SG-E1 dish arm h=2 (secondary),-0.42,1.60569
+SG-E1 dish arm h=2 (secondary),-0.4,1.61828
+SG-E1 dish arm h=2 (secondary),-0.38,1.62553
+SG-E1 dish arm h=2 (secondary),-0.36,1.60679
+SG-E1 dish arm h=2 (secondary),-0.34,1.64604
+SG-E1 dish arm h=2 (secondary),-0.32,1.63388
+SG-E1 dish arm h=2 (secondary),-0.3,1.595
+SG-E1 dish arm h=2 (secondary),-0.28,1.61403
+SG-E1 dish arm h=2 (secondary),-0.26,1.63245
+SG-E1 dish arm h=2 (secondary),-0.24,1.59867
+SG-E1 dish arm h=2 (secondary),-0.22,1.62077
+SG-E1 dish arm h=2 (secondary),-0.2,1.60864
+SG-E1 dish arm h=2 (secondary),-0.18,1.65
+SG-E1 dish arm h=2 (secondary),-0.16,1.63011
+SG-E1 dish arm h=2 (secondary),-0.14,1.63033
+SG-E1 dish arm h=2 (secondary),-0.12,1.63454
+SG-E1 dish arm h=2 (secondary),-0.1,1.60023
+SG-E1 dish arm h=2 (secondary),-0.08,1.63026
+SG-E1 dish arm h=2 (secondary),-0.06,1.63239
+SG-E1 dish arm h=2 (secondary),-0.04,1.63992
+SG-E1 dish arm h=2 (secondary),-0.02,1.59115
+SG-E1 dish arm h=2 (secondary),0.0,1.6574
+SG-E1 dish arm h=2 (secondary),0.02,1.63048
+SG-E1 dish arm h=2 (secondary),0.04,1.60476
+SG-E1 dish arm h=2 (secondary),0.06,1.63201
+SG-E1 dish arm h=2 (secondary),0.08,1.68254
+SG-E1 dish arm h=2 (secondary),0.1,1.64144
+SG-E1 dish arm h=2 (secondary),0.12,1.63332
+SG-E1 dish arm h=2 (secondary),0.14,1.61807
+SG-E1 dish arm h=2 (secondary),0.16,1.63644
+SG-E1 dish arm h=2 (secondary),0.18,1.63302
+SG-E1 dish arm h=2 (secondary),0.2,1.60829
+SG-E1 dish arm h=2 (secondary),0.22,1.619
+SG-E1 dish arm h=2 (secondary),0.24,1.65522
+SG-E1 dish arm h=2 (secondary),0.26,1.63135
+SG-E1 dish arm h=2 (secondary),0.28,1.6428
+SG-E1 dish arm h=2 (secondary),0.3,1.62981
+SG-E1 dish arm h=2 (secondary),0.32,1.62746
+SG-E1 dish arm h=2 (secondary),0.34,1.64287
+SG-E1 dish arm h=2 (secondary),0.36,1.64501
+SG-E1 dish arm h=2 (secondary),0.38,1.66173
+SG-E1 dish arm h=2 (secondary),0.4,1.63572
+SG-E1 dish arm h=2 (secondary),0.42,1.64642
+SG-E1 dish arm h=2 (secondary),0.44,1.62547
+SG-E1 dish arm h=2 (secondary),0.46,1.67681
+SG-E1 dish arm h=2 (secondary),0.48,1.68773
+SG-E1 dish arm h=2 (secondary),0.5,1.63639
+SG-E1 dish arm h=2 (secondary),0.52,1.64261
+SG-E1 dish arm h=2 (secondary),0.54,1.64387
+SG-E1 dish arm h=2 (secondary),0.56,1.663
+SG-E1 dish arm h=2 (secondary),0.58,1.64226
+SG-E1 dish arm h=2 (secondary),0.6,1.60533
+SG-E1 dish arm h=2 (secondary),0.62,1.64687
+SG-E1 dish arm h=2 (secondary),0.64,1.61804
+SG-E1 dish arm h=2 (secondary),0.66,1.65552
+SG-E1 dish arm h=2 (secondary),0.68,1.63341
+SG-E1 dish arm h=2 (secondary),0.7,1.65257
+SG-E1 dish arm h=2 (secondary),0.72,1.64328
+SG-E1 dish arm h=2 (secondary),0.74,1.64426
+SG-E1 dish arm h=2 (secondary),0.76,1.65113
+SG-E1 dish arm h=2 (secondary),0.78,1.62617
+SG-E1 dish arm h=2 (secondary),0.8,1.67139
+SG-E1 dish arm h=2 (secondary),0.82,1.64313
+SG-E1 dish arm h=2 (secondary),0.84,1.64646
+SG-E1 dish arm h=2 (secondary),0.86,1.67314
+SG-E1 dish arm h=2 (secondary),0.88,1.63627
+SG-E1 dish arm h=2 (secondary),0.9,1.67777
+SG-E1 dish arm h=2 (secondary),0.92,1.67028
+SG-E1 dish arm h=2 (secondary),0.94,1.62707
+SG-E1 dish arm h=2 (secondary),0.96,1.63984
+SG-E1 dish arm h=2 (secondary),0.98,1.67659
