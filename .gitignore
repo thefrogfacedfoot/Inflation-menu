@@ -21,6 +21,5 @@ scraper_output.txt
 sapient-split/
 .gstack/
 
-# Data freeze (data_freeze.py): frozen DB copies are local; docs/data_freeze.json is committed
-uifpi_freeze_*.db
-uifpi_freeze_*.db.partial
+# Claude Code session transcripts: kept outside the repo in ~/uifpi_private/sessions/ (see docs/ai_use_log.md)
+sessions/
