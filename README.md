@@ -224,6 +224,7 @@ uifpi/
 ├── figures/                          # 5 paper figures (PNG, 300 DPI)
 ├── tables/                           # 4 paper tables (CSV + LaTeX)
 ├── paper_draft/                      # abstract.md, abstract_ssef.md
+│                                     # Prior submission drafts archived privately; available on request.
 ├── dashboard/                        # Next.js dashboard source
 │
 ├── live_scraper.py                   # monthly live collection
