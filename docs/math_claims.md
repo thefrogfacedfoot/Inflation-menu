@@ -30,7 +30,9 @@ The second pass added three studies: `method_fixes.py`, `misspec_mc.py`, and the
 | F3, CNY | Simulation only | Unchanged. Evidence for the level-gap variant was added. |
 | H2, conformal validity | Simulation only | Unchanged. It now covers both variants. |
 | H3, the level-gap statistic | (new) | Provable (algebra), plus simulation. |
-| B4, a gate that keeps the rank test valid | (new) | Provable. Proposed, not implemented. |
+| B4, a symmetric gate gives exact conditional size | (new) | Provable (theorem candidate). Its application is Simulation only (`output/prereg_v4/`). |
+| C7, residual-bootstrap calibration | (new) | Simulation only. **Fails** conditional size. |
+| E5, power guarantee under the symmetric gate | (new) | Simulation only. Fails at q₁₀; holds at q₀₅ on the Gaussian grid for φ ≥ 0. |
 
 ## 0. Notation
 
@@ -110,14 +112,50 @@ The second pass added three studies: `method_fixes.py`, `misspec_mc.py`, and the
   - Size: `output/size.csv`, `v3/a2_size_before_after.csv` and `bm/size.csv`. For example, UK-E1 has size 0.0266 at φ = 0.97 and the H3 hawker test at h = 2 has 0.0267.
 - Reference: Barber, Candès, Ramdas & Tibshirani (2023) bound the excess error by the average total-variation distance between U and U with the event swapped for placebo i. This bound has not been computed here (**Open**).
 
-## B4. A gate that keeps the rank test valid (proposed; new)
+## B4. Symmetric gate: exact conditional size (theorem candidate for revision 4)
 
-- Statement: suppose the gate is a function g of the multiset {U_a} ∪ {U_m : m ∈ 𝒜}, that is, it is symmetric in all N + 1 values, including the event's. Under the B2 hypothesis the rank p-value is uniform conditional on that multiset. So P(p ≤ α | gate passes) = (K+1)/(N+1) exactly.
-- The registered gate depends on the placebo values only. It is therefore not symmetric, and this result does not cover it (see C4).
-- Under the alternative, the event enters g, which changes P(pass) slightly. This should be negligible for N ≥ 74 but has not been checked.
-- The result is for the rank test. For the calibrated test, a symmetric gate does not remove the dependence through the IQR. A conditional calibration would be needed.
-- Status: Provable (conditioning on the order statistics of an exchangeable vector). Not implemented or simulated.
-- Reference: Lehmann & Romano (2005), Ch. 15.
+**Setting.**
+- Data X takes values in a space 𝒳, and 𝒢 is a finite group acting on 𝒳.
+- T : 𝒳 → ℝ is the test statistic.
+- The randomization distribution is the multiset 𝒯(X) = {T(gX) : g ∈ 𝒢}.
+- The p-value is p(X) = |𝒢|⁻¹ · #{g ∈ 𝒢 : T(gX) ≥ T(X)}.
+- A gate is a map γ : 𝒳 → {0, 1}.
+
+**Assumptions.**
+- (A) *Randomization hypothesis:* under H0, gX has the same law as X for every g ∈ 𝒢.
+- (B) *Invariant gate:* γ(gX) = γ(X) for every g ∈ 𝒢 and every X. A sufficient condition is that γ depends on X only through 𝒯(X), because 𝒯(gX) = 𝒯(X) when 𝒢 is a group.
+- (C) *For equality only:* almost surely, 𝒯(X) has m distinct values, each with multiplicity |𝒢|/m.
+
+**Claim.** Under H0, (A) and (B), whenever P(γ(X) = 1) > 0:
+- P(p(X) ≤ α | γ(X) = 1) ≤ α;
+- under (C) as well, P(p(X) ≤ α | γ(X) = 1) = ⌊αm⌋/m, the same as the unconditional size.
+
+**Suggested route (not a proof).** Under (A), X has the same law as g*X, where g* is uniform on 𝒢 and independent of X (Hemerik & Goeman 2018, the step in Lehmann & Romano Thm 15.2.1). Condition on X. Under (B) the gate is constant over the orbit, and the p-value of g*X is uniform on the grid {1/m, …, 1}.
+
+**Instances.**
+1. *Placebo rank test (H3-v4a).*
+   - X = (U_a, U_1, …, U_N), 𝒢 = all permutations of the N + 1 coordinates, T(X) = X₀, m = N + 1.
+   - (A) is exchangeability, the B2 hypothesis.
+   - The revision-4 gate uses the (K+2)-th largest of the N + 1 pooled values minus their q_p. It is a symmetric function, so (B) holds.
+   - **(A) fails for the registered statistic (B3),** so the theorem gives exactness only for an idealised exchangeable U. The real conditional size is Simulation only.
+2. *Conformal test (H1-v4), CWZ cyclic shifts.*
+   - X = the residual vector u, 𝒢 = cyclic rotations (m = n), T = the window statistic at the event position. The revision-4 gate is a function of {S_j}, so (B) holds.
+   - (A) holds for oracle residuals that are i.i.d., or more generally whose law is invariant under rotation.
+   - With estimated residuals, (A) holds exactly only if the counterfactual estimator is invariant under rotating the data (CWZ). The estimator used here (calendar-month dummies plus an AR(1) lag on the compressed series) is not, so it holds approximately at best. Real conditional size: Simulation only.
+3. *Not covered:* the calibrated test and the bootstrap test (H3-v4b). Their critical values depend on φ̂ and on the non-event months, not only on 𝒯(X), so (B) does not reduce them to (A).
+
+**Why the gate uses the (K+2)-th largest pooled value.** Take any symmetric gate. The (K+1)-th largest pooled value is the observed statistic itself whenever the test rejects. With K = 0 (H3 hawker, N = 74) it would make the gate fail exactly when the true effect is large. The (K+2)-th largest equals the test's critical value whenever the test rejects, and is never above it otherwise. That is a design property, not part of the theorem.
+
+**Status.**
+- The claim: **Provable (theorem candidate; WC to prove).**
+- Its application to the registered statistics: Simulation only.
+- References: Lehmann & Romano (2005), Ch. 15; Hemerik & Goeman (2018); Chernozhukov, Wüthrich & Zhu (2021).
+- Evidence: `output/prereg_v4/size.csv`, columns `cond_size_*`. Gate pass rates 10/50/90% and gate quantiles q₁₀ and q₀₅, on the Gaussian AR(1) grid plus AR(2), seasonal AR, t(3), drift break and level step.
+  - Both instances behave as the theorem predicts even though (A) holds only approximately: conditional size is close to unconditional size.
+    - Conformal (H1-v4, UK): unconditional 0.004–0.019, conditional 0.003–0.019.
+    - Rank test under the H3 IUT: unconditional 0.000–0.016, conditional 0.000–0.018.
+  - Where (A) fails, the conditional size inherits the unconditional failure but does not add to it. The rank test alone on H3 hawker h = 2 at φ = 0.9 is 0.025 unconditionally and 0.027 at every pass rate.
+  - The variance spike breaks (A) at the event and every procedure fails, as expected.
 
 ## C. Calibrated test (prereg §5.5, D2-b)
 
@@ -180,7 +218,7 @@ The second pass added three studies: `method_fixes.py`, `misspec_mc.py`, and the
 - Evidence:
   - `mf/gate_conditional_size.csv` (the full curves over r);
   - `mf/gate_conditional_summary.csv`. Its column `max_size_given_pass` is a maximum over 40 noisy estimates and is biased upward; read the curves.
-- A possible remedy with a provable guarantee is B4. It is not implemented.
+- Remedy (revision-4 proposal): the symmetric gate of B4. With the conformal and rank tests the conditional excess disappears; see B4 for the evidence. With a calibrated critical value it does not (C7).
 
 **C5. Robustness to the noise model.** *(Status changed in the second pass.)*
 - Statement: C1–C4 assume Gaussian AR(1) noise. Under other noise the calibrated critical value is wrong by an amount that depends on the DGP.
@@ -199,6 +237,18 @@ The second pass added three studies: `method_fixes.py`, `misspec_mc.py`, and the
   The revised rule behaves the same in every row.
 - Status: **Simulation only** (was Open).
 - Conclusion: the Gaussian assumption in the calibration is a real weakness. Under t(3) noise the uncalibrated rank test holds size where the calibrated test does not.
+
+**C7. Residual-bootstrap calibration (new; considered for H3 in revision 4, not recommended).**
+- Statement: replace the Gaussian AR(1) null model of §5.5 with a residual bootstrap.
+  1. Fit AR(1) at the Kendall-corrected φ̂ to the calendar-month-demeaned changes.
+  2. Draw B = 999 series with i.i.d. resampled centred residuals.
+  3. Take t* = the 1 − α quantile of τ*.
+  4. Combine with the symmetric gate.
+- The intended consequences: size α without assuming Gaussian innovations, and no conditional excess.
+- Result: the bootstrap fixes the heavy-tail failure of C5. Under t(3), size at h = 2 is 0.022, against 0.033 for v3. **But it does not remove the conditional excess.** On H3 hawker h = 2 the conditional size at a 50% pass rate is 0.028–0.033 on the Gaussian grid. Under the IUT it reaches 0.023 at φ = 0.9 and 0.032 under the drift break at a 10% pass rate.
+- The mechanism is the same as in C4. The critical value med + t*·IQR still scales with the placebo IQR, so B4's condition (B) does not hold.
+- Status: Simulation only (nested simulation: 6,000 outer runs, B = 999).
+- Evidence: `output/prereg_v4/size.csv`, method `v4b_boot`.
 
 ## D. φ̂ and its bias correction
 
@@ -300,6 +350,20 @@ The second pass added three studies: `method_fixes.py`, `misspec_mc.py`, and the
 - p = 0.10 was chosen because the simulated minimum in E3 was 0.746 with p = 0.20 and 0.786 with p = 0.15.
 - Status: Simulation only.
 - Evidence: `v3/a1_gate_summary.csv`, which covers the variants q05–q20.
+
+**E5. Power guarantee under the symmetric gate (new).**
+- Statement: with the symmetric gate, does P(reject at ρ = 1 | gate passes) ≥ 0.80 hold for every r?
+- The deterministic bound E1 no longer applies. The gate's c_pool is at most the test's critical value, with equality only when the test rejects, so a passing gate does not imply that the test's own c − q_p ≤ |Δ|.
+- Simulation: `output/prereg_v4/gate_guarantee.csv`, minimum over r with at least 500 passing runs (200 for the bootstrap).
+
+| Gate quantile | H1-v4 conformal (UK E1–E4) | H3 IUT, rank test | H3-dish IUT |
+|---|---|---|---|
+| q₁₀ | 0.61–0.90 | 0.64–0.88 | 0.74–0.89 |
+| q₀₅, Gaussian AR(1), φ ∈ [0, 0.97] | 0.819–0.897 | 0.815–0.917 | 0.857–0.937 |
+| q₀₅, φ = −0.5 | (within the 0.819–0.897 range) | 0.693 | 0.748 |
+
+- **So the guarantee fails at q₁₀, and q₀₅ is the corrected condition for φ ≥ 0.** v3's own guarantee at φ = −0.5 is 0.665, so the negative-φ shortfall is not new. Under misspecified noise q₀₅ gives 0.59–0.88 for H1-v4 and 0.78–0.93 for the H3 IUT. As in revision 3, it is a Gaussian AR(1) claim.
+- Status: Simulation only.
 
 ## F. H3 intersection-union test (prereg §5.4)
 

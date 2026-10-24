@@ -1,0 +1,4 @@
+[run_info_main] [run_info_base] reps=20000 reps_boot=6000 reps_boot_cny=2000 B=999 seed=20261027 alpha=0.0167 dgps=['AR(1) -0.5', 'AR(1) 0.0', 'AR(1) 0.3', 'AR(1) 0.6', 'AR(1) 0.9', 'AR(1) 0.97'] cny=False numpy=2.0.2 elapsed_s=641
+[run_info_mis] reps=20000 reps_boot=6000 reps_boot_cny=2000 B=999 seed=20261027 alpha=0.0167 dgps=['ar2', 'sar12', 't3', 'spike', 'meanbrk', 'lvlstep'] cny=False numpy=2.0.2 elapsed_s=651
+[run_info_cny] reps=20000 reps_boot=6000 reps_boot_cny=2000 B=999 seed=20261027 alpha=0.0167 dgps=[] cny=True numpy=2.0.2 elapsed_s=376
+[run_info_dish] reps=20000 reps_boot=6000 reps_boot_cny=2000 B=999 seed=20261027 alpha=0.0167 dgps=['dish IUT'] cny=False numpy=2.0.2 elapsed_s=37

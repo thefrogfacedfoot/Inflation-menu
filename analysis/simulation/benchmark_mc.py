@@ -151,18 +151,24 @@ class Conformal:
         self.n = n
         self.K = math.floor(ALPHA * n) - 1
 
+    def shift_stats(self, x, s):
+        """S[:, j] = statistic for the window starting at compressed position j (cyclic); the
+        observed window is j = w0. The step s is added to x at the event month first."""
+        xs = x.copy()
+        xs[:, self.e] += s
+        y, l = xs[:, self.rows] @ self.Dm, xs[:, self.rows - 1] @ self.Dm  # Frisch-Waugh
+        b = (l * y).sum(axis=1) / (l * l).sum(axis=1)
+        u = y - b[:, None] * l
+        S = np.zeros_like(u)
+        for j in range(self.h):
+            w = sum((self.h - i) * b ** (i - j) for i in range(j, self.h)) if self.level else 1.0
+            S += np.reshape(w, (-1, 1)) * np.roll(u, -j, axis=1)
+        return S
+
     def margins(self, x, shifts):
         out = np.empty((len(shifts), len(x)))
         for k, s in enumerate(shifts):
-            xs = x.copy()
-            xs[:, self.e] += s
-            y, l = xs[:, self.rows] @ self.Dm, xs[:, self.rows - 1] @ self.Dm  # Frisch-Waugh
-            b = (l * y).sum(axis=1) / (l * l).sum(axis=1)
-            u = y - b[:, None] * l
-            S = np.zeros_like(u)  # S[:, j] = weighted sum of u over the window starting at j (cyclic)
-            for j in range(self.h):
-                w = sum((self.h - i) * b ** (i - j) for i in range(j, self.h)) if self.level else 1.0
-                S += np.reshape(w, (-1, 1)) * np.roll(u, -j, axis=1)
+            S = self.shift_stats(x, s)
             out[k] = S[:, self.w0] - pm.crit_value(np.delete(S, self.w0, axis=1), self.K)
         return out
 

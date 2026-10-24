@@ -268,3 +268,56 @@ Seven cells: UK-E3, E4, E1, H3 hawker h = 2 and h = 1, the dish arm, and the H3 
 | +5 SD level step at mid-sample | 7 / 7 | 7 | 7 | 7 |
 
 The event-month variance spike defeats every method. That is expected, because no placebo can reveal a variance change that occurs only in the event month. The calibrated test's weak points are heavy tails and seasonal persistence, both of which come from its Gaussian AR(1) calibration. Size-adjusted power is in `power.csv`.
+
+## Prereg revision 4 package (`prereg_v4_sim.py`, 2026-10-24)
+
+Synthetic data only. Outputs are in `output/prereg_v4/` (`size.csv`, `power.csv`, `gate_guarantee.csv`, `cny.csv`). Most runs used 20,000 replications. The bootstrap piece used 6,000 (2,000 in the CNY study) with B = 999. The run was split into four parallel parts and took about 11 min of wall time. The commands are in the docstring.
+
+**Procedures.**
+- **v3**: the registered procedure.
+- **H1-v4**: the level-gap conformal test with a symmetric gate.
+- **H3-v4a**: the rank test with a symmetric gate, decided by the IUT.
+- **H3-v4b**: a residual-bootstrap-calibrated test with a symmetric gate, also decided by the IUT.
+
+The symmetric gate takes the (K+2)-th largest of all pooled values (the observed statistic included) minus their q_p. It equals the test's critical value whenever the test rejects. The (K+1)-th largest would make the gate fail exactly when the effect is large whenever K = 0, which is the case for the H3 hawker arm (N = 74).
+
+**Size: unconditional and conditional on the gate passing.** The gate's r is set at the 10%, 50% and 90% quantiles of the null gate statistic. The figures below cover the Gaussian AR(1) grid and the misspecified set except the spike. "Flagged" means more than 2 SE above α.
+
+| Procedure | Unconditional | Conditional on gate pass | Flagged cells |
+|---|---|---|---|
+| H1-v4, UK E3/E4/E1 | 0.004–0.019 | 0.003–0.019 | one, unconditional: UK-E3 under the drift break (0.0187) |
+| H3-v4a IUT | 0.000–0.016 | 0.000–0.018 | none |
+| H3-dish IUT (v4a, secondary) | 0.002–0.018 | 0.002–0.021 | none |
+| H3-v4b IUT | 0.001–0.015 | up to 0.032 | φ = 0.9 (0.023 at a 50% pass rate) and the drift break (0.032 at a 10% pass rate) |
+| H3-v4b components | 0.015–0.022 | 0.028–0.033 at a 50% pass rate (h = 2) | |
+| v3 H1 | | 0.016–0.057; at 10–50% pass rates it is flagged on every Gaussian cell | |
+| v3 H3 IUT | | up to 0.040 | |
+
+The variance spike breaks every procedure, as expected (0.035–0.066).
+
+**Power guarantee: minimum over r of P(reject at ρ = 1 | gate passes)** (`gate_guarantee.csv`):
+
+| Gate quantile | H1-v4 (UK E3/E4/E1/E2) | H3-v4a IUT | H3-dish IUT |
+|---|---|---|---|
+| q₁₀ | 0.61–0.90 (fails) | 0.64–0.88 (fails) | 0.74–0.89 (fails) |
+| q₀₅ | 0.819–0.897 on the Gaussian grid | 0.815–0.917 for φ ∈ [0, 0.97]; 0.693 at φ = −0.5 | 0.857–0.937 for φ ≥ 0; 0.748 at φ = −0.5 |
+
+For comparison, v3's own guarantee at φ = −0.5 is 0.665. Under misspecified noise, q₀₅ gives 0.59–0.88 for H1-v4 and 0.78–0.93 for the H3 IUT. The registered guarantee was only ever a Gaussian AR(1) claim.
+
+**Power: P(gate passes and test rejects)** (`power.csv`), Gaussian AR(1):
+
+| Comparison | Setting | ρ | Proposed | v3 |
+|---|---|---|---|---|
+| H1-v4 q₀₅ vs v3 (UK-E3) | φ = 0, r = 5.05 | 1 | 0.90 | 0.28 |
+| | φ = 0, r = 5.05 | 0.5 | 0.42 | 0.12 |
+| | φ = 0.6, r = 5.05 | 1 | 0.89 | 0.01 |
+| H3 IUT v4a q₀₅ vs v3 | φ = 0, r = 6 | 1 | 0.40 | 0.71 |
+| | φ = 0.6, r = 7.1 | 1 | 0.35 | 0.53 |
+| | φ = 0.9, r = 7.1 | 1 | 0.53 | 0.54 |
+
+The gate passes half the time at r = 5.68 for the proposed H3 procedure, against 5.46 for v3. Part of v3's apparent H3 power comes from its conditional over-rejection.
+
+**CNY** (`cny.csv`, H3 IUT, CNY-month timing, b ∈ {±0.5, ±1.0} points, temporary and permanent, σ = 0.2 and 0.4 points):
+- All three procedures keep unconditional size ≤ 0.0155.
+- P(confirmatory rejection) at ρ = 1 is at most 0.14 for every procedure, because at these σ the gate rarely passes.
+- The CNY study used the q₁₀ gate. The q₀₅ gate passes no more often, so these figures are upper bounds under q₀₅.
