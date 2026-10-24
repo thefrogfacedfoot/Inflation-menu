@@ -147,11 +147,12 @@ Synthetic data only, like everything above. No outcome value was read and the pr
 .venv-sim/bin/python analysis/simulation/claims_checks.py --reps 20000   # output/claims/, about 12 s
 ```
 
-**What is compared.** Four methods are run on the same draws in every cell:
+**What is compared.** Five methods are run on the same draws in every cell. The fifth was added in the second pass; the first four's results reproduced exactly in that re-run (576/576 size cells):
 - **ours**: the registered always-calibrated test (D2-b).
 - **rank**: the uncalibrated rank test (prereg-v2).
 - **hac**: an OLS event-dummy z-test with Newey-West errors.
-- **conformal**: Chernozhukov, Wüthrich & Zhu (2021) with an AR(1) + calendar-month counterfactual and cyclic shifts.
+- **conformal**: Chernozhukov, Wüthrich & Zhu (2021) with an AR(1) + calendar-month counterfactual and cyclic shifts. The statistic is the window sum of residuals.
+- **conformal_lvl**: the same, with a level-gap statistic. It sums observed-minus-forecast levels over the window, which is the weighted residual sum Σ w_l u_{e+l} (`docs/math_claims.md` H3).
 
 **The grid** is 23 layouts × 6 φ, at ρ ∈ {0.5, 1} on a grid of r = |Δ|/σ:
 - the 7 registered layouts;
@@ -183,7 +184,18 @@ Each row reports the (ρ, r) with the largest difference.
 | hac | 0.120–0.333 | 138 / 138 |
 | conformal | 0.0082–0.0178 | 0 / 138 |
 
-**Where a benchmark beats ours.** There are 255 flags in total. On the registered layouts:
+**Where a benchmark beats ours.** The first pass had 255 flags. With conformal_lvl there are 534, plus 295 CNY flags. On the registered layouts:
+
+0. **Conformal level-gap, at h = 2: it beats ours, plainly.**
+   - Its size is 0.0087–0.0174 and it never over-rejects in the 138 cells.
+   - It has higher power than ours at h = 2 on every registered layout, at every φ, and in the H3 IUT. At r80 and ρ = 1, for example:
+     - H3 hawker h = 2: 0.967 against 0.934 at φ = 0, and 1.000 against 0.879 at φ = 0.9;
+     - UK-E1 at φ = 0: 0.995 against 0.924.
+   - At ρ = 0.5 the gaps are larger: UK-E1 0.578 against 0.370, and H3 IUT 0.417 against 0.347, both at φ = 0.
+   - Ours is ahead only at saturation (1.00 against 0.99, the K = 0 ceiling).
+   - Two trade-offs:
+     - It is not protected against a permanent CNY step (`cny.csv`: size 0.052, or 0.048 under the IUT, at a −1-point permanent step, against 0.013 for ours).
+     - Under t(3) noise, ours keeps a power edge (`output/misspec/`).
 
 1. **Conformal at h = 1 with persistent noise.**
    - SG hawker h = 1 (secondary): at φ = 0.97, ρ = 0.5, r = 2.4, power is 0.956 for conformal against 0.368 for ours. This setting is flagged at φ ∈ {−0.5, 0.6, 0.9, 0.97}.
@@ -205,4 +217,54 @@ For the H3 IUT, ours has power 0.80–0.96 at r80 against at most 0.47 for confo
 - Under a +1-point temporary hawker bump, ours at h = 2 has size 0.265 and conformal 0.005. Conformal's h = 2 window sum is insensitive to a one-month pulse, for the reason in "Where ours wins". Under the IUT, ours is already ≤ 0.0001 in that scenario.
 - HAC is flagged on `power_rho*` only where the bump biases it against rejection. Its no-bump size is about 0.2, so these flags do not make HAC a usable test.
 
-**Not covered:** non-Gaussian or heteroskedastic noise, AR(p) with p > 1, a conformal statistic other than the q = 1 window sum (for example, the first window month only, or q = 2), and size given that the gate passes (`docs/math_claims.md` C4).
+**Not covered in the first pass:** misspecified noise (now in `misspec_mc.py`), a level-shift conformal statistic (now `conformal_lvl`), and size given that the gate passes (now in `method_fixes.py`). Still not covered: q = 2 conformal statistics, and conformal with a counterfactual model other than AR(1) plus calendar-month dummies.
+
+## Method fixes (`method_fixes.py`, 2026-10-24)
+
+Synthetic data only. The run used `--reps 20000` with R_DENSE = 50,000 and took about 20 min. Outputs are in `output/method_fixes/`. The definitions are in the docstring. The claims affected are C2, C3, C4, C6, D3 and D4 in `docs/math_claims.md`.
+
+```
+.venv-sim/bin/python analysis/simulation/method_fixes.py --reps 20000
+.venv-sim/bin/python analysis/simulation/misspec_mc.py --reps 20000   # needs method_fixes' tables.csv; about 30 s
+```
+
+- **(a) Indirect-inference φ̂** (`phi_bias.csv`, `figures/phi_bias_*`).
+  - Bias on the registered layouts:
+    - Kendall: +0.004 to +0.014 for φ ∈ [0, 0.9].
+    - Indirect inference: −0.001 to +0.002 over the same range.
+  - Indirect inference is worse at the ends of the grid because of clipping: −0.006 to −0.016 at φ = 0.97, +0.027 to +0.042 at φ = −0.5.
+  - RMSE is unchanged.
+  - Effect on size: at most 0.0005.
+- **(b) Smoothed critical value** (`tables.csv`, `figures/critical_value_raw_vs_smoothed.*`).
+  - Dense grid: 149 points, 50,000 runs each, local-linear fit with the bandwidth chosen by leave-one-out cross-validation.
+  - The curve is smooth on [−0.5, 0.9] and changes sharply above 0.9.
+  - The registered 75-point table is within 0.04–0.06 of the smoothed curve.
+- **Size across φ** (`size.csv`, 23 layouts × 8 true φ, `figures/size_variants_*`).
+  - Registered rule: 0.0106–0.0201, over-rejecting in 10 of 184 cells.
+  - Revised rule (a + b): 0.0114–0.0197, over-rejecting in 8 of 184.
+  - True φ with the smoothed table: 1 of 184, which is consistent with chance (about 4 expected).
+  - On the 7 registered layouts: the registered rule over-rejects in 2 cells (0.0191 each), the revised rule in 1 (0.0187).
+- **(c) Size conditional on the gate** (`gate_conditional_size.csv`).
+  - It is above α wherever the gate is informative: 0.021–0.032 when the gate passes half the time, and up to 0.060 when it passes 10% of the time.
+  - H3 IUT: 0.009 (φ = 0) and 0.017 (φ = 0.9) at a 50% pass rate.
+  - Neither (a) nor (b) changes this.
+- **(d) The five cells** (`overreject_cells.csv`, 100,000 runs each):
+  - one is sampling chance;
+  - H3 hawker h = 2 at φ = 0.9 is the spread of φ̂ (about +0.001, which no fix removes);
+  - the three φ = 0.97 edge cells are table under-reading plus low φ̂ near the 0.98 clip. Smoothing removes about a third of their excess; indirect inference removes none.
+
+## Misspecification (`misspec_mc.py`, 2026-10-24)
+
+Seven cells: UK-E3, E4, E1, H3 hawker h = 2 and h = 1, the dish arm, and the H3 IUT. Seven DGPs, 20,000 runs. Methods: ours (registered), ours (revised), both conformal variants, and the rank test as a distribution-free reference. The table gives the cells holding size, out of 7 (`holds_size_summary.csv`):
+
+| DGP | ours reg / rev | conformal | conformal_lvl | rank |
+|---|---|---|---|---|
+| Gaussian AR(1) 0.3 (reference) | 7 / 7 | 7 | 7 | 7 |
+| Gaussian AR(2) (0.5, 0.3) | 7 / 7 | 7 | 7 | 5 |
+| seasonal AR (1−0.3B)(1−0.5B¹²) | 2 / 3 | 7 | 7 | 5 |
+| t(3) innovations | 1 / 1 (size 0.030–0.035) | 7 | 7 | 7 |
+| Var(x_e) × 3 in the event month | 0 / 0 | 1 | 0 | 0 |
+| +0.5 SD drift break at mid-sample | 5 / 5 (hawker h = 2: 0.033) | 4 | 5 | 4 |
+| +5 SD level step at mid-sample | 7 / 7 | 7 | 7 | 7 |
+
+The event-month variance spike defeats every method. That is expected, because no placebo can reveal a variance change that occurs only in the event month. The calibrated test's weak points are heavy tails and seasonal persistence, both of which come from its Gaussian AR(1) calibration. Size-adjusted power is in `power.csv`.

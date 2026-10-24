@@ -1,0 +1,246 @@
+cell,dgp,dgp_label,method,size,mc_se,over_rejects,reps
+UK-E3 (H1),ref,Gaussian AR(1) 0.3 (reference),ours_registered,0.0161,0.00089,False,20000
+UK-E3 (H1),ref,Gaussian AR(1) 0.3 (reference),ours_revised,0.01605,0.00089,False,20000
+UK-E3 (H1),ref,Gaussian AR(1) 0.3 (reference),conformal,0.01115,0.00074,False,20000
+UK-E3 (H1),ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,0.01105,0.00074,False,20000
+UK-E3 (H1),ref,Gaussian AR(1) 0.3 (reference),rank,0.0096,0.00069,False,20000
+UK-E4 (H1),ref,Gaussian AR(1) 0.3 (reference),ours_registered,0.01705,0.00092,False,20000
+UK-E4 (H1),ref,Gaussian AR(1) 0.3 (reference),ours_revised,0.01715,0.00092,False,20000
+UK-E4 (H1),ref,Gaussian AR(1) 0.3 (reference),conformal,0.0111,0.00074,False,20000
+UK-E4 (H1),ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,0.0103,0.00071,False,20000
+UK-E4 (H1),ref,Gaussian AR(1) 0.3 (reference),rank,0.0111,0.00074,False,20000
+UK-E1 (H1),ref,Gaussian AR(1) 0.3 (reference),ours_registered,0.016,0.00089,False,20000
+UK-E1 (H1),ref,Gaussian AR(1) 0.3 (reference),ours_revised,0.0161,0.00089,False,20000
+UK-E1 (H1),ref,Gaussian AR(1) 0.3 (reference),conformal,0.0108,0.00073,False,20000
+UK-E1 (H1),ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,0.0103,0.00071,False,20000
+UK-E1 (H1),ref,Gaussian AR(1) 0.3 (reference),rank,0.01605,0.00089,False,20000
+SG-E1 hawker contrast h=2 (H3),ref,Gaussian AR(1) 0.3 (reference),ours_registered,0.0152,0.00087,False,20000
+SG-E1 hawker contrast h=2 (H3),ref,Gaussian AR(1) 0.3 (reference),ours_revised,0.01495,0.00086,False,20000
+SG-E1 hawker contrast h=2 (H3),ref,Gaussian AR(1) 0.3 (reference),conformal,0.0086,0.00065,False,20000
+SG-E1 hawker contrast h=2 (H3),ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,0.009,0.00067,False,20000
+SG-E1 hawker contrast h=2 (H3),ref,Gaussian AR(1) 0.3 (reference),rank,0.0134,0.00081,False,20000
+SG-E1 hawker contrast h=1 (secondary),ref,Gaussian AR(1) 0.3 (reference),ours_registered,0.01715,0.00092,False,20000
+SG-E1 hawker contrast h=1 (secondary),ref,Gaussian AR(1) 0.3 (reference),ours_revised,0.0167,0.00091,False,20000
+SG-E1 hawker contrast h=1 (secondary),ref,Gaussian AR(1) 0.3 (reference),conformal,0.01045,0.00072,False,20000
+SG-E1 hawker contrast h=1 (secondary),ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,0.01045,0.00072,False,20000
+SG-E1 hawker contrast h=1 (secondary),ref,Gaussian AR(1) 0.3 (reference),rank,0.01135,0.00075,False,20000
+SG-E1 dish arm h=2 (secondary),ref,Gaussian AR(1) 0.3 (reference),ours_registered,0.0149,0.00086,False,20000
+SG-E1 dish arm h=2 (secondary),ref,Gaussian AR(1) 0.3 (reference),ours_revised,0.0147,0.00085,False,20000
+SG-E1 dish arm h=2 (secondary),ref,Gaussian AR(1) 0.3 (reference),conformal,0.0126,0.00079,False,20000
+SG-E1 dish arm h=2 (secondary),ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,0.01285,0.0008,False,20000
+SG-E1 dish arm h=2 (secondary),ref,Gaussian AR(1) 0.3 (reference),rank,0.0148,0.00085,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,Gaussian AR(1) 0.3 (reference),ours_registered,0.00615,0.00055,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,Gaussian AR(1) 0.3 (reference),ours_revised,0.00595,0.00054,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,Gaussian AR(1) 0.3 (reference),conformal,0.00185,0.0003,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,0.0052,0.00051,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,Gaussian AR(1) 0.3 (reference),rank,0.0053,0.00051,False,20000
+UK-E3 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,0.0163,0.0009,False,20000
+UK-E3 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,0.01645,0.0009,False,20000
+UK-E3 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,0.01285,0.0008,False,20000
+UK-E3 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,0.01155,0.00076,False,20000
+UK-E3 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",rank,0.0116,0.00076,False,20000
+UK-E4 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,0.0153,0.00087,False,20000
+UK-E4 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,0.01535,0.00087,False,20000
+UK-E4 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,0.0113,0.00075,False,20000
+UK-E4 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,0.01105,0.00074,False,20000
+UK-E4 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",rank,0.0117,0.00076,False,20000
+UK-E1 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,0.0169,0.00091,False,20000
+UK-E1 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,0.01615,0.00089,False,20000
+UK-E1 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,0.01035,0.00072,False,20000
+UK-E1 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,0.0105,0.00072,False,20000
+UK-E1 (H1),ar2,"Gaussian AR(2) (0.5, 0.3)",rank,0.01745,0.00093,False,20000
+SG-E1 hawker contrast h=2 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,0.0173,0.00092,False,20000
+SG-E1 hawker contrast h=2 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,0.01735,0.00092,False,20000
+SG-E1 hawker contrast h=2 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,0.0102,0.00071,False,20000
+SG-E1 hawker contrast h=2 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,0.0097,0.00069,False,20000
+SG-E1 hawker contrast h=2 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",rank,0.0195,0.00098,True,20000
+SG-E1 hawker contrast h=1 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,0.01685,0.00091,False,20000
+SG-E1 hawker contrast h=1 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,0.0171,0.00092,False,20000
+SG-E1 hawker contrast h=1 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,0.0098,0.0007,False,20000
+SG-E1 hawker contrast h=1 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,0.0098,0.0007,False,20000
+SG-E1 hawker contrast h=1 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",rank,0.01385,0.00083,False,20000
+SG-E1 dish arm h=2 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,0.01775,0.00093,False,20000
+SG-E1 dish arm h=2 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,0.0174,0.00092,False,20000
+SG-E1 dish arm h=2 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,0.01395,0.00083,False,20000
+SG-E1 dish arm h=2 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,0.0138,0.00082,False,20000
+SG-E1 dish arm h=2 (secondary),ar2,"Gaussian AR(2) (0.5, 0.3)",rank,0.02115,0.00102,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,0.00935,0.00068,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,0.00955,0.00069,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,0.0016,0.00028,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,0.0053,0.00051,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,"Gaussian AR(2) (0.5, 0.3)",rank,0.00895,0.00067,False,20000
+UK-E3 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,0.01875,0.00096,True,20000
+UK-E3 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,0.01845,0.00095,False,20000
+UK-E3 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,0.01385,0.00083,False,20000
+UK-E3 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,0.01455,0.00085,False,20000
+UK-E3 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,0.0114,0.00075,False,20000
+UK-E4 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,0.0137,0.00082,False,20000
+UK-E4 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,0.0135,0.00082,False,20000
+UK-E4 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,0.0096,0.00069,False,20000
+UK-E4 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,0.00995,0.0007,False,20000
+UK-E4 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,0.0095,0.00069,False,20000
+UK-E1 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,0.02505,0.00111,True,20000
+UK-E1 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,0.0251,0.00111,True,20000
+UK-E1 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,0.0137,0.00082,False,20000
+UK-E1 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,0.01435,0.00084,False,20000
+UK-E1 (H1),sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,0.02155,0.00103,True,20000
+SG-E1 hawker contrast h=2 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,0.02085,0.00101,True,20000
+SG-E1 hawker contrast h=2 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,0.0206,0.001,True,20000
+SG-E1 hawker contrast h=2 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,0.0092,0.00068,False,20000
+SG-E1 hawker contrast h=2 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,0.00945,0.00068,False,20000
+SG-E1 hawker contrast h=2 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,0.0184,0.00095,False,20000
+SG-E1 hawker contrast h=1 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,0.0208,0.00101,True,20000
+SG-E1 hawker contrast h=1 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,0.02045,0.001,True,20000
+SG-E1 hawker contrast h=1 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,0.0082,0.00064,False,20000
+SG-E1 hawker contrast h=1 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,0.0082,0.00064,False,20000
+SG-E1 hawker contrast h=1 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,0.0131,0.0008,False,20000
+SG-E1 dish arm h=2 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,0.02055,0.001,True,20000
+SG-E1 dish arm h=2 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,0.02065,0.00101,True,20000
+SG-E1 dish arm h=2 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,0.01485,0.00086,False,20000
+SG-E1 dish arm h=2 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,0.01485,0.00086,False,20000
+SG-E1 dish arm h=2 (secondary),sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,0.01975,0.00098,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,0.0087,0.00066,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,0.00865,0.00065,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,0.00145,0.00027,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,0.0039,0.00044,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,0.0058,0.00054,False,20000
+UK-E3 (H1),t3,"AR(1) 0.3, t(3) innovations",ours_registered,0.0321,0.00125,True,20000
+UK-E3 (H1),t3,"AR(1) 0.3, t(3) innovations",ours_revised,0.03215,0.00125,True,20000
+UK-E3 (H1),t3,"AR(1) 0.3, t(3) innovations",conformal,0.011,0.00074,False,20000
+UK-E3 (H1),t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,0.01165,0.00076,False,20000
+UK-E3 (H1),t3,"AR(1) 0.3, t(3) innovations",rank,0.0121,0.00077,False,20000
+UK-E4 (H1),t3,"AR(1) 0.3, t(3) innovations",ours_registered,0.03225,0.00125,True,20000
+UK-E4 (H1),t3,"AR(1) 0.3, t(3) innovations",ours_revised,0.03245,0.00125,True,20000
+UK-E4 (H1),t3,"AR(1) 0.3, t(3) innovations",conformal,0.0124,0.00078,False,20000
+UK-E4 (H1),t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,0.01135,0.00075,False,20000
+UK-E4 (H1),t3,"AR(1) 0.3, t(3) innovations",rank,0.01245,0.00078,False,20000
+UK-E1 (H1),t3,"AR(1) 0.3, t(3) innovations",ours_registered,0.0304,0.00121,True,20000
+UK-E1 (H1),t3,"AR(1) 0.3, t(3) innovations",ours_revised,0.03045,0.00121,True,20000
+UK-E1 (H1),t3,"AR(1) 0.3, t(3) innovations",conformal,0.01015,0.00071,False,20000
+UK-E1 (H1),t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,0.01025,0.00071,False,20000
+UK-E1 (H1),t3,"AR(1) 0.3, t(3) innovations",rank,0.01445,0.00084,False,20000
+SG-E1 hawker contrast h=2 (H3),t3,"AR(1) 0.3, t(3) innovations",ours_registered,0.0327,0.00126,True,20000
+SG-E1 hawker contrast h=2 (H3),t3,"AR(1) 0.3, t(3) innovations",ours_revised,0.03245,0.00125,True,20000
+SG-E1 hawker contrast h=2 (H3),t3,"AR(1) 0.3, t(3) innovations",conformal,0.01185,0.00077,False,20000
+SG-E1 hawker contrast h=2 (H3),t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,0.01125,0.00075,False,20000
+SG-E1 hawker contrast h=2 (H3),t3,"AR(1) 0.3, t(3) innovations",rank,0.0182,0.00095,False,20000
+SG-E1 hawker contrast h=1 (secondary),t3,"AR(1) 0.3, t(3) innovations",ours_registered,0.0354,0.00131,True,20000
+SG-E1 hawker contrast h=1 (secondary),t3,"AR(1) 0.3, t(3) innovations",ours_revised,0.0349,0.0013,True,20000
+SG-E1 hawker contrast h=1 (secondary),t3,"AR(1) 0.3, t(3) innovations",conformal,0.01075,0.00073,False,20000
+SG-E1 hawker contrast h=1 (secondary),t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,0.01075,0.00073,False,20000
+SG-E1 hawker contrast h=1 (secondary),t3,"AR(1) 0.3, t(3) innovations",rank,0.012,0.00077,False,20000
+SG-E1 dish arm h=2 (secondary),t3,"AR(1) 0.3, t(3) innovations",ours_registered,0.0344,0.00129,True,20000
+SG-E1 dish arm h=2 (secondary),t3,"AR(1) 0.3, t(3) innovations",ours_revised,0.03435,0.00129,True,20000
+SG-E1 dish arm h=2 (secondary),t3,"AR(1) 0.3, t(3) innovations",conformal,0.0148,0.00085,False,20000
+SG-E1 dish arm h=2 (secondary),t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,0.01385,0.00083,False,20000
+SG-E1 dish arm h=2 (secondary),t3,"AR(1) 0.3, t(3) innovations",rank,0.0176,0.00093,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,"AR(1) 0.3, t(3) innovations",ours_registered,0.01825,0.00095,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,"AR(1) 0.3, t(3) innovations",ours_revised,0.0181,0.00094,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,"AR(1) 0.3, t(3) innovations",conformal,0.00435,0.00047,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,0.00835,0.00064,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,"AR(1) 0.3, t(3) innovations",rank,0.00825,0.00064,False,20000
+UK-E3 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0.0471,0.0015,True,20000
+UK-E3 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0.04735,0.0015,True,20000
+UK-E3 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,0.0276,0.00116,True,20000
+UK-E3 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0.06225,0.00171,True,20000
+UK-E3 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0.03475,0.0013,True,20000
+UK-E4 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0.04455,0.00146,True,20000
+UK-E4 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0.0445,0.00146,True,20000
+UK-E4 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,0.0277,0.00116,True,20000
+UK-E4 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0.06255,0.00171,True,20000
+UK-E4 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0.03485,0.0013,True,20000
+UK-E1 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0.04285,0.00143,True,20000
+UK-E1 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0.04315,0.00144,True,20000
+UK-E1 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,0.02665,0.00114,True,20000
+UK-E1 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0.0634,0.00172,True,20000
+UK-E1 (H1),spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0.0394,0.00138,True,20000
+SG-E1 hawker contrast h=2 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0.04465,0.00146,True,20000
+SG-E1 hawker contrast h=2 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0.0444,0.00146,True,20000
+SG-E1 hawker contrast h=2 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,0.0205,0.001,True,20000
+SG-E1 hawker contrast h=2 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0.05045,0.00155,True,20000
+SG-E1 hawker contrast h=2 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0.03905,0.00137,True,20000
+SG-E1 hawker contrast h=1 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0.09025,0.00203,True,20000
+SG-E1 hawker contrast h=1 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0.08905,0.00201,True,20000
+SG-E1 hawker contrast h=1 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,0.0734,0.00184,True,20000
+SG-E1 hawker contrast h=1 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0.0734,0.00184,True,20000
+SG-E1 hawker contrast h=1 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0.07125,0.00182,True,20000
+SG-E1 dish arm h=2 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0.04465,0.00146,True,20000
+SG-E1 dish arm h=2 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0.045,0.00147,True,20000
+SG-E1 dish arm h=2 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,0.0313,0.00123,True,20000
+SG-E1 dish arm h=2 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0.06525,0.00175,True,20000
+SG-E1 dish arm h=2 (secondary),spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0.0452,0.00147,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0.0357,0.00131,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0.03555,0.00131,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,0.0129,0.0008,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0.04275,0.00143,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0.02925,0.00119,True,20000
+UK-E3 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,0.01745,0.00093,False,20000
+UK-E3 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,0.0176,0.00093,False,20000
+UK-E3 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,0.0191,0.00097,True,20000
+UK-E3 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,0.01885,0.00096,True,20000
+UK-E3 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,0.01105,0.00074,False,20000
+UK-E4 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,0.017,0.00091,False,20000
+UK-E4 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,0.01725,0.00092,False,20000
+UK-E4 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,0.01875,0.00096,True,20000
+UK-E4 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,0.0175,0.00093,False,20000
+UK-E4 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,0.0123,0.00078,False,20000
+UK-E1 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,0.0163,0.0009,False,20000
+UK-E1 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,0.01635,0.0009,False,20000
+UK-E1 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,0.0043,0.00046,False,20000
+UK-E1 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,0.0052,0.00051,False,20000
+UK-E1 (H1),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,0.0142,0.00084,False,20000
+SG-E1 hawker contrast h=2 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,0.0333,0.00127,True,20000
+SG-E1 hawker contrast h=2 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,0.03295,0.00126,True,20000
+SG-E1 hawker contrast h=2 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,0.0165,0.0009,False,20000
+SG-E1 hawker contrast h=2 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,0.0161,0.00089,False,20000
+SG-E1 hawker contrast h=2 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,0.0284,0.00117,True,20000
+SG-E1 hawker contrast h=1 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,0.0289,0.00118,True,20000
+SG-E1 hawker contrast h=1 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,0.0285,0.00118,True,20000
+SG-E1 hawker contrast h=1 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,0.01355,0.00082,False,20000
+SG-E1 hawker contrast h=1 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,0.01355,0.00082,False,20000
+SG-E1 hawker contrast h=1 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,0.01945,0.00098,True,20000
+SG-E1 dish arm h=2 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,0.01835,0.00095,False,20000
+SG-E1 dish arm h=2 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,0.0182,0.00095,False,20000
+SG-E1 dish arm h=2 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,0.0198,0.00099,True,20000
+SG-E1 dish arm h=2 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,0.02035,0.001,True,20000
+SG-E1 dish arm h=2 (secondary),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,0.01905,0.00097,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,0.0136,0.00082,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,0.01335,0.00081,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,0.00335,0.00041,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,0.00755,0.00061,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,0.00925,0.00068,False,20000
+UK-E3 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,0.01595,0.00089,False,20000
+UK-E3 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,0.01555,0.00087,False,20000
+UK-E3 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,0.00375,0.00043,False,20000
+UK-E3 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,0.00515,0.00051,False,20000
+UK-E3 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,0.0042,0.00046,False,20000
+UK-E4 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,0.0153,0.00087,False,20000
+UK-E4 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,0.01565,0.00088,False,20000
+UK-E4 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,0.00205,0.00032,False,20000
+UK-E4 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,0.0035,0.00042,False,20000
+UK-E4 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,0.004,0.00045,False,20000
+UK-E1 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,0.0157,0.00088,False,20000
+UK-E1 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,0.01575,0.00088,False,20000
+UK-E1 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,0.00435,0.00047,False,20000
+UK-E1 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,0.0051,0.0005,False,20000
+UK-E1 (H1),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,0.00665,0.00057,False,20000
+SG-E1 hawker contrast h=2 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,0.01495,0.00086,False,20000
+SG-E1 hawker contrast h=2 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,0.01485,0.00086,False,20000
+SG-E1 hawker contrast h=2 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,0.0017,0.00029,False,20000
+SG-E1 hawker contrast h=2 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,0.00085,0.00021,False,20000
+SG-E1 hawker contrast h=2 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,0.0021,0.00032,False,20000
+SG-E1 hawker contrast h=1 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,0.0163,0.0009,False,20000
+SG-E1 hawker contrast h=1 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,0.0156,0.00088,False,20000
+SG-E1 hawker contrast h=1 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,0.00015,9e-05,False,20000
+SG-E1 hawker contrast h=1 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,0.00015,9e-05,False,20000
+SG-E1 hawker contrast h=1 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,0.00015,9e-05,False,20000
+SG-E1 dish arm h=2 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,0.0152,0.00087,False,20000
+SG-E1 dish arm h=2 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,0.01505,0.00086,False,20000
+SG-E1 dish arm h=2 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,0.0043,0.00046,False,20000
+SG-E1 dish arm h=2 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,0.0052,0.00051,False,20000
+SG-E1 dish arm h=2 (secondary),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,0.0062,0.00056,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,0.0069,0.00059,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,0.00655,0.00057,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,5e-05,5e-05,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,5e-05,5e-05,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,0.0001,7e-05,False,20000

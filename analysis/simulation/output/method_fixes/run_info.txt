@@ -1,0 +1,1 @@
+reps=20000 R_dense=50000 R_cal=20000 seed=20261025 alpha=0.0167 numpy=2.0.2 elapsed_s=1217

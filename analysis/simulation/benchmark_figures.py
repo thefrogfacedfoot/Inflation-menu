@@ -12,9 +12,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 OUT = mf.OUT / "benchmark"
 FIG = OUT / "figures"
-METHODS = {"ours": "calibrated (ours)", "rank": "rank (uncalibrated)", "hac": "OLS + HAC", "conformal": "conformal (CWZ)"}
+METHODS = {"ours": "calibrated (ours)", "rank": "rank (uncalibrated)", "hac": "OLS + HAC",
+           "conformal": "conformal (CWZ), window sum", "conformal_lvl": "conformal (CWZ), level gap"}
 COLOR = {m: mf.OKABE[i] for i, m in enumerate(METHODS)}
-LS = {m: mf.STYLES[i] for i, m in enumerate(METHODS)}
+LS = dict(zip(METHODS, mf.STYLES + [(0, (5, 1, 1, 1, 1, 1))]))
 H3 = "SG-E1 hawker contrast h=2 (H3)"
 IUT = "SG-E1 hawker IUT h=2 & h=1 (H3)"
 

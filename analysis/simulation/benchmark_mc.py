@@ -14,6 +14,13 @@ Methods (one-sided in the direction of Delta, alpha = 0.0167, Delta > 0 without 
              dummies + x_{t-1}. Statistic: sum of the residuals in the event window (q = 1, signed,
              one-sided). p = share of the n cyclic shifts with window sum >= the observed one
              (identity included); reject iff p <= alpha.
+  conformal_lvl  as conformal, but the statistic targets a permanent level shift: the sum over the
+             window of observed-minus-counterfactual LEVELS, the counterfactual being the multi-step
+             AR(1) forecast from the month before the window. In residuals this is the weighted
+             window sum sum_l w_l u_{k+l}, w_l = sum_{i=l}^{h-1} (h-i) phi^(i-l) (phi from the
+             same null fit), so it stays a function of the cyclically shifted residuals. A step s at
+             x_e gives h*s in expectation; the plain window sum gives s(1 - phi) at h = 2.
+             At h = 1 both statistics are identical.
 Sample for hac and conformal: the months phi_hat uses (every event window and, for UK, the EOHO
 changes excluded) plus the tested event window. Gaps are skipped: lags use calendar distance
 for hac and the compressed sequence for conformal's shifts. The gate (§5.3) is not applied.
@@ -53,7 +60,7 @@ PHIS = pm.PHIS
 SHIFTS = np.concatenate([[0.0], 0.75 * 2 ** (np.arange(16) / 3)])  # 0, 0.75 ... 24 (sigma units)
 R_VALUES = SHIFTS[4:]  # r = |Delta| / sigma, 1.5 ... 24; rho = 0.5 uses SHIFTS[k - 3]
 RHOS = (0.5, 1.0)
-METHODS = ("ours", "rank", "hac", "conformal")
+METHODS = ("ours", "rank", "hac", "conformal", "conformal_lvl")
 OUT = v3.OUT.parent / "benchmark"
 Z_CRIT = NormalDist().inv_cdf(1 - ALPHA)
 
@@ -127,7 +134,8 @@ class HAC:
 
 
 class Conformal:
-    def __init__(self, sp):
+    def __init__(self, sp, level=False):
+        self.level = level
         s = Sample(sp)
         have = set(s.t)
         keep = np.array([t - 1 in have for t in s.t])
@@ -149,20 +157,24 @@ class Conformal:
             xs = x.copy()
             xs[:, self.e] += s
             y, l = xs[:, self.rows] @ self.Dm, xs[:, self.rows - 1] @ self.Dm  # Frisch-Waugh
-            u = y - ((l * y).sum(axis=1) / (l * l).sum(axis=1))[:, None] * l
-            c = np.concatenate([np.zeros((len(u), 1)), np.cumsum(np.concatenate([u, u[:, :self.h - 1]], axis=1), axis=1)], axis=1)
-            S = c[:, self.h:self.h + self.n] - c[:, :self.n]  # S[:, j] = sum of u over shift j (cyclic)
+            b = (l * y).sum(axis=1) / (l * l).sum(axis=1)
+            u = y - b[:, None] * l
+            S = np.zeros_like(u)  # S[:, j] = weighted sum of u over the window starting at j (cyclic)
+            for j in range(self.h):
+                w = sum((self.h - i) * b ** (i - j) for i in range(j, self.h)) if self.level else 1.0
+                S += np.reshape(w, (-1, 1)) * np.roll(u, -j, axis=1)
             out[k] = S[:, self.w0] - pm.crit_value(np.delete(S, self.w0, axis=1), self.K)
         return out
 
 
-def evaluate(sp, table, hac, conf, x, shifts):
+def evaluate(sp, table, hac, conf, conf_lvl, x, shifts):
     """method -> (len(shifts), reps) margins; a method rejects iff margin > 0."""
     d = v3.decide(sp, table, x)
     return {"ours": (d["Za"] - d["c_alt"])[None, :] + shifts[:, None],
             "rank": (d["Za"] - d["c_rank"])[None, :] + shifts[:, None],
             "hac": hac.margins(x, shifts),
-            "conformal": conf.margins(x, shifts)}
+            "conformal": conf.margins(x, shifts),
+            "conformal_lvl": conf_lvl.margins(x, shifts)}
 
 
 # ---------------------------------------------------------------- summaries
@@ -338,7 +350,7 @@ def main():
     t0 = time.time()
     sets = settings()
     tables = {sp.code: v3.calibration_table(sp) for sp, _ in sets}
-    tools = {sp.code: (HAC(sp), Conformal(sp)) for sp, _ in sets}
+    tools = {sp.code: (HAC(sp), Conformal(sp), Conformal(sp, level=True)) for sp, _ in sets}
     print(f"calibration done {time.time() - t0:.0f}s")
     v3.write_csv(OUT / "settings.csv", [{"setting": sp.name, "code": sp.code, "h": sp.h, "N": sp.N,
                                          "event_neighbours": sp.nb, "series_months": sp.lay.length,

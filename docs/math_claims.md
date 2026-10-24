@@ -12,6 +12,25 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
 - `v3/` = `output/prereg_v3/`
 - `bm/` = `output/benchmark/`
 - `cl/` = `output/claims/`
+- `mf/` = `output/method_fixes/`
+- `ms/` = `output/misspec/`
+
+## Status changes, second pass (2026-10-24)
+
+The second pass added three studies: `method_fixes.py`, `misspec_mc.py`, and the level-gap conformal variant in `benchmark_mc.py`. Their results changed these entries:
+
+| Claim | Before | Now |
+|---|---|---|
+| C2, continuity of t*(φ) | Open | Simulation only. The dense table supports a continuous t*(φ) that changes sharply for φ ≥ 0.9. |
+| C4, size given the gate passes | Open | Simulation only, and **it fails**: about 0.025 where the gate passes half the time, and 0.03–0.06 where it passes 10% of the time. |
+| C5, other noise models | Open | Simulation only. The calibrated test **fails** under t(3) noise, seasonal AR and a drift break. |
+| C6, the five over-rejecting cells | (new) | Simulation only. Explained. |
+| D2, residual bias | Simulation only | Unchanged. The indirect-inference alternative (D4) was added. |
+| D4, indirect-inference φ̂ | (new) | Simulation only. |
+| F3, CNY | Simulation only | Unchanged. Evidence for the level-gap variant was added. |
+| H2, conformal validity | Simulation only | Unchanged. It now covers both variants. |
+| H3, the level-gap statistic | (new) | Provable (algebra), plus simulation. |
+| B4, a gate that keeps the rank test valid | (new) | Provable. Proposed, not implemented. |
 
 ## 0. Notation
 
@@ -91,6 +110,15 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
   - Size: `output/size.csv`, `v3/a2_size_before_after.csv` and `bm/size.csv`. For example, UK-E1 has size 0.0266 at φ = 0.97 and the H3 hawker test at h = 2 has 0.0267.
 - Reference: Barber, Candès, Ramdas & Tibshirani (2023) bound the excess error by the average total-variation distance between U and U with the event swapped for placebo i. This bound has not been computed here (**Open**).
 
+## B4. A gate that keeps the rank test valid (proposed; new)
+
+- Statement: suppose the gate is a function g of the multiset {U_a} ∪ {U_m : m ∈ 𝒜}, that is, it is symmetric in all N + 1 values, including the event's. Under the B2 hypothesis the rank p-value is uniform conditional on that multiset. So P(p ≤ α | gate passes) = (K+1)/(N+1) exactly.
+- The registered gate depends on the placebo values only. It is therefore not symmetric, and this result does not cover it (see C4).
+- Under the alternative, the event enters g, which changes P(pass) slightly. This should be negligible for N ≥ 74 but has not been checked.
+- The result is for the rank test. For the calibrated test, a symmetric gate does not remove the dependence through the IQR. A conditional calibration would be needed.
+- Status: Provable (conditioning on the order statistics of an exchangeable vector). Not implemented or simulated.
+- Reference: Lehmann & Romano (2005), Ch. 15.
+
 ## C. Calibrated test (prereg §5.5, D2-b)
 
 **C1. Known φ.**
@@ -102,12 +130,22 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
 - Evidence: none needed beyond the reference.
 - Reference: David & Nagaraja (2003), §2.
 
-**C2. Interpolation off the grid.**
+**C2. Interpolation off the grid.** *(Status changed in the second pass.)*
 - Statement: size error from linear interpolation → 0 as the grid spacing → 0, provided the true 1 − α quantile t*(φ) is continuous in φ.
+- Assumptions:
+  - M(φ).
+  - For each φ, τ has a continuous law with a positive density at t*(φ).
 - Status:
-  - Continuity of t*(φ): Open.
+  - Continuity of t*(φ): **Simulation only** (was Open). A proof would follow from the law of τ being continuous in φ, since τ is a continuous function of a Gaussian vector whose covariance is continuous in φ. That proof has not been written.
   - The finite-grid error: Simulation only.
-- Evidence: `v3/calibration_tables.csv`. t̂*(φ) varies only between 1.52 and 1.85 across the grid, and its grid-to-grid Monte Carlo jitter is of the same order as its trend for φ ≤ 0.9: in each table about half of the 74 consecutive differences are negative. The interpolated table is therefore a noisy, non-monotone function of φ.
+- Evidence:
+  - `v3/calibration_tables.csv` (75 points, R = 20,000) is a noisy, non-monotone function of φ: about half of the 74 consecutive differences are negative.
+  - `mf/tables.csv` and `mf/figures/critical_value_raw_vs_smoothed.*` (149 points, R = 50,000) give a smooth fit. The bandwidth is chosen by leave-one-out cross-validation from 0.03–0.3. The residual SD of the dense raw points around the fit is 0.010–0.012, which is about the expected Monte Carlo error of a 98.3% quantile, so no structure is left in the residuals.
+  - The fitted curve is flat to gently sloped on [−0.5, 0.9]. It changes sharply on [0.9, 0.98]:
+    - up to 1.86 for UK-E1, the 3-neighbour layout;
+    - down to 1.53–1.61 for UK-E4 and the hawker h = 1 and h = 2 layouts.
+  - The registered 75-point table differs from the smoothed curve by at most 0.041–0.061 per layout.
+- Consequence: a continuous t*(φ) is supported, but its steep part sits where φ̂ is least precise (see C6).
 
 **C3. Plug-in (local Monte Carlo) validity.**
 - Statement: if φ̂_bc → φ in probability and t*(·) is continuous at φ, the size → α as the series length → ∞.
@@ -119,14 +157,48 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
 - Finite-sample size is **Simulation only**:
   - `v3/a2_size_before_after.csv`: 0.0155–0.0188 on the registered layouts.
   - `bm/size.csv`: all 23 layouts × 6 φ, including φ = −0.5.
+  - `mf/size.csv`: 23 layouts × 8 true φ including the off-grid values 0.8 and 0.95, 20,000 runs. Size of the registered rule is 0.0106–0.0201 and it over-rejects in 10 of 184 cells. About 4 of 184 would be flagged by chance at the 2-SE rule. On the 7 registered layouts it over-rejects in 2 cells: H3 hawker h = 2 at φ = 0.3 (0.0191) and UK-E3 at φ = 0.6 (0.0191).
 
-**C4. Size conditional on the gate.**
-- Statement: the registered decision is made only for events that pass the gate. The gate depends on placebo values and on φ̂, which are not independent of U_a when φ ≠ 0. So the size *given the gate passes* can differ from the unconditional size in C3.
-- Status: Open. It has not been simulated.
+**C4. Size conditional on the gate.** *(Status changed in the second pass: the claim fails.)*
+- Statement: the confirmatory decision is made only for events that pass the gate, so the relevant error rate is P(reject | pass, ρ = 0). The gate passes when c − q₁₀ ≤ |Δ|. That event favours datasets whose placebo spread (IQR, median − q₁₀) is small relative to σ. Since τ = (U_a − med)/IQR, a small IQR inflates τ. **So the conditional size exceeds the unconditional size, and the excess is largest where the gate rarely passes.**
+- Size given the gate passes (null; φ ∈ {0, 0.9}; 20,000 runs; the 7 registered layouts):
 
-**C5. Robustness to the noise model.**
-- Statement: C1–C4 assume Gaussian AR(1) noise. Heavy tails, heteroskedasticity (for example COVID-period variance) and AR(p) with p > 1 are not covered.
-- Status: Open.
+| Share of datasets where the gate passes | Size given pass, registered rule |
+|---|---|
+| about 0.9 | 0.017–0.021 |
+| about 0.5 | 0.021–0.032 |
+| about 0.25 | 0.026–0.039 |
+| about 0.1 | 0.032–0.060 |
+
+  For the H3 IUT, conditional on the h = 2 gate:
+  - φ = 0: 0.006, 0.009 and 0.015 at pass rates of 0.9, 0.5 and 0.1.
+  - φ = 0.9: 0.012, 0.017 and 0.030.
+
+  The revised rule (C6, D4) gives the same pattern within Monte Carlo error. Smoothing the table and changing the φ̂ correction do not touch this mechanism.
+- Assumptions: M(φ). Same r grid as E3. Cells with ≥ 500 passing runs.
+- Status: **Simulation only, and the claim that the registered test has size α among informative events fails** (was Open).
+- Evidence:
+  - `mf/gate_conditional_size.csv` (the full curves over r);
+  - `mf/gate_conditional_summary.csv`. Its column `max_size_given_pass` is a maximum over 40 noisy estimates and is biased upward; read the curves.
+- A possible remedy with a provable guarantee is B4. It is not implemented.
+
+**C5. Robustness to the noise model.** *(Status changed in the second pass.)*
+- Statement: C1–C4 assume Gaussian AR(1) noise. Under other noise the calibrated critical value is wrong by an amount that depends on the DGP.
+- Simulation: `ms/size.csv` and `ms/holds_size_summary.csv`. There are 7 cells: UK-E3, E4, E1, H3 hawker h = 2 and h = 1, the dish arm, and the H3 IUT. Each uses 20,000 runs. The noise is scaled to marginal SD 1.
+
+| Noise | Registered calibrated test: cells holding size, size range | Distribution-free comparators |
+|---|---|---|
+| Gaussian AR(1) 0.3 (reference) | 7/7, 0.006–0.017 | |
+| Gaussian AR(2) (0.5, 0.3) | 7/7, 0.009–0.018 | |
+| Seasonal AR (1−0.3B)(1−0.5B¹²) | **2/7**, 0.009–0.025 | both conformal variants 7/7 |
+| t(3) innovations, AR(1) 0.3 | **1/7**, 0.018–0.035; only the IUT holds | rank test 7/7; both conformal variants 7/7 |
+| Var(x_e) × 3 in the event month | 0/7, 0.036–0.090 | every method fails |
+| +0.5 SD drift break at mid-sample | 5/7; H3 hawker h = 2 at 0.033 and h = 1 at 0.029; IUT holds | the break date falls two months before SG-E1, so the event's neighbours straddle it |
+| +5 SD level step at mid-sample | 7/7 | |
+
+  The revised rule behaves the same in every row.
+- Status: **Simulation only** (was Open).
+- Conclusion: the Gaussian assumption in the calibration is a real weakness. Under t(3) noise the uncalibrated rank test holds size where the calibrated test does not.
 
 ## D. φ̂ and its bias correction
 
@@ -153,7 +225,45 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
 **D3. Effect of the φ̂ bias on size.**
 - Statement: the effect is bounded by how much t̂* moves over the range of φ̂_bc. By C2 that is small except near the top of the grid.
 - Status: Simulation only.
-- Evidence: `v3/a2_size_before_after.csv`, column `size_alt_always_calibrated_bc`.
+- Evidence:
+  - `v3/a2_size_before_after.csv`, column `size_alt_always_calibrated_bc`;
+  - `mf/size.csv`, where variant `II+raw` against `registered` isolates the correction.
+- Over the 184 cells, replacing Kendall by indirect inference (D4) changes size by at most 0.0005. Over-rejecting cells go from 10 to 9.
+
+**D4. Indirect-inference correction (new).**
+- Statement: let b(φ) = E_φ[φ̂] on the event's layout under M(φ), estimated from the dense calibration draws and made nondecreasing. φ̂_II = b⁻¹(φ̂) is mean-unbiased to first order wherever b is strictly increasing and φ is in the interior of the grid.
+- Assumptions: M(φ); b continuous and strictly increasing; φ in the interior of [−0.5, 0.98].
+- Status:
+  - Provable (standard indirect inference). References: Gouriéroux, Monfort & Renault (1993); MacKinnon & Smith (1998).
+  - The finite-sample numbers below: Simulation only.
+- Bias on the registered layouts:
+
+| Correction | φ ∈ [0, 0.9] | φ = 0.97 | φ = −0.5 |
+|---|---|---|---|
+| Kendall (registered) | +0.004 to +0.014 | −0.004 to +0.000 | +0.004 to +0.011 |
+| Indirect inference | −0.001 to +0.002 | −0.006 to −0.016 | +0.027 to +0.042 |
+
+  The errors at both ends come from clipping at the ends of the grid. RMSE is essentially the same for both corrections, because φ̂'s SD (0.03–0.12) dominates its bias.
+- Evidence:
+  - `mf/phi_bias.csv` (23 layouts × 8 φ);
+  - `mf/figures/phi_bias_*.{svg,png}`.
+
+**C6. The five cells where the registered test over-rejected in the benchmark (new).**
+- Each cell was re-run with 100,000 fresh runs under each rule variant; the MC SE is about 0.0004. Results are in `mf/overreject_cells.csv`:
+  - **Generic N = 60 edge h = 1, φ = 0.6: sampling chance.** Registered size is 0.0173, not over-rejecting.
+  - **H3 hawker h = 2, φ = 0.9: φ̂ variance.** Registered 0.0178, alternative table seed 0.0180, revised 0.0178, oracle φ 0.0159–0.0169. The mean of φ̂_II is 0.900, so bias is not the cause. The test uses the critical value at φ̂, which varies from run to run, rather than at the true φ. Neither fix removes this, but the excess is only about 0.001.
+  - **Generic N = 75 / 160 edge h = 1 and N = 75 edge h = 2, φ = 0.97: steep t*(φ) plus low φ̂ near the upper bound.**
+
+| Variant | Size |
+|---|---|
+| Registered | 0.0195–0.0205 |
+| True φ, raw 75-point table | 0.0177–0.0183 |
+| True φ, smoothed table | 0.0165–0.0168 |
+| Revised (II + smoothed) | 0.0183–0.0194 |
+
+    The raw table under-reads t* at 0.97 by 0.02–0.04. φ̂_II then averages 0.95–0.96 instead of 0.97 because of clipping at 0.98. Smoothing removes about a third of the excess over α; II removes none of it.
+- So fix (b) fixes the table-noise part of the 0.97 cells. Fix (a) fixes no cell. What remains is the spread of φ̂ in the region where t* is steep. A conservative plug-in (for example the upper end of a confidence set for φ, as in Dufour's maximised MC test) or a grid that extends past 0.98 are the candidate remedies. Neither was simulated.
+- Status: Simulation only.
 
 ## E. Informativeness gate (prereg §5.3, D1-b)
 
@@ -215,6 +325,11 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
 - The bump does not do that: it also enters every CNY-exposed placebo window. So c and the placebo distribution move, and F1 does not apply directly.
 - Status: Simulation only.
 - Evidence: `v3/iut_cny_scenarios.csv`, `bm/cny.csv`.
+- Second pass, `bm/cny.csv`, method `conformal_lvl`: the level-gap conformal statistic is **not** protected against a permanent CNY step. Its calendar-month dummies cannot absorb a step that moves between January and February. At σ = 0.2 log points:
+  - with a −1-point permanent hawker step, size is 0.052 at h = 2 and 0.048 under the IUT;
+  - the registered test gives 0.013 in the same scenario.
+
+  This is F2's exact removal of a permanent step at work, and it is the main robustness argument for the registered statistic in H3.
 
 ## G. H1 multiplicity
 
@@ -249,7 +364,23 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
 - Status:
   - CWZ's theorems: Known result.
   - The validity of this adaptation: Simulation only.
-- Evidence: `bm/size.csv`, method `conformal`.
+- Evidence:
+  - `bm/size.csv`, methods `conformal` and `conformal_lvl`. Neither over-rejects in any of the 138 cells; the size ranges are 0.008–0.018 and 0.009–0.017.
+  - `ms/holds_size_summary.csv`: both hold size under AR(2), seasonal AR, t(3) and a level step.
+  - Both fail under the event-month variance spike; the window-sum variant holds only for the IUT.
+  - Both fail marginally under the drift break (0.019–0.020): the window-sum variant for UK-E3, UK-E4 and the dish arm, the level-gap variant for UK-E3 and the dish arm.
+
+**H3. The level-gap conformal statistic (new).**
+- Statement: let ũ be the residuals of the null fit x̃_t = φ̂ x̃_{t−1} + u_t. The sum over the h window months of observed-minus-forecast levels, with forecasts made from the month before the window, equals Σ_{l=0}^{h−1} w_l u_{e+l}, where w_l = Σ_{i=l}^{h−1} (h − i) φ̂^{i−l}.
+  - A level step s at e then contributes h·s.
+  - The plain window sum contributes s(1 − φ̂) at h = 2.
+  - At h = 1 the two statistics coincide.
+- So the level-gap statistic is a function of the cyclically shifted residuals, and CWZ's permutation argument covers it as it covers H2.
+- Status: Provable (algebra).
+- Evidence: `bm/power.csv`, `bm/summary.csv`, `bm/flags.csv`.
+  - It beats the registered test at h = 2 on every registered layout at every φ. Across the 8 registered settings (7 layouts plus the IUT) × 6 φ, 46 of 48 have a size-valid power win of more than 2 paired SE. The two exceptions are the hawker h = 1 contrast at φ = 0 and 0.3, where both conformal statistics are identical and weaker at ρ = 0.5. For example, H3 hawker h = 2 at φ = 0, ρ = 0.5, r = 6: 0.46 against 0.37.
+  - The only cases where ours is significantly ahead are at saturation (1.00 against 0.99), from the K = 0 resolution ceiling.
+  - Under t(3) noise the registered test keeps a power edge at h = 1 and in the IUT (size-adjusted 0.81 against 0.76 for the IUT at r = 4.8).
 
 ## References
 
@@ -261,11 +392,13 @@ Paths are relative to `analysis/simulation/`. Abbreviations:
 - David, H. A. & Nagaraja, H. N. (2003). *Order Statistics*, 3rd ed. Wiley.
 - Dufour, J.-M. (2006). Monte Carlo tests with nuisance parameters: a general approach to finite-sample inference and nonstandard asymptotics. *Journal of Econometrics* 133(2), 443–477.
 - Hemerik, J. & Goeman, J. (2018). Exact testing with random permutations. *TEST* 27(4), 811–825.
+- Gouriéroux, C., Monfort, A. & Renault, E. (1993). Indirect inference. *Journal of Applied Econometrics* 8(S1), S85–S118.
 - Hyndman, R. J. & Fan, Y. (1996). Sample quantiles in statistical packages. *American Statistician* 50(4), 361–365.
 - Kendall, M. G. (1954). Note on bias in the estimation of autocorrelation. *Biometrika* 41(3/4), 403–404.
 - Lehmann, E. L. & Romano, J. P. (2005). *Testing Statistical Hypotheses*, 3rd ed. Springer.
 - Marcus, R., Peritz, E. & Gabriel, K. R. (1976). On closed testing procedures with special reference to ordered analysis of variance. *Biometrika* 63(3), 655–660.
 - Marriott, F. H. C. & Pope, J. A. (1954). Bias in the estimation of autocorrelations. *Biometrika* 41(3/4), 390–402.
+- MacKinnon, J. G. & Smith, A. A. (1998). Approximate bias correction in econometrics. *Journal of Econometrics* 85(2), 205–230.
 - Maurer, W., Hothorn, L. A. & Lehmacher, W. (1995). Multiple comparisons in drug clinical trials and preclinical assays: a-priori ordered hypotheses. In J. Vollmar (ed.), *Biometrie in der chemisch-pharmazeutischen Industrie* 6, 3–18. Fischer.
 - Newey, W. K. & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. *Econometrica* 55(3), 703–708.
 - Newey, W. K. & West, K. D. (1994). Automatic lag selection in covariance matrix estimation. *Review of Economic Studies* 61(4), 631–653.
