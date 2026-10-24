@@ -1,7 +1,7 @@
-# UICPI Pre-registration, v2: tax pass-through to restaurant prices (registered revision 3, tag `prereg-v3`; **revision 4 DRAFT for WC review**, to be tagged `prereg-v4` on merge)
+# UICPI Pre-registration, v2: tax pass-through to restaurant prices (registered revision 3, tag `prereg-v3`; **revision 4**, for WC review, to be tagged `prereg-v4` on merge)
 
 Status: DRAFT for review. Becomes binding when merged and registered (§10). **No outcome value has been read and no analysis has been run.**
-Drafted: 2026-10-10. Revisions 2 to 5: 2026-10-10 (changes listed in §11). Registered as `prereg-v2` (06b92d4, 2026-10-11). **Registered revision 3 (`prereg-v3`), 2026-10-16:** gate statistic, size-control rule, CNY simulation and the H3 intersection-union test (§1, §5.1–§5.5, §7, §9.4, §11). **No outcome value had been read when revision 3 was written**; its motivation is the synthetic simulation in `analysis/simulation/` (PR #55). **Revision 4 DRAFT (2026-10-24):** the H1 test becomes a level-gap conformal test, the H3 components become uncalibrated placebo rank tests, every gate becomes a symmetric gate at q₀₅, and the §5.5 calibration is withdrawn (§1, §4, §5.2–§5.5, §7–§11). **No outcome value has been read for revision 4 either**; its evidence is synthetic (`analysis/simulation/`, PR #67). Items marked **DECISION FOR WC** are open choices; the draft is not registrable until each is resolved.
+Drafted: 2026-10-10. Revisions 2 to 5: 2026-10-10 (changes listed in §11). Registered as `prereg-v2` (06b92d4, 2026-10-11). **Registered revision 3 (`prereg-v3`), 2026-10-16:** gate statistic, size-control rule, CNY simulation and the H3 intersection-union test (§1, §5.1–§5.5, §7, §9.4, §11). **No outcome value had been read when revision 3 was written**; its motivation is the synthetic simulation in `analysis/simulation/` (PR #55). **Revision 4 (2026-10-24):** the H1 test becomes a level-gap conformal test, the H3 components become uncalibrated placebo rank tests, every gate becomes a symmetric gate at q₀₅, and the §5.5 calibration is withdrawn (§1, §4, §5.2–§5.5, §7–§11). **No outcome value has been read for revision 4 either**; its evidence is synthetic (`analysis/simulation/`, PR #67). H2 is demoted to a descriptive secondary result, so the confirmatory family is H1 and H3 (§1, §5.4, §7). WC's revision-4 decisions are recorded in §10.
 
 > **Decisions recorded (WC, 2026-10-16):** D1-b (gate with q₁₀, §5.3), D2-b (every event tested with the simulation-calibrated critical value at the bias-corrected φ̂, §5.5), and H3 decided by an intersection-union test of h = 2 and h = 1 (§5.4). **Revision 4 (WC, 2026-10-24) supersedes D1-b and D2-b** (§5.3, §5.5); the H3 intersection-union test is kept.
 >
@@ -34,7 +34,7 @@ This is **not** a blind pre-registration. "Confirmatory" means: specification, w
 Notation. At an event, Δ = log((1+τ₁)/(1+τ₀)) is the log change in the tax-inclusive factor. **Pass-through** is ρ = (Δ log consumer price) / Δ; ρ = 1 means the consumer price moves by exactly the tax change.
 
 - **H1 (UK, by event).** For each of the three clean UK events (UK-E3 Oct 2021, UK-E4 Apr 2022, UK-E1 Jan 2011), the consumer price of treated catering items moves in the direction of the tax change: ρ_e > 0 (one-sided). Tested per evaluable, informative event in the fixed order E3 → E4 → E1 (§5.4), each with the level-gap conformal test (§4, revision 4). **UK-E2 (Jul 2020) is not in H1**: it is seen (§0) and COVID/EOHO-confounded, so it does not gate the clean events.
-- **H2 (UK, asymmetry).** Mean ρ over informative UK rise events (E3, E4, E1) minus ρ of the 2020 cut (E2) is > 0. **Weak by construction:** one cut event, seen, coinciding with COVID and EOHO, and the 2008 cut is outside the open data. **UK-E2 also gets its own ρ̂ with a 95% CI as a secondary result** (§5.2).
+- **H2 (UK, asymmetry). Revision 4: demoted to a secondary, descriptive result; no test, no gate, no confirmatory claim.** Reported: mean ρ̂ over the evaluable UK rise events (E3, E4, E1) minus ρ̂ of the 2020 cut (E2), with a 95% CI (§5.4). **Weak by construction:** one cut event, seen, coinciding with COVID and EOHO, and the 2008 cut is outside the open data. **UK-E2 also gets its own ρ̂ with a 95% CI as a secondary result** (§5.2).
 - **H3 (SG, GST, one event; decided by an intersection-union test of h = 2 and h = 1, revision 3, §5.4; each component an uncalibrated placebo rank test with the symmetric gate, revision 4).** The 1 January 2023 GST rise (7% to 8%) passes through more to restaurant and fast-food prices than to hawker-centre prices: ρ_restaurant/fast-food − ρ_hawker-centre > 0. **This is the sole confirmatory Singapore test.** Whether the contrast reflects registration status is conditional on H4 (§6), and whether it reflects repricing or only the tax-inclusive price mechanism is limited by §3.2.
 - **H4 (SG, descriptive).** The share of GST-registered stalls in sampled hawker centres, reported as a **lower bound** with an upper bound. No hypothesis test.
 
@@ -138,7 +138,7 @@ For an event with effective date d and horizon h (months):
 
 **H1 test statistic (revision 4): level-gap conformal statistic** (Chernozhukov, Wüthrich & Zhu 2021, cyclic-shift permutations). Used for the H1 events E3, E4, E1 and for the secondary UK-E2. T*, U and ρ̂ above are still computed for every UK event (§5.2).
 1. **Series.** x_t = monthly log change of the chained matched Jevons index of treated items (the R1 series; the same series as the revision-3 φ̂).
-2. **Retained months.** Every t with x_t defined, except changes inside another §2 event's window (t = e′, …, e′ + h − 1 for every §2 event e′ other than the tested one) and the changes into and out of 2020-08. The tested event's own window x_e, …, x_{e+h−1} is retained. A month is used only if x_{t−1} is also retained. The n retained months form a sequence in calendar order; gaps are skipped (the sequence is compressed). **DECISION FOR WC:** compress gaps (as simulated) or stop the H1 test if a gap falls inside the event window ± 1 month.
+2. **Retained months.** Every t with x_t defined, except changes inside another §2 event's window (t = e′, …, e′ + h − 1 for every §2 event e′ other than the tested one) and the changes into and out of 2020-08. The tested event's own window x_e, …, x_{e+h−1} is retained. A month is used only if x_{t−1} is also retained. The n retained months form a sequence in calendar order; gaps are skipped (the sequence is compressed), as simulated. **Gap rule (WC, 2026-10-24):** the event is **not testable** if any month t with |t − e| ≤ 2 is not in the retained sequence, where e is the event month (the first month of the window). This applies to the conformal test only. A month is not retained if it is unobserved, or if it is excluded as another event's window or by the EOHO rule. On the registered UK calendar (labels only), E1, E3 and E4 have no such gap; **UK-E2 is not testable**, because the EOHO exclusion of the changes into and out of 2020-08 lies within ±2 months of it. UK-E2's descriptive ρ̂ and CI are still reported. The 500-relative rule can add gaps; P0 applies the rule to the final calendar.
 3. **Null fit** (H0: no effect, so the observed series is used as is). OLS of x_t on 12 calendar-month dummies and x_{t−1} over the n retained months gives the coefficient φ̃ and residuals u_1, …, u_n.
 4. **Window statistics.** For each start position j = 1, …, n: S_j = sign(Δ) · Σ_{l=0}^{h−1} w_l u_{(j+l) mod n}, with w_l = Σ_{i=l}^{h−1} (h − i) φ̃^{i−l}. At h = 2, w = (2 + φ̃, 1). S_j equals the sum, over the window, of observed-minus-forecast log levels when the forecast is the AR(1) forecast from the month before the window. A permanent level step s at e therefore enters S at the event position as h·s. The observed statistic is S_obs = S_{j_e}, where j_e is the position of x_e.
 5. **Test.** p = #{j : S_j ≥ S_obs} / n. Reject iff p ≤ α, that is iff S_obs is among the K + 1 largest S_j, with K = ⌊αn⌋ − 1. **Resolution:** n ≥ 60 at α = 0.0167.
@@ -197,11 +197,12 @@ Eligible anchors (labels only; "A" = exposure-matched: anchors whose window cont
   - **H1 events (E3, E4, E1) and the secondary UK-E2:** the level-gap conformal p of §4.
   - **H3 components** (hawker contrast at h = 2 and h = 1), **H3-dish**, and the **secondary SG events** (SG-E2, SG-E0): the one-sided placebo rank p, p = (1 + #{placebo m : U_m ≥ U_a}) / (N + 1), with no calibration (§5.5).
   - **H3 and H3-dish are each decided by the intersection-union test of h = 2 and h = 1** (§5.4).
-  - **DECISION FOR WC:** H3-dish under the IUT (simulated: `output/prereg_v4/`, cell `SG-E1 dish IUT`) or per horizon as before. SG-E2 and SG-E0 stay per horizon (descriptive secondaries; not simulated as an IUT).
+  - **H3-dish is decided by the same two-horizon rule as H3** (WC, 2026-10-24; simulated, `output/prereg_v4/`, cell `SG-E1 dish IUT`). SG-E2 and SG-E0 are reported per horizon (descriptive secondaries; not simulated as an IUT).
   - For UK events, the revision-3 placebo rank p on U is also reported, as a descriptive figure.
-- **Reporting commitment.** For **every evaluable event, whether or not it passes the gate or rejects**, I report ρ̂ with a **95% confidence interval** and the placebo p for each registered horizon. CI by placebo test inversion: with G_m = T*_m / Δ over the placebo pool, CI₉₅ = [ρ̂ − q₀.₉₇₅(G), ρ̂ − q₀.₀₂₅(G)], valid under the shift model (event statistic = placebo-like noise + ρΔ). The same is done for H3's D/Δ and H2's A. Results are reported as estimates with intervals, never as pass/fail alone, for the primary pool and for R1 to R4 (R3 and R4 for SG only). **Revision 4: the H1 test and its estimate are no longer the same object.** ρ̂ and its CI are still T*-based and computed as above. The test is the conformal test of §4. The descriptive level-gap estimate ρ̃ = S_obs / (h·Δ) is reported beside ρ̂. **DECISION FOR WC:**
-- (a) keep the T*-based ρ̂ and CI as the reported estimate, as written here; or
-- (b) report a conformal CI by inverting the §4 test over ρ (CWZ). Its coverage has not been simulated.
+- **Reporting commitment.** For **every evaluable event, whether or not it passes the gate or rejects**, I report ρ̂ with a **95% confidence interval** and the placebo p for each registered horizon. CI by placebo test inversion: with G_m = T*_m / Δ over the placebo pool, CI₉₅ = [ρ̂ − q₀.₉₇₅(G), ρ̂ − q₀.₀₂₅(G)], valid under the shift model (event statistic = placebo-like noise + ρΔ). The same is done for H3's D/Δ and for the descriptive H2 difference (§5.4). Results are reported as estimates with intervals, never as pass/fail alone, for the primary pool and for R1 to R4 (R3 and R4 for SG only). **Revision 4 (WC, 2026-10-24): for H1 the confirmatory decision and the reported estimate are different objects.**
+- **The decision** is the conformal test of §4 alone.
+- **ρ̂ and its 95% CI** are T*-based, computed exactly as above, and **labelled descriptive**. They are not an inversion of the conformal test. A CI that excludes 0 is not a rejection, and a rejection does not imply that the CI excludes 0; the two can disagree, and both are reported as they come out.
+- **The level-gap estimate** ρ̃ = S_obs / (h·Δ) is reported beside ρ̂, also descriptive.
 
 The R1–R4 robustness pools are defined on placebo anchors and apply to the rank-test p on U. For H1 they are reported for that descriptive rank p only. **UK-E2, which is not in H1, gets ρ̂, a 95% CI and its placebo p as a secondary result** (if evaluable), clearly labelled seen and confounded.
 - **What the gate does and does not guarantee (revision 4).** The informativeness gate (§5.3) is designed so that **full pass-through (ρ = 1) would be detected with at least 80% power among datasets that pass it**.
@@ -228,15 +229,16 @@ The R1–R4 robustness pools are defined on placebo anchors and apply to the ran
   - For the conformal test (H1, UK-E2): the n window statistics {S_j}, K = ⌊αn⌋ − 1.
 - **c_pool = the (K + 2)-th largest pooled value.** It equals the test's own critical value whenever the test rejects and is never larger. *Why not the (K + 1)-th:* that value is the event's own statistic whenever the test rejects. At K = 0 (H3 hawker, N = 74) the gate would then fail exactly when the true effect is large.
 - **q_p = q₀₅, the pooled 5th percentile (numpy linear interpolation).** **MDE_ρ = (c_pool − q₀₅) / (h_S·|Δ|)**, with h_S = 1 for rank tests and h_S = h for the conformal test (a step s moves S_obs by about h·s).
-  - **q₀₅ replaces q₁₀ because q₁₀ failed the 80% check** under the symmetric gate: minimum P(reject at ρ = 1 | gate passes) 0.61–0.90 for H1 and 0.64–0.88 for the H3 IUT (`output/prereg_v4/gate_guarantee.csv`).
+  - **q₀₅ (WC, 2026-10-24) replaces q₁₀, because q₁₀ failed the 80% check** under the symmetric gate: minimum P(reject at ρ = 1 | gate passes) 0.61–0.90 for H1 and 0.64–0.88 for the H3 IUT (`output/prereg_v4/gate_guarantee.csv`).
+  - **The 80% claim with q₀₅** (§5.2; simulation only, Gaussian AR(1) noise): minimum P(reject at ρ = 1 | gate passes) of 0.819–0.897 for H1, 0.815–0.917 for the H3 IUT and 0.857–0.937 for the H3-dish IUT, for φ ∈ [0, 0.97].
+  - **Exception, stated now: φ = −0.5** (negatively autocorrelated monthly changes). There the minimum is 0.693 for the H3 IUT and 0.748 for the H3-dish IUT, below 0.80 (revision 3's procedure: 0.665). The H1 minimum at φ = −0.5 is within its 0.819–0.897 range. The claim also does not hold under the misspecified noise of §5.4.
   - Cost: the H3 gate passes half the time at |Δ|/σ = 5.68, against 5.46 for revision 3.
-  - **DECISION FOR WC:** q₀₅ (recommended; meets 0.80 for φ ≥ 0) or q₁₀ with the 80% sentence of §5.2 withdrawn.
 - **H3's informativeness is judged on the h = 2 gate** (unchanged). Under the fixed sequence (§5.4), each H1 gate is computed at α = 0.0167.
 - **Blinding (changed in revision 4).** The gate now needs the event's value, so the revision-3 rule "computed from the placebo pool only, by a script that cannot read the event windows" no longer applies. Replacement:
   - The P0 script reads the pooled values and **outputs only N (or n), c_pool − q₀₅, MDE_ρ and the pass/fail decision**. All of these are symmetric functions, which carry no information about the event's rank under the null.
   - It never outputs U_a, S_obs, a rank or a p-value.
   - The §8 masking test is replaced by an **invariance test**: the P0 output must be identical whichever pooled value is labelled as the event. The P0 output is committed before event statistics are computed.
-  - **DECISION FOR WC:** accept this replacement; or keep a placebo-only gate and give up the conditional-size control.
+  - **Accepted by WC (2026-10-24).** The P0 script and its invariance test are written, were run on synthetic data, and are committed; their SHA-256 hashes are in §8.
 
 An event (or contrast) is **informative** iff MDE_ρ ≤ 1.0 and its test meets the resolution rule (N + 1 ≥ 1/α for rank tests; n ≥ 1/α for the conformal test). Events not evaluable (§4) or not informative are reported descriptively with their ρ̂ and CI and are **excluded from the confirmatory family**, never dropped silently. Threshold 1.0 was fixed before any outcome was evaluated. *(Revision 4 also removes an accidental duplicate of the first sentence of this paragraph.)*
 
@@ -244,14 +246,14 @@ An event (or contrast) is **informative** iff MDE_ρ ≤ 1.0 and its test meets 
 - **N.** CPI-class contrast: restaurants/fast-food (247) against Hawker Centres (81 at h = 1; 74 at h = 2): the contrast is defined only where both exist, so at the **primary h = 2, N = 74** (secondary h = 1: 81). Dish arm (H3-dish, 10 full-span M213761 series against the restaurant class, both available 2015-01 onward): **N = 126 at h = 2** (secondary h = 1: 131).
 - **Resolution.** At α = 0.0167 the rank test needs N + 1 ≥ 60; both arms meet it at h = 2 (75 and 127).
 - **The MDE condition in plain terms.** *(The arithmetic in this item is for the `prereg-v2` statistic q₉₅ − q₂₀ and is kept as written; under revision 4 the condition is c_pool − q₀₅ ≤ Δ on the pooled values, §5.3 above.)* MDE_ρ ≤ 1 means q₉₅ − q₂₀ of the demeaned contrast must be at most Δ = 0.0093, i.e. 0.93 log points. If the placebo contrast were roughly normal that requires a standard deviation of about 0.37 log points for the **h = 2** (two-month) demeaned contrast (q₉₅ − q₂₀ ≈ 2.49 σ). If monthly changes are roughly independent, a two-month change has about 1.4 times the standard deviation of a one-month change, so the primary h = 2 gate is harder to meet than the h = 1 gate would be.
-- **Whether this can plausibly be met.** I cannot say from the data without reading the placebo values, which this revision does not do. On general knowledge, month-on-month movements of these CPI food-service classes are of the order of a few tenths of a percent, and a contrast of two classes has a variance equal to the sum of both, so I expect the condition to be **marginal at best and more likely to fail than to pass** for the Hawker Centres contrast at h = 2 (more so than at h = 1), and to be easier for the dish arm only if the dish averages are smooth (they are indicative averages on a changing basket, so I would not expect that). **Registered rule: if the P0 gate fails, H3 is reported as "not testable"** (same rule as H2), with ρ̂, CI and N, and no confirmatory claim. This outcome is accepted in advance; with a single event the pooled-event variance reduction available in revision 1 is no longer available.
-- **UK gates, for reference.** The same MDE_ρ condition applies per UK event (revision 4: (c_pool − q₀₅)/(h·|Δ|) on the conformal window statistics): thresholds ≤ 0.0690 (E3), 0.0645 (E4), 0.0211 (E1) for H1, and 0.1335 (E2) for H2 and its secondary result.
+- **Whether this can plausibly be met.** I cannot say from the data without reading the placebo values, which this revision does not do. On general knowledge, month-on-month movements of these CPI food-service classes are of the order of a few tenths of a percent, and a contrast of two classes has a variance equal to the sum of both, so I expect the condition to be **marginal at best and more likely to fail than to pass** for the Hawker Centres contrast at h = 2 (more so than at h = 1), and to be easier for the dish arm only if the dish averages are smooth (they are indicative averages on a changing basket, so I would not expect that). **Registered rule: if the P0 gate fails, H3 is reported as "not testable"** (the rule H2 had before revision 4; H2 is now descriptive), with ρ̂, CI and N, and no confirmatory claim. This outcome is accepted in advance; with a single event the pooled-event variance reduction available in revision 1 is no longer available.
+- **UK gates, for reference.** The same MDE_ρ condition applies per UK event (revision 4: (c_pool − q₀₅)/(h·|Δ|) on the conformal window statistics): thresholds ≤ 0.0690 (E3), 0.0645 (E4), 0.0211 (E1) for H1, and 0.1335 (E2) for its secondary result. UK-E2 is not testable under the conformal gap rule (§4), so in practice it is reported descriptively.
 - **SG-E2 (Jan 2024, Δ = 0.0092), primary h = 2.** The placebo pool excludes every event window, so its N is the same as for SG-E1 at h = 2: **Hawker Centres class N = 74, 10-dish arm N = 126, restaurants and fast food N = 240**; resolution at α = 0.0167 is met (N + 1 ≥ 60). The informativeness condition is c_pool − q₀₅ ≤ **0.0092** for the h = 2 contrast (revision 4; revision 3 used c − q_p on the placebo pool). SG-E2 is secondary, so a failed gate means descriptive reporting with ρ̂ and CI, as for any non-informative event; it never enters the confirmatory family.
 - **CNY and the gate.** The gate is computed on the pooled primary-pool T* (event included, revision 4), which contains CNY-exposed anchors for both arms. Because CNY-exposed windows are likely noisier, the gate can only be easier to meet than a CNY-matched gate would be; the R4 pool is too small to gate. This is a registered limitation of the h = 1 test; at h = 2 the exposure is matched at month level, with the run-up timing limitation of §5.1.
 
 ### 5.4 Multiplicity
 
-Three confirmatory hypotheses, H1, H2, H3. The error budget is α = 0.05 split equally, **α = 0.0167** each. Inside H1, the **three clean events** are tested in the fixed order **E3 (Oct 2021) → E4 (Apr 2022) → E1 (Jan 2011)** (decreasing |Δ|: 0.0690, 0.0645, 0.0211; E2 is not in the sequence), each at α = 0.0167 with the conformal test of §4 (revision 4), stopping at the first non-rejection or non-informative event. Fixed-sequence testing is used because Holm over three events has a first-step threshold of 0.0056, about the placebo resolution 1/(N+1) ≈ 0.006 for N ≈ 170, whereas every step here needs only N + 1 ≥ 60. H1 is claimed if at least E3 rejects (an event that is not informative or not evaluable ends the sequence and is reported descriptively).
+**Revision 4: two confirmatory hypotheses, H1 and H3** (H2 demoted to descriptive, §1). **α = 0.0167 each, unchanged (WC, 2026-10-24).** H2's former 0.0167 is not reallocated, so the confirmatory family uses 0.0334 of the original α = 0.05 budget. Inside H1, the **three clean events** are tested in the fixed order **E3 (Oct 2021) → E4 (Apr 2022) → E1 (Jan 2011)** (decreasing |Δ|: 0.0690, 0.0645, 0.0211; E2 is not in the sequence), each at α = 0.0167 with the conformal test of §4 (revision 4), stopping at the first non-rejection or non-informative event. Fixed-sequence testing is used because Holm over three events has a first-step threshold of 0.0056, about the placebo resolution 1/(N+1) ≈ 0.006 for N ≈ 170, whereas every step here needs only N + 1 ≥ 60. H1 is claimed if at least E3 rejects (an event that is not informative or not evaluable ends the sequence and is reported descriptively).
 
 **H3 decision rule (revision 3): intersection-union test.** H3 is rejected only if **both** the h = 2 and the h = 1 hawker-contrast tests reject, each at α = 0.0167 by the placebo rank test (revision 4; revision 3 used the calibrated critical value of §5.5). An intersection-union test needs no further multiplicity adjustment: its size is at most α. H3's informativeness is judged on the h = 2 gate (§5.3); the h = 1 test has N = 81 and meets the resolution rule. ρ̂ and CIs are reported at both horizons. *Why:* a temporary CNY bump biases the two horizons in opposite directions (§9 item 4), so requiring both guards against a CNY artefact in either direction. Revision-3 simulation (calibrated components; `output/prereg_v3/iut_power_no_bump.csv`, `iut_cny_scenarios.csv`; φ = 0, σ at the h = 2 gate's 50% point, 0.171 log points; 20,000 runs), kept as the record of why the IUT was adopted:
 
@@ -299,13 +301,10 @@ Without a bump the IUT keeps power at ρ = 1 (0.877, and min P(IUT reject | h = 
 - **Robustness to CNY steps.** Revision 4's H1 test, unlike the T* statistic, does not remove a step that moves between calendar months exactly (`docs/math_claims.md` F3). That matters only for Singapore, where it is not used.
 - **Variance spike.** A variance spike at the event month (variance × 3) breaks every procedure (sizes 0.035–0.066). This is a stated limitation of any placebo or permutation method, not specific to revision 4.
 
-**H2 test.** A = mean over informative rise events of (T*_e / Δ_e) minus T*_{E2} / Δ_{E2}. Placebo: B = 9,999 draws of distinct eligible anchors assigned to the same event slots with the same Δ constants. One-sided p for A > 0. P0 applies to A: c_A − q₁₀ of the placebo A distribution must be ≤ 1.0, where c_A is the (K + 1)-th largest of the B placebo values with K = ⌊α(B + 1)⌋ − 1 (revision 3; was q₉₅ − q₂₀), otherwise H2 is "not testable". The §5.5 size-control rule is not applied to A (its placebo draws are not a single-series layout); this is a stated limitation.
-
-**DECISION FOR WC (H2, revision 4).** H2 was not part of the revision-4 design and **was not simulated**. Options:
-- (a) Leave H2 exactly as above. Its gate is placebo-only, so it carries the conditional-size issue of §5.2.
-- (b) Give H2 the symmetric gate: pooled values {A_obs} ∪ {B placebo A}, c_pool = the (K + 2)-th largest pooled value, q₀₅; the test unchanged.
-
-Option (b) follows the revision-4 logic. B4 applies in the same idealised sense as for the rank tests: it holds if the event anchors are exchangeable with the placebo anchors, and the random-draw version follows Hemerik & Goeman 2018. It is unverified by simulation.
+**H2 (descriptive, revision 4).** No test and no gate; revision 3's H2 test and gate are withdrawn.
+- A = mean over the evaluable UK rise events of (T*_e / Δ_e) minus T*_{E2} / Δ_{E2}, i.e. the difference in ρ̂ between the rises and the cut.
+- **95% CI by placebo inversion:** B = 9,999 draws of distinct eligible anchors, assigned to the same event slots with the same Δ constants, give placebo values A_b. CI₉₅ = [A − q₀.₉₇₅(A_b), A − q₀.₀₂₅(A_b)], under the same shift model as §5.2.
+- Reported with each event's ρ̂ and CI.
 
 ### 5.5 Size control (revision 4: the revision-3 calibration is withdrawn)
 
@@ -347,9 +346,9 @@ Option (b) follows the revision-4 logic. B4 applies in the same idealised sense 
 
 ## 7. Confirmatory versus exploratory
 
-**Confirmatory (this registration):** H1 (UK-E3, E4, E1 in that order, informative events only; level-gap conformal test, revision 4), H2 (if testable), H3 (SG-E1, Hawker Centres control, if testable; decided by the h = 2 and h = 1 intersection-union test of placebo rank tests, §5.4). "Confirmatory" carries the §0 qualifier; the "seen" labels for UK-E2 and SG-E2 stay attached.
+**Confirmatory (this registration):** H1 (UK-E3, E4, E1 in that order, informative events only; level-gap conformal test, revision 4) and H3 (SG-E1, Hawker Centres control, if testable; decided by the h = 2 and h = 1 intersection-union test of placebo rank tests, §5.4). "Confirmatory" carries the §0 qualifier; the "seen" labels for UK-E2 and SG-E2 stay attached.
 
-**Secondary (labelled):** UK-E2 ρ̂ and CI; SG-E2 (2024) and SG-E0 (2007) results, with CIs; **the secondary SG horizon under the §10 rule (h = 1 for SG-E2, h = 2 for SG-E0; for SG-E1, h = 1 is part of the H3 decision since revision 3)**; H3-dish (with and without R3; decided like H3 by the h = 2 and h = 1 intersection-union test, revision 4, subject to the §5.2 DECISION FOR WC); R1 and R2 pools for every event, R3 and R4 for SG events (reported alongside the primary); the UK control-item difference-in-differences; sale-price exclusion sensitivity; the COVID-excluded pool.
+**Secondary (labelled):** H2 (descriptive since revision 4: the rises-minus-cut difference in ρ̂ with its CI, no test, §5.4); UK-E2 ρ̂ and CI; SG-E2 (2024) and SG-E0 (2007) results, with CIs; **the secondary SG horizon under the §10 rule (h = 1 for SG-E2, h = 2 for SG-E0; for SG-E1, h = 1 is part of the H3 decision since revision 3)**; H3-dish (with and without R3; decided like H3 by the h = 2 and h = 1 intersection-union test, revision 4); R1 and R2 pools for every event, R3 and R4 for SG events (reported alongside the primary); the UK control-item difference-in-differences; sale-price exclusion sensitivity; the COVID-excluded pool.
 
 **Exploratory (labelled "exploratory" wherever it appears):** H3b ("++" menu-price check); M213761 dishes other than the 10 full-span series; "Restaurants and Cafes" and other 2024-only sub-series; any event not in §2; any other control definition; any analysis suggested by looking at the results.
 
@@ -359,7 +358,21 @@ Option (b) follows the revision-4 logic. B4 applies in the same idealised sense 
 - **Missing months** are never filled. No seasonal adjustment (M213752 is not used).
 - **No result-dependent choices.** Horizons, thresholds (500 relatives, MDE_ρ ≤ 1.0, ≥ 3 neighbours, ±36 months), series and controls are fixed. A change after the P0 output is committed is a deviation, listed with a reason.
 - **If the specification cannot be executed as written, the run stops and reports.**
-- **Code** is frozen at a commit SHA recorded in the results commit. Before real data are used, the placebo procedure is run on **simulated** series with a known injected pass-through (size and power check, simulated data only). **Revision 4:** the P0 script is verified to produce identical output whichever pooled value is labelled as the event, and to output no event value, rank or p-value (§5.3). This replaces the revision-3 check that it cannot read masked event windows.
+- **Code** is frozen at a commit SHA recorded in the results commit. Before real data are used, the placebo procedure is run on **simulated** series with a known injected pass-through (size and power check, simulated data only). **Revision 4:** the P0 script is verified to produce identical output whichever pooled value is labelled as the event, and to output no event value, rank or p-value (§5.3). This replaces the revision-3 check that it cannot read masked event windows. The script, the test and the test's output on synthetic data (PASS) are committed (commit be9f184), with SHA-256:
+
+| File | SHA-256 |
+|---|---|
+| `analysis/prereg_v4/p0_gate.py` | `624a9c324829e98a9af0e7c88e552128e95112866fa52e2d7c67a2fed785dad1` |
+| `analysis/prereg_v4/test_p0_invariance.py` | `d0de103b696ff4a60e3dbd5108f3cea74786957fe991721be38f62e55b623b86` |
+| `analysis/prereg_v4/test_p0_invariance_output.txt` | `cae6c02e2acb6a3ae62806b6ad7f6b8f114ee909e22b3ec46c0fac5f403f45c3` |
+
+The test checks four things:
+1. The gate output is identical for every choice of event position and under random permutations of the pooled values.
+2. The output contains only whitelisted fields.
+3. The ±2-month gap rule makes an event not testable.
+4. P0's gate statistic equals the revision-4 simulation's on the same synthetic series (maximum difference 4.6 × 10⁻⁹).
+
+The P0 run on real data uses these files unchanged. A file whose hash differs is a deviation.
 - **Provenance.** Only public sources: ONS, SingStat, IRAS public search, GOV.UK. No residential-IP live-scrape data and no UICPI index values enter a confirmatory test.
 
 ## 9. What must be done before the confirmatory run (item 4 simulation done in revision 3; the rest not done)
@@ -367,7 +380,7 @@ Option (b) follows the revision-4 logic. B4 applies in the same idealised sense 
 1. **Done:** `docs/prereg_v2_uk_item_vat_status.csv` (44 IDs, per-event roles, evidence). Reviewed by WC before merge: the 9 ambiguous and 2 school IDs excluded, and the infeasibility of the control-item difference-in-differences.
 2. **Done:** ONS index days for E1, E3, E4 (and E2); SG class weights; service-charge treatment recorded as a limitation.
 3. **Open VERIFY:** SG-E0 2004-based class-definition check (§3.2, keeps the drop rule); the 2024-01 vintage switch (flagged limitation, demoted event only); the URA-region field and ACRA name coverage for H4; the `VALIDITY`/`INDICATOR_BOX` filter commit (§3.1) and the per-pair sale-price sensitivity code.
-4. The simulation (including a CNY-like calendar shock), P0 script and invariance test (§8). **Simulation: done (revision 3, synthetic data only; `analysis/simulation/`, PR #55 and `prereg_v3_checks.py`). Revision 4: done (`analysis/simulation/prereg_v4_sim.py`, PR #67; size, size among datasets that pass the gate, power, gate check and CNY scenarios for the revision-4 procedure; output `analysis/simulation/output/prereg_v4/`).** The P0 script and the invariance test are not yet written. Size and power of the rank test, the gate (§5.2, §5.3) and the size-control rule (§5.5) are reported there. **CNY-like shock (H3):** a moving holiday bump on the hawker arm at the real CNY dates 2015–2026, magnitudes ±0.25, ±0.5, ±1.0 log points, temporary (one month, then reverts) or permanent (step), timed at the CNY month or at CNY − 15 days (run-up); noise SD of the contrast's monthly change 0.2 and 0.4 log points (`output/prereg_v3/a3_cny_bump.csv`). The bias is exact (T* is linear): bias(ρ̂) = k × b / Δ with b the hawker bump and Δ = 0.0093:
+4. The simulation (including a CNY-like calendar shock), P0 script and invariance test (§8). **Simulation: done (revision 3, synthetic data only; `analysis/simulation/`, PR #55 and `prereg_v3_checks.py`). Revision 4: done (`analysis/simulation/prereg_v4_sim.py`, PR #67; size, size among datasets that pass the gate, power, gate check and CNY scenarios for the revision-4 procedure; output `analysis/simulation/output/prereg_v4/`).** The P0 script and the invariance test are written and pass on synthetic data (§8). Size and power of the rank test, the gate (§5.2, §5.3) and the size-control rule (§5.5) are reported there. **CNY-like shock (H3):** a moving holiday bump on the hawker arm at the real CNY dates 2015–2026, magnitudes ±0.25, ±0.5, ±1.0 log points, temporary (one month, then reverts) or permanent (step), timed at the CNY month or at CNY − 15 days (run-up); noise SD of the contrast's monthly change 0.2 and 0.4 log points (`output/prereg_v3/a3_cny_bump.csv`). The bias is exact (T* is linear): bias(ρ̂) = k × b / Δ with b the hawker bump and Δ = 0.0093:
 
    | Horizon | Bump | Timing | k | ρ̂ bias at b = +0.5 log points | Size of H3 (rank test), b = +0.5 / −0.5 pts, SD 0.2 pts |
    |---|---|---|---|---|---|
@@ -389,11 +402,21 @@ Option (b) follows the revision-4 logic. B4 applies in the same idealised sense 
 
 **H3 horizon decision (WC, 2026-10-10, on revision 3): h = 2 is primary for H3 (both arms), h = 1 is a pre-registered secondary.** Reasoning, recorded as given: at h = 2 every December same-month neighbour window contains CNY (CNY always falls 22 Jan to 19 Feb), so the demeaning removes the CNY effect by construction; at h = 1 the 2023 window contains CNY but most neighbours' windows do not, and the CNY adjustment R3 cannot be estimated for the hawker class. The H3 gate, thresholds and anchor counts are at h = 2 (Hawker Centres class N = 74, 10-dish arm N = 126; MDE threshold q₉₅ − q₂₀ ≤ 0.0093). Residual CNY run-up timing in late-February CNY years is a stated limitation (§5.1). The same rule applies to SG-E2; SG-E0 (July) keeps h = 1 primary.
 
+**Decisions recorded (WC, 2026-10-24, on revision 4).**
+1. **Gaps.** The conformal test compresses gaps, as simulated. An event is not testable if a gap falls within ±2 months of its event month (§4).
+2. **H1 estimate and CI.** The T*-based ρ̂ and CI are kept and labelled descriptive. The confirmatory decision is the conformal test, and the two are stated to be different objects (§5.2).
+3. **H3-dish** is decided by the two-horizon rule (§5.2).
+4. **Power gate** at q₀₅. The 80% claim is updated, with the φ = −0.5 exception stated (§5.2, §5.3).
+5. **Blinding.** The output-invariance check is accepted. The P0 script and test are written, run on synthetic data, committed, and hashed (§8).
+6. **H2** is demoted to secondary and descriptive: the rises-minus-cut difference in ρ̂ with a CI, no test. The confirmatory family is H1 and H3 (§1, §5.4, §7).
+7. **α** stays at 0.0167 per confirmatory hypothesis, with no reallocation (§5.4).
+
 **Decisions recorded (WC, 2026-10-10, on revision 2).** 500 matched relatives; MDE_ρ ≤ 1.0; α = 0.0167 per hypothesis; UK primary h = 2; SG primary h = 1 with h = 2 as a pre-registered secondary for every SG event (**amended in revision 4 by the Singapore horizon rule, below**); neighbour rule of at least 3 within ±36 months; the Hawker Centres class as H3's primary control with the 10-dish arm secondary (justifications kept in §3.2, §4 and §5); the H4 frame (NEA list with ACRA UEN matching) and 120 stalls (10 × 12 centres) with the §6 selection rule and seed 20261010.
 
 - [ ] Open VERIFY items in §9.3 carried or resolved as stated (§11).
 - [ ] Merge, tag `prereg-v2`, WC deposits on OSF, record the SHA.
-- [ ] **Revision 4:** resolve every DECISION FOR WC; merge; tag `prereg-v4`; WC deposits on OSF before any outcome value is read. **DECISION FOR WC:** if the `prereg-v3` deposit has not been made, deposit `prereg-v4` only. If it has, deposit `prereg-v4` as an amendment that names `prereg-v3`. Target: registered by 2026-11-07.
+- [x] **Revision 4:** WC decisions applied (above); P0 script and invariance test committed and hashed (§8).
+- [ ] **Revision 4:** merge, tag `prereg-v4`, record the SHA-256 of this file. WC deposits on OSF before any outcome value is read: `prereg-v4` alone if `prereg-v3` was never deposited, otherwise as an amendment that names `prereg-v3`. Target: registered by 2026-11-07.
 
 ## 11. Verification log and revision history
 
@@ -433,7 +456,7 @@ Option (b) follows the revision-4 logic. B4 applies in the same idealised sense 
 3. **CNY: simulation run (§9 item 4) and H3 decided by an intersection-union test of h = 2 and h = 1 (§5.4, §1, §7), WC decision:** temporary CNY bumps bias h = 2 towards H3 (k = +0.6) and h = 1 against it (k = −0.6) (`a3_cny_bump.csv`). With the IUT (`iut_power_no_bump.csv`, `iut_cny_scenarios.csv`): power at ρ = 1 without a bump 0.877 (min given the h = 2 gate passes 0.865 to 0.892), above WC's 0.6 threshold for keeping H3 confirmatory; size 0.0048 to 0.0133; a +0.5-point temporary hawker bump no longer inflates size (h = 2 only 0.117, IUT 0.0001) but cuts power to 0.778 (0.178 at +1.0 point). The §5.1 and §9 item 4 limitation text is updated to match.
 4. Not changed: hypotheses' content and direction, events, outcomes, windows, the horizons computed, thresholds (1.0, 500 relatives, ≥ 3 neighbours, ±36 months), α and the H1 fixed sequence. WC's recorded decisions in §10 are left as written; where revision 3 supersedes a number in them (the q₉₅ − q₂₀ threshold), §5.3 governs.
 
-**Revision 4 of the registered document (tag `prereg-v4`, DRAFT 2026-10-24, for WC review).** **No outcome value had been read** (no ONS PRICE, SingStat index or dish value). Every number below is from synthetic data in `analysis/simulation/` (PR #67). The evidence is summarised in `analysis/simulation/SUMMARY.md` and the mathematical claims in `docs/math_claims.md`.
+**Revision 4 of the registered document (tag `prereg-v4`, 2026-10-24).** **No outcome value had been read** (no ONS PRICE, SingStat index or dish value). Every number below is from synthetic data in `analysis/simulation/` (PR #67). The evidence is summarised in `analysis/simulation/SUMMARY.md` and the mathematical claims in `docs/math_claims.md`.
 
 *Motivation.* The revision-3 procedure's size among datasets that pass its gate was 0.021–0.032 at a 50% pass rate and up to 0.06 at a 10% pass rate (`output/method_fixes/gate_conditional_size.csv`). Under t(3) innovations and seasonal AR its size was also above α (`output/misspec/`). A level-gap conformal test was more powerful for the UK events (`output/benchmark/`).
 
@@ -450,23 +473,20 @@ Option (b) follows the revision-4 logic. B4 applies in the same idealised sense 
 4. **§5.5 calibration withdrawn.**
    - Considered and rejected: the residual-bootstrap calibration (`docs/math_claims.md` C7; among datasets that pass the gate, 0.028–0.033 at h = 2).
    - Also evaluated and not adopted: indirect-inference φ̂ and a smoothed dense calibration table (`output/method_fixes/`). They changed size by at most 0.0005 and about 0.001.
-5. **Secondary events follow their family** (§5.2, §7): UK-E2 uses H1's test; H3-dish uses H3's IUT (DECISION FOR WC); SG-E2 and SG-E0 use the rank test per horizon.
-6. **Editorial:** removed a duplicated sentence in §5.3.
-7. **Not changed:**
+5. **Secondary events follow their family** (§5.2, §7): UK-E2 uses H1's test (and is not testable under the gap rule); H3-dish uses H3's IUT; SG-E2 and SG-E0 use the rank test per horizon.
+6. **H2 demoted (§1, §5.4, §7):** H2 is secondary and descriptive: the rises-minus-cut difference in ρ̂ with a placebo-inversion CI, and no test. The confirmatory family is H1 and H3. α stays at 0.0167 each and is not reallocated.
+7. **Gap rule (§4):** for the conformal test, an event is not testable if a month within ±2 of its event month is missing from the retained sequence.
+8. **H1 decision versus estimate (§5.2):** the conformal test decides; the T*-based ρ̂ and CI are descriptive and are a different object.
+9. **P0 script and invariance test (§5.3, §8):** committed with their SHA-256 hashes; PASS on synthetic data.
+10. **Editorial:** removed a duplicated sentence in §5.3.
+11. **Not changed:**
    - the hypotheses' content and direction, events, outcomes, windows, horizons, T* and ρ̂;
    - the thresholds (MDE_ρ ≤ 1.0, 500 relatives, ≥ 3 neighbours, ±36 months);
-   - α, the H1 fixed sequence, the H3 IUT, the CI method, and R1–R4.
+   - α per confirmatory hypothesis, the H1 fixed sequence, the H3 IUT, the CI method, and R1–R4.
 
-*DECISIONS FOR WC in this draft:*
-- gap handling for the conformal test (§4 item 2);
-- H1 estimate and CI (§5.2);
-- H3-dish IUT (§5.2);
-- q₀₅ (§5.3);
-- the blinding replacement (§5.3);
-- H2 gate (§5.4);
-- the OSF deposit route (§10).
+*Decisions:* WC, 2026-10-24, recorded in §10.
 
 *Simulation scope and limits:*
 - Gaussian AR(1) for φ ∈ [−0.5, 0.97], AR(2), seasonal AR(12), t(3) innovations, a drift break and a level step. A variance spike at the event month is a stated failure for every method.
-- **Not simulated:** H2 under any revision-4 option; conformal CI coverage; SG-E2/SG-E0 as an IUT; gaps from the 500-relative rule beyond the calendar gaps of the real layouts; and the real UK series' exact retained-month set after the 500-relative rule.
+- **Not simulated:** conformal CI coverage (no conformal CI is reported); SG-E2/SG-E0 as an IUT; gaps from the 500-relative rule beyond the calendar gaps of the real layouts; and the real UK series' exact retained-month set after the 500-relative rule.
 

@@ -146,6 +146,22 @@ The second pass added three studies: `method_fixes.py`, `misspec_mc.py`, and the
 
 **Why the gate uses the (K+2)-th largest pooled value.** Take any symmetric gate. The (K+1)-th largest pooled value is the observed statistic itself whenever the test rejects. With K = 0 (H3 hawker, N = 74) it would make the gate fail exactly when the true effect is large. The (K+2)-th largest equals the test's critical value whenever the test rejects, and is never above it otherwise. That is a design property, not part of the theorem.
 
+**Check that B4 holds for the registered revision-4 gate (2026-10-24).** The registered gate (prereg §5.3) is
+
+  γ = 1{ (v₍K+2₎ − q₀.₀₅(v)) / (h_S |Δ|) ≤ 1 } · 1{resolution} · 1{gap rule},
+
+where v is the pooled multiset and v₍K+2₎ its (K+2)-th largest element.
+- v₍K+2₎ is an order statistic of the multiset. q₀.₀₅ (numpy linear interpolation) is a function of the sorted values. Both are therefore symmetric functions of the pooled values, unchanged by any permutation of them, and in particular by which value is labelled as the event.
+- h_S, |Δ| and K are constants, with K a function of the pool size only.
+- The resolution rule depends on N + 1 (or n) only.
+- The gap rule depends on calendar labels only, not on values.
+
+So γ depends on X only through 𝒯(X) and calendar facts, and condition (B) holds for both instances:
+- *Rank tests:* v = the N + 1 values {U_a} ∪ {U_m}, and the group permutes them.
+- *Conformal:* v = {S_j : j = 1, …, n}. Rotating the residual sequence permutes the window statistics cyclically, which leaves the multiset unchanged. This holds when the weights w_l are held fixed. In the implementation, φ̃ (hence w) is estimated from the data, so this is part of the approximation already noted for (A) in instance 2.
+
+Choosing the (K+2)-th instead of the (K+1)-th order statistic therefore changes nothing in B4. Any fixed order statistic or quantile of the pooled multiset satisfies (B). The implementation is checked computationally in `analysis/prereg_v4/test_p0_invariance.py`: the output is identical for every event position and under random permutations (PASS; output file committed, hash in prereg §8).
+
 **Status.**
 - The claim: **Provable (theorem candidate; WC to prove).**
 - Its application to the registered statistics: Simulation only.
