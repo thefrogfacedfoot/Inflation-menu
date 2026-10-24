@@ -136,3 +136,73 @@ Synthetic data only, run with `--reps 20000` in about 75 s. Outputs are in `outp
 The findings and the two open decisions (D1 and D2) are written into `docs/preregistration_v2.md` §5.3, §5.5 and §9 item 4.
 
 `prereg_v3_iut.py` checks the H3 intersection-union test, which rejects only if both h = 2 and h = 1 reject. It reports size and power at ρ = 1 against using h = 2 alone, with and without the CNY bump scenarios. It takes about 17 s and writes `iut_power_no_bump.csv` and `iut_cny_scenarios.csv`. The registered gate and size rule (D1-b and D2-b) appear in `a1_gate_summary.csv` under the variant "REGISTERED D1-b+D2-b" and in the `size_alt_always_calibrated_bc` column.
+
+## Benchmark study (`benchmark_mc.py`, 2026-10-24)
+
+Synthetic data only, like everything above. No outcome value was read and the prereg is unchanged. The run used `--reps 20000` with R_cal = 20,000 and took about 5.5 min. The method definitions, seeds and implementation choices are in the module docstring. The claims these results bear on are listed in `docs/math_claims.md`.
+
+```
+.venv-sim/bin/python analysis/simulation/benchmark_mc.py --reps 20000
+.venv-sim/bin/python analysis/simulation/benchmark_figures.py
+.venv-sim/bin/python analysis/simulation/claims_checks.py --reps 20000   # output/claims/, about 12 s
+```
+
+**What is compared.** Four methods are run on the same draws in every cell:
+- **ours**: the registered always-calibrated test (D2-b).
+- **rank**: the uncalibrated rank test (prereg-v2).
+- **hac**: an OLS event-dummy z-test with Newey-West errors.
+- **conformal**: Chernozhukov, Wüthrich & Zhu (2021) with an AR(1) + calendar-month counterfactual and cyclic shifts.
+
+**The grid** is 23 layouts × 6 φ, at ρ ∈ {0.5, 1} on a grid of r = |Δ|/σ:
+- the 7 registered layouts;
+- 16 generic layouts (N ∈ {60, 75, 126, 160}, centred or first-year event, h ∈ {1, 2});
+- H3 decided by the IUT, for every method;
+- the A3 CNY scenarios.
+
+The gate is not applied.
+
+**Outputs in `output/benchmark/`:**
+- `settings.csv`, `size.csv`, `power.csv` (raw and size-adjusted power, each method's difference from ours, paired MC SE);
+- `summary.csv` (sizes, and power at r80, the first r on the grid where ours has ≥ 0.8 at ρ = 1);
+- `flags.csv`, `cny.csv`, `cny_flags.csv`;
+- `figures/`.
+
+**Flag definitions (`flags.csv`).** A flag is raised in three cases:
+- `size`: ours over-rejects (rate − 2 SE > α) and the benchmark does not.
+- `power`: the benchmark does not over-reject, and its power exceeds ours by more than 2 paired SE at some (ρ, r).
+- `power_sa`: the same comparison for size-adjusted power.
+
+Each row reports the (ρ, r) with the largest difference.
+
+**Size** across the 138 non-IUT cells, with the number of over-rejecting cells:
+
+| Method | Size range | Over-rejecting cells |
+|---|---|---|
+| ours | 0.0131–0.0213 | 5 / 138 (generic N = 60 edge h = 1 at φ = 0.6; H3 hawker h = 2 at φ = 0.9, 0.0189; three generic edge layouts at φ = 0.97, 0.0201–0.0213) |
+| rank | 0.0089–0.0271 | 32 / 138 |
+| hac | 0.120–0.333 | 138 / 138 |
+| conformal | 0.0082–0.0178 | 0 / 138 |
+
+**Where a benchmark beats ours.** There are 255 flags in total. On the registered layouts:
+
+1. **Conformal at h = 1 with persistent noise.**
+   - SG hawker h = 1 (secondary): at φ = 0.97, ρ = 0.5, r = 2.4, power is 0.956 for conformal against 0.368 for ours. This setting is flagged at φ ∈ {−0.5, 0.6, 0.9, 0.97}.
+   - In the generic h = 1 layouts the gap is up to +0.74 (φ = 0.97).
+   - Mechanism: the AR(1) counterfactual pre-whitens. At high φ a pulse in x_e is many innovation SDs, while T* compares the event with neighbours a year apart and gains nothing from that predictability.
+   - The DGP is exactly AR(1), which favours this benchmark. Misspecified noise is not tested.
+2. **Conformal at φ = −0.5**, on every registered h = 2 layout. For example, UK-E1 at ρ = 0.5, r = 4.8 has raw power 0.642 against 0.441 for ours.
+3. **Rank test after size adjustment, at high φ** (median gain 0.04, largest 0.21 in the generic edge layouts at φ = 0.97). Calibrating with the median/IQR τ costs some power compared with the raw order statistic. On the registered layouts the raw rank test is flagged mostly where it is also oversized, and so excluded from `power`.
+4. **HAC after size adjustment**: only generic N = 160 edge h = 1, by about +0.02 to +0.04. Its raw size is never valid.
+
+**Where ours wins.** At h = 2 with φ ≥ 0.3, conformal's power collapses:
+- H3 hawker h = 2 at r80: 0.195, 0.032, 0.001 at φ = 0.3, 0.6, 0.9, against 0.85–0.91 for ours.
+- The window sum of AR residuals is about s(1 − φ̂), so the pulse cancels.
+- Even at φ = 0, conformal plateaus near 0.57. With n ≈ 87 shifts, K = 0, so the observed window must beat every other shift, including the overlapping shift one month earlier, which also contains the pulse.
+
+For the H3 IUT, ours has power 0.80–0.96 at r80 against at most 0.47 for conformal at φ ≥ 0, and 0.87 at φ = −0.5.
+
+**CNY (`cny_flags.csv`, 77 flags).**
+- Under a +1-point temporary hawker bump, ours at h = 2 has size 0.265 and conformal 0.005. Conformal's h = 2 window sum is insensitive to a one-month pulse, for the reason in "Where ours wins". Under the IUT, ours is already ≤ 0.0001 in that scenario.
+- HAC is flagged on `power_rho*` only where the bump biases it against rejection. Its no-bump size is about 0.2, so these flags do not make HAC a usable test.
+
+**Not covered:** non-Gaussian or heteroskedastic noise, AR(p) with p > 1, a conformal statistic other than the q = 1 window sum (for example, the first window month only, or q = 2), and size given that the gate passes (`docs/math_claims.md` C4).
