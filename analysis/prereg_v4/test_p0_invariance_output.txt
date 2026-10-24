@@ -1,0 +1,2 @@
+replicates=5 invariance_checks=55 max|P0 - simulation| gate difference=4.56e-09
+PASS
