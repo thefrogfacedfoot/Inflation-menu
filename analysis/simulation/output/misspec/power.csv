@@ -1,0 +1,1961 @@
+cell,dgp,method,rho,r,power,power_size_adj
+UK-E3 (H1),ref,ours_registered,0.5,3.0,0.09625,0.09895
+UK-E3 (H1),ref,ours_registered,0.5,4.7622,0.2136,0.21755
+UK-E3 (H1),ref,ours_registered,0.5,6.0,0.3245,0.33015
+UK-E3 (H1),ref,ours_registered,0.5,7.5595,0.49065,0.497
+UK-E3 (H1),ref,ours_registered,1.0,3.0,0.3245,0.33015
+UK-E3 (H1),ref,ours_registered,1.0,4.7622,0.70085,0.7062
+UK-E3 (H1),ref,ours_registered,1.0,6.0,0.885,0.8885
+UK-E3 (H1),ref,ours_registered,1.0,7.5595,0.9826,0.9831
+UK-E3 (H1),ref,ours_revised,0.5,3.0,0.0954,0.1003
+UK-E3 (H1),ref,ours_revised,0.5,4.7622,0.21295,0.21855
+UK-E3 (H1),ref,ours_revised,0.5,6.0,0.3243,0.33195
+UK-E3 (H1),ref,ours_revised,0.5,7.5595,0.48995,0.4985
+UK-E3 (H1),ref,ours_revised,1.0,3.0,0.3243,0.33195
+UK-E3 (H1),ref,ours_revised,1.0,4.7622,0.6997,0.7089
+UK-E3 (H1),ref,ours_revised,1.0,6.0,0.88495,0.88965
+UK-E3 (H1),ref,ours_revised,1.0,7.5595,0.9825,0.9835
+UK-E3 (H1),ref,conformal,0.5,3.0,0.058,0.077
+UK-E3 (H1),ref,conformal,0.5,4.7622,0.1196,0.1509
+UK-E3 (H1),ref,conformal,0.5,6.0,0.18085,0.2236
+UK-E3 (H1),ref,conformal,0.5,7.5595,0.28495,0.3385
+UK-E3 (H1),ref,conformal,1.0,3.0,0.18085,0.2236
+UK-E3 (H1),ref,conformal,1.0,4.7622,0.4557,0.51705
+UK-E3 (H1),ref,conformal,1.0,6.0,0.6897,0.73765
+UK-E3 (H1),ref,conformal,1.0,7.5595,0.9009,0.9229
+UK-E3 (H1),ref,conformal_lvl,0.5,3.0,0.13475,0.1709
+UK-E3 (H1),ref,conformal_lvl,0.5,4.7622,0.33505,0.39885
+UK-E3 (H1),ref,conformal_lvl,0.5,6.0,0.5204,0.58345
+UK-E3 (H1),ref,conformal_lvl,0.5,7.5595,0.74225,0.78815
+UK-E3 (H1),ref,conformal_lvl,1.0,3.0,0.5204,0.58345
+UK-E3 (H1),ref,conformal_lvl,1.0,4.7622,0.918,0.93985
+UK-E3 (H1),ref,conformal_lvl,1.0,6.0,0.9905,0.99405
+UK-E3 (H1),ref,conformal_lvl,1.0,7.5595,0.99965,0.99985
+UK-E3 (H1),ref,rank,0.5,3.0,0.0687,0.1
+UK-E3 (H1),ref,rank,0.5,4.7622,0.15845,0.2117
+UK-E3 (H1),ref,rank,0.5,6.0,0.257,0.3255
+UK-E3 (H1),ref,rank,0.5,7.5595,0.41085,0.4886
+UK-E3 (H1),ref,rank,1.0,3.0,0.257,0.3255
+UK-E3 (H1),ref,rank,1.0,4.7622,0.61895,0.69155
+UK-E3 (H1),ref,rank,1.0,6.0,0.83365,0.8784
+UK-E3 (H1),ref,rank,1.0,7.5595,0.96585,0.97855
+UK-E4 (H1),ref,ours_registered,0.5,3.0,0.094,0.0928
+UK-E4 (H1),ref,ours_registered,0.5,4.7622,0.2041,0.2014
+UK-E4 (H1),ref,ours_registered,0.5,6.0,0.3143,0.30985
+UK-E4 (H1),ref,ours_registered,0.5,7.5595,0.4807,0.47655
+UK-E4 (H1),ref,ours_registered,1.0,3.0,0.3143,0.30985
+UK-E4 (H1),ref,ours_registered,1.0,4.7622,0.6891,0.68485
+UK-E4 (H1),ref,ours_registered,1.0,6.0,0.87805,0.87595
+UK-E4 (H1),ref,ours_registered,1.0,7.5595,0.97915,0.9787
+UK-E4 (H1),ref,ours_revised,0.5,3.0,0.0944,0.0931
+UK-E4 (H1),ref,ours_revised,0.5,4.7622,0.2053,0.20255
+UK-E4 (H1),ref,ours_revised,0.5,6.0,0.315,0.3126
+UK-E4 (H1),ref,ours_revised,0.5,7.5595,0.48195,0.47885
+UK-E4 (H1),ref,ours_revised,1.0,3.0,0.315,0.3126
+UK-E4 (H1),ref,ours_revised,1.0,4.7622,0.68985,0.68765
+UK-E4 (H1),ref,ours_revised,1.0,6.0,0.87855,0.87715
+UK-E4 (H1),ref,ours_revised,1.0,7.5595,0.97955,0.9793
+UK-E4 (H1),ref,conformal,0.5,3.0,0.0572,0.0732
+UK-E4 (H1),ref,conformal,0.5,4.7622,0.1149,0.1429
+UK-E4 (H1),ref,conformal,0.5,6.0,0.174,0.21715
+UK-E4 (H1),ref,conformal,0.5,7.5595,0.2835,0.3315
+UK-E4 (H1),ref,conformal,1.0,3.0,0.174,0.21715
+UK-E4 (H1),ref,conformal,1.0,4.7622,0.4501,0.50555
+UK-E4 (H1),ref,conformal,1.0,6.0,0.6856,0.73055
+UK-E4 (H1),ref,conformal,1.0,7.5595,0.8983,0.92005
+UK-E4 (H1),ref,conformal_lvl,0.5,3.0,0.1321,0.17045
+UK-E4 (H1),ref,conformal_lvl,0.5,4.7622,0.33155,0.39245
+UK-E4 (H1),ref,conformal_lvl,0.5,6.0,0.51625,0.5811
+UK-E4 (H1),ref,conformal_lvl,0.5,7.5595,0.73835,0.7859
+UK-E4 (H1),ref,conformal_lvl,1.0,3.0,0.51625,0.5811
+UK-E4 (H1),ref,conformal_lvl,1.0,4.7622,0.9177,0.9395
+UK-E4 (H1),ref,conformal_lvl,1.0,6.0,0.98855,0.99285
+UK-E4 (H1),ref,conformal_lvl,1.0,7.5595,0.9994,0.99975
+UK-E4 (H1),ref,rank,0.5,3.0,0.07005,0.0932
+UK-E4 (H1),ref,rank,0.5,4.7622,0.1613,0.20415
+UK-E4 (H1),ref,rank,0.5,6.0,0.2587,0.30995
+UK-E4 (H1),ref,rank,0.5,7.5595,0.41165,0.47405
+UK-E4 (H1),ref,rank,1.0,3.0,0.2587,0.30995
+UK-E4 (H1),ref,rank,1.0,4.7622,0.62065,0.6774
+UK-E4 (H1),ref,rank,1.0,6.0,0.8322,0.8676
+UK-E4 (H1),ref,rank,1.0,7.5595,0.9617,0.97365
+UK-E1 (H1),ref,ours_registered,0.5,3.0,0.0875,0.0899
+UK-E1 (H1),ref,ours_registered,0.5,4.7622,0.1894,0.19475
+UK-E1 (H1),ref,ours_registered,0.5,6.0,0.28935,0.2953
+UK-E1 (H1),ref,ours_registered,0.5,7.5595,0.4382,0.44535
+UK-E1 (H1),ref,ours_registered,1.0,3.0,0.28935,0.2953
+UK-E1 (H1),ref,ours_registered,1.0,4.7622,0.63955,0.64565
+UK-E1 (H1),ref,ours_registered,1.0,6.0,0.8402,0.8445
+UK-E1 (H1),ref,ours_registered,1.0,7.5595,0.96425,0.9652
+UK-E1 (H1),ref,ours_revised,0.5,3.0,0.08735,0.0904
+UK-E1 (H1),ref,ours_revised,0.5,4.7622,0.19015,0.1951
+UK-E1 (H1),ref,ours_revised,0.5,6.0,0.29045,0.29555
+UK-E1 (H1),ref,ours_revised,0.5,7.5595,0.43925,0.44575
+UK-E1 (H1),ref,ours_revised,1.0,3.0,0.29045,0.29555
+UK-E1 (H1),ref,ours_revised,1.0,4.7622,0.63995,0.64575
+UK-E1 (H1),ref,ours_revised,1.0,6.0,0.8408,0.8446
+UK-E1 (H1),ref,ours_revised,1.0,7.5595,0.9643,0.96605
+UK-E1 (H1),ref,conformal,0.5,3.0,0.05435,0.07995
+UK-E1 (H1),ref,conformal,0.5,4.7622,0.11385,0.1544
+UK-E1 (H1),ref,conformal,0.5,6.0,0.1772,0.2263
+UK-E1 (H1),ref,conformal,0.5,7.5595,0.27735,0.3413
+UK-E1 (H1),ref,conformal,1.0,3.0,0.1772,0.2263
+UK-E1 (H1),ref,conformal,1.0,4.7622,0.4471,0.51945
+UK-E1 (H1),ref,conformal,1.0,6.0,0.6849,0.74345
+UK-E1 (H1),ref,conformal,1.0,7.5595,0.8988,0.9231
+UK-E1 (H1),ref,conformal_lvl,0.5,3.0,0.1303,0.1779
+UK-E1 (H1),ref,conformal_lvl,0.5,4.7622,0.3317,0.4004
+UK-E1 (H1),ref,conformal_lvl,0.5,6.0,0.5142,0.5857
+UK-E1 (H1),ref,conformal_lvl,0.5,7.5595,0.736,0.79365
+UK-E1 (H1),ref,conformal_lvl,1.0,3.0,0.5142,0.5857
+UK-E1 (H1),ref,conformal_lvl,1.0,4.7622,0.9152,0.93925
+UK-E1 (H1),ref,conformal_lvl,1.0,6.0,0.98835,0.99315
+UK-E1 (H1),ref,conformal_lvl,1.0,7.5595,0.99985,0.99995
+UK-E1 (H1),ref,rank,0.5,3.0,0.0815,0.08435
+UK-E1 (H1),ref,rank,0.5,4.7622,0.17645,0.18195
+UK-E1 (H1),ref,rank,0.5,6.0,0.26925,0.27595
+UK-E1 (H1),ref,rank,0.5,7.5595,0.4152,0.42315
+UK-E1 (H1),ref,rank,1.0,3.0,0.26925,0.27595
+UK-E1 (H1),ref,rank,1.0,4.7622,0.617,0.6244
+UK-E1 (H1),ref,rank,1.0,6.0,0.825,0.82995
+UK-E1 (H1),ref,rank,1.0,7.5595,0.95565,0.95705
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,0.5,3.0,0.093,0.1019
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,0.5,4.7622,0.19635,0.2118
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,0.5,6.0,0.29415,0.312
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,0.5,7.5595,0.449,0.46955
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,1.0,3.0,0.29415,0.312
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,1.0,4.7622,0.65435,0.6749
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,1.0,6.0,0.85355,0.86365
+SG-E1 hawker contrast h=2 (H3),ref,ours_registered,1.0,7.5595,0.9669,0.97075
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,0.5,3.0,0.0922,0.10085
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,0.5,4.7622,0.1957,0.20935
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,0.5,6.0,0.29175,0.3084
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,0.5,7.5595,0.4472,0.46595
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,1.0,3.0,0.29175,0.3084
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,1.0,4.7622,0.6521,0.6716
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,1.0,6.0,0.85135,0.86215
+SG-E1 hawker contrast h=2 (H3),ref,ours_revised,1.0,7.5595,0.96575,0.9701
+SG-E1 hawker contrast h=2 (H3),ref,conformal,0.5,3.0,0.04315,0.06675
+SG-E1 hawker contrast h=2 (H3),ref,conformal,0.5,4.7622,0.07465,0.1111
+SG-E1 hawker contrast h=2 (H3),ref,conformal,0.5,6.0,0.10115,0.14595
+SG-E1 hawker contrast h=2 (H3),ref,conformal,0.5,7.5595,0.1336,0.1889
+SG-E1 hawker contrast h=2 (H3),ref,conformal,1.0,3.0,0.10115,0.14595
+SG-E1 hawker contrast h=2 (H3),ref,conformal,1.0,4.7622,0.1688,0.23075
+SG-E1 hawker contrast h=2 (H3),ref,conformal,1.0,6.0,0.1932,0.25345
+SG-E1 hawker contrast h=2 (H3),ref,conformal,1.0,7.5595,0.20555,0.26485
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,0.5,3.0,0.107,0.1504
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,0.5,4.7622,0.25965,0.33295
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,0.5,6.0,0.4108,0.4916
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,0.5,7.5595,0.60975,0.6877
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,1.0,3.0,0.4108,0.4916
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,1.0,4.7622,0.82205,0.87325
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,1.0,6.0,0.95175,0.9686
+SG-E1 hawker contrast h=2 (H3),ref,conformal_lvl,1.0,7.5595,0.9939,0.99645
+SG-E1 hawker contrast h=2 (H3),ref,rank,0.5,3.0,0.08145,0.0934
+SG-E1 hawker contrast h=2 (H3),ref,rank,0.5,4.7622,0.17475,0.19635
+SG-E1 hawker contrast h=2 (H3),ref,rank,0.5,6.0,0.26995,0.2927
+SG-E1 hawker contrast h=2 (H3),ref,rank,0.5,7.5595,0.4168,0.4431
+SG-E1 hawker contrast h=2 (H3),ref,rank,1.0,3.0,0.26995,0.2927
+SG-E1 hawker contrast h=2 (H3),ref,rank,1.0,4.7622,0.6163,0.6439
+SG-E1 hawker contrast h=2 (H3),ref,rank,1.0,6.0,0.8216,0.8412
+SG-E1 hawker contrast h=2 (H3),ref,rank,1.0,7.5595,0.9534,0.9607
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,0.5,3.0,0.2124,0.2091
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,0.5,4.7622,0.4821,0.47775
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,0.5,6.0,0.68745,0.6838
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,0.5,7.5595,0.88015,0.8774
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,1.0,3.0,0.68745,0.6838
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,1.0,4.7622,0.9775,0.97695
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,1.0,6.0,0.9992,0.9991
+SG-E1 hawker contrast h=1 (secondary),ref,ours_registered,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,0.5,3.0,0.2093,0.2096
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,0.5,4.7622,0.47855,0.47895
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,0.5,6.0,0.684,0.6843
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,0.5,7.5595,0.87805,0.8784
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,1.0,3.0,0.684,0.6843
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,1.0,4.7622,0.9772,0.9772
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,1.0,6.0,0.9992,0.9992
+SG-E1 hawker contrast h=1 (secondary),ref,ours_revised,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,0.5,3.0,0.1651,0.2187
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,0.5,4.7622,0.4161,0.4939
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,0.5,6.0,0.62355,0.69385
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,0.5,7.5595,0.84015,0.8824
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,1.0,3.0,0.62355,0.69385
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,1.0,4.7622,0.966,0.97795
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,1.0,6.0,0.99725,0.99835
+SG-E1 hawker contrast h=1 (secondary),ref,conformal,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,0.5,3.0,0.1651,0.2187
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,0.5,4.7622,0.4161,0.4939
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,0.5,6.0,0.62355,0.69385
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,0.5,7.5595,0.84015,0.8824
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,1.0,3.0,0.62355,0.69385
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,1.0,4.7622,0.966,0.97795
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,1.0,6.0,0.99725,0.99835
+SG-E1 hawker contrast h=1 (secondary),ref,conformal_lvl,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ref,rank,0.5,3.0,0.16,0.2007
+SG-E1 hawker contrast h=1 (secondary),ref,rank,0.5,4.7622,0.395,0.45885
+SG-E1 hawker contrast h=1 (secondary),ref,rank,0.5,6.0,0.5983,0.65795
+SG-E1 hawker contrast h=1 (secondary),ref,rank,0.5,7.5595,0.8119,0.8516
+SG-E1 hawker contrast h=1 (secondary),ref,rank,1.0,3.0,0.5983,0.65795
+SG-E1 hawker contrast h=1 (secondary),ref,rank,1.0,4.7622,0.9512,0.96445
+SG-E1 hawker contrast h=1 (secondary),ref,rank,1.0,6.0,0.9962,0.99755
+SG-E1 hawker contrast h=1 (secondary),ref,rank,1.0,7.5595,1.0,1.0
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,0.5,3.0,0.08945,0.099
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,0.5,4.7622,0.19995,0.2149
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,0.5,6.0,0.30975,0.32655
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,0.5,7.5595,0.4714,0.48995
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,1.0,3.0,0.30975,0.32655
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,1.0,4.7622,0.67455,0.6925
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,1.0,6.0,0.8705,0.8802
+SG-E1 dish arm h=2 (secondary),ref,ours_registered,1.0,7.5595,0.97605,0.97885
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,0.5,3.0,0.0896,0.0992
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,0.5,4.7622,0.1995,0.2151
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,0.5,6.0,0.30905,0.32625
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,0.5,7.5595,0.47065,0.4893
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,1.0,3.0,0.30905,0.32625
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,1.0,4.7622,0.67485,0.69235
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,1.0,6.0,0.87075,0.8809
+SG-E1 dish arm h=2 (secondary),ref,ours_revised,1.0,7.5595,0.97605,0.9788
+SG-E1 dish arm h=2 (secondary),ref,conformal,0.5,3.0,0.062,0.0771
+SG-E1 dish arm h=2 (secondary),ref,conformal,0.5,4.7622,0.1232,0.1485
+SG-E1 dish arm h=2 (secondary),ref,conformal,0.5,6.0,0.18855,0.221
+SG-E1 dish arm h=2 (secondary),ref,conformal,0.5,7.5595,0.30265,0.34335
+SG-E1 dish arm h=2 (secondary),ref,conformal,1.0,3.0,0.18855,0.221
+SG-E1 dish arm h=2 (secondary),ref,conformal,1.0,4.7622,0.47345,0.51665
+SG-E1 dish arm h=2 (secondary),ref,conformal,1.0,6.0,0.7003,0.7361
+SG-E1 dish arm h=2 (secondary),ref,conformal,1.0,7.5595,0.90525,0.92135
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,0.5,3.0,0.1426,0.16785
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,0.5,4.7622,0.3466,0.38595
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,0.5,6.0,0.52835,0.5666
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,0.5,7.5595,0.74045,0.7749
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,1.0,3.0,0.52835,0.5666
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,1.0,4.7622,0.91425,0.9286
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,1.0,6.0,0.98925,0.99165
+SG-E1 dish arm h=2 (secondary),ref,conformal_lvl,1.0,7.5595,0.99955,0.99975
+SG-E1 dish arm h=2 (secondary),ref,rank,0.5,3.0,0.0898,0.09785
+SG-E1 dish arm h=2 (secondary),ref,rank,0.5,4.7622,0.19565,0.2088
+SG-E1 dish arm h=2 (secondary),ref,rank,0.5,6.0,0.3024,0.3187
+SG-E1 dish arm h=2 (secondary),ref,rank,0.5,7.5595,0.4611,0.4778
+SG-E1 dish arm h=2 (secondary),ref,rank,1.0,3.0,0.3024,0.3187
+SG-E1 dish arm h=2 (secondary),ref,rank,1.0,4.7622,0.66105,0.6757
+SG-E1 dish arm h=2 (secondary),ref,rank,1.0,6.0,0.86065,0.8709
+SG-E1 dish arm h=2 (secondary),ref,rank,1.0,7.5595,0.9715,0.97415
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,0.5,3.0,0.0758,0.1357
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,0.5,4.7622,0.18515,0.2737
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,0.5,6.0,0.28825,0.3962
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,0.5,7.5595,0.4473,0.56105
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,1.0,3.0,0.28825,0.3962
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,1.0,4.7622,0.6541,0.7522
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,1.0,6.0,0.85355,0.90605
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_registered,1.0,7.5595,0.9669,0.9837
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,0.5,3.0,0.07475,0.13445
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,0.5,4.7622,0.18425,0.2725
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,0.5,6.0,0.28605,0.39435
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,0.5,7.5595,0.44545,0.5588
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,1.0,3.0,0.28605,0.39435
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,1.0,4.7622,0.65185,0.7507
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,1.0,6.0,0.85135,0.9047
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,ours_revised,1.0,7.5595,0.96575,0.98305
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,0.5,3.0,0.0272,0.10585
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,0.5,4.7622,0.06465,0.1849
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,0.5,6.0,0.09485,0.2412
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,0.5,7.5595,0.1315,0.2978
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,1.0,3.0,0.09485,0.2412
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,1.0,4.7622,0.16845,0.34545
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,1.0,6.0,0.19315,0.37045
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal,1.0,7.5595,0.20555,0.37475
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,0.5,3.0,0.0882,0.1619
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,0.5,4.7622,0.2412,0.35525
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,0.5,6.0,0.397,0.5185
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,0.5,7.5595,0.6035,0.71035
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,1.0,3.0,0.397,0.5185
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,1.0,4.7622,0.8205,0.8858
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,1.0,6.0,0.95165,0.97335
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,conformal_lvl,1.0,7.5595,0.9939,0.9969
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,0.5,3.0,0.0598,0.13065
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,0.5,4.7622,0.15755,0.2665
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,0.5,6.0,0.25915,0.38825
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,0.5,7.5595,0.41205,0.55265
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,1.0,3.0,0.25915,0.38825
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,1.0,4.7622,0.61515,0.73755
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,1.0,6.0,0.8216,0.89615
+SG-E1 hawker IUT h=2 & h=1 (H3),ref,rank,1.0,7.5595,0.9534,0.9776
+UK-E3 (H1),ar2,ours_registered,0.5,3.0,0.08675,0.08835
+UK-E3 (H1),ar2,ours_registered,0.5,4.7622,0.1822,0.1845
+UK-E3 (H1),ar2,ours_registered,0.5,6.0,0.2782,0.2816
+UK-E3 (H1),ar2,ours_registered,0.5,7.5595,0.4195,0.42235
+UK-E3 (H1),ar2,ours_registered,1.0,3.0,0.2782,0.2816
+UK-E3 (H1),ar2,ours_registered,1.0,4.7622,0.60345,0.60565
+UK-E3 (H1),ar2,ours_registered,1.0,6.0,0.7982,0.79975
+UK-E3 (H1),ar2,ours_registered,1.0,7.5595,0.9384,0.9393
+UK-E3 (H1),ar2,ours_revised,0.5,3.0,0.0866,0.08735
+UK-E3 (H1),ar2,ours_revised,0.5,4.7622,0.1817,0.18325
+UK-E3 (H1),ar2,ours_revised,0.5,6.0,0.2783,0.2796
+UK-E3 (H1),ar2,ours_revised,0.5,7.5595,0.41975,0.42165
+UK-E3 (H1),ar2,ours_revised,1.0,3.0,0.2783,0.2796
+UK-E3 (H1),ar2,ours_revised,1.0,4.7622,0.6036,0.60515
+UK-E3 (H1),ar2,ours_revised,1.0,6.0,0.79875,0.79965
+UK-E3 (H1),ar2,ours_revised,1.0,7.5595,0.93865,0.93895
+UK-E3 (H1),ar2,conformal,0.5,3.0,0.03125,0.0395
+UK-E3 (H1),ar2,conformal,0.5,4.7622,0.0508,0.06285
+UK-E3 (H1),ar2,conformal,0.5,6.0,0.0777,0.0926
+UK-E3 (H1),ar2,conformal,0.5,7.5595,0.1283,0.1484
+UK-E3 (H1),ar2,conformal,1.0,3.0,0.0777,0.0926
+UK-E3 (H1),ar2,conformal,1.0,4.7622,0.2374,0.26615
+UK-E3 (H1),ar2,conformal,1.0,6.0,0.4368,0.47165
+UK-E3 (H1),ar2,conformal,1.0,7.5595,0.71635,0.74135
+UK-E3 (H1),ar2,conformal_lvl,0.5,3.0,0.21125,0.25255
+UK-E3 (H1),ar2,conformal_lvl,0.5,4.7622,0.51705,0.5726
+UK-E3 (H1),ar2,conformal_lvl,0.5,6.0,0.73815,0.7817
+UK-E3 (H1),ar2,conformal_lvl,0.5,7.5595,0.91505,0.93325
+UK-E3 (H1),ar2,conformal_lvl,1.0,3.0,0.73815,0.7817
+UK-E3 (H1),ar2,conformal_lvl,1.0,4.7622,0.9874,0.9916
+UK-E3 (H1),ar2,conformal_lvl,1.0,6.0,0.99955,0.99975
+UK-E3 (H1),ar2,conformal_lvl,1.0,7.5595,1.0,1.0
+UK-E3 (H1),ar2,rank,0.5,3.0,0.0735,0.09495
+UK-E3 (H1),ar2,rank,0.5,4.7622,0.1594,0.1925
+UK-E3 (H1),ar2,rank,0.5,6.0,0.24465,0.2856
+UK-E3 (H1),ar2,rank,0.5,7.5595,0.37605,0.42695
+UK-E3 (H1),ar2,rank,1.0,3.0,0.24465,0.2856
+UK-E3 (H1),ar2,rank,1.0,4.7622,0.56055,0.6076
+UK-E3 (H1),ar2,rank,1.0,6.0,0.7641,0.79865
+UK-E3 (H1),ar2,rank,1.0,7.5595,0.92155,0.93735
+UK-E4 (H1),ar2,ours_registered,0.5,3.0,0.08235,0.0872
+UK-E4 (H1),ar2,ours_registered,0.5,4.7622,0.17325,0.18175
+UK-E4 (H1),ar2,ours_registered,0.5,6.0,0.26625,0.27635
+UK-E4 (H1),ar2,ours_registered,0.5,7.5595,0.40165,0.4134
+UK-E4 (H1),ar2,ours_registered,1.0,3.0,0.26625,0.27635
+UK-E4 (H1),ar2,ours_registered,1.0,4.7622,0.5852,0.5955
+UK-E4 (H1),ar2,ours_registered,1.0,6.0,0.78725,0.79585
+UK-E4 (H1),ar2,ours_registered,1.0,7.5595,0.93235,0.9353
+UK-E4 (H1),ar2,ours_revised,0.5,3.0,0.0831,0.0878
+UK-E4 (H1),ar2,ours_revised,0.5,4.7622,0.17445,0.18335
+UK-E4 (H1),ar2,ours_revised,0.5,6.0,0.2668,0.27675
+UK-E4 (H1),ar2,ours_revised,0.5,7.5595,0.40395,0.41555
+UK-E4 (H1),ar2,ours_revised,1.0,3.0,0.2668,0.27675
+UK-E4 (H1),ar2,ours_revised,1.0,4.7622,0.5875,0.5991
+UK-E4 (H1),ar2,ours_revised,1.0,6.0,0.7894,0.79775
+UK-E4 (H1),ar2,ours_revised,1.0,7.5595,0.9331,0.9369
+UK-E4 (H1),ar2,conformal,0.5,3.0,0.0287,0.0416
+UK-E4 (H1),ar2,conformal,0.5,4.7622,0.0493,0.0662
+UK-E4 (H1),ar2,conformal,0.5,6.0,0.07385,0.09525
+UK-E4 (H1),ar2,conformal,0.5,7.5595,0.1266,0.15775
+UK-E4 (H1),ar2,conformal,1.0,3.0,0.07385,0.09525
+UK-E4 (H1),ar2,conformal,1.0,4.7622,0.2364,0.27965
+UK-E4 (H1),ar2,conformal,1.0,6.0,0.4348,0.4864
+UK-E4 (H1),ar2,conformal,1.0,7.5595,0.71795,0.7534
+UK-E4 (H1),ar2,conformal_lvl,0.5,3.0,0.20955,0.253
+UK-E4 (H1),ar2,conformal_lvl,0.5,4.7622,0.5152,0.5739
+UK-E4 (H1),ar2,conformal_lvl,0.5,6.0,0.7336,0.7789
+UK-E4 (H1),ar2,conformal_lvl,0.5,7.5595,0.91215,0.9325
+UK-E4 (H1),ar2,conformal_lvl,1.0,3.0,0.7336,0.7789
+UK-E4 (H1),ar2,conformal_lvl,1.0,4.7622,0.9874,0.9917
+UK-E4 (H1),ar2,conformal_lvl,1.0,6.0,0.9995,0.99965
+UK-E4 (H1),ar2,conformal_lvl,1.0,7.5595,0.99995,0.99995
+UK-E4 (H1),ar2,rank,0.5,3.0,0.07375,0.09075
+UK-E4 (H1),ar2,rank,0.5,4.7622,0.1613,0.18915
+UK-E4 (H1),ar2,rank,0.5,6.0,0.24865,0.28135
+UK-E4 (H1),ar2,rank,0.5,7.5595,0.37685,0.41255
+UK-E4 (H1),ar2,rank,1.0,3.0,0.24865,0.28135
+UK-E4 (H1),ar2,rank,1.0,4.7622,0.55215,0.5902
+UK-E4 (H1),ar2,rank,1.0,6.0,0.75625,0.7855
+UK-E4 (H1),ar2,rank,1.0,7.5595,0.91905,0.93245
+UK-E1 (H1),ar2,ours_registered,0.5,3.0,0.08275,0.0821
+UK-E1 (H1),ar2,ours_registered,0.5,4.7622,0.16635,0.1649
+UK-E1 (H1),ar2,ours_registered,0.5,6.0,0.2504,0.2485
+UK-E1 (H1),ar2,ours_registered,0.5,7.5595,0.37925,0.37685
+UK-E1 (H1),ar2,ours_registered,1.0,3.0,0.2504,0.2485
+UK-E1 (H1),ar2,ours_registered,1.0,4.7622,0.5506,0.5489
+UK-E1 (H1),ar2,ours_registered,1.0,6.0,0.7488,0.74645
+UK-E1 (H1),ar2,ours_registered,1.0,7.5595,0.9097,0.90905
+UK-E1 (H1),ar2,ours_revised,0.5,3.0,0.0822,0.0838
+UK-E1 (H1),ar2,ours_revised,0.5,4.7622,0.1648,0.16755
+UK-E1 (H1),ar2,ours_revised,0.5,6.0,0.24765,0.25095
+UK-E1 (H1),ar2,ours_revised,0.5,7.5595,0.3761,0.382
+UK-E1 (H1),ar2,ours_revised,1.0,3.0,0.24765,0.25095
+UK-E1 (H1),ar2,ours_revised,1.0,4.7622,0.54775,0.5519
+UK-E1 (H1),ar2,ours_revised,1.0,6.0,0.7449,0.7497
+UK-E1 (H1),ar2,ours_revised,1.0,7.5595,0.9075,0.9093
+UK-E1 (H1),ar2,conformal,0.5,3.0,0.0283,0.0433
+UK-E1 (H1),ar2,conformal,0.5,4.7622,0.0484,0.0687
+UK-E1 (H1),ar2,conformal,0.5,6.0,0.0742,0.10195
+UK-E1 (H1),ar2,conformal,0.5,7.5595,0.1281,0.16355
+UK-E1 (H1),ar2,conformal,1.0,3.0,0.0742,0.10195
+UK-E1 (H1),ar2,conformal,1.0,4.7622,0.2376,0.28675
+UK-E1 (H1),ar2,conformal,1.0,6.0,0.4425,0.4971
+UK-E1 (H1),ar2,conformal,1.0,7.5595,0.7187,0.7612
+UK-E1 (H1),ar2,conformal_lvl,0.5,3.0,0.2111,0.27005
+UK-E1 (H1),ar2,conformal_lvl,0.5,4.7622,0.51725,0.5864
+UK-E1 (H1),ar2,conformal_lvl,0.5,6.0,0.73395,0.79075
+UK-E1 (H1),ar2,conformal_lvl,0.5,7.5595,0.9123,0.9382
+UK-E1 (H1),ar2,conformal_lvl,1.0,3.0,0.73395,0.79075
+UK-E1 (H1),ar2,conformal_lvl,1.0,4.7622,0.9872,0.99265
+UK-E1 (H1),ar2,conformal_lvl,1.0,6.0,0.9996,0.99965
+UK-E1 (H1),ar2,conformal_lvl,1.0,7.5595,1.0,1.0
+UK-E1 (H1),ar2,rank,0.5,3.0,0.08995,0.0867
+UK-E1 (H1),ar2,rank,0.5,4.7622,0.1759,0.1716
+UK-E1 (H1),ar2,rank,0.5,6.0,0.2583,0.25235
+UK-E1 (H1),ar2,rank,0.5,7.5595,0.38585,0.3797
+UK-E1 (H1),ar2,rank,1.0,3.0,0.2583,0.25235
+UK-E1 (H1),ar2,rank,1.0,4.7622,0.55515,0.5475
+UK-E1 (H1),ar2,rank,1.0,6.0,0.75385,0.7492
+UK-E1 (H1),ar2,rank,1.0,7.5595,0.9106,0.90805
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,0.5,3.0,0.08755,0.08485
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,0.5,4.7622,0.1779,0.17335
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,0.5,6.0,0.26275,0.25745
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,0.5,7.5595,0.39195,0.3868
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,1.0,3.0,0.26275,0.25745
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,1.0,4.7622,0.5598,0.5538
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,1.0,6.0,0.73465,0.7311
+SG-E1 hawker contrast h=2 (H3),ar2,ours_registered,1.0,7.5595,0.8841,0.88175
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,0.5,3.0,0.0869,0.0839
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,0.5,4.7622,0.1761,0.17135
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,0.5,6.0,0.2618,0.2552
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,0.5,7.5595,0.39105,0.3839
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,1.0,3.0,0.2618,0.2552
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,1.0,4.7622,0.55865,0.55175
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,1.0,6.0,0.73455,0.7297
+SG-E1 hawker contrast h=2 (H3),ar2,ours_revised,1.0,7.5595,0.88345,0.8807
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,0.5,3.0,0.01895,0.03235
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,0.5,4.7622,0.0169,0.0298
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,0.5,6.0,0.0145,0.02345
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,0.5,7.5595,0.01185,0.01905
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,1.0,3.0,0.0145,0.02345
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,1.0,4.7622,0.0096,0.01545
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,1.0,6.0,0.0097,0.0144
+SG-E1 hawker contrast h=2 (H3),ar2,conformal,1.0,7.5595,0.01265,0.0185
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,0.5,3.0,0.16545,0.2204
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,0.5,4.7622,0.40745,0.4854
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,0.5,6.0,0.60435,0.67845
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,0.5,7.5595,0.80465,0.85335
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,1.0,3.0,0.60435,0.67845
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,1.0,4.7622,0.9383,0.9591
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,1.0,6.0,0.9897,0.99315
+SG-E1 hawker contrast h=2 (H3),ar2,conformal_lvl,1.0,7.5595,0.9993,0.99965
+SG-E1 hawker contrast h=2 (H3),ar2,rank,0.5,3.0,0.1159,0.10475
+SG-E1 hawker contrast h=2 (H3),ar2,rank,0.5,4.7622,0.2197,0.20485
+SG-E1 hawker contrast h=2 (H3),ar2,rank,0.5,6.0,0.31525,0.30005
+SG-E1 hawker contrast h=2 (H3),ar2,rank,0.5,7.5595,0.44235,0.4254
+SG-E1 hawker contrast h=2 (H3),ar2,rank,1.0,3.0,0.31525,0.30005
+SG-E1 hawker contrast h=2 (H3),ar2,rank,1.0,4.7622,0.6074,0.59115
+SG-E1 hawker contrast h=2 (H3),ar2,rank,1.0,6.0,0.7798,0.76775
+SG-E1 hawker contrast h=2 (H3),ar2,rank,1.0,7.5595,0.91385,0.90845
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,0.5,3.0,0.2364,0.235
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,0.5,4.7622,0.5132,0.5111
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,0.5,6.0,0.70245,0.70055
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,0.5,7.5595,0.85875,0.8583
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,1.0,3.0,0.70245,0.70055
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,1.0,4.7622,0.95635,0.9562
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,1.0,6.0,0.99155,0.9915
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_registered,1.0,7.5595,0.9997,0.9997
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,0.5,3.0,0.23555,0.23415
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,0.5,4.7622,0.5127,0.5102
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,0.5,6.0,0.70195,0.69995
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,0.5,7.5595,0.859,0.8581
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,1.0,3.0,0.70195,0.69995
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,1.0,4.7622,0.9568,0.9561
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,1.0,6.0,0.9917,0.9916
+SG-E1 hawker contrast h=1 (secondary),ar2,ours_revised,1.0,7.5595,0.9997,0.9997
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,0.5,3.0,0.31435,0.39185
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,0.5,4.7622,0.7108,0.7766
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,0.5,6.0,0.89605,0.9275
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,0.5,7.5595,0.9834,0.9896
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,1.0,3.0,0.89605,0.9275
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,1.0,4.7622,0.999,0.99945
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,1.0,6.0,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,0.5,3.0,0.31435,0.39185
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,0.5,4.7622,0.7108,0.7766
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,0.5,6.0,0.89605,0.9275
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,0.5,7.5595,0.9834,0.9896
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,1.0,3.0,0.89605,0.9275
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,1.0,4.7622,0.999,0.99945
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,1.0,6.0,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ar2,conformal_lvl,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,0.5,3.0,0.22915,0.24775
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,0.5,4.7622,0.49205,0.5169
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,0.5,6.0,0.67935,0.6998
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,0.5,7.5595,0.85045,0.8629
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,1.0,3.0,0.67935,0.6998
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,1.0,4.7622,0.9584,0.96225
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,1.0,6.0,0.99405,0.99485
+SG-E1 hawker contrast h=1 (secondary),ar2,rank,1.0,7.5595,0.99995,0.99995
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,0.5,3.0,0.0899,0.08545
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,0.5,4.7622,0.18055,0.1711
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,0.5,6.0,0.2715,0.26
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,0.5,7.5595,0.40585,0.39345
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,1.0,3.0,0.2715,0.26
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,1.0,4.7622,0.58775,0.57665
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,1.0,6.0,0.7738,0.7658
+SG-E1 dish arm h=2 (secondary),ar2,ours_registered,1.0,7.5595,0.9168,0.9127
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,0.5,3.0,0.08865,0.08605
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,0.5,4.7622,0.1783,0.1735
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,0.5,6.0,0.26835,0.26265
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,0.5,7.5595,0.40225,0.39665
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,1.0,3.0,0.26835,0.26265
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,1.0,4.7622,0.5852,0.57865
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,1.0,6.0,0.7716,0.76715
+SG-E1 dish arm h=2 (secondary),ar2,ours_revised,1.0,7.5595,0.91595,0.9139
+SG-E1 dish arm h=2 (secondary),ar2,conformal,0.5,3.0,0.03725,0.04285
+SG-E1 dish arm h=2 (secondary),ar2,conformal,0.5,4.7622,0.06335,0.07115
+SG-E1 dish arm h=2 (secondary),ar2,conformal,0.5,6.0,0.0941,0.1054
+SG-E1 dish arm h=2 (secondary),ar2,conformal,0.5,7.5595,0.1573,0.17155
+SG-E1 dish arm h=2 (secondary),ar2,conformal,1.0,3.0,0.0941,0.1054
+SG-E1 dish arm h=2 (secondary),ar2,conformal,1.0,4.7622,0.28135,0.3015
+SG-E1 dish arm h=2 (secondary),ar2,conformal,1.0,6.0,0.5001,0.5197
+SG-E1 dish arm h=2 (secondary),ar2,conformal,1.0,7.5595,0.7674,0.7821
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,0.5,3.0,0.22795,0.2472
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,0.5,4.7622,0.53815,0.5605
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,0.5,6.0,0.74515,0.76425
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,0.5,7.5595,0.9141,0.9239
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,1.0,3.0,0.74515,0.76425
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,1.0,4.7622,0.9858,0.9879
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,1.0,6.0,0.9997,0.99975
+SG-E1 dish arm h=2 (secondary),ar2,conformal_lvl,1.0,7.5595,1.0,1.0
+SG-E1 dish arm h=2 (secondary),ar2,rank,0.5,3.0,0.1057,0.0895
+SG-E1 dish arm h=2 (secondary),ar2,rank,0.5,4.7622,0.20755,0.1836
+SG-E1 dish arm h=2 (secondary),ar2,rank,0.5,6.0,0.30055,0.2723
+SG-E1 dish arm h=2 (secondary),ar2,rank,0.5,7.5595,0.4407,0.40855
+SG-E1 dish arm h=2 (secondary),ar2,rank,1.0,3.0,0.30055,0.2723
+SG-E1 dish arm h=2 (secondary),ar2,rank,1.0,4.7622,0.61405,0.5837
+SG-E1 dish arm h=2 (secondary),ar2,rank,1.0,6.0,0.79,0.768
+SG-E1 dish arm h=2 (secondary),ar2,rank,1.0,7.5595,0.9307,0.9204
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,0.5,3.0,0.0839,0.11315
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,0.5,4.7622,0.17725,0.2193
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,0.5,6.0,0.26275,0.3161
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,0.5,7.5595,0.39195,0.44715
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,1.0,3.0,0.26275,0.3161
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,1.0,4.7622,0.5598,0.60955
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,1.0,6.0,0.73465,0.77345
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_registered,1.0,7.5595,0.8841,0.90415
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,0.5,3.0,0.08335,0.1118
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,0.5,4.7622,0.17545,0.2185
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,0.5,6.0,0.2618,0.315
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,0.5,7.5595,0.39105,0.44615
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,1.0,3.0,0.2618,0.315
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,1.0,4.7622,0.55865,0.6089
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,1.0,6.0,0.73455,0.7736
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,ours_revised,1.0,7.5595,0.88345,0.90335
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,0.5,3.0,0.01535,0.07665
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,0.5,4.7622,0.01635,0.0796
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,0.5,6.0,0.01445,0.0688
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,0.5,7.5595,0.01185,0.0525
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,1.0,3.0,0.01445,0.0688
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,1.0,4.7622,0.0096,0.0402
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,1.0,6.0,0.0097,0.0356
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal,1.0,7.5595,0.01265,0.04085
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,0.5,3.0,0.1555,0.2401
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,0.5,4.7622,0.40385,0.51085
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,0.5,6.0,0.6035,0.70335
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,0.5,7.5595,0.8046,0.86665
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,1.0,3.0,0.6035,0.70335
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,1.0,4.7622,0.9383,0.9644
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,1.0,6.0,0.9897,0.9942
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,conformal_lvl,1.0,7.5595,0.9993,0.9998
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,0.5,3.0,0.1073,0.14015
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,0.5,4.7622,0.218,0.26195
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,0.5,6.0,0.31485,0.3595
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,0.5,7.5595,0.4423,0.49085
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,1.0,3.0,0.31485,0.3595
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,1.0,4.7622,0.6074,0.65175
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,1.0,6.0,0.7798,0.81475
+SG-E1 hawker IUT h=2 & h=1 (H3),ar2,rank,1.0,7.5595,0.91385,0.9292
+UK-E3 (H1),sar12,ours_registered,0.5,3.0,0.14295,0.1327
+UK-E3 (H1),sar12,ours_registered,0.5,4.7622,0.3211,0.30285
+UK-E3 (H1),sar12,ours_registered,0.5,6.0,0.4874,0.46685
+UK-E3 (H1),sar12,ours_registered,0.5,7.5595,0.6862,0.67015
+UK-E3 (H1),sar12,ours_registered,1.0,3.0,0.4874,0.46685
+UK-E3 (H1),sar12,ours_registered,1.0,4.7622,0.87415,0.864
+UK-E3 (H1),sar12,ours_registered,1.0,6.0,0.9761,0.9736
+UK-E3 (H1),sar12,ours_registered,1.0,7.5595,0.99905,0.9986
+UK-E3 (H1),sar12,ours_revised,0.5,3.0,0.1426,0.1341
+UK-E3 (H1),sar12,ours_revised,0.5,4.7622,0.3195,0.3046
+UK-E3 (H1),sar12,ours_revised,0.5,6.0,0.48595,0.46955
+UK-E3 (H1),sar12,ours_revised,0.5,7.5595,0.68545,0.67265
+UK-E3 (H1),sar12,ours_revised,1.0,3.0,0.48595,0.46955
+UK-E3 (H1),sar12,ours_revised,1.0,4.7622,0.8734,0.86535
+UK-E3 (H1),sar12,ours_revised,1.0,6.0,0.9761,0.97405
+UK-E3 (H1),sar12,ours_revised,1.0,7.5595,0.99895,0.99865
+UK-E3 (H1),sar12,conformal,0.5,3.0,0.0699,0.082
+UK-E3 (H1),sar12,conformal,0.5,4.7622,0.1405,0.1627
+UK-E3 (H1),sar12,conformal,0.5,6.0,0.21415,0.24135
+UK-E3 (H1),sar12,conformal,0.5,7.5595,0.3365,0.36915
+UK-E3 (H1),sar12,conformal,1.0,3.0,0.21415,0.24135
+UK-E3 (H1),sar12,conformal,1.0,4.7622,0.52535,0.5609
+UK-E3 (H1),sar12,conformal,1.0,6.0,0.7552,0.77785
+UK-E3 (H1),sar12,conformal,1.0,7.5595,0.93445,0.94385
+UK-E3 (H1),sar12,conformal_lvl,0.5,3.0,0.15985,0.1738
+UK-E3 (H1),sar12,conformal_lvl,0.5,4.7622,0.38765,0.4094
+UK-E3 (H1),sar12,conformal_lvl,0.5,6.0,0.5843,0.6065
+UK-E3 (H1),sar12,conformal_lvl,0.5,7.5595,0.79445,0.8129
+UK-E3 (H1),sar12,conformal_lvl,1.0,3.0,0.5843,0.6065
+UK-E3 (H1),sar12,conformal_lvl,1.0,4.7622,0.9436,0.95035
+UK-E3 (H1),sar12,conformal_lvl,1.0,6.0,0.9955,0.99625
+UK-E3 (H1),sar12,conformal_lvl,1.0,7.5595,0.99985,0.99985
+UK-E3 (H1),sar12,rank,0.5,3.0,0.1017,0.1385
+UK-E3 (H1),sar12,rank,0.5,4.7622,0.252,0.3107
+UK-E3 (H1),sar12,rank,0.5,6.0,0.39585,0.46645
+UK-E3 (H1),sar12,rank,0.5,7.5595,0.60205,0.6689
+UK-E3 (H1),sar12,rank,1.0,3.0,0.39585,0.46645
+UK-E3 (H1),sar12,rank,1.0,4.7622,0.81765,0.86095
+UK-E3 (H1),sar12,rank,1.0,6.0,0.95465,0.969
+UK-E3 (H1),sar12,rank,1.0,7.5595,0.9968,0.99815
+UK-E4 (H1),sar12,ours_registered,0.5,3.0,0.1232,0.1414
+UK-E4 (H1),sar12,ours_registered,0.5,4.7622,0.3006,0.3298
+UK-E4 (H1),sar12,ours_registered,0.5,6.0,0.46195,0.4934
+UK-E4 (H1),sar12,ours_registered,0.5,7.5595,0.66735,0.6975
+UK-E4 (H1),sar12,ours_registered,1.0,3.0,0.46195,0.4934
+UK-E4 (H1),sar12,ours_registered,1.0,4.7622,0.86535,0.88365
+UK-E4 (H1),sar12,ours_registered,1.0,6.0,0.97405,0.9786
+UK-E4 (H1),sar12,ours_registered,1.0,7.5595,0.9987,0.99915
+UK-E4 (H1),sar12,ours_revised,0.5,3.0,0.12395,0.1422
+UK-E4 (H1),sar12,ours_revised,0.5,4.7622,0.30125,0.3298
+UK-E4 (H1),sar12,ours_revised,0.5,6.0,0.4624,0.4942
+UK-E4 (H1),sar12,ours_revised,0.5,7.5595,0.66885,0.6984
+UK-E4 (H1),sar12,ours_revised,1.0,3.0,0.4624,0.4942
+UK-E4 (H1),sar12,ours_revised,1.0,4.7622,0.86685,0.884
+UK-E4 (H1),sar12,ours_revised,1.0,6.0,0.97475,0.9786
+UK-E4 (H1),sar12,ours_revised,1.0,7.5595,0.99865,0.9991
+UK-E4 (H1),sar12,conformal,0.5,3.0,0.0588,0.08895
+UK-E4 (H1),sar12,conformal,0.5,4.7622,0.1292,0.1797
+UK-E4 (H1),sar12,conformal,0.5,6.0,0.20365,0.2679
+UK-E4 (H1),sar12,conformal,0.5,7.5595,0.3237,0.40305
+UK-E4 (H1),sar12,conformal,1.0,3.0,0.20365,0.2679
+UK-E4 (H1),sar12,conformal,1.0,4.7622,0.51565,0.59525
+UK-E4 (H1),sar12,conformal,1.0,6.0,0.75245,0.80845
+UK-E4 (H1),sar12,conformal,1.0,7.5595,0.9339,0.95515
+UK-E4 (H1),sar12,conformal_lvl,0.5,3.0,0.14635,0.1967
+UK-E4 (H1),sar12,conformal_lvl,0.5,4.7622,0.3765,0.4487
+UK-E4 (H1),sar12,conformal_lvl,0.5,6.0,0.57965,0.64915
+UK-E4 (H1),sar12,conformal_lvl,0.5,7.5595,0.7975,0.8462
+UK-E4 (H1),sar12,conformal_lvl,1.0,3.0,0.57965,0.64915
+UK-E4 (H1),sar12,conformal_lvl,1.0,4.7622,0.94645,0.9637
+UK-E4 (H1),sar12,conformal_lvl,1.0,6.0,0.99555,0.9976
+UK-E4 (H1),sar12,conformal_lvl,1.0,7.5595,1.0,1.0
+UK-E4 (H1),sar12,rank,0.5,3.0,0.09165,0.1398
+UK-E4 (H1),sar12,rank,0.5,4.7622,0.23875,0.31475
+UK-E4 (H1),sar12,rank,0.5,6.0,0.3898,0.47565
+UK-E4 (H1),sar12,rank,0.5,7.5595,0.58935,0.6743
+UK-E4 (H1),sar12,rank,1.0,3.0,0.3898,0.47565
+UK-E4 (H1),sar12,rank,1.0,4.7622,0.8122,0.8693
+UK-E4 (H1),sar12,rank,1.0,6.0,0.955,0.9725
+UK-E4 (H1),sar12,rank,1.0,7.5595,0.99645,0.99805
+UK-E1 (H1),sar12,ours_registered,0.5,3.0,0.14245,0.1105
+UK-E1 (H1),sar12,ours_registered,0.5,4.7622,0.29435,0.24545
+UK-E1 (H1),sar12,ours_registered,0.5,6.0,0.4331,0.37325
+UK-E1 (H1),sar12,ours_registered,0.5,7.5595,0.6149,0.55875
+UK-E1 (H1),sar12,ours_registered,1.0,3.0,0.4331,0.37325
+UK-E1 (H1),sar12,ours_registered,1.0,4.7622,0.8046,0.7639
+UK-E1 (H1),sar12,ours_registered,1.0,6.0,0.9449,0.9266
+UK-E1 (H1),sar12,ours_registered,1.0,7.5595,0.99375,0.9906
+UK-E1 (H1),sar12,ours_revised,0.5,3.0,0.1429,0.1112
+UK-E1 (H1),sar12,ours_revised,0.5,4.7622,0.2938,0.2471
+UK-E1 (H1),sar12,ours_revised,0.5,6.0,0.43395,0.374
+UK-E1 (H1),sar12,ours_revised,0.5,7.5595,0.61575,0.5599
+UK-E1 (H1),sar12,ours_revised,1.0,3.0,0.43395,0.374
+UK-E1 (H1),sar12,ours_revised,1.0,4.7622,0.80505,0.764
+UK-E1 (H1),sar12,ours_revised,1.0,6.0,0.9452,0.92705
+UK-E1 (H1),sar12,ours_revised,1.0,7.5595,0.99365,0.9905
+UK-E1 (H1),sar12,conformal,0.5,3.0,0.07275,0.0837
+UK-E1 (H1),sar12,conformal,0.5,4.7622,0.1443,0.1616
+UK-E1 (H1),sar12,conformal,0.5,6.0,0.21905,0.2402
+UK-E1 (H1),sar12,conformal,0.5,7.5595,0.334,0.36145
+UK-E1 (H1),sar12,conformal,1.0,3.0,0.21905,0.2402
+UK-E1 (H1),sar12,conformal,1.0,4.7622,0.51475,0.54085
+UK-E1 (H1),sar12,conformal,1.0,6.0,0.74135,0.7636
+UK-E1 (H1),sar12,conformal,1.0,7.5595,0.9287,0.93695
+UK-E1 (H1),sar12,conformal_lvl,0.5,3.0,0.1634,0.18295
+UK-E1 (H1),sar12,conformal_lvl,0.5,4.7622,0.3825,0.4087
+UK-E1 (H1),sar12,conformal_lvl,0.5,6.0,0.57015,0.60015
+UK-E1 (H1),sar12,conformal_lvl,0.5,7.5595,0.78365,0.80535
+UK-E1 (H1),sar12,conformal_lvl,1.0,3.0,0.57015,0.60015
+UK-E1 (H1),sar12,conformal_lvl,1.0,4.7622,0.93765,0.94555
+UK-E1 (H1),sar12,conformal_lvl,1.0,6.0,0.99235,0.9941
+UK-E1 (H1),sar12,conformal_lvl,1.0,7.5595,0.99975,0.99975
+UK-E1 (H1),sar12,rank,0.5,3.0,0.13015,0.10815
+UK-E1 (H1),sar12,rank,0.5,4.7622,0.2748,0.2411
+UK-E1 (H1),sar12,rank,0.5,6.0,0.40645,0.3671
+UK-E1 (H1),sar12,rank,0.5,7.5595,0.5873,0.54525
+UK-E1 (H1),sar12,rank,1.0,3.0,0.40645,0.3671
+UK-E1 (H1),sar12,rank,1.0,4.7622,0.7826,0.75285
+UK-E1 (H1),sar12,rank,1.0,6.0,0.9325,0.9174
+UK-E1 (H1),sar12,rank,1.0,7.5595,0.99135,0.98895
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,0.5,3.0,0.13625,0.1138
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,0.5,4.7622,0.29565,0.2614
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,0.5,6.0,0.43915,0.40225
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,0.5,7.5595,0.6261,0.58575
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,1.0,3.0,0.43915,0.40225
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,1.0,4.7622,0.8255,0.7984
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,1.0,6.0,0.95515,0.94445
+SG-E1 hawker contrast h=2 (H3),sar12,ours_registered,1.0,7.5595,0.9959,0.99445
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,0.5,3.0,0.1352,0.1141
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,0.5,4.7622,0.29435,0.26035
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,0.5,6.0,0.4374,0.40125
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,0.5,7.5595,0.62385,0.5862
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,1.0,3.0,0.4374,0.40125
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,1.0,4.7622,0.824,0.7981
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,1.0,6.0,0.95425,0.94345
+SG-E1 hawker contrast h=2 (H3),sar12,ours_revised,1.0,7.5595,0.9957,0.9945
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,0.5,3.0,0.04975,0.07885
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,0.5,4.7622,0.09065,0.1371
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,0.5,6.0,0.1222,0.1789
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,0.5,7.5595,0.15515,0.2195
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,1.0,3.0,0.1222,0.1789
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,1.0,4.7622,0.18235,0.25
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,1.0,6.0,0.1973,0.2619
+SG-E1 hawker contrast h=2 (H3),sar12,conformal,1.0,7.5595,0.20385,0.266
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,0.5,3.0,0.1295,0.1872
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,0.5,4.7622,0.33745,0.42965
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,0.5,6.0,0.52905,0.61915
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,0.5,7.5595,0.7489,0.8186
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,1.0,3.0,0.52905,0.61915
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,1.0,4.7622,0.92,0.9495
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,1.0,6.0,0.9876,0.99305
+SG-E1 hawker contrast h=2 (H3),sar12,conformal_lvl,1.0,7.5595,0.9987,0.99935
+SG-E1 hawker contrast h=2 (H3),sar12,rank,0.5,3.0,0.12495,0.11675
+SG-E1 hawker contrast h=2 (H3),sar12,rank,0.5,4.7622,0.2674,0.25565
+SG-E1 hawker contrast h=2 (H3),sar12,rank,0.5,6.0,0.4056,0.39205
+SG-E1 hawker contrast h=2 (H3),sar12,rank,0.5,7.5595,0.5913,0.57725
+SG-E1 hawker contrast h=2 (H3),sar12,rank,1.0,3.0,0.4056,0.39205
+SG-E1 hawker contrast h=2 (H3),sar12,rank,1.0,4.7622,0.79435,0.78475
+SG-E1 hawker contrast h=2 (H3),sar12,rank,1.0,6.0,0.93995,0.9353
+SG-E1 hawker contrast h=2 (H3),sar12,rank,1.0,7.5595,0.99305,0.99215
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,0.5,3.0,0.31075,0.28005
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,0.5,4.7622,0.6605,0.6277
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,0.5,6.0,0.8537,0.83185
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,0.5,7.5595,0.9682,0.961
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,1.0,3.0,0.8537,0.83185
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,1.0,4.7622,0.9976,0.99705
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,1.0,6.0,0.99995,0.9999
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_registered,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,0.5,3.0,0.307,0.28195
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,0.5,4.7622,0.65755,0.6293
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,0.5,6.0,0.85175,0.83325
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,0.5,7.5595,0.96725,0.9613
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,1.0,3.0,0.85175,0.83325
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,1.0,4.7622,0.99765,0.9971
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,1.0,6.0,0.99995,0.9999
+SG-E1 hawker contrast h=1 (secondary),sar12,ours_revised,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,0.5,3.0,0.20305,0.281
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,0.5,4.7622,0.52705,0.6285
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,0.5,6.0,0.75715,0.8297
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,0.5,7.5595,0.9293,0.9566
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,1.0,3.0,0.75715,0.8297
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,1.0,4.7622,0.99235,0.99625
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,1.0,6.0,0.99985,0.99995
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,0.5,3.0,0.20305,0.281
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,0.5,4.7622,0.52705,0.6285
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,0.5,6.0,0.75715,0.8297
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,0.5,7.5595,0.9293,0.9566
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,1.0,3.0,0.75715,0.8297
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,1.0,4.7622,0.99235,0.99625
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,1.0,6.0,0.99985,0.99995
+SG-E1 hawker contrast h=1 (secondary),sar12,conformal_lvl,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,0.5,3.0,0.2424,0.2688
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,0.5,4.7622,0.57055,0.60305
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,0.5,6.0,0.7819,0.80395
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,0.5,7.5595,0.9356,0.94585
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,1.0,3.0,0.7819,0.80395
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,1.0,4.7622,0.99275,0.99415
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,1.0,6.0,0.9998,0.9998
+SG-E1 hawker contrast h=1 (secondary),sar12,rank,1.0,7.5595,1.0,1.0
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,0.5,3.0,0.13845,0.12235
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,0.5,4.7622,0.29925,0.27205
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,0.5,6.0,0.44675,0.4159
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,0.5,7.5595,0.6434,0.6149
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,1.0,3.0,0.44675,0.4159
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,1.0,4.7622,0.83655,0.81845
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,1.0,6.0,0.96075,0.95415
+SG-E1 dish arm h=2 (secondary),sar12,ours_registered,1.0,7.5595,0.99715,0.99635
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,0.5,3.0,0.13765,0.12175
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,0.5,4.7622,0.29915,0.272
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,0.5,6.0,0.44635,0.41575
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,0.5,7.5595,0.6426,0.61415
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,1.0,3.0,0.44635,0.41575
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,1.0,4.7622,0.83775,0.819
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,1.0,6.0,0.9614,0.9544
+SG-E1 dish arm h=2 (secondary),sar12,ours_revised,1.0,7.5595,0.99705,0.9964
+SG-E1 dish arm h=2 (secondary),sar12,conformal,0.5,3.0,0.07695,0.0845
+SG-E1 dish arm h=2 (secondary),sar12,conformal,0.5,4.7622,0.1572,0.1685
+SG-E1 dish arm h=2 (secondary),sar12,conformal,0.5,6.0,0.2379,0.25225
+SG-E1 dish arm h=2 (secondary),sar12,conformal,0.5,7.5595,0.36555,0.38295
+SG-E1 dish arm h=2 (secondary),sar12,conformal,1.0,3.0,0.2379,0.25225
+SG-E1 dish arm h=2 (secondary),sar12,conformal,1.0,4.7622,0.558,0.5744
+SG-E1 dish arm h=2 (secondary),sar12,conformal,1.0,6.0,0.78515,0.79675
+SG-E1 dish arm h=2 (secondary),sar12,conformal,1.0,7.5595,0.9462,0.9497
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,0.5,3.0,0.1785,0.1903
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,0.5,4.7622,0.41325,0.4317
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,0.5,6.0,0.60715,0.62505
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,0.5,7.5595,0.8178,0.82835
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,1.0,3.0,0.60715,0.62505
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,1.0,4.7622,0.9513,0.95575
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,1.0,6.0,0.99505,0.99595
+SG-E1 dish arm h=2 (secondary),sar12,conformal_lvl,1.0,7.5595,1.0,1.0
+SG-E1 dish arm h=2 (secondary),sar12,rank,0.5,3.0,0.1337,0.122
+SG-E1 dish arm h=2 (secondary),sar12,rank,0.5,4.7622,0.2893,0.2702
+SG-E1 dish arm h=2 (secondary),sar12,rank,0.5,6.0,0.4384,0.4155
+SG-E1 dish arm h=2 (secondary),sar12,rank,0.5,7.5595,0.63335,0.6108
+SG-E1 dish arm h=2 (secondary),sar12,rank,1.0,3.0,0.4384,0.4155
+SG-E1 dish arm h=2 (secondary),sar12,rank,1.0,4.7622,0.82995,0.8131
+SG-E1 dish arm h=2 (secondary),sar12,rank,1.0,6.0,0.95585,0.9508
+SG-E1 dish arm h=2 (secondary),sar12,rank,1.0,7.5595,0.99595,0.9955
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,0.5,3.0,0.1168,0.16555
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,0.5,4.7622,0.28685,0.36005
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,0.5,6.0,0.4367,0.5114
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,0.5,7.5595,0.62545,0.6983
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,1.0,3.0,0.4367,0.5114
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,1.0,4.7622,0.8254,0.86855
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,1.0,6.0,0.95515,0.96915
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_registered,1.0,7.5595,0.9959,0.9979
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,0.5,3.0,0.1155,0.1664
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,0.5,4.7622,0.28535,0.36125
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,0.5,6.0,0.43475,0.51105
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,0.5,7.5595,0.6232,0.6982
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,1.0,3.0,0.43475,0.51105
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,1.0,4.7622,0.8239,0.86865
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,1.0,6.0,0.95425,0.969
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,ours_revised,1.0,7.5595,0.9957,0.99795
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,0.5,3.0,0.03515,0.1229
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,0.5,4.7622,0.0807,0.22475
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,0.5,6.0,0.1181,0.28505
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,0.5,7.5595,0.15425,0.34155
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,1.0,3.0,0.1181,0.28505
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,1.0,4.7622,0.1822,0.37645
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,1.0,6.0,0.1973,0.3804
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal,1.0,7.5595,0.20385,0.37705
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,0.5,3.0,0.1092,0.1986
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,0.5,4.7622,0.3174,0.4525
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,0.5,6.0,0.519,0.6426
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,0.5,7.5595,0.74615,0.83575
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,1.0,3.0,0.519,0.6426
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,1.0,4.7622,0.91945,0.95595
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,1.0,6.0,0.9876,0.9939
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,conformal_lvl,1.0,7.5595,0.9987,0.99945
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,0.5,3.0,0.1009,0.1711
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,0.5,4.7622,0.2512,0.3641
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,0.5,6.0,0.3995,0.5161
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,0.5,7.5595,0.58945,0.69295
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,1.0,3.0,0.3995,0.5161
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,1.0,4.7622,0.79415,0.86515
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,1.0,6.0,0.93995,0.965
+SG-E1 hawker IUT h=2 & h=1 (H3),sar12,rank,1.0,7.5595,0.99305,0.9968
+UK-E3 (H1),t3,ours_registered,0.5,3.0,0.14295,0.0686
+UK-E3 (H1),t3,ours_registered,0.5,4.7622,0.31215,0.16355
+UK-E3 (H1),t3,ours_registered,0.5,6.0,0.4809,0.2835
+UK-E3 (H1),t3,ours_registered,0.5,7.5595,0.69035,0.4928
+UK-E3 (H1),t3,ours_registered,1.0,3.0,0.4809,0.2835
+UK-E3 (H1),t3,ours_registered,1.0,4.7622,0.8663,0.74545
+UK-E3 (H1),t3,ours_registered,1.0,6.0,0.96095,0.9166
+UK-E3 (H1),t3,ours_registered,1.0,7.5595,0.99,0.9815
+UK-E3 (H1),t3,ours_revised,0.5,3.0,0.1422,0.06825
+UK-E3 (H1),t3,ours_revised,0.5,4.7622,0.31115,0.16265
+UK-E3 (H1),t3,ours_revised,0.5,6.0,0.4805,0.2815
+UK-E3 (H1),t3,ours_revised,0.5,7.5595,0.68985,0.4921
+UK-E3 (H1),t3,ours_revised,1.0,3.0,0.4805,0.2815
+UK-E3 (H1),t3,ours_revised,1.0,4.7622,0.86625,0.74525
+UK-E3 (H1),t3,ours_revised,1.0,6.0,0.9608,0.91665
+UK-E3 (H1),t3,ours_revised,1.0,7.5595,0.9899,0.98135
+UK-E3 (H1),t3,conformal,0.5,3.0,0.03665,0.05885
+UK-E3 (H1),t3,conformal,0.5,4.7622,0.0726,0.11425
+UK-E3 (H1),t3,conformal,0.5,6.0,0.1121,0.17225
+UK-E3 (H1),t3,conformal,0.5,7.5595,0.18945,0.271
+UK-E3 (H1),t3,conformal,1.0,3.0,0.1121,0.17225
+UK-E3 (H1),t3,conformal,1.0,4.7622,0.3275,0.41795
+UK-E3 (H1),t3,conformal,1.0,6.0,0.5311,0.6054
+UK-E3 (H1),t3,conformal,1.0,7.5595,0.7348,0.77845
+UK-E3 (H1),t3,conformal_lvl,0.5,3.0,0.0793,0.12565
+UK-E3 (H1),t3,conformal_lvl,0.5,4.7622,0.23915,0.33185
+UK-E3 (H1),t3,conformal_lvl,0.5,6.0,0.4158,0.51915
+UK-E3 (H1),t3,conformal_lvl,0.5,7.5595,0.6378,0.7173
+UK-E3 (H1),t3,conformal_lvl,1.0,3.0,0.4158,0.51915
+UK-E3 (H1),t3,conformal_lvl,1.0,4.7622,0.82215,0.8622
+UK-E3 (H1),t3,conformal_lvl,1.0,6.0,0.93125,0.94525
+UK-E3 (H1),t3,conformal_lvl,1.0,7.5595,0.9752,0.9802
+UK-E3 (H1),t3,rank,0.5,3.0,0.0496,0.0668
+UK-E3 (H1),t3,rank,0.5,4.7622,0.1127,0.15365
+UK-E3 (H1),t3,rank,0.5,6.0,0.19235,0.25075
+UK-E3 (H1),t3,rank,0.5,7.5595,0.3352,0.40475
+UK-E3 (H1),t3,rank,1.0,3.0,0.19235,0.25075
+UK-E3 (H1),t3,rank,1.0,4.7622,0.53475,0.59865
+UK-E3 (H1),t3,rank,1.0,6.0,0.73675,0.77445
+UK-E3 (H1),t3,rank,1.0,7.5595,0.8702,0.8891
+UK-E4 (H1),t3,ours_registered,0.5,3.0,0.14745,0.07195
+UK-E4 (H1),t3,ours_registered,0.5,4.7622,0.3141,0.17305
+UK-E4 (H1),t3,ours_registered,0.5,6.0,0.47255,0.29085
+UK-E4 (H1),t3,ours_registered,0.5,7.5595,0.67875,0.49045
+UK-E4 (H1),t3,ours_registered,1.0,3.0,0.47255,0.29085
+UK-E4 (H1),t3,ours_registered,1.0,4.7622,0.85765,0.7368
+UK-E4 (H1),t3,ours_registered,1.0,6.0,0.95415,0.90985
+UK-E4 (H1),t3,ours_registered,1.0,7.5595,0.9882,0.9787
+UK-E4 (H1),t3,ours_revised,0.5,3.0,0.1474,0.07225
+UK-E4 (H1),t3,ours_revised,0.5,4.7622,0.3147,0.1727
+UK-E4 (H1),t3,ours_revised,0.5,6.0,0.4734,0.29175
+UK-E4 (H1),t3,ours_revised,0.5,7.5595,0.6801,0.49155
+UK-E4 (H1),t3,ours_revised,1.0,3.0,0.4734,0.29175
+UK-E4 (H1),t3,ours_revised,1.0,4.7622,0.85845,0.73805
+UK-E4 (H1),t3,ours_revised,1.0,6.0,0.95435,0.91015
+UK-E4 (H1),t3,ours_revised,1.0,7.5595,0.98825,0.9788
+UK-E4 (H1),t3,conformal,0.5,3.0,0.0372,0.05585
+UK-E4 (H1),t3,conformal,0.5,4.7622,0.0721,0.1083
+UK-E4 (H1),t3,conformal,0.5,6.0,0.1156,0.1641
+UK-E4 (H1),t3,conformal,0.5,7.5595,0.1964,0.2608
+UK-E4 (H1),t3,conformal,1.0,3.0,0.1156,0.1641
+UK-E4 (H1),t3,conformal,1.0,4.7622,0.33505,0.40705
+UK-E4 (H1),t3,conformal,1.0,6.0,0.5329,0.5939
+UK-E4 (H1),t3,conformal,1.0,7.5595,0.7288,0.76685
+UK-E4 (H1),t3,conformal_lvl,0.5,3.0,0.07995,0.12485
+UK-E4 (H1),t3,conformal_lvl,0.5,4.7622,0.24255,0.33085
+UK-E4 (H1),t3,conformal_lvl,0.5,6.0,0.41855,0.51755
+UK-E4 (H1),t3,conformal_lvl,0.5,7.5595,0.63615,0.70845
+UK-E4 (H1),t3,conformal_lvl,1.0,3.0,0.41855,0.51755
+UK-E4 (H1),t3,conformal_lvl,1.0,4.7622,0.82015,0.85805
+UK-E4 (H1),t3,conformal_lvl,1.0,6.0,0.9281,0.94195
+UK-E4 (H1),t3,conformal_lvl,1.0,7.5595,0.97405,0.97885
+UK-E4 (H1),t3,rank,0.5,3.0,0.05345,0.07215
+UK-E4 (H1),t3,rank,0.5,4.7622,0.1198,0.16125
+UK-E4 (H1),t3,rank,0.5,6.0,0.20375,0.2618
+UK-E4 (H1),t3,rank,0.5,7.5595,0.34285,0.40725
+UK-E4 (H1),t3,rank,1.0,3.0,0.20375,0.2618
+UK-E4 (H1),t3,rank,1.0,4.7622,0.53265,0.59375
+UK-E4 (H1),t3,rank,1.0,6.0,0.7296,0.76935
+UK-E4 (H1),t3,rank,1.0,7.5595,0.8686,0.8855
+UK-E1 (H1),t3,ours_registered,0.5,3.0,0.1338,0.06855
+UK-E1 (H1),t3,ours_registered,0.5,4.7622,0.28485,0.1583
+UK-E1 (H1),t3,ours_registered,0.5,6.0,0.427,0.26925
+UK-E1 (H1),t3,ours_registered,0.5,7.5595,0.6215,0.44995
+UK-E1 (H1),t3,ours_registered,1.0,3.0,0.427,0.26925
+UK-E1 (H1),t3,ours_registered,1.0,4.7622,0.8188,0.6895
+UK-E1 (H1),t3,ours_registered,1.0,6.0,0.942,0.8872
+UK-E1 (H1),t3,ours_registered,1.0,7.5595,0.98555,0.97295
+UK-E1 (H1),t3,ours_revised,0.5,3.0,0.13405,0.0678
+UK-E1 (H1),t3,ours_revised,0.5,4.7622,0.28475,0.1566
+UK-E1 (H1),t3,ours_revised,0.5,6.0,0.4285,0.26815
+UK-E1 (H1),t3,ours_revised,0.5,7.5595,0.62085,0.4477
+UK-E1 (H1),t3,ours_revised,1.0,3.0,0.4285,0.26815
+UK-E1 (H1),t3,ours_revised,1.0,4.7622,0.81955,0.68695
+UK-E1 (H1),t3,ours_revised,1.0,6.0,0.9418,0.8868
+UK-E1 (H1),t3,ours_revised,1.0,7.5595,0.98565,0.97255
+UK-E1 (H1),t3,conformal,0.5,3.0,0.0337,0.0578
+UK-E1 (H1),t3,conformal,0.5,4.7622,0.06935,0.11805
+UK-E1 (H1),t3,conformal,0.5,6.0,0.11195,0.17725
+UK-E1 (H1),t3,conformal,0.5,7.5595,0.18925,0.2747
+UK-E1 (H1),t3,conformal,1.0,3.0,0.11195,0.17725
+UK-E1 (H1),t3,conformal,1.0,4.7622,0.3263,0.421
+UK-E1 (H1),t3,conformal,1.0,6.0,0.52585,0.60775
+UK-E1 (H1),t3,conformal,1.0,7.5595,0.7318,0.7778
+UK-E1 (H1),t3,conformal_lvl,0.5,3.0,0.07685,0.1374
+UK-E1 (H1),t3,conformal_lvl,0.5,4.7622,0.23605,0.35295
+UK-E1 (H1),t3,conformal_lvl,0.5,6.0,0.4092,0.5303
+UK-E1 (H1),t3,conformal_lvl,0.5,7.5595,0.6271,0.7276
+UK-E1 (H1),t3,conformal_lvl,1.0,3.0,0.4092,0.5303
+UK-E1 (H1),t3,conformal_lvl,1.0,4.7622,0.8193,0.86785
+UK-E1 (H1),t3,conformal_lvl,1.0,6.0,0.9277,0.94515
+UK-E1 (H1),t3,conformal_lvl,1.0,7.5595,0.97305,0.97845
+UK-E1 (H1),t3,rank,0.5,3.0,0.05635,0.06695
+UK-E1 (H1),t3,rank,0.5,4.7622,0.12645,0.1465
+UK-E1 (H1),t3,rank,0.5,6.0,0.2071,0.23455
+UK-E1 (H1),t3,rank,0.5,7.5595,0.34055,0.3732
+UK-E1 (H1),t3,rank,1.0,3.0,0.2071,0.23455
+UK-E1 (H1),t3,rank,1.0,4.7622,0.5282,0.5585
+UK-E1 (H1),t3,rank,1.0,6.0,0.7256,0.7465
+UK-E1 (H1),t3,rank,1.0,7.5595,0.8642,0.87395
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,0.5,3.0,0.1444,0.06835
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,0.5,4.7622,0.29825,0.162
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,0.5,6.0,0.4454,0.2692
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,0.5,7.5595,0.63715,0.452
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,1.0,3.0,0.4454,0.2692
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,1.0,4.7622,0.82345,0.68675
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,1.0,6.0,0.94035,0.8824
+SG-E1 hawker contrast h=2 (H3),t3,ours_registered,1.0,7.5595,0.98575,0.97105
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,0.5,3.0,0.14365,0.0678
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,0.5,4.7622,0.29715,0.1603
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,0.5,6.0,0.4428,0.26745
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,0.5,7.5595,0.63515,0.4489
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,1.0,3.0,0.4428,0.26745
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,1.0,4.7622,0.8218,0.6852
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,1.0,6.0,0.93955,0.8817
+SG-E1 hawker contrast h=2 (H3),t3,ours_revised,1.0,7.5595,0.98545,0.9704
+SG-E1 hawker contrast h=2 (H3),t3,conformal,0.5,3.0,0.0364,0.05065
+SG-E1 hawker contrast h=2 (H3),t3,conformal,0.5,4.7622,0.06255,0.08545
+SG-E1 hawker contrast h=2 (H3),t3,conformal,0.5,6.0,0.08395,0.11335
+SG-E1 hawker contrast h=2 (H3),t3,conformal,0.5,7.5595,0.10975,0.1445
+SG-E1 hawker contrast h=2 (H3),t3,conformal,1.0,3.0,0.08395,0.11335
+SG-E1 hawker contrast h=2 (H3),t3,conformal,1.0,4.7622,0.133,0.1745
+SG-E1 hawker contrast h=2 (H3),t3,conformal,1.0,6.0,0.15225,0.1954
+SG-E1 hawker contrast h=2 (H3),t3,conformal,1.0,7.5595,0.1668,0.21055
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,0.5,3.0,0.07755,0.11855
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,0.5,4.7622,0.2057,0.27895
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,0.5,6.0,0.3452,0.42835
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,0.5,7.5595,0.5212,0.59435
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,1.0,3.0,0.3452,0.42835
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,1.0,4.7622,0.69975,0.74595
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,1.0,6.0,0.83305,0.8571
+SG-E1 hawker contrast h=2 (H3),t3,conformal_lvl,1.0,7.5595,0.914,0.92435
+SG-E1 hawker contrast h=2 (H3),t3,rank,0.5,3.0,0.07355,0.06775
+SG-E1 hawker contrast h=2 (H3),t3,rank,0.5,4.7622,0.1585,0.14775
+SG-E1 hawker contrast h=2 (H3),t3,rank,0.5,6.0,0.2512,0.2368
+SG-E1 hawker contrast h=2 (H3),t3,rank,0.5,7.5595,0.4002,0.382
+SG-E1 hawker contrast h=2 (H3),t3,rank,1.0,3.0,0.2512,0.2368
+SG-E1 hawker contrast h=2 (H3),t3,rank,1.0,4.7622,0.58415,0.5678
+SG-E1 hawker contrast h=2 (H3),t3,rank,1.0,6.0,0.7555,0.7456
+SG-E1 hawker contrast h=2 (H3),t3,rank,1.0,7.5595,0.8746,0.8699
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,0.5,3.0,0.3464,0.1666
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,0.5,4.7622,0.71695,0.49725
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,0.5,6.0,0.88075,0.7473
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,0.5,7.5595,0.96215,0.91795
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,1.0,3.0,0.88075,0.7473
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,1.0,4.7622,0.9899,0.9806
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,1.0,6.0,0.99655,0.9949
+SG-E1 hawker contrast h=1 (secondary),t3,ours_registered,1.0,7.5595,0.99855,0.9982
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,0.5,3.0,0.3433,0.1663
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,0.5,4.7622,0.71365,0.49555
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,0.5,6.0,0.87895,0.7458
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,0.5,7.5595,0.9617,0.91745
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,1.0,3.0,0.87895,0.7458
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,1.0,4.7622,0.9897,0.98055
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,1.0,6.0,0.9965,0.99485
+SG-E1 hawker contrast h=1 (secondary),t3,ours_revised,1.0,7.5595,0.99855,0.9982
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,0.5,3.0,0.1045,0.1693
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,0.5,4.7622,0.305,0.4061
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,0.5,6.0,0.48365,0.57335
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,0.5,7.5595,0.6689,0.7305
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,1.0,3.0,0.48365,0.57335
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,1.0,4.7622,0.8128,0.8461
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,1.0,6.0,0.9011,0.91505
+SG-E1 hawker contrast h=1 (secondary),t3,conformal,1.0,7.5595,0.9502,0.9559
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,0.5,3.0,0.1045,0.1693
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,0.5,4.7622,0.305,0.4061
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,0.5,6.0,0.48365,0.57335
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,0.5,7.5595,0.6689,0.7305
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,1.0,3.0,0.48365,0.57335
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,1.0,4.7622,0.8128,0.8461
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,1.0,6.0,0.9011,0.91505
+SG-E1 hawker contrast h=1 (secondary),t3,conformal_lvl,1.0,7.5595,0.9502,0.9559
+SG-E1 hawker contrast h=1 (secondary),t3,rank,0.5,3.0,0.11155,0.1672
+SG-E1 hawker contrast h=1 (secondary),t3,rank,0.5,4.7622,0.3132,0.3975
+SG-E1 hawker contrast h=1 (secondary),t3,rank,0.5,6.0,0.4913,0.5719
+SG-E1 hawker contrast h=1 (secondary),t3,rank,0.5,7.5595,0.6782,0.73175
+SG-E1 hawker contrast h=1 (secondary),t3,rank,1.0,3.0,0.4913,0.5719
+SG-E1 hawker contrast h=1 (secondary),t3,rank,1.0,4.7622,0.8235,0.85085
+SG-E1 hawker contrast h=1 (secondary),t3,rank,1.0,6.0,0.90965,0.9214
+SG-E1 hawker contrast h=1 (secondary),t3,rank,1.0,7.5595,0.9557,0.9604
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,0.5,3.0,0.1438,0.06955
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,0.5,4.7622,0.30465,0.1639
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,0.5,6.0,0.4645,0.27855
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,0.5,7.5595,0.6691,0.47485
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,1.0,3.0,0.4645,0.27855
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,1.0,4.7622,0.8488,0.7228
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,1.0,6.0,0.9549,0.90535
+SG-E1 dish arm h=2 (secondary),t3,ours_registered,1.0,7.5595,0.99005,0.9798
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,0.5,3.0,0.1441,0.06935
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,0.5,4.7622,0.30445,0.1639
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,0.5,6.0,0.46445,0.27965
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,0.5,7.5595,0.6682,0.47615
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,1.0,3.0,0.46445,0.27965
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,1.0,4.7622,0.8494,0.7241
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,1.0,6.0,0.95465,0.90595
+SG-E1 dish arm h=2 (secondary),t3,ours_revised,1.0,7.5595,0.98985,0.9799
+SG-E1 dish arm h=2 (secondary),t3,conformal,0.5,3.0,0.04925,0.0572
+SG-E1 dish arm h=2 (secondary),t3,conformal,0.5,4.7622,0.09635,0.1108
+SG-E1 dish arm h=2 (secondary),t3,conformal,0.5,6.0,0.14735,0.16605
+SG-E1 dish arm h=2 (secondary),t3,conformal,0.5,7.5595,0.2384,0.2627
+SG-E1 dish arm h=2 (secondary),t3,conformal,1.0,3.0,0.14735,0.16605
+SG-E1 dish arm h=2 (secondary),t3,conformal,1.0,4.7622,0.39255,0.41885
+SG-E1 dish arm h=2 (secondary),t3,conformal,1.0,6.0,0.5969,0.6177
+SG-E1 dish arm h=2 (secondary),t3,conformal,1.0,7.5595,0.7806,0.7921
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,0.5,3.0,0.1073,0.1255
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,0.5,4.7622,0.2946,0.3299
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,0.5,6.0,0.47725,0.51435
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,0.5,7.5595,0.6899,0.72015
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,1.0,3.0,0.47725,0.51435
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,1.0,4.7622,0.8563,0.8701
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,1.0,6.0,0.9463,0.95125
+SG-E1 dish arm h=2 (secondary),t3,conformal_lvl,1.0,7.5595,0.98045,0.9819
+SG-E1 dish arm h=2 (secondary),t3,rank,0.5,3.0,0.07405,0.06885
+SG-E1 dish arm h=2 (secondary),t3,rank,0.5,4.7622,0.1662,0.15515
+SG-E1 dish arm h=2 (secondary),t3,rank,0.5,6.0,0.2666,0.2513
+SG-E1 dish arm h=2 (secondary),t3,rank,0.5,7.5595,0.41985,0.4032
+SG-E1 dish arm h=2 (secondary),t3,rank,1.0,3.0,0.2666,0.2513
+SG-E1 dish arm h=2 (secondary),t3,rank,1.0,4.7622,0.61845,0.60525
+SG-E1 dish arm h=2 (secondary),t3,rank,1.0,6.0,0.7935,0.784
+SG-E1 dish arm h=2 (secondary),t3,rank,1.0,7.5595,0.90645,0.90145
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,0.5,3.0,0.12545,0.1134
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,0.5,4.7622,0.29265,0.275
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,0.5,6.0,0.4434,0.42185
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,0.5,7.5595,0.6367,0.61585
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,1.0,3.0,0.4434,0.42185
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,1.0,4.7622,0.82325,0.81055
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,1.0,6.0,0.94035,0.9364
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_registered,1.0,7.5595,0.98575,0.98435
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,0.5,3.0,0.12415,0.1118
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,0.5,4.7622,0.29135,0.27275
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,0.5,6.0,0.44075,0.4193
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,0.5,7.5595,0.6347,0.6128
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,1.0,3.0,0.44075,0.4193
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,1.0,4.7622,0.8216,0.80835
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,1.0,6.0,0.93955,0.93535
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,ours_revised,1.0,7.5595,0.98545,0.9842
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,0.5,3.0,0.0198,0.09395
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,0.5,4.7622,0.0475,0.17785
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,0.5,6.0,0.0722,0.23305
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,0.5,7.5595,0.10385,0.2896
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,1.0,3.0,0.0722,0.23305
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,1.0,4.7622,0.13085,0.33105
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,1.0,6.0,0.15125,0.35455
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal,1.0,7.5595,0.16645,0.36785
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,0.5,3.0,0.06245,0.12435
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,0.5,4.7622,0.1865,0.29395
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,0.5,6.0,0.32715,0.44415
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,0.5,7.5595,0.51055,0.60815
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,1.0,3.0,0.32715,0.44415
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,1.0,4.7622,0.69495,0.7561
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,1.0,6.0,0.831,0.86215
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,conformal_lvl,1.0,7.5595,0.9134,0.92665
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,0.5,3.0,0.0512,0.09975
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,0.5,4.7622,0.1374,0.22775
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,0.5,6.0,0.2351,0.34875
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,0.5,7.5595,0.3908,0.4999
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,1.0,3.0,0.2351,0.34875
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,1.0,4.7622,0.5796,0.6681
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,1.0,6.0,0.7537,0.80835
+SG-E1 hawker IUT h=2 & h=1 (H3),t3,rank,1.0,7.5595,0.87405,0.9003
+UK-E3 (H1),spike,ours_registered,0.5,3.0,0.15605,0.0707
+UK-E3 (H1),spike,ours_registered,0.5,4.7622,0.2674,0.14055
+UK-E3 (H1),spike,ours_registered,0.5,6.0,0.3641,0.20935
+UK-E3 (H1),spike,ours_registered,0.5,7.5595,0.4998,0.3228
+UK-E3 (H1),spike,ours_registered,1.0,3.0,0.3641,0.20935
+UK-E3 (H1),spike,ours_registered,1.0,4.7622,0.66265,0.4901
+UK-E3 (H1),spike,ours_registered,1.0,6.0,0.8311,0.69385
+UK-E3 (H1),spike,ours_registered,1.0,7.5595,0.9527,0.88185
+UK-E3 (H1),spike,ours_revised,0.5,3.0,0.1554,0.07035
+UK-E3 (H1),spike,ours_revised,0.5,4.7622,0.26705,0.1405
+UK-E3 (H1),spike,ours_revised,0.5,6.0,0.36355,0.20975
+UK-E3 (H1),spike,ours_revised,0.5,7.5595,0.4985,0.32245
+UK-E3 (H1),spike,ours_revised,1.0,3.0,0.36355,0.20975
+UK-E3 (H1),spike,ours_revised,1.0,4.7622,0.662,0.49055
+UK-E3 (H1),spike,ours_revised,1.0,6.0,0.8305,0.694
+UK-E3 (H1),spike,ours_revised,1.0,7.5595,0.95255,0.8828
+UK-E3 (H1),spike,conformal,0.5,3.0,0.0896,0.0581
+UK-E3 (H1),spike,conformal,0.5,4.7622,0.1574,0.1097
+UK-E3 (H1),spike,conformal,0.5,6.0,0.22465,0.1623
+UK-E3 (H1),spike,conformal,0.5,7.5595,0.3226,0.252
+UK-E3 (H1),spike,conformal,1.0,3.0,0.22465,0.1623
+UK-E3 (H1),spike,conformal,1.0,4.7622,0.4669,0.3864
+UK-E3 (H1),spike,conformal,1.0,6.0,0.66025,0.58475
+UK-E3 (H1),spike,conformal,1.0,7.5595,0.85485,0.80715
+UK-E3 (H1),spike,conformal_lvl,0.5,3.0,0.2288,0.0866
+UK-E3 (H1),spike,conformal_lvl,0.5,4.7622,0.38725,0.18875
+UK-E3 (H1),spike,conformal_lvl,0.5,6.0,0.5142,0.2867
+UK-E3 (H1),spike,conformal_lvl,0.5,7.5595,0.67225,0.43275
+UK-E3 (H1),spike,conformal_lvl,1.0,3.0,0.5142,0.2867
+UK-E3 (H1),spike,conformal_lvl,1.0,4.7622,0.8285,0.63885
+UK-E3 (H1),spike,conformal_lvl,1.0,6.0,0.94525,0.8373
+UK-E3 (H1),spike,conformal_lvl,1.0,7.5595,0.99165,0.96315
+UK-E3 (H1),spike,rank,0.5,3.0,0.12215,0.07135
+UK-E3 (H1),spike,rank,0.5,4.7622,0.2194,0.1407
+UK-E3 (H1),spike,rank,0.5,6.0,0.3068,0.2118
+UK-E3 (H1),spike,rank,0.5,7.5595,0.43345,0.3225
+UK-E3 (H1),spike,rank,1.0,3.0,0.3068,0.2118
+UK-E3 (H1),spike,rank,1.0,4.7622,0.59915,0.48355
+UK-E3 (H1),spike,rank,1.0,6.0,0.78115,0.6897
+UK-E3 (H1),spike,rank,1.0,7.5595,0.9266,0.87725
+UK-E4 (H1),spike,ours_registered,0.5,3.0,0.15075,0.0724
+UK-E4 (H1),spike,ours_registered,0.5,4.7622,0.25795,0.14345
+UK-E4 (H1),spike,ours_registered,0.5,6.0,0.3531,0.2113
+UK-E4 (H1),spike,ours_registered,0.5,7.5595,0.48775,0.32405
+UK-E4 (H1),spike,ours_registered,1.0,3.0,0.3531,0.2113
+UK-E4 (H1),spike,ours_registered,1.0,4.7622,0.65435,0.49115
+UK-E4 (H1),spike,ours_registered,1.0,6.0,0.8243,0.6966
+UK-E4 (H1),spike,ours_registered,1.0,7.5595,0.9459,0.8835
+UK-E4 (H1),spike,ours_revised,0.5,3.0,0.1512,0.0729
+UK-E4 (H1),spike,ours_revised,0.5,4.7622,0.25815,0.14335
+UK-E4 (H1),spike,ours_revised,0.5,6.0,0.35415,0.21185
+UK-E4 (H1),spike,ours_revised,0.5,7.5595,0.48895,0.32445
+UK-E4 (H1),spike,ours_revised,1.0,3.0,0.35415,0.21185
+UK-E4 (H1),spike,ours_revised,1.0,4.7622,0.65485,0.4927
+UK-E4 (H1),spike,ours_revised,1.0,6.0,0.82405,0.69775
+UK-E4 (H1),spike,ours_revised,1.0,7.5595,0.94605,0.8839
+UK-E4 (H1),spike,conformal,0.5,3.0,0.0887,0.05875
+UK-E4 (H1),spike,conformal,0.5,4.7622,0.15465,0.11055
+UK-E4 (H1),spike,conformal,0.5,6.0,0.21935,0.1617
+UK-E4 (H1),spike,conformal,0.5,7.5595,0.31905,0.24585
+UK-E4 (H1),spike,conformal,1.0,3.0,0.21935,0.1617
+UK-E4 (H1),spike,conformal,1.0,4.7622,0.4689,0.38915
+UK-E4 (H1),spike,conformal,1.0,6.0,0.66335,0.58405
+UK-E4 (H1),spike,conformal,1.0,7.5595,0.8543,0.8044
+UK-E4 (H1),spike,conformal_lvl,0.5,3.0,0.2232,0.09015
+UK-E4 (H1),spike,conformal_lvl,0.5,4.7622,0.3857,0.18415
+UK-E4 (H1),spike,conformal_lvl,0.5,6.0,0.51205,0.28465
+UK-E4 (H1),spike,conformal_lvl,0.5,7.5595,0.6707,0.43885
+UK-E4 (H1),spike,conformal_lvl,1.0,3.0,0.51205,0.28465
+UK-E4 (H1),spike,conformal_lvl,1.0,4.7622,0.82715,0.63865
+UK-E4 (H1),spike,conformal_lvl,1.0,6.0,0.9425,0.84045
+UK-E4 (H1),spike,conformal_lvl,1.0,7.5595,0.9917,0.9618
+UK-E4 (H1),spike,rank,0.5,3.0,0.12125,0.06825
+UK-E4 (H1),spike,rank,0.5,4.7622,0.21805,0.13525
+UK-E4 (H1),spike,rank,0.5,6.0,0.30445,0.20255
+UK-E4 (H1),spike,rank,0.5,7.5595,0.4363,0.3116
+UK-E4 (H1),spike,rank,1.0,3.0,0.30445,0.20255
+UK-E4 (H1),spike,rank,1.0,4.7622,0.60025,0.47895
+UK-E4 (H1),spike,rank,1.0,6.0,0.78025,0.67775
+UK-E4 (H1),spike,rank,1.0,7.5595,0.92625,0.8703
+UK-E1 (H1),spike,ours_registered,0.5,3.0,0.1403,0.06975
+UK-E1 (H1),spike,ours_registered,0.5,4.7622,0.23825,0.13695
+UK-E1 (H1),spike,ours_registered,0.5,6.0,0.3255,0.2013
+UK-E1 (H1),spike,ours_registered,0.5,7.5595,0.452,0.3037
+UK-E1 (H1),spike,ours_registered,1.0,3.0,0.3255,0.2013
+UK-E1 (H1),spike,ours_registered,1.0,4.7622,0.61895,0.46455
+UK-E1 (H1),spike,ours_registered,1.0,6.0,0.7901,0.66965
+UK-E1 (H1),spike,ours_registered,1.0,7.5595,0.9293,0.8596
+UK-E1 (H1),spike,ours_revised,0.5,3.0,0.14055,0.0696
+UK-E1 (H1),spike,ours_revised,0.5,4.7622,0.23825,0.13625
+UK-E1 (H1),spike,ours_revised,0.5,6.0,0.32645,0.20105
+UK-E1 (H1),spike,ours_revised,0.5,7.5595,0.45255,0.30345
+UK-E1 (H1),spike,ours_revised,1.0,3.0,0.32645,0.20105
+UK-E1 (H1),spike,ours_revised,1.0,4.7622,0.61855,0.4634
+UK-E1 (H1),spike,ours_revised,1.0,6.0,0.7908,0.6698
+UK-E1 (H1),spike,ours_revised,1.0,7.5595,0.9293,0.8592
+UK-E1 (H1),spike,conformal,0.5,3.0,0.08915,0.06205
+UK-E1 (H1),spike,conformal,0.5,4.7622,0.15755,0.1159
+UK-E1 (H1),spike,conformal,0.5,6.0,0.2215,0.1698
+UK-E1 (H1),spike,conformal,0.5,7.5595,0.3184,0.25615
+UK-E1 (H1),spike,conformal,1.0,3.0,0.2215,0.1698
+UK-E1 (H1),spike,conformal,1.0,4.7622,0.468,0.39825
+UK-E1 (H1),spike,conformal,1.0,6.0,0.6563,0.59355
+UK-E1 (H1),spike,conformal,1.0,7.5595,0.85095,0.80745
+UK-E1 (H1),spike,conformal_lvl,0.5,3.0,0.2251,0.0953
+UK-E1 (H1),spike,conformal_lvl,0.5,4.7622,0.3866,0.1937
+UK-E1 (H1),spike,conformal_lvl,0.5,6.0,0.5106,0.29665
+UK-E1 (H1),spike,conformal_lvl,0.5,7.5595,0.666,0.44895
+UK-E1 (H1),spike,conformal_lvl,1.0,3.0,0.5106,0.29665
+UK-E1 (H1),spike,conformal_lvl,1.0,4.7622,0.8238,0.6441
+UK-E1 (H1),spike,conformal_lvl,1.0,6.0,0.94405,0.84125
+UK-E1 (H1),spike,conformal_lvl,1.0,7.5595,0.99155,0.96705
+UK-E1 (H1),spike,rank,0.5,3.0,0.1289,0.06965
+UK-E1 (H1),spike,rank,0.5,4.7622,0.2263,0.1342
+UK-E1 (H1),spike,rank,0.5,6.0,0.31055,0.20055
+UK-E1 (H1),spike,rank,0.5,7.5595,0.4323,0.30415
+UK-E1 (H1),spike,rank,1.0,3.0,0.31055,0.20055
+UK-E1 (H1),spike,rank,1.0,4.7622,0.5997,0.4584
+UK-E1 (H1),spike,rank,1.0,6.0,0.77305,0.66335
+UK-E1 (H1),spike,rank,1.0,7.5595,0.91755,0.85105
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,0.5,3.0,0.14835,0.06865
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,0.5,4.7622,0.25035,0.1372
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,0.5,6.0,0.3389,0.20275
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,0.5,7.5595,0.46465,0.3068
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,1.0,3.0,0.3389,0.20275
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,1.0,4.7622,0.6245,0.46195
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,1.0,6.0,0.8038,0.6636
+SG-E1 hawker contrast h=2 (H3),spike,ours_registered,1.0,7.5595,0.93185,0.86115
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,0.5,3.0,0.1474,0.068
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,0.5,4.7622,0.2493,0.1357
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,0.5,6.0,0.33705,0.20065
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,0.5,7.5595,0.4632,0.3041
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,1.0,3.0,0.33705,0.20065
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,1.0,4.7622,0.6228,0.45975
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,1.0,6.0,0.80215,0.661
+SG-E1 hawker contrast h=2 (H3),spike,ours_revised,1.0,7.5595,0.931,0.85995
+SG-E1 hawker contrast h=2 (H3),spike,conformal,0.5,3.0,0.05465,0.0467
+SG-E1 hawker contrast h=2 (H3),spike,conformal,0.5,4.7622,0.08355,0.0711
+SG-E1 hawker contrast h=2 (H3),spike,conformal,0.5,6.0,0.10585,0.09135
+SG-E1 hawker contrast h=2 (H3),spike,conformal,0.5,7.5595,0.1299,0.1116
+SG-E1 hawker contrast h=2 (H3),spike,conformal,1.0,3.0,0.10585,0.09135
+SG-E1 hawker contrast h=2 (H3),spike,conformal,1.0,4.7622,0.1576,0.13885
+SG-E1 hawker contrast h=2 (H3),spike,conformal,1.0,6.0,0.18285,0.1642
+SG-E1 hawker contrast h=2 (H3),spike,conformal,1.0,7.5595,0.2014,0.1809
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,0.5,3.0,0.1848,0.0888
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,0.5,4.7622,0.32095,0.1749
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,0.5,6.0,0.43415,0.261
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,0.5,7.5595,0.5801,0.3951
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,1.0,3.0,0.43415,0.261
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,1.0,4.7622,0.74955,0.5762
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,1.0,6.0,0.8966,0.77695
+SG-E1 hawker contrast h=2 (H3),spike,conformal_lvl,1.0,7.5595,0.97655,0.92975
+SG-E1 hawker contrast h=2 (H3),spike,rank,0.5,3.0,0.13345,0.06945
+SG-E1 hawker contrast h=2 (H3),spike,rank,0.5,4.7622,0.22705,0.13665
+SG-E1 hawker contrast h=2 (H3),spike,rank,0.5,6.0,0.31165,0.2008
+SG-E1 hawker contrast h=2 (H3),spike,rank,0.5,7.5595,0.43335,0.30405
+SG-E1 hawker contrast h=2 (H3),spike,rank,1.0,3.0,0.31165,0.2008
+SG-E1 hawker contrast h=2 (H3),spike,rank,1.0,4.7622,0.5945,0.45515
+SG-E1 hawker contrast h=2 (H3),spike,rank,1.0,6.0,0.77605,0.6568
+SG-E1 hawker contrast h=2 (H3),spike,rank,1.0,7.5595,0.918,0.8539
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,0.5,3.0,0.3028,0.0992
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,0.5,4.7622,0.48355,0.2088
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,0.5,6.0,0.6181,0.31685
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,0.5,7.5595,0.7673,0.4785
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,1.0,3.0,0.6181,0.31685
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,1.0,4.7622,0.8994,0.6877
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,1.0,6.0,0.97485,0.87815
+SG-E1 hawker contrast h=1 (secondary),spike,ours_registered,1.0,7.5595,0.9975,0.97965
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,0.5,3.0,0.3013,0.0992
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,0.5,4.7622,0.48065,0.2091
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,0.5,6.0,0.6156,0.31695
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,0.5,7.5595,0.7653,0.4789
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,1.0,3.0,0.6156,0.31695
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,1.0,4.7622,0.89835,0.6888
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,1.0,6.0,0.97445,0.8788
+SG-E1 hawker contrast h=1 (secondary),spike,ours_revised,1.0,7.5595,0.99745,0.97975
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,0.5,3.0,0.26765,0.095
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,0.5,4.7622,0.4461,0.20575
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,0.5,6.0,0.57735,0.31665
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,0.5,7.5595,0.7341,0.4788
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,1.0,3.0,0.57735,0.31665
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,1.0,4.7622,0.8773,0.6834
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,1.0,6.0,0.9686,0.87535
+SG-E1 hawker contrast h=1 (secondary),spike,conformal,1.0,7.5595,0.9971,0.97885
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,0.5,3.0,0.26765,0.095
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,0.5,4.7622,0.4461,0.20575
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,0.5,6.0,0.57735,0.31665
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,0.5,7.5595,0.7341,0.4788
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,1.0,3.0,0.57735,0.31665
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,1.0,4.7622,0.8773,0.6834
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,1.0,6.0,0.9686,0.87535
+SG-E1 hawker contrast h=1 (secondary),spike,conformal_lvl,1.0,7.5595,0.9971,0.97885
+SG-E1 hawker contrast h=1 (secondary),spike,rank,0.5,3.0,0.25945,0.09735
+SG-E1 hawker contrast h=1 (secondary),spike,rank,0.5,4.7622,0.42695,0.20775
+SG-E1 hawker contrast h=1 (secondary),spike,rank,0.5,6.0,0.5598,0.3138
+SG-E1 hawker contrast h=1 (secondary),spike,rank,0.5,7.5595,0.7171,0.4705
+SG-E1 hawker contrast h=1 (secondary),spike,rank,1.0,3.0,0.5598,0.3138
+SG-E1 hawker contrast h=1 (secondary),spike,rank,1.0,4.7622,0.8653,0.6777
+SG-E1 hawker contrast h=1 (secondary),spike,rank,1.0,6.0,0.9629,0.87
+SG-E1 hawker contrast h=1 (secondary),spike,rank,1.0,7.5595,0.9957,0.97545
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,0.5,3.0,0.1461,0.06675
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,0.5,4.7622,0.25195,0.1306
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,0.5,6.0,0.34465,0.1954
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,0.5,7.5595,0.4709,0.29985
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,1.0,3.0,0.34465,0.1954
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,1.0,4.7622,0.63875,0.4591
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,1.0,6.0,0.8173,0.66975
+SG-E1 dish arm h=2 (secondary),spike,ours_registered,1.0,7.5595,0.94245,0.86715
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,0.5,3.0,0.1462,0.06655
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,0.5,4.7622,0.25155,0.1301
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,0.5,6.0,0.3438,0.195
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,0.5,7.5595,0.47035,0.2985
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,1.0,3.0,0.3438,0.195
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,1.0,4.7622,0.63895,0.4587
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,1.0,6.0,0.8174,0.66865
+SG-E1 dish arm h=2 (secondary),spike,ours_revised,1.0,7.5595,0.94275,0.8667
+SG-E1 dish arm h=2 (secondary),spike,conformal,0.5,3.0,0.09605,0.06
+SG-E1 dish arm h=2 (secondary),spike,conformal,0.5,4.7622,0.16575,0.1107
+SG-E1 dish arm h=2 (secondary),spike,conformal,0.5,6.0,0.23135,0.16275
+SG-E1 dish arm h=2 (secondary),spike,conformal,0.5,7.5595,0.33425,0.2483
+SG-E1 dish arm h=2 (secondary),spike,conformal,1.0,3.0,0.23135,0.16275
+SG-E1 dish arm h=2 (secondary),spike,conformal,1.0,4.7622,0.47945,0.38575
+SG-E1 dish arm h=2 (secondary),spike,conformal,1.0,6.0,0.67025,0.58285
+SG-E1 dish arm h=2 (secondary),spike,conformal,1.0,7.5595,0.8619,0.8053
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,0.5,3.0,0.2297,0.0856
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,0.5,4.7622,0.3883,0.18165
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,0.5,6.0,0.5149,0.2738
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,0.5,7.5595,0.6698,0.42215
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,1.0,3.0,0.5149,0.2738
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,1.0,4.7622,0.83025,0.62205
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,1.0,6.0,0.9438,0.82925
+SG-E1 dish arm h=2 (secondary),spike,conformal_lvl,1.0,7.5595,0.9919,0.95965
+SG-E1 dish arm h=2 (secondary),spike,rank,0.5,3.0,0.1436,0.0673
+SG-E1 dish arm h=2 (secondary),spike,rank,0.5,4.7622,0.2441,0.1329
+SG-E1 dish arm h=2 (secondary),spike,rank,0.5,6.0,0.3333,0.1999
+SG-E1 dish arm h=2 (secondary),spike,rank,0.5,7.5595,0.46495,0.30205
+SG-E1 dish arm h=2 (secondary),spike,rank,1.0,3.0,0.3333,0.1999
+SG-E1 dish arm h=2 (secondary),spike,rank,1.0,4.7622,0.6288,0.46435
+SG-E1 dish arm h=2 (secondary),spike,rank,1.0,6.0,0.8067,0.6685
+SG-E1 dish arm h=2 (secondary),spike,rank,1.0,7.5595,0.9366,0.8653
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,0.5,3.0,0.13555,0.082
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,0.5,4.7622,0.23815,0.16165
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,0.5,6.0,0.3303,0.2357
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,0.5,7.5595,0.459,0.35385
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,1.0,3.0,0.3303,0.2357
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,1.0,4.7622,0.6222,0.5158
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,1.0,6.0,0.80325,0.71665
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_registered,1.0,7.5595,0.93175,0.8912
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,0.5,3.0,0.1346,0.0805
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,0.5,4.7622,0.237,0.1591
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,0.5,6.0,0.32855,0.23355
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,0.5,7.5595,0.45745,0.35185
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,1.0,3.0,0.32855,0.23355
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,1.0,4.7622,0.62005,0.51275
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,1.0,6.0,0.8016,0.71405
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,ours_revised,1.0,7.5595,0.9309,0.889
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,0.5,3.0,0.04465,0.0556
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,0.5,4.7622,0.0745,0.0904
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,0.5,6.0,0.09775,0.116
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,0.5,7.5595,0.1247,0.14965
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,1.0,3.0,0.09775,0.116
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,1.0,4.7622,0.1549,0.1812
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,1.0,6.0,0.18255,0.21095
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal,1.0,7.5595,0.2013,0.22785
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,0.5,3.0,0.1718,0.0974
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,0.5,4.7622,0.3087,0.1975
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,0.5,6.0,0.4223,0.29725
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,0.5,7.5595,0.5708,0.44415
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,1.0,3.0,0.4223,0.29725
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,1.0,4.7622,0.7446,0.6354
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,1.0,6.0,0.89535,0.83075
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,conformal_lvl,1.0,7.5595,0.9763,0.95405
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,0.5,3.0,0.11895,0.0831
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,0.5,4.7622,0.2127,0.1605
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,0.5,6.0,0.29965,0.23395
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,0.5,7.5595,0.42515,0.3496
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,1.0,3.0,0.29965,0.23395
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,1.0,4.7622,0.59005,0.5139
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,1.0,6.0,0.77505,0.7097
+SG-E1 hawker IUT h=2 & h=1 (H3),spike,rank,1.0,7.5595,0.91785,0.8848
+UK-E3 (H1),meanbrk,ours_registered,0.5,3.0,0.10105,0.09755
+UK-E3 (H1),meanbrk,ours_registered,0.5,4.7622,0.2127,0.2085
+UK-E3 (H1),meanbrk,ours_registered,0.5,6.0,0.32465,0.31815
+UK-E3 (H1),meanbrk,ours_registered,0.5,7.5595,0.48835,0.48095
+UK-E3 (H1),meanbrk,ours_registered,1.0,3.0,0.32465,0.31815
+UK-E3 (H1),meanbrk,ours_registered,1.0,4.7622,0.69685,0.69085
+UK-E3 (H1),meanbrk,ours_registered,1.0,6.0,0.8836,0.8797
+UK-E3 (H1),meanbrk,ours_registered,1.0,7.5595,0.9789,0.978
+UK-E3 (H1),meanbrk,ours_revised,0.5,3.0,0.10035,0.09745
+UK-E3 (H1),meanbrk,ours_revised,0.5,4.7622,0.21215,0.2083
+UK-E3 (H1),meanbrk,ours_revised,0.5,6.0,0.3241,0.31775
+UK-E3 (H1),meanbrk,ours_revised,0.5,7.5595,0.4874,0.481
+UK-E3 (H1),meanbrk,ours_revised,1.0,3.0,0.3241,0.31775
+UK-E3 (H1),meanbrk,ours_revised,1.0,4.7622,0.6959,0.6915
+UK-E3 (H1),meanbrk,ours_revised,1.0,6.0,0.88245,0.8792
+UK-E3 (H1),meanbrk,ours_revised,1.0,7.5595,0.9787,0.97805
+UK-E3 (H1),meanbrk,conformal,0.5,3.0,0.07995,0.07345
+UK-E3 (H1),meanbrk,conformal,0.5,4.7622,0.14605,0.13505
+UK-E3 (H1),meanbrk,conformal,0.5,6.0,0.20855,0.19635
+UK-E3 (H1),meanbrk,conformal,0.5,7.5595,0.31695,0.29995
+UK-E3 (H1),meanbrk,conformal,1.0,3.0,0.20855,0.19635
+UK-E3 (H1),meanbrk,conformal,1.0,4.7622,0.48215,0.46565
+UK-E3 (H1),meanbrk,conformal,1.0,6.0,0.70485,0.68915
+UK-E3 (H1),meanbrk,conformal,1.0,7.5595,0.9028,0.89645
+UK-E3 (H1),meanbrk,conformal_lvl,0.5,3.0,0.1812,0.16745
+UK-E3 (H1),meanbrk,conformal_lvl,0.5,4.7622,0.40255,0.37965
+UK-E3 (H1),meanbrk,conformal_lvl,0.5,6.0,0.5854,0.5655
+UK-E3 (H1),meanbrk,conformal_lvl,0.5,7.5595,0.78655,0.7689
+UK-E3 (H1),meanbrk,conformal_lvl,1.0,3.0,0.5854,0.5655
+UK-E3 (H1),meanbrk,conformal_lvl,1.0,4.7622,0.93675,0.93005
+UK-E3 (H1),meanbrk,conformal_lvl,1.0,6.0,0.99245,0.99105
+UK-E3 (H1),meanbrk,conformal_lvl,1.0,7.5595,0.9996,0.99955
+UK-E3 (H1),meanbrk,rank,0.5,3.0,0.07,0.0946
+UK-E3 (H1),meanbrk,rank,0.5,4.7622,0.1632,0.20305
+UK-E3 (H1),meanbrk,rank,0.5,6.0,0.2601,0.3078
+UK-E3 (H1),meanbrk,rank,0.5,7.5595,0.4097,0.46965
+UK-E3 (H1),meanbrk,rank,1.0,3.0,0.2601,0.3078
+UK-E3 (H1),meanbrk,rank,1.0,4.7622,0.6151,0.67125
+UK-E3 (H1),meanbrk,rank,1.0,6.0,0.8297,0.86495
+UK-E3 (H1),meanbrk,rank,1.0,7.5595,0.9616,0.97215
+UK-E4 (H1),meanbrk,ours_registered,0.5,3.0,0.0939,0.093
+UK-E4 (H1),meanbrk,ours_registered,0.5,4.7622,0.1992,0.19685
+UK-E4 (H1),meanbrk,ours_registered,0.5,6.0,0.31025,0.3076
+UK-E4 (H1),meanbrk,ours_registered,0.5,7.5595,0.4739,0.47145
+UK-E4 (H1),meanbrk,ours_registered,1.0,3.0,0.31025,0.3076
+UK-E4 (H1),meanbrk,ours_registered,1.0,4.7622,0.68325,0.6805
+UK-E4 (H1),meanbrk,ours_registered,1.0,6.0,0.8764,0.87455
+UK-E4 (H1),meanbrk,ours_registered,1.0,7.5595,0.9774,0.97695
+UK-E4 (H1),meanbrk,ours_revised,0.5,3.0,0.0949,0.09345
+UK-E4 (H1),meanbrk,ours_revised,0.5,4.7622,0.1998,0.19735
+UK-E4 (H1),meanbrk,ours_revised,0.5,6.0,0.3124,0.30885
+UK-E4 (H1),meanbrk,ours_revised,0.5,7.5595,0.4768,0.4736
+UK-E4 (H1),meanbrk,ours_revised,1.0,3.0,0.3124,0.30885
+UK-E4 (H1),meanbrk,ours_revised,1.0,4.7622,0.68525,0.682
+UK-E4 (H1),meanbrk,ours_revised,1.0,6.0,0.87795,0.87605
+UK-E4 (H1),meanbrk,ours_revised,1.0,7.5595,0.9777,0.9772
+UK-E4 (H1),meanbrk,conformal,0.5,3.0,0.0731,0.06805
+UK-E4 (H1),meanbrk,conformal,0.5,4.7622,0.1373,0.1282
+UK-E4 (H1),meanbrk,conformal,0.5,6.0,0.20425,0.192
+UK-E4 (H1),meanbrk,conformal,0.5,7.5595,0.3055,0.28995
+UK-E4 (H1),meanbrk,conformal,1.0,3.0,0.20425,0.192
+UK-E4 (H1),meanbrk,conformal,1.0,4.7622,0.47165,0.4549
+UK-E4 (H1),meanbrk,conformal,1.0,6.0,0.6991,0.68365
+UK-E4 (H1),meanbrk,conformal,1.0,7.5595,0.901,0.89375
+UK-E4 (H1),meanbrk,conformal_lvl,0.5,3.0,0.1744,0.171
+UK-E4 (H1),meanbrk,conformal_lvl,0.5,4.7622,0.39605,0.39015
+UK-E4 (H1),meanbrk,conformal_lvl,0.5,6.0,0.58015,0.574
+UK-E4 (H1),meanbrk,conformal_lvl,0.5,7.5595,0.78815,0.78425
+UK-E4 (H1),meanbrk,conformal_lvl,1.0,3.0,0.58015,0.574
+UK-E4 (H1),meanbrk,conformal_lvl,1.0,4.7622,0.9376,0.9355
+UK-E4 (H1),meanbrk,conformal_lvl,1.0,6.0,0.99265,0.9923
+UK-E4 (H1),meanbrk,conformal_lvl,1.0,7.5595,0.99995,0.99995
+UK-E4 (H1),meanbrk,rank,0.5,3.0,0.0708,0.09245
+UK-E4 (H1),meanbrk,rank,0.5,4.7622,0.1598,0.1977
+UK-E4 (H1),meanbrk,rank,0.5,6.0,0.25675,0.30545
+UK-E4 (H1),meanbrk,rank,0.5,7.5595,0.40685,0.4621
+UK-E4 (H1),meanbrk,rank,1.0,3.0,0.25675,0.30545
+UK-E4 (H1),meanbrk,rank,1.0,4.7622,0.6155,0.667
+UK-E4 (H1),meanbrk,rank,1.0,6.0,0.82765,0.86085
+UK-E4 (H1),meanbrk,rank,1.0,7.5595,0.9613,0.9721
+UK-E1 (H1),meanbrk,ours_registered,0.5,3.0,0.08595,0.08785
+UK-E1 (H1),meanbrk,ours_registered,0.5,4.7622,0.1813,0.18525
+UK-E1 (H1),meanbrk,ours_registered,0.5,6.0,0.2788,0.28305
+UK-E1 (H1),meanbrk,ours_registered,0.5,7.5595,0.4282,0.4329
+UK-E1 (H1),meanbrk,ours_registered,1.0,3.0,0.2788,0.28305
+UK-E1 (H1),meanbrk,ours_registered,1.0,4.7622,0.6336,0.6373
+UK-E1 (H1),meanbrk,ours_registered,1.0,6.0,0.8371,0.8398
+UK-E1 (H1),meanbrk,ours_registered,1.0,7.5595,0.96275,0.9638
+UK-E1 (H1),meanbrk,ours_revised,0.5,3.0,0.08575,0.08695
+UK-E1 (H1),meanbrk,ours_revised,0.5,4.7622,0.1822,0.18445
+UK-E1 (H1),meanbrk,ours_revised,0.5,6.0,0.2793,0.2819
+UK-E1 (H1),meanbrk,ours_revised,0.5,7.5595,0.4285,0.4316
+UK-E1 (H1),meanbrk,ours_revised,1.0,3.0,0.2793,0.2819
+UK-E1 (H1),meanbrk,ours_revised,1.0,4.7622,0.63435,0.63745
+UK-E1 (H1),meanbrk,ours_revised,1.0,6.0,0.83665,0.8387
+UK-E1 (H1),meanbrk,ours_revised,1.0,7.5595,0.9628,0.9637
+UK-E1 (H1),meanbrk,conformal,0.5,3.0,0.02725,0.07425
+UK-E1 (H1),meanbrk,conformal,0.5,4.7622,0.06375,0.1425
+UK-E1 (H1),meanbrk,conformal,0.5,6.0,0.1025,0.2073
+UK-E1 (H1),meanbrk,conformal,0.5,7.5595,0.1724,0.3135
+UK-E1 (H1),meanbrk,conformal,1.0,3.0,0.1025,0.2073
+UK-E1 (H1),meanbrk,conformal,1.0,4.7622,0.3047,0.47755
+UK-E1 (H1),meanbrk,conformal,1.0,6.0,0.53045,0.6919
+UK-E1 (H1),meanbrk,conformal,1.0,7.5595,0.7998,0.8946
+UK-E1 (H1),meanbrk,conformal_lvl,0.5,3.0,0.08095,0.1627
+UK-E1 (H1),meanbrk,conformal_lvl,0.5,4.7622,0.22835,0.37855
+UK-E1 (H1),meanbrk,conformal_lvl,0.5,6.0,0.3936,0.5657
+UK-E1 (H1),meanbrk,conformal_lvl,0.5,7.5595,0.62945,0.7772
+UK-E1 (H1),meanbrk,conformal_lvl,1.0,3.0,0.3936,0.5657
+UK-E1 (H1),meanbrk,conformal_lvl,1.0,4.7622,0.85585,0.93335
+UK-E1 (H1),meanbrk,conformal_lvl,1.0,6.0,0.97745,0.99285
+UK-E1 (H1),meanbrk,conformal_lvl,1.0,7.5595,0.999,0.9998
+UK-E1 (H1),meanbrk,rank,0.5,3.0,0.07875,0.08855
+UK-E1 (H1),meanbrk,rank,0.5,4.7622,0.167,0.18295
+UK-E1 (H1),meanbrk,rank,0.5,6.0,0.26335,0.2844
+UK-E1 (H1),meanbrk,rank,0.5,7.5595,0.40705,0.4309
+UK-E1 (H1),meanbrk,rank,1.0,3.0,0.26335,0.2844
+UK-E1 (H1),meanbrk,rank,1.0,4.7622,0.6049,0.6288
+UK-E1 (H1),meanbrk,rank,1.0,6.0,0.81535,0.83235
+UK-E1 (H1),meanbrk,rank,1.0,7.5595,0.9544,0.96085
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,0.5,3.0,0.1478,0.09145
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,0.5,4.7622,0.2817,0.19415
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,0.5,6.0,0.40095,0.29675
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,0.5,7.5595,0.5645,0.45055
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,1.0,3.0,0.40095,0.29675
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,1.0,4.7622,0.7537,0.65655
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,1.0,6.0,0.9071,0.85285
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_registered,1.0,7.5595,0.9829,0.96625
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,0.5,3.0,0.1468,0.09045
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,0.5,4.7622,0.2794,0.1937
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,0.5,6.0,0.39815,0.29575
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,0.5,7.5595,0.56005,0.44825
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,1.0,3.0,0.39815,0.29575
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,1.0,4.7622,0.75055,0.655
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,1.0,6.0,0.90505,0.85225
+SG-E1 hawker contrast h=2 (H3),meanbrk,ours_revised,1.0,7.5595,0.98205,0.9651
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,0.5,3.0,0.0571,0.05735
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,0.5,4.7622,0.0922,0.09265
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,0.5,6.0,0.11415,0.1144
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,0.5,7.5595,0.13925,0.13955
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,1.0,3.0,0.11415,0.1144
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,1.0,4.7622,0.15485,0.15535
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,1.0,6.0,0.1563,0.15675
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal,1.0,7.5595,0.15405,0.15455
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,0.5,3.0,0.1409,0.14495
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,0.5,4.7622,0.3139,0.32015
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,0.5,6.0,0.4714,0.47785
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,0.5,7.5595,0.6691,0.6762
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,1.0,3.0,0.4714,0.47785
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,1.0,4.7622,0.85375,0.8577
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,1.0,6.0,0.9591,0.96095
+SG-E1 hawker contrast h=2 (H3),meanbrk,conformal_lvl,1.0,7.5595,0.99325,0.99345
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,0.5,3.0,0.13295,0.0932
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,0.5,4.7622,0.261,0.19625
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,0.5,6.0,0.37075,0.29635
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,0.5,7.5595,0.5296,0.44795
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,1.0,3.0,0.37075,0.29635
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,1.0,4.7622,0.7203,0.64675
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,1.0,6.0,0.88645,0.8432
+SG-E1 hawker contrast h=2 (H3),meanbrk,rank,1.0,7.5595,0.9768,0.96285
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,0.5,3.0,0.2787,0.2068
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,0.5,4.7622,0.5808,0.48495
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,0.5,6.0,0.76635,0.69215
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,0.5,7.5595,0.9199,0.8816
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,1.0,3.0,0.76635,0.69215
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,1.0,4.7622,0.98665,0.9771
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,1.0,6.0,0.9995,0.9988
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_registered,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,0.5,3.0,0.27685,0.2087
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,0.5,4.7622,0.57715,0.4887
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,0.5,6.0,0.7647,0.69555
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,0.5,7.5595,0.9187,0.883
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,1.0,3.0,0.7647,0.69555
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,1.0,4.7622,0.98645,0.97775
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,1.0,6.0,0.9995,0.9989
+SG-E1 hawker contrast h=1 (secondary),meanbrk,ours_revised,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,0.5,3.0,0.1985,0.2152
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,0.5,4.7622,0.47055,0.4943
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,0.5,6.0,0.68045,0.70145
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,0.5,7.5595,0.87335,0.88325
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,1.0,3.0,0.68045,0.70145
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,1.0,4.7622,0.9757,0.97955
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,1.0,6.0,0.9989,0.99905
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,0.5,3.0,0.1985,0.2152
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,0.5,4.7622,0.47055,0.4943
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,0.5,6.0,0.68045,0.70145
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,0.5,7.5595,0.87335,0.88325
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,1.0,3.0,0.68045,0.70145
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,1.0,4.7622,0.9757,0.97955
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,1.0,6.0,0.9989,0.99905
+SG-E1 hawker contrast h=1 (secondary),meanbrk,conformal_lvl,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,0.5,3.0,0.21825,0.19975
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,0.5,4.7622,0.48735,0.4621
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,0.5,6.0,0.6886,0.66835
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,0.5,7.5595,0.87035,0.85725
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,1.0,3.0,0.6886,0.66835
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,1.0,4.7622,0.97235,0.9676
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,1.0,6.0,0.99855,0.9982
+SG-E1 hawker contrast h=1 (secondary),meanbrk,rank,1.0,7.5595,0.99995,0.99995
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,0.5,3.0,0.1022,0.09595
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,0.5,4.7622,0.2159,0.20655
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,0.5,6.0,0.3336,0.31985
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,0.5,7.5595,0.49425,0.48255
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,1.0,3.0,0.3336,0.31985
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,1.0,4.7622,0.69495,0.6847
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,1.0,6.0,0.87965,0.87335
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_registered,1.0,7.5595,0.9785,0.97655
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,0.5,3.0,0.1022,0.09575
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,0.5,4.7622,0.2171,0.20685
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,0.5,6.0,0.33425,0.3204
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,0.5,7.5595,0.4957,0.4833
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,1.0,3.0,0.33425,0.3204
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,1.0,4.7622,0.69645,0.68475
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,1.0,6.0,0.8807,0.87345
+SG-E1 dish arm h=2 (secondary),meanbrk,ours_revised,1.0,7.5595,0.97845,0.97675
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,0.5,3.0,0.07905,0.06815
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,0.5,4.7622,0.1491,0.1334
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,0.5,6.0,0.21675,0.1937
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,0.5,7.5595,0.32575,0.2982
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,1.0,3.0,0.21675,0.1937
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,1.0,4.7622,0.49235,0.4638
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,1.0,6.0,0.7085,0.6856
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal,1.0,7.5595,0.90685,0.89355
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,0.5,3.0,0.18335,0.1654
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,0.5,4.7622,0.4086,0.3803
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,0.5,6.0,0.58955,0.56345
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,0.5,7.5595,0.78805,0.76985
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,1.0,3.0,0.58955,0.56345
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,1.0,4.7622,0.9372,0.92755
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,1.0,6.0,0.993,0.9913
+SG-E1 dish arm h=2 (secondary),meanbrk,conformal_lvl,1.0,7.5595,0.9998,0.9997
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,0.5,3.0,0.10255,0.09255
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,0.5,4.7622,0.21665,0.1984
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,0.5,6.0,0.32675,0.304
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,0.5,7.5595,0.4894,0.4655
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,1.0,3.0,0.32675,0.304
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,1.0,4.7622,0.689,0.66715
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,1.0,6.0,0.8707,0.8571
+SG-E1 dish arm h=2 (secondary),meanbrk,rank,1.0,7.5595,0.9734,0.9701
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,0.5,3.0,0.1207,0.1363
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,0.5,4.7622,0.2658,0.2872
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,0.5,6.0,0.39275,0.41615
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,0.5,7.5595,0.5627,0.58645
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,1.0,3.0,0.39275,0.41615
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,1.0,4.7622,0.75345,0.7715
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,1.0,6.0,0.9071,0.91535
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_registered,1.0,7.5595,0.9829,0.9852
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,0.5,3.0,0.11985,0.1356
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,0.5,4.7622,0.2631,0.28555
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,0.5,6.0,0.38985,0.41355
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,0.5,7.5595,0.55815,0.5844
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,1.0,3.0,0.38985,0.41355
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,1.0,4.7622,0.75025,0.7705
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,1.0,6.0,0.90505,0.91415
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,ours_revised,1.0,7.5595,0.98205,0.9847
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,0.5,3.0,0.03735,0.1006
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,0.5,4.7622,0.07785,0.1732
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,0.5,6.0,0.10695,0.21865
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,0.5,7.5595,0.1365,0.25665
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,1.0,3.0,0.10695,0.21865
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,1.0,4.7622,0.1545,0.2742
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,1.0,6.0,0.1563,0.27095
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal,1.0,7.5595,0.15405,0.25765
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,0.5,3.0,0.11515,0.1635
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,0.5,4.7622,0.2914,0.36115
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,0.5,6.0,0.45565,0.5267
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,0.5,7.5595,0.66265,0.72085
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,1.0,3.0,0.45565,0.5267
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,1.0,4.7622,0.85225,0.88375
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,1.0,6.0,0.95905,0.97085
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,conformal_lvl,1.0,7.5595,0.99325,0.9954
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,0.5,3.0,0.09985,0.1356
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,0.5,4.7622,0.2349,0.28815
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,0.5,6.0,0.3566,0.4182
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,0.5,7.5595,0.5248,0.5863
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,1.0,3.0,0.3566,0.4182
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,1.0,4.7622,0.71935,0.7653
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,1.0,6.0,0.88645,0.91115
+SG-E1 hawker IUT h=2 & h=1 (H3),meanbrk,rank,1.0,7.5595,0.9768,0.98325
+UK-E3 (H1),lvlstep,ours_registered,0.5,3.0,0.09465,0.0977
+UK-E3 (H1),lvlstep,ours_registered,0.5,4.7622,0.21055,0.2153
+UK-E3 (H1),lvlstep,ours_registered,0.5,6.0,0.3242,0.3294
+UK-E3 (H1),lvlstep,ours_registered,0.5,7.5595,0.48905,0.49355
+UK-E3 (H1),lvlstep,ours_registered,1.0,3.0,0.3242,0.3294
+UK-E3 (H1),lvlstep,ours_registered,1.0,4.7622,0.69895,0.7045
+UK-E3 (H1),lvlstep,ours_registered,1.0,6.0,0.8834,0.886
+UK-E3 (H1),lvlstep,ours_registered,1.0,7.5595,0.9793,0.98
+UK-E3 (H1),lvlstep,ours_revised,0.5,3.0,0.0938,0.09735
+UK-E3 (H1),lvlstep,ours_revised,0.5,4.7622,0.20935,0.21545
+UK-E3 (H1),lvlstep,ours_revised,0.5,6.0,0.3221,0.3295
+UK-E3 (H1),lvlstep,ours_revised,0.5,7.5595,0.4866,0.49385
+UK-E3 (H1),lvlstep,ours_revised,1.0,3.0,0.3221,0.3295
+UK-E3 (H1),lvlstep,ours_revised,1.0,4.7622,0.6978,0.7047
+UK-E3 (H1),lvlstep,ours_revised,1.0,6.0,0.88265,0.88635
+UK-E3 (H1),lvlstep,ours_revised,1.0,7.5595,0.979,0.9801
+UK-E3 (H1),lvlstep,conformal,0.5,3.0,0.02435,0.07725
+UK-E3 (H1),lvlstep,conformal,0.5,4.7622,0.055,0.1426
+UK-E3 (H1),lvlstep,conformal,0.5,6.0,0.088,0.20285
+UK-E3 (H1),lvlstep,conformal,0.5,7.5595,0.14465,0.2931
+UK-E3 (H1),lvlstep,conformal,1.0,3.0,0.088,0.20285
+UK-E3 (H1),lvlstep,conformal,1.0,4.7622,0.23805,0.4271
+UK-E3 (H1),lvlstep,conformal,1.0,6.0,0.41225,0.60045
+UK-E3 (H1),lvlstep,conformal,1.0,7.5595,0.66005,0.80575
+UK-E3 (H1),lvlstep,conformal_lvl,0.5,3.0,0.07375,0.15725
+UK-E3 (H1),lvlstep,conformal_lvl,0.5,4.7622,0.2104,0.357
+UK-E3 (H1),lvlstep,conformal_lvl,0.5,6.0,0.3596,0.5341
+UK-E3 (H1),lvlstep,conformal_lvl,0.5,7.5595,0.58235,0.74155
+UK-E3 (H1),lvlstep,conformal_lvl,1.0,3.0,0.3596,0.5341
+UK-E3 (H1),lvlstep,conformal_lvl,1.0,4.7622,0.81795,0.9079
+UK-E3 (H1),lvlstep,conformal_lvl,1.0,6.0,0.9588,0.98365
+UK-E3 (H1),lvlstep,conformal_lvl,1.0,7.5595,0.9964,0.9995
+UK-E3 (H1),lvlstep,rank,0.5,3.0,0.03435,0.08365
+UK-E3 (H1),lvlstep,rank,0.5,4.7622,0.0863,0.1797
+UK-E3 (H1),lvlstep,rank,0.5,6.0,0.14865,0.26705
+UK-E3 (H1),lvlstep,rank,0.5,7.5595,0.25535,0.41195
+UK-E3 (H1),lvlstep,rank,1.0,3.0,0.14865,0.26705
+UK-E3 (H1),lvlstep,rank,1.0,4.7622,0.4369,0.60525
+UK-E3 (H1),lvlstep,rank,1.0,6.0,0.6746,0.80725
+UK-E3 (H1),lvlstep,rank,1.0,7.5595,0.8858,0.9436
+UK-E4 (H1),lvlstep,ours_registered,0.5,3.0,0.09125,0.0955
+UK-E4 (H1),lvlstep,ours_registered,0.5,4.7622,0.197,0.2035
+UK-E4 (H1),lvlstep,ours_registered,0.5,6.0,0.3034,0.31215
+UK-E4 (H1),lvlstep,ours_registered,0.5,7.5595,0.4706,0.4793
+UK-E4 (H1),lvlstep,ours_registered,1.0,3.0,0.3034,0.31215
+UK-E4 (H1),lvlstep,ours_registered,1.0,4.7622,0.6791,0.6879
+UK-E4 (H1),lvlstep,ours_registered,1.0,6.0,0.871,0.8765
+UK-E4 (H1),lvlstep,ours_registered,1.0,7.5595,0.97485,0.97615
+UK-E4 (H1),lvlstep,ours_revised,0.5,3.0,0.091,0.09485
+UK-E4 (H1),lvlstep,ours_revised,0.5,4.7622,0.19705,0.20295
+UK-E4 (H1),lvlstep,ours_revised,0.5,6.0,0.30395,0.3106
+UK-E4 (H1),lvlstep,ours_revised,0.5,7.5595,0.46915,0.47865
+UK-E4 (H1),lvlstep,ours_revised,1.0,3.0,0.30395,0.3106
+UK-E4 (H1),lvlstep,ours_revised,1.0,4.7622,0.68005,0.68755
+UK-E4 (H1),lvlstep,ours_revised,1.0,6.0,0.8708,0.87575
+UK-E4 (H1),lvlstep,ours_revised,1.0,7.5595,0.9751,0.97605
+UK-E4 (H1),lvlstep,conformal,0.5,3.0,0.01435,0.0744
+UK-E4 (H1),lvlstep,conformal,0.5,4.7622,0.0352,0.13885
+UK-E4 (H1),lvlstep,conformal,0.5,6.0,0.05985,0.2051
+UK-E4 (H1),lvlstep,conformal,0.5,7.5595,0.1062,0.30175
+UK-E4 (H1),lvlstep,conformal,1.0,3.0,0.05985,0.2051
+UK-E4 (H1),lvlstep,conformal,1.0,4.7622,0.20045,0.4388
+UK-E4 (H1),lvlstep,conformal,1.0,6.0,0.37405,0.6232
+UK-E4 (H1),lvlstep,conformal,1.0,7.5595,0.63495,0.82535
+UK-E4 (H1),lvlstep,conformal_lvl,0.5,3.0,0.05905,0.1587
+UK-E4 (H1),lvlstep,conformal_lvl,0.5,4.7622,0.1806,0.36015
+UK-E4 (H1),lvlstep,conformal_lvl,0.5,6.0,0.32025,0.5376
+UK-E4 (H1),lvlstep,conformal_lvl,0.5,7.5595,0.53895,0.7421
+UK-E4 (H1),lvlstep,conformal_lvl,1.0,3.0,0.32025,0.5376
+UK-E4 (H1),lvlstep,conformal_lvl,1.0,4.7622,0.7846,0.90915
+UK-E4 (H1),lvlstep,conformal_lvl,1.0,6.0,0.9481,0.9843
+UK-E4 (H1),lvlstep,conformal_lvl,1.0,7.5595,0.99575,0.99905
+UK-E4 (H1),lvlstep,rank,0.5,3.0,0.03205,0.08715
+UK-E4 (H1),lvlstep,rank,0.5,4.7622,0.0808,0.18375
+UK-E4 (H1),lvlstep,rank,0.5,6.0,0.1413,0.28145
+UK-E4 (H1),lvlstep,rank,0.5,7.5595,0.25035,0.42695
+UK-E4 (H1),lvlstep,rank,1.0,3.0,0.1413,0.28145
+UK-E4 (H1),lvlstep,rank,1.0,4.7622,0.43175,0.62015
+UK-E4 (H1),lvlstep,rank,1.0,6.0,0.6687,0.8156
+UK-E4 (H1),lvlstep,rank,1.0,7.5595,0.8835,0.94975
+UK-E1 (H1),lvlstep,ours_registered,0.5,3.0,0.0839,0.08705
+UK-E1 (H1),lvlstep,ours_registered,0.5,4.7622,0.18215,0.18685
+UK-E1 (H1),lvlstep,ours_registered,0.5,6.0,0.2795,0.2845
+UK-E1 (H1),lvlstep,ours_registered,0.5,7.5595,0.4281,0.43425
+UK-E1 (H1),lvlstep,ours_registered,1.0,3.0,0.2795,0.2845
+UK-E1 (H1),lvlstep,ours_registered,1.0,4.7622,0.62425,0.63145
+UK-E1 (H1),lvlstep,ours_registered,1.0,6.0,0.8332,0.8366
+UK-E1 (H1),lvlstep,ours_registered,1.0,7.5595,0.95905,0.9604
+UK-E1 (H1),lvlstep,ours_revised,0.5,3.0,0.0843,0.0863
+UK-E1 (H1),lvlstep,ours_revised,0.5,4.7622,0.1819,0.1872
+UK-E1 (H1),lvlstep,ours_revised,0.5,6.0,0.2784,0.28385
+UK-E1 (H1),lvlstep,ours_revised,0.5,7.5595,0.4275,0.433
+UK-E1 (H1),lvlstep,ours_revised,1.0,3.0,0.2784,0.28385
+UK-E1 (H1),lvlstep,ours_revised,1.0,4.7622,0.6251,0.63085
+UK-E1 (H1),lvlstep,ours_revised,1.0,6.0,0.8335,0.83675
+UK-E1 (H1),lvlstep,ours_revised,1.0,7.5595,0.9591,0.96075
+UK-E1 (H1),lvlstep,conformal,0.5,3.0,0.0249,0.0675
+UK-E1 (H1),lvlstep,conformal,0.5,4.7622,0.053,0.12845
+UK-E1 (H1),lvlstep,conformal,0.5,6.0,0.084,0.19215
+UK-E1 (H1),lvlstep,conformal,0.5,7.5595,0.14005,0.27645
+UK-E1 (H1),lvlstep,conformal,1.0,3.0,0.084,0.19215
+UK-E1 (H1),lvlstep,conformal,1.0,4.7622,0.23615,0.4082
+UK-E1 (H1),lvlstep,conformal,1.0,6.0,0.4048,0.57755
+UK-E1 (H1),lvlstep,conformal,1.0,7.5595,0.65005,0.78555
+UK-E1 (H1),lvlstep,conformal_lvl,0.5,3.0,0.07105,0.1477
+UK-E1 (H1),lvlstep,conformal_lvl,0.5,4.7622,0.20455,0.34795
+UK-E1 (H1),lvlstep,conformal_lvl,0.5,6.0,0.3532,0.5227
+UK-E1 (H1),lvlstep,conformal_lvl,0.5,7.5595,0.5729,0.7301
+UK-E1 (H1),lvlstep,conformal_lvl,1.0,3.0,0.3532,0.5227
+UK-E1 (H1),lvlstep,conformal_lvl,1.0,4.7622,0.8082,0.90355
+UK-E1 (H1),lvlstep,conformal_lvl,1.0,6.0,0.95625,0.98365
+UK-E1 (H1),lvlstep,conformal_lvl,1.0,7.5595,0.99695,0.99925
+UK-E1 (H1),lvlstep,rank,0.5,3.0,0.0427,0.0757
+UK-E1 (H1),lvlstep,rank,0.5,4.7622,0.096,0.1556
+UK-E1 (H1),lvlstep,rank,0.5,6.0,0.1551,0.2402
+UK-E1 (H1),lvlstep,rank,0.5,7.5595,0.2652,0.37195
+UK-E1 (H1),lvlstep,rank,1.0,3.0,0.1551,0.2402
+UK-E1 (H1),lvlstep,rank,1.0,4.7622,0.43585,0.55115
+UK-E1 (H1),lvlstep,rank,1.0,6.0,0.661,0.76255
+UK-E1 (H1),lvlstep,rank,1.0,7.5595,0.871,0.9216
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,0.5,3.0,0.08185,0.08775
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,0.5,4.7622,0.1785,0.1881
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,0.5,6.0,0.2732,0.2848
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,0.5,7.5595,0.4227,0.43575
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,1.0,3.0,0.2732,0.2848
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,1.0,4.7622,0.62515,0.6383
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,1.0,6.0,0.8326,0.84125
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_registered,1.0,7.5595,0.9629,0.96525
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,0.5,3.0,0.08155,0.0881
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,0.5,4.7622,0.1783,0.18885
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,0.5,6.0,0.27205,0.28645
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,0.5,7.5595,0.4222,0.4372
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,1.0,3.0,0.27205,0.28645
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,1.0,4.7622,0.6239,0.6394
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,1.0,6.0,0.8316,0.84275
+SG-E1 hawker contrast h=2 (H3),lvlstep,ours_revised,1.0,7.5595,0.96225,0.96535
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,0.5,3.0,0.01085,0.0675
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,0.5,4.7622,0.0291,0.1333
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,0.5,6.0,0.05015,0.19435
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,0.5,7.5595,0.0947,0.29085
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,1.0,3.0,0.05015,0.19435
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,1.0,4.7622,0.16705,0.4391
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,1.0,6.0,0.2646,0.59285
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal,1.0,7.5595,0.3393,0.69075
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,0.5,3.0,0.014,0.10865
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,0.5,4.7622,0.04995,0.23715
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,0.5,6.0,0.09775,0.35995
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,0.5,7.5595,0.201,0.53125
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,1.0,3.0,0.09775,0.35995
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,1.0,4.7622,0.395,0.7348
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,1.0,6.0,0.6674,0.9046
+SG-E1 hawker contrast h=2 (H3),lvlstep,conformal_lvl,1.0,7.5595,0.90275,0.9849
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,0.5,3.0,0.01755,0.0843
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,0.5,4.7622,0.04615,0.1733
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,0.5,6.0,0.08645,0.2612
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,0.5,7.5595,0.1651,0.3991
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,1.0,3.0,0.08645,0.2612
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,1.0,4.7622,0.313,0.58645
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,1.0,6.0,0.5446,0.7886
+SG-E1 hawker contrast h=2 (H3),lvlstep,rank,1.0,7.5595,0.8017,0.93185
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,0.5,3.0,0.19135,0.19285
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,0.5,4.7622,0.45685,0.45895
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,0.5,6.0,0.66335,0.6657
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,0.5,7.5595,0.8635,0.8646
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,1.0,3.0,0.66335,0.6657
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,1.0,4.7622,0.97475,0.97505
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,1.0,6.0,0.99855,0.99855
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_registered,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,0.5,3.0,0.187,0.19285
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,0.5,4.7622,0.45175,0.45845
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,0.5,6.0,0.65875,0.66555
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,0.5,7.5595,0.86045,0.86415
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,1.0,3.0,0.65875,0.66555
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,1.0,4.7622,0.9737,0.975
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,1.0,6.0,0.9985,0.99855
+SG-E1 hawker contrast h=1 (secondary),lvlstep,ours_revised,1.0,7.5595,1.0,1.0
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,0.5,3.0,0.00635,0.13025
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,0.5,4.7622,0.02965,0.29725
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,0.5,6.0,0.07065,0.4568
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,0.5,7.5595,0.1743,0.6589
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,1.0,3.0,0.07065,0.4568
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,1.0,4.7622,0.3915,0.85945
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,1.0,6.0,0.709,0.9719
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal,1.0,7.5595,0.9449,0.9983
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,0.5,3.0,0.00635,0.13025
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,0.5,4.7622,0.02965,0.29725
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,0.5,6.0,0.07065,0.4568
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,0.5,7.5595,0.1743,0.6589
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,1.0,3.0,0.07065,0.4568
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,1.0,4.7622,0.3915,0.85945
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,1.0,6.0,0.709,0.9719
+SG-E1 hawker contrast h=1 (secondary),lvlstep,conformal_lvl,1.0,7.5595,0.9449,0.9983
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,0.5,3.0,0.0076,0.14265
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,0.5,4.7622,0.0362,0.32115
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,0.5,6.0,0.0826,0.48905
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,0.5,7.5595,0.2031,0.69125
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,1.0,3.0,0.0826,0.48905
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,1.0,4.7622,0.43405,0.87935
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,1.0,6.0,0.7559,0.97785
+SG-E1 hawker contrast h=1 (secondary),lvlstep,rank,1.0,7.5595,0.9584,0.9993
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,0.5,3.0,0.0927,0.09745
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,0.5,4.7622,0.19495,0.20265
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,0.5,6.0,0.29985,0.3096
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,0.5,7.5595,0.4546,0.46615
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,1.0,3.0,0.29985,0.3096
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,1.0,4.7622,0.6611,0.67105
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,1.0,6.0,0.861,0.8671
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_registered,1.0,7.5595,0.9748,0.9768
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,0.5,3.0,0.09145,0.0981
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,0.5,4.7622,0.19365,0.2037
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,0.5,6.0,0.29815,0.3112
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,0.5,7.5595,0.4529,0.4689
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,1.0,3.0,0.29815,0.3112
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,1.0,4.7622,0.66095,0.67245
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,1.0,6.0,0.8601,0.8681
+SG-E1 dish arm h=2 (secondary),lvlstep,ours_revised,1.0,7.5595,0.97465,0.97735
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,0.5,3.0,0.0266,0.0696
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,0.5,4.7622,0.05675,0.13155
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,0.5,6.0,0.08905,0.18985
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,0.5,7.5595,0.14655,0.2741
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,1.0,3.0,0.08905,0.18985
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,1.0,4.7622,0.2437,0.40065
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,1.0,6.0,0.4127,0.58015
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal,1.0,7.5595,0.65995,0.78775
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,0.5,3.0,0.07545,0.15245
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,0.5,4.7622,0.21275,0.34895
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,0.5,6.0,0.3593,0.5126
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,0.5,7.5595,0.5679,0.7143
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,1.0,3.0,0.3593,0.5126
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,1.0,4.7622,0.7982,0.89155
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,1.0,6.0,0.95165,0.97795
+SG-E1 dish arm h=2 (secondary),lvlstep,conformal_lvl,1.0,7.5595,0.9956,0.9988
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,0.5,3.0,0.04245,0.08695
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,0.5,4.7622,0.09995,0.17795
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,0.5,6.0,0.1668,0.26505
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,0.5,7.5595,0.2767,0.40135
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,1.0,3.0,0.1668,0.26505
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,1.0,4.7622,0.4535,0.59035
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,1.0,6.0,0.685,0.7919
+SG-E1 dish arm h=2 (secondary),lvlstep,rank,1.0,7.5595,0.88465,0.93665
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,0.5,3.0,0.0653,0.1184
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,0.5,4.7622,0.16565,0.25125
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,0.5,6.0,0.2655,0.3716
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,0.5,7.5595,0.42015,0.5333
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,1.0,3.0,0.2655,0.3716
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,1.0,4.7622,0.6247,0.72485
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,1.0,6.0,0.8326,0.89615
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_registered,1.0,7.5595,0.9629,0.9795
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,0.5,3.0,0.06435,0.1193
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,0.5,4.7622,0.16505,0.25255
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,0.5,6.0,0.26395,0.3747
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,0.5,7.5595,0.4195,0.5354
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,1.0,3.0,0.26395,0.3747
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,1.0,4.7622,0.6233,0.7265
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,1.0,6.0,0.8316,0.89765
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,ours_revised,1.0,7.5595,0.96225,0.9801
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,0.5,3.0,0.002,0.108
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,0.5,4.7622,0.0101,0.2226
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,0.5,6.0,0.0237,0.3305
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,0.5,7.5595,0.0584,0.4745
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,1.0,3.0,0.0237,0.3305
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,1.0,4.7622,0.13215,0.6381
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,1.0,6.0,0.24655,0.78605
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal,1.0,7.5595,0.3366,0.8661
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,0.5,3.0,0.0045,0.10925
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,0.5,4.7622,0.0222,0.23895
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,0.5,6.0,0.05615,0.3622
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,0.5,7.5595,0.1391,0.53455
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,1.0,3.0,0.05615,0.3622
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,1.0,4.7622,0.3273,0.7376
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,1.0,6.0,0.6255,0.90625
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,conformal_lvl,1.0,7.5595,0.89435,0.98515
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,0.5,3.0,0.00385,0.11865
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,0.5,4.7622,0.0177,0.25405
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,0.5,6.0,0.0444,0.3781
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,0.5,7.5595,0.11045,0.548
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,1.0,3.0,0.0444,0.3781
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,1.0,4.7622,0.2597,0.7336
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,1.0,6.0,0.52005,0.884
+SG-E1 hawker IUT h=2 & h=1 (H3),lvlstep,rank,1.0,7.5595,0.79785,0.97105

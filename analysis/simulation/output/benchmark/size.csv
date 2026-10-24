@@ -1,0 +1,721 @@
+setting,h,N,event_neighbours,phi,method,size,mc_se,over_rejects,reps
+UK-E3 (H1),2,171,6,-0.5,ours,0.0161,0.00089,False,20000
+UK-E3 (H1),2,171,6,-0.5,rank,0.0099,0.0007,False,20000
+UK-E3 (H1),2,171,6,-0.5,hac,0.1687,0.00265,True,20000
+UK-E3 (H1),2,171,6,-0.5,conformal,0.0119,0.00077,False,20000
+UK-E3 (H1),2,171,6,-0.5,conformal_lvl,0.0121,0.00077,False,20000
+UK-E4 (H1),2,171,5,-0.5,ours,0.01675,0.00091,False,20000
+UK-E4 (H1),2,171,5,-0.5,rank,0.0102,0.00071,False,20000
+UK-E4 (H1),2,171,5,-0.5,hac,0.1636,0.00262,True,20000
+UK-E4 (H1),2,171,5,-0.5,conformal,0.01215,0.00077,False,20000
+UK-E4 (H1),2,171,5,-0.5,conformal_lvl,0.01085,0.00073,False,20000
+UK-E1 (H1),2,171,3,-0.5,ours,0.01625,0.00089,False,20000
+UK-E1 (H1),2,171,3,-0.5,rank,0.0148,0.00085,False,20000
+UK-E1 (H1),2,171,3,-0.5,hac,0.16395,0.00262,True,20000
+UK-E1 (H1),2,171,3,-0.5,conformal,0.01075,0.00073,False,20000
+UK-E1 (H1),2,171,3,-0.5,conformal_lvl,0.01085,0.00073,False,20000
+UK-E2 (H2/secondary),2,171,5,-0.5,ours,0.017,0.00091,False,20000
+UK-E2 (H2/secondary),2,171,5,-0.5,rank,0.0104,0.00072,False,20000
+UK-E2 (H2/secondary),2,171,5,-0.5,hac,0.1682,0.00264,True,20000
+UK-E2 (H2/secondary),2,171,5,-0.5,conformal,0.01215,0.00077,False,20000
+UK-E2 (H2/secondary),2,171,5,-0.5,conformal_lvl,0.0115,0.00075,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,-0.5,ours,0.0174,0.00092,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,-0.5,rank,0.01205,0.00077,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,-0.5,hac,0.1246,0.00234,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,-0.5,conformal,0.00925,0.00068,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,-0.5,conformal_lvl,0.00995,0.0007,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,-0.5,ours,0.01635,0.0009,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,-0.5,rank,0.01085,0.00073,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,-0.5,hac,0.2426,0.00303,True,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,-0.5,conformal,0.00985,0.0007,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,-0.5,conformal_lvl,0.00985,0.0007,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,-0.5,ours,0.01795,0.00094,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,-0.5,rank,0.01565,0.00088,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,-0.5,hac,0.1507,0.00253,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,-0.5,conformal,0.0144,0.00084,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,-0.5,conformal_lvl,0.0151,0.00086,False,20000
+generic N=60 middle h=1,1,60,4,-0.5,ours,0.01535,0.00087,False,20000
+generic N=60 middle h=1,1,60,4,-0.5,rank,0.0148,0.00085,False,20000
+generic N=60 middle h=1,1,60,4,-0.5,hac,0.23355,0.00299,True,20000
+generic N=60 middle h=1,1,60,4,-0.5,conformal,0.0138,0.00082,False,20000
+generic N=60 middle h=1,1,60,4,-0.5,conformal_lvl,0.0138,0.00082,False,20000
+generic N=75 middle h=1,1,75,6,-0.5,ours,0.01585,0.00088,False,20000
+generic N=75 middle h=1,1,75,6,-0.5,rank,0.011,0.00074,False,20000
+generic N=75 middle h=1,1,75,6,-0.5,hac,0.2454,0.00304,True,20000
+generic N=75 middle h=1,1,75,6,-0.5,conformal,0.0119,0.00077,False,20000
+generic N=75 middle h=1,1,75,6,-0.5,conformal_lvl,0.0119,0.00077,False,20000
+generic N=126 middle h=1,1,126,6,-0.5,ours,0.0164,0.0009,False,20000
+generic N=126 middle h=1,1,126,6,-0.5,rank,0.01335,0.00081,False,20000
+generic N=126 middle h=1,1,126,6,-0.5,hac,0.28075,0.00318,True,20000
+generic N=126 middle h=1,1,126,6,-0.5,conformal,0.01545,0.00087,False,20000
+generic N=126 middle h=1,1,126,6,-0.5,conformal_lvl,0.01545,0.00087,False,20000
+generic N=160 middle h=1,1,160,6,-0.5,ours,0.0162,0.00089,False,20000
+generic N=160 middle h=1,1,160,6,-0.5,rank,0.0111,0.00074,False,20000
+generic N=160 middle h=1,1,160,6,-0.5,hac,0.286,0.0032,True,20000
+generic N=160 middle h=1,1,160,6,-0.5,conformal,0.01105,0.00074,False,20000
+generic N=160 middle h=1,1,160,6,-0.5,conformal_lvl,0.01105,0.00074,False,20000
+generic N=60 edge h=1,1,60,3,-0.5,ours,0.0158,0.00088,False,20000
+generic N=60 edge h=1,1,60,3,-0.5,rank,0.0183,0.00095,False,20000
+generic N=60 edge h=1,1,60,3,-0.5,hac,0.2346,0.003,True,20000
+generic N=60 edge h=1,1,60,3,-0.5,conformal,0.01545,0.00087,False,20000
+generic N=60 edge h=1,1,60,3,-0.5,conformal_lvl,0.01545,0.00087,False,20000
+generic N=75 edge h=1,1,75,3,-0.5,ours,0.0168,0.00091,False,20000
+generic N=75 edge h=1,1,75,3,-0.5,rank,0.0148,0.00085,False,20000
+generic N=75 edge h=1,1,75,3,-0.5,hac,0.23835,0.00301,True,20000
+generic N=75 edge h=1,1,75,3,-0.5,conformal,0.0128,0.00079,False,20000
+generic N=75 edge h=1,1,75,3,-0.5,conformal_lvl,0.0128,0.00079,False,20000
+generic N=126 edge h=1,1,126,3,-0.5,ours,0.0154,0.00087,False,20000
+generic N=126 edge h=1,1,126,3,-0.5,rank,0.01895,0.00096,True,20000
+generic N=126 edge h=1,1,126,3,-0.5,hac,0.28125,0.00318,True,20000
+generic N=126 edge h=1,1,126,3,-0.5,conformal,0.01565,0.00088,False,20000
+generic N=126 edge h=1,1,126,3,-0.5,conformal_lvl,0.01565,0.00088,False,20000
+generic N=160 edge h=1,1,160,3,-0.5,ours,0.01745,0.00093,False,20000
+generic N=160 edge h=1,1,160,3,-0.5,rank,0.0156,0.00088,False,20000
+generic N=160 edge h=1,1,160,3,-0.5,hac,0.2975,0.00323,True,20000
+generic N=160 edge h=1,1,160,3,-0.5,conformal,0.01245,0.00078,False,20000
+generic N=160 edge h=1,1,160,3,-0.5,conformal_lvl,0.01245,0.00078,False,20000
+generic N=60 middle h=2,2,60,4,-0.5,ours,0.0169,0.00091,False,20000
+generic N=60 middle h=2,2,60,4,-0.5,rank,0.0156,0.00088,False,20000
+generic N=60 middle h=2,2,60,4,-0.5,hac,0.1196,0.00229,True,20000
+generic N=60 middle h=2,2,60,4,-0.5,conformal,0.0137,0.00082,False,20000
+generic N=60 middle h=2,2,60,4,-0.5,conformal_lvl,0.0139,0.00083,False,20000
+generic N=75 middle h=2,2,75,6,-0.5,ours,0.0172,0.00092,False,20000
+generic N=75 middle h=2,2,75,6,-0.5,rank,0.0119,0.00077,False,20000
+generic N=75 middle h=2,2,75,6,-0.5,hac,0.12825,0.00236,True,20000
+generic N=75 middle h=2,2,75,6,-0.5,conformal,0.01185,0.00077,False,20000
+generic N=75 middle h=2,2,75,6,-0.5,conformal_lvl,0.0113,0.00075,False,20000
+generic N=126 middle h=2,2,126,6,-0.5,ours,0.01585,0.00088,False,20000
+generic N=126 middle h=2,2,126,6,-0.5,rank,0.01325,0.00081,False,20000
+generic N=126 middle h=2,2,126,6,-0.5,hac,0.1532,0.00255,True,20000
+generic N=126 middle h=2,2,126,6,-0.5,conformal,0.0159,0.00088,False,20000
+generic N=126 middle h=2,2,126,6,-0.5,conformal_lvl,0.01595,0.00089,False,20000
+generic N=160 middle h=2,2,160,6,-0.5,ours,0.01635,0.0009,False,20000
+generic N=160 middle h=2,2,160,6,-0.5,rank,0.0107,0.00073,False,20000
+generic N=160 middle h=2,2,160,6,-0.5,hac,0.16225,0.00261,True,20000
+generic N=160 middle h=2,2,160,6,-0.5,conformal,0.0118,0.00076,False,20000
+generic N=160 middle h=2,2,160,6,-0.5,conformal_lvl,0.0127,0.00079,False,20000
+generic N=60 edge h=2,2,60,3,-0.5,ours,0.015,0.00086,False,20000
+generic N=60 edge h=2,2,60,3,-0.5,rank,0.0176,0.00093,False,20000
+generic N=60 edge h=2,2,60,3,-0.5,hac,0.12355,0.00233,True,20000
+generic N=60 edge h=2,2,60,3,-0.5,conformal,0.01415,0.00084,False,20000
+generic N=60 edge h=2,2,60,3,-0.5,conformal_lvl,0.01435,0.00084,False,20000
+generic N=75 edge h=2,2,75,3,-0.5,ours,0.01715,0.00092,False,20000
+generic N=75 edge h=2,2,75,3,-0.5,rank,0.0139,0.00083,False,20000
+generic N=75 edge h=2,2,75,3,-0.5,hac,0.1289,0.00237,True,20000
+generic N=75 edge h=2,2,75,3,-0.5,conformal,0.01275,0.00079,False,20000
+generic N=75 edge h=2,2,75,3,-0.5,conformal_lvl,0.0132,0.00081,False,20000
+generic N=126 edge h=2,2,126,3,-0.5,ours,0.01635,0.0009,False,20000
+generic N=126 edge h=2,2,126,3,-0.5,rank,0.01965,0.00098,True,20000
+generic N=126 edge h=2,2,126,3,-0.5,hac,0.1559,0.00257,True,20000
+generic N=126 edge h=2,2,126,3,-0.5,conformal,0.0161,0.00089,False,20000
+generic N=126 edge h=2,2,126,3,-0.5,conformal_lvl,0.01585,0.00088,False,20000
+generic N=160 edge h=2,2,160,3,-0.5,ours,0.0152,0.00087,False,20000
+generic N=160 edge h=2,2,160,3,-0.5,rank,0.0156,0.00088,False,20000
+generic N=160 edge h=2,2,160,3,-0.5,hac,0.15955,0.00259,True,20000
+generic N=160 edge h=2,2,160,3,-0.5,conformal,0.0113,0.00075,False,20000
+generic N=160 edge h=2,2,160,3,-0.5,conformal_lvl,0.0117,0.00076,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,-0.5,ours,0.00195,0.00031,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,-0.5,rank,0.00115,0.00024,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,-0.5,hac,0.06525,0.00175,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,-0.5,conformal,0.00185,0.0003,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,-0.5,conformal_lvl,0.0036,0.00042,False,20000
+UK-E3 (H1),2,171,6,0.0,ours,0.0164,0.0009,False,20000
+UK-E3 (H1),2,171,6,0.0,rank,0.01025,0.00071,False,20000
+UK-E3 (H1),2,171,6,0.0,hac,0.2348,0.003,True,20000
+UK-E3 (H1),2,171,6,0.0,conformal,0.0107,0.00073,False,20000
+UK-E3 (H1),2,171,6,0.0,conformal_lvl,0.0109,0.00073,False,20000
+UK-E4 (H1),2,171,5,0.0,ours,0.0153,0.00087,False,20000
+UK-E4 (H1),2,171,5,0.0,rank,0.0113,0.00075,False,20000
+UK-E4 (H1),2,171,5,0.0,hac,0.2289,0.00297,True,20000
+UK-E4 (H1),2,171,5,0.0,conformal,0.0124,0.00078,False,20000
+UK-E4 (H1),2,171,5,0.0,conformal_lvl,0.0129,0.0008,False,20000
+UK-E1 (H1),2,171,3,0.0,ours,0.0152,0.00087,False,20000
+UK-E1 (H1),2,171,3,0.0,rank,0.01425,0.00084,False,20000
+UK-E1 (H1),2,171,3,0.0,hac,0.22885,0.00297,True,20000
+UK-E1 (H1),2,171,3,0.0,conformal,0.0106,0.00072,False,20000
+UK-E1 (H1),2,171,3,0.0,conformal_lvl,0.01005,0.00071,False,20000
+UK-E2 (H2/secondary),2,171,5,0.0,ours,0.0145,0.00085,False,20000
+UK-E2 (H2/secondary),2,171,5,0.0,rank,0.00895,0.00067,False,20000
+UK-E2 (H2/secondary),2,171,5,0.0,hac,0.23325,0.00299,True,20000
+UK-E2 (H2/secondary),2,171,5,0.0,conformal,0.01,0.0007,False,20000
+UK-E2 (H2/secondary),2,171,5,0.0,conformal_lvl,0.01055,0.00072,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.0,ours,0.0157,0.00088,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.0,rank,0.01195,0.00077,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.0,hac,0.18015,0.00272,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.0,conformal,0.00815,0.00064,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.0,conformal_lvl,0.00905,0.00067,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.0,ours,0.01665,0.0009,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.0,rank,0.0089,0.00066,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.0,hac,0.2316,0.00298,True,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.0,conformal,0.00905,0.00067,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.0,conformal_lvl,0.00905,0.00067,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.0,ours,0.0165,0.0009,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.0,rank,0.01515,0.00086,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.0,hac,0.20905,0.00288,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.0,conformal,0.013,0.0008,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.0,conformal_lvl,0.01255,0.00079,False,20000
+generic N=60 middle h=1,1,60,4,0.0,ours,0.0165,0.0009,False,20000
+generic N=60 middle h=1,1,60,4,0.0,rank,0.0143,0.00084,False,20000
+generic N=60 middle h=1,1,60,4,0.0,hac,0.2373,0.00301,True,20000
+generic N=60 middle h=1,1,60,4,0.0,conformal,0.01465,0.00085,False,20000
+generic N=60 middle h=1,1,60,4,0.0,conformal_lvl,0.01465,0.00085,False,20000
+generic N=75 middle h=1,1,75,6,0.0,ours,0.01625,0.00089,False,20000
+generic N=75 middle h=1,1,75,6,0.0,rank,0.00965,0.00069,False,20000
+generic N=75 middle h=1,1,75,6,0.0,hac,0.2473,0.00305,True,20000
+generic N=75 middle h=1,1,75,6,0.0,conformal,0.0121,0.00077,False,20000
+generic N=75 middle h=1,1,75,6,0.0,conformal_lvl,0.0121,0.00077,False,20000
+generic N=126 middle h=1,1,126,6,0.0,ours,0.0166,0.0009,False,20000
+generic N=126 middle h=1,1,126,6,0.0,rank,0.0141,0.00083,False,20000
+generic N=126 middle h=1,1,126,6,0.0,hac,0.2828,0.00318,True,20000
+generic N=126 middle h=1,1,126,6,0.0,conformal,0.0165,0.0009,False,20000
+generic N=126 middle h=1,1,126,6,0.0,conformal_lvl,0.0165,0.0009,False,20000
+generic N=160 middle h=1,1,160,6,0.0,ours,0.0175,0.00093,False,20000
+generic N=160 middle h=1,1,160,6,0.0,rank,0.012,0.00077,False,20000
+generic N=160 middle h=1,1,160,6,0.0,hac,0.2957,0.00323,True,20000
+generic N=160 middle h=1,1,160,6,0.0,conformal,0.0124,0.00078,False,20000
+generic N=160 middle h=1,1,160,6,0.0,conformal_lvl,0.0124,0.00078,False,20000
+generic N=60 edge h=1,1,60,3,0.0,ours,0.01595,0.00089,False,20000
+generic N=60 edge h=1,1,60,3,0.0,rank,0.01705,0.00092,False,20000
+generic N=60 edge h=1,1,60,3,0.0,hac,0.23955,0.00302,True,20000
+generic N=60 edge h=1,1,60,3,0.0,conformal,0.0164,0.0009,False,20000
+generic N=60 edge h=1,1,60,3,0.0,conformal_lvl,0.0164,0.0009,False,20000
+generic N=75 edge h=1,1,75,3,0.0,ours,0.01465,0.00085,False,20000
+generic N=75 edge h=1,1,75,3,0.0,rank,0.01365,0.00082,False,20000
+generic N=75 edge h=1,1,75,3,0.0,hac,0.2389,0.00302,True,20000
+generic N=75 edge h=1,1,75,3,0.0,conformal,0.01235,0.00078,False,20000
+generic N=75 edge h=1,1,75,3,0.0,conformal_lvl,0.01235,0.00078,False,20000
+generic N=126 edge h=1,1,126,3,0.0,ours,0.0171,0.00092,False,20000
+generic N=126 edge h=1,1,126,3,0.0,rank,0.01955,0.00098,True,20000
+generic N=126 edge h=1,1,126,3,0.0,hac,0.28035,0.00318,True,20000
+generic N=126 edge h=1,1,126,3,0.0,conformal,0.01665,0.0009,False,20000
+generic N=126 edge h=1,1,126,3,0.0,conformal_lvl,0.01665,0.0009,False,20000
+generic N=160 edge h=1,1,160,3,0.0,ours,0.01575,0.00088,False,20000
+generic N=160 edge h=1,1,160,3,0.0,rank,0.01455,0.00085,False,20000
+generic N=160 edge h=1,1,160,3,0.0,hac,0.299,0.00324,True,20000
+generic N=160 edge h=1,1,160,3,0.0,conformal,0.0111,0.00074,False,20000
+generic N=160 edge h=1,1,160,3,0.0,conformal_lvl,0.0111,0.00074,False,20000
+generic N=60 middle h=2,2,60,4,0.0,ours,0.0165,0.0009,False,20000
+generic N=60 middle h=2,2,60,4,0.0,rank,0.0166,0.0009,False,20000
+generic N=60 middle h=2,2,60,4,0.0,hac,0.1786,0.00271,True,20000
+generic N=60 middle h=2,2,60,4,0.0,conformal,0.01315,0.00081,False,20000
+generic N=60 middle h=2,2,60,4,0.0,conformal_lvl,0.0137,0.00082,False,20000
+generic N=75 middle h=2,2,75,6,0.0,ours,0.0172,0.00092,False,20000
+generic N=75 middle h=2,2,75,6,0.0,rank,0.0131,0.0008,False,20000
+generic N=75 middle h=2,2,75,6,0.0,hac,0.18685,0.00276,True,20000
+generic N=75 middle h=2,2,75,6,0.0,conformal,0.013,0.0008,False,20000
+generic N=75 middle h=2,2,75,6,0.0,conformal_lvl,0.012,0.00077,False,20000
+generic N=126 middle h=2,2,126,6,0.0,ours,0.0159,0.00088,False,20000
+generic N=126 middle h=2,2,126,6,0.0,rank,0.01415,0.00084,False,20000
+generic N=126 middle h=2,2,126,6,0.0,hac,0.21515,0.00291,True,20000
+generic N=126 middle h=2,2,126,6,0.0,conformal,0.0152,0.00087,False,20000
+generic N=126 middle h=2,2,126,6,0.0,conformal_lvl,0.0154,0.00087,False,20000
+generic N=160 middle h=2,2,160,6,0.0,ours,0.0169,0.00091,False,20000
+generic N=160 middle h=2,2,160,6,0.0,rank,0.0118,0.00076,False,20000
+generic N=160 middle h=2,2,160,6,0.0,hac,0.2209,0.00293,True,20000
+generic N=160 middle h=2,2,160,6,0.0,conformal,0.01165,0.00076,False,20000
+generic N=160 middle h=2,2,160,6,0.0,conformal_lvl,0.01245,0.00078,False,20000
+generic N=60 edge h=2,2,60,3,0.0,ours,0.0174,0.00092,False,20000
+generic N=60 edge h=2,2,60,3,0.0,rank,0.01875,0.00096,True,20000
+generic N=60 edge h=2,2,60,3,0.0,hac,0.17905,0.00271,True,20000
+generic N=60 edge h=2,2,60,3,0.0,conformal,0.01595,0.00089,False,20000
+generic N=60 edge h=2,2,60,3,0.0,conformal_lvl,0.01675,0.00091,False,20000
+generic N=75 edge h=2,2,75,3,0.0,ours,0.0163,0.0009,False,20000
+generic N=75 edge h=2,2,75,3,0.0,rank,0.01625,0.00089,False,20000
+generic N=75 edge h=2,2,75,3,0.0,hac,0.1863,0.00275,True,20000
+generic N=75 edge h=2,2,75,3,0.0,conformal,0.01445,0.00084,False,20000
+generic N=75 edge h=2,2,75,3,0.0,conformal_lvl,0.0136,0.00082,False,20000
+generic N=126 edge h=2,2,126,3,0.0,ours,0.01645,0.0009,False,20000
+generic N=126 edge h=2,2,126,3,0.0,rank,0.0214,0.00102,True,20000
+generic N=126 edge h=2,2,126,3,0.0,hac,0.21305,0.0029,True,20000
+generic N=126 edge h=2,2,126,3,0.0,conformal,0.01585,0.00088,False,20000
+generic N=126 edge h=2,2,126,3,0.0,conformal_lvl,0.01655,0.0009,False,20000
+generic N=160 edge h=2,2,160,3,0.0,ours,0.01525,0.00087,False,20000
+generic N=160 edge h=2,2,160,3,0.0,rank,0.01565,0.00088,False,20000
+generic N=160 edge h=2,2,160,3,0.0,hac,0.22445,0.00295,True,20000
+generic N=160 edge h=2,2,160,3,0.0,conformal,0.0114,0.00075,False,20000
+generic N=160 edge h=2,2,160,3,0.0,conformal_lvl,0.01145,0.00075,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.0,ours,0.00405,0.00045,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.0,rank,0.0023,0.00034,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.0,hac,0.1092,0.00221,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.0,conformal,0.00175,0.0003,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.0,conformal_lvl,0.00435,0.00047,False,20000
+UK-E3 (H1),2,171,6,0.3,ours,0.01765,0.00093,False,20000
+UK-E3 (H1),2,171,6,0.3,rank,0.0098,0.0007,False,20000
+UK-E3 (H1),2,171,6,0.3,hac,0.258,0.00309,True,20000
+UK-E3 (H1),2,171,6,0.3,conformal,0.0107,0.00073,False,20000
+UK-E3 (H1),2,171,6,0.3,conformal_lvl,0.0109,0.00073,False,20000
+UK-E4 (H1),2,171,5,0.3,ours,0.016,0.00089,False,20000
+UK-E4 (H1),2,171,5,0.3,rank,0.01165,0.00076,False,20000
+UK-E4 (H1),2,171,5,0.3,hac,0.25945,0.0031,True,20000
+UK-E4 (H1),2,171,5,0.3,conformal,0.0105,0.00072,False,20000
+UK-E4 (H1),2,171,5,0.3,conformal_lvl,0.0115,0.00075,False,20000
+UK-E1 (H1),2,171,3,0.3,ours,0.0174,0.00092,False,20000
+UK-E1 (H1),2,171,3,0.3,rank,0.0158,0.00088,False,20000
+UK-E1 (H1),2,171,3,0.3,hac,0.2549,0.00308,True,20000
+UK-E1 (H1),2,171,3,0.3,conformal,0.01125,0.00075,False,20000
+UK-E1 (H1),2,171,3,0.3,conformal_lvl,0.01175,0.00076,False,20000
+UK-E2 (H2/secondary),2,171,5,0.3,ours,0.01705,0.00092,False,20000
+UK-E2 (H2/secondary),2,171,5,0.3,rank,0.01135,0.00075,False,20000
+UK-E2 (H2/secondary),2,171,5,0.3,hac,0.2649,0.00312,True,20000
+UK-E2 (H2/secondary),2,171,5,0.3,conformal,0.01275,0.00079,False,20000
+UK-E2 (H2/secondary),2,171,5,0.3,conformal_lvl,0.01155,0.00076,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.3,ours,0.01725,0.00092,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.3,rank,0.0146,0.00085,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.3,hac,0.21055,0.00288,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.3,conformal,0.0109,0.00073,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.3,conformal_lvl,0.01005,0.00071,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.3,ours,0.0177,0.00093,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.3,rank,0.01165,0.00076,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.3,hac,0.2356,0.003,True,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.3,conformal,0.0096,0.00069,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.3,conformal_lvl,0.0096,0.00069,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.3,ours,0.017,0.00091,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.3,rank,0.0166,0.0009,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.3,hac,0.2366,0.00301,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.3,conformal,0.01405,0.00083,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.3,conformal_lvl,0.0149,0.00086,False,20000
+generic N=60 middle h=1,1,60,4,0.3,ours,0.0176,0.00093,False,20000
+generic N=60 middle h=1,1,60,4,0.3,rank,0.0159,0.00088,False,20000
+generic N=60 middle h=1,1,60,4,0.3,hac,0.23535,0.003,True,20000
+generic N=60 middle h=1,1,60,4,0.3,conformal,0.01415,0.00084,False,20000
+generic N=60 middle h=1,1,60,4,0.3,conformal_lvl,0.01415,0.00084,False,20000
+generic N=75 middle h=1,1,75,6,0.3,ours,0.01615,0.00089,False,20000
+generic N=75 middle h=1,1,75,6,0.3,rank,0.01165,0.00076,False,20000
+generic N=75 middle h=1,1,75,6,0.3,hac,0.2451,0.00304,True,20000
+generic N=75 middle h=1,1,75,6,0.3,conformal,0.0134,0.00081,False,20000
+generic N=75 middle h=1,1,75,6,0.3,conformal_lvl,0.0134,0.00081,False,20000
+generic N=126 middle h=1,1,126,6,0.3,ours,0.0186,0.00096,False,20000
+generic N=126 middle h=1,1,126,6,0.3,rank,0.01435,0.00084,False,20000
+generic N=126 middle h=1,1,126,6,0.3,hac,0.2758,0.00316,True,20000
+generic N=126 middle h=1,1,126,6,0.3,conformal,0.0163,0.0009,False,20000
+generic N=126 middle h=1,1,126,6,0.3,conformal_lvl,0.0163,0.0009,False,20000
+generic N=160 middle h=1,1,160,6,0.3,ours,0.0154,0.00087,False,20000
+generic N=160 middle h=1,1,160,6,0.3,rank,0.00995,0.0007,False,20000
+generic N=160 middle h=1,1,160,6,0.3,hac,0.29125,0.00321,True,20000
+generic N=160 middle h=1,1,160,6,0.3,conformal,0.01245,0.00078,False,20000
+generic N=160 middle h=1,1,160,6,0.3,conformal_lvl,0.01245,0.00078,False,20000
+generic N=60 edge h=1,1,60,3,0.3,ours,0.01785,0.00094,False,20000
+generic N=60 edge h=1,1,60,3,0.3,rank,0.0175,0.00093,False,20000
+generic N=60 edge h=1,1,60,3,0.3,hac,0.23045,0.00298,True,20000
+generic N=60 edge h=1,1,60,3,0.3,conformal,0.0149,0.00086,False,20000
+generic N=60 edge h=1,1,60,3,0.3,conformal_lvl,0.0149,0.00086,False,20000
+generic N=75 edge h=1,1,75,3,0.3,ours,0.01695,0.00091,False,20000
+generic N=75 edge h=1,1,75,3,0.3,rank,0.01595,0.00089,False,20000
+generic N=75 edge h=1,1,75,3,0.3,hac,0.23985,0.00302,True,20000
+generic N=75 edge h=1,1,75,3,0.3,conformal,0.01305,0.0008,False,20000
+generic N=75 edge h=1,1,75,3,0.3,conformal_lvl,0.01305,0.0008,False,20000
+generic N=126 edge h=1,1,126,3,0.3,ours,0.0152,0.00087,False,20000
+generic N=126 edge h=1,1,126,3,0.3,rank,0.0179,0.00094,False,20000
+generic N=126 edge h=1,1,126,3,0.3,hac,0.2802,0.00318,True,20000
+generic N=126 edge h=1,1,126,3,0.3,conformal,0.0142,0.00084,False,20000
+generic N=126 edge h=1,1,126,3,0.3,conformal_lvl,0.0142,0.00084,False,20000
+generic N=160 edge h=1,1,160,3,0.3,ours,0.01585,0.00088,False,20000
+generic N=160 edge h=1,1,160,3,0.3,rank,0.0147,0.00085,False,20000
+generic N=160 edge h=1,1,160,3,0.3,hac,0.2989,0.00324,True,20000
+generic N=160 edge h=1,1,160,3,0.3,conformal,0.01105,0.00074,False,20000
+generic N=160 edge h=1,1,160,3,0.3,conformal_lvl,0.01105,0.00074,False,20000
+generic N=60 middle h=2,2,60,4,0.3,ours,0.01695,0.00091,False,20000
+generic N=60 middle h=2,2,60,4,0.3,rank,0.01885,0.00096,True,20000
+generic N=60 middle h=2,2,60,4,0.3,hac,0.20145,0.00284,True,20000
+generic N=60 middle h=2,2,60,4,0.3,conformal,0.01405,0.00083,False,20000
+generic N=60 middle h=2,2,60,4,0.3,conformal_lvl,0.0144,0.00084,False,20000
+generic N=75 middle h=2,2,75,6,0.3,ours,0.0173,0.00092,False,20000
+generic N=75 middle h=2,2,75,6,0.3,rank,0.0137,0.00082,False,20000
+generic N=75 middle h=2,2,75,6,0.3,hac,0.21515,0.00291,True,20000
+generic N=75 middle h=2,2,75,6,0.3,conformal,0.0121,0.00077,False,20000
+generic N=75 middle h=2,2,75,6,0.3,conformal_lvl,0.0122,0.00078,False,20000
+generic N=126 middle h=2,2,126,6,0.3,ours,0.01685,0.00091,False,20000
+generic N=126 middle h=2,2,126,6,0.3,rank,0.0144,0.00084,False,20000
+generic N=126 middle h=2,2,126,6,0.3,hac,0.2412,0.00303,True,20000
+generic N=126 middle h=2,2,126,6,0.3,conformal,0.0154,0.00087,False,20000
+generic N=126 middle h=2,2,126,6,0.3,conformal_lvl,0.016,0.00089,False,20000
+generic N=160 middle h=2,2,160,6,0.3,ours,0.01715,0.00092,False,20000
+generic N=160 middle h=2,2,160,6,0.3,rank,0.01205,0.00077,False,20000
+generic N=160 middle h=2,2,160,6,0.3,hac,0.24855,0.00306,True,20000
+generic N=160 middle h=2,2,160,6,0.3,conformal,0.0117,0.00076,False,20000
+generic N=160 middle h=2,2,160,6,0.3,conformal_lvl,0.012,0.00077,False,20000
+generic N=60 edge h=2,2,60,3,0.3,ours,0.01565,0.00088,False,20000
+generic N=60 edge h=2,2,60,3,0.3,rank,0.0183,0.00095,False,20000
+generic N=60 edge h=2,2,60,3,0.3,hac,0.1995,0.00283,True,20000
+generic N=60 edge h=2,2,60,3,0.3,conformal,0.01475,0.00085,False,20000
+generic N=60 edge h=2,2,60,3,0.3,conformal_lvl,0.0141,0.00083,False,20000
+generic N=75 edge h=2,2,75,3,0.3,ours,0.01535,0.00087,False,20000
+generic N=75 edge h=2,2,75,3,0.3,rank,0.01625,0.00089,False,20000
+generic N=75 edge h=2,2,75,3,0.3,hac,0.21125,0.00289,True,20000
+generic N=75 edge h=2,2,75,3,0.3,conformal,0.0133,0.00081,False,20000
+generic N=75 edge h=2,2,75,3,0.3,conformal_lvl,0.01365,0.00082,False,20000
+generic N=126 edge h=2,2,126,3,0.3,ours,0.0179,0.00094,False,20000
+generic N=126 edge h=2,2,126,3,0.3,rank,0.02225,0.00104,True,20000
+generic N=126 edge h=2,2,126,3,0.3,hac,0.24575,0.00304,True,20000
+generic N=126 edge h=2,2,126,3,0.3,conformal,0.01775,0.00093,False,20000
+generic N=126 edge h=2,2,126,3,0.3,conformal_lvl,0.01685,0.00091,False,20000
+generic N=160 edge h=2,2,160,3,0.3,ours,0.0176,0.00093,False,20000
+generic N=160 edge h=2,2,160,3,0.3,rank,0.01685,0.00091,False,20000
+generic N=160 edge h=2,2,160,3,0.3,hac,0.24895,0.00306,True,20000
+generic N=160 edge h=2,2,160,3,0.3,conformal,0.01175,0.00076,False,20000
+generic N=160 edge h=2,2,160,3,0.3,conformal_lvl,0.01155,0.00076,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.3,ours,0.00695,0.00059,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.3,rank,0.00565,0.00053,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.3,hac,0.1439,0.00248,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.3,conformal,0.0024,0.00035,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.3,conformal_lvl,0.00515,0.00051,False,20000
+UK-E3 (H1),2,171,6,0.6,ours,0.01735,0.00092,False,20000
+UK-E3 (H1),2,171,6,0.6,rank,0.011,0.00074,False,20000
+UK-E3 (H1),2,171,6,0.6,hac,0.28535,0.00319,True,20000
+UK-E3 (H1),2,171,6,0.6,conformal,0.0109,0.00073,False,20000
+UK-E3 (H1),2,171,6,0.6,conformal_lvl,0.0124,0.00078,False,20000
+UK-E4 (H1),2,171,5,0.6,ours,0.01735,0.00092,False,20000
+UK-E4 (H1),2,171,5,0.6,rank,0.01215,0.00077,False,20000
+UK-E4 (H1),2,171,5,0.6,hac,0.2849,0.00319,True,20000
+UK-E4 (H1),2,171,5,0.6,conformal,0.012,0.00077,False,20000
+UK-E4 (H1),2,171,5,0.6,conformal_lvl,0.01365,0.00082,False,20000
+UK-E1 (H1),2,171,3,0.6,ours,0.0163,0.0009,False,20000
+UK-E1 (H1),2,171,3,0.6,rank,0.01665,0.0009,False,20000
+UK-E1 (H1),2,171,3,0.6,hac,0.2817,0.00318,True,20000
+UK-E1 (H1),2,171,3,0.6,conformal,0.0109,0.00073,False,20000
+UK-E1 (H1),2,171,3,0.6,conformal_lvl,0.0105,0.00072,False,20000
+UK-E2 (H2/secondary),2,171,5,0.6,ours,0.0158,0.00088,False,20000
+UK-E2 (H2/secondary),2,171,5,0.6,rank,0.0133,0.00081,False,20000
+UK-E2 (H2/secondary),2,171,5,0.6,hac,0.2849,0.00319,True,20000
+UK-E2 (H2/secondary),2,171,5,0.6,conformal,0.0126,0.00079,False,20000
+UK-E2 (H2/secondary),2,171,5,0.6,conformal_lvl,0.0121,0.00077,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.6,ours,0.01585,0.00088,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.6,rank,0.01725,0.00092,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.6,hac,0.22985,0.00298,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.6,conformal,0.0095,0.00069,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.6,conformal_lvl,0.00915,0.00067,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.6,ours,0.0159,0.00088,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.6,rank,0.0127,0.00079,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.6,hac,0.236,0.003,True,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.6,conformal,0.0087,0.00066,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.6,conformal_lvl,0.0087,0.00066,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.6,ours,0.0168,0.00091,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.6,rank,0.01935,0.00097,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.6,hac,0.25855,0.0031,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.6,conformal,0.01395,0.00083,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.6,conformal_lvl,0.0138,0.00082,False,20000
+generic N=60 middle h=1,1,60,4,0.6,ours,0.01715,0.00092,False,20000
+generic N=60 middle h=1,1,60,4,0.6,rank,0.0181,0.00094,False,20000
+generic N=60 middle h=1,1,60,4,0.6,hac,0.23695,0.00301,True,20000
+generic N=60 middle h=1,1,60,4,0.6,conformal,0.0157,0.00088,False,20000
+generic N=60 middle h=1,1,60,4,0.6,conformal_lvl,0.0157,0.00088,False,20000
+generic N=75 middle h=1,1,75,6,0.6,ours,0.016,0.00089,False,20000
+generic N=75 middle h=1,1,75,6,0.6,rank,0.0114,0.00075,False,20000
+generic N=75 middle h=1,1,75,6,0.6,hac,0.2508,0.00307,True,20000
+generic N=75 middle h=1,1,75,6,0.6,conformal,0.01305,0.0008,False,20000
+generic N=75 middle h=1,1,75,6,0.6,conformal_lvl,0.01305,0.0008,False,20000
+generic N=126 middle h=1,1,126,6,0.6,ours,0.0155,0.00087,False,20000
+generic N=126 middle h=1,1,126,6,0.6,rank,0.01385,0.00083,False,20000
+generic N=126 middle h=1,1,126,6,0.6,hac,0.28065,0.00318,True,20000
+generic N=126 middle h=1,1,126,6,0.6,conformal,0.01635,0.0009,False,20000
+generic N=126 middle h=1,1,126,6,0.6,conformal_lvl,0.01635,0.0009,False,20000
+generic N=160 middle h=1,1,160,6,0.6,ours,0.017,0.00091,False,20000
+generic N=160 middle h=1,1,160,6,0.6,rank,0.0111,0.00074,False,20000
+generic N=160 middle h=1,1,160,6,0.6,hac,0.29215,0.00322,True,20000
+generic N=160 middle h=1,1,160,6,0.6,conformal,0.0127,0.00079,False,20000
+generic N=160 middle h=1,1,160,6,0.6,conformal_lvl,0.0127,0.00079,False,20000
+generic N=60 edge h=1,1,60,3,0.6,ours,0.0191,0.00097,True,20000
+generic N=60 edge h=1,1,60,3,0.6,rank,0.01945,0.00098,True,20000
+generic N=60 edge h=1,1,60,3,0.6,hac,0.238,0.00301,True,20000
+generic N=60 edge h=1,1,60,3,0.6,conformal,0.0168,0.00091,False,20000
+generic N=60 edge h=1,1,60,3,0.6,conformal_lvl,0.0168,0.00091,False,20000
+generic N=75 edge h=1,1,75,3,0.6,ours,0.0178,0.00093,False,20000
+generic N=75 edge h=1,1,75,3,0.6,rank,0.0161,0.00089,False,20000
+generic N=75 edge h=1,1,75,3,0.6,hac,0.24085,0.00302,True,20000
+generic N=75 edge h=1,1,75,3,0.6,conformal,0.01255,0.00079,False,20000
+generic N=75 edge h=1,1,75,3,0.6,conformal_lvl,0.01255,0.00079,False,20000
+generic N=126 edge h=1,1,126,3,0.6,ours,0.0169,0.00091,False,20000
+generic N=126 edge h=1,1,126,3,0.6,rank,0.01925,0.00097,True,20000
+generic N=126 edge h=1,1,126,3,0.6,hac,0.2805,0.00318,True,20000
+generic N=126 edge h=1,1,126,3,0.6,conformal,0.0169,0.00091,False,20000
+generic N=126 edge h=1,1,126,3,0.6,conformal_lvl,0.0169,0.00091,False,20000
+generic N=160 edge h=1,1,160,3,0.6,ours,0.01805,0.00094,False,20000
+generic N=160 edge h=1,1,160,3,0.6,rank,0.01625,0.00089,False,20000
+generic N=160 edge h=1,1,160,3,0.6,hac,0.29465,0.00322,True,20000
+generic N=160 edge h=1,1,160,3,0.6,conformal,0.0136,0.00082,False,20000
+generic N=160 edge h=1,1,160,3,0.6,conformal_lvl,0.0136,0.00082,False,20000
+generic N=60 middle h=2,2,60,4,0.6,ours,0.01785,0.00094,False,20000
+generic N=60 middle h=2,2,60,4,0.6,rank,0.0233,0.00107,True,20000
+generic N=60 middle h=2,2,60,4,0.6,hac,0.2232,0.00294,True,20000
+generic N=60 middle h=2,2,60,4,0.6,conformal,0.01545,0.00087,False,20000
+generic N=60 middle h=2,2,60,4,0.6,conformal_lvl,0.01405,0.00083,False,20000
+generic N=75 middle h=2,2,75,6,0.6,ours,0.01575,0.00088,False,20000
+generic N=75 middle h=2,2,75,6,0.6,rank,0.0157,0.00088,False,20000
+generic N=75 middle h=2,2,75,6,0.6,hac,0.23335,0.00299,True,20000
+generic N=75 middle h=2,2,75,6,0.6,conformal,0.0118,0.00076,False,20000
+generic N=75 middle h=2,2,75,6,0.6,conformal_lvl,0.0115,0.00075,False,20000
+generic N=126 middle h=2,2,126,6,0.6,ours,0.0155,0.00087,False,20000
+generic N=126 middle h=2,2,126,6,0.6,rank,0.01605,0.00089,False,20000
+generic N=126 middle h=2,2,126,6,0.6,hac,0.26845,0.00313,True,20000
+generic N=126 middle h=2,2,126,6,0.6,conformal,0.01665,0.0009,False,20000
+generic N=126 middle h=2,2,126,6,0.6,conformal_lvl,0.0154,0.00087,False,20000
+generic N=160 middle h=2,2,160,6,0.6,ours,0.0179,0.00094,False,20000
+generic N=160 middle h=2,2,160,6,0.6,rank,0.0146,0.00085,False,20000
+generic N=160 middle h=2,2,160,6,0.6,hac,0.27895,0.00317,True,20000
+generic N=160 middle h=2,2,160,6,0.6,conformal,0.01285,0.0008,False,20000
+generic N=160 middle h=2,2,160,6,0.6,conformal_lvl,0.01255,0.00079,False,20000
+generic N=60 edge h=2,2,60,3,0.6,ours,0.0172,0.00092,False,20000
+generic N=60 edge h=2,2,60,3,0.6,rank,0.02345,0.00107,True,20000
+generic N=60 edge h=2,2,60,3,0.6,hac,0.22395,0.00295,True,20000
+generic N=60 edge h=2,2,60,3,0.6,conformal,0.01635,0.0009,False,20000
+generic N=60 edge h=2,2,60,3,0.6,conformal_lvl,0.0158,0.00088,False,20000
+generic N=75 edge h=2,2,75,3,0.6,ours,0.0164,0.0009,False,20000
+generic N=75 edge h=2,2,75,3,0.6,rank,0.0175,0.00093,False,20000
+generic N=75 edge h=2,2,75,3,0.6,hac,0.23565,0.003,True,20000
+generic N=75 edge h=2,2,75,3,0.6,conformal,0.01225,0.00078,False,20000
+generic N=75 edge h=2,2,75,3,0.6,conformal_lvl,0.01365,0.00082,False,20000
+generic N=126 edge h=2,2,126,3,0.6,ours,0.01535,0.00087,False,20000
+generic N=126 edge h=2,2,126,3,0.6,rank,0.0191,0.00097,True,20000
+generic N=126 edge h=2,2,126,3,0.6,hac,0.2596,0.0031,True,20000
+generic N=126 edge h=2,2,126,3,0.6,conformal,0.01575,0.00088,False,20000
+generic N=126 edge h=2,2,126,3,0.6,conformal_lvl,0.01575,0.00088,False,20000
+generic N=160 edge h=2,2,160,3,0.6,ours,0.01805,0.00094,False,20000
+generic N=160 edge h=2,2,160,3,0.6,rank,0.01775,0.00093,False,20000
+generic N=160 edge h=2,2,160,3,0.6,hac,0.28685,0.0032,True,20000
+generic N=160 edge h=2,2,160,3,0.6,conformal,0.0137,0.00082,False,20000
+generic N=160 edge h=2,2,160,3,0.6,conformal_lvl,0.0134,0.00081,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.6,ours,0.00805,0.00063,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.6,rank,0.00715,0.0006,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.6,hac,0.16835,0.00265,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.6,conformal,0.00195,0.00031,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.6,conformal_lvl,0.00495,0.0005,False,20000
+UK-E3 (H1),2,171,6,0.9,ours,0.0161,0.00089,False,20000
+UK-E3 (H1),2,171,6,0.9,rank,0.0128,0.00079,False,20000
+UK-E3 (H1),2,171,6,0.9,hac,0.3112,0.00327,True,20000
+UK-E3 (H1),2,171,6,0.9,conformal,0.0104,0.00072,False,20000
+UK-E3 (H1),2,171,6,0.9,conformal_lvl,0.0111,0.00074,False,20000
+UK-E4 (H1),2,171,5,0.9,ours,0.0172,0.00092,False,20000
+UK-E4 (H1),2,171,5,0.9,rank,0.01215,0.00077,False,20000
+UK-E4 (H1),2,171,5,0.9,hac,0.3101,0.00327,True,20000
+UK-E4 (H1),2,171,5,0.9,conformal,0.01235,0.00078,False,20000
+UK-E4 (H1),2,171,5,0.9,conformal_lvl,0.0107,0.00073,False,20000
+UK-E1 (H1),2,171,3,0.9,ours,0.01775,0.00093,False,20000
+UK-E1 (H1),2,171,3,0.9,rank,0.01755,0.00093,False,20000
+UK-E1 (H1),2,171,3,0.9,hac,0.30365,0.00325,True,20000
+UK-E1 (H1),2,171,3,0.9,conformal,0.0105,0.00072,False,20000
+UK-E1 (H1),2,171,3,0.9,conformal_lvl,0.0124,0.00078,False,20000
+UK-E2 (H2/secondary),2,171,5,0.9,ours,0.01845,0.00095,False,20000
+UK-E2 (H2/secondary),2,171,5,0.9,rank,0.01655,0.0009,False,20000
+UK-E2 (H2/secondary),2,171,5,0.9,hac,0.31315,0.00328,True,20000
+UK-E2 (H2/secondary),2,171,5,0.9,conformal,0.0128,0.00079,False,20000
+UK-E2 (H2/secondary),2,171,5,0.9,conformal_lvl,0.0126,0.00079,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.9,ours,0.01885,0.00096,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.9,rank,0.0227,0.00105,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.9,hac,0.253,0.00307,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.9,conformal,0.0108,0.00073,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.9,conformal_lvl,0.0095,0.00069,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.9,ours,0.0173,0.00092,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.9,rank,0.01675,0.00091,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.9,hac,0.2419,0.00303,True,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.9,conformal,0.01065,0.00073,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.9,conformal_lvl,0.01065,0.00073,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.9,ours,0.0171,0.00092,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.9,rank,0.0208,0.00101,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.9,hac,0.2819,0.00318,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.9,conformal,0.01475,0.00085,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.9,conformal_lvl,0.01585,0.00088,False,20000
+generic N=60 middle h=1,1,60,4,0.9,ours,0.01815,0.00094,False,20000
+generic N=60 middle h=1,1,60,4,0.9,rank,0.0176,0.00093,False,20000
+generic N=60 middle h=1,1,60,4,0.9,hac,0.22965,0.00297,True,20000
+generic N=60 middle h=1,1,60,4,0.9,conformal,0.014,0.00083,False,20000
+generic N=60 middle h=1,1,60,4,0.9,conformal_lvl,0.014,0.00083,False,20000
+generic N=75 middle h=1,1,75,6,0.9,ours,0.0186,0.00096,False,20000
+generic N=75 middle h=1,1,75,6,0.9,rank,0.01345,0.00081,False,20000
+generic N=75 middle h=1,1,75,6,0.9,hac,0.23905,0.00302,True,20000
+generic N=75 middle h=1,1,75,6,0.9,conformal,0.0124,0.00078,False,20000
+generic N=75 middle h=1,1,75,6,0.9,conformal_lvl,0.0124,0.00078,False,20000
+generic N=126 middle h=1,1,126,6,0.9,ours,0.01735,0.00092,False,20000
+generic N=126 middle h=1,1,126,6,0.9,rank,0.01515,0.00086,False,20000
+generic N=126 middle h=1,1,126,6,0.9,hac,0.27625,0.00316,True,20000
+generic N=126 middle h=1,1,126,6,0.9,conformal,0.0174,0.00092,False,20000
+generic N=126 middle h=1,1,126,6,0.9,conformal_lvl,0.0174,0.00092,False,20000
+generic N=160 middle h=1,1,160,6,0.9,ours,0.01545,0.00087,False,20000
+generic N=160 middle h=1,1,160,6,0.9,rank,0.0127,0.00079,False,20000
+generic N=160 middle h=1,1,160,6,0.9,hac,0.29195,0.00321,True,20000
+generic N=160 middle h=1,1,160,6,0.9,conformal,0.0122,0.00078,False,20000
+generic N=160 middle h=1,1,160,6,0.9,conformal_lvl,0.0122,0.00078,False,20000
+generic N=60 edge h=1,1,60,3,0.9,ours,0.0159,0.00088,False,20000
+generic N=60 edge h=1,1,60,3,0.9,rank,0.018,0.00094,False,20000
+generic N=60 edge h=1,1,60,3,0.9,hac,0.2487,0.00306,True,20000
+generic N=60 edge h=1,1,60,3,0.9,conformal,0.015,0.00086,False,20000
+generic N=60 edge h=1,1,60,3,0.9,conformal_lvl,0.015,0.00086,False,20000
+generic N=75 edge h=1,1,75,3,0.9,ours,0.0157,0.00088,False,20000
+generic N=75 edge h=1,1,75,3,0.9,rank,0.0153,0.00087,False,20000
+generic N=75 edge h=1,1,75,3,0.9,hac,0.2589,0.0031,True,20000
+generic N=75 edge h=1,1,75,3,0.9,conformal,0.0138,0.00082,False,20000
+generic N=75 edge h=1,1,75,3,0.9,conformal_lvl,0.0138,0.00082,False,20000
+generic N=126 edge h=1,1,126,3,0.9,ours,0.01615,0.00089,False,20000
+generic N=126 edge h=1,1,126,3,0.9,rank,0.01985,0.00099,True,20000
+generic N=126 edge h=1,1,126,3,0.9,hac,0.28505,0.00319,True,20000
+generic N=126 edge h=1,1,126,3,0.9,conformal,0.01585,0.00088,False,20000
+generic N=126 edge h=1,1,126,3,0.9,conformal_lvl,0.01585,0.00088,False,20000
+generic N=160 edge h=1,1,160,3,0.9,ours,0.0185,0.00095,False,20000
+generic N=160 edge h=1,1,160,3,0.9,rank,0.0175,0.00093,False,20000
+generic N=160 edge h=1,1,160,3,0.9,hac,0.30195,0.00325,True,20000
+generic N=160 edge h=1,1,160,3,0.9,conformal,0.01255,0.00079,False,20000
+generic N=160 edge h=1,1,160,3,0.9,conformal_lvl,0.01255,0.00079,False,20000
+generic N=60 middle h=2,2,60,4,0.9,ours,0.01745,0.00093,False,20000
+generic N=60 middle h=2,2,60,4,0.9,rank,0.02395,0.00108,True,20000
+generic N=60 middle h=2,2,60,4,0.9,hac,0.23145,0.00298,True,20000
+generic N=60 middle h=2,2,60,4,0.9,conformal,0.0133,0.00081,False,20000
+generic N=60 middle h=2,2,60,4,0.9,conformal_lvl,0.0123,0.00078,False,20000
+generic N=75 middle h=2,2,75,6,0.9,ours,0.01745,0.00093,False,20000
+generic N=75 middle h=2,2,75,6,0.9,rank,0.0188,0.00096,True,20000
+generic N=75 middle h=2,2,75,6,0.9,hac,0.2509,0.00307,True,20000
+generic N=75 middle h=2,2,75,6,0.9,conformal,0.01105,0.00074,False,20000
+generic N=75 middle h=2,2,75,6,0.9,conformal_lvl,0.01215,0.00077,False,20000
+generic N=126 middle h=2,2,126,6,0.9,ours,0.01755,0.00093,False,20000
+generic N=126 middle h=2,2,126,6,0.9,rank,0.0176,0.00093,False,20000
+generic N=126 middle h=2,2,126,6,0.9,hac,0.2784,0.00317,True,20000
+generic N=126 middle h=2,2,126,6,0.9,conformal,0.0156,0.00088,False,20000
+generic N=126 middle h=2,2,126,6,0.9,conformal_lvl,0.0146,0.00085,False,20000
+generic N=160 middle h=2,2,160,6,0.9,ours,0.018,0.00094,False,20000
+generic N=160 middle h=2,2,160,6,0.9,rank,0.01395,0.00083,False,20000
+generic N=160 middle h=2,2,160,6,0.9,hac,0.2972,0.00323,True,20000
+generic N=160 middle h=2,2,160,6,0.9,conformal,0.013,0.0008,False,20000
+generic N=160 middle h=2,2,160,6,0.9,conformal_lvl,0.01355,0.00082,False,20000
+generic N=60 edge h=2,2,60,3,0.9,ours,0.0159,0.00088,False,20000
+generic N=60 edge h=2,2,60,3,0.9,rank,0.02345,0.00107,True,20000
+generic N=60 edge h=2,2,60,3,0.9,hac,0.25275,0.00307,True,20000
+generic N=60 edge h=2,2,60,3,0.9,conformal,0.0157,0.00088,False,20000
+generic N=60 edge h=2,2,60,3,0.9,conformal_lvl,0.0144,0.00084,False,20000
+generic N=75 edge h=2,2,75,3,0.9,ours,0.01795,0.00094,False,20000
+generic N=75 edge h=2,2,75,3,0.9,rank,0.0206,0.001,True,20000
+generic N=75 edge h=2,2,75,3,0.9,hac,0.26815,0.00313,True,20000
+generic N=75 edge h=2,2,75,3,0.9,conformal,0.01235,0.00078,False,20000
+generic N=75 edge h=2,2,75,3,0.9,conformal_lvl,0.01315,0.00081,False,20000
+generic N=126 edge h=2,2,126,3,0.9,ours,0.0161,0.00089,False,20000
+generic N=126 edge h=2,2,126,3,0.9,rank,0.02345,0.00107,True,20000
+generic N=126 edge h=2,2,126,3,0.9,hac,0.2907,0.00321,True,20000
+generic N=126 edge h=2,2,126,3,0.9,conformal,0.014,0.00083,False,20000
+generic N=126 edge h=2,2,126,3,0.9,conformal_lvl,0.01615,0.00089,False,20000
+generic N=160 edge h=2,2,160,3,0.9,ours,0.0173,0.00092,False,20000
+generic N=160 edge h=2,2,160,3,0.9,rank,0.01845,0.00095,False,20000
+generic N=160 edge h=2,2,160,3,0.9,hac,0.30575,0.00326,True,20000
+generic N=160 edge h=2,2,160,3,0.9,conformal,0.01215,0.00077,False,20000
+generic N=160 edge h=2,2,160,3,0.9,conformal_lvl,0.01255,0.00079,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.9,ours,0.0129,0.0008,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.9,rank,0.01305,0.0008,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.9,hac,0.2141,0.0029,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.9,conformal,0.0024,0.00035,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.9,conformal_lvl,0.00555,0.00053,False,20000
+UK-E3 (H1),2,171,6,0.97,ours,0.017,0.00091,False,20000
+UK-E3 (H1),2,171,6,0.97,rank,0.01095,0.00074,False,20000
+UK-E3 (H1),2,171,6,0.97,hac,0.3169,0.00329,True,20000
+UK-E3 (H1),2,171,6,0.97,conformal,0.01105,0.00074,False,20000
+UK-E3 (H1),2,171,6,0.97,conformal_lvl,0.01135,0.00075,False,20000
+UK-E4 (H1),2,171,5,0.97,ours,0.01725,0.00092,False,20000
+UK-E4 (H1),2,171,5,0.97,rank,0.0109,0.00073,False,20000
+UK-E4 (H1),2,171,5,0.97,hac,0.3212,0.0033,True,20000
+UK-E4 (H1),2,171,5,0.97,conformal,0.0126,0.00079,False,20000
+UK-E4 (H1),2,171,5,0.97,conformal_lvl,0.01325,0.00081,False,20000
+UK-E1 (H1),2,171,3,0.97,ours,0.01705,0.00092,False,20000
+UK-E1 (H1),2,171,3,0.97,rank,0.0228,0.00106,True,20000
+UK-E1 (H1),2,171,3,0.97,hac,0.3212,0.0033,True,20000
+UK-E1 (H1),2,171,3,0.97,conformal,0.0102,0.00071,False,20000
+UK-E1 (H1),2,171,3,0.97,conformal_lvl,0.0104,0.00072,False,20000
+UK-E2 (H2/secondary),2,171,5,0.97,ours,0.0161,0.00089,False,20000
+UK-E2 (H2/secondary),2,171,5,0.97,rank,0.01405,0.00083,False,20000
+UK-E2 (H2/secondary),2,171,5,0.97,hac,0.3159,0.00329,True,20000
+UK-E2 (H2/secondary),2,171,5,0.97,conformal,0.0127,0.00079,False,20000
+UK-E2 (H2/secondary),2,171,5,0.97,conformal_lvl,0.0134,0.00081,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.97,ours,0.01595,0.00089,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.97,rank,0.0271,0.00115,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.97,hac,0.24985,0.00306,True,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.97,conformal,0.0111,0.00074,False,20000
+SG-E1 hawker contrast h=2 (H3),2,74,5,0.97,conformal_lvl,0.0099,0.0007,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.97,ours,0.0173,0.00092,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.97,rank,0.0197,0.00098,True,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.97,hac,0.2271,0.00296,True,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.97,conformal,0.01085,0.00073,False,20000
+SG-E1 hawker contrast h=1 (secondary),1,81,5,0.97,conformal_lvl,0.01085,0.00073,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.97,ours,0.01575,0.00088,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.97,rank,0.0235,0.00107,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.97,hac,0.29255,0.00322,True,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.97,conformal,0.01455,0.00085,False,20000
+SG-E1 dish arm h=2 (secondary),2,126,5,0.97,conformal_lvl,0.0137,0.00082,False,20000
+generic N=60 middle h=1,1,60,4,0.97,ours,0.01305,0.0008,False,20000
+generic N=60 middle h=1,1,60,4,0.97,rank,0.01415,0.00084,False,20000
+generic N=60 middle h=1,1,60,4,0.97,hac,0.1978,0.00282,True,20000
+generic N=60 middle h=1,1,60,4,0.97,conformal,0.0144,0.00084,False,20000
+generic N=60 middle h=1,1,60,4,0.97,conformal_lvl,0.0144,0.00084,False,20000
+generic N=75 middle h=1,1,75,6,0.97,ours,0.01485,0.00086,False,20000
+generic N=75 middle h=1,1,75,6,0.97,rank,0.01475,0.00085,False,20000
+generic N=75 middle h=1,1,75,6,0.97,hac,0.2231,0.00294,True,20000
+generic N=75 middle h=1,1,75,6,0.97,conformal,0.01315,0.00081,False,20000
+generic N=75 middle h=1,1,75,6,0.97,conformal_lvl,0.01315,0.00081,False,20000
+generic N=126 middle h=1,1,126,6,0.97,ours,0.01485,0.00086,False,20000
+generic N=126 middle h=1,1,126,6,0.97,rank,0.0147,0.00085,False,20000
+generic N=126 middle h=1,1,126,6,0.97,hac,0.2749,0.00316,True,20000
+generic N=126 middle h=1,1,126,6,0.97,conformal,0.01665,0.0009,False,20000
+generic N=126 middle h=1,1,126,6,0.97,conformal_lvl,0.01665,0.0009,False,20000
+generic N=160 middle h=1,1,160,6,0.97,ours,0.0174,0.00092,False,20000
+generic N=160 middle h=1,1,160,6,0.97,rank,0.012,0.00077,False,20000
+generic N=160 middle h=1,1,160,6,0.97,hac,0.285,0.00319,True,20000
+generic N=160 middle h=1,1,160,6,0.97,conformal,0.01225,0.00078,False,20000
+generic N=160 middle h=1,1,160,6,0.97,conformal_lvl,0.01225,0.00078,False,20000
+generic N=60 edge h=1,1,60,3,0.97,ours,0.018,0.00094,False,20000
+generic N=60 edge h=1,1,60,3,0.97,rank,0.0185,0.00095,False,20000
+generic N=60 edge h=1,1,60,3,0.97,hac,0.2806,0.00318,True,20000
+generic N=60 edge h=1,1,60,3,0.97,conformal,0.0163,0.0009,False,20000
+generic N=60 edge h=1,1,60,3,0.97,conformal_lvl,0.0163,0.0009,False,20000
+generic N=75 edge h=1,1,75,3,0.97,ours,0.0202,0.00099,True,20000
+generic N=75 edge h=1,1,75,3,0.97,rank,0.0166,0.0009,False,20000
+generic N=75 edge h=1,1,75,3,0.97,hac,0.2885,0.0032,True,20000
+generic N=75 edge h=1,1,75,3,0.97,conformal,0.0125,0.00079,False,20000
+generic N=75 edge h=1,1,75,3,0.97,conformal_lvl,0.0125,0.00079,False,20000
+generic N=126 edge h=1,1,126,3,0.97,ours,0.0182,0.00095,False,20000
+generic N=126 edge h=1,1,126,3,0.97,rank,0.0215,0.00103,True,20000
+generic N=126 edge h=1,1,126,3,0.97,hac,0.3199,0.0033,True,20000
+generic N=126 edge h=1,1,126,3,0.97,conformal,0.0155,0.00087,False,20000
+generic N=126 edge h=1,1,126,3,0.97,conformal_lvl,0.0155,0.00087,False,20000
+generic N=160 edge h=1,1,160,3,0.97,ours,0.0201,0.00099,True,20000
+generic N=160 edge h=1,1,160,3,0.97,rank,0.01975,0.00098,True,20000
+generic N=160 edge h=1,1,160,3,0.97,hac,0.3324,0.00333,True,20000
+generic N=160 edge h=1,1,160,3,0.97,conformal,0.0127,0.00079,False,20000
+generic N=160 edge h=1,1,160,3,0.97,conformal_lvl,0.0127,0.00079,False,20000
+generic N=60 middle h=2,2,60,4,0.97,ours,0.0134,0.00081,False,20000
+generic N=60 middle h=2,2,60,4,0.97,rank,0.0165,0.0009,False,20000
+generic N=60 middle h=2,2,60,4,0.97,hac,0.2054,0.00286,True,20000
+generic N=60 middle h=2,2,60,4,0.97,conformal,0.0111,0.00074,False,20000
+generic N=60 middle h=2,2,60,4,0.97,conformal_lvl,0.0127,0.00079,False,20000
+generic N=75 middle h=2,2,75,6,0.97,ours,0.01375,0.00082,False,20000
+generic N=75 middle h=2,2,75,6,0.97,rank,0.0196,0.00098,True,20000
+generic N=75 middle h=2,2,75,6,0.97,hac,0.23095,0.00298,True,20000
+generic N=75 middle h=2,2,75,6,0.97,conformal,0.0124,0.00078,False,20000
+generic N=75 middle h=2,2,75,6,0.97,conformal_lvl,0.0111,0.00074,False,20000
+generic N=126 middle h=2,2,126,6,0.97,ours,0.01745,0.00093,False,20000
+generic N=126 middle h=2,2,126,6,0.97,rank,0.0172,0.00092,False,20000
+generic N=126 middle h=2,2,126,6,0.97,hac,0.27405,0.00315,True,20000
+generic N=126 middle h=2,2,126,6,0.97,conformal,0.0154,0.00087,False,20000
+generic N=126 middle h=2,2,126,6,0.97,conformal_lvl,0.01575,0.00088,False,20000
+generic N=160 middle h=2,2,160,6,0.97,ours,0.01745,0.00093,False,20000
+generic N=160 middle h=2,2,160,6,0.97,rank,0.0131,0.0008,False,20000
+generic N=160 middle h=2,2,160,6,0.97,hac,0.2934,0.00322,True,20000
+generic N=160 middle h=2,2,160,6,0.97,conformal,0.0125,0.00079,False,20000
+generic N=160 middle h=2,2,160,6,0.97,conformal_lvl,0.01205,0.00077,False,20000
+generic N=60 edge h=2,2,60,3,0.97,ours,0.01675,0.00091,False,20000
+generic N=60 edge h=2,2,60,3,0.97,rank,0.0271,0.00115,True,20000
+generic N=60 edge h=2,2,60,3,0.97,hac,0.29135,0.00321,True,20000
+generic N=60 edge h=2,2,60,3,0.97,conformal,0.01525,0.00087,False,20000
+generic N=60 edge h=2,2,60,3,0.97,conformal_lvl,0.01565,0.00088,False,20000
+generic N=75 edge h=2,2,75,3,0.97,ours,0.0213,0.00102,True,20000
+generic N=75 edge h=2,2,75,3,0.97,rank,0.0227,0.00105,True,20000
+generic N=75 edge h=2,2,75,3,0.97,hac,0.30965,0.00327,True,20000
+generic N=75 edge h=2,2,75,3,0.97,conformal,0.0138,0.00082,False,20000
+generic N=75 edge h=2,2,75,3,0.97,conformal_lvl,0.01355,0.00082,False,20000
+generic N=126 edge h=2,2,126,3,0.97,ours,0.0175,0.00093,False,20000
+generic N=126 edge h=2,2,126,3,0.97,rank,0.0263,0.00113,True,20000
+generic N=126 edge h=2,2,126,3,0.97,hac,0.32045,0.0033,True,20000
+generic N=126 edge h=2,2,126,3,0.97,conformal,0.01485,0.00086,False,20000
+generic N=126 edge h=2,2,126,3,0.97,conformal_lvl,0.0166,0.0009,False,20000
+generic N=160 edge h=2,2,160,3,0.97,ours,0.01835,0.00095,False,20000
+generic N=160 edge h=2,2,160,3,0.97,rank,0.02225,0.00104,True,20000
+generic N=160 edge h=2,2,160,3,0.97,hac,0.33325,0.00333,True,20000
+generic N=160 edge h=2,2,160,3,0.97,conformal,0.01285,0.0008,False,20000
+generic N=160 edge h=2,2,160,3,0.97,conformal_lvl,0.01275,0.00079,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.97,ours,0.01245,0.00078,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.97,rank,0.0158,0.00088,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.97,hac,0.20975,0.00288,True,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.97,conformal,0.00255,0.00036,False,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),2&1,74/81,5/5,0.97,conformal_lvl,0.00635,0.00056,False,20000

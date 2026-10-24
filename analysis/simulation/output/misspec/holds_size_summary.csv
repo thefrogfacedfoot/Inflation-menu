@@ -1,0 +1,36 @@
+dgp,dgp_label,method,cells_holding_size,max_size,min_size,over_rejecting_cells
+ref,Gaussian AR(1) 0.3 (reference),ours_registered,7/7,0.01715,0.00615,
+ref,Gaussian AR(1) 0.3 (reference),ours_revised,7/7,0.01715,0.00595,
+ref,Gaussian AR(1) 0.3 (reference),conformal,7/7,0.0126,0.00185,
+ref,Gaussian AR(1) 0.3 (reference),conformal_lvl,7/7,0.01285,0.0052,
+ref,Gaussian AR(1) 0.3 (reference),rank,7/7,0.01605,0.0053,
+ar2,"Gaussian AR(2) (0.5, 0.3)",ours_registered,7/7,0.01775,0.00935,
+ar2,"Gaussian AR(2) (0.5, 0.3)",ours_revised,7/7,0.0174,0.00955,
+ar2,"Gaussian AR(2) (0.5, 0.3)",conformal,7/7,0.01395,0.0016,
+ar2,"Gaussian AR(2) (0.5, 0.3)",conformal_lvl,7/7,0.0138,0.0053,
+ar2,"Gaussian AR(2) (0.5, 0.3)",rank,5/7,0.02115,0.00895,SG-E1 hawker contrast h=2 (H3); SG-E1 dish arm h=2 (secondary)
+sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_registered,2/7,0.02505,0.0087,UK-E3 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary)
+sar12,seasonal AR (1-0.3B)(1-0.5B^12),ours_revised,3/7,0.0251,0.00865,UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary)
+sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal,7/7,0.01485,0.00145,
+sar12,seasonal AR (1-0.3B)(1-0.5B^12),conformal_lvl,7/7,0.01485,0.0039,
+sar12,seasonal AR (1-0.3B)(1-0.5B^12),rank,5/7,0.02155,0.0058,UK-E1 (H1); SG-E1 dish arm h=2 (secondary)
+t3,"AR(1) 0.3, t(3) innovations",ours_registered,1/7,0.0354,0.01825,UK-E3 (H1); UK-E4 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary)
+t3,"AR(1) 0.3, t(3) innovations",ours_revised,1/7,0.0349,0.0181,UK-E3 (H1); UK-E4 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary)
+t3,"AR(1) 0.3, t(3) innovations",conformal,7/7,0.0148,0.00435,
+t3,"AR(1) 0.3, t(3) innovations",conformal_lvl,7/7,0.01385,0.00835,
+t3,"AR(1) 0.3, t(3) innovations",rank,7/7,0.0182,0.00825,
+spike,"AR(1) 0.3, Var(x) x3 in event month",ours_registered,0/7,0.09025,0.0357,UK-E3 (H1); UK-E4 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary); SG-E1 hawker IUT h=2 & h=1 (H3)
+spike,"AR(1) 0.3, Var(x) x3 in event month",ours_revised,0/7,0.08905,0.03555,UK-E3 (H1); UK-E4 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary); SG-E1 hawker IUT h=2 & h=1 (H3)
+spike,"AR(1) 0.3, Var(x) x3 in event month",conformal,1/7,0.0734,0.0129,UK-E3 (H1); UK-E4 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary)
+spike,"AR(1) 0.3, Var(x) x3 in event month",conformal_lvl,0/7,0.0734,0.04275,UK-E3 (H1); UK-E4 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary); SG-E1 hawker IUT h=2 & h=1 (H3)
+spike,"AR(1) 0.3, Var(x) x3 in event month",rank,0/7,0.07125,0.02925,UK-E3 (H1); UK-E4 (H1); UK-E1 (H1); SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary); SG-E1 hawker IUT h=2 & h=1 (H3)
+meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_registered,5/7,0.0333,0.0136,SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary)
+meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",ours_revised,5/7,0.03295,0.01335,SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary)
+meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal,4/7,0.0198,0.00335,UK-E3 (H1); UK-E4 (H1); SG-E1 dish arm h=2 (secondary)
+meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",conformal_lvl,5/7,0.02035,0.0052,UK-E3 (H1); SG-E1 dish arm h=2 (secondary)
+meanbrk,"AR(1) 0.3, +0.5 sd drift break at mid-sample",rank,4/7,0.0284,0.00925,SG-E1 hawker contrast h=2 (H3); SG-E1 hawker contrast h=1 (secondary); SG-E1 dish arm h=2 (secondary)
+lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_registered,7/7,0.0163,0.0069,
+lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",ours_revised,7/7,0.01575,0.00655,
+lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal,7/7,0.00435,5e-05,
+lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",conformal_lvl,7/7,0.0052,5e-05,
+lvlstep,"AR(1) 0.3, +5 sd level step at mid-sample",rank,7/7,0.00665,0.0001,

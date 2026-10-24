@@ -136,3 +136,188 @@ Synthetic data only, run with `--reps 20000` in about 75 s. Outputs are in `outp
 The findings and the two open decisions (D1 and D2) are written into `docs/preregistration_v2.md` §5.3, §5.5 and §9 item 4.
 
 `prereg_v3_iut.py` checks the H3 intersection-union test, which rejects only if both h = 2 and h = 1 reject. It reports size and power at ρ = 1 against using h = 2 alone, with and without the CNY bump scenarios. It takes about 17 s and writes `iut_power_no_bump.csv` and `iut_cny_scenarios.csv`. The registered gate and size rule (D1-b and D2-b) appear in `a1_gate_summary.csv` under the variant "REGISTERED D1-b+D2-b" and in the `size_alt_always_calibrated_bc` column.
+
+## Benchmark study (`benchmark_mc.py`, 2026-10-24)
+
+Synthetic data only, like everything above. No outcome value was read and the prereg is unchanged. The run used `--reps 20000` with R_cal = 20,000 and took about 5.5 min. The method definitions, seeds and implementation choices are in the module docstring. The claims these results bear on are listed in `docs/math_claims.md`.
+
+```
+.venv-sim/bin/python analysis/simulation/benchmark_mc.py --reps 20000
+.venv-sim/bin/python analysis/simulation/benchmark_figures.py
+.venv-sim/bin/python analysis/simulation/claims_checks.py --reps 20000   # output/claims/, about 12 s
+```
+
+**What is compared.** Five methods are run on the same draws in every cell. The fifth was added in the second pass; the first four's results reproduced exactly in that re-run (576/576 size cells):
+- **ours**: the registered always-calibrated test (D2-b).
+- **rank**: the uncalibrated rank test (prereg-v2).
+- **hac**: an OLS event-dummy z-test with Newey-West errors.
+- **conformal**: Chernozhukov, Wüthrich & Zhu (2021) with an AR(1) + calendar-month counterfactual and cyclic shifts. The statistic is the window sum of residuals.
+- **conformal_lvl**: the same, with a level-gap statistic. It sums observed-minus-forecast levels over the window, which is the weighted residual sum Σ w_l u_{e+l} (`docs/math_claims.md` H3).
+
+**The grid** is 23 layouts × 6 φ, at ρ ∈ {0.5, 1} on a grid of r = |Δ|/σ:
+- the 7 registered layouts;
+- 16 generic layouts (N ∈ {60, 75, 126, 160}, centred or first-year event, h ∈ {1, 2});
+- H3 decided by the IUT, for every method;
+- the A3 CNY scenarios.
+
+The gate is not applied.
+
+**Outputs in `output/benchmark/`:**
+- `settings.csv`, `size.csv`, `power.csv` (raw and size-adjusted power, each method's difference from ours, paired MC SE);
+- `summary.csv` (sizes, and power at r80, the first r on the grid where ours has ≥ 0.8 at ρ = 1);
+- `flags.csv`, `cny.csv`, `cny_flags.csv`;
+- `figures/`.
+
+**Flag definitions (`flags.csv`).** A flag is raised in three cases:
+- `size`: ours over-rejects (rate − 2 SE > α) and the benchmark does not.
+- `power`: the benchmark does not over-reject, and its power exceeds ours by more than 2 paired SE at some (ρ, r).
+- `power_sa`: the same comparison for size-adjusted power.
+
+Each row reports the (ρ, r) with the largest difference.
+
+**Size** across the 138 non-IUT cells, with the number of over-rejecting cells:
+
+| Method | Size range | Over-rejecting cells |
+|---|---|---|
+| ours | 0.0131–0.0213 | 5 / 138 (generic N = 60 edge h = 1 at φ = 0.6; H3 hawker h = 2 at φ = 0.9, 0.0189; three generic edge layouts at φ = 0.97, 0.0201–0.0213) |
+| rank | 0.0089–0.0271 | 32 / 138 |
+| hac | 0.120–0.333 | 138 / 138 |
+| conformal | 0.0082–0.0178 | 0 / 138 |
+
+**Where a benchmark beats ours.** The first pass had 255 flags. With conformal_lvl there are 534, plus 295 CNY flags. On the registered layouts:
+
+0. **Conformal level-gap, at h = 2: it beats ours, plainly.**
+   - Its size is 0.0087–0.0174 and it never over-rejects in the 138 cells.
+   - It has higher power than ours at h = 2 on every registered layout, at every φ, and in the H3 IUT. At r80 and ρ = 1, for example:
+     - H3 hawker h = 2: 0.967 against 0.934 at φ = 0, and 1.000 against 0.879 at φ = 0.9;
+     - UK-E1 at φ = 0: 0.995 against 0.924.
+   - At ρ = 0.5 the gaps are larger: UK-E1 0.578 against 0.370, and H3 IUT 0.417 against 0.347, both at φ = 0.
+   - Ours is ahead only at saturation (1.00 against 0.99, the K = 0 ceiling).
+   - Two trade-offs:
+     - It is not protected against a permanent CNY step (`cny.csv`: size 0.052, or 0.048 under the IUT, at a −1-point permanent step, against 0.013 for ours).
+     - Under t(3) noise, ours keeps a power edge (`output/misspec/`).
+
+1. **Conformal at h = 1 with persistent noise.**
+   - SG hawker h = 1 (secondary): at φ = 0.97, ρ = 0.5, r = 2.4, power is 0.956 for conformal against 0.368 for ours. This setting is flagged at φ ∈ {−0.5, 0.6, 0.9, 0.97}.
+   - In the generic h = 1 layouts the gap is up to +0.74 (φ = 0.97).
+   - Mechanism: the AR(1) counterfactual pre-whitens. At high φ a pulse in x_e is many innovation SDs, while T* compares the event with neighbours a year apart and gains nothing from that predictability.
+   - The DGP is exactly AR(1), which favours this benchmark. Misspecified noise is not tested.
+2. **Conformal at φ = −0.5**, on every registered h = 2 layout. For example, UK-E1 at ρ = 0.5, r = 4.8 has raw power 0.642 against 0.441 for ours.
+3. **Rank test after size adjustment, at high φ** (median gain 0.04, largest 0.21 in the generic edge layouts at φ = 0.97). Calibrating with the median/IQR τ costs some power compared with the raw order statistic. On the registered layouts the raw rank test is flagged mostly where it is also oversized, and so excluded from `power`.
+4. **HAC after size adjustment**: only generic N = 160 edge h = 1, by about +0.02 to +0.04. Its raw size is never valid.
+
+**Where ours wins.** At h = 2 with φ ≥ 0.3, conformal's power collapses:
+- H3 hawker h = 2 at r80: 0.195, 0.032, 0.001 at φ = 0.3, 0.6, 0.9, against 0.85–0.91 for ours.
+- The window sum of AR residuals is about s(1 − φ̂), so the pulse cancels.
+- Even at φ = 0, conformal plateaus near 0.57. With n ≈ 87 shifts, K = 0, so the observed window must beat every other shift, including the overlapping shift one month earlier, which also contains the pulse.
+
+For the H3 IUT, ours has power 0.80–0.96 at r80 against at most 0.47 for conformal at φ ≥ 0, and 0.87 at φ = −0.5.
+
+**CNY (`cny_flags.csv`, 77 flags).**
+- Under a +1-point temporary hawker bump, ours at h = 2 has size 0.265 and conformal 0.005. Conformal's h = 2 window sum is insensitive to a one-month pulse, for the reason in "Where ours wins". Under the IUT, ours is already ≤ 0.0001 in that scenario.
+- HAC is flagged on `power_rho*` only where the bump biases it against rejection. Its no-bump size is about 0.2, so these flags do not make HAC a usable test.
+
+**Not covered in the first pass:** misspecified noise (now in `misspec_mc.py`), a level-shift conformal statistic (now `conformal_lvl`), and size given that the gate passes (now in `method_fixes.py`). Still not covered: q = 2 conformal statistics, and conformal with a counterfactual model other than AR(1) plus calendar-month dummies.
+
+## Method fixes (`method_fixes.py`, 2026-10-24)
+
+Synthetic data only. The run used `--reps 20000` with R_DENSE = 50,000 and took about 20 min. Outputs are in `output/method_fixes/`. The definitions are in the docstring. The claims affected are C2, C3, C4, C6, D3 and D4 in `docs/math_claims.md`.
+
+```
+.venv-sim/bin/python analysis/simulation/method_fixes.py --reps 20000
+.venv-sim/bin/python analysis/simulation/misspec_mc.py --reps 20000   # needs method_fixes' tables.csv; about 30 s
+```
+
+- **(a) Indirect-inference φ̂** (`phi_bias.csv`, `figures/phi_bias_*`).
+  - Bias on the registered layouts:
+    - Kendall: +0.004 to +0.014 for φ ∈ [0, 0.9].
+    - Indirect inference: −0.001 to +0.002 over the same range.
+  - Indirect inference is worse at the ends of the grid because of clipping: −0.006 to −0.016 at φ = 0.97, +0.027 to +0.042 at φ = −0.5.
+  - RMSE is unchanged.
+  - Effect on size: at most 0.0005.
+- **(b) Smoothed critical value** (`tables.csv`, `figures/critical_value_raw_vs_smoothed.*`).
+  - Dense grid: 149 points, 50,000 runs each, local-linear fit with the bandwidth chosen by leave-one-out cross-validation.
+  - The curve is smooth on [−0.5, 0.9] and changes sharply above 0.9.
+  - The registered 75-point table is within 0.04–0.06 of the smoothed curve.
+- **Size across φ** (`size.csv`, 23 layouts × 8 true φ, `figures/size_variants_*`).
+  - Registered rule: 0.0106–0.0201, over-rejecting in 10 of 184 cells.
+  - Revised rule (a + b): 0.0114–0.0197, over-rejecting in 8 of 184.
+  - True φ with the smoothed table: 1 of 184, which is consistent with chance (about 4 expected).
+  - On the 7 registered layouts: the registered rule over-rejects in 2 cells (0.0191 each), the revised rule in 1 (0.0187).
+- **(c) Size conditional on the gate** (`gate_conditional_size.csv`).
+  - It is above α wherever the gate is informative: 0.021–0.032 when the gate passes half the time, and up to 0.060 when it passes 10% of the time.
+  - H3 IUT: 0.009 (φ = 0) and 0.017 (φ = 0.9) at a 50% pass rate.
+  - Neither (a) nor (b) changes this.
+- **(d) The five cells** (`overreject_cells.csv`, 100,000 runs each):
+  - one is sampling chance;
+  - H3 hawker h = 2 at φ = 0.9 is the spread of φ̂ (about +0.001, which no fix removes);
+  - the three φ = 0.97 edge cells are table under-reading plus low φ̂ near the 0.98 clip. Smoothing removes about a third of their excess; indirect inference removes none.
+
+## Misspecification (`misspec_mc.py`, 2026-10-24)
+
+Seven cells: UK-E3, E4, E1, H3 hawker h = 2 and h = 1, the dish arm, and the H3 IUT. Seven DGPs, 20,000 runs. Methods: ours (registered), ours (revised), both conformal variants, and the rank test as a distribution-free reference. The table gives the cells holding size, out of 7 (`holds_size_summary.csv`):
+
+| DGP | ours reg / rev | conformal | conformal_lvl | rank |
+|---|---|---|---|---|
+| Gaussian AR(1) 0.3 (reference) | 7 / 7 | 7 | 7 | 7 |
+| Gaussian AR(2) (0.5, 0.3) | 7 / 7 | 7 | 7 | 5 |
+| seasonal AR (1−0.3B)(1−0.5B¹²) | 2 / 3 | 7 | 7 | 5 |
+| t(3) innovations | 1 / 1 (size 0.030–0.035) | 7 | 7 | 7 |
+| Var(x_e) × 3 in the event month | 0 / 0 | 1 | 0 | 0 |
+| +0.5 SD drift break at mid-sample | 5 / 5 (hawker h = 2: 0.033) | 4 | 5 | 4 |
+| +5 SD level step at mid-sample | 7 / 7 | 7 | 7 | 7 |
+
+The event-month variance spike defeats every method. That is expected, because no placebo can reveal a variance change that occurs only in the event month. The calibrated test's weak points are heavy tails and seasonal persistence, both of which come from its Gaussian AR(1) calibration. Size-adjusted power is in `power.csv`.
+
+## Prereg revision 4 package (`prereg_v4_sim.py`, 2026-10-24)
+
+Synthetic data only. Outputs are in `output/prereg_v4/` (`size.csv`, `power.csv`, `gate_guarantee.csv`, `cny.csv`). Most runs used 20,000 replications. The bootstrap piece used 6,000 (2,000 in the CNY study) with B = 999. The run was split into four parallel parts and took about 11 min of wall time. The commands are in the docstring.
+
+**Procedures.**
+- **v3**: the registered procedure.
+- **H1-v4**: the level-gap conformal test with a symmetric gate.
+- **H3-v4a**: the rank test with a symmetric gate, decided by the IUT.
+- **H3-v4b**: a residual-bootstrap-calibrated test with a symmetric gate, also decided by the IUT.
+
+The symmetric gate takes the (K+2)-th largest of all pooled values (the observed statistic included) minus their q_p. It equals the test's critical value whenever the test rejects. The (K+1)-th largest would make the gate fail exactly when the effect is large whenever K = 0, which is the case for the H3 hawker arm (N = 74).
+
+**Size: unconditional and conditional on the gate passing.** The gate's r is set at the 10%, 50% and 90% quantiles of the null gate statistic. The figures below cover the Gaussian AR(1) grid and the misspecified set except the spike. "Flagged" means more than 2 SE above α.
+
+| Procedure | Unconditional | Conditional on gate pass | Flagged cells |
+|---|---|---|---|
+| H1-v4, UK E3/E4/E1 | 0.004–0.019 | 0.003–0.019 | one, unconditional: UK-E3 under the drift break (0.0187) |
+| H3-v4a IUT | 0.000–0.016 | 0.000–0.018 | none |
+| H3-dish IUT (v4a, secondary) | 0.002–0.018 | 0.002–0.021 | none |
+| H3-v4b IUT | 0.001–0.015 | up to 0.032 | φ = 0.9 (0.023 at a 50% pass rate) and the drift break (0.032 at a 10% pass rate) |
+| H3-v4b components | 0.015–0.022 | 0.028–0.033 at a 50% pass rate (h = 2) | |
+| v3 H1 | | 0.016–0.057; at 10–50% pass rates it is flagged on every Gaussian cell | |
+| v3 H3 IUT | | up to 0.040 | |
+
+The variance spike breaks every procedure, as expected (0.035–0.066).
+
+**Power guarantee: minimum over r of P(reject at ρ = 1 | gate passes)** (`gate_guarantee.csv`):
+
+| Gate quantile | H1-v4 (UK E3/E4/E1/E2) | H3-v4a IUT | H3-dish IUT |
+|---|---|---|---|
+| q₁₀ | 0.61–0.90 (fails) | 0.64–0.88 (fails) | 0.74–0.89 (fails) |
+| q₀₅ | 0.819–0.897 on the Gaussian grid | 0.815–0.917 for φ ∈ [0, 0.97]; 0.693 at φ = −0.5 | 0.857–0.937 for φ ≥ 0; 0.748 at φ = −0.5 |
+
+For comparison, v3's own guarantee at φ = −0.5 is 0.665. Under misspecified noise, q₀₅ gives 0.59–0.88 for H1-v4 and 0.78–0.93 for the H3 IUT. The registered guarantee was only ever a Gaussian AR(1) claim.
+
+**Power: P(gate passes and test rejects)** (`power.csv`), Gaussian AR(1):
+
+| Comparison | Setting | ρ | Proposed | v3 |
+|---|---|---|---|---|
+| H1-v4 q₀₅ vs v3 (UK-E3) | φ = 0, r = 5.05 | 1 | 0.90 | 0.28 |
+| | φ = 0, r = 5.05 | 0.5 | 0.42 | 0.12 |
+| | φ = 0.6, r = 5.05 | 1 | 0.89 | 0.01 |
+| H3 IUT v4a q₀₅ vs v3 | φ = 0, r = 6 | 1 | 0.40 | 0.71 |
+| | φ = 0.6, r = 7.1 | 1 | 0.35 | 0.53 |
+| | φ = 0.9, r = 7.1 | 1 | 0.53 | 0.54 |
+
+The gate passes half the time at r = 5.68 for the proposed H3 procedure, against 5.46 for v3. Part of v3's apparent H3 power comes from its conditional over-rejection.
+
+**CNY** (`cny.csv`, H3 IUT, CNY-month timing, b ∈ {±0.5, ±1.0} points, temporary and permanent, σ = 0.2 and 0.4 points):
+- All three procedures keep unconditional size ≤ 0.0155.
+- P(confirmatory rejection) at ρ = 1 is at most 0.14 for every procedure, because at these σ the gate rarely passes.
+- The CNY study used the q₁₀ gate. The q₀₅ gate passes no more often, so these figures are upper bounds under q₀₅.

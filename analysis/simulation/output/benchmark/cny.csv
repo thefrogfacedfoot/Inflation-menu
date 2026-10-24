@@ -1,0 +1,1121 @@
+arm,timing,bump,hawker_bump_logpts,sigma_contrast_logpts,method,size,over_rejects,power_rho0.5,power_rho1,reps
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.002,ours,5e-05,False,0.0019,0.0786,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.002,rank,0.0,False,0.0003,0.01995,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.002,hac,0.0,False,0.0,0.0,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.002,conformal,0.0001,False,0.0042,0.06705,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.002,conformal_lvl,0.0007,False,0.06005,0.4907,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.002,ours,0.529,True,0.97875,0.9999,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.002,rank,0.0285,True,0.4543,0.94255,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.002,hac,0.68255,True,0.9933,1.0,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.002,conformal,0.0387,True,0.47055,0.9399,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.002,conformal_lvl,0.0387,True,0.47055,0.9399,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.002,ours,0.0,False,0.002,0.06595,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.002,rank,0.0,False,0.00075,0.0237,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.002,hac,0.0,False,0.0,0.0,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.002,conformal,0.00015,False,0.0235,0.3403,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.002,conformal_lvl,0.00265,False,0.13725,0.74015,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.002,ours,5e-05,False,0.0019,0.0786,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.002,rank,0.0,False,0.0003,0.01995,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.002,hac,0.0,False,0.0,0.0,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.002,conformal,0.0001,False,0.00415,0.06695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.002,conformal_lvl,0.0007,False,0.0599,0.49055,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.002,ours,0.00065,False,0.0407,0.3656,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.002,rank,0.00035,False,0.0279,0.28945,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.002,hac,0.0006,False,0.00545,0.0204,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.002,conformal,0.0009,False,0.0304,0.19215,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.002,conformal_lvl,0.0055,False,0.18785,0.7537,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.002,ours,0.14325,True,0.8309,0.99835,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.002,rank,0.0563,True,0.6055,0.98,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.002,hac,0.54,True,0.9823,0.99995,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.002,conformal,0.04915,True,0.55895,0.97065,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.002,conformal_lvl,0.04915,True,0.55895,0.97065,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.002,ours,0.00105,False,0.0408,0.3789,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.002,rank,0.00075,False,0.03335,0.33795,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.002,hac,0.00075,False,0.0054,0.0262,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.002,conformal,0.0015,False,0.0714,0.5422,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.002,conformal_lvl,0.00905,False,0.28575,0.8914,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.002,ours,0.0006,False,0.0407,0.3656,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.002,rank,0.00035,False,0.02745,0.2894,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.002,hac,0.00055,False,0.00545,0.0204,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.002,conformal,0.0008,False,0.03,0.19215,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.002,conformal_lvl,0.00525,False,0.18545,0.7533,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.002,ours,0.00405,False,0.11815,0.5822,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.002,rank,0.0027,False,0.0928,0.5167,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.002,hac,0.0314,True,0.12625,0.27055,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.002,conformal,0.0025,False,0.06245,0.2553,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.002,conformal_lvl,0.00805,False,0.2517,0.8268,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.002,ours,0.06155,True,0.6795,0.9929,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.002,rank,0.03755,True,0.56235,0.97995,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.002,hac,0.4245,True,0.9674,0.99985,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.002,conformal,0.034,True,0.5311,0.97415,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.002,conformal_lvl,0.034,True,0.5311,0.97415,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.002,ours,0.0048,False,0.11935,0.6067,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.002,rank,0.00455,False,0.11305,0.58415,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.002,hac,0.0382,True,0.14635,0.3164,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.002,conformal,0.00365,False,0.11335,0.60615,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.002,conformal_lvl,0.0143,False,0.34685,0.92315,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.002,ours,0.00295,False,0.1162,0.5821,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.002,rank,0.00155,False,0.08865,0.5159,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.002,hac,0.02665,True,0.12595,0.27055,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.002,conformal,0.0015,False,0.05925,0.2547,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.002,conformal_lvl,0.00665,False,0.2431,0.8254,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.002,ours,0.017,False,0.2388,0.75645,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.002,hac,0.1841,True,0.57235,0.7767,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.002,conformal,0.0109,False,0.1492,0.4089,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.002,conformal_lvl,0.01,False,0.28535,0.8579,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.002,ours,0.01765,False,0.46715,0.97205,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.002,rank,0.0112,False,0.3717,0.9461,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.002,hac,0.2387,True,0.91045,0.99955,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.002,conformal,0.01075,False,0.3636,0.9403,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.002,conformal_lvl,0.01075,False,0.3636,0.9403,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.002,ours,0.01825,False,0.25025,0.77975,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.002,rank,0.01725,False,0.2404,0.76355,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.002,hac,0.2145,True,0.6279,0.83105,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.002,conformal,0.0162,False,0.22725,0.73315,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.002,conformal_lvl,0.01605,False,0.38195,0.93835,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.002,ours,0.0052,False,0.19985,0.75335,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.002,rank,0.0034,False,0.15785,0.697,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.002,hac,0.1155,True,0.552,0.7767,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.002,conformal,0.0025,False,0.11025,0.40205,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.002,conformal_lvl,0.0054,False,0.2384,0.8462,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.002,ours,0.04495,True,0.38735,0.8666,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.002,rank,0.035,True,0.3311,0.81785,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.002,hac,0.23175,True,0.84215,0.97615,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.002,conformal,0.02565,True,0.3055,0.7251,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.002,conformal_lvl,0.0074,False,0.2637,0.8577,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.002,ours,0.0024,False,0.1996,0.88125,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.002,rank,0.0005,False,0.10815,0.72375,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.002,hac,0.06705,True,0.70125,0.9943,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.002,conformal,0.00085,False,0.1185,0.7653,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.002,conformal_lvl,0.00085,False,0.1185,0.7653,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.002,ours,0.0473,True,0.40405,0.8867,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.002,rank,0.04145,True,0.38415,0.86765,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.002,hac,0.2662,True,0.8927,0.98965,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.002,conformal,0.0413,True,0.41985,0.8961,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.002,conformal_lvl,0.01265,False,0.35355,0.93055,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.002,ours,0.0018,False,0.159,0.8092,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.002,rank,0.0005,False,0.0868,0.65875,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.002,hac,0.05965,True,0.65665,0.97185,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.002,conformal,0.0006,False,0.0856,0.6029,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.002,conformal_lvl,0.00085,False,0.106,0.73475,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.002,ours,0.0923,True,0.5266,0.92765,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.002,rank,0.0621,True,0.4234,0.86885,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.002,hac,0.15515,True,0.83065,0.99645,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.002,conformal,0.0263,True,0.3747,0.87725,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.002,conformal_lvl,0.00215,False,0.1708,0.79105,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.002,ours,0.0001,False,0.051,0.64675,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.002,rank,5e-05,False,0.00195,0.11035,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.002,hac,0.0069,False,0.31105,0.9334,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.002,conformal,0.0,False,0.00705,0.23355,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.002,conformal_lvl,0.0,False,0.00705,0.23355,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.002,ours,0.0926,True,0.547,0.93915,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.002,rank,0.08085,True,0.5037,0.915,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.002,hac,0.17575,True,0.87545,0.9991,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.002,conformal,0.0461,True,0.49735,0.9459,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.002,conformal_lvl,0.0064,False,0.2539,0.89165,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.002,ours,0.0001,False,0.04975,0.63785,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.002,rank,5e-05,False,0.0019,0.10965,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.002,hac,0.00685,False,0.30955,0.9323,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.002,conformal,0.0,False,0.0065,0.2264,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.002,conformal_lvl,0.0,False,0.00695,0.23215,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.002,ours,0.265,True,0.77605,0.9832,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.002,rank,0.0788,True,0.43485,0.84185,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.002,hac,0.03665,True,0.5809,0.9853,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.002,conformal,0.0048,False,0.18855,0.7835,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.002,conformal_lvl,0.0001,False,0.0126,0.28285,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.002,ours,0.0,False,0.0009,0.13285,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.002,rank,0.0,False,0.0,0.0,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.002,hac,0.0,False,0.0039,0.2463,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.002,conformal,0.0,False,0.0,0.0,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.002,conformal_lvl,0.0,False,0.0,0.0,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.002,ours,0.24805,True,0.77,0.9834,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.002,rank,0.12535,True,0.5806,0.93385,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.002,hac,0.04465,True,0.6466,0.99355,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.002,conformal,0.016,False,0.326,0.90085,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.002,conformal_lvl,0.00075,False,0.0554,0.5198,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.002,ours,0.0,False,0.0009,0.13285,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.002,rank,0.0,False,0.0,0.0,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.002,hac,0.0,False,0.0039,0.2463,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.002,conformal,0.0,False,0.0,0.0,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.002,conformal_lvl,0.0,False,0.0,0.0,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.004,ours,0.0007,False,0.0073,0.0401,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.004,rank,0.0006,False,0.00485,0.0273,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.004,hac,0.00065,False,0.0024,0.00525,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.004,conformal,0.00075,False,0.00695,0.03275,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.01,0.004,conformal_lvl,0.00555,False,0.04145,0.18685,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.004,ours,0.14365,True,0.4747,0.8251,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.004,rank,0.0529,True,0.2585,0.60305,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.004,hac,0.53965,True,0.8589,0.9805,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.004,conformal,0.0451,True,0.2254,0.55875,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.01,0.004,conformal_lvl,0.0451,True,0.2254,0.55875,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.004,ours,0.0007,False,0.0057,0.03895,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.004,rank,0.0005,False,0.0049,0.03085,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.004,hac,0.00125,False,0.00325,0.00635,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.004,conformal,0.00075,False,0.01105,0.0708,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.01,0.004,conformal_lvl,0.0075,False,0.06965,0.28565,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.004,ours,0.00065,False,0.00715,0.0401,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.004,rank,0.00045,False,0.00455,0.02695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.004,hac,0.00065,False,0.00235,0.00525,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.004,conformal,0.0006,False,0.00665,0.0317,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.01,0.004,conformal_lvl,0.00515,False,0.03975,0.18355,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.004,ours,0.00435,False,0.0284,0.11355,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.004,rank,0.00305,False,0.02245,0.09245,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.004,hac,0.02985,True,0.07105,0.1242,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.004,conformal,0.00245,False,0.017,0.06245,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.005,0.004,conformal_lvl,0.0087,False,0.064,0.2531,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.004,ours,0.05695,True,0.2927,0.67785,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.004,rank,0.03485,True,0.2101,0.5605,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.004,hac,0.4259,True,0.7915,0.96495,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.004,conformal,0.03065,True,0.1911,0.5327,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.005,0.004,conformal_lvl,0.03065,True,0.1911,0.5327,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.004,ours,0.00415,False,0.02795,0.11615,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.004,rank,0.00355,False,0.0236,0.1087,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.004,hac,0.03715,True,0.0848,0.1428,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.004,conformal,0.00265,False,0.02345,0.1141,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.005,0.004,conformal_lvl,0.01085,False,0.09545,0.3511,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.004,ours,0.003,False,0.0263,0.11165,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.004,rank,0.00185,False,0.0189,0.0883,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.004,hac,0.02535,True,0.0685,0.1235,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.004,conformal,0.00155,False,0.01445,0.0592,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.005,0.004,conformal_lvl,0.007,False,0.05885,0.24405,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.004,ours,0.0087,False,0.0488,0.1696,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.004,rank,0.00745,False,0.0403,0.14,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.004,hac,0.0963,True,0.20795,0.32575,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.004,conformal,0.00475,False,0.0288,0.09245,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),-0.0025,0.004,conformal_lvl,0.00945,False,0.072,0.2773,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.004,ours,0.0345,True,0.2096,0.5803,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.004,rank,0.0211,True,0.1555,0.48415,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.004,hac,0.3387,True,0.72905,0.9496,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.004,conformal,0.0201,True,0.1453,0.4645,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),-0.0025,0.004,conformal_lvl,0.0201,True,0.1453,0.4645,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.004,ours,0.0079,False,0.05095,0.17955,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.004,rank,0.0077,False,0.04585,0.16795,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.004,hac,0.11305,True,0.23425,0.36405,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.004,conformal,0.0063,False,0.04145,0.15725,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),-0.0025,0.004,conformal_lvl,0.0135,False,0.10395,0.3758,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.004,ours,0.0047,False,0.03865,0.16025,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.004,rank,0.0031,False,0.02935,0.12655,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.004,hac,0.0724,True,0.1926,0.32175,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.004,conformal,0.00185,False,0.01955,0.08115,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),-0.0025,0.004,conformal_lvl,0.0062,False,0.0597,0.25785,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.004,ours,0.01685,False,0.07695,0.23425,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.004,hac,0.1844,True,0.3955,0.57135,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.004,conformal,0.0111,False,0.0507,0.1486,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0,0.004,conformal_lvl,0.0102,False,0.0763,0.2895,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.004,ours,0.01715,False,0.13225,0.4622,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.004,rank,0.00985,False,0.09405,0.3726,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.004,hac,0.23995,True,0.62535,0.91025,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.004,conformal,0.0098,False,0.0909,0.36345,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0,0.004,conformal_lvl,0.0098,False,0.0909,0.36345,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.004,ours,0.0155,False,0.0817,0.24965,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.004,rank,0.0149,False,0.075,0.23695,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.004,hac,0.21285,True,0.45045,0.6306,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.004,conformal,0.0132,False,0.0741,0.2303,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0,0.004,conformal_lvl,0.01385,False,0.1096,0.3865,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.004,ours,0.0054,False,0.0455,0.19685,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.004,rank,0.00315,False,0.03255,0.15695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.004,hac,0.1153,True,0.33425,0.55105,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.004,conformal,0.0022,False,0.02375,0.11025,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0,0.004,conformal_lvl,0.00495,False,0.05055,0.2411,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.004,ours,0.0284,True,0.11365,0.3087,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.004,rank,0.02345,True,0.0938,0.2671,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.004,hac,0.23605,True,0.53245,0.7597,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.004,conformal,0.01975,True,0.0817,0.2253,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.0025,0.004,conformal_lvl,0.0091,False,0.074,0.28475,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.004,ours,0.0066,False,0.0677,0.3271,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.004,rank,0.00375,False,0.0444,0.2392,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.004,hac,0.1417,True,0.4782,0.83485,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.004,conformal,0.00365,False,0.04355,0.242,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.0025,0.004,conformal_lvl,0.00365,False,0.04355,0.242,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.004,ours,0.0282,True,0.1187,0.32625,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.004,rank,0.0253,True,0.1122,0.31155,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.004,hac,0.26945,True,0.5993,0.8149,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.004,conformal,0.02475,True,0.1203,0.33115,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.0025,0.004,conformal_lvl,0.0125,False,0.10395,0.3791,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.004,ours,0.0036,False,0.0373,0.20165,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.004,rank,0.0019,False,0.02445,0.14695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.004,hac,0.1041,True,0.3687,0.68865,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.004,conformal,0.0017,False,0.021,0.1195,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.0025,0.004,conformal_lvl,0.0026,False,0.03145,0.18805,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.004,ours,0.0455,True,0.1569,0.38385,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.004,rank,0.035,True,0.1268,0.32765,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.004,hac,0.2311,True,0.57755,0.84015,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.004,conformal,0.02785,True,0.1116,0.30455,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.005,0.004,conformal_lvl,0.00725,False,0.06405,0.26345,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.004,ours,0.00195,False,0.0316,0.1992,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.004,rank,0.00055,False,0.01295,0.10605,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.004,hac,0.0652,True,0.3123,0.7029,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.004,conformal,0.00065,False,0.0149,0.1162,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.005,0.004,conformal_lvl,0.00065,False,0.0149,0.1162,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.004,ours,0.04545,True,0.16435,0.4014,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.004,rank,0.03955,True,0.1526,0.381,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.004,hac,0.2628,True,0.63635,0.89325,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.004,conformal,0.03775,True,0.1642,0.4248,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.005,0.004,conformal_lvl,0.01035,False,0.0907,0.35655,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.004,ours,0.00145,False,0.02345,0.1577,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.004,rank,0.0004,False,0.00985,0.08455,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.004,hac,0.0576,True,0.28405,0.6582,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.004,conformal,0.00025,False,0.00985,0.08165,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.005,0.004,conformal_lvl,0.00045,False,0.01235,0.10255,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.004,ours,0.08895,True,0.2585,0.5204,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.004,rank,0.0618,True,0.19365,0.4216,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.004,hac,0.1523,True,0.4905,0.8292,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.004,conformal,0.0252,True,0.1283,0.3688,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,temporary (1 month),0.01,0.004,conformal_lvl,0.00225,False,0.03005,0.1679,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.004,ours,0.0001,False,0.0044,0.0488,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.004,rank,0.0,False,0.0,0.0024,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.004,hac,0.00635,False,0.0684,0.31215,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.004,conformal,0.0,False,0.00035,0.0065,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,temporary (1 month),0.01,0.004,conformal_lvl,0.0,False,0.00035,0.0065,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.004,ours,0.08985,True,0.2686,0.54165,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.004,rank,0.07765,True,0.23745,0.4955,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.004,hac,0.17375,True,0.5451,0.87625,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.004,conformal,0.0428,True,0.19745,0.4962,20000
+SG-E1 dish arm h=2 (secondary),CNY month,temporary (1 month),0.01,0.004,conformal_lvl,0.00495,False,0.05515,0.253,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.004,ours,0.0001,False,0.00425,0.0473,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.004,rank,0.0,False,0.0,0.00235,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.004,hac,0.00615,False,0.0677,0.3107,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.004,conformal,0.0,False,0.00035,0.00595,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,temporary (1 month),0.01,0.004,conformal_lvl,0.0,False,0.00035,0.0064,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.002,ours,0.0132,False,0.2079,0.7246,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.002,rank,0.008,False,0.1498,0.6181,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.002,hac,0.00205,False,0.01175,0.0394,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.002,conformal,0.00495,False,0.0766,0.23925,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.002,conformal_lvl,0.05245,True,0.49245,0.93105,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.002,ours,0.64005,True,0.99035,0.99995,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.002,rank,0.4076,True,0.94245,0.99935,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.002,hac,0.68255,True,0.9933,1.0,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.002,conformal,0.23295,True,0.86355,0.997,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.002,conformal_lvl,0.23295,True,0.86355,0.997,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.002,ours,0.01255,False,0.20445,0.72715,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.002,rank,0.006,False,0.1311,0.6041,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.002,hac,0.0033,False,0.0169,0.061,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.002,conformal,0.0134,False,0.24045,0.78495,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.002,conformal_lvl,0.1051,True,0.7045,0.98935,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.002,ours,0.0132,False,0.2079,0.7246,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.002,rank,0.00755,False,0.14965,0.6181,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.002,hac,0.002,False,0.01175,0.0394,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.002,conformal,0.0044,False,0.07595,0.2392,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.002,conformal_lvl,0.0475,True,0.4872,0.93075,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.002,ours,0.01515,False,0.22605,0.74605,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.002,rank,0.01265,False,0.19075,0.6871,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.002,hac,0.05425,True,0.1667,0.32145,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.002,conformal,0.00845,False,0.10595,0.2919,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.002,conformal_lvl,0.03245,True,0.4293,0.9132,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.002,ours,0.18965,True,0.87505,0.99895,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.002,rank,0.13605,True,0.79555,0.996,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.002,hac,0.54,True,0.9823,0.99995,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.002,conformal,0.10865,True,0.75135,0.99425,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.002,conformal_lvl,0.10865,True,0.75135,0.99425,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.002,ours,0.0161,False,0.2318,0.7602,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.002,rank,0.01375,False,0.21175,0.7339,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.002,hac,0.07095,True,0.1989,0.3894,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.002,conformal,0.01385,False,0.22565,0.76005,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.002,conformal_lvl,0.0557,True,0.5884,0.9797,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.002,ours,0.01305,False,0.225,0.746,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.002,rank,0.00975,False,0.18815,0.6869,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.002,hac,0.04675,True,0.1663,0.32145,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.002,conformal,0.0062,False,0.1028,0.2918,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.002,conformal_lvl,0.02795,True,0.4217,0.913,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.002,ours,0.0162,False,0.2351,0.7554,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.002,rank,0.0137,False,0.2011,0.7006,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.002,hac,0.12855,True,0.35975,0.56655,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.002,conformal,0.0101,False,0.12535,0.33415,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.002,conformal_lvl,0.02065,True,0.3658,0.892,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.002,ours,0.07005,True,0.7074,0.9948,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.002,rank,0.04645,True,0.6108,0.98525,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.002,hac,0.4245,True,0.9674,0.99985,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.002,conformal,0.0419,True,0.5887,0.98295,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.002,conformal_lvl,0.0419,True,0.5887,0.98295,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.002,ours,0.0183,False,0.2447,0.7726,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.002,rank,0.0163,False,0.23335,0.75735,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.002,hac,0.15465,True,0.4105,0.6307,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.002,conformal,0.0155,False,0.2195,0.73915,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.002,conformal_lvl,0.0328,True,0.49855,0.965,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.002,ours,0.0103,False,0.22605,0.7551,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.002,rank,0.0073,False,0.1885,0.69935,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.002,hac,0.10105,True,0.3566,0.56655,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.002,conformal,0.00455,False,0.11465,0.3334,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.002,conformal_lvl,0.0141,False,0.3462,0.8906,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.002,ours,0.017,False,0.2388,0.75645,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.002,hac,0.1841,True,0.57235,0.7767,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.002,conformal,0.0109,False,0.1492,0.4089,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.002,conformal_lvl,0.01,False,0.28535,0.8579,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.002,ours,0.01765,False,0.46715,0.97205,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.002,rank,0.0112,False,0.3717,0.9461,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.002,hac,0.2387,True,0.91045,0.99955,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.002,conformal,0.01075,False,0.3636,0.9403,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.002,conformal_lvl,0.01075,False,0.3636,0.9403,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.002,ours,0.01825,False,0.25025,0.77975,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.002,rank,0.01725,False,0.2404,0.76355,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.002,hac,0.2145,True,0.6279,0.83105,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.002,conformal,0.0162,False,0.22725,0.73315,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.002,conformal_lvl,0.01605,False,0.38195,0.93835,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.002,ours,0.0052,False,0.19985,0.75335,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.002,rank,0.0034,False,0.15785,0.697,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.002,hac,0.1155,True,0.552,0.7767,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.002,conformal,0.0025,False,0.11025,0.40205,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.002,conformal_lvl,0.0054,False,0.2384,0.8462,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.002,ours,0.01635,False,0.2342,0.7512,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.002,rank,0.01275,False,0.19615,0.69305,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.002,hac,0.15745,True,0.6949,0.90655,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.002,conformal,0.00885,False,0.1651,0.5208,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.002,conformal_lvl,0.00415,False,0.1947,0.7956,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.002,ours,0.00255,False,0.22005,0.8939,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.002,rank,0.0014,False,0.15495,0.81755,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.002,hac,0.06705,True,0.70125,0.9943,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.002,conformal,0.0013,False,0.1537,0.8193,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.002,conformal_lvl,0.0013,False,0.1537,0.8193,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.002,ours,0.0175,False,0.2453,0.77475,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.002,rank,0.0159,False,0.2342,0.7578,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.002,hac,0.17385,True,0.75465,0.94035,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.002,conformal,0.0144,False,0.23485,0.7496,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.002,conformal_lvl,0.00615,False,0.25415,0.88405,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.002,ours,0.0012,False,0.13035,0.7252,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.002,rank,0.0007,False,0.0917,0.6414,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.002,hac,0.04985,True,0.56555,0.9033,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.002,conformal,0.00055,False,0.07225,0.47545,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.002,conformal_lvl,0.00095,False,0.11685,0.7427,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.002,ours,0.01485,False,0.22475,0.74285,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.002,rank,0.0101,False,0.16685,0.6369,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.002,hac,0.08835,True,0.68055,0.9602,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.002,conformal,0.005,False,0.15225,0.6028,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.002,conformal_lvl,0.0009,False,0.10055,0.6865,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.002,ours,0.00025,False,0.07095,0.71445,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.002,rank,5e-05,False,0.0302,0.4931,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.002,hac,0.0069,False,0.31105,0.9334,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.002,conformal,0.00015,False,0.03705,0.5514,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.002,conformal_lvl,0.00015,False,0.03705,0.5514,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.002,ours,0.01645,False,0.2324,0.7605,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.002,rank,0.01325,False,0.21195,0.7333,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.002,hac,0.0875,True,0.7293,0.97955,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.002,conformal,0.00795,False,0.20445,0.7517,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.002,conformal_lvl,0.00125,False,0.1275,0.7772,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.002,ours,0.00015,False,0.05515,0.62095,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.002,rank,5e-05,False,0.0229,0.41875,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.002,hac,0.0063,False,0.2917,0.90535,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.002,conformal,5e-05,False,0.02505,0.41345,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.002,conformal_lvl,0.0001,False,0.0317,0.5129,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.002,ours,0.0141,False,0.21125,0.7271,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.002,rank,0.0028,False,0.05905,0.3592,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.002,hac,0.00925,False,0.3572,0.94075,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.002,conformal,0.00025,False,0.04075,0.4409,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.002,conformal_lvl,5e-05,False,0.0053,0.23675,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.002,ours,0.0,False,0.0025,0.21425,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.002,rank,0.0,False,5e-05,0.00785,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.002,hac,0.0,False,0.0039,0.2463,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.002,conformal,0.0,False,5e-05,0.03545,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.002,conformal_lvl,0.0,False,5e-05,0.03545,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.002,ours,0.0131,False,0.20715,0.73155,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.002,rank,0.006,False,0.12525,0.5959,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.002,hac,0.00725,False,0.3637,0.95655,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.002,conformal,0.0011,False,0.06765,0.5635,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.002,conformal_lvl,0.0,False,0.0115,0.31795,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.002,ours,0.0,False,0.00235,0.20895,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.002,rank,0.0,False,5e-05,0.0074,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.002,hac,0.0,False,0.0039,0.2462,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.002,conformal,0.0,False,5e-05,0.0332,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.002,conformal_lvl,0.0,False,5e-05,0.0345,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.004,ours,0.0145,False,0.0715,0.2218,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.004,rank,0.01295,False,0.05865,0.189,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.004,hac,0.0524,True,0.1016,0.1639,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.004,conformal,0.0085,False,0.0385,0.10655,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.01,0.004,conformal_lvl,0.03205,True,0.16015,0.43005,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.004,ours,0.1886,True,0.5523,0.8714,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.004,rank,0.13625,True,0.44625,0.79565,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.004,hac,0.53965,True,0.8589,0.9805,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.004,conformal,0.10575,True,0.39145,0.7497,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.01,0.004,conformal_lvl,0.10575,True,0.39145,0.7497,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.004,ours,0.0131,False,0.0706,0.23,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.004,rank,0.01155,False,0.0628,0.20835,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.004,hac,0.0694,True,0.125,0.196,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.004,conformal,0.0124,False,0.06925,0.22485,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.01,0.004,conformal_lvl,0.05385,True,0.243,0.59585,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.004,ours,0.0127,False,0.0695,0.2208,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.004,rank,0.0103,False,0.05505,0.18705,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.004,hac,0.0448,True,0.099,0.16335,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.004,conformal,0.0061,False,0.0342,0.10445,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.01,0.004,conformal_lvl,0.027,True,0.15105,0.42385,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.004,ours,0.016,False,0.0749,0.23045,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.004,rank,0.01385,False,0.0632,0.19765,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.004,hac,0.1286,True,0.245,0.36045,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.004,conformal,0.00995,False,0.0446,0.12295,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.005,0.004,conformal_lvl,0.0215,True,0.1185,0.36915,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.004,ours,0.0655,True,0.3203,0.70695,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.004,rank,0.04525,True,0.24315,0.61035,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.004,hac,0.4259,True,0.7915,0.96495,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.004,conformal,0.04005,True,0.23075,0.5895,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.005,0.004,conformal_lvl,0.04005,True,0.23075,0.5895,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.004,ours,0.01515,False,0.0772,0.24325,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.004,rank,0.0139,False,0.0723,0.2301,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.004,hac,0.15305,True,0.2825,0.4107,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.004,conformal,0.0128,False,0.0706,0.2204,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.005,0.004,conformal_lvl,0.0302,True,0.17555,0.50205,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.004,ours,0.0101,False,0.06485,0.2231,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.004,rank,0.0066,False,0.05045,0.1854,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.004,hac,0.09975,True,0.2307,0.3566,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.004,conformal,0.0045,False,0.0337,0.11345,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.005,0.004,conformal_lvl,0.01425,False,0.1015,0.35145,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.004,ours,0.0162,False,0.0771,0.23345,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.004,rank,0.0142,False,0.0637,0.20035,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.004,hac,0.16655,True,0.32705,0.47225,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.004,conformal,0.0107,False,0.04735,0.1351,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,-0.0025,0.004,conformal_lvl,0.0159,False,0.0959,0.33035,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.004,ours,0.03545,True,0.21615,0.59125,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.004,rank,0.02305,True,0.16235,0.4974,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.004,hac,0.3387,True,0.72905,0.9496,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.004,conformal,0.02185,True,0.1552,0.48025,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,-0.0025,0.004,conformal_lvl,0.02185,True,0.1552,0.48025,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.004,ours,0.01515,False,0.0796,0.24805,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.004,rank,0.01465,False,0.0747,0.23505,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.004,hac,0.1943,True,0.3743,0.52575,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.004,conformal,0.0135,False,0.0718,0.2246,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,-0.0025,0.004,conformal_lvl,0.02135,True,0.1402,0.44535,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.004,ours,0.00805,False,0.058,0.2152,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.004,rank,0.00495,False,0.0427,0.1759,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.004,hac,0.1184,True,0.297,0.4647,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.004,conformal,0.0032,False,0.0304,0.11525,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,-0.0025,0.004,conformal_lvl,0.00885,False,0.07645,0.30025,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.004,ours,0.01685,False,0.07695,0.23425,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.004,hac,0.1844,True,0.3955,0.57135,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.004,conformal,0.0111,False,0.0507,0.1486,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0,0.004,conformal_lvl,0.0102,False,0.0763,0.2895,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.004,ours,0.01715,False,0.13225,0.4622,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.004,rank,0.00985,False,0.09405,0.3726,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.004,hac,0.23995,True,0.62535,0.91025,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.004,conformal,0.0098,False,0.0909,0.36345,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0,0.004,conformal_lvl,0.0098,False,0.0909,0.36345,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.004,ours,0.0155,False,0.0817,0.24965,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.004,rank,0.0149,False,0.075,0.23695,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.004,hac,0.21285,True,0.45045,0.6306,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.004,conformal,0.0132,False,0.0741,0.2303,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0,0.004,conformal_lvl,0.01385,False,0.1096,0.3865,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.004,ours,0.0054,False,0.0455,0.19685,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.004,rank,0.00315,False,0.03255,0.15695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.004,hac,0.1153,True,0.33425,0.55105,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.004,conformal,0.0022,False,0.02375,0.11025,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0,0.004,conformal_lvl,0.00495,False,0.05055,0.2411,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.004,ours,0.01685,False,0.07645,0.2326,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.004,rank,0.0141,False,0.06295,0.19905,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.004,hac,0.17975,True,0.4344,0.6503,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.004,conformal,0.0107,False,0.05225,0.16035,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.0025,0.004,conformal_lvl,0.0059,False,0.058,0.2423,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.004,ours,0.0067,False,0.0719,0.33415,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.004,rank,0.0042,False,0.04865,0.25475,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.004,hac,0.1417,True,0.4782,0.83485,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.004,conformal,0.00385,False,0.04655,0.2518,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.0025,0.004,conformal_lvl,0.00385,False,0.04655,0.2518,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.004,ours,0.0147,False,0.08085,0.2484,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.004,rank,0.0146,False,0.0744,0.23505,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.004,hac,0.205,True,0.4875,0.71115,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.004,conformal,0.01285,False,0.0751,0.23465,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.0025,0.004,conformal_lvl,0.0082,False,0.07765,0.31985,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.004,ours,0.00255,False,0.0312,0.16735,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.004,rank,0.0017,False,0.0212,0.12675,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.004,hac,0.08715,True,0.31425,0.599,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.004,conformal,0.00105,False,0.0159,0.0974,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.0025,0.004,conformal_lvl,0.00215,False,0.0293,0.17725,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.004,ours,0.0166,False,0.07445,0.2292,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.004,rank,0.01345,False,0.0607,0.19295,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.004,hac,0.15645,True,0.43285,0.69635,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.004,conformal,0.009,False,0.0523,0.1661,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.005,0.004,conformal_lvl,0.00365,False,0.0404,0.19245,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.004,ours,0.00255,False,0.0363,0.21985,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.004,rank,0.00125,False,0.02135,0.15475,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.004,hac,0.0652,True,0.3123,0.7029,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.004,conformal,0.001,False,0.02195,0.1529,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.005,0.004,conformal_lvl,0.001,False,0.02195,0.1529,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.004,ours,0.0149,False,0.07895,0.245,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.004,rank,0.01425,False,0.0727,0.2299,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.004,hac,0.17265,True,0.48305,0.7561,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.004,conformal,0.01165,False,0.0716,0.23335,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.005,0.004,conformal_lvl,0.00415,False,0.05445,0.2531,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.004,ours,0.00135,False,0.02,0.1282,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.004,rank,0.0004,False,0.01165,0.0884,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.004,hac,0.0482,True,0.2393,0.57055,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.004,conformal,0.0003,False,0.0097,0.07325,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.005,0.004,conformal_lvl,0.00065,False,0.01455,0.11545,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.004,ours,0.01485,False,0.07025,0.2202,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.004,rank,0.0111,False,0.04915,0.1637,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.004,hac,0.0836,True,0.3376,0.67885,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.004,conformal,0.005,False,0.038,0.14635,20000
+SG-E1 hawker contrast h=2 (H3),CNY month,permanent,0.01,0.004,conformal_lvl,0.0006,False,0.01375,0.0985,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.004,ours,0.00025,False,0.0064,0.0681,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.004,rank,0.0,False,0.0023,0.029,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.004,hac,0.00635,False,0.0684,0.31215,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.004,conformal,0.0001,False,0.00255,0.0333,20000
+SG-E1 hawker contrast h=1 (secondary),CNY month,permanent,0.01,0.004,conformal_lvl,0.0001,False,0.00255,0.0333,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.004,ours,0.01305,False,0.07265,0.23115,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.004,rank,0.01205,False,0.0641,0.2085,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.004,hac,0.08685,True,0.36265,0.733,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.004,conformal,0.0076,False,0.05215,0.20465,20000
+SG-E1 dish arm h=2 (secondary),CNY month,permanent,0.01,0.004,conformal_lvl,0.0008,False,0.01635,0.12965,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.004,ours,0.00015,False,0.0048,0.0516,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.004,rank,0.0,False,0.00155,0.0218,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.004,hac,0.0057,False,0.06205,0.29325,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.004,conformal,0.0,False,0.00165,0.0224,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),CNY month,permanent,0.01,0.004,conformal_lvl,0.0,False,0.00205,0.0278,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,ours,0.0028,False,0.09065,0.5224,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,rank,0.0017,False,0.07125,0.4595,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,hac,0.00935,False,0.0713,0.20855,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal,0.0005,False,0.03455,0.26085,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal_lvl,0.0001,False,0.03255,0.30205,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,ours,0.0936,True,0.7609,0.99655,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,rank,0.06315,True,0.656,0.98995,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,hac,0.18695,True,0.8639,0.9989,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal,0.0,False,0.0049,0.12125,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal_lvl,0.0,False,0.0049,0.12125,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,ours,0.0017,False,0.06275,0.45845,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,rank,0.00025,False,0.0214,0.2542,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,hac,0.0004,False,0.0045,0.03025,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal,0.0012,False,0.0579,0.4508,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal_lvl,0.00115,False,0.0781,0.5559,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,ours,0.00235,False,0.0903,0.5224,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,rank,0.00125,False,0.0704,0.45945,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,hac,0.00595,False,0.0694,0.2085,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal,0.0,False,0.00175,0.0745,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.002,conformal_lvl,0.0,False,0.0043,0.11585,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,ours,0.0072,False,0.1532,0.64735,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,rank,0.00545,False,0.12895,0.59135,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,hac,0.0736,True,0.2922,0.51725,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal,0.00365,False,0.09805,0.38165,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal_lvl,0.00475,False,0.1845,0.7349,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,ours,0.0436,True,0.62315,0.989,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,rank,0.03025,True,0.52555,0.97625,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,hac,0.266,True,0.91745,0.9995,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal,0.00325,False,0.1446,0.691,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal_lvl,0.00325,False,0.1446,0.691,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,ours,0.0064,False,0.14295,0.64525,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,rank,0.00495,False,0.12255,0.60075,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,hac,0.02865,True,0.1494,0.34545,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal,0.005,False,0.1524,0.68415,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal_lvl,0.00805,False,0.2679,0.87625,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,ours,0.0042,False,0.1466,0.64695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,rank,0.0025,False,0.12,0.5903,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,hac,0.0501,True,0.28465,0.5172,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal,0.00045,False,0.04445,0.3147,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.002,conformal_lvl,0.0013,False,0.10295,0.6315,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,ours,0.01125,False,0.1963,0.70575,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,rank,0.0089,False,0.16425,0.65235,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,hac,0.1363,True,0.44415,0.66485,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal,0.0063,False,0.1164,0.372,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal_lvl,0.0087,False,0.2618,0.836,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,ours,0.0287,True,0.5475,0.98265,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,rank,0.01885,True,0.4532,0.9646,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,hac,0.2794,True,0.92745,0.99955,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal,0.0126,False,0.35595,0.92515,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal_lvl,0.0126,False,0.35595,0.92515,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,ours,0.01135,False,0.1982,0.72335,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,rank,0.01095,False,0.18455,0.70065,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,hac,0.10505,True,0.3803,0.61645,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal,0.0098,False,0.1859,0.70595,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal_lvl,0.0136,False,0.3496,0.9263,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,ours,0.00455,False,0.17925,0.7048,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,rank,0.00315,False,0.14345,0.6492,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,hac,0.09175,True,0.4333,0.6648,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal,0.0019,False,0.08945,0.365,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.002,conformal_lvl,0.00475,False,0.2205,0.8217,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,ours,0.017,False,0.2388,0.75645,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,hac,0.1841,True,0.57235,0.7767,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal,0.0109,False,0.1492,0.4089,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal_lvl,0.01,False,0.28535,0.8579,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,ours,0.01765,False,0.46715,0.97205,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,rank,0.0112,False,0.3717,0.9461,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,hac,0.2387,True,0.91045,0.99955,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal,0.01075,False,0.3636,0.9403,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal_lvl,0.01075,False,0.3636,0.9403,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,ours,0.01825,False,0.25025,0.77975,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,rank,0.01725,False,0.2404,0.76355,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,hac,0.2145,True,0.6279,0.83105,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal,0.0162,False,0.22725,0.73315,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal_lvl,0.01605,False,0.38195,0.93835,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,ours,0.0052,False,0.19985,0.75335,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,rank,0.0034,False,0.15785,0.697,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,hac,0.1155,True,0.552,0.7767,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal,0.0025,False,0.11025,0.40205,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.002,conformal_lvl,0.0054,False,0.2384,0.8462,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,ours,0.02445,True,0.28775,0.7972,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,rank,0.0193,True,0.2402,0.74335,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,hac,0.1879,True,0.65025,0.85195,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal,0.0154,False,0.20165,0.53855,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal_lvl,0.00865,False,0.27475,0.85815,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,ours,0.01025,False,0.372,0.9542,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,rank,0.0052,False,0.283,0.9085,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,hac,0.15275,True,0.8443,0.99875,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal,0.0046,False,0.2645,0.8987,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal_lvl,0.0046,False,0.2645,0.8987,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,ours,0.02435,True,0.2921,0.81475,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,rank,0.02215,True,0.2734,0.79465,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,hac,0.2661,True,0.7875,0.9404,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal,0.02055,True,0.29495,0.80915,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal_lvl,0.0148,False,0.36545,0.9329,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,ours,0.0046,False,0.2073,0.78745,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,rank,0.0025,False,0.1531,0.72125,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,hac,0.09,True,0.5973,0.8516,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal,0.0019,False,0.1186,0.5148,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.002,conformal_lvl,0.003,False,0.19635,0.82885,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,ours,0.03415,True,0.33705,0.83535,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,rank,0.0231,True,0.2592,0.75005,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,hac,0.1517,True,0.6665,0.89645,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal,0.01495,False,0.23985,0.68545,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal_lvl,0.00685,False,0.2457,0.83865,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,ours,0.00525,False,0.28765,0.92895,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,rank,0.00205,False,0.16055,0.7932,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,hac,0.06775,True,0.7003,0.99395,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal,0.0016,False,0.1456,0.79835,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal_lvl,0.0016,False,0.1456,0.79835,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,ours,0.02995,True,0.322,0.83665,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,rank,0.0216,True,0.2744,0.79005,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,hac,0.2454,True,0.84765,0.9794,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal,0.02225,True,0.3325,0.8658,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal_lvl,0.0114,False,0.3331,0.91825,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,ours,0.00295,False,0.1942,0.8128,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,rank,0.00135,False,0.10915,0.6699,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,hac,0.04565,True,0.54015,0.89345,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal,0.001,False,0.09275,0.60465,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.002,conformal_lvl,0.00145,False,0.1218,0.7523,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,ours,0.0636,True,0.44755,0.8976,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,rank,0.0165,False,0.1787,0.5904,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,hac,0.0675,True,0.56855,0.9204,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal,0.00895,False,0.20275,0.7353,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal_lvl,0.0034,False,0.1692,0.7622,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,ours,0.0015,False,0.15785,0.84815,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,rank,5e-05,False,0.0074,0.1952,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,hac,0.0049,False,0.2693,0.9144,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal,5e-05,False,0.01235,0.2926,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal_lvl,5e-05,False,0.01235,0.2926,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,ours,0.04265,True,0.37935,0.8703,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,rank,0.008,False,0.1456,0.6172,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,hac,0.1472,True,0.81235,0.99445,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal,0.01275,False,0.2876,0.85735,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal_lvl,0.00515,False,0.23775,0.857,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,ours,0.0012,False,0.13815,0.80535,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,rank,0.0,False,0.0067,0.18255,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,hac,0.00365,False,0.23,0.85695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal,0.0,False,0.011,0.2752,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.002,conformal_lvl,5e-05,False,0.01185,0.2876,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,ours,0.0076,False,0.0414,0.1488,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,rank,0.0059,False,0.0353,0.12585,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,hac,0.07255,True,0.17245,0.291,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal,0.00375,False,0.02765,0.0951,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal_lvl,0.00505,False,0.04275,0.1864,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,ours,0.04145,True,0.23975,0.6221,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,rank,0.02735,True,0.1836,0.5299,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,hac,0.26405,True,0.6454,0.9174,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal,0.0029,False,0.03075,0.1461,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal_lvl,0.0029,False,0.03075,0.1461,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,ours,0.00575,False,0.0351,0.13865,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,rank,0.0042,False,0.02805,0.1194,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,hac,0.0277,True,0.0778,0.1469,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal,0.00475,False,0.03605,0.15715,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal_lvl,0.00645,False,0.06245,0.26825,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,ours,0.0045,False,0.03515,0.1439,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,rank,0.00285,False,0.0284,0.11845,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,hac,0.0484,True,0.1521,0.28445,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal,0.00055,False,0.0077,0.04235,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.01,0.004,conformal_lvl,0.00145,False,0.0173,0.1016,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,ours,0.01115,False,0.05745,0.191,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,rank,0.00915,False,0.04735,0.16065,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,hac,0.13575,True,0.29205,0.44405,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal,0.006,False,0.03625,0.11395,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal_lvl,0.0092,False,0.06735,0.26475,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,ours,0.0273,True,0.18295,0.54265,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,rank,0.01735,False,0.136,0.4525,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,hac,0.27725,True,0.6646,0.9273,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal,0.0113,False,0.0944,0.3563,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal_lvl,0.0113,False,0.0944,0.3563,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,ours,0.0094,False,0.0577,0.1946,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,rank,0.00905,False,0.0523,0.18175,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,hac,0.10345,True,0.23515,0.3767,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal,0.0084,False,0.0513,0.187,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal_lvl,0.0111,False,0.0955,0.3546,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,ours,0.0051,False,0.04205,0.175,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,rank,0.00335,False,0.03125,0.1408,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,hac,0.0917,True,0.2548,0.43355,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal,0.0015,False,0.0196,0.08895,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.005,0.004,conformal_lvl,0.0045,False,0.04645,0.2236,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,ours,0.01355,False,0.06695,0.2137,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,rank,0.0119,False,0.05515,0.17955,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,hac,0.165,True,0.34975,0.51135,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal,0.00845,False,0.04265,0.12875,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal_lvl,0.0101,False,0.07345,0.2843,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,ours,0.0224,True,0.159,0.5037,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,rank,0.01325,False,0.1139,0.4122,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,hac,0.26665,True,0.6576,0.92325,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal,0.01245,False,0.1041,0.387,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal_lvl,0.01245,False,0.1041,0.387,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,ours,0.0128,False,0.06945,0.2244,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,rank,0.01155,False,0.06465,0.2113,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,hac,0.15975,True,0.34545,0.5109,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal,0.00985,False,0.0613,0.2067,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal_lvl,0.01315,False,0.1051,0.3783,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,ours,0.0053,False,0.0451,0.18785,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,rank,0.0035,False,0.03225,0.1498,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,hac,0.10825,True,0.30515,0.49755,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal,0.00215,False,0.02295,0.10065,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),-0.0025,0.004,conformal_lvl,0.00545,False,0.0521,0.245,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,ours,0.01685,False,0.07695,0.23425,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,hac,0.1844,True,0.3955,0.57135,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal,0.0111,False,0.0507,0.1486,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal_lvl,0.0102,False,0.0763,0.2895,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,ours,0.01715,False,0.13225,0.4622,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,rank,0.00985,False,0.09405,0.3726,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,hac,0.23995,True,0.62535,0.91025,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal,0.0098,False,0.0909,0.36345,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal_lvl,0.0098,False,0.0909,0.36345,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,ours,0.0155,False,0.0817,0.24965,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,rank,0.0149,False,0.075,0.23695,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,hac,0.21285,True,0.45045,0.6306,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal,0.0132,False,0.0741,0.2303,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal_lvl,0.01385,False,0.1096,0.3865,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,ours,0.0054,False,0.0455,0.19685,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,rank,0.00315,False,0.03255,0.15695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,hac,0.1153,True,0.33425,0.55105,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal,0.0022,False,0.02375,0.11025,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0,0.004,conformal_lvl,0.00495,False,0.05055,0.2411,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,ours,0.02015,True,0.0888,0.2575,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,rank,0.01725,False,0.07185,0.2214,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,hac,0.19215,True,0.42565,0.6177,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal,0.0137,False,0.0596,0.17245,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal_lvl,0.01,False,0.07635,0.28695,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,ours,0.0123,False,0.1078,0.41815,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,rank,0.00695,False,0.07615,0.32985,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,hac,0.20035,True,0.571,0.886,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal,0.00695,False,0.07115,0.3201,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal_lvl,0.00695,False,0.07115,0.3201,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,ours,0.019,True,0.0919,0.2724,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,rank,0.0174,False,0.08585,0.25815,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,hac,0.2481,True,0.52775,0.7243,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal,0.0167,False,0.08795,0.26265,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal_lvl,0.0133,False,0.10695,0.38275,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,ours,0.00455,False,0.04485,0.20405,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,rank,0.00265,False,0.03065,0.158,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,hac,0.10885,True,0.33935,0.5859,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal,0.0019,False,0.02275,0.1186,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.0025,0.004,conformal_lvl,0.004,False,0.0438,0.22595,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,ours,0.0239,True,0.1002,0.2815,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,rank,0.01925,True,0.07985,0.2415,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,hac,0.18605,True,0.4373,0.6485,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal,0.01545,False,0.06825,0.1993,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal_lvl,0.009,False,0.07125,0.27775,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,ours,0.00905,False,0.08735,0.3712,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,rank,0.00535,False,0.05745,0.28035,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,hac,0.15485,True,0.49825,0.84365,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal,0.0045,False,0.05135,0.26685,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal_lvl,0.0045,False,0.05135,0.26685,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,ours,0.02225,True,0.10105,0.28905,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,rank,0.0202,True,0.09135,0.27225,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,hac,0.26155,True,0.57405,0.78745,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal,0.0188,True,0.1005,0.2949,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal_lvl,0.01235,False,0.0994,0.3706,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,ours,0.00375,False,0.04165,0.20375,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,rank,0.00235,False,0.02625,0.1545,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,hac,0.0916,True,0.3194,0.59815,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal,0.00135,False,0.02085,0.1194,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.005,0.004,conformal_lvl,0.00295,False,0.0343,0.1978,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,ours,0.03345,True,0.12805,0.3338,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,rank,0.0219,True,0.0911,0.25495,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,hac,0.15195,True,0.41365,0.6664,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal,0.0149,False,0.077,0.2378,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal_lvl,0.007,False,0.0585,0.24835,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,ours,0.0047,False,0.056,0.2886,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,rank,0.00195,False,0.02515,0.1566,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,hac,0.06675,True,0.31695,0.7017,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal,0.00145,False,0.02145,0.1455,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal_lvl,0.00145,False,0.02145,0.1455,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,ours,0.02715,True,0.1177,0.32055,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,rank,0.0197,True,0.0921,0.2727,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,hac,0.24345,True,0.58635,0.8466,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal,0.02035,True,0.1096,0.33535,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal_lvl,0.0092,False,0.0847,0.3345,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,ours,0.0028,False,0.0347,0.1941,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,rank,0.00095,False,0.01485,0.10395,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,hac,0.0442,True,0.2252,0.54245,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal,0.00085,False,0.01155,0.09205,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),temporary (1 month),0.01,0.004,conformal_lvl,0.00105,False,0.0154,0.12175,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.002,ours,0.017,False,0.2411,0.76085,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.002,hac,0.0993,True,0.3298,0.5533,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.002,conformal,0.0053,False,0.09395,0.3437,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.002,conformal_lvl,0.0075,False,0.1885,0.69595,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,ours,0.10615,True,0.78425,0.9974,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,rank,0.0737,True,0.68995,0.99225,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,hac,0.18695,True,0.8639,0.9989,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,conformal,0.01355,False,0.30165,0.84995,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,conformal_lvl,0.01355,False,0.30165,0.84995,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,ours,0.0148,False,0.2188,0.7453,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,rank,0.008,False,0.1481,0.64435,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,hac,0.049,True,0.18845,0.39685,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,conformal,0.00835,False,0.1645,0.6407,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.002,conformal_lvl,0.01485,False,0.3338,0.9004,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.002,ours,0.0125,False,0.23725,0.76075,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.002,rank,0.00905,False,0.1969,0.7041,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.002,hac,0.04755,True,0.31145,0.55325,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.002,conformal,0.0015,False,0.0764,0.33495,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.002,conformal_lvl,0.00435,False,0.17025,0.68515,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.002,ours,0.01675,False,0.2399,0.75805,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.002,hac,0.161,True,0.4665,0.6833,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.002,conformal,0.0094,False,0.1336,0.3795,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.002,conformal_lvl,0.01345,False,0.3011,0.85005,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,ours,0.04755,True,0.63845,0.9907,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,rank,0.0311,True,0.53485,0.97725,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,hac,0.266,True,0.91745,0.9995,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,conformal,0.02055,True,0.4416,0.95075,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,conformal_lvl,0.02055,True,0.4416,0.95075,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,ours,0.0167,False,0.23675,0.7632,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,rank,0.0144,False,0.21695,0.73985,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,hac,0.132,True,0.40905,0.6403,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,conformal,0.01425,False,0.2147,0.72755,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.002,conformal_lvl,0.02045,True,0.4117,0.94315,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.002,ours,0.0088,False,0.22525,0.7573,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.002,rank,0.0059,False,0.1838,0.70265,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.002,hac,0.0961,True,0.4504,0.68325,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.002,conformal,0.0031,False,0.11135,0.37625,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.002,conformal_lvl,0.00765,False,0.27035,0.84515,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,ours,0.01705,False,0.2393,0.7564,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,hac,0.1819,True,0.52905,0.73445,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,conformal,0.0105,False,0.1409,0.38755,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,conformal_lvl,0.0122,False,0.3083,0.8662,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,ours,0.0295,True,0.55215,0.9835,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,rank,0.01895,True,0.4552,0.9648,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,hac,0.2794,True,0.92745,0.99955,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,conformal,0.0161,False,0.4302,0.9561,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,conformal_lvl,0.0161,False,0.4302,0.9561,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,ours,0.018,False,0.2472,0.77545,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,rank,0.0165,False,0.23405,0.7582,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,hac,0.1823,True,0.52655,0.7471,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,conformal,0.0152,False,0.22345,0.7342,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.002,conformal_lvl,0.0199,True,0.41195,0.94695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,ours,0.0069,False,0.2147,0.75515,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,rank,0.00465,False,0.1727,0.70055,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,hac,0.11755,True,0.5137,0.7344,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,conformal,0.0027,False,0.1139,0.38395,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.002,conformal_lvl,0.00665,False,0.27095,0.85985,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.002,ours,0.017,False,0.2388,0.75645,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.002,hac,0.1841,True,0.57235,0.7767,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.002,conformal,0.0109,False,0.1492,0.4089,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.002,conformal_lvl,0.01,False,0.28535,0.8579,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.002,ours,0.01765,False,0.46715,0.97205,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.002,rank,0.0112,False,0.3717,0.9461,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.002,hac,0.2387,True,0.91045,0.99955,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.002,conformal,0.01075,False,0.3636,0.9403,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.002,conformal_lvl,0.01075,False,0.3636,0.9403,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.002,ours,0.01825,False,0.25025,0.77975,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.002,rank,0.01725,False,0.2404,0.76355,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.002,hac,0.2145,True,0.6279,0.83105,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.002,conformal,0.0162,False,0.22725,0.73315,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.002,conformal_lvl,0.01605,False,0.38195,0.93835,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.002,ours,0.0052,False,0.19985,0.75335,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.002,rank,0.0034,False,0.15785,0.697,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.002,hac,0.1155,True,0.552,0.7767,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.002,conformal,0.0025,False,0.11025,0.40205,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.002,conformal_lvl,0.0054,False,0.2384,0.8462,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.002,ours,0.0169,False,0.23995,0.7568,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.002,hac,0.1689,True,0.59845,0.80985,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.002,conformal,0.01095,False,0.15625,0.45105,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.002,conformal_lvl,0.0076,False,0.25165,0.83895,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,ours,0.0108,False,0.37965,0.95615,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,rank,0.00625,False,0.2973,0.9171,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,hac,0.15275,True,0.8443,0.99875,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,conformal,0.0054,False,0.2792,0.90905,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,conformal_lvl,0.0054,False,0.2792,0.90905,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,ours,0.01795,False,0.24645,0.7748,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,rank,0.0165,False,0.2356,0.7597,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,hac,0.21935,True,0.70595,0.89115,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,conformal,0.0154,False,0.2301,0.7413,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.002,conformal_lvl,0.01175,False,0.3354,0.92105,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.002,ours,0.00405,False,0.1828,0.7499,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.002,rank,0.00255,False,0.14035,0.68915,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.002,hac,0.08355,True,0.5526,0.80955,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.002,conformal,0.0017,False,0.1016,0.4373,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.002,conformal_lvl,0.0034,False,0.19275,0.8191,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.002,ours,0.0168,False,0.23965,0.75855,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.002,hac,0.1397,True,0.60435,0.8353,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.002,conformal,0.0087,False,0.1555,0.5036,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.002,conformal_lvl,0.0054,False,0.2153,0.81525,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.002,ours,0.0055,False,0.2996,0.9339,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.002,rank,0.00305,False,0.22765,0.8818,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.002,hac,0.06775,True,0.7003,0.99395,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.002,conformal,0.00235,False,0.18325,0.84685,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.002,conformal_lvl,0.00235,False,0.18325,0.84685,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.002,ours,0.01635,False,0.2378,0.76755,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.002,rank,0.01405,False,0.2185,0.7404,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.002,hac,0.2002,True,0.74745,0.93115,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.002,conformal,0.0123,False,0.2206,0.7463,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.002,conformal_lvl,0.00705,False,0.2796,0.89725,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.002,ours,0.0023,False,0.15895,0.74605,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.002,rank,0.0017,False,0.12055,0.67795,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.002,hac,0.04255,True,0.495,0.83265,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.002,conformal,0.00105,False,0.07945,0.4697,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.002,conformal_lvl,0.00175,False,0.1352,0.7673,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.002,ours,0.01725,False,0.24115,0.75965,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.002,rank,0.0141,False,0.2042,0.70455,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.002,hac,0.07355,True,0.5445,0.8599,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.002,conformal,0.00245,False,0.1004,0.50385,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.002,conformal_lvl,0.00155,False,0.1265,0.71435,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.002,ours,0.00155,False,0.1685,0.8577,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.002,rank,0.00075,False,0.1216,0.7795,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.002,hac,0.0049,False,0.2693,0.9144,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.002,conformal,0.0001,False,0.01975,0.38025,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.002,conformal_lvl,0.0001,False,0.01975,0.38025,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.002,ours,0.0144,False,0.2216,0.74895,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.002,rank,0.00755,False,0.1484,0.641,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.002,hac,0.12135,True,0.7401,0.9675,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.002,conformal,0.00425,False,0.14395,0.68215,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.002,conformal_lvl,0.0019,False,0.148,0.78895,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.002,ours,0.00095,False,0.1102,0.71595,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.002,rank,0.0004,False,0.07885,0.6317,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.002,hac,0.0038,False,0.2177,0.80285,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.002,conformal,0.0,False,0.01255,0.2749,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.002,conformal_lvl,5e-05,False,0.0177,0.3611,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.004,ours,0.0169,False,0.0774,0.23575,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.004,hac,0.16095,True,0.32055,0.4679,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.004,conformal,0.0093,False,0.0444,0.13055,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.01,0.004,conformal_lvl,0.0134,False,0.0851,0.29845,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,ours,0.045,True,0.25345,0.6346,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,rank,0.0293,True,0.1892,0.53955,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,hac,0.26405,True,0.6454,0.9174,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,conformal,0.0193,True,0.1391,0.4424,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,conformal_lvl,0.0193,True,0.1391,0.4424,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,ours,0.01365,False,0.07415,0.2345,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,rank,0.0129,False,0.06565,0.2164,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,hac,0.13075,True,0.2667,0.40955,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,conformal,0.01195,False,0.0666,0.21735,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.01,0.004,conformal_lvl,0.01815,False,0.1282,0.41845,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.004,ours,0.0091,False,0.06165,0.22155,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.004,rank,0.00565,False,0.0464,0.18235,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.004,hac,0.09605,True,0.2685,0.4528,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.004,conformal,0.00275,False,0.0286,0.1104,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.01,0.004,conformal_lvl,0.0085,False,0.0669,0.27025,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.004,ours,0.01655,False,0.07745,0.23445,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.004,hac,0.18105,True,0.36795,0.52525,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.004,conformal,0.0103,False,0.04775,0.14005,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.005,0.004,conformal_lvl,0.01355,False,0.08545,0.3104,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,ours,0.0283,True,0.1878,0.54875,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,rank,0.01785,False,0.13735,0.45485,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,hac,0.27725,True,0.6646,0.9273,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,conformal,0.016,False,0.1254,0.42955,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,conformal_lvl,0.016,False,0.1254,0.42955,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,ours,0.01495,False,0.07865,0.2456,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,rank,0.01425,False,0.07345,0.2309,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,hac,0.17945,True,0.36685,0.52725,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,conformal,0.01265,False,0.0725,0.2272,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.005,0.004,conformal_lvl,0.0172,False,0.12655,0.41655,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.004,ours,0.007,False,0.05455,0.21065,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.004,rank,0.00425,False,0.03935,0.17115,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.004,hac,0.116,True,0.31625,0.51085,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.004,conformal,0.00255,False,0.02815,0.1141,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.005,0.004,conformal_lvl,0.0071,False,0.0648,0.27365,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,ours,0.0168,False,0.0773,0.23435,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,hac,0.18605,True,0.3843,0.5497,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,conformal,0.01105,False,0.049,0.1443,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,conformal_lvl,0.0117,False,0.08135,0.30255,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,ours,0.0224,True,0.16005,0.5057,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,rank,0.01335,False,0.11405,0.41285,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,hac,0.26665,True,0.6576,0.92325,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,conformal,0.01345,False,0.10805,0.39915,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,conformal_lvl,0.01345,False,0.10805,0.39915,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,ours,0.0157,False,0.0805,0.249,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,rank,0.01455,False,0.07475,0.235,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,hac,0.19755,True,0.4132,0.58245,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,conformal,0.0132,False,0.07305,0.22855,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,-0.0025,0.004,conformal_lvl,0.01605,False,0.11855,0.40505,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,ours,0.00625,False,0.0505,0.20395,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,rank,0.0038,False,0.03605,0.16425,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,hac,0.11975,True,0.3317,0.53355,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,conformal,0.0026,False,0.02565,0.11175,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,-0.0025,0.004,conformal_lvl,0.00605,False,0.0572,0.25985,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.004,ours,0.01685,False,0.07695,0.23425,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.004,hac,0.1844,True,0.3955,0.57135,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.004,conformal,0.0111,False,0.0507,0.1486,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0,0.004,conformal_lvl,0.0102,False,0.0763,0.2895,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.004,ours,0.01715,False,0.13225,0.4622,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.004,rank,0.00985,False,0.09405,0.3726,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.004,hac,0.23995,True,0.62535,0.91025,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.004,conformal,0.0098,False,0.0909,0.36345,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0,0.004,conformal_lvl,0.0098,False,0.0909,0.36345,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.004,ours,0.0155,False,0.0817,0.24965,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.004,rank,0.0149,False,0.075,0.23695,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.004,hac,0.21285,True,0.45045,0.6306,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.004,conformal,0.0132,False,0.0741,0.2303,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0,0.004,conformal_lvl,0.01385,False,0.1096,0.3865,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.004,ours,0.0054,False,0.0455,0.19685,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.004,rank,0.00315,False,0.03255,0.15695,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.004,hac,0.1153,True,0.33425,0.55105,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.004,conformal,0.0022,False,0.02375,0.11025,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0,0.004,conformal_lvl,0.00495,False,0.05055,0.2411,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.004,ours,0.01685,False,0.07705,0.235,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.004,hac,0.17895,True,0.4006,0.5866,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.004,conformal,0.0112,False,0.05115,0.15285,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.0025,0.004,conformal_lvl,0.0086,False,0.07025,0.2719,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,ours,0.01305,False,0.10865,0.4206,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,rank,0.0074,False,0.0774,0.3338,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,hac,0.20035,True,0.571,0.886,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,conformal,0.00725,False,0.0739,0.3251,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,conformal_lvl,0.00725,False,0.0739,0.3251,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,ours,0.01585,False,0.08035,0.24855,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,rank,0.0149,False,0.0745,0.2355,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,hac,0.2199,True,0.4782,0.6723,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,conformal,0.013,False,0.07435,0.2318,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.0025,0.004,conformal_lvl,0.01185,False,0.0976,0.3644,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.004,ours,0.00455,False,0.0408,0.18965,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.004,rank,0.00245,False,0.0291,0.14795,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.004,hac,0.1037,True,0.3224,0.55805,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.004,conformal,0.00185,False,0.0208,0.10865,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.0025,0.004,conformal_lvl,0.0038,False,0.0425,0.21985,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.004,ours,0.01675,False,0.07725,0.23515,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.004,hac,0.1695,True,0.3977,0.59915,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.004,conformal,0.011,False,0.0513,0.15805,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.005,0.004,conformal_lvl,0.00735,False,0.06335,0.25555,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.004,ours,0.0092,False,0.0896,0.3788,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.004,rank,0.00605,False,0.0621,0.29625,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.004,hac,0.15485,True,0.49825,0.84365,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.004,conformal,0.0049,False,0.0578,0.2831,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.005,0.004,conformal_lvl,0.0049,False,0.0578,0.2831,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.004,ours,0.01515,False,0.07945,0.24595,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.004,rank,0.0143,False,0.07345,0.23145,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.004,hac,0.2189,True,0.4954,0.7062,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.004,conformal,0.01235,False,0.07315,0.2312,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.005,0.004,conformal_lvl,0.00975,False,0.08615,0.336,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.004,ours,0.00325,False,0.0358,0.18075,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.004,rank,0.0022,False,0.0252,0.13995,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.004,hac,0.08515,True,0.29475,0.5556,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.004,conformal,0.00125,False,0.01795,0.105,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.005,0.004,conformal_lvl,0.00265,False,0.03455,0.19665,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.004,ours,0.0168,False,0.07765,0.2355,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.004,rank,0.0144,False,0.0636,0.201,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.004,hac,0.1392,True,0.37405,0.60295,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.004,conformal,0.00835,False,0.04845,0.1568,20000
+SG-E1 hawker contrast h=2 (H3),run-up (CNY-15d),permanent,0.01,0.004,conformal_lvl,0.0046,False,0.0483,0.21855,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.004,ours,0.005,False,0.05875,0.3003,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.004,rank,0.00315,False,0.0401,0.2267,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.004,hac,0.06675,True,0.31695,0.7017,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.004,conformal,0.0023,False,0.02875,0.18635,20000
+SG-E1 hawker contrast h=1 (secondary),run-up (CNY-15d),permanent,0.01,0.004,conformal_lvl,0.0023,False,0.02875,0.18635,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.004,ours,0.014,False,0.07485,0.23695,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.004,rank,0.0128,False,0.06475,0.2132,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.004,hac,0.19575,True,0.4997,0.7489,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.004,conformal,0.0102,False,0.0655,0.2201,20000
+SG-E1 dish arm h=2 (secondary),run-up (CNY-15d),permanent,0.01,0.004,conformal_lvl,0.00575,False,0.06305,0.2796,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.004,ours,0.00225,False,0.02765,0.15875,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.004,rank,0.0014,False,0.01825,0.11965,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.004,hac,0.0415,True,0.2077,0.49645,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.004,conformal,0.0005,False,0.0115,0.08105,20000
+SG-E1 hawker IUT h=2 & h=1 (H3),run-up (CNY-15d),permanent,0.01,0.004,conformal_lvl,0.00125,False,0.0187,0.13745,20000
